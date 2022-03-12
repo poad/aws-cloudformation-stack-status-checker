@@ -11,7 +11,7 @@ on:
       - main
     paths-ignore:
       - '**.md'
-  pull_request:
+  pull_request_target:
     paths-ignore:
       - '**.md'
   workflow_dispatch:
@@ -32,9 +32,7 @@ jobs:
         run: yarn install
 
       - name: Rebuild the dist/ directory
-        run: |
-          yarn build
-          yarn package
+        run: yarn build && yarn package
 
       - name: Compare the expected and actual dist/ directories
         run: |

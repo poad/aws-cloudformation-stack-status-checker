@@ -1,11 +1,13 @@
 name: 'build-test'
-on: # rebuild any PRs and main branch changes
-  pull_request_target:
-    branches:
-      - main
   push:
     branches:
       - main
+    paths-ignore:
+      - '**.md'
+  pull_request_target:
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
 
 env:
   AWS_REGION: us-west-2
@@ -14,7 +16,7 @@ permissions:
   id-token: write
 
 jobs:
-  build: # make sure build/ci work properly
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,11 +25,9 @@ jobs:
         with:
           node-version: 16.x
           check-latest: true
-      - run: |
-          yarn install
-      - run: |
-          yarn all
-  test: # make sure the action works on a clean machine without building
+      - run: yarn install && yarn all
+
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: configure aws credentials
@@ -42,5 +42,5 @@ jobs:
         with:
           stack-name: CDKToolkit
 
-      - name: 'Another example step'
+      - name: 'test'
         run: echo ${{ steps.stack-status.outputs.status }}
