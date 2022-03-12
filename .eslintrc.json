@@ -42,14 +42,14 @@
       "@typescript-eslint/promise-function-async": "error",
       "@typescript-eslint/require-array-sort-compare": "error",
       "@typescript-eslint/restrict-plus-operands": "error",
-      "semi": "off",
-      "@typescript-eslint/semi": ["error", "never"],
+      "semi": "error",
+      "@typescript-eslint/semi": "error",
       "@typescript-eslint/type-annotation-spacing": "error",
       "@typescript-eslint/unbound-method": "error"
     },
     "env": {
       "node": true,
-      "es6": true,
+      "es2022": true,
       "jest/globals": true
     }
   }

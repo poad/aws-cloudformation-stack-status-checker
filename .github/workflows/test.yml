@@ -1,24 +1,46 @@
 name: 'build-test'
 on: # rebuild any PRs and main branch changes
-  pull_request:
+  pull_request_target:
+    branches:
+      - main
   push:
     branches:
       - main
-      - 'releases/*'
+
+env:
+  AWS_REGION: us-west-2
+
+permissions:
+  id-token: write
 
 jobs:
   build: # make sure build/ci work properly
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          check-latest: true
       - run: |
-          npm install
+          yarn install
       - run: |
-          npm run all
+          yarn all
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: ./
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          milliseconds: 1000
+          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+          role-session-name: GitHubActions
+          aws-region: ${{ env.AWS_REGION }}
+      - uses: actions/checkout@v3
+      - uses: ./
+        id: stack-status
+        with:
+          stack-name: CDKToolkit
+
+      - name: 'Another example step'
+        run: echo ${{ steps.stack-status.outputs.status }}
