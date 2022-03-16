@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 16.x
           check-latest: true
-      - run: yarn install && yarn all
+      - run: yarn install; yarn build && yarn format && yarn lint && yarn package && yarn test
 
   test:
     runs-on: ubuntu-latest
