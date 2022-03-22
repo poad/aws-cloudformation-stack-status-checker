@@ -27,7 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "latest",
-    "@aws-sdk/client-cloudformation": "latest"
+    "@aws-sdk/client-cloudformation": "^3.55.0"
   },
   "devDependencies": {
     "@types/node": "latest",
