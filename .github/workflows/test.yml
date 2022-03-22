@@ -27,7 +27,10 @@ jobs:
         with:
           node-version: 16.x
           check-latest: true
-      - run: yarn install; yarn build && yarn format && yarn lint && yarn package && yarn test
+      - name: setup
+        run: yarn global add prettier rimraf
+      - name: build
+        run: yarn install && yarn build && yarn format && yarn lint && yarn package && yarn test
 
   test:
     runs-on: ubuntu-latest
