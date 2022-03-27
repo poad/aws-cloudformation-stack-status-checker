@@ -26,20 +26,20 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "latest",
-    "@aws-sdk/client-cloudformation": "^3.55.0"
+    "@actions/core": "*",
+    "@aws-sdk/client-cloudformation": "*"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@typescript-eslint/parser": "latest",
-    "@vercel/ncc": "latest",
-    "eslint": "latest",
-    "eslint-plugin-github": "latest",
-    "eslint-plugin-jest": "latest",
-    "jest": "latest",
-    "js-yaml": "latest",
-    "prettier": "latest",
-    "ts-jest": "latest",
-    "typescript": "latest"
+    "@types/node": "*",
+    "@typescript-eslint/parser": "*",
+    "@vercel/ncc": "*",
+    "eslint": "*",
+    "eslint-plugin-github": "*",
+    "eslint-plugin-jest": "*",
+    "jest": "*",
+    "js-yaml": "*",
+    "prettier": "*",
+    "ts-jest": "*",
+    "typescript": "*"
   }
 }
