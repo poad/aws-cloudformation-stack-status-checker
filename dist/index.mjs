@@ -9259,8 +9259,7 @@ const deserializeAws_queryActivateTypeCommandError = async (output, context) => 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -9270,10 +9269,12 @@ const deserializeAws_queryActivateTypeCommandError = async (output, context) => 
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9298,8 +9299,7 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (o
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -9309,10 +9309,12 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (o
             throw await deserializeAws_queryTypeConfigurationNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9334,18 +9336,19 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (output, context
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9370,18 +9373,19 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (output, co
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9406,8 +9410,7 @@ const deserializeAws_queryCreateChangeSetCommandError = async (output, context) 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "AlreadyExistsException":
         case "com.amazonaws.cloudformation#AlreadyExistsException":
@@ -9420,10 +9423,12 @@ const deserializeAws_queryCreateChangeSetCommandError = async (output, context) 
             throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9448,8 +9453,7 @@ const deserializeAws_queryCreateStackCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "AlreadyExistsException":
         case "com.amazonaws.cloudformation#AlreadyExistsException":
@@ -9465,10 +9469,12 @@ const deserializeAws_queryCreateStackCommandError = async (output, context) => {
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9493,8 +9499,7 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (output, cont
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
@@ -9516,10 +9521,12 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (output, cont
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9544,8 +9551,7 @@ const deserializeAws_queryCreateStackSetCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CreatedButModifiedException":
         case "com.amazonaws.cloudformation#CreatedButModifiedException":
@@ -9558,10 +9564,12 @@ const deserializeAws_queryCreateStackSetCommandError = async (output, context) =
             throw await deserializeAws_queryNameAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9586,8 +9594,7 @@ const deserializeAws_queryDeactivateTypeCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -9597,10 +9604,12 @@ const deserializeAws_queryDeactivateTypeCommandError = async (output, context) =
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9625,18 +9634,19 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (output, context) 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidChangeSetStatusException":
         case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
             throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9658,18 +9668,19 @@ const deserializeAws_queryDeleteStackCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9694,8 +9705,7 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (output, cont
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
@@ -9714,10 +9724,12 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (output, cont
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9742,8 +9754,7 @@ const deserializeAws_queryDeleteStackSetCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "OperationInProgressException":
         case "com.amazonaws.cloudformation#OperationInProgressException":
@@ -9753,10 +9764,12 @@ const deserializeAws_queryDeleteStackSetCommandError = async (output, context) =
             throw await deserializeAws_queryStackSetNotEmptyExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9781,8 +9794,7 @@ const deserializeAws_queryDeregisterTypeCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -9792,10 +9804,12 @@ const deserializeAws_queryDeregisterTypeCommandError = async (output, context) =
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9820,15 +9834,16 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (output, con
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9853,18 +9868,19 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (output, context
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ChangeSetNotFoundException":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9889,18 +9905,19 @@ const deserializeAws_queryDescribeChangeSetHooksCommandError = async (output, co
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ChangeSetNotFoundException":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9925,18 +9942,19 @@ const deserializeAws_queryDescribePublisherCommandError = async (output, context
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9961,15 +9979,16 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusCommandError = async 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -9994,15 +10013,16 @@ const deserializeAws_queryDescribeStackEventsCommandError = async (output, conte
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10027,8 +10047,7 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (output, con
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackInstanceNotFoundException":
         case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
@@ -10038,10 +10057,12 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (output, con
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10066,15 +10087,16 @@ const deserializeAws_queryDescribeStackResourceCommandError = async (output, con
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10099,15 +10121,16 @@ const deserializeAws_queryDescribeStackResourceDriftsCommandError = async (outpu
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10132,15 +10155,16 @@ const deserializeAws_queryDescribeStackResourcesCommandError = async (output, co
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10165,15 +10189,16 @@ const deserializeAws_queryDescribeStacksCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10198,18 +10223,19 @@ const deserializeAws_queryDescribeStackSetCommandError = async (output, context)
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10234,8 +10260,7 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (output,
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "OperationNotFoundException":
         case "com.amazonaws.cloudformation#OperationNotFoundException":
@@ -10245,10 +10270,12 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (output,
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10273,8 +10300,7 @@ const deserializeAws_queryDescribeTypeCommandError = async (output, context) => 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -10284,10 +10310,12 @@ const deserializeAws_queryDescribeTypeCommandError = async (output, context) => 
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10312,18 +10340,19 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (output, 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10348,15 +10377,16 @@ const deserializeAws_queryDetectStackDriftCommandError = async (output, context)
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10381,15 +10411,16 @@ const deserializeAws_queryDetectStackResourceDriftCommandError = async (output, 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10414,8 +10445,7 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (output, conte
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
@@ -10428,10 +10458,12 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (output, conte
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10456,15 +10488,16 @@ const deserializeAws_queryEstimateTemplateCostCommandError = async (output, cont
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10489,8 +10522,7 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (output, context)
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ChangeSetNotFoundException":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
@@ -10506,10 +10538,12 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (output, context)
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10534,15 +10568,16 @@ const deserializeAws_queryGetStackPolicyCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10567,18 +10602,19 @@ const deserializeAws_queryGetTemplateCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ChangeSetNotFoundException":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10603,18 +10639,19 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (output, contex
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10639,8 +10676,7 @@ const deserializeAws_queryImportStacksToStackSetCommandError = async (output, co
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
@@ -10665,10 +10701,12 @@ const deserializeAws_queryImportStacksToStackSetCommandError = async (output, co
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10693,15 +10731,16 @@ const deserializeAws_queryListChangeSetsCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10726,15 +10765,16 @@ const deserializeAws_queryListExportsCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10759,15 +10799,16 @@ const deserializeAws_queryListImportsCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10792,18 +10833,19 @@ const deserializeAws_queryListStackInstancesCommandError = async (output, contex
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10828,15 +10870,16 @@ const deserializeAws_queryListStackResourcesCommandError = async (output, contex
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10861,15 +10904,16 @@ const deserializeAws_queryListStacksCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10894,8 +10938,7 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (outp
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "OperationNotFoundException":
         case "com.amazonaws.cloudformation#OperationNotFoundException":
@@ -10905,10 +10948,12 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (outp
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10933,18 +10978,19 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (output, co
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -10969,15 +11015,16 @@ const deserializeAws_queryListStackSetsCommandError = async (output, context) =>
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11002,18 +11049,19 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (output, con
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11038,18 +11086,19 @@ const deserializeAws_queryListTypesCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11074,18 +11123,19 @@ const deserializeAws_queryListTypeVersionsCommandError = async (output, context)
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11110,8 +11160,7 @@ const deserializeAws_queryPublishTypeCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -11121,10 +11170,12 @@ const deserializeAws_queryPublishTypeCommandError = async (output, context) => {
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11149,8 +11200,7 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (output, con
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidStateTransitionException":
         case "com.amazonaws.cloudformation#InvalidStateTransitionException":
@@ -11160,10 +11210,12 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (output, con
             throw await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11188,18 +11240,19 @@ const deserializeAws_queryRegisterPublisherCommandError = async (output, context
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11224,18 +11277,19 @@ const deserializeAws_queryRegisterTypeCommandError = async (output, context) => 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11260,18 +11314,19 @@ const deserializeAws_queryRollbackStackCommandError = async (output, context) =>
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11293,15 +11348,16 @@ const deserializeAws_querySetStackPolicyCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11326,8 +11382,7 @@ const deserializeAws_querySetTypeConfigurationCommandError = async (output, cont
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -11337,10 +11392,12 @@ const deserializeAws_querySetTypeConfigurationCommandError = async (output, cont
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11365,8 +11422,7 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (output, con
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -11376,10 +11432,12 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (output, con
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11401,15 +11459,16 @@ const deserializeAws_querySignalResourceCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11434,8 +11493,7 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (output, con
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
@@ -11448,10 +11506,12 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (output, con
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11476,8 +11536,7 @@ const deserializeAws_queryTestTypeCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
@@ -11487,10 +11546,12 @@ const deserializeAws_queryTestTypeCommandError = async (output, context) => {
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11515,8 +11576,7 @@ const deserializeAws_queryUpdateStackCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InsufficientCapabilitiesException":
         case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
@@ -11526,10 +11586,12 @@ const deserializeAws_queryUpdateStackCommandError = async (output, context) => {
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11554,8 +11616,7 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (output, cont
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
@@ -11577,10 +11638,12 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (output, cont
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11605,8 +11668,7 @@ const deserializeAws_queryUpdateStackSetCommandError = async (output, context) =
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
@@ -11628,10 +11690,12 @@ const deserializeAws_queryUpdateStackSetCommandError = async (output, context) =
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11656,15 +11720,16 @@ const deserializeAws_queryUpdateTerminationProtectionCommandError = async (outpu
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -11689,15 +11754,16 @@ const deserializeAws_queryValidateTemplateCommandError = async (output, context)
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -17125,7 +17191,6 @@ const loadQueryErrorCode = (output, data) => {
     if (output.statusCode == 404) {
         return "NotFound";
     }
-    return "";
 };
 
 
@@ -18993,8 +19058,7 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, co
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+    const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidRequestException":
         case "com.amazonaws.sso#InvalidRequestException":
@@ -19010,10 +19074,12 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, co
             throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new SSOServiceException_1.SSOServiceException({
-                name: parsedBody.code || parsedBody.Code || errorCode,
+                name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody);
     }
@@ -19043,8 +19109,7 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (output, cont
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+    const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidRequestException":
         case "com.amazonaws.sso#InvalidRequestException":
@@ -19060,10 +19125,12 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (output, cont
             throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new SSOServiceException_1.SSOServiceException({
-                name: parsedBody.code || parsedBody.Code || errorCode,
+                name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody);
     }
@@ -19093,8 +19160,7 @@ const deserializeAws_restJson1ListAccountsCommandError = async (output, context)
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+    const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidRequestException":
         case "com.amazonaws.sso#InvalidRequestException":
@@ -19110,10 +19176,12 @@ const deserializeAws_restJson1ListAccountsCommandError = async (output, context)
             throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new SSOServiceException_1.SSOServiceException({
-                name: parsedBody.code || parsedBody.Code || errorCode,
+                name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody);
     }
@@ -19135,8 +19203,7 @@ const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+    const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidRequestException":
         case "com.amazonaws.sso#InvalidRequestException":
@@ -19149,10 +19216,12 @@ const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
             throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new SSOServiceException_1.SSOServiceException({
-                name: parsedBody.code || parsedBody.Code || errorCode,
+                name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody);
     }
@@ -19297,7 +19366,6 @@ const loadRestJsonErrorCode = (output, data) => {
     if (data["__type"] !== undefined) {
         return sanitizeErrorCode(data["__type"]);
     }
-    return "";
 };
 
 
@@ -20664,8 +20732,7 @@ const deserializeAws_queryAssumeRoleCommandError = async (output, context) => {
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
@@ -20681,10 +20748,12 @@ const deserializeAws_queryAssumeRoleCommandError = async (output, context) => {
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -20709,8 +20778,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (output, contex
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
@@ -20732,10 +20800,12 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (output, contex
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -20760,8 +20830,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (output,
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
@@ -20786,10 +20855,12 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (output,
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -20814,18 +20885,19 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (output
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidAuthorizationMessageException":
         case "com.amazonaws.sts#InvalidAuthorizationMessageException":
             throw await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -20850,15 +20922,16 @@ const deserializeAws_queryGetAccessKeyInfoCommandError = async (output, context)
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -20883,15 +20956,16 @@ const deserializeAws_queryGetCallerIdentityCommandError = async (output, context
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -20916,8 +20990,7 @@ const deserializeAws_queryGetFederationTokenCommandError = async (output, contex
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "MalformedPolicyDocumentException":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
@@ -20930,10 +21003,12 @@ const deserializeAws_queryGetFederationTokenCommandError = async (output, contex
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -20958,18 +21033,19 @@ const deserializeAws_queryGetSessionTokenCommandError = async (output, context) 
         body: await parseBody(output.body, context),
     };
     let response;
-    let errorCode = "UnknownError";
-    errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "RegionDisabledException":
         case "com.amazonaws.sts#RegionDisabledException":
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
+            const $metadata = deserializeMetadata(output);
+            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
             response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
+                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
                 $fault: "client",
-                $metadata: deserializeMetadata(output),
+                $metadata,
             });
             throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
@@ -21606,7 +21682,6 @@ const loadQueryErrorCode = (output, data) => {
     if (output.statusCode == 404) {
         return "NotFound";
     }
-    return "";
 };
 
 
@@ -30861,21 +30936,21 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 3713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.118.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.118.1","@aws-sdk/config-resolver":"3.110.0","@aws-sdk/credential-provider-node":"3.118.1","@aws-sdk/fetch-http-handler":"3.110.0","@aws-sdk/hash-node":"3.110.0","@aws-sdk/invalid-dependency":"3.110.0","@aws-sdk/middleware-content-length":"3.110.0","@aws-sdk/middleware-host-header":"3.110.0","@aws-sdk/middleware-logger":"3.110.0","@aws-sdk/middleware-recursion-detection":"3.110.0","@aws-sdk/middleware-retry":"3.118.1","@aws-sdk/middleware-serde":"3.110.0","@aws-sdk/middleware-signing":"3.110.0","@aws-sdk/middleware-stack":"3.110.0","@aws-sdk/middleware-user-agent":"3.110.0","@aws-sdk/node-config-provider":"3.110.0","@aws-sdk/node-http-handler":"3.118.1","@aws-sdk/protocol-http":"3.110.0","@aws-sdk/smithy-client":"3.110.0","@aws-sdk/types":"3.110.0","@aws-sdk/url-parser":"3.110.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.110.0","@aws-sdk/util-defaults-mode-node":"3.110.0","@aws-sdk/util-user-agent-browser":"3.110.0","@aws-sdk/util-user-agent-node":"3.118.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","@aws-sdk/util-waiter":"3.118.1","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.121.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.121.0","@aws-sdk/config-resolver":"3.110.0","@aws-sdk/credential-provider-node":"3.121.0","@aws-sdk/fetch-http-handler":"3.110.0","@aws-sdk/hash-node":"3.110.0","@aws-sdk/invalid-dependency":"3.110.0","@aws-sdk/middleware-content-length":"3.110.0","@aws-sdk/middleware-host-header":"3.110.0","@aws-sdk/middleware-logger":"3.110.0","@aws-sdk/middleware-recursion-detection":"3.110.0","@aws-sdk/middleware-retry":"3.118.1","@aws-sdk/middleware-serde":"3.110.0","@aws-sdk/middleware-signing":"3.110.0","@aws-sdk/middleware-stack":"3.110.0","@aws-sdk/middleware-user-agent":"3.110.0","@aws-sdk/node-config-provider":"3.110.0","@aws-sdk/node-http-handler":"3.118.1","@aws-sdk/protocol-http":"3.110.0","@aws-sdk/smithy-client":"3.110.0","@aws-sdk/types":"3.110.0","@aws-sdk/url-parser":"3.110.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.110.0","@aws-sdk/util-defaults-mode-node":"3.110.0","@aws-sdk/util-user-agent-browser":"3.110.0","@aws-sdk/util-user-agent-node":"3.118.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","@aws-sdk/util-waiter":"3.118.1","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 1092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.118.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.110.0","@aws-sdk/fetch-http-handler":"3.110.0","@aws-sdk/hash-node":"3.110.0","@aws-sdk/invalid-dependency":"3.110.0","@aws-sdk/middleware-content-length":"3.110.0","@aws-sdk/middleware-host-header":"3.110.0","@aws-sdk/middleware-logger":"3.110.0","@aws-sdk/middleware-recursion-detection":"3.110.0","@aws-sdk/middleware-retry":"3.118.1","@aws-sdk/middleware-serde":"3.110.0","@aws-sdk/middleware-stack":"3.110.0","@aws-sdk/middleware-user-agent":"3.110.0","@aws-sdk/node-config-provider":"3.110.0","@aws-sdk/node-http-handler":"3.118.1","@aws-sdk/protocol-http":"3.110.0","@aws-sdk/smithy-client":"3.110.0","@aws-sdk/types":"3.110.0","@aws-sdk/url-parser":"3.110.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.110.0","@aws-sdk/util-defaults-mode-node":"3.110.0","@aws-sdk/util-user-agent-browser":"3.110.0","@aws-sdk/util-user-agent-node":"3.118.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.121.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.110.0","@aws-sdk/fetch-http-handler":"3.110.0","@aws-sdk/hash-node":"3.110.0","@aws-sdk/invalid-dependency":"3.110.0","@aws-sdk/middleware-content-length":"3.110.0","@aws-sdk/middleware-host-header":"3.110.0","@aws-sdk/middleware-logger":"3.110.0","@aws-sdk/middleware-recursion-detection":"3.110.0","@aws-sdk/middleware-retry":"3.118.1","@aws-sdk/middleware-serde":"3.110.0","@aws-sdk/middleware-stack":"3.110.0","@aws-sdk/middleware-user-agent":"3.110.0","@aws-sdk/node-config-provider":"3.110.0","@aws-sdk/node-http-handler":"3.118.1","@aws-sdk/protocol-http":"3.110.0","@aws-sdk/smithy-client":"3.110.0","@aws-sdk/types":"3.110.0","@aws-sdk/url-parser":"3.110.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.110.0","@aws-sdk/util-defaults-mode-node":"3.110.0","@aws-sdk/util-user-agent-browser":"3.110.0","@aws-sdk/util-user-agent-node":"3.118.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.118.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.110.0","@aws-sdk/credential-provider-node":"3.118.1","@aws-sdk/fetch-http-handler":"3.110.0","@aws-sdk/hash-node":"3.110.0","@aws-sdk/invalid-dependency":"3.110.0","@aws-sdk/middleware-content-length":"3.110.0","@aws-sdk/middleware-host-header":"3.110.0","@aws-sdk/middleware-logger":"3.110.0","@aws-sdk/middleware-recursion-detection":"3.110.0","@aws-sdk/middleware-retry":"3.118.1","@aws-sdk/middleware-sdk-sts":"3.110.0","@aws-sdk/middleware-serde":"3.110.0","@aws-sdk/middleware-signing":"3.110.0","@aws-sdk/middleware-stack":"3.110.0","@aws-sdk/middleware-user-agent":"3.110.0","@aws-sdk/node-config-provider":"3.110.0","@aws-sdk/node-http-handler":"3.118.1","@aws-sdk/protocol-http":"3.110.0","@aws-sdk/smithy-client":"3.110.0","@aws-sdk/types":"3.110.0","@aws-sdk/url-parser":"3.110.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.110.0","@aws-sdk/util-defaults-mode-node":"3.110.0","@aws-sdk/util-user-agent-browser":"3.110.0","@aws-sdk/util-user-agent-node":"3.118.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.121.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.110.0","@aws-sdk/credential-provider-node":"3.121.0","@aws-sdk/fetch-http-handler":"3.110.0","@aws-sdk/hash-node":"3.110.0","@aws-sdk/invalid-dependency":"3.110.0","@aws-sdk/middleware-content-length":"3.110.0","@aws-sdk/middleware-host-header":"3.110.0","@aws-sdk/middleware-logger":"3.110.0","@aws-sdk/middleware-recursion-detection":"3.110.0","@aws-sdk/middleware-retry":"3.118.1","@aws-sdk/middleware-sdk-sts":"3.110.0","@aws-sdk/middleware-serde":"3.110.0","@aws-sdk/middleware-signing":"3.110.0","@aws-sdk/middleware-stack":"3.110.0","@aws-sdk/middleware-user-agent":"3.110.0","@aws-sdk/node-config-provider":"3.110.0","@aws-sdk/node-http-handler":"3.118.1","@aws-sdk/protocol-http":"3.110.0","@aws-sdk/smithy-client":"3.110.0","@aws-sdk/types":"3.110.0","@aws-sdk/url-parser":"3.110.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.110.0","@aws-sdk/util-defaults-mode-node":"3.110.0","@aws-sdk/util-user-agent-browser":"3.110.0","@aws-sdk/util-user-agent-node":"3.118.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
