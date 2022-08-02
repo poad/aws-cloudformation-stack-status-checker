@@ -8895,7 +8895,6 @@ const deserializeAws_queryActivateTypeCommandError = async (output, context) => 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -8906,14 +8905,12 @@ const deserializeAws_queryActivateTypeCommandError = async (output, context) => 
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryBatchDescribeTypeConfigurationsCommand = async (output, context) => {
@@ -8935,7 +8932,6 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (o
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -8946,14 +8942,12 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (o
             throw await deserializeAws_queryTypeConfigurationNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryCancelUpdateStackCommand = async (output, context) => {
@@ -8972,7 +8966,6 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (output, context
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "TokenAlreadyExistsException":
@@ -8980,14 +8973,12 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (output, context
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryContinueUpdateRollbackCommand = async (output, context) => {
@@ -9009,7 +9000,6 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (output, co
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "TokenAlreadyExistsException":
@@ -9017,14 +9007,12 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (output, co
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryCreateChangeSetCommand = async (output, context) => {
@@ -9046,7 +9034,6 @@ const deserializeAws_queryCreateChangeSetCommandError = async (output, context) 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "AlreadyExistsException":
@@ -9060,14 +9047,12 @@ const deserializeAws_queryCreateChangeSetCommandError = async (output, context) 
             throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryCreateStackCommand = async (output, context) => {
@@ -9089,7 +9074,6 @@ const deserializeAws_queryCreateStackCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "AlreadyExistsException":
@@ -9106,14 +9090,12 @@ const deserializeAws_queryCreateStackCommandError = async (output, context) => {
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryCreateStackInstancesCommand = async (output, context) => {
@@ -9135,7 +9117,6 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (output, cont
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
@@ -9158,14 +9139,12 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (output, cont
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryCreateStackSetCommand = async (output, context) => {
@@ -9187,7 +9166,6 @@ const deserializeAws_queryCreateStackSetCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CreatedButModifiedException":
@@ -9201,14 +9179,12 @@ const deserializeAws_queryCreateStackSetCommandError = async (output, context) =
             throw await deserializeAws_queryNameAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDeactivateTypeCommand = async (output, context) => {
@@ -9230,7 +9206,6 @@ const deserializeAws_queryDeactivateTypeCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -9241,14 +9216,12 @@ const deserializeAws_queryDeactivateTypeCommandError = async (output, context) =
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDeleteChangeSetCommand = async (output, context) => {
@@ -9270,7 +9243,6 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (output, context) 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidChangeSetStatusException":
@@ -9278,14 +9250,12 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (output, context) 
             throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDeleteStackCommand = async (output, context) => {
@@ -9304,7 +9274,6 @@ const deserializeAws_queryDeleteStackCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "TokenAlreadyExistsException":
@@ -9312,14 +9281,12 @@ const deserializeAws_queryDeleteStackCommandError = async (output, context) => {
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDeleteStackInstancesCommand = async (output, context) => {
@@ -9341,7 +9308,6 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (output, cont
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
@@ -9361,14 +9327,12 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (output, cont
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDeleteStackSetCommand = async (output, context) => {
@@ -9390,7 +9354,6 @@ const deserializeAws_queryDeleteStackSetCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "OperationInProgressException":
@@ -9401,14 +9364,12 @@ const deserializeAws_queryDeleteStackSetCommandError = async (output, context) =
             throw await deserializeAws_queryStackSetNotEmptyExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDeregisterTypeCommand = async (output, context) => {
@@ -9430,7 +9391,6 @@ const deserializeAws_queryDeregisterTypeCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -9441,14 +9401,12 @@ const deserializeAws_queryDeregisterTypeCommandError = async (output, context) =
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDescribeAccountLimitsCommand = async (output, context) => {
@@ -9470,20 +9428,14 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (output, con
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDescribeChangeSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -9504,7 +9456,6 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (output, context
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ChangeSetNotFoundException":
@@ -9512,14 +9463,12 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (output, context
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDescribeChangeSetHooksCommand = async (output, context) => {
@@ -9541,7 +9490,6 @@ const deserializeAws_queryDescribeChangeSetHooksCommandError = async (output, co
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ChangeSetNotFoundException":
@@ -9549,14 +9497,12 @@ const deserializeAws_queryDescribeChangeSetHooksCommandError = async (output, co
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDescribePublisherCommand = async (output, context) => {
@@ -9578,7 +9524,6 @@ const deserializeAws_queryDescribePublisherCommandError = async (output, context
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -9586,14 +9531,12 @@ const deserializeAws_queryDescribePublisherCommandError = async (output, context
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDescribeStackDriftDetectionStatusCommand = async (output, context) => {
@@ -9615,20 +9558,14 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusCommandError = async 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDescribeStackEventsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -9649,20 +9586,14 @@ const deserializeAws_queryDescribeStackEventsCommandError = async (output, conte
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDescribeStackInstanceCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -9683,7 +9614,6 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (output, con
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackInstanceNotFoundException":
@@ -9694,14 +9624,12 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (output, con
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDescribeStackResourceCommand = async (output, context) => {
@@ -9723,20 +9651,14 @@ const deserializeAws_queryDescribeStackResourceCommandError = async (output, con
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDescribeStackResourceDriftsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -9757,20 +9679,14 @@ const deserializeAws_queryDescribeStackResourceDriftsCommandError = async (outpu
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDescribeStackResourcesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -9791,20 +9707,14 @@ const deserializeAws_queryDescribeStackResourcesCommandError = async (output, co
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDescribeStacksCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -9825,20 +9735,14 @@ const deserializeAws_queryDescribeStacksCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDescribeStackSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -9859,7 +9763,6 @@ const deserializeAws_queryDescribeStackSetCommandError = async (output, context)
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackSetNotFoundException":
@@ -9867,14 +9770,12 @@ const deserializeAws_queryDescribeStackSetCommandError = async (output, context)
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDescribeStackSetOperationCommand = async (output, context) => {
@@ -9896,7 +9797,6 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (output,
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "OperationNotFoundException":
@@ -9907,14 +9807,12 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (output,
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDescribeTypeCommand = async (output, context) => {
@@ -9936,7 +9834,6 @@ const deserializeAws_queryDescribeTypeCommandError = async (output, context) => 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -9947,14 +9844,12 @@ const deserializeAws_queryDescribeTypeCommandError = async (output, context) => 
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDescribeTypeRegistrationCommand = async (output, context) => {
@@ -9976,7 +9871,6 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (output, 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -9984,14 +9878,12 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (output, 
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDetectStackDriftCommand = async (output, context) => {
@@ -10013,20 +9905,14 @@ const deserializeAws_queryDetectStackDriftCommandError = async (output, context)
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDetectStackResourceDriftCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10047,20 +9933,14 @@ const deserializeAws_queryDetectStackResourceDriftCommandError = async (output, 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryDetectStackSetDriftCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10081,7 +9961,6 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (output, conte
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
@@ -10095,14 +9974,12 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (output, conte
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryEstimateTemplateCostCommand = async (output, context) => {
@@ -10124,20 +10001,14 @@ const deserializeAws_queryEstimateTemplateCostCommandError = async (output, cont
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryExecuteChangeSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10158,7 +10029,6 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (output, context)
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ChangeSetNotFoundException":
@@ -10175,14 +10045,12 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (output, context)
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryGetStackPolicyCommand = async (output, context) => {
@@ -10204,20 +10072,14 @@ const deserializeAws_queryGetStackPolicyCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryGetTemplateCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10238,7 +10100,6 @@ const deserializeAws_queryGetTemplateCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ChangeSetNotFoundException":
@@ -10246,14 +10107,12 @@ const deserializeAws_queryGetTemplateCommandError = async (output, context) => {
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryGetTemplateSummaryCommand = async (output, context) => {
@@ -10275,7 +10134,6 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (output, contex
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackSetNotFoundException":
@@ -10283,14 +10141,12 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (output, contex
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryImportStacksToStackSetCommand = async (output, context) => {
@@ -10312,7 +10168,6 @@ const deserializeAws_queryImportStacksToStackSetCommandError = async (output, co
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
@@ -10338,14 +10193,12 @@ const deserializeAws_queryImportStacksToStackSetCommandError = async (output, co
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryListChangeSetsCommand = async (output, context) => {
@@ -10367,20 +10220,14 @@ const deserializeAws_queryListChangeSetsCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryListExportsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10401,20 +10248,14 @@ const deserializeAws_queryListExportsCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryListImportsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10435,20 +10276,14 @@ const deserializeAws_queryListImportsCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryListStackInstancesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10469,7 +10304,6 @@ const deserializeAws_queryListStackInstancesCommandError = async (output, contex
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackSetNotFoundException":
@@ -10477,14 +10311,12 @@ const deserializeAws_queryListStackInstancesCommandError = async (output, contex
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryListStackResourcesCommand = async (output, context) => {
@@ -10506,20 +10338,14 @@ const deserializeAws_queryListStackResourcesCommandError = async (output, contex
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryListStacksCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10540,20 +10366,14 @@ const deserializeAws_queryListStacksCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryListStackSetOperationResultsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10574,7 +10394,6 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (outp
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "OperationNotFoundException":
@@ -10585,14 +10404,12 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (outp
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryListStackSetOperationsCommand = async (output, context) => {
@@ -10614,7 +10431,6 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (output, co
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "StackSetNotFoundException":
@@ -10622,14 +10438,12 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (output, co
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryListStackSetsCommand = async (output, context) => {
@@ -10651,20 +10465,14 @@ const deserializeAws_queryListStackSetsCommandError = async (output, context) =>
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryListTypeRegistrationsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -10685,7 +10493,6 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (output, con
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -10693,14 +10500,12 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (output, con
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryListTypesCommand = async (output, context) => {
@@ -10722,7 +10527,6 @@ const deserializeAws_queryListTypesCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -10730,14 +10534,12 @@ const deserializeAws_queryListTypesCommandError = async (output, context) => {
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryListTypeVersionsCommand = async (output, context) => {
@@ -10759,7 +10561,6 @@ const deserializeAws_queryListTypeVersionsCommandError = async (output, context)
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -10767,14 +10568,12 @@ const deserializeAws_queryListTypeVersionsCommandError = async (output, context)
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryPublishTypeCommand = async (output, context) => {
@@ -10796,7 +10595,6 @@ const deserializeAws_queryPublishTypeCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -10807,14 +10605,12 @@ const deserializeAws_queryPublishTypeCommandError = async (output, context) => {
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryRecordHandlerProgressCommand = async (output, context) => {
@@ -10836,7 +10632,6 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (output, con
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidStateTransitionException":
@@ -10847,14 +10642,12 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (output, con
             throw await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryRegisterPublisherCommand = async (output, context) => {
@@ -10876,7 +10669,6 @@ const deserializeAws_queryRegisterPublisherCommandError = async (output, context
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -10884,14 +10676,12 @@ const deserializeAws_queryRegisterPublisherCommandError = async (output, context
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryRegisterTypeCommand = async (output, context) => {
@@ -10913,7 +10703,6 @@ const deserializeAws_queryRegisterTypeCommandError = async (output, context) => 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -10921,14 +10710,12 @@ const deserializeAws_queryRegisterTypeCommandError = async (output, context) => 
             throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryRollbackStackCommand = async (output, context) => {
@@ -10950,7 +10737,6 @@ const deserializeAws_queryRollbackStackCommandError = async (output, context) =>
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "TokenAlreadyExistsException":
@@ -10958,14 +10744,12 @@ const deserializeAws_queryRollbackStackCommandError = async (output, context) =>
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_querySetStackPolicyCommand = async (output, context) => {
@@ -10984,20 +10768,14 @@ const deserializeAws_querySetStackPolicyCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_querySetTypeConfigurationCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -11018,7 +10796,6 @@ const deserializeAws_querySetTypeConfigurationCommandError = async (output, cont
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -11029,14 +10806,12 @@ const deserializeAws_querySetTypeConfigurationCommandError = async (output, cont
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_querySetTypeDefaultVersionCommand = async (output, context) => {
@@ -11058,7 +10833,6 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (output, con
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -11069,14 +10843,12 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (output, con
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_querySignalResourceCommand = async (output, context) => {
@@ -11095,20 +10867,14 @@ const deserializeAws_querySignalResourceCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryStopStackSetOperationCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -11129,7 +10895,6 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (output, con
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
@@ -11143,14 +10908,12 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (output, con
             throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryTestTypeCommand = async (output, context) => {
@@ -11172,7 +10935,6 @@ const deserializeAws_queryTestTypeCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "CFNRegistryException":
@@ -11183,14 +10945,12 @@ const deserializeAws_queryTestTypeCommandError = async (output, context) => {
             throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryUpdateStackCommand = async (output, context) => {
@@ -11212,7 +10972,6 @@ const deserializeAws_queryUpdateStackCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InsufficientCapabilitiesException":
@@ -11223,14 +10982,12 @@ const deserializeAws_queryUpdateStackCommandError = async (output, context) => {
             throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryUpdateStackInstancesCommand = async (output, context) => {
@@ -11252,7 +11009,6 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (output, cont
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
@@ -11275,14 +11031,12 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (output, cont
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryUpdateStackSetCommand = async (output, context) => {
@@ -11304,7 +11058,6 @@ const deserializeAws_queryUpdateStackSetCommandError = async (output, context) =
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidOperationException":
@@ -11327,14 +11080,12 @@ const deserializeAws_queryUpdateStackSetCommandError = async (output, context) =
             throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryUpdateTerminationProtectionCommand = async (output, context) => {
@@ -11356,20 +11107,14 @@ const deserializeAws_queryUpdateTerminationProtectionCommandError = async (outpu
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryValidateTemplateCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -11390,20 +11135,14 @@ const deserializeAws_queryValidateTemplateCommandError = async (output, context)
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new CloudFormationServiceException_1.CloudFormationServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryAlreadyExistsExceptionResponse = async (parsedOutput, context) => {
     const body = parsedOutput.body;
@@ -11617,55 +11356,55 @@ const serializeAws_queryAccountList = (input, context) => {
 };
 const serializeAws_queryActivateTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.PublicTypeArn !== undefined && input.PublicTypeArn !== null) {
+    if (input.PublicTypeArn != null) {
         entries["PublicTypeArn"] = input.PublicTypeArn;
     }
-    if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    if (input.PublisherId != null) {
         entries["PublisherId"] = input.PublisherId;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.TypeNameAlias !== undefined && input.TypeNameAlias !== null) {
+    if (input.TypeNameAlias != null) {
         entries["TypeNameAlias"] = input.TypeNameAlias;
     }
-    if (input.AutoUpdate !== undefined && input.AutoUpdate !== null) {
+    if (input.AutoUpdate != null) {
         entries["AutoUpdate"] = input.AutoUpdate;
     }
-    if (input.LoggingConfig !== undefined && input.LoggingConfig !== null) {
+    if (input.LoggingConfig != null) {
         const memberEntries = serializeAws_queryLoggingConfig(input.LoggingConfig, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LoggingConfig.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ExecutionRoleArn !== undefined && input.ExecutionRoleArn !== null) {
+    if (input.ExecutionRoleArn != null) {
         entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
     }
-    if (input.VersionBump !== undefined && input.VersionBump !== null) {
+    if (input.VersionBump != null) {
         entries["VersionBump"] = input.VersionBump;
     }
-    if (input.MajorVersion !== undefined && input.MajorVersion !== null) {
+    if (input.MajorVersion != null) {
         entries["MajorVersion"] = input.MajorVersion;
     }
     return entries;
 };
 const serializeAws_queryAutoDeployment = (input, context) => {
     const entries = {};
-    if (input.Enabled !== undefined && input.Enabled !== null) {
+    if (input.Enabled != null) {
         entries["Enabled"] = input.Enabled;
     }
-    if (input.RetainStacksOnAccountRemoval !== undefined && input.RetainStacksOnAccountRemoval !== null) {
+    if (input.RetainStacksOnAccountRemoval != null) {
         entries["RetainStacksOnAccountRemoval"] = input.RetainStacksOnAccountRemoval;
     }
     return entries;
 };
 const serializeAws_queryBatchDescribeTypeConfigurationsInput = (input, context) => {
     const entries = {};
-    if (input.TypeConfigurationIdentifiers !== undefined && input.TypeConfigurationIdentifiers !== null) {
+    if (input.TypeConfigurationIdentifiers != null) {
         const memberEntries = serializeAws_queryTypeConfigurationIdentifiers(input.TypeConfigurationIdentifiers, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `TypeConfigurationIdentifiers.${key}`;
@@ -11676,10 +11415,10 @@ const serializeAws_queryBatchDescribeTypeConfigurationsInput = (input, context) 
 };
 const serializeAws_queryCancelUpdateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
     return entries;
@@ -11698,220 +11437,220 @@ const serializeAws_queryCapabilities = (input, context) => {
 };
 const serializeAws_queryContinueUpdateRollbackInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.RoleARN !== undefined && input.RoleARN !== null) {
+    if (input.RoleARN != null) {
         entries["RoleARN"] = input.RoleARN;
     }
-    if (input.ResourcesToSkip !== undefined && input.ResourcesToSkip !== null) {
+    if (input.ResourcesToSkip != null) {
         const memberEntries = serializeAws_queryResourcesToSkip(input.ResourcesToSkip, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourcesToSkip.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
     return entries;
 };
 const serializeAws_queryCreateChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
+    if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
     }
-    if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
+    if (input.TemplateURL != null) {
         entries["TemplateURL"] = input.TemplateURL;
     }
-    if (input.UsePreviousTemplate !== undefined && input.UsePreviousTemplate !== null) {
+    if (input.UsePreviousTemplate != null) {
         entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
     }
-    if (input.Parameters !== undefined && input.Parameters !== null) {
+    if (input.Parameters != null) {
         const memberEntries = serializeAws_queryParameters(input.Parameters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Parameters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Capabilities !== undefined && input.Capabilities !== null) {
+    if (input.Capabilities != null) {
         const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Capabilities.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes !== undefined && input.ResourceTypes !== null) {
+    if (input.ResourceTypes != null) {
         const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourceTypes.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.RoleARN !== undefined && input.RoleARN !== null) {
+    if (input.RoleARN != null) {
         entries["RoleARN"] = input.RoleARN;
     }
-    if (input.RollbackConfiguration !== undefined && input.RollbackConfiguration !== null) {
+    if (input.RollbackConfiguration != null) {
         const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.NotificationARNs !== undefined && input.NotificationARNs !== null) {
+    if (input.NotificationARNs != null) {
         const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `NotificationARNs.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Tags !== undefined && input.Tags !== null) {
+    if (input.Tags != null) {
         const memberEntries = serializeAws_queryTags(input.Tags, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Tags.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
+    if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
     }
-    if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    if (input.ClientToken != null) {
         entries["ClientToken"] = input.ClientToken;
     }
-    if (input.Description !== undefined && input.Description !== null) {
+    if (input.Description != null) {
         entries["Description"] = input.Description;
     }
-    if (input.ChangeSetType !== undefined && input.ChangeSetType !== null) {
+    if (input.ChangeSetType != null) {
         entries["ChangeSetType"] = input.ChangeSetType;
     }
-    if (input.ResourcesToImport !== undefined && input.ResourcesToImport !== null) {
+    if (input.ResourcesToImport != null) {
         const memberEntries = serializeAws_queryResourcesToImport(input.ResourcesToImport, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourcesToImport.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.IncludeNestedStacks !== undefined && input.IncludeNestedStacks !== null) {
+    if (input.IncludeNestedStacks != null) {
         entries["IncludeNestedStacks"] = input.IncludeNestedStacks;
     }
     return entries;
 };
 const serializeAws_queryCreateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
+    if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
     }
-    if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
+    if (input.TemplateURL != null) {
         entries["TemplateURL"] = input.TemplateURL;
     }
-    if (input.Parameters !== undefined && input.Parameters !== null) {
+    if (input.Parameters != null) {
         const memberEntries = serializeAws_queryParameters(input.Parameters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Parameters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.DisableRollback !== undefined && input.DisableRollback !== null) {
+    if (input.DisableRollback != null) {
         entries["DisableRollback"] = input.DisableRollback;
     }
-    if (input.RollbackConfiguration !== undefined && input.RollbackConfiguration !== null) {
+    if (input.RollbackConfiguration != null) {
         const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.TimeoutInMinutes !== undefined && input.TimeoutInMinutes !== null) {
+    if (input.TimeoutInMinutes != null) {
         entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
     }
-    if (input.NotificationARNs !== undefined && input.NotificationARNs !== null) {
+    if (input.NotificationARNs != null) {
         const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `NotificationARNs.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Capabilities !== undefined && input.Capabilities !== null) {
+    if (input.Capabilities != null) {
         const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Capabilities.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes !== undefined && input.ResourceTypes !== null) {
+    if (input.ResourceTypes != null) {
         const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourceTypes.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.RoleARN !== undefined && input.RoleARN !== null) {
+    if (input.RoleARN != null) {
         entries["RoleARN"] = input.RoleARN;
     }
-    if (input.OnFailure !== undefined && input.OnFailure !== null) {
+    if (input.OnFailure != null) {
         entries["OnFailure"] = input.OnFailure;
     }
-    if (input.StackPolicyBody !== undefined && input.StackPolicyBody !== null) {
+    if (input.StackPolicyBody != null) {
         entries["StackPolicyBody"] = input.StackPolicyBody;
     }
-    if (input.StackPolicyURL !== undefined && input.StackPolicyURL !== null) {
+    if (input.StackPolicyURL != null) {
         entries["StackPolicyURL"] = input.StackPolicyURL;
     }
-    if (input.Tags !== undefined && input.Tags !== null) {
+    if (input.Tags != null) {
         const memberEntries = serializeAws_queryTags(input.Tags, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Tags.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
-    if (input.EnableTerminationProtection !== undefined && input.EnableTerminationProtection !== null) {
+    if (input.EnableTerminationProtection != null) {
         entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
     }
     return entries;
 };
 const serializeAws_queryCreateStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.Accounts !== undefined && input.Accounts !== null) {
+    if (input.Accounts != null) {
         const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Accounts.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets !== undefined && input.DeploymentTargets !== null) {
+    if (input.DeploymentTargets != null) {
         const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions !== undefined && input.Regions !== null) {
+    if (input.Regions != null) {
         const memberEntries = serializeAws_queryRegionList(input.Regions, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Regions.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ParameterOverrides !== undefined && input.ParameterOverrides !== null) {
+    if (input.ParameterOverrides != null) {
         const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ParameterOverrides.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
+    if (input.OperationPreferences != null) {
         const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
@@ -11921,78 +11660,78 @@ const serializeAws_queryCreateStackInstancesInput = (input, context) => {
     if (input.OperationId === undefined) {
         input.OperationId = (0, uuid_1.v4)();
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryCreateStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.Description !== undefined && input.Description !== null) {
+    if (input.Description != null) {
         entries["Description"] = input.Description;
     }
-    if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
+    if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
     }
-    if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
+    if (input.TemplateURL != null) {
         entries["TemplateURL"] = input.TemplateURL;
     }
-    if (input.StackId !== undefined && input.StackId !== null) {
+    if (input.StackId != null) {
         entries["StackId"] = input.StackId;
     }
-    if (input.Parameters !== undefined && input.Parameters !== null) {
+    if (input.Parameters != null) {
         const memberEntries = serializeAws_queryParameters(input.Parameters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Parameters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Capabilities !== undefined && input.Capabilities !== null) {
+    if (input.Capabilities != null) {
         const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Capabilities.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Tags !== undefined && input.Tags !== null) {
+    if (input.Tags != null) {
         const memberEntries = serializeAws_queryTags(input.Tags, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Tags.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.AdministrationRoleARN !== undefined && input.AdministrationRoleARN !== null) {
+    if (input.AdministrationRoleARN != null) {
         entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
     }
-    if (input.ExecutionRoleName !== undefined && input.ExecutionRoleName !== null) {
+    if (input.ExecutionRoleName != null) {
         entries["ExecutionRoleName"] = input.ExecutionRoleName;
     }
-    if (input.PermissionModel !== undefined && input.PermissionModel !== null) {
+    if (input.PermissionModel != null) {
         entries["PermissionModel"] = input.PermissionModel;
     }
-    if (input.AutoDeployment !== undefined && input.AutoDeployment !== null) {
+    if (input.AutoDeployment != null) {
         const memberEntries = serializeAws_queryAutoDeployment(input.AutoDeployment, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `AutoDeployment.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     if (input.ClientRequestToken === undefined) {
         input.ClientRequestToken = (0, uuid_1.v4)();
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
-    if (input.ManagedExecution !== undefined && input.ManagedExecution !== null) {
+    if (input.ManagedExecution != null) {
         const memberEntries = serializeAws_queryManagedExecution(input.ManagedExecution, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ManagedExecution.${key}`;
@@ -12003,331 +11742,331 @@ const serializeAws_queryCreateStackSetInput = (input, context) => {
 };
 const serializeAws_queryDeactivateTypeInput = (input, context) => {
     const entries = {};
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.Arn !== undefined && input.Arn !== null) {
+    if (input.Arn != null) {
         entries["Arn"] = input.Arn;
     }
     return entries;
 };
 const serializeAws_queryDeleteChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
+    if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
     }
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
     return entries;
 };
 const serializeAws_queryDeleteStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.RetainResources !== undefined && input.RetainResources !== null) {
+    if (input.RetainResources != null) {
         const memberEntries = serializeAws_queryRetainResources(input.RetainResources, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RetainResources.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.RoleARN !== undefined && input.RoleARN !== null) {
+    if (input.RoleARN != null) {
         entries["RoleARN"] = input.RoleARN;
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
     return entries;
 };
 const serializeAws_queryDeleteStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.Accounts !== undefined && input.Accounts !== null) {
+    if (input.Accounts != null) {
         const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Accounts.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets !== undefined && input.DeploymentTargets !== null) {
+    if (input.DeploymentTargets != null) {
         const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions !== undefined && input.Regions !== null) {
+    if (input.Regions != null) {
         const memberEntries = serializeAws_queryRegionList(input.Regions, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Regions.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
+    if (input.OperationPreferences != null) {
         const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.RetainStacks !== undefined && input.RetainStacks !== null) {
+    if (input.RetainStacks != null) {
         entries["RetainStacks"] = input.RetainStacks;
     }
     if (input.OperationId === undefined) {
         input.OperationId = (0, uuid_1.v4)();
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryDeleteStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryDeploymentTargets = (input, context) => {
     const entries = {};
-    if (input.Accounts !== undefined && input.Accounts !== null) {
+    if (input.Accounts != null) {
         const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Accounts.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.AccountsUrl !== undefined && input.AccountsUrl !== null) {
+    if (input.AccountsUrl != null) {
         entries["AccountsUrl"] = input.AccountsUrl;
     }
-    if (input.OrganizationalUnitIds !== undefined && input.OrganizationalUnitIds !== null) {
+    if (input.OrganizationalUnitIds != null) {
         const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OrganizationalUnitIds.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.AccountFilterType !== undefined && input.AccountFilterType !== null) {
+    if (input.AccountFilterType != null) {
         entries["AccountFilterType"] = input.AccountFilterType;
     }
     return entries;
 };
 const serializeAws_queryDeregisterTypeInput = (input, context) => {
     const entries = {};
-    if (input.Arn !== undefined && input.Arn !== null) {
+    if (input.Arn != null) {
         entries["Arn"] = input.Arn;
     }
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.VersionId !== undefined && input.VersionId !== null) {
+    if (input.VersionId != null) {
         entries["VersionId"] = input.VersionId;
     }
     return entries;
 };
 const serializeAws_queryDescribeAccountLimitsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryDescribeChangeSetHooksInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
+    if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
     }
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
-    if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
+    if (input.LogicalResourceId != null) {
         entries["LogicalResourceId"] = input.LogicalResourceId;
     }
     return entries;
 };
 const serializeAws_queryDescribeChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
+    if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
     }
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryDescribePublisherInput = (input, context) => {
     const entries = {};
-    if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    if (input.PublisherId != null) {
         entries["PublisherId"] = input.PublisherId;
     }
     return entries;
 };
 const serializeAws_queryDescribeStackDriftDetectionStatusInput = (input, context) => {
     const entries = {};
-    if (input.StackDriftDetectionId !== undefined && input.StackDriftDetectionId !== null) {
+    if (input.StackDriftDetectionId != null) {
         entries["StackDriftDetectionId"] = input.StackDriftDetectionId;
     }
     return entries;
 };
 const serializeAws_queryDescribeStackEventsInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryDescribeStackInstanceInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.StackInstanceAccount !== undefined && input.StackInstanceAccount !== null) {
+    if (input.StackInstanceAccount != null) {
         entries["StackInstanceAccount"] = input.StackInstanceAccount;
     }
-    if (input.StackInstanceRegion !== undefined && input.StackInstanceRegion !== null) {
+    if (input.StackInstanceRegion != null) {
         entries["StackInstanceRegion"] = input.StackInstanceRegion;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryDescribeStackResourceDriftsInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.StackResourceDriftStatusFilters !== undefined && input.StackResourceDriftStatusFilters !== null) {
+    if (input.StackResourceDriftStatusFilters != null) {
         const memberEntries = serializeAws_queryStackResourceDriftStatusFilters(input.StackResourceDriftStatusFilters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `StackResourceDriftStatusFilters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
-    if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    if (input.MaxResults != null) {
         entries["MaxResults"] = input.MaxResults;
     }
     return entries;
 };
 const serializeAws_queryDescribeStackResourceInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
+    if (input.LogicalResourceId != null) {
         entries["LogicalResourceId"] = input.LogicalResourceId;
     }
     return entries;
 };
 const serializeAws_queryDescribeStackResourcesInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
+    if (input.LogicalResourceId != null) {
         entries["LogicalResourceId"] = input.LogicalResourceId;
     }
-    if (input.PhysicalResourceId !== undefined && input.PhysicalResourceId !== null) {
+    if (input.PhysicalResourceId != null) {
         entries["PhysicalResourceId"] = input.PhysicalResourceId;
     }
     return entries;
 };
 const serializeAws_queryDescribeStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryDescribeStackSetOperationInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryDescribeStacksInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryDescribeTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.Arn !== undefined && input.Arn !== null) {
+    if (input.Arn != null) {
         entries["Arn"] = input.Arn;
     }
-    if (input.VersionId !== undefined && input.VersionId !== null) {
+    if (input.VersionId != null) {
         entries["VersionId"] = input.VersionId;
     }
-    if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    if (input.PublisherId != null) {
         entries["PublisherId"] = input.PublisherId;
     }
-    if (input.PublicVersionNumber !== undefined && input.PublicVersionNumber !== null) {
+    if (input.PublicVersionNumber != null) {
         entries["PublicVersionNumber"] = input.PublicVersionNumber;
     }
     return entries;
 };
 const serializeAws_queryDescribeTypeRegistrationInput = (input, context) => {
     const entries = {};
-    if (input.RegistrationToken !== undefined && input.RegistrationToken !== null) {
+    if (input.RegistrationToken != null) {
         entries["RegistrationToken"] = input.RegistrationToken;
     }
     return entries;
 };
 const serializeAws_queryDetectStackDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.LogicalResourceIds !== undefined && input.LogicalResourceIds !== null) {
+    if (input.LogicalResourceIds != null) {
         const memberEntries = serializeAws_queryLogicalResourceIds(input.LogicalResourceIds, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LogicalResourceIds.${key}`;
@@ -12338,20 +12077,20 @@ const serializeAws_queryDetectStackDriftInput = (input, context) => {
 };
 const serializeAws_queryDetectStackResourceDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
+    if (input.LogicalResourceId != null) {
         entries["LogicalResourceId"] = input.LogicalResourceId;
     }
     return entries;
 };
 const serializeAws_queryDetectStackSetDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
+    if (input.OperationPreferences != null) {
         const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
@@ -12361,23 +12100,23 @@ const serializeAws_queryDetectStackSetDriftInput = (input, context) => {
     if (input.OperationId === undefined) {
         input.OperationId = (0, uuid_1.v4)();
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryEstimateTemplateCostInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
+    if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
     }
-    if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
+    if (input.TemplateURL != null) {
         entries["TemplateURL"] = input.TemplateURL;
     }
-    if (input.Parameters !== undefined && input.Parameters !== null) {
+    if (input.Parameters != null) {
         const memberEntries = serializeAws_queryParameters(input.Parameters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Parameters.${key}`;
@@ -12388,82 +12127,82 @@ const serializeAws_queryEstimateTemplateCostInput = (input, context) => {
 };
 const serializeAws_queryExecuteChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
+    if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
     }
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
-    if (input.DisableRollback !== undefined && input.DisableRollback !== null) {
+    if (input.DisableRollback != null) {
         entries["DisableRollback"] = input.DisableRollback;
     }
     return entries;
 };
 const serializeAws_queryGetStackPolicyInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
     return entries;
 };
 const serializeAws_queryGetTemplateInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
+    if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
     }
-    if (input.TemplateStage !== undefined && input.TemplateStage !== null) {
+    if (input.TemplateStage != null) {
         entries["TemplateStage"] = input.TemplateStage;
     }
     return entries;
 };
 const serializeAws_queryGetTemplateSummaryInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
+    if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
     }
-    if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
+    if (input.TemplateURL != null) {
         entries["TemplateURL"] = input.TemplateURL;
     }
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryImportStacksToStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.StackIds !== undefined && input.StackIds !== null) {
+    if (input.StackIds != null) {
         const memberEntries = serializeAws_queryStackIdList(input.StackIds, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `StackIds.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.StackIdsUrl !== undefined && input.StackIdsUrl !== null) {
+    if (input.StackIdsUrl != null) {
         entries["StackIdsUrl"] = input.StackIdsUrl;
     }
-    if (input.OrganizationalUnitIds !== undefined && input.OrganizationalUnitIds !== null) {
+    if (input.OrganizationalUnitIds != null) {
         const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OrganizationalUnitIds.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
+    if (input.OperationPreferences != null) {
         const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
@@ -12473,137 +12212,137 @@ const serializeAws_queryImportStacksToStackSetInput = (input, context) => {
     if (input.OperationId === undefined) {
         input.OperationId = (0, uuid_1.v4)();
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryListChangeSetsInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryListExportsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryListImportsInput = (input, context) => {
     const entries = {};
-    if (input.ExportName !== undefined && input.ExportName !== null) {
+    if (input.ExportName != null) {
         entries["ExportName"] = input.ExportName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryListStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
-    if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    if (input.MaxResults != null) {
         entries["MaxResults"] = input.MaxResults;
     }
-    if (input.Filters !== undefined && input.Filters !== null) {
+    if (input.Filters != null) {
         const memberEntries = serializeAws_queryStackInstanceFilters(input.Filters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Filters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.StackInstanceAccount !== undefined && input.StackInstanceAccount !== null) {
+    if (input.StackInstanceAccount != null) {
         entries["StackInstanceAccount"] = input.StackInstanceAccount;
     }
-    if (input.StackInstanceRegion !== undefined && input.StackInstanceRegion !== null) {
+    if (input.StackInstanceRegion != null) {
         entries["StackInstanceRegion"] = input.StackInstanceRegion;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryListStackResourcesInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryListStackSetOperationResultsInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
-    if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    if (input.MaxResults != null) {
         entries["MaxResults"] = input.MaxResults;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryListStackSetOperationsInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
-    if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    if (input.MaxResults != null) {
         entries["MaxResults"] = input.MaxResults;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryListStackSetsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
-    if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    if (input.MaxResults != null) {
         entries["MaxResults"] = input.MaxResults;
     }
-    if (input.Status !== undefined && input.Status !== null) {
+    if (input.Status != null) {
         entries["Status"] = input.Status;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryListStacksInput = (input, context) => {
     const entries = {};
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
-    if (input.StackStatusFilter !== undefined && input.StackStatusFilter !== null) {
+    if (input.StackStatusFilter != null) {
         const memberEntries = serializeAws_queryStackStatusFilter(input.StackStatusFilter, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `StackStatusFilter.${key}`;
@@ -12614,86 +12353,86 @@ const serializeAws_queryListStacksInput = (input, context) => {
 };
 const serializeAws_queryListTypeRegistrationsInput = (input, context) => {
     const entries = {};
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.TypeArn !== undefined && input.TypeArn !== null) {
+    if (input.TypeArn != null) {
         entries["TypeArn"] = input.TypeArn;
     }
-    if (input.RegistrationStatusFilter !== undefined && input.RegistrationStatusFilter !== null) {
+    if (input.RegistrationStatusFilter != null) {
         entries["RegistrationStatusFilter"] = input.RegistrationStatusFilter;
     }
-    if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    if (input.MaxResults != null) {
         entries["MaxResults"] = input.MaxResults;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryListTypesInput = (input, context) => {
     const entries = {};
-    if (input.Visibility !== undefined && input.Visibility !== null) {
+    if (input.Visibility != null) {
         entries["Visibility"] = input.Visibility;
     }
-    if (input.ProvisioningType !== undefined && input.ProvisioningType !== null) {
+    if (input.ProvisioningType != null) {
         entries["ProvisioningType"] = input.ProvisioningType;
     }
-    if (input.DeprecatedStatus !== undefined && input.DeprecatedStatus !== null) {
+    if (input.DeprecatedStatus != null) {
         entries["DeprecatedStatus"] = input.DeprecatedStatus;
     }
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.Filters !== undefined && input.Filters !== null) {
+    if (input.Filters != null) {
         const memberEntries = serializeAws_queryTypeFilters(input.Filters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Filters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    if (input.MaxResults != null) {
         entries["MaxResults"] = input.MaxResults;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
 const serializeAws_queryListTypeVersionsInput = (input, context) => {
     const entries = {};
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.Arn !== undefined && input.Arn !== null) {
+    if (input.Arn != null) {
         entries["Arn"] = input.Arn;
     }
-    if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    if (input.MaxResults != null) {
         entries["MaxResults"] = input.MaxResults;
     }
-    if (input.NextToken !== undefined && input.NextToken !== null) {
+    if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
-    if (input.DeprecatedStatus !== undefined && input.DeprecatedStatus !== null) {
+    if (input.DeprecatedStatus != null) {
         entries["DeprecatedStatus"] = input.DeprecatedStatus;
     }
-    if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    if (input.PublisherId != null) {
         entries["PublisherId"] = input.PublisherId;
     }
     return entries;
 };
 const serializeAws_queryLoggingConfig = (input, context) => {
     const entries = {};
-    if (input.LogRoleArn !== undefined && input.LogRoleArn !== null) {
+    if (input.LogRoleArn != null) {
         entries["LogRoleArn"] = input.LogRoleArn;
     }
-    if (input.LogGroupName !== undefined && input.LogGroupName !== null) {
+    if (input.LogGroupName != null) {
         entries["LogGroupName"] = input.LogGroupName;
     }
     return entries;
@@ -12712,7 +12451,7 @@ const serializeAws_queryLogicalResourceIds = (input, context) => {
 };
 const serializeAws_queryManagedExecution = (input, context) => {
     const entries = {};
-    if (input.Active !== undefined && input.Active !== null) {
+    if (input.Active != null) {
         entries["Active"] = input.Active;
     }
     return entries;
@@ -12743,16 +12482,16 @@ const serializeAws_queryOrganizationalUnitIdList = (input, context) => {
 };
 const serializeAws_queryParameter = (input, context) => {
     const entries = {};
-    if (input.ParameterKey !== undefined && input.ParameterKey !== null) {
+    if (input.ParameterKey != null) {
         entries["ParameterKey"] = input.ParameterKey;
     }
-    if (input.ParameterValue !== undefined && input.ParameterValue !== null) {
+    if (input.ParameterValue != null) {
         entries["ParameterValue"] = input.ParameterValue;
     }
-    if (input.UsePreviousValue !== undefined && input.UsePreviousValue !== null) {
+    if (input.UsePreviousValue != null) {
         entries["UsePreviousValue"] = input.UsePreviousValue;
     }
-    if (input.ResolvedValue !== undefined && input.ResolvedValue !== null) {
+    if (input.ResolvedValue != null) {
         entries["ResolvedValue"] = input.ResolvedValue;
     }
     return entries;
@@ -12774,41 +12513,41 @@ const serializeAws_queryParameters = (input, context) => {
 };
 const serializeAws_queryPublishTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.Arn !== undefined && input.Arn !== null) {
+    if (input.Arn != null) {
         entries["Arn"] = input.Arn;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.PublicVersionNumber !== undefined && input.PublicVersionNumber !== null) {
+    if (input.PublicVersionNumber != null) {
         entries["PublicVersionNumber"] = input.PublicVersionNumber;
     }
     return entries;
 };
 const serializeAws_queryRecordHandlerProgressInput = (input, context) => {
     const entries = {};
-    if (input.BearerToken !== undefined && input.BearerToken !== null) {
+    if (input.BearerToken != null) {
         entries["BearerToken"] = input.BearerToken;
     }
-    if (input.OperationStatus !== undefined && input.OperationStatus !== null) {
+    if (input.OperationStatus != null) {
         entries["OperationStatus"] = input.OperationStatus;
     }
-    if (input.CurrentOperationStatus !== undefined && input.CurrentOperationStatus !== null) {
+    if (input.CurrentOperationStatus != null) {
         entries["CurrentOperationStatus"] = input.CurrentOperationStatus;
     }
-    if (input.StatusMessage !== undefined && input.StatusMessage !== null) {
+    if (input.StatusMessage != null) {
         entries["StatusMessage"] = input.StatusMessage;
     }
-    if (input.ErrorCode !== undefined && input.ErrorCode !== null) {
+    if (input.ErrorCode != null) {
         entries["ErrorCode"] = input.ErrorCode;
     }
-    if (input.ResourceModel !== undefined && input.ResourceModel !== null) {
+    if (input.ResourceModel != null) {
         entries["ResourceModel"] = input.ResourceModel;
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
     return entries;
@@ -12827,36 +12566,36 @@ const serializeAws_queryRegionList = (input, context) => {
 };
 const serializeAws_queryRegisterPublisherInput = (input, context) => {
     const entries = {};
-    if (input.AcceptTermsAndConditions !== undefined && input.AcceptTermsAndConditions !== null) {
+    if (input.AcceptTermsAndConditions != null) {
         entries["AcceptTermsAndConditions"] = input.AcceptTermsAndConditions;
     }
-    if (input.ConnectionArn !== undefined && input.ConnectionArn !== null) {
+    if (input.ConnectionArn != null) {
         entries["ConnectionArn"] = input.ConnectionArn;
     }
     return entries;
 };
 const serializeAws_queryRegisterTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.SchemaHandlerPackage !== undefined && input.SchemaHandlerPackage !== null) {
+    if (input.SchemaHandlerPackage != null) {
         entries["SchemaHandlerPackage"] = input.SchemaHandlerPackage;
     }
-    if (input.LoggingConfig !== undefined && input.LoggingConfig !== null) {
+    if (input.LoggingConfig != null) {
         const memberEntries = serializeAws_queryLoggingConfig(input.LoggingConfig, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LoggingConfig.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ExecutionRoleArn !== undefined && input.ExecutionRoleArn !== null) {
+    if (input.ExecutionRoleArn != null) {
         entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
     return entries;
@@ -12902,13 +12641,13 @@ const serializeAws_queryResourcesToSkip = (input, context) => {
 };
 const serializeAws_queryResourceToImport = (input, context) => {
     const entries = {};
-    if (input.ResourceType !== undefined && input.ResourceType !== null) {
+    if (input.ResourceType != null) {
         entries["ResourceType"] = input.ResourceType;
     }
-    if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
+    if (input.LogicalResourceId != null) {
         entries["LogicalResourceId"] = input.LogicalResourceId;
     }
-    if (input.ResourceIdentifier !== undefined && input.ResourceIdentifier !== null) {
+    if (input.ResourceIdentifier != null) {
         const memberEntries = serializeAws_queryResourceIdentifierProperties(input.ResourceIdentifier, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourceIdentifier.${key}`;
@@ -12943,37 +12682,37 @@ const serializeAws_queryRetainResources = (input, context) => {
 };
 const serializeAws_queryRollbackConfiguration = (input, context) => {
     const entries = {};
-    if (input.RollbackTriggers !== undefined && input.RollbackTriggers !== null) {
+    if (input.RollbackTriggers != null) {
         const memberEntries = serializeAws_queryRollbackTriggers(input.RollbackTriggers, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackTriggers.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.MonitoringTimeInMinutes !== undefined && input.MonitoringTimeInMinutes !== null) {
+    if (input.MonitoringTimeInMinutes != null) {
         entries["MonitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
     }
     return entries;
 };
 const serializeAws_queryRollbackStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.RoleARN !== undefined && input.RoleARN !== null) {
+    if (input.RoleARN != null) {
         entries["RoleARN"] = input.RoleARN;
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
     return entries;
 };
 const serializeAws_queryRollbackTrigger = (input, context) => {
     const entries = {};
-    if (input.Arn !== undefined && input.Arn !== null) {
+    if (input.Arn != null) {
         entries["Arn"] = input.Arn;
     }
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
     return entries;
@@ -12995,64 +12734,64 @@ const serializeAws_queryRollbackTriggers = (input, context) => {
 };
 const serializeAws_querySetStackPolicyInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.StackPolicyBody !== undefined && input.StackPolicyBody !== null) {
+    if (input.StackPolicyBody != null) {
         entries["StackPolicyBody"] = input.StackPolicyBody;
     }
-    if (input.StackPolicyURL !== undefined && input.StackPolicyURL !== null) {
+    if (input.StackPolicyURL != null) {
         entries["StackPolicyURL"] = input.StackPolicyURL;
     }
     return entries;
 };
 const serializeAws_querySetTypeConfigurationInput = (input, context) => {
     const entries = {};
-    if (input.TypeArn !== undefined && input.TypeArn !== null) {
+    if (input.TypeArn != null) {
         entries["TypeArn"] = input.TypeArn;
     }
-    if (input.Configuration !== undefined && input.Configuration !== null) {
+    if (input.Configuration != null) {
         entries["Configuration"] = input.Configuration;
     }
-    if (input.ConfigurationAlias !== undefined && input.ConfigurationAlias !== null) {
+    if (input.ConfigurationAlias != null) {
         entries["ConfigurationAlias"] = input.ConfigurationAlias;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
     return entries;
 };
 const serializeAws_querySetTypeDefaultVersionInput = (input, context) => {
     const entries = {};
-    if (input.Arn !== undefined && input.Arn !== null) {
+    if (input.Arn != null) {
         entries["Arn"] = input.Arn;
     }
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.VersionId !== undefined && input.VersionId !== null) {
+    if (input.VersionId != null) {
         entries["VersionId"] = input.VersionId;
     }
     return entries;
 };
 const serializeAws_querySignalResourceInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
+    if (input.LogicalResourceId != null) {
         entries["LogicalResourceId"] = input.LogicalResourceId;
     }
-    if (input.UniqueId !== undefined && input.UniqueId !== null) {
+    if (input.UniqueId != null) {
         entries["UniqueId"] = input.UniqueId;
     }
-    if (input.Status !== undefined && input.Status !== null) {
+    if (input.Status != null) {
         entries["Status"] = input.Status;
     }
     return entries;
@@ -13071,10 +12810,10 @@ const serializeAws_queryStackIdList = (input, context) => {
 };
 const serializeAws_queryStackInstanceFilter = (input, context) => {
     const entries = {};
-    if (input.Name !== undefined && input.Name !== null) {
+    if (input.Name != null) {
         entries["Name"] = input.Name;
     }
-    if (input.Values !== undefined && input.Values !== null) {
+    if (input.Values != null) {
         entries["Values"] = input.Values;
     }
     return entries;
@@ -13108,26 +12847,26 @@ const serializeAws_queryStackResourceDriftStatusFilters = (input, context) => {
 };
 const serializeAws_queryStackSetOperationPreferences = (input, context) => {
     const entries = {};
-    if (input.RegionConcurrencyType !== undefined && input.RegionConcurrencyType !== null) {
+    if (input.RegionConcurrencyType != null) {
         entries["RegionConcurrencyType"] = input.RegionConcurrencyType;
     }
-    if (input.RegionOrder !== undefined && input.RegionOrder !== null) {
+    if (input.RegionOrder != null) {
         const memberEntries = serializeAws_queryRegionList(input.RegionOrder, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RegionOrder.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.FailureToleranceCount !== undefined && input.FailureToleranceCount !== null) {
+    if (input.FailureToleranceCount != null) {
         entries["FailureToleranceCount"] = input.FailureToleranceCount;
     }
-    if (input.FailureTolerancePercentage !== undefined && input.FailureTolerancePercentage !== null) {
+    if (input.FailureTolerancePercentage != null) {
         entries["FailureTolerancePercentage"] = input.FailureTolerancePercentage;
     }
-    if (input.MaxConcurrentCount !== undefined && input.MaxConcurrentCount !== null) {
+    if (input.MaxConcurrentCount != null) {
         entries["MaxConcurrentCount"] = input.MaxConcurrentCount;
     }
-    if (input.MaxConcurrentPercentage !== undefined && input.MaxConcurrentPercentage !== null) {
+    if (input.MaxConcurrentPercentage != null) {
         entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
     }
     return entries;
@@ -13146,23 +12885,23 @@ const serializeAws_queryStackStatusFilter = (input, context) => {
 };
 const serializeAws_queryStopStackSetOperationInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryTag = (input, context) => {
     const entries = {};
-    if (input.Key !== undefined && input.Key !== null) {
+    if (input.Key != null) {
         entries["Key"] = input.Key;
     }
-    if (input.Value !== undefined && input.Value !== null) {
+    if (input.Value != null) {
         entries["Value"] = input.Value;
     }
     return entries;
@@ -13184,38 +12923,38 @@ const serializeAws_queryTags = (input, context) => {
 };
 const serializeAws_queryTestTypeInput = (input, context) => {
     const entries = {};
-    if (input.Arn !== undefined && input.Arn !== null) {
+    if (input.Arn != null) {
         entries["Arn"] = input.Arn;
     }
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
-    if (input.VersionId !== undefined && input.VersionId !== null) {
+    if (input.VersionId != null) {
         entries["VersionId"] = input.VersionId;
     }
-    if (input.LogDeliveryBucket !== undefined && input.LogDeliveryBucket !== null) {
+    if (input.LogDeliveryBucket != null) {
         entries["LogDeliveryBucket"] = input.LogDeliveryBucket;
     }
     return entries;
 };
 const serializeAws_queryTypeConfigurationIdentifier = (input, context) => {
     const entries = {};
-    if (input.TypeArn !== undefined && input.TypeArn !== null) {
+    if (input.TypeArn != null) {
         entries["TypeArn"] = input.TypeArn;
     }
-    if (input.TypeConfigurationAlias !== undefined && input.TypeConfigurationAlias !== null) {
+    if (input.TypeConfigurationAlias != null) {
         entries["TypeConfigurationAlias"] = input.TypeConfigurationAlias;
     }
-    if (input.TypeConfigurationArn !== undefined && input.TypeConfigurationArn !== null) {
+    if (input.TypeConfigurationArn != null) {
         entries["TypeConfigurationArn"] = input.TypeConfigurationArn;
     }
-    if (input.Type !== undefined && input.Type !== null) {
+    if (input.Type != null) {
         entries["Type"] = input.Type;
     }
-    if (input.TypeName !== undefined && input.TypeName !== null) {
+    if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
     }
     return entries;
@@ -13237,130 +12976,130 @@ const serializeAws_queryTypeConfigurationIdentifiers = (input, context) => {
 };
 const serializeAws_queryTypeFilters = (input, context) => {
     const entries = {};
-    if (input.Category !== undefined && input.Category !== null) {
+    if (input.Category != null) {
         entries["Category"] = input.Category;
     }
-    if (input.PublisherId !== undefined && input.PublisherId !== null) {
+    if (input.PublisherId != null) {
         entries["PublisherId"] = input.PublisherId;
     }
-    if (input.TypeNamePrefix !== undefined && input.TypeNamePrefix !== null) {
+    if (input.TypeNamePrefix != null) {
         entries["TypeNamePrefix"] = input.TypeNamePrefix;
     }
     return entries;
 };
 const serializeAws_queryUpdateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
-    if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
+    if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
     }
-    if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
+    if (input.TemplateURL != null) {
         entries["TemplateURL"] = input.TemplateURL;
     }
-    if (input.UsePreviousTemplate !== undefined && input.UsePreviousTemplate !== null) {
+    if (input.UsePreviousTemplate != null) {
         entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
     }
-    if (input.StackPolicyDuringUpdateBody !== undefined && input.StackPolicyDuringUpdateBody !== null) {
+    if (input.StackPolicyDuringUpdateBody != null) {
         entries["StackPolicyDuringUpdateBody"] = input.StackPolicyDuringUpdateBody;
     }
-    if (input.StackPolicyDuringUpdateURL !== undefined && input.StackPolicyDuringUpdateURL !== null) {
+    if (input.StackPolicyDuringUpdateURL != null) {
         entries["StackPolicyDuringUpdateURL"] = input.StackPolicyDuringUpdateURL;
     }
-    if (input.Parameters !== undefined && input.Parameters !== null) {
+    if (input.Parameters != null) {
         const memberEntries = serializeAws_queryParameters(input.Parameters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Parameters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Capabilities !== undefined && input.Capabilities !== null) {
+    if (input.Capabilities != null) {
         const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Capabilities.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes !== undefined && input.ResourceTypes !== null) {
+    if (input.ResourceTypes != null) {
         const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourceTypes.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.RoleARN !== undefined && input.RoleARN !== null) {
+    if (input.RoleARN != null) {
         entries["RoleARN"] = input.RoleARN;
     }
-    if (input.RollbackConfiguration !== undefined && input.RollbackConfiguration !== null) {
+    if (input.RollbackConfiguration != null) {
         const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.StackPolicyBody !== undefined && input.StackPolicyBody !== null) {
+    if (input.StackPolicyBody != null) {
         entries["StackPolicyBody"] = input.StackPolicyBody;
     }
-    if (input.StackPolicyURL !== undefined && input.StackPolicyURL !== null) {
+    if (input.StackPolicyURL != null) {
         entries["StackPolicyURL"] = input.StackPolicyURL;
     }
-    if (input.NotificationARNs !== undefined && input.NotificationARNs !== null) {
+    if (input.NotificationARNs != null) {
         const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `NotificationARNs.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Tags !== undefined && input.Tags !== null) {
+    if (input.Tags != null) {
         const memberEntries = serializeAws_queryTags(input.Tags, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Tags.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.DisableRollback !== undefined && input.DisableRollback !== null) {
+    if (input.DisableRollback != null) {
         entries["DisableRollback"] = input.DisableRollback;
     }
-    if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
+    if (input.ClientRequestToken != null) {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
     return entries;
 };
 const serializeAws_queryUpdateStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.Accounts !== undefined && input.Accounts !== null) {
+    if (input.Accounts != null) {
         const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Accounts.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets !== undefined && input.DeploymentTargets !== null) {
+    if (input.DeploymentTargets != null) {
         const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions !== undefined && input.Regions !== null) {
+    if (input.Regions != null) {
         const memberEntries = serializeAws_queryRegionList(input.Regions, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Regions.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ParameterOverrides !== undefined && input.ParameterOverrides !== null) {
+    if (input.ParameterOverrides != null) {
         const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ParameterOverrides.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
+    if (input.OperationPreferences != null) {
         const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
@@ -13370,76 +13109,76 @@ const serializeAws_queryUpdateStackInstancesInput = (input, context) => {
     if (input.OperationId === undefined) {
         input.OperationId = (0, uuid_1.v4)();
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
 const serializeAws_queryUpdateStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName !== undefined && input.StackSetName !== null) {
+    if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
-    if (input.Description !== undefined && input.Description !== null) {
+    if (input.Description != null) {
         entries["Description"] = input.Description;
     }
-    if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
+    if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
     }
-    if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
+    if (input.TemplateURL != null) {
         entries["TemplateURL"] = input.TemplateURL;
     }
-    if (input.UsePreviousTemplate !== undefined && input.UsePreviousTemplate !== null) {
+    if (input.UsePreviousTemplate != null) {
         entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
     }
-    if (input.Parameters !== undefined && input.Parameters !== null) {
+    if (input.Parameters != null) {
         const memberEntries = serializeAws_queryParameters(input.Parameters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Parameters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Capabilities !== undefined && input.Capabilities !== null) {
+    if (input.Capabilities != null) {
         const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Capabilities.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Tags !== undefined && input.Tags !== null) {
+    if (input.Tags != null) {
         const memberEntries = serializeAws_queryTags(input.Tags, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Tags.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
+    if (input.OperationPreferences != null) {
         const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.AdministrationRoleARN !== undefined && input.AdministrationRoleARN !== null) {
+    if (input.AdministrationRoleARN != null) {
         entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
     }
-    if (input.ExecutionRoleName !== undefined && input.ExecutionRoleName !== null) {
+    if (input.ExecutionRoleName != null) {
         entries["ExecutionRoleName"] = input.ExecutionRoleName;
     }
-    if (input.DeploymentTargets !== undefined && input.DeploymentTargets !== null) {
+    if (input.DeploymentTargets != null) {
         const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.PermissionModel !== undefined && input.PermissionModel !== null) {
+    if (input.PermissionModel != null) {
         entries["PermissionModel"] = input.PermissionModel;
     }
-    if (input.AutoDeployment !== undefined && input.AutoDeployment !== null) {
+    if (input.AutoDeployment != null) {
         const memberEntries = serializeAws_queryAutoDeployment(input.AutoDeployment, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `AutoDeployment.${key}`;
@@ -13449,27 +13188,27 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
     if (input.OperationId === undefined) {
         input.OperationId = (0, uuid_1.v4)();
     }
-    if (input.OperationId !== undefined && input.OperationId !== null) {
+    if (input.OperationId != null) {
         entries["OperationId"] = input.OperationId;
     }
-    if (input.Accounts !== undefined && input.Accounts !== null) {
+    if (input.Accounts != null) {
         const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Accounts.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions !== undefined && input.Regions !== null) {
+    if (input.Regions != null) {
         const memberEntries = serializeAws_queryRegionList(input.Regions, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Regions.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.CallAs !== undefined && input.CallAs !== null) {
+    if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
-    if (input.ManagedExecution !== undefined && input.ManagedExecution !== null) {
+    if (input.ManagedExecution != null) {
         const memberEntries = serializeAws_queryManagedExecution(input.ManagedExecution, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ManagedExecution.${key}`;
@@ -13480,20 +13219,20 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
 };
 const serializeAws_queryUpdateTerminationProtectionInput = (input, context) => {
     const entries = {};
-    if (input.EnableTerminationProtection !== undefined && input.EnableTerminationProtection !== null) {
+    if (input.EnableTerminationProtection != null) {
         entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
     }
-    if (input.StackName !== undefined && input.StackName !== null) {
+    if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
     return entries;
 };
 const serializeAws_queryValidateTemplateInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
+    if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
     }
-    if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
+    if (input.TemplateURL != null) {
         entries["TemplateURL"] = input.TemplateURL;
     }
     return entries;
@@ -13528,9 +13267,6 @@ const deserializeAws_queryAccountLimitList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryAccountLimit(entry, context);
     });
 };
@@ -13538,9 +13274,6 @@ const deserializeAws_queryAccountList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -13557,9 +13290,6 @@ const deserializeAws_queryAllowedValues = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -13606,9 +13336,6 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsErrors = (output, conte
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryBatchDescribeTypeConfigurationsError(entry, context);
     });
 };
@@ -13643,9 +13370,6 @@ const deserializeAws_queryCapabilities = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -13679,9 +13403,6 @@ const deserializeAws_queryChanges = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryChange(entry, context);
     });
 };
@@ -13735,9 +13456,6 @@ const deserializeAws_queryChangeSetHooks = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryChangeSetHook(entry, context);
     });
 };
@@ -13767,9 +13485,6 @@ const deserializeAws_queryChangeSetSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryChangeSetSummary(entry, context);
     });
 };
@@ -14428,9 +14143,6 @@ const deserializeAws_queryExports = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryExport(entry, context);
     });
 };
@@ -14520,9 +14232,6 @@ const deserializeAws_queryImports = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -14790,9 +14499,6 @@ const deserializeAws_queryLogicalResourceIds = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -14831,9 +14537,6 @@ const deserializeAws_queryNotificationARNs = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -14877,9 +14580,6 @@ const deserializeAws_queryOrganizationalUnitIdList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -14908,9 +14608,6 @@ const deserializeAws_queryOutputs = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryOutput(entry, context);
     });
 };
@@ -14980,9 +14677,6 @@ const deserializeAws_queryParameterDeclarations = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryParameterDeclaration(entry, context);
     });
 };
@@ -14990,9 +14684,6 @@ const deserializeAws_queryParameters = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryParameter(entry, context);
     });
 };
@@ -15000,9 +14691,6 @@ const deserializeAws_queryPhysicalResourceIdContext = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context);
     });
 };
@@ -15044,9 +14732,6 @@ const deserializeAws_queryPropertyDifferences = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryPropertyDifference(entry, context);
     });
 };
@@ -15067,9 +14752,6 @@ const deserializeAws_queryRegionList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -15095,9 +14777,6 @@ const deserializeAws_queryRegistrationTokenList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -15130,9 +14809,6 @@ const deserializeAws_queryRequiredActivatedTypes = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryRequiredActivatedType(entry, context);
     });
 };
@@ -15208,9 +14884,6 @@ const deserializeAws_queryResourceChangeDetails = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryResourceChangeDetail(entry, context);
     });
 };
@@ -15218,9 +14891,6 @@ const deserializeAws_queryResourceIdentifiers = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -15228,9 +14898,6 @@ const deserializeAws_queryResourceIdentifierSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryResourceIdentifierSummary(entry, context);
     });
 };
@@ -15278,9 +14945,6 @@ const deserializeAws_queryResourceTypes = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -15326,9 +14990,6 @@ const deserializeAws_queryRollbackTriggers = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryRollbackTrigger(entry, context);
     });
 };
@@ -15336,9 +14997,6 @@ const deserializeAws_queryScope = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -15562,9 +15220,6 @@ const deserializeAws_queryStackEvents = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackEvent(entry, context);
     });
 };
@@ -15642,9 +15297,6 @@ const deserializeAws_queryStackInstanceSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackInstanceSummary(entry, context);
     });
 };
@@ -15890,9 +15542,6 @@ const deserializeAws_queryStackResourceDrifts = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackResourceDrift(entry, context);
     });
 };
@@ -15900,9 +15549,6 @@ const deserializeAws_queryStackResources = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackResource(entry, context);
     });
 };
@@ -15910,9 +15556,6 @@ const deserializeAws_queryStackResourceSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackResourceSummary(entry, context);
     });
 };
@@ -15957,9 +15600,6 @@ const deserializeAws_queryStacks = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStack(entry, context);
     });
 };
@@ -16192,9 +15832,6 @@ const deserializeAws_queryStackSetOperationResultSummaries = (output, context) =
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackSetOperationResultSummary(entry, context);
     });
 };
@@ -16231,9 +15868,6 @@ const deserializeAws_queryStackSetOperationSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackSetOperationSummary(entry, context);
     });
 };
@@ -16270,9 +15904,6 @@ const deserializeAws_queryStackSetSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackSetSummary(entry, context);
     });
 };
@@ -16321,9 +15952,6 @@ const deserializeAws_queryStackSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryStackSummary(entry, context);
     });
 };
@@ -16380,9 +16008,6 @@ const deserializeAws_queryStageList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -16403,9 +16028,6 @@ const deserializeAws_querySupportedMajorVersions = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.strictParseInt32)(entry);
     });
 };
@@ -16426,9 +16048,6 @@ const deserializeAws_queryTags = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryTag(entry, context);
     });
 };
@@ -16457,9 +16076,6 @@ const deserializeAws_queryTemplateParameters = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryTemplateParameter(entry, context);
     });
 };
@@ -16485,9 +16101,6 @@ const deserializeAws_queryTransformsList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return (0, smithy_client_1.expectString)(entry);
     });
 };
@@ -16528,9 +16141,6 @@ const deserializeAws_queryTypeConfigurationDetailsList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryTypeConfigurationDetails(entry, context);
     });
 };
@@ -16581,9 +16191,6 @@ const deserializeAws_queryTypeSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryTypeSummary(entry, context);
     });
 };
@@ -16648,9 +16255,6 @@ const deserializeAws_queryTypeVersionSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryTypeVersionSummary(entry, context);
     });
 };
@@ -16695,9 +16299,6 @@ const deserializeAws_queryUnprocessedTypeConfigurations = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
         return deserializeAws_queryTypeConfigurationIdentifier(entry, context);
     });
 };
@@ -18593,14 +18194,14 @@ const models_0_1 = __nccwpck_require__(6390);
 const SSOServiceException_1 = __nccwpck_require__(1517);
 const serializeAws_restJson1GetRoleCredentialsCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const headers = {
-        ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken }),
-    };
+    const headers = map({}, isSerializableHeaderValue, {
+        "x-amz-sso_bearer_token": input.accessToken,
+    });
     const resolvedPath = `${(basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || ""}` + "/federation/credentials";
-    const query = {
-        ...(input.roleName !== undefined && { role_name: input.roleName }),
-        ...(input.accountId !== undefined && { account_id: input.accountId }),
-    };
+    const query = map({
+        role_name: [, input.roleName],
+        account_id: [, input.accountId],
+    });
     let body;
     return new protocol_http_1.HttpRequest({
         protocol,
@@ -18616,15 +18217,15 @@ const serializeAws_restJson1GetRoleCredentialsCommand = async (input, context) =
 exports.serializeAws_restJson1GetRoleCredentialsCommand = serializeAws_restJson1GetRoleCredentialsCommand;
 const serializeAws_restJson1ListAccountRolesCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const headers = {
-        ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken }),
-    };
+    const headers = map({}, isSerializableHeaderValue, {
+        "x-amz-sso_bearer_token": input.accessToken,
+    });
     const resolvedPath = `${(basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/roles";
-    const query = {
-        ...(input.nextToken !== undefined && { next_token: input.nextToken }),
-        ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
-        ...(input.accountId !== undefined && { account_id: input.accountId }),
-    };
+    const query = map({
+        next_token: [, input.nextToken],
+        max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
+        account_id: [, input.accountId],
+    });
     let body;
     return new protocol_http_1.HttpRequest({
         protocol,
@@ -18640,14 +18241,14 @@ const serializeAws_restJson1ListAccountRolesCommand = async (input, context) => 
 exports.serializeAws_restJson1ListAccountRolesCommand = serializeAws_restJson1ListAccountRolesCommand;
 const serializeAws_restJson1ListAccountsCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const headers = {
-        ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken }),
-    };
+    const headers = map({}, isSerializableHeaderValue, {
+        "x-amz-sso_bearer_token": input.accessToken,
+    });
     const resolvedPath = `${(basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/accounts";
-    const query = {
-        ...(input.nextToken !== undefined && { next_token: input.nextToken }),
-        ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
-    };
+    const query = map({
+        next_token: [, input.nextToken],
+        max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
+    });
     let body;
     return new protocol_http_1.HttpRequest({
         protocol,
@@ -18663,9 +18264,9 @@ const serializeAws_restJson1ListAccountsCommand = async (input, context) => {
 exports.serializeAws_restJson1ListAccountsCommand = serializeAws_restJson1ListAccountsCommand;
 const serializeAws_restJson1LogoutCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const headers = {
-        ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken }),
-    };
+    const headers = map({}, isSerializableHeaderValue, {
+        "x-amz-sso_bearer_token": input.accessToken,
+    });
     const resolvedPath = `${(basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || ""}` + "/logout";
     let body;
     return new protocol_http_1.HttpRequest({
@@ -18683,15 +18284,14 @@ const deserializeAws_restJson1GetRoleCredentialsCommand = async (output, context
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return deserializeAws_restJson1GetRoleCredentialsCommandError(output, context);
     }
-    const contents = {
+    const contents = map({
         $metadata: deserializeMetadata(output),
-        roleCredentials: undefined,
-    };
+    });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.roleCredentials !== undefined && data.roleCredentials !== null) {
+    if (data.roleCredentials != null) {
         contents.roleCredentials = deserializeAws_restJson1RoleCredentials(data.roleCredentials, context);
     }
-    return Promise.resolve(contents);
+    return contents;
 };
 exports.deserializeAws_restJson1GetRoleCredentialsCommand = deserializeAws_restJson1GetRoleCredentialsCommand;
 const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, context) => {
@@ -18699,7 +18299,6 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, co
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidRequestException":
@@ -18716,33 +18315,29 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, co
             throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new SSOServiceException_1.SSOServiceException({
-                name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody,
+                exceptionCtor: SSOServiceException_1.SSOServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody);
     }
 };
 const deserializeAws_restJson1ListAccountRolesCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return deserializeAws_restJson1ListAccountRolesCommandError(output, context);
     }
-    const contents = {
+    const contents = map({
         $metadata: deserializeMetadata(output),
-        nextToken: undefined,
-        roleList: undefined,
-    };
+    });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.nextToken !== undefined && data.nextToken !== null) {
+    if (data.nextToken != null) {
         contents.nextToken = (0, smithy_client_1.expectString)(data.nextToken);
     }
-    if (data.roleList !== undefined && data.roleList !== null) {
+    if (data.roleList != null) {
         contents.roleList = deserializeAws_restJson1RoleListType(data.roleList, context);
     }
-    return Promise.resolve(contents);
+    return contents;
 };
 exports.deserializeAws_restJson1ListAccountRolesCommand = deserializeAws_restJson1ListAccountRolesCommand;
 const deserializeAws_restJson1ListAccountRolesCommandError = async (output, context) => {
@@ -18750,7 +18345,6 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (output, cont
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidRequestException":
@@ -18767,33 +18361,29 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (output, cont
             throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new SSOServiceException_1.SSOServiceException({
-                name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody,
+                exceptionCtor: SSOServiceException_1.SSOServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody);
     }
 };
 const deserializeAws_restJson1ListAccountsCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return deserializeAws_restJson1ListAccountsCommandError(output, context);
     }
-    const contents = {
+    const contents = map({
         $metadata: deserializeMetadata(output),
-        accountList: undefined,
-        nextToken: undefined,
-    };
+    });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.accountList !== undefined && data.accountList !== null) {
+    if (data.accountList != null) {
         contents.accountList = deserializeAws_restJson1AccountListType(data.accountList, context);
     }
-    if (data.nextToken !== undefined && data.nextToken !== null) {
+    if (data.nextToken != null) {
         contents.nextToken = (0, smithy_client_1.expectString)(data.nextToken);
     }
-    return Promise.resolve(contents);
+    return contents;
 };
 exports.deserializeAws_restJson1ListAccountsCommand = deserializeAws_restJson1ListAccountsCommand;
 const deserializeAws_restJson1ListAccountsCommandError = async (output, context) => {
@@ -18801,7 +18391,6 @@ const deserializeAws_restJson1ListAccountsCommandError = async (output, context)
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidRequestException":
@@ -18818,25 +18407,23 @@ const deserializeAws_restJson1ListAccountsCommandError = async (output, context)
             throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new SSOServiceException_1.SSOServiceException({
-                name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody,
+                exceptionCtor: SSOServiceException_1.SSOServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody);
     }
 };
 const deserializeAws_restJson1LogoutCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return deserializeAws_restJson1LogoutCommandError(output, context);
     }
-    const contents = {
+    const contents = map({
         $metadata: deserializeMetadata(output),
-    };
+    });
     await collectBody(output.body, context);
-    return Promise.resolve(contents);
+    return contents;
 };
 exports.deserializeAws_restJson1LogoutCommand = deserializeAws_restJson1LogoutCommand;
 const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
@@ -18844,7 +18431,6 @@ const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidRequestException":
@@ -18858,20 +18444,19 @@ const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
             throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new SSOServiceException_1.SSOServiceException({
-                name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody,
+                exceptionCtor: SSOServiceException_1.SSOServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody);
     }
 };
+const map = smithy_client_1.map;
 const deserializeAws_restJson1InvalidRequestExceptionResponse = async (parsedOutput, context) => {
-    const contents = {};
+    const contents = map({});
     const data = parsedOutput.body;
-    if (data.message !== undefined && data.message !== null) {
+    if (data.message != null) {
         contents.message = (0, smithy_client_1.expectString)(data.message);
     }
     const exception = new models_0_1.InvalidRequestException({
@@ -18881,9 +18466,9 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (parsedOut
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (parsedOutput, context) => {
-    const contents = {};
+    const contents = map({});
     const data = parsedOutput.body;
-    if (data.message !== undefined && data.message !== null) {
+    if (data.message != null) {
         contents.message = (0, smithy_client_1.expectString)(data.message);
     }
     const exception = new models_0_1.ResourceNotFoundException({
@@ -18893,9 +18478,9 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (parsedO
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (parsedOutput, context) => {
-    const contents = {};
+    const contents = map({});
     const data = parsedOutput.body;
-    if (data.message !== undefined && data.message !== null) {
+    if (data.message != null) {
         contents.message = (0, smithy_client_1.expectString)(data.message);
     }
     const exception = new models_0_1.TooManyRequestsException({
@@ -18905,9 +18490,9 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (parsedOu
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const deserializeAws_restJson1UnauthorizedExceptionResponse = async (parsedOutput, context) => {
-    const contents = {};
+    const contents = map({});
     const data = parsedOutput.body;
-    if (data.message !== undefined && data.message !== null) {
+    if (data.message != null) {
         contents.message = (0, smithy_client_1.expectString)(data.message);
     }
     const exception = new models_0_1.UnauthorizedException({
@@ -20334,7 +19919,6 @@ const deserializeAws_queryAssumeRoleCommandError = async (output, context) => {
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
@@ -20351,14 +19935,12 @@ const deserializeAws_queryAssumeRoleCommandError = async (output, context) => {
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: STSServiceException_1.STSServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryAssumeRoleWithSAMLCommand = async (output, context) => {
@@ -20380,7 +19962,6 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (output, contex
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
@@ -20403,14 +19984,12 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (output, contex
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: STSServiceException_1.STSServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryAssumeRoleWithWebIdentityCommand = async (output, context) => {
@@ -20432,7 +20011,6 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (output,
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
@@ -20458,14 +20036,12 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (output,
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: STSServiceException_1.STSServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryDecodeAuthorizationMessageCommand = async (output, context) => {
@@ -20487,7 +20063,6 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (output
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "InvalidAuthorizationMessageException":
@@ -20495,14 +20070,12 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (output
             throw await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: STSServiceException_1.STSServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryGetAccessKeyInfoCommand = async (output, context) => {
@@ -20524,20 +20097,14 @@ const deserializeAws_queryGetAccessKeyInfoCommandError = async (output, context)
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: STSServiceException_1.STSServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryGetCallerIdentityCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -20558,20 +20125,14 @@ const deserializeAws_queryGetCallerIdentityCommandError = async (output, context
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        default:
-            const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
-            });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
-    }
+    const parsedBody = parsedOutput.body;
+    (0, smithy_client_1.throwDefaultError)({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: STSServiceException_1.STSServiceException,
+        errorCode,
+    });
 };
 const deserializeAws_queryGetFederationTokenCommand = async (output, context) => {
     if (output.statusCode >= 300) {
@@ -20592,7 +20153,6 @@ const deserializeAws_queryGetFederationTokenCommandError = async (output, contex
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "MalformedPolicyDocumentException":
@@ -20606,14 +20166,12 @@ const deserializeAws_queryGetFederationTokenCommandError = async (output, contex
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: STSServiceException_1.STSServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryGetSessionTokenCommand = async (output, context) => {
@@ -20635,7 +20193,6 @@ const deserializeAws_queryGetSessionTokenCommandError = async (output, context) 
         ...output,
         body: await parseBody(output.body, context),
     };
-    let response;
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "RegionDisabledException":
@@ -20643,14 +20200,12 @@ const deserializeAws_queryGetSessionTokenCommandError = async (output, context) 
             throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            const $metadata = deserializeMetadata(output);
-            const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-            response = new STSServiceException_1.STSServiceException({
-                name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-                $fault: "client",
-                $metadata,
+            (0, smithy_client_1.throwDefaultError)({
+                output,
+                parsedBody: parsedBody.Error,
+                exceptionCtor: STSServiceException_1.STSServiceException,
+                errorCode,
             });
-            throw (0, smithy_client_1.decorateServiceException)(response, parsedBody.Error);
     }
 };
 const deserializeAws_queryExpiredTokenExceptionResponse = async (parsedOutput, context) => {
@@ -20727,118 +20282,118 @@ const deserializeAws_queryRegionDisabledExceptionResponse = async (parsedOutput,
 };
 const serializeAws_queryAssumeRoleRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn !== undefined && input.RoleArn !== null) {
+    if (input.RoleArn != null) {
         entries["RoleArn"] = input.RoleArn;
     }
-    if (input.RoleSessionName !== undefined && input.RoleSessionName !== null) {
+    if (input.RoleSessionName != null) {
         entries["RoleSessionName"] = input.RoleSessionName;
     }
-    if (input.PolicyArns !== undefined && input.PolicyArns !== null) {
+    if (input.PolicyArns != null) {
         const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `PolicyArns.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Policy !== undefined && input.Policy !== null) {
+    if (input.Policy != null) {
         entries["Policy"] = input.Policy;
     }
-    if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
+    if (input.DurationSeconds != null) {
         entries["DurationSeconds"] = input.DurationSeconds;
     }
-    if (input.Tags !== undefined && input.Tags !== null) {
+    if (input.Tags != null) {
         const memberEntries = serializeAws_querytagListType(input.Tags, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Tags.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.TransitiveTagKeys !== undefined && input.TransitiveTagKeys !== null) {
+    if (input.TransitiveTagKeys != null) {
         const memberEntries = serializeAws_querytagKeyListType(input.TransitiveTagKeys, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `TransitiveTagKeys.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ExternalId !== undefined && input.ExternalId !== null) {
+    if (input.ExternalId != null) {
         entries["ExternalId"] = input.ExternalId;
     }
-    if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+    if (input.SerialNumber != null) {
         entries["SerialNumber"] = input.SerialNumber;
     }
-    if (input.TokenCode !== undefined && input.TokenCode !== null) {
+    if (input.TokenCode != null) {
         entries["TokenCode"] = input.TokenCode;
     }
-    if (input.SourceIdentity !== undefined && input.SourceIdentity !== null) {
+    if (input.SourceIdentity != null) {
         entries["SourceIdentity"] = input.SourceIdentity;
     }
     return entries;
 };
 const serializeAws_queryAssumeRoleWithSAMLRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn !== undefined && input.RoleArn !== null) {
+    if (input.RoleArn != null) {
         entries["RoleArn"] = input.RoleArn;
     }
-    if (input.PrincipalArn !== undefined && input.PrincipalArn !== null) {
+    if (input.PrincipalArn != null) {
         entries["PrincipalArn"] = input.PrincipalArn;
     }
-    if (input.SAMLAssertion !== undefined && input.SAMLAssertion !== null) {
+    if (input.SAMLAssertion != null) {
         entries["SAMLAssertion"] = input.SAMLAssertion;
     }
-    if (input.PolicyArns !== undefined && input.PolicyArns !== null) {
+    if (input.PolicyArns != null) {
         const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `PolicyArns.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Policy !== undefined && input.Policy !== null) {
+    if (input.Policy != null) {
         entries["Policy"] = input.Policy;
     }
-    if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
+    if (input.DurationSeconds != null) {
         entries["DurationSeconds"] = input.DurationSeconds;
     }
     return entries;
 };
 const serializeAws_queryAssumeRoleWithWebIdentityRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn !== undefined && input.RoleArn !== null) {
+    if (input.RoleArn != null) {
         entries["RoleArn"] = input.RoleArn;
     }
-    if (input.RoleSessionName !== undefined && input.RoleSessionName !== null) {
+    if (input.RoleSessionName != null) {
         entries["RoleSessionName"] = input.RoleSessionName;
     }
-    if (input.WebIdentityToken !== undefined && input.WebIdentityToken !== null) {
+    if (input.WebIdentityToken != null) {
         entries["WebIdentityToken"] = input.WebIdentityToken;
     }
-    if (input.ProviderId !== undefined && input.ProviderId !== null) {
+    if (input.ProviderId != null) {
         entries["ProviderId"] = input.ProviderId;
     }
-    if (input.PolicyArns !== undefined && input.PolicyArns !== null) {
+    if (input.PolicyArns != null) {
         const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `PolicyArns.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Policy !== undefined && input.Policy !== null) {
+    if (input.Policy != null) {
         entries["Policy"] = input.Policy;
     }
-    if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
+    if (input.DurationSeconds != null) {
         entries["DurationSeconds"] = input.DurationSeconds;
     }
     return entries;
 };
 const serializeAws_queryDecodeAuthorizationMessageRequest = (input, context) => {
     const entries = {};
-    if (input.EncodedMessage !== undefined && input.EncodedMessage !== null) {
+    if (input.EncodedMessage != null) {
         entries["EncodedMessage"] = input.EncodedMessage;
     }
     return entries;
 };
 const serializeAws_queryGetAccessKeyInfoRequest = (input, context) => {
     const entries = {};
-    if (input.AccessKeyId !== undefined && input.AccessKeyId !== null) {
+    if (input.AccessKeyId != null) {
         entries["AccessKeyId"] = input.AccessKeyId;
     }
     return entries;
@@ -20849,23 +20404,23 @@ const serializeAws_queryGetCallerIdentityRequest = (input, context) => {
 };
 const serializeAws_queryGetFederationTokenRequest = (input, context) => {
     const entries = {};
-    if (input.Name !== undefined && input.Name !== null) {
+    if (input.Name != null) {
         entries["Name"] = input.Name;
     }
-    if (input.Policy !== undefined && input.Policy !== null) {
+    if (input.Policy != null) {
         entries["Policy"] = input.Policy;
     }
-    if (input.PolicyArns !== undefined && input.PolicyArns !== null) {
+    if (input.PolicyArns != null) {
         const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `PolicyArns.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
+    if (input.DurationSeconds != null) {
         entries["DurationSeconds"] = input.DurationSeconds;
     }
-    if (input.Tags !== undefined && input.Tags !== null) {
+    if (input.Tags != null) {
         const memberEntries = serializeAws_querytagListType(input.Tags, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Tags.${key}`;
@@ -20876,13 +20431,13 @@ const serializeAws_queryGetFederationTokenRequest = (input, context) => {
 };
 const serializeAws_queryGetSessionTokenRequest = (input, context) => {
     const entries = {};
-    if (input.DurationSeconds !== undefined && input.DurationSeconds !== null) {
+    if (input.DurationSeconds != null) {
         entries["DurationSeconds"] = input.DurationSeconds;
     }
-    if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+    if (input.SerialNumber != null) {
         entries["SerialNumber"] = input.SerialNumber;
     }
-    if (input.TokenCode !== undefined && input.TokenCode !== null) {
+    if (input.TokenCode != null) {
         entries["TokenCode"] = input.TokenCode;
     }
     return entries;
@@ -20904,17 +20459,17 @@ const serializeAws_querypolicyDescriptorListType = (input, context) => {
 };
 const serializeAws_queryPolicyDescriptorType = (input, context) => {
     const entries = {};
-    if (input.arn !== undefined && input.arn !== null) {
+    if (input.arn != null) {
         entries["arn"] = input.arn;
     }
     return entries;
 };
 const serializeAws_queryTag = (input, context) => {
     const entries = {};
-    if (input.Key !== undefined && input.Key !== null) {
+    if (input.Key != null) {
         entries["Key"] = input.Key;
     }
-    if (input.Value !== undefined && input.Value !== null) {
+    if (input.Value != null) {
         entries["Value"] = input.Value;
     }
     return entries;
@@ -26212,6 +25767,37 @@ const stripLeadingZeroes = (value) => {
 
 /***/ }),
 
+/***/ 7222:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.throwDefaultError = void 0;
+const exceptions_1 = __nccwpck_require__(7778);
+const throwDefaultError = ({ output, parsedBody, exceptionCtor, errorCode }) => {
+    const $metadata = deserializeMetadata(output);
+    const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+    const response = new exceptionCtor({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+    });
+    throw (0, exceptions_1.decorateServiceException)(response, parsedBody);
+};
+exports.throwDefaultError = throwDefaultError;
+const deserializeMetadata = (output) => {
+    var _a;
+    return ({
+        httpStatusCode: output.statusCode,
+        requestId: (_a = output.headers["x-amzn-requestid"]) !== null && _a !== void 0 ? _a : output.headers["x-amzn-request-id"],
+        extendedRequestId: output.headers["x-amz-id-2"],
+        cfId: output.headers["x-amz-cf-id"],
+    });
+};
+
+
+/***/ }),
+
 /***/ 3088:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -26366,6 +25952,7 @@ tslib_1.__exportStar(__nccwpck_require__(6034), exports);
 tslib_1.__exportStar(__nccwpck_require__(4014), exports);
 tslib_1.__exportStar(__nccwpck_require__(8392), exports);
 tslib_1.__exportStar(__nccwpck_require__(4695), exports);
+tslib_1.__exportStar(__nccwpck_require__(7222), exports);
 tslib_1.__exportStar(__nccwpck_require__(3088), exports);
 tslib_1.__exportStar(__nccwpck_require__(2363), exports);
 tslib_1.__exportStar(__nccwpck_require__(7778), exports);
@@ -26373,7 +25960,9 @@ tslib_1.__exportStar(__nccwpck_require__(1927), exports);
 tslib_1.__exportStar(__nccwpck_require__(6457), exports);
 tslib_1.__exportStar(__nccwpck_require__(5830), exports);
 tslib_1.__exportStar(__nccwpck_require__(3613), exports);
+tslib_1.__exportStar(__nccwpck_require__(1599), exports);
 tslib_1.__exportStar(__nccwpck_require__(4809), exports);
+tslib_1.__exportStar(__nccwpck_require__(308), exports);
 tslib_1.__exportStar(__nccwpck_require__(8000), exports);
 tslib_1.__exportStar(__nccwpck_require__(8730), exports);
 
@@ -26421,6 +26010,87 @@ class LazyJsonString extends exports.StringWrapper {
     }
 }
 exports.LazyJsonString = LazyJsonString;
+
+
+/***/ }),
+
+/***/ 1599:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.convertMap = exports.map = void 0;
+function map(arg0, arg1, arg2) {
+    let target;
+    let filter;
+    let instructions;
+    if (typeof arg1 === "undefined" && typeof arg2 === "undefined") {
+        target = {};
+        instructions = arg0;
+    }
+    else {
+        target = arg0;
+        if (typeof arg1 === "function") {
+            filter = arg1;
+            instructions = arg2;
+            return mapWithFilter(target, filter, instructions);
+        }
+        else {
+            instructions = arg1;
+        }
+    }
+    for (const key of Object.keys(instructions)) {
+        if (!Array.isArray(instructions[key])) {
+            target[key] = instructions[key];
+            continue;
+        }
+        let [filter, value] = instructions[key];
+        if (typeof value === "function") {
+            let _value;
+            const defaultFilterPassed = filter === undefined && (_value = value()) != null;
+            const customFilterPassed = (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
+            if (defaultFilterPassed) {
+                target[key] = _value;
+            }
+            else if (customFilterPassed) {
+                target[key] = value();
+            }
+        }
+        else {
+            const defaultFilterPassed = filter === undefined && value != null;
+            const customFilterPassed = (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
+            if (defaultFilterPassed || customFilterPassed) {
+                target[key] = value;
+            }
+        }
+    }
+    return target;
+}
+exports.map = map;
+const convertMap = (target) => {
+    const output = {};
+    for (const [k, v] of Object.entries(target || {})) {
+        output[k] = [, v];
+    }
+    return output;
+};
+exports.convertMap = convertMap;
+const mapWithFilter = (target, filter, instructions) => {
+    return map(target, Object.entries(instructions).reduce((_instructions, [key, value]) => {
+        if (Array.isArray(value)) {
+            _instructions[key] = value;
+        }
+        else {
+            if (typeof value === "function") {
+                _instructions[key] = [filter, value()];
+            }
+            else {
+                _instructions[key] = [filter, value];
+            }
+        }
+        return _instructions;
+    }, {}));
+};
 
 
 /***/ }),
@@ -26634,6 +26304,36 @@ const strictParseByte = (value) => {
     return (0, exports.expectByte)(value);
 };
 exports.strictParseByte = strictParseByte;
+
+
+/***/ }),
+
+/***/ 308:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.resolvedPath = void 0;
+const extended_encode_uri_component_1 = __nccwpck_require__(1927);
+const resolvedPath = (resolvedPath, input, memberName, labelValueProvider, uriLabel, isGreedyLabel) => {
+    if (input != null && input[memberName] !== undefined) {
+        const labelValue = labelValueProvider();
+        if (labelValue.length <= 0) {
+            throw new Error("Empty value provided for input HTTP label: " + memberName + ".");
+        }
+        resolvedPath = resolvedPath.replace(uriLabel, isGreedyLabel
+            ? labelValue
+                .split("/")
+                .map((segment) => (0, extended_encode_uri_component_1.extendedEncodeURIComponent)(segment))
+                .join("/")
+            : (0, extended_encode_uri_component_1.extendedEncodeURIComponent)(labelValue));
+    }
+    else {
+        throw new Error("No value provided for input HTTP label: " + memberName + ".");
+    }
+    return resolvedPath;
+};
+exports.resolvedPath = resolvedPath;
 
 
 /***/ }),
@@ -30542,21 +30242,21 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 3713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.141.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.141.0","@aws-sdk/config-resolver":"3.130.0","@aws-sdk/credential-provider-node":"3.141.0","@aws-sdk/fetch-http-handler":"3.131.0","@aws-sdk/hash-node":"3.127.0","@aws-sdk/invalid-dependency":"3.127.0","@aws-sdk/middleware-content-length":"3.127.0","@aws-sdk/middleware-host-header":"3.127.0","@aws-sdk/middleware-logger":"3.127.0","@aws-sdk/middleware-recursion-detection":"3.127.0","@aws-sdk/middleware-retry":"3.127.0","@aws-sdk/middleware-serde":"3.127.0","@aws-sdk/middleware-signing":"3.130.0","@aws-sdk/middleware-stack":"3.127.0","@aws-sdk/middleware-user-agent":"3.127.0","@aws-sdk/node-config-provider":"3.127.0","@aws-sdk/node-http-handler":"3.127.0","@aws-sdk/protocol-http":"3.127.0","@aws-sdk/smithy-client":"3.137.0","@aws-sdk/types":"3.127.0","@aws-sdk/url-parser":"3.127.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.137.0","@aws-sdk/util-defaults-mode-node":"3.137.0","@aws-sdk/util-user-agent-browser":"3.127.0","@aws-sdk/util-user-agent-node":"3.127.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","@aws-sdk/util-waiter":"3.127.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.142.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.142.0","@aws-sdk/config-resolver":"3.130.0","@aws-sdk/credential-provider-node":"3.142.0","@aws-sdk/fetch-http-handler":"3.131.0","@aws-sdk/hash-node":"3.127.0","@aws-sdk/invalid-dependency":"3.127.0","@aws-sdk/middleware-content-length":"3.127.0","@aws-sdk/middleware-host-header":"3.127.0","@aws-sdk/middleware-logger":"3.127.0","@aws-sdk/middleware-recursion-detection":"3.127.0","@aws-sdk/middleware-retry":"3.127.0","@aws-sdk/middleware-serde":"3.127.0","@aws-sdk/middleware-signing":"3.130.0","@aws-sdk/middleware-stack":"3.127.0","@aws-sdk/middleware-user-agent":"3.127.0","@aws-sdk/node-config-provider":"3.127.0","@aws-sdk/node-http-handler":"3.127.0","@aws-sdk/protocol-http":"3.127.0","@aws-sdk/smithy-client":"3.142.0","@aws-sdk/types":"3.127.0","@aws-sdk/url-parser":"3.127.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.142.0","@aws-sdk/util-defaults-mode-node":"3.142.0","@aws-sdk/util-user-agent-browser":"3.127.0","@aws-sdk/util-user-agent-node":"3.127.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","@aws-sdk/util-waiter":"3.127.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 1092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.141.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.130.0","@aws-sdk/fetch-http-handler":"3.131.0","@aws-sdk/hash-node":"3.127.0","@aws-sdk/invalid-dependency":"3.127.0","@aws-sdk/middleware-content-length":"3.127.0","@aws-sdk/middleware-host-header":"3.127.0","@aws-sdk/middleware-logger":"3.127.0","@aws-sdk/middleware-recursion-detection":"3.127.0","@aws-sdk/middleware-retry":"3.127.0","@aws-sdk/middleware-serde":"3.127.0","@aws-sdk/middleware-stack":"3.127.0","@aws-sdk/middleware-user-agent":"3.127.0","@aws-sdk/node-config-provider":"3.127.0","@aws-sdk/node-http-handler":"3.127.0","@aws-sdk/protocol-http":"3.127.0","@aws-sdk/smithy-client":"3.137.0","@aws-sdk/types":"3.127.0","@aws-sdk/url-parser":"3.127.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.137.0","@aws-sdk/util-defaults-mode-node":"3.137.0","@aws-sdk/util-user-agent-browser":"3.127.0","@aws-sdk/util-user-agent-node":"3.127.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.142.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.130.0","@aws-sdk/fetch-http-handler":"3.131.0","@aws-sdk/hash-node":"3.127.0","@aws-sdk/invalid-dependency":"3.127.0","@aws-sdk/middleware-content-length":"3.127.0","@aws-sdk/middleware-host-header":"3.127.0","@aws-sdk/middleware-logger":"3.127.0","@aws-sdk/middleware-recursion-detection":"3.127.0","@aws-sdk/middleware-retry":"3.127.0","@aws-sdk/middleware-serde":"3.127.0","@aws-sdk/middleware-stack":"3.127.0","@aws-sdk/middleware-user-agent":"3.127.0","@aws-sdk/node-config-provider":"3.127.0","@aws-sdk/node-http-handler":"3.127.0","@aws-sdk/protocol-http":"3.127.0","@aws-sdk/smithy-client":"3.142.0","@aws-sdk/types":"3.127.0","@aws-sdk/url-parser":"3.127.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.142.0","@aws-sdk/util-defaults-mode-node":"3.142.0","@aws-sdk/util-user-agent-browser":"3.127.0","@aws-sdk/util-user-agent-node":"3.127.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.141.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.130.0","@aws-sdk/credential-provider-node":"3.141.0","@aws-sdk/fetch-http-handler":"3.131.0","@aws-sdk/hash-node":"3.127.0","@aws-sdk/invalid-dependency":"3.127.0","@aws-sdk/middleware-content-length":"3.127.0","@aws-sdk/middleware-host-header":"3.127.0","@aws-sdk/middleware-logger":"3.127.0","@aws-sdk/middleware-recursion-detection":"3.127.0","@aws-sdk/middleware-retry":"3.127.0","@aws-sdk/middleware-sdk-sts":"3.130.0","@aws-sdk/middleware-serde":"3.127.0","@aws-sdk/middleware-signing":"3.130.0","@aws-sdk/middleware-stack":"3.127.0","@aws-sdk/middleware-user-agent":"3.127.0","@aws-sdk/node-config-provider":"3.127.0","@aws-sdk/node-http-handler":"3.127.0","@aws-sdk/protocol-http":"3.127.0","@aws-sdk/smithy-client":"3.137.0","@aws-sdk/types":"3.127.0","@aws-sdk/url-parser":"3.127.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.137.0","@aws-sdk/util-defaults-mode-node":"3.137.0","@aws-sdk/util-user-agent-browser":"3.127.0","@aws-sdk/util-user-agent-node":"3.127.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.142.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.130.0","@aws-sdk/credential-provider-node":"3.142.0","@aws-sdk/fetch-http-handler":"3.131.0","@aws-sdk/hash-node":"3.127.0","@aws-sdk/invalid-dependency":"3.127.0","@aws-sdk/middleware-content-length":"3.127.0","@aws-sdk/middleware-host-header":"3.127.0","@aws-sdk/middleware-logger":"3.127.0","@aws-sdk/middleware-recursion-detection":"3.127.0","@aws-sdk/middleware-retry":"3.127.0","@aws-sdk/middleware-sdk-sts":"3.130.0","@aws-sdk/middleware-serde":"3.127.0","@aws-sdk/middleware-signing":"3.130.0","@aws-sdk/middleware-stack":"3.127.0","@aws-sdk/middleware-user-agent":"3.127.0","@aws-sdk/node-config-provider":"3.127.0","@aws-sdk/node-http-handler":"3.127.0","@aws-sdk/protocol-http":"3.127.0","@aws-sdk/smithy-client":"3.142.0","@aws-sdk/types":"3.127.0","@aws-sdk/url-parser":"3.127.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.142.0","@aws-sdk/util-defaults-mode-node":"3.142.0","@aws-sdk/util-user-agent-browser":"3.127.0","@aws-sdk/util-user-agent-node":"3.127.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
