@@ -11,14 +11,14 @@ on:
       - '**.md'
   workflow_dispatch:
 
-env:
-  AWS_REGION: us-west-2
 
 permissions:
   id-token: write
 
 jobs:
   build:
+    env:
+      AWS_REGION: us-west-2
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -83,6 +83,24 @@ jobs:
       id: stack-status
       with:
         stack-name: aws-cloudformation-stack-status-checker-test-${{ steps.gen-timestamp.outputs.timestamp }}
+
+    - name: 'test'
+      run: echo ${{ steps.stack-status.outputs.status }}
+
+    - name: Remove for testing stack
+      env:
+        TIMESTAMP: ${{ steps.gen-timestamp.outputs.timestamp }}
+      working-directory: test
+      run: yarn install && cdk destroy -c name="${TIMESTAMP}" -c region=us-east-1 -f
+
+  no_credemtial:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./
+      id: stack-status
+      with:
+        stack-name: aws-cloudformation-stack-status-checker-test
 
     - name: 'test'
       run: echo ${{ steps.stack-status.outputs.status }}
