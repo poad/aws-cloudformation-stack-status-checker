@@ -5,6 +5,9 @@ inputs:
   stack-name:
     required: true
     description: 'The name of AWS CloudFormation Stack to be status checked.'
+  region:
+    required: false
+    description: 'The region of AWS CloudFormation Stack to be status checked.'
 outputs:
   status:
     description: 'The status of AWS CloudFormation Stack.'
