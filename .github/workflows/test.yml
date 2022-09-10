@@ -77,14 +77,12 @@ jobs:
       env:
         TIMESTAMP: ${{ steps.gen-timestamp.outputs.timestamp }}
       working-directory: test
-      run: cdk deploy -c timestamp=${TIMESTAMP}
+      run: yarn install && cdk deploy -c timestamp=${TIMESTAMP} -c region=us-east-1
 
     - uses: ./
       id: stack-status
-      env:
-        TIMESTAMP: ${{ steps.gen-timestamp.outputs.timestamp }}
       with:
-        stack-name: aws-cloudformation-stack-status-checker-test-${TIMESTAMP}
+        stack-name: aws-cloudformation-stack-status-checker-test-${{ steps.gen-timestamp.outputs.timestamp }}
 
     - name: 'test'
       run: echo ${{ steps.stack-status.outputs.status }}
