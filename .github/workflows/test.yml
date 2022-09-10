@@ -49,3 +49,18 @@ jobs:
 
       - name: 'test'
         run: echo ${{ steps.stack-status.outputs.status }}
+
+  'test (not oidc)':
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
+        id: stack-status
+        with:
+          stack-name: CDKToolkit
+
+      - name: 'test'
+        run: echo ${{ steps.stack-status.outputs.status }}
