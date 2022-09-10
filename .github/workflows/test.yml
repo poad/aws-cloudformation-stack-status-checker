@@ -6,7 +6,7 @@ on:
       - main
     paths-ignore:
       - '**.md'
-  pull_request_target:
+  pull_request:
     paths-ignore:
       - '**.md'
   workflow_dispatch:
@@ -58,6 +58,7 @@ jobs:
     - name: generate timestamp
       id: gen-timestamp
       run: echo "::set-output name=timestamp::$(date +%Y%m%d-%H%M%S)"
+
     - uses: actions/checkout@v3
 
     - name: Use Node.js 16.x

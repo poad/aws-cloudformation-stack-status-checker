@@ -30479,8 +30479,9 @@ var __webpack_exports__ = {};
 
 async function run() {
     try {
-        const client = new _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__.CloudFormationClient({});
         const StackName = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('stack-name', { required: true });
+        const region = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('region', { required: false });
+        const client = new _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__.CloudFormationClient(region && region.length > 0 ? { region } : {});
         const resp = await client.send(new _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__.DescribeStacksCommand({
             StackName
         }));
