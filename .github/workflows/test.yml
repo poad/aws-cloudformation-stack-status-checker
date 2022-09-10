@@ -84,6 +84,7 @@ jobs:
       id: stack-status
       with:
         stack-name: aws-cloudformation-stack-status-checker-test-${{ steps.gen-timestamp.outputs.timestamp }}
+        region: us-east-1
 
     - name: 'test'
       run: echo ${{ steps.stack-status.outputs.status }}
@@ -93,4 +94,3 @@ jobs:
         TIMESTAMP: ${{ steps.gen-timestamp.outputs.timestamp }}
       working-directory: test
       run: yarn install && cdk destroy -c name="${TIMESTAMP}" -c region=us-east-1 -f
-
