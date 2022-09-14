@@ -606,9 +606,9 @@
     tslib "^2.3.1"
 
 "@aws-sdk/util-locate-window@^3.0.0":
-  version "3.168.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/util-locate-window/-/util-locate-window-3.168.0.tgz#50e2eb5f29f9ecbc41da05b1e893f20603a14709"
-  integrity sha512-bCKN6rbTTA41cqm7TYuiSkXR8peSXR/t8GioeEOExPESNgR7kuwVU4pQ2LZYjnD1HqLtz3FKKKddvBJhmqpG8Q==
+  version "3.170.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/util-locate-window/-/util-locate-window-3.170.0.tgz#acc8717abe1e568de41d9b8ede33a49c6c1e108d"
+  integrity sha512-uQvn3ZaAokWcNSY+tNR71RGXPPncv5ejrpGa/MGOCioeBjkU5n5OJp7BdaTGouZu4fffeVpdZJ/ZNld8LWMgLw==
   dependencies:
     tslib "^2.3.1"
 
@@ -1368,9 +1368,9 @@
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
 "@types/node@*":
-  version "18.7.17"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.17.tgz#52438111ea98f77475470fc62d79b9eb96bb2c92"
-  integrity sha512-0UyfUnt02zIuqp7yC8RYtDkp/vo8bFaQ13KkSEvUAohPOAlnVNbj5Fi3fgPSuwzakS+EvvnnZ4x9y7i6ASaSPQ==
+  version "18.7.18"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.18.tgz#633184f55c322e4fb08612307c274ee6d5ed3154"
+  integrity sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==
 
 "@types/prettier@^2.1.5":
   version "2.7.0"
@@ -1924,9 +1924,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 electron-to-chromium@^1.4.202:
-  version "1.4.248"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.248.tgz#dd2dab68277e91e8452536ee9265f484066f94ad"
-  integrity sha512-qShjzEYpa57NnhbW2K+g+Fl+eNoDvQ7I+2MRwWnU6Z6F0HhXekzsECCLv+y2OJUsRodjqoSfwHkIX42VUFtUzg==
+  version "1.4.249"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.249.tgz#49c34336c742ee65453dbddf4c84355e59b96e2c"
+  integrity sha512-GMCxR3p2HQvIw47A599crTKYZprqihoBL4lDSAUmr7IYekXFK5t/WgEBrGJDCa2HWIZFQEkGuMqPCi05ceYqPQ==
 
 emittery@^0.10.2:
   version "0.10.2"
