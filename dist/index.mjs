@@ -138,7 +138,6 @@ const file_command_1 = __nccwpck_require__(717);
 const utils_1 = __nccwpck_require__(5278);
 const os = __importStar(__nccwpck_require__(2037));
 const path = __importStar(__nccwpck_require__(1017));
-const uuid_1 = __nccwpck_require__(5840);
 const oidc_utils_1 = __nccwpck_require__(8041);
 /**
  * The code to exit an action
@@ -168,20 +167,9 @@ function exportVariable(name, val) {
     process.env[name] = convertedVal;
     const filePath = process.env['GITHUB_ENV'] || '';
     if (filePath) {
-        const delimiter = `ghadelimiter_${uuid_1.v4()}`;
-        // These should realistically never happen, but just in case someone finds a way to exploit uuid generation let's not allow keys or values that contain the delimiter.
-        if (name.includes(delimiter)) {
-            throw new Error(`Unexpected input: name should not contain the delimiter "${delimiter}"`);
-        }
-        if (convertedVal.includes(delimiter)) {
-            throw new Error(`Unexpected input: value should not contain the delimiter "${delimiter}"`);
-        }
-        const commandValue = `${name}<<${delimiter}${os.EOL}${convertedVal}${os.EOL}${delimiter}`;
-        file_command_1.issueCommand('ENV', commandValue);
+        return file_command_1.issueFileCommand('ENV', file_command_1.prepareKeyValueMessage(name, val));
     }
-    else {
-        command_1.issueCommand('set-env', { name }, convertedVal);
-    }
+    command_1.issueCommand('set-env', { name }, convertedVal);
 }
 exports.exportVariable = exportVariable;
 /**
@@ -199,7 +187,7 @@ exports.setSecret = setSecret;
 function addPath(inputPath) {
     const filePath = process.env['GITHUB_PATH'] || '';
     if (filePath) {
-        file_command_1.issueCommand('PATH', inputPath);
+        file_command_1.issueFileCommand('PATH', inputPath);
     }
     else {
         command_1.issueCommand('add-path', {}, inputPath);
@@ -239,7 +227,10 @@ function getMultilineInput(name, options) {
     const inputs = getInput(name, options)
         .split('\n')
         .filter(x => x !== '');
-    return inputs;
+    if (options && options.trimWhitespace === false) {
+        return inputs;
+    }
+    return inputs.map(input => input.trim());
 }
 exports.getMultilineInput = getMultilineInput;
 /**
@@ -272,8 +263,12 @@ exports.getBooleanInput = getBooleanInput;
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function setOutput(name, value) {
+    const filePath = process.env['GITHUB_OUTPUT'] || '';
+    if (filePath) {
+        return file_command_1.issueFileCommand('OUTPUT', file_command_1.prepareKeyValueMessage(name, value));
+    }
     process.stdout.write(os.EOL);
-    command_1.issueCommand('set-output', { name }, value);
+    command_1.issueCommand('set-output', { name }, utils_1.toCommandValue(value));
 }
 exports.setOutput = setOutput;
 /**
@@ -402,7 +397,11 @@ exports.group = group;
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function saveState(name, value) {
-    command_1.issueCommand('save-state', { name }, value);
+    const filePath = process.env['GITHUB_STATE'] || '';
+    if (filePath) {
+        return file_command_1.issueFileCommand('STATE', file_command_1.prepareKeyValueMessage(name, value));
+    }
+    command_1.issueCommand('save-state', { name }, utils_1.toCommandValue(value));
 }
 exports.saveState = saveState;
 /**
@@ -467,13 +466,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.issueCommand = void 0;
+exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(7147));
 const os = __importStar(__nccwpck_require__(2037));
+const uuid_1 = __nccwpck_require__(5840);
 const utils_1 = __nccwpck_require__(5278);
-function issueCommand(command, message) {
+function issueFileCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
         throw new Error(`Unable to find environment variable for file command ${command}`);
@@ -485,7 +485,22 @@ function issueCommand(command, message) {
         encoding: 'utf8'
     });
 }
-exports.issueCommand = issueCommand;
+exports.issueFileCommand = issueFileCommand;
+function prepareKeyValueMessage(key, value) {
+    const delimiter = `ghadelimiter_${uuid_1.v4()}`;
+    const convertedValue = utils_1.toCommandValue(value);
+    // These should realistically never happen, but just in case someone finds a
+    // way to exploit uuid generation let's not allow keys or values that contain
+    // the delimiter.
+    if (key.includes(delimiter)) {
+        throw new Error(`Unexpected input: name should not contain the delimiter "${delimiter}"`);
+    }
+    if (convertedValue.includes(delimiter)) {
+        throw new Error(`Unexpected input: value should not contain the delimiter "${delimiter}"`);
+    }
+    return `${key}<<${delimiter}${os.EOL}${convertedValue}${os.EOL}${delimiter}`;
+}
+exports.prepareKeyValueMessage = prepareKeyValueMessage;
 //# sourceMappingURL=file-command.js.map
 
 /***/ }),
@@ -8902,7 +8917,7 @@ exports.deserializeAws_queryActivateTypeCommand = deserializeAws_queryActivateTy
 const deserializeAws_queryActivateTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -8939,7 +8954,7 @@ exports.deserializeAws_queryBatchDescribeTypeConfigurationsCommand = deserialize
 const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -8973,7 +8988,7 @@ exports.deserializeAws_queryCancelUpdateStackCommand = deserializeAws_queryCance
 const deserializeAws_queryCancelUpdateStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9007,7 +9022,7 @@ exports.deserializeAws_queryContinueUpdateRollbackCommand = deserializeAws_query
 const deserializeAws_queryContinueUpdateRollbackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9041,7 +9056,7 @@ exports.deserializeAws_queryCreateChangeSetCommand = deserializeAws_queryCreateC
 const deserializeAws_queryCreateChangeSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9081,7 +9096,7 @@ exports.deserializeAws_queryCreateStackCommand = deserializeAws_queryCreateStack
 const deserializeAws_queryCreateStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9124,7 +9139,7 @@ exports.deserializeAws_queryCreateStackInstancesCommand = deserializeAws_queryCr
 const deserializeAws_queryCreateStackInstancesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9173,7 +9188,7 @@ exports.deserializeAws_queryCreateStackSetCommand = deserializeAws_queryCreateSt
 const deserializeAws_queryCreateStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9213,7 +9228,7 @@ exports.deserializeAws_queryDeactivateTypeCommand = deserializeAws_queryDeactiva
 const deserializeAws_queryDeactivateTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9250,11 +9265,11 @@ exports.deserializeAws_queryDeleteChangeSetCommand = deserializeAws_queryDeleteC
 const deserializeAws_queryDeleteChangeSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
-        case "InvalidChangeSetStatusException":
+        case "InvalidChangeSetStatus":
         case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
             throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
         default:
@@ -9281,7 +9296,7 @@ exports.deserializeAws_queryDeleteStackCommand = deserializeAws_queryDeleteStack
 const deserializeAws_queryDeleteStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9315,7 +9330,7 @@ exports.deserializeAws_queryDeleteStackInstancesCommand = deserializeAws_queryDe
 const deserializeAws_queryDeleteStackInstancesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9361,7 +9376,7 @@ exports.deserializeAws_queryDeleteStackSetCommand = deserializeAws_queryDeleteSt
 const deserializeAws_queryDeleteStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9398,7 +9413,7 @@ exports.deserializeAws_queryDeregisterTypeCommand = deserializeAws_queryDeregist
 const deserializeAws_queryDeregisterTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9435,7 +9450,7 @@ exports.deserializeAws_queryDescribeAccountLimitsCommand = deserializeAws_queryD
 const deserializeAws_queryDescribeAccountLimitsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9463,11 +9478,11 @@ exports.deserializeAws_queryDescribeChangeSetCommand = deserializeAws_queryDescr
 const deserializeAws_queryDescribeChangeSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
-        case "ChangeSetNotFoundException":
+        case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
@@ -9497,11 +9512,11 @@ exports.deserializeAws_queryDescribeChangeSetHooksCommand = deserializeAws_query
 const deserializeAws_queryDescribeChangeSetHooksCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
-        case "ChangeSetNotFoundException":
+        case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
@@ -9531,7 +9546,7 @@ exports.deserializeAws_queryDescribePublisherCommand = deserializeAws_queryDescr
 const deserializeAws_queryDescribePublisherCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9565,7 +9580,7 @@ exports.deserializeAws_queryDescribeStackDriftDetectionStatusCommand = deseriali
 const deserializeAws_queryDescribeStackDriftDetectionStatusCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9593,7 +9608,7 @@ exports.deserializeAws_queryDescribeStackEventsCommand = deserializeAws_queryDes
 const deserializeAws_queryDescribeStackEventsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9621,7 +9636,7 @@ exports.deserializeAws_queryDescribeStackInstanceCommand = deserializeAws_queryD
 const deserializeAws_queryDescribeStackInstanceCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9658,7 +9673,7 @@ exports.deserializeAws_queryDescribeStackResourceCommand = deserializeAws_queryD
 const deserializeAws_queryDescribeStackResourceCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9686,7 +9701,7 @@ exports.deserializeAws_queryDescribeStackResourceDriftsCommand = deserializeAws_
 const deserializeAws_queryDescribeStackResourceDriftsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9714,7 +9729,7 @@ exports.deserializeAws_queryDescribeStackResourcesCommand = deserializeAws_query
 const deserializeAws_queryDescribeStackResourcesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9742,7 +9757,7 @@ exports.deserializeAws_queryDescribeStacksCommand = deserializeAws_queryDescribe
 const deserializeAws_queryDescribeStacksCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9770,7 +9785,7 @@ exports.deserializeAws_queryDescribeStackSetCommand = deserializeAws_queryDescri
 const deserializeAws_queryDescribeStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9804,7 +9819,7 @@ exports.deserializeAws_queryDescribeStackSetOperationCommand = deserializeAws_qu
 const deserializeAws_queryDescribeStackSetOperationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9841,7 +9856,7 @@ exports.deserializeAws_queryDescribeTypeCommand = deserializeAws_queryDescribeTy
 const deserializeAws_queryDescribeTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9878,7 +9893,7 @@ exports.deserializeAws_queryDescribeTypeRegistrationCommand = deserializeAws_que
 const deserializeAws_queryDescribeTypeRegistrationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -9912,7 +9927,7 @@ exports.deserializeAws_queryDetectStackDriftCommand = deserializeAws_queryDetect
 const deserializeAws_queryDetectStackDriftCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9940,7 +9955,7 @@ exports.deserializeAws_queryDetectStackResourceDriftCommand = deserializeAws_que
 const deserializeAws_queryDetectStackResourceDriftCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -9968,7 +9983,7 @@ exports.deserializeAws_queryDetectStackSetDriftCommand = deserializeAws_queryDet
 const deserializeAws_queryDetectStackSetDriftCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10008,7 +10023,7 @@ exports.deserializeAws_queryEstimateTemplateCostCommand = deserializeAws_queryEs
 const deserializeAws_queryEstimateTemplateCostCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10036,17 +10051,17 @@ exports.deserializeAws_queryExecuteChangeSetCommand = deserializeAws_queryExecut
 const deserializeAws_queryExecuteChangeSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
-        case "ChangeSetNotFoundException":
+        case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         case "InsufficientCapabilitiesException":
         case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
             throw await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context);
-        case "InvalidChangeSetStatusException":
+        case "InvalidChangeSetStatus":
         case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
             throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
         case "TokenAlreadyExistsException":
@@ -10079,7 +10094,7 @@ exports.deserializeAws_queryGetStackPolicyCommand = deserializeAws_queryGetStack
 const deserializeAws_queryGetStackPolicyCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10107,11 +10122,11 @@ exports.deserializeAws_queryGetTemplateCommand = deserializeAws_queryGetTemplate
 const deserializeAws_queryGetTemplateCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
-        case "ChangeSetNotFoundException":
+        case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
             throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
         default:
@@ -10141,7 +10156,7 @@ exports.deserializeAws_queryGetTemplateSummaryCommand = deserializeAws_queryGetT
 const deserializeAws_queryGetTemplateSummaryCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10175,7 +10190,7 @@ exports.deserializeAws_queryImportStacksToStackSetCommand = deserializeAws_query
 const deserializeAws_queryImportStacksToStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10227,7 +10242,7 @@ exports.deserializeAws_queryListChangeSetsCommand = deserializeAws_queryListChan
 const deserializeAws_queryListChangeSetsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10255,7 +10270,7 @@ exports.deserializeAws_queryListExportsCommand = deserializeAws_queryListExports
 const deserializeAws_queryListExportsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10283,7 +10298,7 @@ exports.deserializeAws_queryListImportsCommand = deserializeAws_queryListImports
 const deserializeAws_queryListImportsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10311,7 +10326,7 @@ exports.deserializeAws_queryListStackInstancesCommand = deserializeAws_queryList
 const deserializeAws_queryListStackInstancesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10345,7 +10360,7 @@ exports.deserializeAws_queryListStackResourcesCommand = deserializeAws_queryList
 const deserializeAws_queryListStackResourcesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10373,7 +10388,7 @@ exports.deserializeAws_queryListStacksCommand = deserializeAws_queryListStacksCo
 const deserializeAws_queryListStacksCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10401,7 +10416,7 @@ exports.deserializeAws_queryListStackSetOperationResultsCommand = deserializeAws
 const deserializeAws_queryListStackSetOperationResultsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10438,7 +10453,7 @@ exports.deserializeAws_queryListStackSetOperationsCommand = deserializeAws_query
 const deserializeAws_queryListStackSetOperationsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10472,7 +10487,7 @@ exports.deserializeAws_queryListStackSetsCommand = deserializeAws_queryListStack
 const deserializeAws_queryListStackSetsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10500,7 +10515,7 @@ exports.deserializeAws_queryListTypeRegistrationsCommand = deserializeAws_queryL
 const deserializeAws_queryListTypeRegistrationsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10534,7 +10549,7 @@ exports.deserializeAws_queryListTypesCommand = deserializeAws_queryListTypesComm
 const deserializeAws_queryListTypesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10568,7 +10583,7 @@ exports.deserializeAws_queryListTypeVersionsCommand = deserializeAws_queryListTy
 const deserializeAws_queryListTypeVersionsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10602,7 +10617,7 @@ exports.deserializeAws_queryPublishTypeCommand = deserializeAws_queryPublishType
 const deserializeAws_queryPublishTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10639,16 +10654,16 @@ exports.deserializeAws_queryRecordHandlerProgressCommand = deserializeAws_queryR
 const deserializeAws_queryRecordHandlerProgressCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
-        case "InvalidStateTransitionException":
-        case "com.amazonaws.cloudformation#InvalidStateTransitionException":
-            throw await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context);
-        case "OperationStatusCheckFailedException":
+        case "ConditionalCheckFailed":
         case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
             throw await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context);
+        case "InvalidStateTransition":
+        case "com.amazonaws.cloudformation#InvalidStateTransitionException":
+            throw await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10676,7 +10691,7 @@ exports.deserializeAws_queryRegisterPublisherCommand = deserializeAws_queryRegis
 const deserializeAws_queryRegisterPublisherCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10710,7 +10725,7 @@ exports.deserializeAws_queryRegisterTypeCommand = deserializeAws_queryRegisterTy
 const deserializeAws_queryRegisterTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10744,7 +10759,7 @@ exports.deserializeAws_queryRollbackStackCommand = deserializeAws_queryRollbackS
 const deserializeAws_queryRollbackStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10775,7 +10790,7 @@ exports.deserializeAws_querySetStackPolicyCommand = deserializeAws_querySetStack
 const deserializeAws_querySetStackPolicyCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10803,7 +10818,7 @@ exports.deserializeAws_querySetTypeConfigurationCommand = deserializeAws_querySe
 const deserializeAws_querySetTypeConfigurationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10840,7 +10855,7 @@ exports.deserializeAws_querySetTypeDefaultVersionCommand = deserializeAws_queryS
 const deserializeAws_querySetTypeDefaultVersionCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10874,7 +10889,7 @@ exports.deserializeAws_querySignalResourceCommand = deserializeAws_querySignalRe
 const deserializeAws_querySignalResourceCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -10902,7 +10917,7 @@ exports.deserializeAws_queryStopStackSetOperationCommand = deserializeAws_queryS
 const deserializeAws_queryStopStackSetOperationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10942,7 +10957,7 @@ exports.deserializeAws_queryTestTypeCommand = deserializeAws_queryTestTypeComman
 const deserializeAws_queryTestTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -10979,7 +10994,7 @@ exports.deserializeAws_queryUpdateStackCommand = deserializeAws_queryUpdateStack
 const deserializeAws_queryUpdateStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -11016,7 +11031,7 @@ exports.deserializeAws_queryUpdateStackInstancesCommand = deserializeAws_queryUp
 const deserializeAws_queryUpdateStackInstancesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -11065,7 +11080,7 @@ exports.deserializeAws_queryUpdateStackSetCommand = deserializeAws_queryUpdateSt
 const deserializeAws_queryUpdateStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -11114,7 +11129,7 @@ exports.deserializeAws_queryUpdateTerminationProtectionCommand = deserializeAws_
 const deserializeAws_queryUpdateTerminationProtectionCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -11142,7 +11157,7 @@ exports.deserializeAws_queryValidateTemplateCommand = deserializeAws_queryValida
 const deserializeAws_queryValidateTemplateCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -16435,6 +16450,14 @@ const parseBody = (streamBody, context) => collectBodyString(streamBody, context
     }
     return {};
 });
+const parseErrorBody = async (errorBody, context) => {
+    var _a;
+    const value = await parseBody(errorBody, context);
+    if (value.Error) {
+        value.Error.message = (_a = value.Error.message) !== null && _a !== void 0 ? _a : value.Error.Message;
+    }
+    return value;
+};
 const buildFormUrlencodedString = (formEntries) => Object.entries(formEntries)
     .map(([key, value]) => (0, smithy_client_1.extendedEncodeURIComponent)(key) + "=" + (0, smithy_client_1.extendedEncodeURIComponent)(value))
     .join("&");
@@ -18307,7 +18330,7 @@ exports.deserializeAws_restJson1GetRoleCredentialsCommand = deserializeAws_restJ
 const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -18353,7 +18376,7 @@ exports.deserializeAws_restJson1ListAccountRolesCommand = deserializeAws_restJso
 const deserializeAws_restJson1ListAccountRolesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -18399,7 +18422,7 @@ exports.deserializeAws_restJson1ListAccountsCommand = deserializeAws_restJson1Li
 const deserializeAws_restJson1ListAccountsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -18439,7 +18462,7 @@ exports.deserializeAws_restJson1LogoutCommand = deserializeAws_restJson1LogoutCo
 const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -18581,6 +18604,12 @@ const parseBody = (streamBody, context) => collectBodyString(streamBody, context
     }
     return {};
 });
+const parseErrorBody = async (errorBody, context) => {
+    var _a;
+    const value = await parseBody(errorBody, context);
+    value.message = (_a = value.message) !== null && _a !== void 0 ? _a : value.Message;
+    return value;
+};
 const loadRestJsonErrorCode = (output, data) => {
     const findKey = (object, key) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
     const sanitizeErrorCode = (rawValue) => {
@@ -19944,17 +19973,17 @@ exports.deserializeAws_queryAssumeRoleCommand = deserializeAws_queryAssumeRoleCo
 const deserializeAws_queryAssumeRoleCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
             throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-        case "MalformedPolicyDocumentException":
+        case "MalformedPolicyDocument":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
             throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-        case "PackedPolicyTooLargeException":
+        case "PackedPolicyTooLarge":
         case "com.amazonaws.sts#PackedPolicyTooLargeException":
             throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
         case "RegionDisabledException":
@@ -19987,23 +20016,23 @@ exports.deserializeAws_queryAssumeRoleWithSAMLCommand = deserializeAws_queryAssu
 const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
             throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-        case "IDPRejectedClaimException":
+        case "IDPRejectedClaim":
         case "com.amazonaws.sts#IDPRejectedClaimException":
             throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
-        case "InvalidIdentityTokenException":
+        case "InvalidIdentityToken":
         case "com.amazonaws.sts#InvalidIdentityTokenException":
             throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
-        case "MalformedPolicyDocumentException":
+        case "MalformedPolicyDocument":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
             throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-        case "PackedPolicyTooLargeException":
+        case "PackedPolicyTooLarge":
         case "com.amazonaws.sts#PackedPolicyTooLargeException":
             throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
         case "RegionDisabledException":
@@ -20036,26 +20065,26 @@ exports.deserializeAws_queryAssumeRoleWithWebIdentityCommand = deserializeAws_qu
 const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
             throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
-        case "IDPCommunicationErrorException":
+        case "IDPCommunicationError":
         case "com.amazonaws.sts#IDPCommunicationErrorException":
             throw await deserializeAws_queryIDPCommunicationErrorExceptionResponse(parsedOutput, context);
-        case "IDPRejectedClaimException":
+        case "IDPRejectedClaim":
         case "com.amazonaws.sts#IDPRejectedClaimException":
             throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
-        case "InvalidIdentityTokenException":
+        case "InvalidIdentityToken":
         case "com.amazonaws.sts#InvalidIdentityTokenException":
             throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
-        case "MalformedPolicyDocumentException":
+        case "MalformedPolicyDocument":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
             throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-        case "PackedPolicyTooLargeException":
+        case "PackedPolicyTooLarge":
         case "com.amazonaws.sts#PackedPolicyTooLargeException":
             throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
         case "RegionDisabledException":
@@ -20088,7 +20117,7 @@ exports.deserializeAws_queryDecodeAuthorizationMessageCommand = deserializeAws_q
 const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -20122,7 +20151,7 @@ exports.deserializeAws_queryGetAccessKeyInfoCommand = deserializeAws_queryGetAcc
 const deserializeAws_queryGetAccessKeyInfoCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -20150,7 +20179,7 @@ exports.deserializeAws_queryGetCallerIdentityCommand = deserializeAws_queryGetCa
 const deserializeAws_queryGetCallerIdentityCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
@@ -20178,14 +20207,14 @@ exports.deserializeAws_queryGetFederationTokenCommand = deserializeAws_queryGetF
 const deserializeAws_queryGetFederationTokenCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
-        case "MalformedPolicyDocumentException":
+        case "MalformedPolicyDocument":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
             throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
-        case "PackedPolicyTooLargeException":
+        case "PackedPolicyTooLarge":
         case "com.amazonaws.sts#PackedPolicyTooLargeException":
             throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
         case "RegionDisabledException":
@@ -20218,7 +20247,7 @@ exports.deserializeAws_queryGetSessionTokenCommand = deserializeAws_queryGetSess
 const deserializeAws_queryGetSessionTokenCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
-        body: await parseBody(output.body, context),
+        body: await parseErrorBody(output.body, context),
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     switch (errorCode) {
@@ -20857,6 +20886,14 @@ const parseBody = (streamBody, context) => collectBodyString(streamBody, context
     }
     return {};
 });
+const parseErrorBody = async (errorBody, context) => {
+    var _a;
+    const value = await parseBody(errorBody, context);
+    if (value.Error) {
+        value.Error.message = (_a = value.Error.message) !== null && _a !== void 0 ? _a : value.Error.Message;
+    }
+    return value;
+};
 const buildFormUrlencodedString = (formEntries) => Object.entries(formEntries)
     .map(([key, value]) => (0, smithy_client_1.extendedEncodeURIComponent)(key) + "=" + (0, smithy_client_1.extendedEncodeURIComponent)(value))
     .join("&");
@@ -30438,21 +30475,21 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 3713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.180.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.180.0","@aws-sdk/config-resolver":"3.178.0","@aws-sdk/credential-provider-node":"3.180.0","@aws-sdk/fetch-http-handler":"3.178.0","@aws-sdk/hash-node":"3.178.0","@aws-sdk/invalid-dependency":"3.178.0","@aws-sdk/middleware-content-length":"3.178.0","@aws-sdk/middleware-host-header":"3.178.0","@aws-sdk/middleware-logger":"3.178.0","@aws-sdk/middleware-recursion-detection":"3.178.0","@aws-sdk/middleware-retry":"3.178.0","@aws-sdk/middleware-serde":"3.178.0","@aws-sdk/middleware-signing":"3.179.0","@aws-sdk/middleware-stack":"3.178.0","@aws-sdk/middleware-user-agent":"3.178.0","@aws-sdk/node-config-provider":"3.178.0","@aws-sdk/node-http-handler":"3.178.0","@aws-sdk/protocol-http":"3.178.0","@aws-sdk/smithy-client":"3.180.0","@aws-sdk/types":"3.178.0","@aws-sdk/url-parser":"3.178.0","@aws-sdk/util-base64-browser":"3.170.0","@aws-sdk/util-base64-node":"3.170.0","@aws-sdk/util-body-length-browser":"3.170.0","@aws-sdk/util-body-length-node":"3.170.0","@aws-sdk/util-defaults-mode-browser":"3.180.0","@aws-sdk/util-defaults-mode-node":"3.180.0","@aws-sdk/util-user-agent-browser":"3.178.0","@aws-sdk/util-user-agent-node":"3.178.0","@aws-sdk/util-utf8-browser":"3.170.0","@aws-sdk/util-utf8-node":"3.170.0","@aws-sdk/util-waiter":"3.180.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.170.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.181.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.181.0","@aws-sdk/config-resolver":"3.178.0","@aws-sdk/credential-provider-node":"3.181.0","@aws-sdk/fetch-http-handler":"3.178.0","@aws-sdk/hash-node":"3.178.0","@aws-sdk/invalid-dependency":"3.178.0","@aws-sdk/middleware-content-length":"3.178.0","@aws-sdk/middleware-host-header":"3.178.0","@aws-sdk/middleware-logger":"3.178.0","@aws-sdk/middleware-recursion-detection":"3.178.0","@aws-sdk/middleware-retry":"3.178.0","@aws-sdk/middleware-serde":"3.178.0","@aws-sdk/middleware-signing":"3.179.0","@aws-sdk/middleware-stack":"3.178.0","@aws-sdk/middleware-user-agent":"3.178.0","@aws-sdk/node-config-provider":"3.178.0","@aws-sdk/node-http-handler":"3.178.0","@aws-sdk/protocol-http":"3.178.0","@aws-sdk/smithy-client":"3.180.0","@aws-sdk/types":"3.178.0","@aws-sdk/url-parser":"3.178.0","@aws-sdk/util-base64-browser":"3.170.0","@aws-sdk/util-base64-node":"3.170.0","@aws-sdk/util-body-length-browser":"3.170.0","@aws-sdk/util-body-length-node":"3.170.0","@aws-sdk/util-defaults-mode-browser":"3.180.0","@aws-sdk/util-defaults-mode-node":"3.180.0","@aws-sdk/util-user-agent-browser":"3.178.0","@aws-sdk/util-user-agent-node":"3.178.0","@aws-sdk/util-utf8-browser":"3.170.0","@aws-sdk/util-utf8-node":"3.170.0","@aws-sdk/util-waiter":"3.180.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.170.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 1092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.180.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.178.0","@aws-sdk/fetch-http-handler":"3.178.0","@aws-sdk/hash-node":"3.178.0","@aws-sdk/invalid-dependency":"3.178.0","@aws-sdk/middleware-content-length":"3.178.0","@aws-sdk/middleware-host-header":"3.178.0","@aws-sdk/middleware-logger":"3.178.0","@aws-sdk/middleware-recursion-detection":"3.178.0","@aws-sdk/middleware-retry":"3.178.0","@aws-sdk/middleware-serde":"3.178.0","@aws-sdk/middleware-stack":"3.178.0","@aws-sdk/middleware-user-agent":"3.178.0","@aws-sdk/node-config-provider":"3.178.0","@aws-sdk/node-http-handler":"3.178.0","@aws-sdk/protocol-http":"3.178.0","@aws-sdk/smithy-client":"3.180.0","@aws-sdk/types":"3.178.0","@aws-sdk/url-parser":"3.178.0","@aws-sdk/util-base64-browser":"3.170.0","@aws-sdk/util-base64-node":"3.170.0","@aws-sdk/util-body-length-browser":"3.170.0","@aws-sdk/util-body-length-node":"3.170.0","@aws-sdk/util-defaults-mode-browser":"3.180.0","@aws-sdk/util-defaults-mode-node":"3.180.0","@aws-sdk/util-user-agent-browser":"3.178.0","@aws-sdk/util-user-agent-node":"3.178.0","@aws-sdk/util-utf8-browser":"3.170.0","@aws-sdk/util-utf8-node":"3.170.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.170.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.181.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.178.0","@aws-sdk/fetch-http-handler":"3.178.0","@aws-sdk/hash-node":"3.178.0","@aws-sdk/invalid-dependency":"3.178.0","@aws-sdk/middleware-content-length":"3.178.0","@aws-sdk/middleware-host-header":"3.178.0","@aws-sdk/middleware-logger":"3.178.0","@aws-sdk/middleware-recursion-detection":"3.178.0","@aws-sdk/middleware-retry":"3.178.0","@aws-sdk/middleware-serde":"3.178.0","@aws-sdk/middleware-stack":"3.178.0","@aws-sdk/middleware-user-agent":"3.178.0","@aws-sdk/node-config-provider":"3.178.0","@aws-sdk/node-http-handler":"3.178.0","@aws-sdk/protocol-http":"3.178.0","@aws-sdk/smithy-client":"3.180.0","@aws-sdk/types":"3.178.0","@aws-sdk/url-parser":"3.178.0","@aws-sdk/util-base64-browser":"3.170.0","@aws-sdk/util-base64-node":"3.170.0","@aws-sdk/util-body-length-browser":"3.170.0","@aws-sdk/util-body-length-node":"3.170.0","@aws-sdk/util-defaults-mode-browser":"3.180.0","@aws-sdk/util-defaults-mode-node":"3.180.0","@aws-sdk/util-user-agent-browser":"3.178.0","@aws-sdk/util-user-agent-node":"3.178.0","@aws-sdk/util-utf8-browser":"3.170.0","@aws-sdk/util-utf8-node":"3.170.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.170.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.180.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.178.0","@aws-sdk/credential-provider-node":"3.180.0","@aws-sdk/fetch-http-handler":"3.178.0","@aws-sdk/hash-node":"3.178.0","@aws-sdk/invalid-dependency":"3.178.0","@aws-sdk/middleware-content-length":"3.178.0","@aws-sdk/middleware-host-header":"3.178.0","@aws-sdk/middleware-logger":"3.178.0","@aws-sdk/middleware-recursion-detection":"3.178.0","@aws-sdk/middleware-retry":"3.178.0","@aws-sdk/middleware-sdk-sts":"3.179.0","@aws-sdk/middleware-serde":"3.178.0","@aws-sdk/middleware-signing":"3.179.0","@aws-sdk/middleware-stack":"3.178.0","@aws-sdk/middleware-user-agent":"3.178.0","@aws-sdk/node-config-provider":"3.178.0","@aws-sdk/node-http-handler":"3.178.0","@aws-sdk/protocol-http":"3.178.0","@aws-sdk/smithy-client":"3.180.0","@aws-sdk/types":"3.178.0","@aws-sdk/url-parser":"3.178.0","@aws-sdk/util-base64-browser":"3.170.0","@aws-sdk/util-base64-node":"3.170.0","@aws-sdk/util-body-length-browser":"3.170.0","@aws-sdk/util-body-length-node":"3.170.0","@aws-sdk/util-defaults-mode-browser":"3.180.0","@aws-sdk/util-defaults-mode-node":"3.180.0","@aws-sdk/util-user-agent-browser":"3.178.0","@aws-sdk/util-user-agent-node":"3.178.0","@aws-sdk/util-utf8-browser":"3.170.0","@aws-sdk/util-utf8-node":"3.170.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.170.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.181.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.178.0","@aws-sdk/credential-provider-node":"3.181.0","@aws-sdk/fetch-http-handler":"3.178.0","@aws-sdk/hash-node":"3.178.0","@aws-sdk/invalid-dependency":"3.178.0","@aws-sdk/middleware-content-length":"3.178.0","@aws-sdk/middleware-host-header":"3.178.0","@aws-sdk/middleware-logger":"3.178.0","@aws-sdk/middleware-recursion-detection":"3.178.0","@aws-sdk/middleware-retry":"3.178.0","@aws-sdk/middleware-sdk-sts":"3.179.0","@aws-sdk/middleware-serde":"3.178.0","@aws-sdk/middleware-signing":"3.179.0","@aws-sdk/middleware-stack":"3.178.0","@aws-sdk/middleware-user-agent":"3.178.0","@aws-sdk/node-config-provider":"3.178.0","@aws-sdk/node-http-handler":"3.178.0","@aws-sdk/protocol-http":"3.178.0","@aws-sdk/smithy-client":"3.180.0","@aws-sdk/types":"3.178.0","@aws-sdk/url-parser":"3.178.0","@aws-sdk/util-base64-browser":"3.170.0","@aws-sdk/util-base64-node":"3.170.0","@aws-sdk/util-body-length-browser":"3.170.0","@aws-sdk/util-body-length-node":"3.170.0","@aws-sdk/util-defaults-mode-browser":"3.180.0","@aws-sdk/util-defaults-mode-node":"3.180.0","@aws-sdk/util-user-agent-browser":"3.178.0","@aws-sdk/util-user-agent-node":"3.178.0","@aws-sdk/util-utf8-browser":"3.170.0","@aws-sdk/util-utf8-node":"3.170.0","entities":"2.2.0","fast-xml-parser":"3.19.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.170.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
