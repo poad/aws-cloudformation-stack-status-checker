@@ -2764,6 +2764,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CloudFormationClient = void 0;
 const config_resolver_1 = __nccwpck_require__(6153);
 const middleware_content_length_1 = __nccwpck_require__(2245);
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_host_header_1 = __nccwpck_require__(2545);
 const middleware_logger_1 = __nccwpck_require__(14);
 const middleware_recursion_detection_1 = __nccwpck_require__(5525);
@@ -2771,18 +2772,20 @@ const middleware_retry_1 = __nccwpck_require__(6064);
 const middleware_signing_1 = __nccwpck_require__(4935);
 const middleware_user_agent_1 = __nccwpck_require__(4688);
 const smithy_client_1 = __nccwpck_require__(4963);
+const EndpointParameters_1 = __nccwpck_require__(9066);
 const runtimeConfig_1 = __nccwpck_require__(2643);
 class CloudFormationClient extends smithy_client_1.Client {
     constructor(configuration) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration);
-        const _config_1 = (0, config_resolver_1.resolveRegionConfig)(_config_0);
-        const _config_2 = (0, config_resolver_1.resolveEndpointsConfig)(_config_1);
-        const _config_3 = (0, middleware_retry_1.resolveRetryConfig)(_config_2);
-        const _config_4 = (0, middleware_host_header_1.resolveHostHeaderConfig)(_config_3);
-        const _config_5 = (0, middleware_signing_1.resolveAwsAuthConfig)(_config_4);
-        const _config_6 = (0, middleware_user_agent_1.resolveUserAgentConfig)(_config_5);
-        super(_config_6);
-        this.config = _config_6;
+        const _config_1 = (0, EndpointParameters_1.resolveClientEndpointParameters)(_config_0);
+        const _config_2 = (0, config_resolver_1.resolveRegionConfig)(_config_1);
+        const _config_3 = (0, middleware_endpoint_1.resolveEndpointConfig)(_config_2);
+        const _config_4 = (0, middleware_retry_1.resolveRetryConfig)(_config_3);
+        const _config_5 = (0, middleware_host_header_1.resolveHostHeaderConfig)(_config_4);
+        const _config_6 = (0, middleware_signing_1.resolveAwsAuthConfig)(_config_5);
+        const _config_7 = (0, middleware_user_agent_1.resolveUserAgentConfig)(_config_6);
+        super(_config_7);
+        this.config = _config_7;
         this.middlewareStack.use((0, middleware_retry_1.getRetryPlugin)(this.config));
         this.middlewareStack.use((0, middleware_content_length_1.getContentLengthPlugin)(this.config));
         this.middlewareStack.use((0, middleware_host_header_1.getHostHeaderPlugin)(this.config));
@@ -2806,6 +2809,7 @@ exports.CloudFormationClient = CloudFormationClient;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ActivateTypeCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -2815,8 +2819,17 @@ class ActivateTypeCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ActivateTypeCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -2849,6 +2862,7 @@ exports.ActivateTypeCommand = ActivateTypeCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.BatchDescribeTypeConfigurationsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -2858,8 +2872,17 @@ class BatchDescribeTypeConfigurationsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, BatchDescribeTypeConfigurationsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -2892,6 +2915,7 @@ exports.BatchDescribeTypeConfigurationsCommand = BatchDescribeTypeConfigurations
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CancelUpdateStackCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -2901,8 +2925,17 @@ class CancelUpdateStackCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CancelUpdateStackCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -2935,6 +2968,7 @@ exports.CancelUpdateStackCommand = CancelUpdateStackCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ContinueUpdateRollbackCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -2944,8 +2978,17 @@ class ContinueUpdateRollbackCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ContinueUpdateRollbackCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -2978,6 +3021,7 @@ exports.ContinueUpdateRollbackCommand = ContinueUpdateRollbackCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CreateChangeSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -2987,8 +3031,17 @@ class CreateChangeSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateChangeSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3021,6 +3074,7 @@ exports.CreateChangeSetCommand = CreateChangeSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CreateStackCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3030,8 +3084,17 @@ class CreateStackCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateStackCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3064,6 +3127,7 @@ exports.CreateStackCommand = CreateStackCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CreateStackInstancesCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3073,8 +3137,17 @@ class CreateStackInstancesCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateStackInstancesCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3107,6 +3180,7 @@ exports.CreateStackInstancesCommand = CreateStackInstancesCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CreateStackSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3116,8 +3190,17 @@ class CreateStackSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateStackSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3150,6 +3233,7 @@ exports.CreateStackSetCommand = CreateStackSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DeactivateTypeCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3159,8 +3243,17 @@ class DeactivateTypeCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeactivateTypeCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3193,6 +3286,7 @@ exports.DeactivateTypeCommand = DeactivateTypeCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DeleteChangeSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3202,8 +3296,17 @@ class DeleteChangeSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteChangeSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3236,6 +3339,7 @@ exports.DeleteChangeSetCommand = DeleteChangeSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DeleteStackCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3245,8 +3349,17 @@ class DeleteStackCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteStackCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3279,6 +3392,7 @@ exports.DeleteStackCommand = DeleteStackCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DeleteStackInstancesCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3288,8 +3402,17 @@ class DeleteStackInstancesCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteStackInstancesCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3322,6 +3445,7 @@ exports.DeleteStackInstancesCommand = DeleteStackInstancesCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DeleteStackSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3331,8 +3455,17 @@ class DeleteStackSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteStackSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3365,6 +3498,7 @@ exports.DeleteStackSetCommand = DeleteStackSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DeregisterTypeCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3374,8 +3508,17 @@ class DeregisterTypeCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeregisterTypeCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3408,6 +3551,7 @@ exports.DeregisterTypeCommand = DeregisterTypeCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeAccountLimitsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3417,8 +3561,17 @@ class DescribeAccountLimitsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeAccountLimitsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3451,6 +3604,7 @@ exports.DescribeAccountLimitsCommand = DescribeAccountLimitsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeChangeSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3460,8 +3614,17 @@ class DescribeChangeSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeChangeSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3494,6 +3657,7 @@ exports.DescribeChangeSetCommand = DescribeChangeSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeChangeSetHooksCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3503,8 +3667,17 @@ class DescribeChangeSetHooksCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeChangeSetHooksCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3537,6 +3710,7 @@ exports.DescribeChangeSetHooksCommand = DescribeChangeSetHooksCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribePublisherCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3546,8 +3720,17 @@ class DescribePublisherCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribePublisherCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3580,6 +3763,7 @@ exports.DescribePublisherCommand = DescribePublisherCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStackDriftDetectionStatusCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3589,8 +3773,17 @@ class DescribeStackDriftDetectionStatusCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackDriftDetectionStatusCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3623,6 +3816,7 @@ exports.DescribeStackDriftDetectionStatusCommand = DescribeStackDriftDetectionSt
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStackEventsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3632,8 +3826,17 @@ class DescribeStackEventsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackEventsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3666,6 +3869,7 @@ exports.DescribeStackEventsCommand = DescribeStackEventsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStackInstanceCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3675,8 +3879,17 @@ class DescribeStackInstanceCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackInstanceCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3709,6 +3922,7 @@ exports.DescribeStackInstanceCommand = DescribeStackInstanceCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStackResourceCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3718,8 +3932,17 @@ class DescribeStackResourceCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackResourceCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3752,6 +3975,7 @@ exports.DescribeStackResourceCommand = DescribeStackResourceCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStackResourceDriftsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3761,8 +3985,17 @@ class DescribeStackResourceDriftsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackResourceDriftsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3795,6 +4028,7 @@ exports.DescribeStackResourceDriftsCommand = DescribeStackResourceDriftsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStackResourcesCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3804,8 +4038,17 @@ class DescribeStackResourcesCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackResourcesCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3838,6 +4081,7 @@ exports.DescribeStackResourcesCommand = DescribeStackResourcesCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStackSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3847,8 +4091,17 @@ class DescribeStackSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3881,6 +4134,7 @@ exports.DescribeStackSetCommand = DescribeStackSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStackSetOperationCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3890,8 +4144,17 @@ class DescribeStackSetOperationCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackSetOperationCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3924,6 +4187,7 @@ exports.DescribeStackSetOperationCommand = DescribeStackSetOperationCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeStacksCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3933,8 +4197,17 @@ class DescribeStacksCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStacksCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -3967,6 +4240,7 @@ exports.DescribeStacksCommand = DescribeStacksCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeTypeCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -3976,8 +4250,17 @@ class DescribeTypeCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeTypeCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4010,6 +4293,7 @@ exports.DescribeTypeCommand = DescribeTypeCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeTypeRegistrationCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4019,8 +4303,17 @@ class DescribeTypeRegistrationCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeTypeRegistrationCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4053,6 +4346,7 @@ exports.DescribeTypeRegistrationCommand = DescribeTypeRegistrationCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DetectStackDriftCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4062,8 +4356,17 @@ class DetectStackDriftCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DetectStackDriftCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4096,6 +4399,7 @@ exports.DetectStackDriftCommand = DetectStackDriftCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DetectStackResourceDriftCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4105,8 +4409,17 @@ class DetectStackResourceDriftCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DetectStackResourceDriftCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4139,6 +4452,7 @@ exports.DetectStackResourceDriftCommand = DetectStackResourceDriftCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DetectStackSetDriftCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4148,8 +4462,17 @@ class DetectStackSetDriftCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DetectStackSetDriftCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4182,6 +4505,7 @@ exports.DetectStackSetDriftCommand = DetectStackSetDriftCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.EstimateTemplateCostCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4191,8 +4515,17 @@ class EstimateTemplateCostCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, EstimateTemplateCostCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4225,6 +4558,7 @@ exports.EstimateTemplateCostCommand = EstimateTemplateCostCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ExecuteChangeSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4234,8 +4568,17 @@ class ExecuteChangeSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ExecuteChangeSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4268,6 +4611,7 @@ exports.ExecuteChangeSetCommand = ExecuteChangeSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetStackPolicyCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4277,8 +4621,17 @@ class GetStackPolicyCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetStackPolicyCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4311,6 +4664,7 @@ exports.GetStackPolicyCommand = GetStackPolicyCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetTemplateCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4320,8 +4674,17 @@ class GetTemplateCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetTemplateCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4354,6 +4717,7 @@ exports.GetTemplateCommand = GetTemplateCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetTemplateSummaryCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4363,8 +4727,17 @@ class GetTemplateSummaryCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetTemplateSummaryCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4397,6 +4770,7 @@ exports.GetTemplateSummaryCommand = GetTemplateSummaryCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ImportStacksToStackSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4406,8 +4780,17 @@ class ImportStacksToStackSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ImportStacksToStackSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4440,6 +4823,7 @@ exports.ImportStacksToStackSetCommand = ImportStacksToStackSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListChangeSetsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4449,8 +4833,17 @@ class ListChangeSetsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListChangeSetsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4483,6 +4876,7 @@ exports.ListChangeSetsCommand = ListChangeSetsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListExportsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4492,8 +4886,17 @@ class ListExportsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListExportsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4526,6 +4929,7 @@ exports.ListExportsCommand = ListExportsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListImportsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4535,8 +4939,17 @@ class ListImportsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListImportsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4569,6 +4982,7 @@ exports.ListImportsCommand = ListImportsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListStackInstancesCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4578,8 +4992,17 @@ class ListStackInstancesCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackInstancesCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4612,6 +5035,7 @@ exports.ListStackInstancesCommand = ListStackInstancesCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListStackResourcesCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4621,8 +5045,17 @@ class ListStackResourcesCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackResourcesCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4655,6 +5088,7 @@ exports.ListStackResourcesCommand = ListStackResourcesCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListStackSetOperationResultsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4664,8 +5098,17 @@ class ListStackSetOperationResultsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackSetOperationResultsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4698,6 +5141,7 @@ exports.ListStackSetOperationResultsCommand = ListStackSetOperationResultsComman
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListStackSetOperationsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4707,8 +5151,17 @@ class ListStackSetOperationsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackSetOperationsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4741,6 +5194,7 @@ exports.ListStackSetOperationsCommand = ListStackSetOperationsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListStackSetsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4750,8 +5204,17 @@ class ListStackSetsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackSetsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4784,6 +5247,7 @@ exports.ListStackSetsCommand = ListStackSetsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListStacksCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4793,8 +5257,17 @@ class ListStacksCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStacksCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4827,6 +5300,7 @@ exports.ListStacksCommand = ListStacksCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListTypeRegistrationsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4836,8 +5310,17 @@ class ListTypeRegistrationsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListTypeRegistrationsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4870,6 +5353,7 @@ exports.ListTypeRegistrationsCommand = ListTypeRegistrationsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListTypeVersionsCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4879,8 +5363,17 @@ class ListTypeVersionsCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListTypeVersionsCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4913,6 +5406,7 @@ exports.ListTypeVersionsCommand = ListTypeVersionsCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListTypesCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4922,8 +5416,17 @@ class ListTypesCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListTypesCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4956,6 +5459,7 @@ exports.ListTypesCommand = ListTypesCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PublishTypeCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -4965,8 +5469,17 @@ class PublishTypeCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, PublishTypeCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -4999,6 +5512,7 @@ exports.PublishTypeCommand = PublishTypeCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RecordHandlerProgressCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5008,8 +5522,17 @@ class RecordHandlerProgressCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, RecordHandlerProgressCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5042,6 +5565,7 @@ exports.RecordHandlerProgressCommand = RecordHandlerProgressCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RegisterPublisherCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5051,8 +5575,17 @@ class RegisterPublisherCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, RegisterPublisherCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5085,6 +5618,7 @@ exports.RegisterPublisherCommand = RegisterPublisherCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RegisterTypeCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5094,8 +5628,17 @@ class RegisterTypeCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, RegisterTypeCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5128,6 +5671,7 @@ exports.RegisterTypeCommand = RegisterTypeCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RollbackStackCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5137,8 +5681,17 @@ class RollbackStackCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, RollbackStackCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5171,6 +5724,7 @@ exports.RollbackStackCommand = RollbackStackCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SetStackPolicyCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5180,8 +5734,17 @@ class SetStackPolicyCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SetStackPolicyCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5214,6 +5777,7 @@ exports.SetStackPolicyCommand = SetStackPolicyCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SetTypeConfigurationCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5223,8 +5787,17 @@ class SetTypeConfigurationCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SetTypeConfigurationCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5257,6 +5830,7 @@ exports.SetTypeConfigurationCommand = SetTypeConfigurationCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SetTypeDefaultVersionCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5266,8 +5840,17 @@ class SetTypeDefaultVersionCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SetTypeDefaultVersionCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5300,6 +5883,7 @@ exports.SetTypeDefaultVersionCommand = SetTypeDefaultVersionCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SignalResourceCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5309,8 +5893,17 @@ class SignalResourceCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SignalResourceCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5343,6 +5936,7 @@ exports.SignalResourceCommand = SignalResourceCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.StopStackSetOperationCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5352,8 +5946,17 @@ class StopStackSetOperationCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, StopStackSetOperationCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5386,6 +5989,7 @@ exports.StopStackSetOperationCommand = StopStackSetOperationCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TestTypeCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5395,8 +5999,17 @@ class TestTypeCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, TestTypeCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5429,6 +6042,7 @@ exports.TestTypeCommand = TestTypeCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UpdateStackCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5438,8 +6052,17 @@ class UpdateStackCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateStackCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5472,6 +6095,7 @@ exports.UpdateStackCommand = UpdateStackCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UpdateStackInstancesCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5481,8 +6105,17 @@ class UpdateStackInstancesCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateStackInstancesCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5515,6 +6148,7 @@ exports.UpdateStackInstancesCommand = UpdateStackInstancesCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UpdateStackSetCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5524,8 +6158,17 @@ class UpdateStackSetCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateStackSetCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5558,6 +6201,7 @@ exports.UpdateStackSetCommand = UpdateStackSetCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UpdateTerminationProtectionCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5567,8 +6211,17 @@ class UpdateTerminationProtectionCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateTerminationProtectionCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5601,6 +6254,7 @@ exports.UpdateTerminationProtectionCommand = UpdateTerminationProtectionCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ValidateTemplateCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(5378);
@@ -5610,8 +6264,17 @@ class ValidateTemplateCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ValidateTemplateCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "CloudFormationClient";
@@ -5714,196 +6377,366 @@ tslib_1.__exportStar(__nccwpck_require__(1609), exports);
 
 /***/ }),
 
-/***/ 1112:
+/***/ 9066:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.resolveClientEndpointParameters = void 0;
+const resolveClientEndpointParameters = (options) => {
+    var _a, _b;
+    return {
+        ...options,
+        useDualstackEndpoint: (_a = options.useDualstackEndpoint) !== null && _a !== void 0 ? _a : false,
+        useFipsEndpoint: (_b = options.useFipsEndpoint) !== null && _b !== void 0 ? _b : false,
+        defaultSigningName: "cloudformation",
+    };
+};
+exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
+
+
+/***/ }),
+
+/***/ 5640:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.defaultRegionInfoProvider = void 0;
-const config_resolver_1 = __nccwpck_require__(6153);
-const regionHash = {
-    "us-east-1": {
-        variants: [
-            {
-                hostname: "cloudformation-fips.us-east-1.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "us-east-2": {
-        variants: [
-            {
-                hostname: "cloudformation-fips.us-east-2.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "us-gov-east-1": {
-        variants: [
-            {
-                hostname: "cloudformation.us-gov-east-1.amazonaws.com",
-                tags: [],
-            },
-        ],
-        signingRegion: "us-gov-east-1",
-    },
-    "us-gov-west-1": {
-        variants: [
-            {
-                hostname: "cloudformation.us-gov-west-1.amazonaws.com",
-                tags: [],
-            },
-        ],
-        signingRegion: "us-gov-west-1",
-    },
-    "us-west-1": {
-        variants: [
-            {
-                hostname: "cloudformation-fips.us-west-1.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "us-west-2": {
-        variants: [
-            {
-                hostname: "cloudformation-fips.us-west-2.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
+exports.defaultEndpointResolver = void 0;
+const util_endpoints_1 = __nccwpck_require__(3350);
+const ruleset_1 = __nccwpck_require__(8349);
+const defaultEndpointResolver = (endpointParams, context = {}) => {
+    return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
+        endpointParams: endpointParams,
+        logger: context.logger,
+    });
 };
-const partitionHash = {
-    aws: {
-        regions: [
-            "af-south-1",
-            "ap-east-1",
-            "ap-northeast-1",
-            "ap-northeast-2",
-            "ap-northeast-3",
-            "ap-south-1",
-            "ap-southeast-1",
-            "ap-southeast-2",
-            "ap-southeast-3",
-            "ca-central-1",
-            "eu-central-1",
-            "eu-north-1",
-            "eu-south-1",
-            "eu-west-1",
-            "eu-west-2",
-            "eu-west-3",
-            "me-central-1",
-            "me-south-1",
-            "sa-east-1",
-            "us-east-1",
-            "us-east-1-fips",
-            "us-east-2",
-            "us-east-2-fips",
-            "us-west-1",
-            "us-west-1-fips",
-            "us-west-2",
-            "us-west-2-fips",
-        ],
-        regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "cloudformation.{region}.amazonaws.com",
-                tags: [],
-            },
-            {
-                hostname: "cloudformation-fips.{region}.amazonaws.com",
-                tags: ["fips"],
-            },
-            {
-                hostname: "cloudformation-fips.{region}.api.aws",
-                tags: ["dualstack", "fips"],
-            },
-            {
-                hostname: "cloudformation.{region}.api.aws",
-                tags: ["dualstack"],
-            },
-        ],
+exports.defaultEndpointResolver = defaultEndpointResolver;
+
+
+/***/ }),
+
+/***/ 8349:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ruleSet = void 0;
+exports.ruleSet = {
+    version: "1.0",
+    parameters: {
+        Region: {
+            builtIn: "AWS::Region",
+            required: false,
+            documentation: "The AWS region used to dispatch the request.",
+            type: "String",
+        },
+        UseDualStack: {
+            builtIn: "AWS::UseDualStack",
+            required: true,
+            default: false,
+            documentation: "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+            type: "Boolean",
+        },
+        UseFIPS: {
+            builtIn: "AWS::UseFIPS",
+            required: true,
+            default: false,
+            documentation: "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+            type: "Boolean",
+        },
+        Endpoint: {
+            builtIn: "SDK::Endpoint",
+            required: false,
+            documentation: "Override the endpoint used to send this request",
+            type: "String",
+        },
     },
-    "aws-cn": {
-        regions: ["cn-north-1", "cn-northwest-1"],
-        regionRegex: "^cn\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "cloudformation.{region}.amazonaws.com.cn",
-                tags: [],
-            },
-            {
-                hostname: "cloudformation-fips.{region}.amazonaws.com.cn",
-                tags: ["fips"],
-            },
-            {
-                hostname: "cloudformation-fips.{region}.api.amazonwebservices.com.cn",
-                tags: ["dualstack", "fips"],
-            },
-            {
-                hostname: "cloudformation.{region}.api.amazonwebservices.com.cn",
-                tags: ["dualstack"],
-            },
-        ],
-    },
-    "aws-iso": {
-        regions: ["us-iso-east-1", "us-iso-west-1"],
-        regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "cloudformation.{region}.c2s.ic.gov",
-                tags: [],
-            },
-            {
-                hostname: "cloudformation-fips.{region}.c2s.ic.gov",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "aws-iso-b": {
-        regions: ["us-isob-east-1"],
-        regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "cloudformation.{region}.sc2s.sgov.gov",
-                tags: [],
-            },
-            {
-                hostname: "cloudformation-fips.{region}.sc2s.sgov.gov",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "aws-us-gov": {
-        regions: ["us-gov-east-1", "us-gov-west-1"],
-        regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "cloudformation.{region}.amazonaws.com",
-                tags: [],
-            },
-            {
-                hostname: "cloudformation-fips.{region}.amazonaws.com",
-                tags: ["fips"],
-            },
-            {
-                hostname: "cloudformation-fips.{region}.api.aws",
-                tags: ["dualstack", "fips"],
-            },
-            {
-                hostname: "cloudformation.{region}.api.aws",
-                tags: ["dualstack"],
-            },
-        ],
-    },
+    rules: [
+        {
+            conditions: [
+                {
+                    fn: "aws.partition",
+                    argv: [
+                        {
+                            ref: "Region",
+                        },
+                    ],
+                    assign: "PartitionResult",
+                },
+            ],
+            type: "tree",
+            rules: [
+                {
+                    conditions: [
+                        {
+                            fn: "isSet",
+                            argv: [
+                                {
+                                    ref: "Endpoint",
+                                },
+                            ],
+                        },
+                        {
+                            fn: "parseURL",
+                            argv: [
+                                {
+                                    ref: "Endpoint",
+                                },
+                            ],
+                            assign: "url",
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        {
+                                            ref: "UseFIPS",
+                                        },
+                                        true,
+                                    ],
+                                },
+                            ],
+                            error: "Invalid Configuration: FIPS and custom endpoint are not supported",
+                            type: "error",
+                        },
+                        {
+                            conditions: [],
+                            type: "tree",
+                            rules: [
+                                {
+                                    conditions: [
+                                        {
+                                            fn: "booleanEquals",
+                                            argv: [
+                                                {
+                                                    ref: "UseDualStack",
+                                                },
+                                                true,
+                                            ],
+                                        },
+                                    ],
+                                    error: "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                                    type: "error",
+                                },
+                                {
+                                    conditions: [],
+                                    endpoint: {
+                                        url: {
+                                            ref: "Endpoint",
+                                        },
+                                        properties: {},
+                                        headers: {},
+                                    },
+                                    type: "endpoint",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    conditions: [
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseFIPS",
+                                },
+                                true,
+                            ],
+                        },
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseDualStack",
+                                },
+                                true,
+                            ],
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        true,
+                                        {
+                                            fn: "getAttr",
+                                            argv: [
+                                                {
+                                                    ref: "PartitionResult",
+                                                },
+                                                "supportsFIPS",
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        true,
+                                        {
+                                            fn: "getAttr",
+                                            argv: [
+                                                {
+                                                    ref: "PartitionResult",
+                                                },
+                                                "supportsDualStack",
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                            type: "tree",
+                            rules: [
+                                {
+                                    conditions: [],
+                                    endpoint: {
+                                        url: "https://cloudformation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        properties: {},
+                                        headers: {},
+                                    },
+                                    type: "endpoint",
+                                },
+                            ],
+                        },
+                        {
+                            conditions: [],
+                            error: "FIPS and DualStack are enabled, but this partition does not support one or both",
+                            type: "error",
+                        },
+                    ],
+                },
+                {
+                    conditions: [
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseFIPS",
+                                },
+                                true,
+                            ],
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        true,
+                                        {
+                                            fn: "getAttr",
+                                            argv: [
+                                                {
+                                                    ref: "PartitionResult",
+                                                },
+                                                "supportsFIPS",
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                            type: "tree",
+                            rules: [
+                                {
+                                    conditions: [],
+                                    type: "tree",
+                                    rules: [
+                                        {
+                                            conditions: [],
+                                            endpoint: {
+                                                url: "https://cloudformation-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                                properties: {},
+                                                headers: {},
+                                            },
+                                            type: "endpoint",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            conditions: [],
+                            error: "FIPS is enabled but this partition does not support FIPS",
+                            type: "error",
+                        },
+                    ],
+                },
+                {
+                    conditions: [
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseDualStack",
+                                },
+                                true,
+                            ],
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        true,
+                                        {
+                                            fn: "getAttr",
+                                            argv: [
+                                                {
+                                                    ref: "PartitionResult",
+                                                },
+                                                "supportsDualStack",
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                            type: "tree",
+                            rules: [
+                                {
+                                    conditions: [],
+                                    endpoint: {
+                                        url: "https://cloudformation.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        properties: {},
+                                        headers: {},
+                                    },
+                                    type: "endpoint",
+                                },
+                            ],
+                        },
+                        {
+                            conditions: [],
+                            error: "DualStack is enabled but this partition does not support DualStack",
+                            type: "error",
+                        },
+                    ],
+                },
+                {
+                    conditions: [],
+                    endpoint: {
+                        url: "https://cloudformation.{Region}.{PartitionResult#dnsSuffix}",
+                        properties: {},
+                        headers: {},
+                    },
+                    type: "endpoint",
+                },
+            ],
+        },
+    ],
 };
-const defaultRegionInfoProvider = async (region, options) => (0, config_resolver_1.getRegionInfo)(region, {
-    ...options,
-    signingService: "cloudformation",
-    regionHash,
-    partitionHash,
-});
-exports.defaultRegionInfoProvider = defaultRegionInfoProvider;
 
 
 /***/ }),
@@ -16542,15 +17375,15 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const url_parser_1 = __nccwpck_require__(7190);
-const endpoints_1 = __nccwpck_require__(1112);
+const url_parser_1 = __nccwpck_require__(2992);
+const endpointResolver_1 = __nccwpck_require__(5640);
 const getRuntimeConfig = (config) => {
     var _a, _b, _c, _d, _e;
     return ({
         apiVersion: "2010-05-15",
         disableHostPrefix: (_a = config === null || config === void 0 ? void 0 : config.disableHostPrefix) !== null && _a !== void 0 ? _a : false,
-        logger: (_b = config === null || config === void 0 ? void 0 : config.logger) !== null && _b !== void 0 ? _b : {},
-        regionInfoProvider: (_c = config === null || config === void 0 ? void 0 : config.regionInfoProvider) !== null && _c !== void 0 ? _c : endpoints_1.defaultRegionInfoProvider,
+        endpointProvider: (_b = config === null || config === void 0 ? void 0 : config.endpointProvider) !== null && _b !== void 0 ? _b : endpointResolver_1.defaultEndpointResolver,
+        logger: (_c = config === null || config === void 0 ? void 0 : config.logger) !== null && _c !== void 0 ? _c : {},
         serviceId: (_d = config === null || config === void 0 ? void 0 : config.serviceId) !== null && _d !== void 0 ? _d : "CloudFormation",
         urlParser: (_e = config === null || config === void 0 ? void 0 : config.urlParser) !== null && _e !== void 0 ? _e : url_parser_1.parseUrl,
     });
@@ -18709,7 +19542,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const url_parser_1 = __nccwpck_require__(7190);
+const url_parser_1 = __nccwpck_require__(2992);
 const endpoints_1 = __nccwpck_require__(3546);
 const getRuntimeConfig = (config) => {
     var _a, _b, _c, _d, _e;
@@ -18869,6 +19702,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.STSClient = void 0;
 const config_resolver_1 = __nccwpck_require__(6153);
 const middleware_content_length_1 = __nccwpck_require__(2245);
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_host_header_1 = __nccwpck_require__(2545);
 const middleware_logger_1 = __nccwpck_require__(14);
 const middleware_recursion_detection_1 = __nccwpck_require__(5525);
@@ -18876,18 +19710,20 @@ const middleware_retry_1 = __nccwpck_require__(6064);
 const middleware_sdk_sts_1 = __nccwpck_require__(5959);
 const middleware_user_agent_1 = __nccwpck_require__(4688);
 const smithy_client_1 = __nccwpck_require__(4963);
+const EndpointParameters_1 = __nccwpck_require__(510);
 const runtimeConfig_1 = __nccwpck_require__(3405);
 class STSClient extends smithy_client_1.Client {
     constructor(configuration) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration);
-        const _config_1 = (0, config_resolver_1.resolveRegionConfig)(_config_0);
-        const _config_2 = (0, config_resolver_1.resolveEndpointsConfig)(_config_1);
-        const _config_3 = (0, middleware_retry_1.resolveRetryConfig)(_config_2);
-        const _config_4 = (0, middleware_host_header_1.resolveHostHeaderConfig)(_config_3);
-        const _config_5 = (0, middleware_sdk_sts_1.resolveStsAuthConfig)(_config_4, { stsClientCtor: STSClient });
-        const _config_6 = (0, middleware_user_agent_1.resolveUserAgentConfig)(_config_5);
-        super(_config_6);
-        this.config = _config_6;
+        const _config_1 = (0, EndpointParameters_1.resolveClientEndpointParameters)(_config_0);
+        const _config_2 = (0, config_resolver_1.resolveRegionConfig)(_config_1);
+        const _config_3 = (0, middleware_endpoint_1.resolveEndpointConfig)(_config_2);
+        const _config_4 = (0, middleware_retry_1.resolveRetryConfig)(_config_3);
+        const _config_5 = (0, middleware_host_header_1.resolveHostHeaderConfig)(_config_4);
+        const _config_6 = (0, middleware_sdk_sts_1.resolveStsAuthConfig)(_config_5, { stsClientCtor: STSClient });
+        const _config_7 = (0, middleware_user_agent_1.resolveUserAgentConfig)(_config_6);
+        super(_config_7);
+        this.config = _config_7;
         this.middlewareStack.use((0, middleware_retry_1.getRetryPlugin)(this.config));
         this.middlewareStack.use((0, middleware_content_length_1.getContentLengthPlugin)(this.config));
         this.middlewareStack.use((0, middleware_host_header_1.getHostHeaderPlugin)(this.config));
@@ -18910,6 +19746,7 @@ exports.STSClient = STSClient;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AssumeRoleCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const middleware_signing_1 = __nccwpck_require__(4935);
 const smithy_client_1 = __nccwpck_require__(4963);
@@ -18920,8 +19757,18 @@ class AssumeRoleCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, AssumeRoleCommand.getEndpointParameterInstructions()));
         this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
@@ -18955,6 +19802,7 @@ exports.AssumeRoleCommand = AssumeRoleCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AssumeRoleWithSAMLCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(1780);
@@ -18964,8 +19812,18 @@ class AssumeRoleWithSAMLCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, AssumeRoleWithSAMLCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "STSClient";
@@ -18998,6 +19856,7 @@ exports.AssumeRoleWithSAMLCommand = AssumeRoleWithSAMLCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AssumeRoleWithWebIdentityCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(1780);
@@ -19007,8 +19866,18 @@ class AssumeRoleWithWebIdentityCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, AssumeRoleWithWebIdentityCommand.getEndpointParameterInstructions()));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
         const clientName = "STSClient";
@@ -19041,6 +19910,7 @@ exports.AssumeRoleWithWebIdentityCommand = AssumeRoleWithWebIdentityCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DecodeAuthorizationMessageCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const middleware_signing_1 = __nccwpck_require__(4935);
 const smithy_client_1 = __nccwpck_require__(4963);
@@ -19051,8 +19921,18 @@ class DecodeAuthorizationMessageCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DecodeAuthorizationMessageCommand.getEndpointParameterInstructions()));
         this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
@@ -19086,6 +19966,7 @@ exports.DecodeAuthorizationMessageCommand = DecodeAuthorizationMessageCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetAccessKeyInfoCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const middleware_signing_1 = __nccwpck_require__(4935);
 const smithy_client_1 = __nccwpck_require__(4963);
@@ -19096,8 +19977,18 @@ class GetAccessKeyInfoCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetAccessKeyInfoCommand.getEndpointParameterInstructions()));
         this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
@@ -19131,6 +20022,7 @@ exports.GetAccessKeyInfoCommand = GetAccessKeyInfoCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetCallerIdentityCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const middleware_signing_1 = __nccwpck_require__(4935);
 const smithy_client_1 = __nccwpck_require__(4963);
@@ -19141,8 +20033,18 @@ class GetCallerIdentityCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetCallerIdentityCommand.getEndpointParameterInstructions()));
         this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
@@ -19176,6 +20078,7 @@ exports.GetCallerIdentityCommand = GetCallerIdentityCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetFederationTokenCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const middleware_signing_1 = __nccwpck_require__(4935);
 const smithy_client_1 = __nccwpck_require__(4963);
@@ -19186,8 +20089,18 @@ class GetFederationTokenCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetFederationTokenCommand.getEndpointParameterInstructions()));
         this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
@@ -19221,6 +20134,7 @@ exports.GetFederationTokenCommand = GetFederationTokenCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetSessionTokenCommand = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(3631);
 const middleware_signing_1 = __nccwpck_require__(4935);
 const smithy_client_1 = __nccwpck_require__(4963);
@@ -19231,8 +20145,18 @@ class GetSessionTokenCommand extends smithy_client_1.Command {
         super();
         this.input = input;
     }
+    static getEndpointParameterInstructions() {
+        return {
+            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
     resolveMiddleware(clientStack, configuration, options) {
         this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetSessionTokenCommand.getEndpointParameterInstructions()));
         this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
         const stack = clientStack.concat(this.middlewareStack);
         const { logger } = configuration;
@@ -19396,204 +20320,928 @@ exports.decorateDefaultCredentialProvider = decorateDefaultCredentialProvider;
 
 /***/ }),
 
-/***/ 3571:
+/***/ 510:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.resolveClientEndpointParameters = void 0;
+const resolveClientEndpointParameters = (options) => {
+    var _a, _b, _c;
+    return {
+        ...options,
+        useDualstackEndpoint: (_a = options.useDualstackEndpoint) !== null && _a !== void 0 ? _a : false,
+        useFipsEndpoint: (_b = options.useFipsEndpoint) !== null && _b !== void 0 ? _b : false,
+        useGlobalEndpoint: (_c = options.useGlobalEndpoint) !== null && _c !== void 0 ? _c : false,
+        defaultSigningName: "sts",
+    };
+};
+exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
+
+
+/***/ }),
+
+/***/ 1203:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.defaultRegionInfoProvider = void 0;
-const config_resolver_1 = __nccwpck_require__(6153);
-const regionHash = {
-    "aws-global": {
-        variants: [
-            {
-                hostname: "sts.amazonaws.com",
-                tags: [],
-            },
-        ],
-        signingRegion: "us-east-1",
-    },
-    "us-east-1": {
-        variants: [
-            {
-                hostname: "sts-fips.us-east-1.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "us-east-2": {
-        variants: [
-            {
-                hostname: "sts-fips.us-east-2.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "us-gov-east-1": {
-        variants: [
-            {
-                hostname: "sts.us-gov-east-1.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "us-gov-west-1": {
-        variants: [
-            {
-                hostname: "sts.us-gov-west-1.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "us-west-1": {
-        variants: [
-            {
-                hostname: "sts-fips.us-west-1.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "us-west-2": {
-        variants: [
-            {
-                hostname: "sts-fips.us-west-2.amazonaws.com",
-                tags: ["fips"],
-            },
-        ],
-    },
+exports.defaultEndpointResolver = void 0;
+const util_endpoints_1 = __nccwpck_require__(3350);
+const ruleset_1 = __nccwpck_require__(6882);
+const defaultEndpointResolver = (endpointParams, context = {}) => {
+    return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
+        endpointParams: endpointParams,
+        logger: context.logger,
+    });
 };
-const partitionHash = {
-    aws: {
-        regions: [
-            "af-south-1",
-            "ap-east-1",
-            "ap-northeast-1",
-            "ap-northeast-2",
-            "ap-northeast-3",
-            "ap-south-1",
-            "ap-southeast-1",
-            "ap-southeast-2",
-            "ap-southeast-3",
-            "aws-global",
-            "ca-central-1",
-            "eu-central-1",
-            "eu-north-1",
-            "eu-south-1",
-            "eu-west-1",
-            "eu-west-2",
-            "eu-west-3",
-            "me-central-1",
-            "me-south-1",
-            "sa-east-1",
-            "us-east-1",
-            "us-east-1-fips",
-            "us-east-2",
-            "us-east-2-fips",
-            "us-west-1",
-            "us-west-1-fips",
-            "us-west-2",
-            "us-west-2-fips",
-        ],
-        regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "sts.{region}.amazonaws.com",
-                tags: [],
-            },
-            {
-                hostname: "sts-fips.{region}.amazonaws.com",
-                tags: ["fips"],
-            },
-            {
-                hostname: "sts-fips.{region}.api.aws",
-                tags: ["dualstack", "fips"],
-            },
-            {
-                hostname: "sts.{region}.api.aws",
-                tags: ["dualstack"],
-            },
-        ],
+exports.defaultEndpointResolver = defaultEndpointResolver;
+
+
+/***/ }),
+
+/***/ 6882:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ruleSet = void 0;
+exports.ruleSet = {
+    version: "1.0",
+    parameters: {
+        Region: {
+            builtIn: "AWS::Region",
+            required: false,
+            documentation: "The AWS region used to dispatch the request.",
+            type: "String",
+        },
+        UseDualStack: {
+            builtIn: "AWS::UseDualStack",
+            required: true,
+            default: false,
+            documentation: "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+            type: "Boolean",
+        },
+        UseFIPS: {
+            builtIn: "AWS::UseFIPS",
+            required: true,
+            default: false,
+            documentation: "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+            type: "Boolean",
+        },
+        Endpoint: {
+            builtIn: "SDK::Endpoint",
+            required: false,
+            documentation: "Override the endpoint used to send this request",
+            type: "String",
+        },
+        UseGlobalEndpoint: {
+            builtIn: "AWS::STS::UseGlobalEndpoint",
+            required: true,
+            default: false,
+            documentation: "Whether the global endpoint should be used, rather then the regional endpoint for us-east-1.",
+            type: "Boolean",
+        },
     },
-    "aws-cn": {
-        regions: ["cn-north-1", "cn-northwest-1"],
-        regionRegex: "^cn\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "sts.{region}.amazonaws.com.cn",
-                tags: [],
-            },
-            {
-                hostname: "sts-fips.{region}.amazonaws.com.cn",
-                tags: ["fips"],
-            },
-            {
-                hostname: "sts-fips.{region}.api.amazonwebservices.com.cn",
-                tags: ["dualstack", "fips"],
-            },
-            {
-                hostname: "sts.{region}.api.amazonwebservices.com.cn",
-                tags: ["dualstack"],
-            },
-        ],
-    },
-    "aws-iso": {
-        regions: ["us-iso-east-1", "us-iso-west-1"],
-        regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "sts.{region}.c2s.ic.gov",
-                tags: [],
-            },
-            {
-                hostname: "sts-fips.{region}.c2s.ic.gov",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "aws-iso-b": {
-        regions: ["us-isob-east-1"],
-        regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "sts.{region}.sc2s.sgov.gov",
-                tags: [],
-            },
-            {
-                hostname: "sts-fips.{region}.sc2s.sgov.gov",
-                tags: ["fips"],
-            },
-        ],
-    },
-    "aws-us-gov": {
-        regions: ["us-gov-east-1", "us-gov-east-1-fips", "us-gov-west-1", "us-gov-west-1-fips"],
-        regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-        variants: [
-            {
-                hostname: "sts.{region}.amazonaws.com",
-                tags: [],
-            },
-            {
-                hostname: "sts.{region}.amazonaws.com",
-                tags: ["fips"],
-            },
-            {
-                hostname: "sts-fips.{region}.api.aws",
-                tags: ["dualstack", "fips"],
-            },
-            {
-                hostname: "sts.{region}.api.aws",
-                tags: ["dualstack"],
-            },
-        ],
-    },
+    rules: [
+        {
+            conditions: [
+                {
+                    fn: "aws.partition",
+                    argv: [
+                        {
+                            ref: "Region",
+                        },
+                    ],
+                    assign: "PartitionResult",
+                },
+            ],
+            type: "tree",
+            rules: [
+                {
+                    conditions: [
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseGlobalEndpoint",
+                                },
+                                true,
+                            ],
+                        },
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseFIPS",
+                                },
+                                false,
+                            ],
+                        },
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseDualStack",
+                                },
+                                false,
+                            ],
+                        },
+                        {
+                            fn: "not",
+                            argv: [
+                                {
+                                    fn: "isSet",
+                                    argv: [
+                                        {
+                                            ref: "Endpoint",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "ap-northeast-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "ap-south-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "ap-southeast-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "ap-southeast-2",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "aws-global",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "ca-central-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "eu-central-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "eu-north-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "eu-west-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "eu-west-2",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "eu-west-3",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "sa-east-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "us-east-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "us-east-2",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "us-west-1",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "us-west-2",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [],
+                            endpoint: {
+                                url: "https://sts.{Region}.{PartitionResult#dnsSuffix}",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "{Region}",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                    ],
+                },
+                {
+                    conditions: [
+                        {
+                            fn: "isSet",
+                            argv: [
+                                {
+                                    ref: "Endpoint",
+                                },
+                            ],
+                        },
+                        {
+                            fn: "parseURL",
+                            argv: [
+                                {
+                                    ref: "Endpoint",
+                                },
+                            ],
+                            assign: "url",
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        {
+                                            ref: "UseFIPS",
+                                        },
+                                        true,
+                                    ],
+                                },
+                            ],
+                            error: "Invalid Configuration: FIPS and custom endpoint are not supported",
+                            type: "error",
+                        },
+                        {
+                            conditions: [],
+                            type: "tree",
+                            rules: [
+                                {
+                                    conditions: [
+                                        {
+                                            fn: "booleanEquals",
+                                            argv: [
+                                                {
+                                                    ref: "UseDualStack",
+                                                },
+                                                true,
+                                            ],
+                                        },
+                                    ],
+                                    error: "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                                    type: "error",
+                                },
+                                {
+                                    conditions: [],
+                                    endpoint: {
+                                        url: {
+                                            ref: "Endpoint",
+                                        },
+                                        properties: {},
+                                        headers: {},
+                                    },
+                                    type: "endpoint",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    conditions: [
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseFIPS",
+                                },
+                                true,
+                            ],
+                        },
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseDualStack",
+                                },
+                                true,
+                            ],
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        true,
+                                        {
+                                            fn: "getAttr",
+                                            argv: [
+                                                {
+                                                    ref: "PartitionResult",
+                                                },
+                                                "supportsFIPS",
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        true,
+                                        {
+                                            fn: "getAttr",
+                                            argv: [
+                                                {
+                                                    ref: "PartitionResult",
+                                                },
+                                                "supportsDualStack",
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                            type: "tree",
+                            rules: [
+                                {
+                                    conditions: [],
+                                    endpoint: {
+                                        url: "https://sts-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        properties: {},
+                                        headers: {},
+                                    },
+                                    type: "endpoint",
+                                },
+                            ],
+                        },
+                        {
+                            conditions: [],
+                            error: "FIPS and DualStack are enabled, but this partition does not support one or both",
+                            type: "error",
+                        },
+                    ],
+                },
+                {
+                    conditions: [
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseFIPS",
+                                },
+                                true,
+                            ],
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        true,
+                                        {
+                                            fn: "getAttr",
+                                            argv: [
+                                                {
+                                                    ref: "PartitionResult",
+                                                },
+                                                "supportsFIPS",
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                            type: "tree",
+                            rules: [
+                                {
+                                    conditions: [],
+                                    type: "tree",
+                                    rules: [
+                                        {
+                                            conditions: [
+                                                {
+                                                    fn: "stringEquals",
+                                                    argv: [
+                                                        "aws-us-gov",
+                                                        {
+                                                            fn: "getAttr",
+                                                            argv: [
+                                                                {
+                                                                    ref: "PartitionResult",
+                                                                },
+                                                                "name",
+                                                            ],
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                            endpoint: {
+                                                url: "https://sts.{Region}.{PartitionResult#dnsSuffix}",
+                                                properties: {},
+                                                headers: {},
+                                            },
+                                            type: "endpoint",
+                                        },
+                                        {
+                                            conditions: [],
+                                            endpoint: {
+                                                url: "https://sts-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                                properties: {},
+                                                headers: {},
+                                            },
+                                            type: "endpoint",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            conditions: [],
+                            error: "FIPS is enabled but this partition does not support FIPS",
+                            type: "error",
+                        },
+                    ],
+                },
+                {
+                    conditions: [
+                        {
+                            fn: "booleanEquals",
+                            argv: [
+                                {
+                                    ref: "UseDualStack",
+                                },
+                                true,
+                            ],
+                        },
+                    ],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "booleanEquals",
+                                    argv: [
+                                        true,
+                                        {
+                                            fn: "getAttr",
+                                            argv: [
+                                                {
+                                                    ref: "PartitionResult",
+                                                },
+                                                "supportsDualStack",
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                            type: "tree",
+                            rules: [
+                                {
+                                    conditions: [],
+                                    endpoint: {
+                                        url: "https://sts.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        properties: {},
+                                        headers: {},
+                                    },
+                                    type: "endpoint",
+                                },
+                            ],
+                        },
+                        {
+                            conditions: [],
+                            error: "DualStack is enabled but this partition does not support DualStack",
+                            type: "error",
+                        },
+                    ],
+                },
+                {
+                    conditions: [],
+                    type: "tree",
+                    rules: [
+                        {
+                            conditions: [
+                                {
+                                    fn: "stringEquals",
+                                    argv: [
+                                        {
+                                            ref: "Region",
+                                        },
+                                        "aws-global",
+                                    ],
+                                },
+                            ],
+                            endpoint: {
+                                url: "https://sts.amazonaws.com",
+                                properties: {
+                                    authSchemes: [
+                                        {
+                                            name: "sigv4",
+                                            signingName: "sts",
+                                            signingRegion: "us-east-1",
+                                        },
+                                    ],
+                                },
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                        {
+                            conditions: [],
+                            endpoint: {
+                                url: "https://sts.{Region}.{PartitionResult#dnsSuffix}",
+                                properties: {},
+                                headers: {},
+                            },
+                            type: "endpoint",
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
 };
-const defaultRegionInfoProvider = async (region, options) => (0, config_resolver_1.getRegionInfo)(region, {
-    ...options,
-    signingService: "sts",
-    regionHash,
-    partitionHash,
-});
-exports.defaultRegionInfoProvider = defaultRegionInfoProvider;
 
 
 /***/ }),
@@ -20982,15 +22630,15 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const url_parser_1 = __nccwpck_require__(7190);
-const endpoints_1 = __nccwpck_require__(3571);
+const url_parser_1 = __nccwpck_require__(2992);
+const endpointResolver_1 = __nccwpck_require__(1203);
 const getRuntimeConfig = (config) => {
     var _a, _b, _c, _d, _e;
     return ({
         apiVersion: "2011-06-15",
         disableHostPrefix: (_a = config === null || config === void 0 ? void 0 : config.disableHostPrefix) !== null && _a !== void 0 ? _a : false,
-        logger: (_b = config === null || config === void 0 ? void 0 : config.logger) !== null && _b !== void 0 ? _b : {},
-        regionInfoProvider: (_c = config === null || config === void 0 ? void 0 : config.regionInfoProvider) !== null && _c !== void 0 ? _c : endpoints_1.defaultRegionInfoProvider,
+        endpointProvider: (_b = config === null || config === void 0 ? void 0 : config.endpointProvider) !== null && _b !== void 0 ? _b : endpointResolver_1.defaultEndpointResolver,
+        logger: (_c = config === null || config === void 0 ? void 0 : config.logger) !== null && _c !== void 0 ? _c : {},
         serviceId: (_d = config === null || config === void 0 ? void 0 : config.serviceId) !== null && _d !== void 0 ? _d : "STS",
         urlParser: (_e = config === null || config === void 0 ? void 0 : config.urlParser) !== null && _e !== void 0 ? _e : url_parser_1.parseUrl,
     });
@@ -21833,7 +23481,7 @@ exports.getExtendedInstanceMetadataCredentials = getExtendedInstanceMetadataCred
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getInstanceMetadataEndpoint = void 0;
 const node_config_provider_1 = __nccwpck_require__(7684);
-const url_parser_1 = __nccwpck_require__(7190);
+const url_parser_1 = __nccwpck_require__(2992);
 const Endpoint_1 = __nccwpck_require__(3736);
 const EndpointConfigOptions_1 = __nccwpck_require__(8438);
 const EndpointMode_1 = __nccwpck_require__(1695);
@@ -22592,6 +24240,272 @@ const getContentLengthPlugin = (options) => ({
     },
 });
 exports.getContentLengthPlugin = getContentLengthPlugin;
+
+
+/***/ }),
+
+/***/ 2419:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.resolveParams = exports.getEndpointFromInstructions = void 0;
+const service_customizations_1 = __nccwpck_require__(3589);
+const getEndpointFromInstructions = async (commandInput, instructionsSupplier, clientConfig, context) => {
+    const endpointParams = await (0, exports.resolveParams)(commandInput, instructionsSupplier, clientConfig);
+    if (typeof clientConfig.endpointProvider !== "function") {
+        throw new Error("config.endpointProvider is not set.");
+    }
+    const endpoint = clientConfig.endpointProvider(endpointParams, context);
+    return endpoint;
+};
+exports.getEndpointFromInstructions = getEndpointFromInstructions;
+const resolveParams = async (commandInput, instructionsSupplier, clientConfig) => {
+    var _a;
+    const endpointParams = {};
+    const instructions = ((_a = instructionsSupplier === null || instructionsSupplier === void 0 ? void 0 : instructionsSupplier.getEndpointParameterInstructions) === null || _a === void 0 ? void 0 : _a.call(instructionsSupplier)) || {};
+    for (const [name, instruction] of Object.entries(instructions)) {
+        switch (instruction.type) {
+            case "staticContextParams":
+                endpointParams[name] = instruction.value;
+                break;
+            case "contextParams":
+                endpointParams[name] = commandInput[instruction.name];
+                break;
+            case "clientContextParams":
+            case "builtInParams":
+                endpointParams[name] = await createConfigProvider(instruction.name, name, clientConfig)();
+                break;
+            default:
+                throw new Error("Unrecognized endpoint parameter instruction: " + JSON.stringify(instruction));
+        }
+    }
+    if (Object.keys(instructions).length === 0) {
+        Object.assign(endpointParams, clientConfig);
+    }
+    if (String(clientConfig.serviceId).toLowerCase() === "s3") {
+        await (0, service_customizations_1.resolveParamsForS3)(endpointParams);
+    }
+    return endpointParams;
+};
+exports.resolveParams = resolveParams;
+const createConfigProvider = (configKey, canonicalEndpointParamKey, config) => {
+    const configProvider = async () => {
+        const configValue = config[configKey] || config[canonicalEndpointParamKey];
+        if (typeof configValue === "function") {
+            return configValue();
+        }
+        return configValue;
+    };
+    return configProvider;
+};
+
+
+/***/ }),
+
+/***/ 197:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(2419), exports);
+tslib_1.__exportStar(__nccwpck_require__(8289), exports);
+
+
+/***/ }),
+
+/***/ 8289:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.toEndpointV1 = void 0;
+const url_parser_1 = __nccwpck_require__(2992);
+const toEndpointV1 = (endpoint) => {
+    if (typeof endpoint === "object") {
+        if ("url" in endpoint) {
+            return (0, url_parser_1.parseUrl)(endpoint.url);
+        }
+        return endpoint;
+    }
+    return (0, url_parser_1.parseUrl)(endpoint);
+};
+exports.toEndpointV1 = toEndpointV1;
+
+
+/***/ }),
+
+/***/ 2639:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.endpointMiddleware = void 0;
+const getEndpointFromInstructions_1 = __nccwpck_require__(2419);
+const endpointMiddleware = ({ config, instructions, }) => {
+    return (next, context) => async (args) => {
+        var _a, _b;
+        const endpoint = await (0, getEndpointFromInstructions_1.getEndpointFromInstructions)(args.input, {
+            getEndpointParameterInstructions() {
+                return instructions;
+            },
+        }, { ...config }, context);
+        context.endpointV2 = endpoint;
+        context.authSchemes = (_a = endpoint.properties) === null || _a === void 0 ? void 0 : _a.authSchemes;
+        const authScheme = (_b = context.authSchemes) === null || _b === void 0 ? void 0 : _b[0];
+        if (authScheme) {
+            context["signing_region"] = authScheme.signingRegion;
+            context["signing_service"] = authScheme.signingName;
+        }
+        return next({
+            ...args,
+        });
+    };
+};
+exports.endpointMiddleware = endpointMiddleware;
+
+
+/***/ }),
+
+/***/ 7981:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getEndpointPlugin = exports.endpointMiddlewareOptions = void 0;
+const middleware_serde_1 = __nccwpck_require__(3631);
+const endpointMiddleware_1 = __nccwpck_require__(2639);
+exports.endpointMiddlewareOptions = {
+    step: "serialize",
+    tags: ["ENDPOINT_PARAMETERS", "ENDPOINT_V2", "ENDPOINT"],
+    name: "endpointV2Middleware",
+    override: true,
+    relation: "before",
+    toMiddleware: middleware_serde_1.serializerMiddlewareOption.name,
+};
+const getEndpointPlugin = (config, instructions) => ({
+    applyToStack: (clientStack) => {
+        clientStack.addRelativeTo((0, endpointMiddleware_1.endpointMiddleware)({
+            config,
+            instructions,
+        }), exports.endpointMiddlewareOptions);
+    },
+});
+exports.getEndpointPlugin = getEndpointPlugin;
+
+
+/***/ }),
+
+/***/ 5497:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(197), exports);
+tslib_1.__exportStar(__nccwpck_require__(2639), exports);
+tslib_1.__exportStar(__nccwpck_require__(7981), exports);
+tslib_1.__exportStar(__nccwpck_require__(3157), exports);
+tslib_1.__exportStar(__nccwpck_require__(2521), exports);
+
+
+/***/ }),
+
+/***/ 3157:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.resolveEndpointConfig = void 0;
+const util_middleware_1 = __nccwpck_require__(236);
+const toEndpointV1_1 = __nccwpck_require__(8289);
+const resolveEndpointConfig = (input) => {
+    var _a, _b, _c;
+    const tls = (_a = input.tls) !== null && _a !== void 0 ? _a : true;
+    const { endpoint } = input;
+    const customEndpointProvider = endpoint != null ? async () => (0, toEndpointV1_1.toEndpointV1)(await (0, util_middleware_1.normalizeProvider)(endpoint)()) : undefined;
+    const isCustomEndpoint = !!endpoint;
+    return {
+        ...input,
+        endpoint: customEndpointProvider,
+        tls,
+        isCustomEndpoint,
+        useDualstackEndpoint: (0, util_middleware_1.normalizeProvider)((_b = input.useDualstackEndpoint) !== null && _b !== void 0 ? _b : false),
+        useFipsEndpoint: (0, util_middleware_1.normalizeProvider)((_c = input.useFipsEndpoint) !== null && _c !== void 0 ? _c : false),
+    };
+};
+exports.resolveEndpointConfig = resolveEndpointConfig;
+
+
+/***/ }),
+
+/***/ 3589:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(8648), exports);
+
+
+/***/ }),
+
+/***/ 8648:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isArnBucketName = exports.isDnsCompatibleBucketName = exports.S3_HOSTNAME_PATTERN = exports.DOT_PATTERN = exports.resolveParamsForS3 = void 0;
+const resolveParamsForS3 = async (endpointParams) => {
+    const bucket = (endpointParams === null || endpointParams === void 0 ? void 0 : endpointParams.Bucket) || "";
+    if (typeof endpointParams.Bucket === "string") {
+        endpointParams.Bucket = bucket.replace(/#/g, encodeURIComponent("#")).replace(/\?/g, encodeURIComponent("?"));
+    }
+    if ((0, exports.isArnBucketName)(bucket)) {
+        if (endpointParams.ForcePathStyle === true) {
+            throw new Error("Path-style addressing cannot be used with ARN buckets");
+        }
+    }
+    else if (!(0, exports.isDnsCompatibleBucketName)(bucket) ||
+        (bucket.indexOf(".") !== -1 && !String(endpointParams.Endpoint).startsWith("http:")) ||
+        bucket.toLowerCase() !== bucket ||
+        bucket.length < 3) {
+        endpointParams.ForcePathStyle = true;
+    }
+    if (endpointParams.DisableMultiRegionAccessPoints) {
+        endpointParams.disableMultiRegionAccessPoints = true;
+        endpointParams.DisableMRAP = true;
+    }
+    return endpointParams;
+};
+exports.resolveParamsForS3 = resolveParamsForS3;
+const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;
+const IP_ADDRESS_PATTERN = /(\d+\.){3}\d+/;
+const DOTS_PATTERN = /\.\./;
+exports.DOT_PATTERN = /\./;
+exports.S3_HOSTNAME_PATTERN = /^(.+\.)?s3(-fips)?(\.dualstack)?[.-]([a-z0-9-]+)\./;
+const isDnsCompatibleBucketName = (bucketName) => DOMAIN_PATTERN.test(bucketName) && !IP_ADDRESS_PATTERN.test(bucketName) && !DOTS_PATTERN.test(bucketName);
+exports.isDnsCompatibleBucketName = isDnsCompatibleBucketName;
+const isArnBucketName = (bucketName) => {
+    const [arn, partition, service, region, account, typeOrId] = bucketName.split(":");
+    const isArn = arn === "arn" && bucketName.split(":").length >= 6;
+    const isValidArn = [arn, partition, service, account, typeOrId].filter(Boolean).length === 5;
+    if (isArn && !isValidArn) {
+        throw new Error(`Invalid ARN: ${bucketName} was an invalid ARN.`);
+    }
+    return arn === "arn" && !!partition && !!service && !!account && !!typeOrId;
+};
+exports.isArnBucketName = isArnBucketName;
+
+
+/***/ }),
+
+/***/ 2521:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 
 /***/ }),
@@ -24986,7 +26900,7 @@ exports.getProfileName = getProfileName;
 
 /***/ }),
 
-/***/ 2992:
+/***/ 6147:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -25012,7 +26926,7 @@ exports.getSSOTokenFilepath = getSSOTokenFilepath;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getSSOTokenFromFile = void 0;
 const fs_1 = __nccwpck_require__(7147);
-const getSSOTokenFilepath_1 = __nccwpck_require__(2992);
+const getSSOTokenFilepath_1 = __nccwpck_require__(6147);
 const { readFile } = fs_1.promises;
 const getSSOTokenFromFile = async (ssoStartUrl) => {
     const ssoTokenFilepath = (0, getSSOTokenFilepath_1.getSSOTokenFilepath)(ssoStartUrl);
@@ -25047,7 +26961,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(4351);
 tslib_1.__exportStar(__nccwpck_require__(7363), exports);
 tslib_1.__exportStar(__nccwpck_require__(6776), exports);
-tslib_1.__exportStar(__nccwpck_require__(2992), exports);
+tslib_1.__exportStar(__nccwpck_require__(6147), exports);
 tslib_1.__exportStar(__nccwpck_require__(8553), exports);
 tslib_1.__exportStar(__nccwpck_require__(7871), exports);
 tslib_1.__exportStar(__nccwpck_require__(6179), exports);
@@ -26644,7 +28558,243 @@ exports.splitEvery = splitEvery;
 
 /***/ }),
 
-/***/ 7190:
+/***/ 2562:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 6913:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 6527:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 8470:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 7736:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 3268:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 9385:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.EndpointURLScheme = void 0;
+var EndpointURLScheme;
+(function (EndpointURLScheme) {
+    EndpointURLScheme["HTTP"] = "http";
+    EndpointURLScheme["HTTPS"] = "https";
+})(EndpointURLScheme = exports.EndpointURLScheme || (exports.EndpointURLScheme = {}));
+
+
+/***/ }),
+
+/***/ 7521:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 1393:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 9029:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(2562), exports);
+tslib_1.__exportStar(__nccwpck_require__(6913), exports);
+tslib_1.__exportStar(__nccwpck_require__(6527), exports);
+tslib_1.__exportStar(__nccwpck_require__(8470), exports);
+tslib_1.__exportStar(__nccwpck_require__(7736), exports);
+tslib_1.__exportStar(__nccwpck_require__(3268), exports);
+tslib_1.__exportStar(__nccwpck_require__(9385), exports);
+tslib_1.__exportStar(__nccwpck_require__(7521), exports);
+tslib_1.__exportStar(__nccwpck_require__(1393), exports);
+tslib_1.__exportStar(__nccwpck_require__(9910), exports);
+tslib_1.__exportStar(__nccwpck_require__(6678), exports);
+tslib_1.__exportStar(__nccwpck_require__(9931), exports);
+tslib_1.__exportStar(__nccwpck_require__(2620), exports);
+tslib_1.__exportStar(__nccwpck_require__(9546), exports);
+tslib_1.__exportStar(__nccwpck_require__(7835), exports);
+tslib_1.__exportStar(__nccwpck_require__(1678), exports);
+tslib_1.__exportStar(__nccwpck_require__(3818), exports);
+tslib_1.__exportStar(__nccwpck_require__(1991), exports);
+tslib_1.__exportStar(__nccwpck_require__(7035), exports);
+tslib_1.__exportStar(__nccwpck_require__(9416), exports);
+tslib_1.__exportStar(__nccwpck_require__(134), exports);
+tslib_1.__exportStar(__nccwpck_require__(4465), exports);
+
+
+/***/ }),
+
+/***/ 9910:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 6678:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 9931:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 2620:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 9546:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 7835:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 1678:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 3818:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 1991:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 7035:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 9416:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 134:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 4465:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 2992:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -26914,6 +29064,902 @@ const inferPhysicalRegion = async () => {
         }
     }
 };
+
+
+/***/ }),
+
+/***/ 3350:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(7482), exports);
+tslib_1.__exportStar(__nccwpck_require__(6563), exports);
+tslib_1.__exportStar(__nccwpck_require__(7433), exports);
+
+
+/***/ }),
+
+/***/ 6835:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(8079), exports);
+tslib_1.__exportStar(__nccwpck_require__(4711), exports);
+tslib_1.__exportStar(__nccwpck_require__(7482), exports);
+
+
+/***/ }),
+
+/***/ 8079:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isVirtualHostableS3Bucket = void 0;
+const isIpAddress_1 = __nccwpck_require__(3442);
+const isValidHostLabel_1 = __nccwpck_require__(7373);
+const isVirtualHostableS3Bucket = (value, allowSubDomains = false) => {
+    if (allowSubDomains) {
+        for (const label of value.split(".")) {
+            if (!(0, exports.isVirtualHostableS3Bucket)(label)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    if (!(0, isValidHostLabel_1.isValidHostLabel)(value)) {
+        return false;
+    }
+    if (value.length < 3 || value.length > 63) {
+        return false;
+    }
+    if (value !== value.toLowerCase()) {
+        return false;
+    }
+    if ((0, isIpAddress_1.isIpAddress)(value)) {
+        return false;
+    }
+    return true;
+};
+exports.isVirtualHostableS3Bucket = isVirtualHostableS3Bucket;
+
+
+/***/ }),
+
+/***/ 4711:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.parseArn = void 0;
+const parseArn = (value) => {
+    const segments = value.split(":");
+    if (segments.length < 6)
+        return null;
+    const [arn, partition, service, region, accountId, ...resourceId] = segments;
+    if (arn !== "arn" || partition === "" || service === "" || resourceId[0] === "")
+        return null;
+    return {
+        partition,
+        service,
+        region,
+        accountId,
+        resourceId: resourceId[0].includes("/") ? resourceId[0].split("/") : resourceId,
+    };
+};
+exports.parseArn = parseArn;
+
+
+/***/ }),
+
+/***/ 7482:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.partition = void 0;
+const tslib_1 = __nccwpck_require__(4351);
+const partitions_json_1 = tslib_1.__importDefault(__nccwpck_require__(5367));
+const { partitions } = partitions_json_1.default;
+const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws");
+const partition = (value) => {
+    for (const partition of partitions) {
+        const { regions, outputs } = partition;
+        for (const [region, regionData] of Object.entries(regions)) {
+            if (region === value) {
+                return {
+                    ...outputs,
+                    ...regionData,
+                };
+            }
+        }
+    }
+    for (const partition of partitions) {
+        const { regionRegex, outputs } = partition;
+        if (new RegExp(regionRegex).test(value)) {
+            return {
+                ...outputs,
+            };
+        }
+    }
+    if (!DEFAULT_PARTITION) {
+        throw new Error("Provided region was not found in the partition array or regex," +
+            " and default partition with id 'aws' doesn't exist.");
+    }
+    return {
+        ...DEFAULT_PARTITION.outputs,
+    };
+};
+exports.partition = partition;
+
+
+/***/ }),
+
+/***/ 5370:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.booleanEquals = void 0;
+const booleanEquals = (value1, value2) => value1 === value2;
+exports.booleanEquals = booleanEquals;
+
+
+/***/ }),
+
+/***/ 767:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getAttr = void 0;
+const types_1 = __nccwpck_require__(7433);
+const getAttrPathList_1 = __nccwpck_require__(1844);
+const getAttr = (value, path) => (0, getAttrPathList_1.getAttrPathList)(path).reduce((acc, index) => {
+    if (typeof acc !== "object") {
+        throw new types_1.EndpointError(`Index '${index}' in '${path}' not found in '${JSON.stringify(value)}'`);
+    }
+    else if (Array.isArray(acc)) {
+        return acc[parseInt(index)];
+    }
+    return acc[index];
+}, value);
+exports.getAttr = getAttr;
+
+
+/***/ }),
+
+/***/ 1844:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getAttrPathList = void 0;
+const types_1 = __nccwpck_require__(7433);
+const getAttrPathList = (path) => {
+    const parts = path.split(".");
+    const pathList = [];
+    for (const part of parts) {
+        const squareBracketIndex = part.indexOf("[");
+        if (squareBracketIndex !== -1) {
+            if (part.indexOf("]") !== part.length - 1) {
+                throw new types_1.EndpointError(`Path: '${path}' does not end with ']'`);
+            }
+            const arrayIndex = part.slice(squareBracketIndex + 1, -1);
+            if (Number.isNaN(parseInt(arrayIndex))) {
+                throw new types_1.EndpointError(`Invalid array index: '${arrayIndex}' in path: '${path}'`);
+            }
+            if (squareBracketIndex !== 0) {
+                pathList.push(part.slice(0, squareBracketIndex));
+            }
+            pathList.push(arrayIndex);
+        }
+        else {
+            pathList.push(part);
+        }
+    }
+    return pathList;
+};
+exports.getAttrPathList = getAttrPathList;
+
+
+/***/ }),
+
+/***/ 3188:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.aws = void 0;
+const tslib_1 = __nccwpck_require__(4351);
+exports.aws = tslib_1.__importStar(__nccwpck_require__(6835));
+tslib_1.__exportStar(__nccwpck_require__(5370), exports);
+tslib_1.__exportStar(__nccwpck_require__(767), exports);
+tslib_1.__exportStar(__nccwpck_require__(8816), exports);
+tslib_1.__exportStar(__nccwpck_require__(7373), exports);
+tslib_1.__exportStar(__nccwpck_require__(9692), exports);
+tslib_1.__exportStar(__nccwpck_require__(2780), exports);
+tslib_1.__exportStar(__nccwpck_require__(5182), exports);
+tslib_1.__exportStar(__nccwpck_require__(8305), exports);
+tslib_1.__exportStar(__nccwpck_require__(6535), exports);
+
+
+/***/ }),
+
+/***/ 3442:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isIpAddress = void 0;
+const IP_V4_REGEX = new RegExp(`^(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}$`);
+const isIpAddress = (value) => IP_V4_REGEX.test(value) || (value.startsWith("[") && value.endsWith("]"));
+exports.isIpAddress = isIpAddress;
+
+
+/***/ }),
+
+/***/ 8816:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isSet = void 0;
+const isSet = (value) => value != null;
+exports.isSet = isSet;
+
+
+/***/ }),
+
+/***/ 7373:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isValidHostLabel = void 0;
+const VALID_HOST_LABEL_REGEX = new RegExp(`^(?!.*-$)(?!-)[a-zA-Z0-9-]{1,63}$`);
+const isValidHostLabel = (value, allowSubDomains = false) => {
+    if (!allowSubDomains) {
+        return VALID_HOST_LABEL_REGEX.test(value);
+    }
+    const labels = value.split(".");
+    for (const label of labels) {
+        if (!(0, exports.isValidHostLabel)(label)) {
+            return false;
+        }
+    }
+    return true;
+};
+exports.isValidHostLabel = isValidHostLabel;
+
+
+/***/ }),
+
+/***/ 9692:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.not = void 0;
+const not = (value) => !value;
+exports.not = not;
+
+
+/***/ }),
+
+/***/ 2780:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.parseURL = void 0;
+const types_1 = __nccwpck_require__(9029);
+const isIpAddress_1 = __nccwpck_require__(3442);
+const DEFAULT_PORTS = {
+    [types_1.EndpointURLScheme.HTTP]: 80,
+    [types_1.EndpointURLScheme.HTTPS]: 443,
+};
+const parseURL = (value) => {
+    const whatwgURL = (() => {
+        try {
+            if (value instanceof URL) {
+                return value;
+            }
+            if (typeof value === "object" && "hostname" in value) {
+                const { hostname, port, protocol = "", path = "", query = {} } = value;
+                const url = new URL(`${protocol}//${hostname}${port ? `:${port}` : ""}${path}`);
+                url.search = Object.entries(query)
+                    .map(([k, v]) => `${k}=${v}`)
+                    .join("&");
+                return url;
+            }
+            return new URL(value);
+        }
+        catch (error) {
+            return null;
+        }
+    })();
+    if (!whatwgURL) {
+        console.error(`Unable to parse ${JSON.stringify(value)} as a whatwg URL.`);
+        return null;
+    }
+    const urlString = whatwgURL.href;
+    const { host, hostname, pathname, protocol, search } = whatwgURL;
+    if (search) {
+        return null;
+    }
+    const scheme = protocol.slice(0, -1);
+    if (!Object.values(types_1.EndpointURLScheme).includes(scheme)) {
+        return null;
+    }
+    const isIp = (0, isIpAddress_1.isIpAddress)(hostname);
+    const inputContainsDefaultPort = urlString.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ||
+        (typeof value === "string" && value.includes(`${host}:${DEFAULT_PORTS[scheme]}`));
+    const authority = `${host}${inputContainsDefaultPort ? `:${DEFAULT_PORTS[scheme]}` : ``}`;
+    return {
+        scheme,
+        authority,
+        path: pathname,
+        normalizedPath: pathname.endsWith("/") ? pathname : `${pathname}/`,
+        isIp,
+    };
+};
+exports.parseURL = parseURL;
+
+
+/***/ }),
+
+/***/ 5182:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.stringEquals = void 0;
+const stringEquals = (value1, value2) => value1 === value2;
+exports.stringEquals = stringEquals;
+
+
+/***/ }),
+
+/***/ 8305:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.substring = void 0;
+const substring = (input, start, stop, reverse) => {
+    if (start >= stop || input.length < stop) {
+        return null;
+    }
+    if (!reverse) {
+        return input.substring(start, stop);
+    }
+    return input.substring(input.length - stop, input.length - start);
+};
+exports.substring = substring;
+
+
+/***/ }),
+
+/***/ 6535:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.uriEncode = void 0;
+const uriEncode = (value) => encodeURIComponent(value).replace(/[!*'()]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
+exports.uriEncode = uriEncode;
+
+
+/***/ }),
+
+/***/ 6563:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.resolveEndpoint = void 0;
+const types_1 = __nccwpck_require__(7433);
+const utils_1 = __nccwpck_require__(1114);
+const resolveEndpoint = (ruleSetObject, options) => {
+    var _a, _b;
+    const { endpointParams, logger } = options;
+    const { parameters, rules } = ruleSetObject;
+    const paramsWithDefault = Object.entries(parameters)
+        .filter(([, v]) => v.default != null)
+        .map(([k, v]) => [k, v.default]);
+    if (paramsWithDefault.length > 0) {
+        for (const [paramKey, paramDefaultValue] of paramsWithDefault) {
+            endpointParams[paramKey] = (_a = endpointParams[paramKey]) !== null && _a !== void 0 ? _a : paramDefaultValue;
+        }
+    }
+    const requiredParams = Object.entries(parameters)
+        .filter(([, v]) => v.required)
+        .map(([k]) => k);
+    for (const requiredParam of requiredParams) {
+        if (endpointParams[requiredParam] == null) {
+            throw new types_1.EndpointError(`Missing required parameter: '${requiredParam}'`);
+        }
+    }
+    const endpoint = (0, utils_1.evaluateRules)(rules, { endpointParams, logger, referenceRecord: {} });
+    if ((_b = options.endpointParams) === null || _b === void 0 ? void 0 : _b.Endpoint) {
+        try {
+            const givenEndpoint = new URL(options.endpointParams.Endpoint);
+            const { protocol, port } = givenEndpoint;
+            endpoint.url.protocol = protocol;
+            endpoint.url.port = port;
+        }
+        catch (e) {
+        }
+    }
+    return endpoint;
+};
+exports.resolveEndpoint = resolveEndpoint;
+
+
+/***/ }),
+
+/***/ 3033:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.EndpointError = void 0;
+class EndpointError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "EndpointError";
+    }
+}
+exports.EndpointError = EndpointError;
+
+
+/***/ }),
+
+/***/ 1261:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 312:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 6083:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 1767:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 7433:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(3033), exports);
+tslib_1.__exportStar(__nccwpck_require__(1261), exports);
+tslib_1.__exportStar(__nccwpck_require__(312), exports);
+tslib_1.__exportStar(__nccwpck_require__(6083), exports);
+tslib_1.__exportStar(__nccwpck_require__(1767), exports);
+tslib_1.__exportStar(__nccwpck_require__(1811), exports);
+
+
+/***/ }),
+
+/***/ 1811:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+
+/***/ }),
+
+/***/ 5075:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.callFunction = void 0;
+const tslib_1 = __nccwpck_require__(4351);
+const lib = tslib_1.__importStar(__nccwpck_require__(3188));
+const evaluateExpression_1 = __nccwpck_require__(2980);
+const callFunction = ({ fn, argv }, options) => {
+    const evaluatedArgs = argv.map((arg) => ["boolean", "number"].includes(typeof arg) ? arg : (0, evaluateExpression_1.evaluateExpression)(arg, "arg", options));
+    return fn.split(".").reduce((acc, key) => acc[key], lib)(...evaluatedArgs);
+};
+exports.callFunction = callFunction;
+
+
+/***/ }),
+
+/***/ 7851:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.evaluateCondition = void 0;
+const types_1 = __nccwpck_require__(7433);
+const callFunction_1 = __nccwpck_require__(5075);
+const evaluateCondition = ({ assign, ...fnArgs }, options) => {
+    if (assign && assign in options.referenceRecord) {
+        throw new types_1.EndpointError(`'${assign}' is already defined in Reference Record.`);
+    }
+    const value = (0, callFunction_1.callFunction)(fnArgs, options);
+    return {
+        result: value === "" ? true : !!value,
+        ...(assign != null && { toAssign: { name: assign, value } }),
+    };
+};
+exports.evaluateCondition = evaluateCondition;
+
+
+/***/ }),
+
+/***/ 9169:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.evaluateConditions = void 0;
+const evaluateCondition_1 = __nccwpck_require__(7851);
+const evaluateConditions = (conditions = [], options) => {
+    const conditionsReferenceRecord = {};
+    for (const condition of conditions) {
+        const { result, toAssign } = (0, evaluateCondition_1.evaluateCondition)(condition, {
+            ...options,
+            referenceRecord: {
+                ...options.referenceRecord,
+                ...conditionsReferenceRecord,
+            },
+        });
+        if (!result) {
+            return { result };
+        }
+        if (toAssign) {
+            conditionsReferenceRecord[toAssign.name] = toAssign.value;
+        }
+    }
+    return { result: true, referenceRecord: conditionsReferenceRecord };
+};
+exports.evaluateConditions = evaluateConditions;
+
+
+/***/ }),
+
+/***/ 5324:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.evaluateEndpointRule = void 0;
+const evaluateConditions_1 = __nccwpck_require__(9169);
+const getEndpointHeaders_1 = __nccwpck_require__(8268);
+const getEndpointProperties_1 = __nccwpck_require__(4973);
+const getEndpointUrl_1 = __nccwpck_require__(3602);
+const evaluateEndpointRule = (endpointRule, options) => {
+    const { conditions, endpoint } = endpointRule;
+    const { result, referenceRecord } = (0, evaluateConditions_1.evaluateConditions)(conditions, options);
+    if (!result) {
+        return;
+    }
+    const endpointRuleOptions = {
+        ...options,
+        referenceRecord: { ...options.referenceRecord, ...referenceRecord },
+    };
+    const { url, properties, headers } = endpoint;
+    return {
+        ...(headers != undefined && {
+            headers: (0, getEndpointHeaders_1.getEndpointHeaders)(headers, endpointRuleOptions),
+        }),
+        ...(properties != undefined && {
+            properties: (0, getEndpointProperties_1.getEndpointProperties)(properties, endpointRuleOptions),
+        }),
+        url: (0, getEndpointUrl_1.getEndpointUrl)(url, endpointRuleOptions),
+    };
+};
+exports.evaluateEndpointRule = evaluateEndpointRule;
+
+
+/***/ }),
+
+/***/ 2110:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.evaluateErrorRule = void 0;
+const types_1 = __nccwpck_require__(7433);
+const evaluateConditions_1 = __nccwpck_require__(9169);
+const evaluateExpression_1 = __nccwpck_require__(2980);
+const evaluateErrorRule = (errorRule, options) => {
+    const { conditions, error } = errorRule;
+    const { result, referenceRecord } = (0, evaluateConditions_1.evaluateConditions)(conditions, options);
+    if (!result) {
+        return;
+    }
+    throw new types_1.EndpointError((0, evaluateExpression_1.evaluateExpression)(error, "Error", {
+        ...options,
+        referenceRecord: { ...options.referenceRecord, ...referenceRecord },
+    }));
+};
+exports.evaluateErrorRule = evaluateErrorRule;
+
+
+/***/ }),
+
+/***/ 2980:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.evaluateExpression = void 0;
+const types_1 = __nccwpck_require__(7433);
+const callFunction_1 = __nccwpck_require__(5075);
+const evaluateTemplate_1 = __nccwpck_require__(7535);
+const getReferenceValue_1 = __nccwpck_require__(8810);
+const evaluateExpression = (obj, keyName, options) => {
+    if (typeof obj === "string") {
+        return (0, evaluateTemplate_1.evaluateTemplate)(obj, options);
+    }
+    else if (obj["fn"]) {
+        return (0, callFunction_1.callFunction)(obj, options);
+    }
+    else if (obj["ref"]) {
+        return (0, getReferenceValue_1.getReferenceValue)(obj, options);
+    }
+    throw new types_1.EndpointError(`'${keyName}': ${String(obj)} is not a string, function or reference.`);
+};
+exports.evaluateExpression = evaluateExpression;
+
+
+/***/ }),
+
+/***/ 9738:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.evaluateRules = void 0;
+const types_1 = __nccwpck_require__(7433);
+const evaluateEndpointRule_1 = __nccwpck_require__(5324);
+const evaluateErrorRule_1 = __nccwpck_require__(2110);
+const evaluateTreeRule_1 = __nccwpck_require__(6587);
+const evaluateRules = (rules, options) => {
+    for (const rule of rules) {
+        if (rule.type === "endpoint") {
+            const endpointOrUndefined = (0, evaluateEndpointRule_1.evaluateEndpointRule)(rule, options);
+            if (endpointOrUndefined) {
+                return endpointOrUndefined;
+            }
+        }
+        else if (rule.type === "error") {
+            (0, evaluateErrorRule_1.evaluateErrorRule)(rule, options);
+        }
+        else if (rule.type === "tree") {
+            const endpointOrUndefined = (0, evaluateTreeRule_1.evaluateTreeRule)(rule, options);
+            if (endpointOrUndefined) {
+                return endpointOrUndefined;
+            }
+        }
+        else {
+            throw new types_1.EndpointError(`Unknown endpoint rule: ${rule}`);
+        }
+    }
+    throw new types_1.EndpointError(`Rules evaluation failed`);
+};
+exports.evaluateRules = evaluateRules;
+
+
+/***/ }),
+
+/***/ 7535:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.evaluateTemplate = void 0;
+const lib_1 = __nccwpck_require__(3188);
+const ATTR_SHORTHAND_REGEX = new RegExp("\\${([\\w]+)#([\\w]+)}", "g");
+const evaluateTemplate = (template, options) => {
+    const templateToEvaluate = template
+        .replace(new RegExp(`\{([^{}]+)\}`, "g"), "${$1}")
+        .replace(new RegExp(`\{\\$\{([^{}]+)\}\}`, "g"), "{$1}");
+    const templateContext = {
+        ...options.endpointParams,
+        ...options.referenceRecord,
+    };
+    const attrShortHandList = templateToEvaluate.match(ATTR_SHORTHAND_REGEX) || [];
+    const attrShortHandMap = attrShortHandList.reduce((acc, attrShortHand) => {
+        const indexOfHash = attrShortHand.indexOf("#");
+        const refName = attrShortHand.substring(2, indexOfHash);
+        const attrName = attrShortHand.substring(indexOfHash + 1, attrShortHand.length - 1);
+        acc[attrShortHand] = (0, lib_1.getAttr)(templateContext[refName], attrName);
+        return acc;
+    }, {});
+    const templateWithAttr = Object.entries(attrShortHandMap).reduce((acc, [shortHand, value]) => acc.replace(shortHand, value), templateToEvaluate);
+    const templateContextNames = Object.keys(templateContext);
+    const templateContextValues = Object.values(templateContext);
+    const templateWithTildeEscaped = templateWithAttr.replace(/\`/g, "\\`");
+    return new Function(...templateContextNames, `return \`${templateWithTildeEscaped}\``)(...templateContextValues);
+};
+exports.evaluateTemplate = evaluateTemplate;
+
+
+/***/ }),
+
+/***/ 6587:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.evaluateTreeRule = void 0;
+const evaluateConditions_1 = __nccwpck_require__(9169);
+const evaluateRules_1 = __nccwpck_require__(9738);
+const evaluateTreeRule = (treeRule, options) => {
+    const { conditions, rules } = treeRule;
+    const { result, referenceRecord } = (0, evaluateConditions_1.evaluateConditions)(conditions, options);
+    if (!result) {
+        return;
+    }
+    return (0, evaluateRules_1.evaluateRules)(rules, {
+        ...options,
+        referenceRecord: { ...options.referenceRecord, ...referenceRecord },
+    });
+};
+exports.evaluateTreeRule = evaluateTreeRule;
+
+
+/***/ }),
+
+/***/ 8268:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getEndpointHeaders = void 0;
+const types_1 = __nccwpck_require__(7433);
+const evaluateExpression_1 = __nccwpck_require__(2980);
+const getEndpointHeaders = (headers, options) => Object.entries(headers).reduce((acc, [headerKey, headerVal]) => ({
+    ...acc,
+    [headerKey]: headerVal.map((headerValEntry) => {
+        const processedExpr = (0, evaluateExpression_1.evaluateExpression)(headerValEntry, "Header value entry", options);
+        if (typeof processedExpr !== "string") {
+            throw new types_1.EndpointError(`Header '${headerKey}' value '${processedExpr}' is not a string`);
+        }
+        return processedExpr;
+    }),
+}), {});
+exports.getEndpointHeaders = getEndpointHeaders;
+
+
+/***/ }),
+
+/***/ 4973:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getEndpointProperties = void 0;
+const getEndpointProperty_1 = __nccwpck_require__(2978);
+const getEndpointProperties = (properties, options) => Object.entries(properties).reduce((acc, [propertyKey, propertyVal]) => ({
+    ...acc,
+    [propertyKey]: (0, getEndpointProperty_1.getEndpointProperty)(propertyVal, options),
+}), {});
+exports.getEndpointProperties = getEndpointProperties;
+
+
+/***/ }),
+
+/***/ 2978:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getEndpointProperty = void 0;
+const types_1 = __nccwpck_require__(7433);
+const evaluateTemplate_1 = __nccwpck_require__(7535);
+const getEndpointProperties_1 = __nccwpck_require__(4973);
+const getEndpointProperty = (property, options) => {
+    if (Array.isArray(property)) {
+        return property.map((propertyEntry) => (0, exports.getEndpointProperty)(propertyEntry, options));
+    }
+    switch (typeof property) {
+        case "string":
+            return (0, evaluateTemplate_1.evaluateTemplate)(property, options);
+        case "object":
+            if (property === null) {
+                throw new types_1.EndpointError(`Unexpected endpoint property: ${property}`);
+            }
+            return (0, getEndpointProperties_1.getEndpointProperties)(property, options);
+        case "boolean":
+            return property;
+        default:
+            throw new types_1.EndpointError(`Unexpected endpoint property type: ${typeof property}`);
+    }
+};
+exports.getEndpointProperty = getEndpointProperty;
+
+
+/***/ }),
+
+/***/ 3602:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getEndpointUrl = void 0;
+const types_1 = __nccwpck_require__(7433);
+const evaluateExpression_1 = __nccwpck_require__(2980);
+const getEndpointUrl = (endpointUrl, options) => {
+    const expression = (0, evaluateExpression_1.evaluateExpression)(endpointUrl, "Endpoint URL", options);
+    if (typeof expression === "string") {
+        try {
+            return new URL(expression);
+        }
+        catch (error) {
+            console.error(`Failed to construct URL with ${expression}`, error);
+            throw error;
+        }
+    }
+    throw new types_1.EndpointError(`Endpoint URL must be a string, got ${typeof expression}`);
+};
+exports.getEndpointUrl = getEndpointUrl;
+
+
+/***/ }),
+
+/***/ 8810:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getReferenceValue = void 0;
+const getReferenceValue = ({ ref }, options) => {
+    const referenceRecord = {
+        ...options.endpointParams,
+        ...options.referenceRecord,
+    };
+    return referenceRecord[ref];
+};
+exports.getReferenceValue = getReferenceValue;
+
+
+/***/ }),
+
+/***/ 1114:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(9738), exports);
 
 
 /***/ }),
@@ -30648,7 +33694,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 3713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.193.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.193.0","@aws-sdk/config-resolver":"3.193.0","@aws-sdk/credential-provider-node":"3.193.0","@aws-sdk/fetch-http-handler":"3.193.0","@aws-sdk/hash-node":"3.193.0","@aws-sdk/invalid-dependency":"3.193.0","@aws-sdk/middleware-content-length":"3.193.0","@aws-sdk/middleware-host-header":"3.193.0","@aws-sdk/middleware-logger":"3.193.0","@aws-sdk/middleware-recursion-detection":"3.193.0","@aws-sdk/middleware-retry":"3.193.0","@aws-sdk/middleware-serde":"3.193.0","@aws-sdk/middleware-signing":"3.193.0","@aws-sdk/middleware-stack":"3.193.0","@aws-sdk/middleware-user-agent":"3.193.0","@aws-sdk/node-config-provider":"3.193.0","@aws-sdk/node-http-handler":"3.193.0","@aws-sdk/protocol-http":"3.193.0","@aws-sdk/smithy-client":"3.193.0","@aws-sdk/types":"3.193.0","@aws-sdk/url-parser":"3.193.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.193.0","@aws-sdk/util-defaults-mode-node":"3.193.0","@aws-sdk/util-user-agent-browser":"3.193.0","@aws-sdk/util-user-agent-node":"3.193.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.188.0","@aws-sdk/util-waiter":"3.193.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.194.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.194.0","@aws-sdk/config-resolver":"3.193.0","@aws-sdk/credential-provider-node":"3.193.0","@aws-sdk/fetch-http-handler":"3.193.0","@aws-sdk/hash-node":"3.193.0","@aws-sdk/invalid-dependency":"3.193.0","@aws-sdk/middleware-content-length":"3.193.0","@aws-sdk/middleware-endpoint":"3.193.0","@aws-sdk/middleware-host-header":"3.193.0","@aws-sdk/middleware-logger":"3.193.0","@aws-sdk/middleware-recursion-detection":"3.193.0","@aws-sdk/middleware-retry":"3.193.0","@aws-sdk/middleware-serde":"3.193.0","@aws-sdk/middleware-signing":"3.193.0","@aws-sdk/middleware-stack":"3.193.0","@aws-sdk/middleware-user-agent":"3.193.0","@aws-sdk/node-config-provider":"3.193.0","@aws-sdk/node-http-handler":"3.193.0","@aws-sdk/protocol-http":"3.193.0","@aws-sdk/smithy-client":"3.193.0","@aws-sdk/types":"3.193.0","@aws-sdk/url-parser":"3.193.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.193.0","@aws-sdk/util-defaults-mode-node":"3.193.0","@aws-sdk/util-endpoints":"3.194.0","@aws-sdk/util-user-agent-browser":"3.193.0","@aws-sdk/util-user-agent-node":"3.193.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.188.0","@aws-sdk/util-waiter":"3.193.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -30662,7 +33708,14 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SD
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.193.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.193.0","@aws-sdk/credential-provider-node":"3.193.0","@aws-sdk/fetch-http-handler":"3.193.0","@aws-sdk/hash-node":"3.193.0","@aws-sdk/invalid-dependency":"3.193.0","@aws-sdk/middleware-content-length":"3.193.0","@aws-sdk/middleware-host-header":"3.193.0","@aws-sdk/middleware-logger":"3.193.0","@aws-sdk/middleware-recursion-detection":"3.193.0","@aws-sdk/middleware-retry":"3.193.0","@aws-sdk/middleware-sdk-sts":"3.193.0","@aws-sdk/middleware-serde":"3.193.0","@aws-sdk/middleware-signing":"3.193.0","@aws-sdk/middleware-stack":"3.193.0","@aws-sdk/middleware-user-agent":"3.193.0","@aws-sdk/node-config-provider":"3.193.0","@aws-sdk/node-http-handler":"3.193.0","@aws-sdk/protocol-http":"3.193.0","@aws-sdk/smithy-client":"3.193.0","@aws-sdk/types":"3.193.0","@aws-sdk/url-parser":"3.193.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.193.0","@aws-sdk/util-defaults-mode-node":"3.193.0","@aws-sdk/util-user-agent-browser":"3.193.0","@aws-sdk/util-user-agent-node":"3.193.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.188.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.194.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.193.0","@aws-sdk/credential-provider-node":"3.193.0","@aws-sdk/fetch-http-handler":"3.193.0","@aws-sdk/hash-node":"3.193.0","@aws-sdk/invalid-dependency":"3.193.0","@aws-sdk/middleware-content-length":"3.193.0","@aws-sdk/middleware-endpoint":"3.193.0","@aws-sdk/middleware-host-header":"3.193.0","@aws-sdk/middleware-logger":"3.193.0","@aws-sdk/middleware-recursion-detection":"3.193.0","@aws-sdk/middleware-retry":"3.193.0","@aws-sdk/middleware-sdk-sts":"3.193.0","@aws-sdk/middleware-serde":"3.193.0","@aws-sdk/middleware-signing":"3.193.0","@aws-sdk/middleware-stack":"3.193.0","@aws-sdk/middleware-user-agent":"3.193.0","@aws-sdk/node-config-provider":"3.193.0","@aws-sdk/node-http-handler":"3.193.0","@aws-sdk/protocol-http":"3.193.0","@aws-sdk/smithy-client":"3.193.0","@aws-sdk/types":"3.193.0","@aws-sdk/url-parser":"3.193.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.193.0","@aws-sdk/util-defaults-mode-node":"3.193.0","@aws-sdk/util-endpoints":"3.194.0","@aws-sdk/util-user-agent-browser":"3.193.0","@aws-sdk/util-user-agent-node":"3.193.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.188.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+
+/***/ }),
+
+/***/ 5367:
+/***/ ((module) => {
+
+module.exports = JSON.parse('{"version":"1.1","partitions":[{"id":"aws","regionRegex":"^(us|eu|ap|sa|ca|me|af)-\\\\w+-\\\\d+$","regions":{"af-south-1":{},"af-east-1":{},"ap-northeast-1":{},"ap-northeast-2":{},"ap-northeast-3":{},"ap-south-1":{},"ap-southeast-1":{},"ap-southeast-2":{},"ap-southeast-3":{},"ca-central-1":{},"eu-central-1":{},"eu-north-1":{},"eu-south-1":{},"eu-west-1":{},"eu-west-2":{},"eu-west-3":{},"me-south-1":{},"sa-east-1":{},"us-east-1":{},"us-east-2":{},"us-west-1":{},"us-west-2":{},"aws-global":{}},"outputs":{"name":"aws","dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","supportsFIPS":true,"supportsDualStack":true}},{"id":"aws-us-gov","regionRegex":"^us\\\\-gov\\\\-\\\\w+\\\\-\\\\d+$","regions":{"us-gov-west-1":{},"us-gov-east-1":{},"aws-us-gov-global":{}},"outputs":{"name":"aws-us-gov","dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","supportsFIPS":true,"supportsDualStack":true}},{"id":"aws-cn","regionRegex":"^cn\\\\-\\\\w+\\\\-\\\\d+$","regions":{"cn-north-1":{},"cn-northwest-1":{},"aws-cn-global":{}},"outputs":{"name":"aws-cn","dnsSuffix":"amazonaws.com.cn","dualStackDnsSuffix":"api.amazonwebservices.com.cn","supportsFIPS":true,"supportsDualStack":true}},{"id":"aws-iso","regionRegex":"^us\\\\-iso\\\\-\\\\w+\\\\-\\\\d+$","outputs":{"name":"aws-iso","dnsSuffix":"c2s.ic.gov","supportsFIPS":true,"supportsDualStack":false,"dualStackDnsSuffix":"c2s.ic.gov"},"regions":{"aws-iso-global":{}}},{"id":"aws-iso-b","regionRegex":"^us\\\\-isob\\\\-\\\\w+\\\\-\\\\d+$","outputs":{"name":"aws-iso-b","dnsSuffix":"sc2s.sgov.gov","supportsFIPS":true,"supportsDualStack":false,"dualStackDnsSuffix":"sc2s.sgov.gov"},"regions":{"aws-iso-b-global":{}}}]}');
 
 /***/ })
 
