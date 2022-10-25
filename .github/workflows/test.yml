@@ -55,7 +55,7 @@ jobs:
 
     - name: generate timestamp
       id: gen-timestamp
-      run: echo "::set-output name=timestamp::$(date +%Y%m%d-%H%M%S)"
+      run: echo "timestamp=$(date +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
 
     - uses: actions/checkout@v3
 
