@@ -6794,11 +6794,12 @@ tslib_1.__exportStar(__nccwpck_require__(5378), exports);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.StackSetDriftDetectionStatus = exports.StackStatus = exports.DifferenceType = exports.StackResourceDriftStatus = exports.StackInstanceNotFoundException = exports.ResourceStatus = exports.HookStatus = exports.StackDriftStatus = exports.StackDriftDetectionStatus = exports.PublisherStatus = exports.IdentityProvider = exports.StackSetNotEmptyException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.InvalidOperationException = exports.RegionConcurrencyType = exports.OnFailure = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.ChangeSetType = exports.ExecutionStatus = exports.ChangeSetStatus = exports.ChangeSetNotFoundException = exports.ChangeSetHooksStatus = exports.HookTargetType = exports.HookInvocationPoint = exports.HookFailureMode = exports.ChangeType = exports.Replacement = exports.RequiresRecreation = exports.ResourceAttribute = exports.EvaluationType = exports.ChangeSource = exports.ChangeAction = exports.Category = exports.Capability = exports.TokenAlreadyExistsException = exports.CallAs = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.VersionBump = exports.ThirdPartyType = exports.AccountFilterType = void 0;
-exports.DeactivateTypeInputFilterSensitiveLog = exports.CreateStackSetOutputFilterSensitiveLog = exports.CreateStackSetInputFilterSensitiveLog = exports.ManagedExecutionFilterSensitiveLog = exports.CreateStackInstancesOutputFilterSensitiveLog = exports.CreateStackInstancesInputFilterSensitiveLog = exports.StackSetOperationPreferencesFilterSensitiveLog = exports.DeploymentTargetsFilterSensitiveLog = exports.CreateStackOutputFilterSensitiveLog = exports.CreateStackInputFilterSensitiveLog = exports.CreateChangeSetOutputFilterSensitiveLog = exports.CreateChangeSetInputFilterSensitiveLog = exports.TagFilterSensitiveLog = exports.RollbackConfigurationFilterSensitiveLog = exports.RollbackTriggerFilterSensitiveLog = exports.ResourceToImportFilterSensitiveLog = exports.ParameterFilterSensitiveLog = exports.ContinueUpdateRollbackOutputFilterSensitiveLog = exports.ContinueUpdateRollbackInputFilterSensitiveLog = exports.ChangeSetSummaryFilterSensitiveLog = exports.ChangeSetHookFilterSensitiveLog = exports.ChangeSetHookTargetDetailsFilterSensitiveLog = exports.ChangeSetHookResourceTargetDetailsFilterSensitiveLog = exports.ChangeFilterSensitiveLog = exports.ResourceChangeFilterSensitiveLog = exports.ModuleInfoFilterSensitiveLog = exports.ResourceChangeDetailFilterSensitiveLog = exports.ResourceTargetDefinitionFilterSensitiveLog = exports.CancelUpdateStackInputFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsOutputFilterSensitiveLog = exports.TypeConfigurationDetailsFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsErrorFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsInputFilterSensitiveLog = exports.TypeConfigurationIdentifierFilterSensitiveLog = exports.AutoDeploymentFilterSensitiveLog = exports.ActivateTypeOutputFilterSensitiveLog = exports.ActivateTypeInputFilterSensitiveLog = exports.LoggingConfigFilterSensitiveLog = exports.AccountLimitFilterSensitiveLog = exports.AccountGateResultFilterSensitiveLog = exports.ResourceSignalStatus = exports.HandlerErrorCode = exports.OperationStatus = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.StackNotFoundException = exports.TemplateStage = exports.TypeTestsStatus = exports.OperationNotFoundException = exports.StackSetDriftStatus = void 0;
-exports.StackSetOperationFilterSensitiveLog = exports.DescribeStackSetOperationInputFilterSensitiveLog = exports.DescribeStackSetOutputFilterSensitiveLog = exports.StackSetFilterSensitiveLog = exports.StackSetDriftDetectionDetailsFilterSensitiveLog = exports.DescribeStackSetInputFilterSensitiveLog = exports.DescribeStacksOutputFilterSensitiveLog = exports.StackFilterSensitiveLog = exports.OutputFilterSensitiveLog = exports.StackDriftInformationFilterSensitiveLog = exports.DescribeStacksInputFilterSensitiveLog = exports.DescribeStackResourcesOutputFilterSensitiveLog = exports.StackResourceFilterSensitiveLog = exports.DescribeStackResourcesInputFilterSensitiveLog = exports.DescribeStackResourceDriftsOutputFilterSensitiveLog = exports.StackResourceDriftFilterSensitiveLog = exports.PropertyDifferenceFilterSensitiveLog = exports.PhysicalResourceIdContextKeyValuePairFilterSensitiveLog = exports.DescribeStackResourceDriftsInputFilterSensitiveLog = exports.DescribeStackResourceOutputFilterSensitiveLog = exports.StackResourceDetailFilterSensitiveLog = exports.StackResourceDriftInformationFilterSensitiveLog = exports.DescribeStackResourceInputFilterSensitiveLog = exports.DescribeStackInstanceOutputFilterSensitiveLog = exports.StackInstanceFilterSensitiveLog = exports.StackInstanceComprehensiveStatusFilterSensitiveLog = exports.DescribeStackInstanceInputFilterSensitiveLog = exports.DescribeStackEventsOutputFilterSensitiveLog = exports.StackEventFilterSensitiveLog = exports.DescribeStackEventsInputFilterSensitiveLog = exports.DescribeStackDriftDetectionStatusOutputFilterSensitiveLog = exports.DescribeStackDriftDetectionStatusInputFilterSensitiveLog = exports.DescribePublisherOutputFilterSensitiveLog = exports.DescribePublisherInputFilterSensitiveLog = exports.DescribeChangeSetHooksOutputFilterSensitiveLog = exports.DescribeChangeSetHooksInputFilterSensitiveLog = exports.DescribeChangeSetOutputFilterSensitiveLog = exports.DescribeChangeSetInputFilterSensitiveLog = exports.DescribeAccountLimitsOutputFilterSensitiveLog = exports.DescribeAccountLimitsInputFilterSensitiveLog = exports.DeregisterTypeOutputFilterSensitiveLog = exports.DeregisterTypeInputFilterSensitiveLog = exports.DeleteStackSetOutputFilterSensitiveLog = exports.DeleteStackSetInputFilterSensitiveLog = exports.DeleteStackInstancesOutputFilterSensitiveLog = exports.DeleteStackInstancesInputFilterSensitiveLog = exports.DeleteStackInputFilterSensitiveLog = exports.DeleteChangeSetOutputFilterSensitiveLog = exports.DeleteChangeSetInputFilterSensitiveLog = exports.DeactivateTypeOutputFilterSensitiveLog = void 0;
-exports.ListStackSetOperationsInputFilterSensitiveLog = exports.ListStackSetOperationResultsOutputFilterSensitiveLog = exports.StackSetOperationResultSummaryFilterSensitiveLog = exports.ListStackSetOperationResultsInputFilterSensitiveLog = exports.ListStacksOutputFilterSensitiveLog = exports.StackSummaryFilterSensitiveLog = exports.StackDriftInformationSummaryFilterSensitiveLog = exports.ListStacksInputFilterSensitiveLog = exports.ListStackResourcesOutputFilterSensitiveLog = exports.StackResourceSummaryFilterSensitiveLog = exports.StackResourceDriftInformationSummaryFilterSensitiveLog = exports.ListStackResourcesInputFilterSensitiveLog = exports.ListStackInstancesOutputFilterSensitiveLog = exports.StackInstanceSummaryFilterSensitiveLog = exports.ListStackInstancesInputFilterSensitiveLog = exports.StackInstanceFilterFilterSensitiveLog = exports.ListImportsOutputFilterSensitiveLog = exports.ListImportsInputFilterSensitiveLog = exports.ListExportsOutputFilterSensitiveLog = exports.ExportFilterSensitiveLog = exports.ListExportsInputFilterSensitiveLog = exports.ListChangeSetsOutputFilterSensitiveLog = exports.ListChangeSetsInputFilterSensitiveLog = exports.ImportStacksToStackSetOutputFilterSensitiveLog = exports.ImportStacksToStackSetInputFilterSensitiveLog = exports.GetTemplateSummaryOutputFilterSensitiveLog = exports.ResourceIdentifierSummaryFilterSensitiveLog = exports.ParameterDeclarationFilterSensitiveLog = exports.ParameterConstraintsFilterSensitiveLog = exports.GetTemplateSummaryInputFilterSensitiveLog = exports.GetTemplateOutputFilterSensitiveLog = exports.GetTemplateInputFilterSensitiveLog = exports.GetStackPolicyOutputFilterSensitiveLog = exports.GetStackPolicyInputFilterSensitiveLog = exports.ExecuteChangeSetOutputFilterSensitiveLog = exports.ExecuteChangeSetInputFilterSensitiveLog = exports.EstimateTemplateCostOutputFilterSensitiveLog = exports.EstimateTemplateCostInputFilterSensitiveLog = exports.DetectStackSetDriftOutputFilterSensitiveLog = exports.DetectStackSetDriftInputFilterSensitiveLog = exports.DetectStackResourceDriftOutputFilterSensitiveLog = exports.DetectStackResourceDriftInputFilterSensitiveLog = exports.DetectStackDriftOutputFilterSensitiveLog = exports.DetectStackDriftInputFilterSensitiveLog = exports.DescribeTypeRegistrationOutputFilterSensitiveLog = exports.DescribeTypeRegistrationInputFilterSensitiveLog = exports.DescribeTypeOutputFilterSensitiveLog = exports.RequiredActivatedTypeFilterSensitiveLog = exports.DescribeTypeInputFilterSensitiveLog = exports.DescribeStackSetOperationOutputFilterSensitiveLog = void 0;
-exports.ValidateTemplateOutputFilterSensitiveLog = exports.TemplateParameterFilterSensitiveLog = exports.ValidateTemplateInputFilterSensitiveLog = exports.UpdateTerminationProtectionOutputFilterSensitiveLog = exports.UpdateTerminationProtectionInputFilterSensitiveLog = exports.UpdateStackSetOutputFilterSensitiveLog = exports.UpdateStackSetInputFilterSensitiveLog = exports.UpdateStackInstancesOutputFilterSensitiveLog = exports.UpdateStackInstancesInputFilterSensitiveLog = exports.UpdateStackOutputFilterSensitiveLog = exports.UpdateStackInputFilterSensitiveLog = exports.TestTypeOutputFilterSensitiveLog = exports.TestTypeInputFilterSensitiveLog = exports.StopStackSetOperationOutputFilterSensitiveLog = exports.StopStackSetOperationInputFilterSensitiveLog = exports.SignalResourceInputFilterSensitiveLog = exports.SetTypeDefaultVersionOutputFilterSensitiveLog = exports.SetTypeDefaultVersionInputFilterSensitiveLog = exports.SetTypeConfigurationOutputFilterSensitiveLog = exports.SetTypeConfigurationInputFilterSensitiveLog = exports.SetStackPolicyInputFilterSensitiveLog = exports.RollbackStackOutputFilterSensitiveLog = exports.RollbackStackInputFilterSensitiveLog = exports.RegisterTypeOutputFilterSensitiveLog = exports.RegisterTypeInputFilterSensitiveLog = exports.RegisterPublisherOutputFilterSensitiveLog = exports.RegisterPublisherInputFilterSensitiveLog = exports.RecordHandlerProgressOutputFilterSensitiveLog = exports.RecordHandlerProgressInputFilterSensitiveLog = exports.PublishTypeOutputFilterSensitiveLog = exports.PublishTypeInputFilterSensitiveLog = exports.ListTypeVersionsOutputFilterSensitiveLog = exports.TypeVersionSummaryFilterSensitiveLog = exports.ListTypeVersionsInputFilterSensitiveLog = exports.ListTypesOutputFilterSensitiveLog = exports.TypeSummaryFilterSensitiveLog = exports.ListTypesInputFilterSensitiveLog = exports.TypeFiltersFilterSensitiveLog = exports.ListTypeRegistrationsOutputFilterSensitiveLog = exports.ListTypeRegistrationsInputFilterSensitiveLog = exports.ListStackSetsOutputFilterSensitiveLog = exports.StackSetSummaryFilterSensitiveLog = exports.ListStackSetsInputFilterSensitiveLog = exports.ListStackSetOperationsOutputFilterSensitiveLog = exports.StackSetOperationSummaryFilterSensitiveLog = void 0;
+exports.StackInstanceStatus = exports.StackInstanceDetailedStatus = exports.ResourceStatus = exports.HookStatus = exports.StackDriftStatus = exports.StackDriftDetectionStatus = exports.PublisherStatus = exports.IdentityProvider = exports.RegistryType = exports.StackSetNotEmptyException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.PermissionModels = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.InvalidOperationException = exports.RegionConcurrencyType = exports.OnFailure = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.ChangeSetType = exports.ExecutionStatus = exports.ChangeSetStatus = exports.ChangeSetNotFoundException = exports.ChangeSetHooksStatus = exports.HookTargetType = exports.HookInvocationPoint = exports.HookFailureMode = exports.ChangeType = exports.Replacement = exports.RequiresRecreation = exports.ResourceAttribute = exports.EvaluationType = exports.ChangeSource = exports.ChangeAction = exports.Category = exports.Capability = exports.TokenAlreadyExistsException = exports.CallAs = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.VersionBump = exports.ThirdPartyType = exports.AccountGateStatus = exports.AccountFilterType = void 0;
+exports.ResourceToImportFilterSensitiveLog = exports.ParameterFilterSensitiveLog = exports.ContinueUpdateRollbackOutputFilterSensitiveLog = exports.ContinueUpdateRollbackInputFilterSensitiveLog = exports.ChangeSetSummaryFilterSensitiveLog = exports.ChangeSetHookFilterSensitiveLog = exports.ChangeSetHookTargetDetailsFilterSensitiveLog = exports.ChangeSetHookResourceTargetDetailsFilterSensitiveLog = exports.ChangeFilterSensitiveLog = exports.ResourceChangeFilterSensitiveLog = exports.ModuleInfoFilterSensitiveLog = exports.ResourceChangeDetailFilterSensitiveLog = exports.ResourceTargetDefinitionFilterSensitiveLog = exports.CancelUpdateStackInputFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsOutputFilterSensitiveLog = exports.TypeConfigurationDetailsFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsErrorFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsInputFilterSensitiveLog = exports.TypeConfigurationIdentifierFilterSensitiveLog = exports.AutoDeploymentFilterSensitiveLog = exports.ActivateTypeOutputFilterSensitiveLog = exports.ActivateTypeInputFilterSensitiveLog = exports.LoggingConfigFilterSensitiveLog = exports.AccountLimitFilterSensitiveLog = exports.AccountGateResultFilterSensitiveLog = exports.ResourceSignalStatus = exports.HandlerErrorCode = exports.OperationStatus = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.StackSetOperationResultStatus = exports.OperationResultFilterName = exports.StackInstanceFilterName = exports.StackNotFoundException = exports.TemplateStage = exports.RegistrationStatus = exports.Visibility = exports.TypeTestsStatus = exports.ProvisioningType = exports.DeprecatedStatus = exports.OperationNotFoundException = exports.StackSetOperationStatus = exports.StackSetOperationAction = exports.StackSetStatus = exports.StackSetDriftStatus = exports.StackSetDriftDetectionStatus = exports.StackStatus = exports.DifferenceType = exports.StackResourceDriftStatus = exports.StackInstanceNotFoundException = void 0;
+exports.StackResourceDriftFilterSensitiveLog = exports.PropertyDifferenceFilterSensitiveLog = exports.PhysicalResourceIdContextKeyValuePairFilterSensitiveLog = exports.DescribeStackResourceDriftsInputFilterSensitiveLog = exports.DescribeStackResourceOutputFilterSensitiveLog = exports.StackResourceDetailFilterSensitiveLog = exports.StackResourceDriftInformationFilterSensitiveLog = exports.DescribeStackResourceInputFilterSensitiveLog = exports.DescribeStackInstanceOutputFilterSensitiveLog = exports.StackInstanceFilterSensitiveLog = exports.StackInstanceComprehensiveStatusFilterSensitiveLog = exports.DescribeStackInstanceInputFilterSensitiveLog = exports.DescribeStackEventsOutputFilterSensitiveLog = exports.StackEventFilterSensitiveLog = exports.DescribeStackEventsInputFilterSensitiveLog = exports.DescribeStackDriftDetectionStatusOutputFilterSensitiveLog = exports.DescribeStackDriftDetectionStatusInputFilterSensitiveLog = exports.DescribePublisherOutputFilterSensitiveLog = exports.DescribePublisherInputFilterSensitiveLog = exports.DescribeChangeSetHooksOutputFilterSensitiveLog = exports.DescribeChangeSetHooksInputFilterSensitiveLog = exports.DescribeChangeSetOutputFilterSensitiveLog = exports.DescribeChangeSetInputFilterSensitiveLog = exports.DescribeAccountLimitsOutputFilterSensitiveLog = exports.DescribeAccountLimitsInputFilterSensitiveLog = exports.DeregisterTypeOutputFilterSensitiveLog = exports.DeregisterTypeInputFilterSensitiveLog = exports.DeleteStackSetOutputFilterSensitiveLog = exports.DeleteStackSetInputFilterSensitiveLog = exports.DeleteStackInstancesOutputFilterSensitiveLog = exports.DeleteStackInstancesInputFilterSensitiveLog = exports.DeleteStackInputFilterSensitiveLog = exports.DeleteChangeSetOutputFilterSensitiveLog = exports.DeleteChangeSetInputFilterSensitiveLog = exports.DeactivateTypeOutputFilterSensitiveLog = exports.DeactivateTypeInputFilterSensitiveLog = exports.CreateStackSetOutputFilterSensitiveLog = exports.CreateStackSetInputFilterSensitiveLog = exports.ManagedExecutionFilterSensitiveLog = exports.CreateStackInstancesOutputFilterSensitiveLog = exports.CreateStackInstancesInputFilterSensitiveLog = exports.StackSetOperationPreferencesFilterSensitiveLog = exports.DeploymentTargetsFilterSensitiveLog = exports.CreateStackOutputFilterSensitiveLog = exports.CreateStackInputFilterSensitiveLog = exports.CreateChangeSetOutputFilterSensitiveLog = exports.CreateChangeSetInputFilterSensitiveLog = exports.TagFilterSensitiveLog = exports.RollbackConfigurationFilterSensitiveLog = exports.RollbackTriggerFilterSensitiveLog = void 0;
+exports.ListImportsOutputFilterSensitiveLog = exports.ListImportsInputFilterSensitiveLog = exports.ListExportsOutputFilterSensitiveLog = exports.ExportFilterSensitiveLog = exports.ListExportsInputFilterSensitiveLog = exports.ListChangeSetsOutputFilterSensitiveLog = exports.ListChangeSetsInputFilterSensitiveLog = exports.ImportStacksToStackSetOutputFilterSensitiveLog = exports.ImportStacksToStackSetInputFilterSensitiveLog = exports.GetTemplateSummaryOutputFilterSensitiveLog = exports.ResourceIdentifierSummaryFilterSensitiveLog = exports.ParameterDeclarationFilterSensitiveLog = exports.ParameterConstraintsFilterSensitiveLog = exports.GetTemplateSummaryInputFilterSensitiveLog = exports.GetTemplateOutputFilterSensitiveLog = exports.GetTemplateInputFilterSensitiveLog = exports.GetStackPolicyOutputFilterSensitiveLog = exports.GetStackPolicyInputFilterSensitiveLog = exports.ExecuteChangeSetOutputFilterSensitiveLog = exports.ExecuteChangeSetInputFilterSensitiveLog = exports.EstimateTemplateCostOutputFilterSensitiveLog = exports.EstimateTemplateCostInputFilterSensitiveLog = exports.DetectStackSetDriftOutputFilterSensitiveLog = exports.DetectStackSetDriftInputFilterSensitiveLog = exports.DetectStackResourceDriftOutputFilterSensitiveLog = exports.DetectStackResourceDriftInputFilterSensitiveLog = exports.DetectStackDriftOutputFilterSensitiveLog = exports.DetectStackDriftInputFilterSensitiveLog = exports.DescribeTypeRegistrationOutputFilterSensitiveLog = exports.DescribeTypeRegistrationInputFilterSensitiveLog = exports.DescribeTypeOutputFilterSensitiveLog = exports.RequiredActivatedTypeFilterSensitiveLog = exports.DescribeTypeInputFilterSensitiveLog = exports.DescribeStackSetOperationOutputFilterSensitiveLog = exports.StackSetOperationFilterSensitiveLog = exports.StackSetOperationStatusDetailsFilterSensitiveLog = exports.DescribeStackSetOperationInputFilterSensitiveLog = exports.DescribeStackSetOutputFilterSensitiveLog = exports.StackSetFilterSensitiveLog = exports.StackSetDriftDetectionDetailsFilterSensitiveLog = exports.DescribeStackSetInputFilterSensitiveLog = exports.DescribeStacksOutputFilterSensitiveLog = exports.StackFilterSensitiveLog = exports.OutputFilterSensitiveLog = exports.StackDriftInformationFilterSensitiveLog = exports.DescribeStacksInputFilterSensitiveLog = exports.DescribeStackResourcesOutputFilterSensitiveLog = exports.StackResourceFilterSensitiveLog = exports.DescribeStackResourcesInputFilterSensitiveLog = exports.DescribeStackResourceDriftsOutputFilterSensitiveLog = void 0;
+exports.TestTypeInputFilterSensitiveLog = exports.StopStackSetOperationOutputFilterSensitiveLog = exports.StopStackSetOperationInputFilterSensitiveLog = exports.SignalResourceInputFilterSensitiveLog = exports.SetTypeDefaultVersionOutputFilterSensitiveLog = exports.SetTypeDefaultVersionInputFilterSensitiveLog = exports.SetTypeConfigurationOutputFilterSensitiveLog = exports.SetTypeConfigurationInputFilterSensitiveLog = exports.SetStackPolicyInputFilterSensitiveLog = exports.RollbackStackOutputFilterSensitiveLog = exports.RollbackStackInputFilterSensitiveLog = exports.RegisterTypeOutputFilterSensitiveLog = exports.RegisterTypeInputFilterSensitiveLog = exports.RegisterPublisherOutputFilterSensitiveLog = exports.RegisterPublisherInputFilterSensitiveLog = exports.RecordHandlerProgressOutputFilterSensitiveLog = exports.RecordHandlerProgressInputFilterSensitiveLog = exports.PublishTypeOutputFilterSensitiveLog = exports.PublishTypeInputFilterSensitiveLog = exports.ListTypeVersionsOutputFilterSensitiveLog = exports.TypeVersionSummaryFilterSensitiveLog = exports.ListTypeVersionsInputFilterSensitiveLog = exports.ListTypesOutputFilterSensitiveLog = exports.TypeSummaryFilterSensitiveLog = exports.ListTypesInputFilterSensitiveLog = exports.TypeFiltersFilterSensitiveLog = exports.ListTypeRegistrationsOutputFilterSensitiveLog = exports.ListTypeRegistrationsInputFilterSensitiveLog = exports.ListStackSetsOutputFilterSensitiveLog = exports.StackSetSummaryFilterSensitiveLog = exports.ListStackSetsInputFilterSensitiveLog = exports.ListStackSetOperationsOutputFilterSensitiveLog = exports.StackSetOperationSummaryFilterSensitiveLog = exports.ListStackSetOperationsInputFilterSensitiveLog = exports.ListStackSetOperationResultsOutputFilterSensitiveLog = exports.StackSetOperationResultSummaryFilterSensitiveLog = exports.ListStackSetOperationResultsInputFilterSensitiveLog = exports.OperationResultFilterFilterSensitiveLog = exports.ListStacksOutputFilterSensitiveLog = exports.StackSummaryFilterSensitiveLog = exports.StackDriftInformationSummaryFilterSensitiveLog = exports.ListStacksInputFilterSensitiveLog = exports.ListStackResourcesOutputFilterSensitiveLog = exports.StackResourceSummaryFilterSensitiveLog = exports.StackResourceDriftInformationSummaryFilterSensitiveLog = exports.ListStackResourcesInputFilterSensitiveLog = exports.ListStackInstancesOutputFilterSensitiveLog = exports.StackInstanceSummaryFilterSensitiveLog = exports.ListStackInstancesInputFilterSensitiveLog = exports.StackInstanceFilterFilterSensitiveLog = void 0;
+exports.ValidateTemplateOutputFilterSensitiveLog = exports.TemplateParameterFilterSensitiveLog = exports.ValidateTemplateInputFilterSensitiveLog = exports.UpdateTerminationProtectionOutputFilterSensitiveLog = exports.UpdateTerminationProtectionInputFilterSensitiveLog = exports.UpdateStackSetOutputFilterSensitiveLog = exports.UpdateStackSetInputFilterSensitiveLog = exports.UpdateStackInstancesOutputFilterSensitiveLog = exports.UpdateStackInstancesInputFilterSensitiveLog = exports.UpdateStackOutputFilterSensitiveLog = exports.UpdateStackInputFilterSensitiveLog = exports.TestTypeOutputFilterSensitiveLog = void 0;
 const CloudFormationServiceException_1 = __nccwpck_require__(215);
 var AccountFilterType;
 (function (AccountFilterType) {
@@ -6807,6 +6808,12 @@ var AccountFilterType;
     AccountFilterType["NONE"] = "NONE";
     AccountFilterType["UNION"] = "UNION";
 })(AccountFilterType = exports.AccountFilterType || (exports.AccountFilterType = {}));
+var AccountGateStatus;
+(function (AccountGateStatus) {
+    AccountGateStatus["FAILED"] = "FAILED";
+    AccountGateStatus["SKIPPED"] = "SKIPPED";
+    AccountGateStatus["SUCCEEDED"] = "SUCCEEDED";
+})(AccountGateStatus = exports.AccountGateStatus || (exports.AccountGateStatus = {}));
 var ThirdPartyType;
 (function (ThirdPartyType) {
     ThirdPartyType["HOOK"] = "HOOK";
@@ -7134,6 +7141,11 @@ class CreatedButModifiedException extends CloudFormationServiceException_1.Cloud
     }
 }
 exports.CreatedButModifiedException = CreatedButModifiedException;
+var PermissionModels;
+(function (PermissionModels) {
+    PermissionModels["SELF_MANAGED"] = "SELF_MANAGED";
+    PermissionModels["SERVICE_MANAGED"] = "SERVICE_MANAGED";
+})(PermissionModels = exports.PermissionModels || (exports.PermissionModels = {}));
 class NameAlreadyExistsException extends CloudFormationServiceException_1.CloudFormationServiceException {
     constructor(opts) {
         super({
@@ -7176,6 +7188,12 @@ class StackSetNotEmptyException extends CloudFormationServiceException_1.CloudFo
     }
 }
 exports.StackSetNotEmptyException = StackSetNotEmptyException;
+var RegistryType;
+(function (RegistryType) {
+    RegistryType["HOOK"] = "HOOK";
+    RegistryType["MODULE"] = "MODULE";
+    RegistryType["RESOURCE"] = "RESOURCE";
+})(RegistryType = exports.RegistryType || (exports.RegistryType = {}));
 var IdentityProvider;
 (function (IdentityProvider) {
     IdentityProvider["AWS_Marketplace"] = "AWS_Marketplace";
@@ -7232,6 +7250,21 @@ var ResourceStatus;
     ResourceStatus["UPDATE_ROLLBACK_FAILED"] = "UPDATE_ROLLBACK_FAILED";
     ResourceStatus["UPDATE_ROLLBACK_IN_PROGRESS"] = "UPDATE_ROLLBACK_IN_PROGRESS";
 })(ResourceStatus = exports.ResourceStatus || (exports.ResourceStatus = {}));
+var StackInstanceDetailedStatus;
+(function (StackInstanceDetailedStatus) {
+    StackInstanceDetailedStatus["CANCELLED"] = "CANCELLED";
+    StackInstanceDetailedStatus["FAILED"] = "FAILED";
+    StackInstanceDetailedStatus["INOPERABLE"] = "INOPERABLE";
+    StackInstanceDetailedStatus["PENDING"] = "PENDING";
+    StackInstanceDetailedStatus["RUNNING"] = "RUNNING";
+    StackInstanceDetailedStatus["SUCCEEDED"] = "SUCCEEDED";
+})(StackInstanceDetailedStatus = exports.StackInstanceDetailedStatus || (exports.StackInstanceDetailedStatus = {}));
+var StackInstanceStatus;
+(function (StackInstanceStatus) {
+    StackInstanceStatus["CURRENT"] = "CURRENT";
+    StackInstanceStatus["INOPERABLE"] = "INOPERABLE";
+    StackInstanceStatus["OUTDATED"] = "OUTDATED";
+})(StackInstanceStatus = exports.StackInstanceStatus || (exports.StackInstanceStatus = {}));
 class StackInstanceNotFoundException extends CloudFormationServiceException_1.CloudFormationServiceException {
     constructor(opts) {
         super({
@@ -7299,6 +7332,27 @@ var StackSetDriftStatus;
     StackSetDriftStatus["IN_SYNC"] = "IN_SYNC";
     StackSetDriftStatus["NOT_CHECKED"] = "NOT_CHECKED";
 })(StackSetDriftStatus = exports.StackSetDriftStatus || (exports.StackSetDriftStatus = {}));
+var StackSetStatus;
+(function (StackSetStatus) {
+    StackSetStatus["ACTIVE"] = "ACTIVE";
+    StackSetStatus["DELETED"] = "DELETED";
+})(StackSetStatus = exports.StackSetStatus || (exports.StackSetStatus = {}));
+var StackSetOperationAction;
+(function (StackSetOperationAction) {
+    StackSetOperationAction["CREATE"] = "CREATE";
+    StackSetOperationAction["DELETE"] = "DELETE";
+    StackSetOperationAction["DETECT_DRIFT"] = "DETECT_DRIFT";
+    StackSetOperationAction["UPDATE"] = "UPDATE";
+})(StackSetOperationAction = exports.StackSetOperationAction || (exports.StackSetOperationAction = {}));
+var StackSetOperationStatus;
+(function (StackSetOperationStatus) {
+    StackSetOperationStatus["FAILED"] = "FAILED";
+    StackSetOperationStatus["QUEUED"] = "QUEUED";
+    StackSetOperationStatus["RUNNING"] = "RUNNING";
+    StackSetOperationStatus["STOPPED"] = "STOPPED";
+    StackSetOperationStatus["STOPPING"] = "STOPPING";
+    StackSetOperationStatus["SUCCEEDED"] = "SUCCEEDED";
+})(StackSetOperationStatus = exports.StackSetOperationStatus || (exports.StackSetOperationStatus = {}));
 class OperationNotFoundException extends CloudFormationServiceException_1.CloudFormationServiceException {
     constructor(opts) {
         super({
@@ -7313,6 +7367,17 @@ class OperationNotFoundException extends CloudFormationServiceException_1.CloudF
     }
 }
 exports.OperationNotFoundException = OperationNotFoundException;
+var DeprecatedStatus;
+(function (DeprecatedStatus) {
+    DeprecatedStatus["DEPRECATED"] = "DEPRECATED";
+    DeprecatedStatus["LIVE"] = "LIVE";
+})(DeprecatedStatus = exports.DeprecatedStatus || (exports.DeprecatedStatus = {}));
+var ProvisioningType;
+(function (ProvisioningType) {
+    ProvisioningType["FULLY_MUTABLE"] = "FULLY_MUTABLE";
+    ProvisioningType["IMMUTABLE"] = "IMMUTABLE";
+    ProvisioningType["NON_PROVISIONABLE"] = "NON_PROVISIONABLE";
+})(ProvisioningType = exports.ProvisioningType || (exports.ProvisioningType = {}));
 var TypeTestsStatus;
 (function (TypeTestsStatus) {
     TypeTestsStatus["FAILED"] = "FAILED";
@@ -7320,6 +7385,17 @@ var TypeTestsStatus;
     TypeTestsStatus["NOT_TESTED"] = "NOT_TESTED";
     TypeTestsStatus["PASSED"] = "PASSED";
 })(TypeTestsStatus = exports.TypeTestsStatus || (exports.TypeTestsStatus = {}));
+var Visibility;
+(function (Visibility) {
+    Visibility["PRIVATE"] = "PRIVATE";
+    Visibility["PUBLIC"] = "PUBLIC";
+})(Visibility = exports.Visibility || (exports.Visibility = {}));
+var RegistrationStatus;
+(function (RegistrationStatus) {
+    RegistrationStatus["COMPLETE"] = "COMPLETE";
+    RegistrationStatus["FAILED"] = "FAILED";
+    RegistrationStatus["IN_PROGRESS"] = "IN_PROGRESS";
+})(RegistrationStatus = exports.RegistrationStatus || (exports.RegistrationStatus = {}));
 var TemplateStage;
 (function (TemplateStage) {
     TemplateStage["Original"] = "Original";
@@ -7339,6 +7415,23 @@ class StackNotFoundException extends CloudFormationServiceException_1.CloudForma
     }
 }
 exports.StackNotFoundException = StackNotFoundException;
+var StackInstanceFilterName;
+(function (StackInstanceFilterName) {
+    StackInstanceFilterName["DETAILED_STATUS"] = "DETAILED_STATUS";
+    StackInstanceFilterName["LAST_OPERATION_ID"] = "LAST_OPERATION_ID";
+})(StackInstanceFilterName = exports.StackInstanceFilterName || (exports.StackInstanceFilterName = {}));
+var OperationResultFilterName;
+(function (OperationResultFilterName) {
+    OperationResultFilterName["OPERATION_RESULT_STATUS"] = "OPERATION_RESULT_STATUS";
+})(OperationResultFilterName = exports.OperationResultFilterName || (exports.OperationResultFilterName = {}));
+var StackSetOperationResultStatus;
+(function (StackSetOperationResultStatus) {
+    StackSetOperationResultStatus["CANCELLED"] = "CANCELLED";
+    StackSetOperationResultStatus["FAILED"] = "FAILED";
+    StackSetOperationResultStatus["PENDING"] = "PENDING";
+    StackSetOperationResultStatus["RUNNING"] = "RUNNING";
+    StackSetOperationResultStatus["SUCCEEDED"] = "SUCCEEDED";
+})(StackSetOperationResultStatus = exports.StackSetOperationResultStatus || (exports.StackSetOperationResultStatus = {}));
 class InvalidStateTransitionException extends CloudFormationServiceException_1.CloudFormationServiceException {
     constructor(opts) {
         super({
@@ -7756,6 +7849,10 @@ const DescribeStackSetOperationInputFilterSensitiveLog = (obj) => ({
     ...obj,
 });
 exports.DescribeStackSetOperationInputFilterSensitiveLog = DescribeStackSetOperationInputFilterSensitiveLog;
+const StackSetOperationStatusDetailsFilterSensitiveLog = (obj) => ({
+    ...obj,
+});
+exports.StackSetOperationStatusDetailsFilterSensitiveLog = StackSetOperationStatusDetailsFilterSensitiveLog;
 const StackSetOperationFilterSensitiveLog = (obj) => ({
     ...obj,
 });
@@ -7944,6 +8041,10 @@ const ListStacksOutputFilterSensitiveLog = (obj) => ({
     ...obj,
 });
 exports.ListStacksOutputFilterSensitiveLog = ListStacksOutputFilterSensitiveLog;
+const OperationResultFilterFilterSensitiveLog = (obj) => ({
+    ...obj,
+});
+exports.OperationResultFilterFilterSensitiveLog = OperationResultFilterFilterSensitiveLog;
 const ListStackSetOperationResultsInputFilterSensitiveLog = (obj) => ({
     ...obj,
 });
@@ -13159,6 +13260,13 @@ const serializeAws_queryListStackSetOperationResultsInput = (input, context) => 
     if (input.CallAs != null) {
         entries["CallAs"] = input.CallAs;
     }
+    if (input.Filters != null) {
+        const memberEntries = serializeAws_queryOperationResultFilters(input.Filters, context);
+        Object.entries(memberEntries).forEach(([key, value]) => {
+            const loc = `Filters.${key}`;
+            entries[loc] = value;
+        });
+    }
     return entries;
 };
 const serializeAws_queryListStackSetOperationsInput = (input, context) => {
@@ -13320,6 +13428,31 @@ const serializeAws_queryNotificationARNs = (input, context) => {
             continue;
         }
         entries[`member.${counter}`] = entry;
+        counter++;
+    }
+    return entries;
+};
+const serializeAws_queryOperationResultFilter = (input, context) => {
+    const entries = {};
+    if (input.Name != null) {
+        entries["Name"] = input.Name;
+    }
+    if (input.Values != null) {
+        entries["Values"] = input.Values;
+    }
+    return entries;
+};
+const serializeAws_queryOperationResultFilters = (input, context) => {
+    const entries = {};
+    let counter = 1;
+    for (const entry of input) {
+        if (entry === null) {
+            continue;
+        }
+        const memberEntries = serializeAws_queryOperationResultFilter(entry, context);
+        Object.entries(memberEntries).forEach(([key, value]) => {
+            entries[`member.${counter}.${key}`] = value;
+        });
         counter++;
     }
     return entries;
@@ -16092,6 +16225,7 @@ const deserializeAws_queryStackInstance = (output, context) => {
         OrganizationalUnitId: undefined,
         DriftStatus: undefined,
         LastDriftCheckTimestamp: undefined,
+        LastOperationId: undefined,
     };
     if (output["StackSetId"] !== undefined) {
         contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
@@ -16128,6 +16262,9 @@ const deserializeAws_queryStackInstance = (output, context) => {
     }
     if (output["LastDriftCheckTimestamp"] !== undefined) {
         contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastDriftCheckTimestamp"]));
+    }
+    if (output["LastOperationId"] !== undefined) {
+        contents.LastOperationId = (0, smithy_client_1.expectString)(output["LastOperationId"]);
     }
     return contents;
 };
@@ -16168,6 +16305,7 @@ const deserializeAws_queryStackInstanceSummary = (output, context) => {
         OrganizationalUnitId: undefined,
         DriftStatus: undefined,
         LastDriftCheckTimestamp: undefined,
+        LastOperationId: undefined,
     };
     if (output["StackSetId"] !== undefined) {
         contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
@@ -16198,6 +16336,9 @@ const deserializeAws_queryStackInstanceSummary = (output, context) => {
     }
     if (output["LastDriftCheckTimestamp"] !== undefined) {
         contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastDriftCheckTimestamp"]));
+    }
+    if (output["LastOperationId"] !== undefined) {
+        contents.LastOperationId = (0, smithy_client_1.expectString)(output["LastOperationId"]);
     }
     return contents;
 };
@@ -16610,6 +16751,7 @@ const deserializeAws_queryStackSetOperation = (output, context) => {
         DeploymentTargets: undefined,
         StackSetDriftDetectionDetails: undefined,
         StatusReason: undefined,
+        StatusDetails: undefined,
     };
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
@@ -16649,6 +16791,9 @@ const deserializeAws_queryStackSetOperation = (output, context) => {
     }
     if (output["StatusReason"] !== undefined) {
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    }
+    if (output["StatusDetails"] !== undefined) {
+        contents.StatusDetails = deserializeAws_queryStackSetOperationStatusDetails(output["StatusDetails"], context);
     }
     return contents;
 };
@@ -16720,6 +16865,15 @@ const deserializeAws_queryStackSetOperationResultSummary = (output, context) => 
     }
     return contents;
 };
+const deserializeAws_queryStackSetOperationStatusDetails = (output, context) => {
+    const contents = {
+        FailedStackInstancesCount: undefined,
+    };
+    if (output["FailedStackInstancesCount"] !== undefined) {
+        contents.FailedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["FailedStackInstancesCount"]);
+    }
+    return contents;
+};
 const deserializeAws_queryStackSetOperationSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
@@ -16735,6 +16889,8 @@ const deserializeAws_queryStackSetOperationSummary = (output, context) => {
         CreationTimestamp: undefined,
         EndTimestamp: undefined,
         StatusReason: undefined,
+        StatusDetails: undefined,
+        OperationPreferences: undefined,
     };
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
@@ -16753,6 +16909,12 @@ const deserializeAws_queryStackSetOperationSummary = (output, context) => {
     }
     if (output["StatusReason"] !== undefined) {
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    }
+    if (output["StatusDetails"] !== undefined) {
+        contents.StatusDetails = deserializeAws_queryStackSetOperationStatusDetails(output["StatusDetails"], context);
+    }
+    if (output["OperationPreferences"] !== undefined) {
+        contents.OperationPreferences = deserializeAws_queryStackSetOperationPreferences(output["OperationPreferences"], context);
     }
     return contents;
 };
@@ -33858,21 +34020,21 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 3713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.198.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.198.0","@aws-sdk/config-resolver":"3.198.0","@aws-sdk/credential-provider-node":"3.198.0","@aws-sdk/fetch-http-handler":"3.198.0","@aws-sdk/hash-node":"3.198.0","@aws-sdk/invalid-dependency":"3.198.0","@aws-sdk/middleware-content-length":"3.198.0","@aws-sdk/middleware-endpoint":"3.198.0","@aws-sdk/middleware-host-header":"3.198.0","@aws-sdk/middleware-logger":"3.198.0","@aws-sdk/middleware-recursion-detection":"3.198.0","@aws-sdk/middleware-retry":"3.198.0","@aws-sdk/middleware-serde":"3.198.0","@aws-sdk/middleware-signing":"3.198.0","@aws-sdk/middleware-stack":"3.198.0","@aws-sdk/middleware-user-agent":"3.198.0","@aws-sdk/node-config-provider":"3.198.0","@aws-sdk/node-http-handler":"3.198.0","@aws-sdk/protocol-http":"3.198.0","@aws-sdk/smithy-client":"3.198.0","@aws-sdk/types":"3.198.0","@aws-sdk/url-parser":"3.198.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.198.0","@aws-sdk/util-defaults-mode-node":"3.198.0","@aws-sdk/util-endpoints":"3.198.0","@aws-sdk/util-user-agent-browser":"3.198.0","@aws-sdk/util-user-agent-node":"3.198.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.188.0","@aws-sdk/util-waiter":"3.198.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.199.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.199.0","@aws-sdk/config-resolver":"3.198.0","@aws-sdk/credential-provider-node":"3.199.0","@aws-sdk/fetch-http-handler":"3.199.0","@aws-sdk/hash-node":"3.198.0","@aws-sdk/invalid-dependency":"3.198.0","@aws-sdk/middleware-content-length":"3.199.0","@aws-sdk/middleware-endpoint":"3.198.0","@aws-sdk/middleware-host-header":"3.198.0","@aws-sdk/middleware-logger":"3.198.0","@aws-sdk/middleware-recursion-detection":"3.198.0","@aws-sdk/middleware-retry":"3.198.0","@aws-sdk/middleware-serde":"3.198.0","@aws-sdk/middleware-signing":"3.198.0","@aws-sdk/middleware-stack":"3.198.0","@aws-sdk/middleware-user-agent":"3.198.0","@aws-sdk/node-config-provider":"3.198.0","@aws-sdk/node-http-handler":"3.199.0","@aws-sdk/protocol-http":"3.198.0","@aws-sdk/smithy-client":"3.198.0","@aws-sdk/types":"3.198.0","@aws-sdk/url-parser":"3.198.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.198.0","@aws-sdk/util-defaults-mode-node":"3.198.0","@aws-sdk/util-endpoints":"3.198.0","@aws-sdk/util-user-agent-browser":"3.198.0","@aws-sdk/util-user-agent-node":"3.198.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.199.0","@aws-sdk/util-waiter":"3.198.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 1092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.198.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.198.0","@aws-sdk/fetch-http-handler":"3.198.0","@aws-sdk/hash-node":"3.198.0","@aws-sdk/invalid-dependency":"3.198.0","@aws-sdk/middleware-content-length":"3.198.0","@aws-sdk/middleware-endpoint":"3.198.0","@aws-sdk/middleware-host-header":"3.198.0","@aws-sdk/middleware-logger":"3.198.0","@aws-sdk/middleware-recursion-detection":"3.198.0","@aws-sdk/middleware-retry":"3.198.0","@aws-sdk/middleware-serde":"3.198.0","@aws-sdk/middleware-stack":"3.198.0","@aws-sdk/middleware-user-agent":"3.198.0","@aws-sdk/node-config-provider":"3.198.0","@aws-sdk/node-http-handler":"3.198.0","@aws-sdk/protocol-http":"3.198.0","@aws-sdk/smithy-client":"3.198.0","@aws-sdk/types":"3.198.0","@aws-sdk/url-parser":"3.198.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.198.0","@aws-sdk/util-defaults-mode-node":"3.198.0","@aws-sdk/util-endpoints":"3.198.0","@aws-sdk/util-user-agent-browser":"3.198.0","@aws-sdk/util-user-agent-node":"3.198.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.188.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.199.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.198.0","@aws-sdk/fetch-http-handler":"3.199.0","@aws-sdk/hash-node":"3.198.0","@aws-sdk/invalid-dependency":"3.198.0","@aws-sdk/middleware-content-length":"3.199.0","@aws-sdk/middleware-endpoint":"3.198.0","@aws-sdk/middleware-host-header":"3.198.0","@aws-sdk/middleware-logger":"3.198.0","@aws-sdk/middleware-recursion-detection":"3.198.0","@aws-sdk/middleware-retry":"3.198.0","@aws-sdk/middleware-serde":"3.198.0","@aws-sdk/middleware-stack":"3.198.0","@aws-sdk/middleware-user-agent":"3.198.0","@aws-sdk/node-config-provider":"3.198.0","@aws-sdk/node-http-handler":"3.199.0","@aws-sdk/protocol-http":"3.198.0","@aws-sdk/smithy-client":"3.198.0","@aws-sdk/types":"3.198.0","@aws-sdk/url-parser":"3.198.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.198.0","@aws-sdk/util-defaults-mode-node":"3.198.0","@aws-sdk/util-endpoints":"3.198.0","@aws-sdk/util-user-agent-browser":"3.198.0","@aws-sdk/util-user-agent-node":"3.198.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.199.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.198.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.198.0","@aws-sdk/credential-provider-node":"3.198.0","@aws-sdk/fetch-http-handler":"3.198.0","@aws-sdk/hash-node":"3.198.0","@aws-sdk/invalid-dependency":"3.198.0","@aws-sdk/middleware-content-length":"3.198.0","@aws-sdk/middleware-endpoint":"3.198.0","@aws-sdk/middleware-host-header":"3.198.0","@aws-sdk/middleware-logger":"3.198.0","@aws-sdk/middleware-recursion-detection":"3.198.0","@aws-sdk/middleware-retry":"3.198.0","@aws-sdk/middleware-sdk-sts":"3.198.0","@aws-sdk/middleware-serde":"3.198.0","@aws-sdk/middleware-signing":"3.198.0","@aws-sdk/middleware-stack":"3.198.0","@aws-sdk/middleware-user-agent":"3.198.0","@aws-sdk/node-config-provider":"3.198.0","@aws-sdk/node-http-handler":"3.198.0","@aws-sdk/protocol-http":"3.198.0","@aws-sdk/smithy-client":"3.198.0","@aws-sdk/types":"3.198.0","@aws-sdk/url-parser":"3.198.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.198.0","@aws-sdk/util-defaults-mode-node":"3.198.0","@aws-sdk/util-endpoints":"3.198.0","@aws-sdk/util-user-agent-browser":"3.198.0","@aws-sdk/util-user-agent-node":"3.198.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.188.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.199.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/config-resolver":"3.198.0","@aws-sdk/credential-provider-node":"3.199.0","@aws-sdk/fetch-http-handler":"3.199.0","@aws-sdk/hash-node":"3.198.0","@aws-sdk/invalid-dependency":"3.198.0","@aws-sdk/middleware-content-length":"3.199.0","@aws-sdk/middleware-endpoint":"3.198.0","@aws-sdk/middleware-host-header":"3.198.0","@aws-sdk/middleware-logger":"3.198.0","@aws-sdk/middleware-recursion-detection":"3.198.0","@aws-sdk/middleware-retry":"3.198.0","@aws-sdk/middleware-sdk-sts":"3.199.0","@aws-sdk/middleware-serde":"3.198.0","@aws-sdk/middleware-signing":"3.198.0","@aws-sdk/middleware-stack":"3.198.0","@aws-sdk/middleware-user-agent":"3.198.0","@aws-sdk/node-config-provider":"3.198.0","@aws-sdk/node-http-handler":"3.199.0","@aws-sdk/protocol-http":"3.198.0","@aws-sdk/smithy-client":"3.198.0","@aws-sdk/types":"3.198.0","@aws-sdk/url-parser":"3.198.0","@aws-sdk/util-base64-browser":"3.188.0","@aws-sdk/util-base64-node":"3.188.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.188.0","@aws-sdk/util-defaults-mode-browser":"3.198.0","@aws-sdk/util-defaults-mode-node":"3.198.0","@aws-sdk/util-endpoints":"3.198.0","@aws-sdk/util-user-agent-browser":"3.198.0","@aws-sdk/util-user-agent-node":"3.198.0","@aws-sdk/util-utf8-browser":"3.188.0","@aws-sdk/util-utf8-node":"3.199.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.188.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
