@@ -7394,7 +7394,7 @@ Apache-2.0
    limitations under the License.
 
 
-@aws-sdk/util-base64-node
+@aws-sdk/util-base64
 Apache-2.0
 Apache License
                            Version 2.0, January 2004
