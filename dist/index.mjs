@@ -14344,7 +14344,7 @@ const deserializeAws_queryChangeSetSummary = (output, context) => {
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
     }
     if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["CreationTime"]));
+        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
     }
     if (output["Description"] !== undefined) {
         contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
@@ -14561,7 +14561,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (output, context) => {
         contents.Parameters = deserializeAws_queryParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
     }
     if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["CreationTime"]));
+        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
     }
     if (output["ExecutionStatus"] !== undefined) {
         contents.ExecutionStatus = (0, smithy_client_1.expectString)(output["ExecutionStatus"]);
@@ -14663,7 +14663,7 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (output, con
         contents.DriftedStackResourceCount = (0, smithy_client_1.strictParseInt32)(output["DriftedStackResourceCount"]);
     }
     if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["Timestamp"]));
+        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
     }
     return contents;
 };
@@ -14849,10 +14849,10 @@ const deserializeAws_queryDescribeTypeOutput = (output, context) => {
         contents.DocumentationUrl = (0, smithy_client_1.expectString)(output["DocumentationUrl"]);
     }
     if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastUpdated"]));
+        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
     }
     if (output["TimeCreated"] !== undefined) {
-        contents.TimeCreated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["TimeCreated"]));
+        contents.TimeCreated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["TimeCreated"]));
     }
     if (output["ConfigurationSchema"] !== undefined) {
         contents.ConfigurationSchema = (0, smithy_client_1.expectString)(output["ConfigurationSchema"]);
@@ -15876,13 +15876,13 @@ const deserializeAws_queryStack = (output, context) => {
         contents.Parameters = deserializeAws_queryParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
     }
     if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["CreationTime"]));
+        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
     }
     if (output["DeletionTime"] !== undefined) {
-        contents.DeletionTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["DeletionTime"]));
+        contents.DeletionTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["DeletionTime"]));
     }
     if (output["LastUpdatedTime"] !== undefined) {
-        contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastUpdatedTime"]));
+        contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTime"]));
     }
     if (output["RollbackConfiguration"] !== undefined) {
         contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(output["RollbackConfiguration"], context);
@@ -15949,7 +15949,7 @@ const deserializeAws_queryStackDriftInformation = (output, context) => {
         contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
     }
     if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastCheckTimestamp"]));
+        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
     }
     return contents;
 };
@@ -15962,7 +15962,7 @@ const deserializeAws_queryStackDriftInformationSummary = (output, context) => {
         contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
     }
     if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastCheckTimestamp"]));
+        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
     }
     return contents;
 };
@@ -16004,7 +16004,7 @@ const deserializeAws_queryStackEvent = (output, context) => {
         contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
     }
     if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["Timestamp"]));
+        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
     }
     if (output["ResourceStatus"] !== undefined) {
         contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
@@ -16091,7 +16091,7 @@ const deserializeAws_queryStackInstance = (output, context) => {
         contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
     }
     if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastDriftCheckTimestamp"]));
+        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
     }
     if (output["LastOperationId"] !== undefined) {
         contents.LastOperationId = (0, smithy_client_1.expectString)(output["LastOperationId"]);
@@ -16165,7 +16165,7 @@ const deserializeAws_queryStackInstanceSummary = (output, context) => {
         contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
     }
     if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastDriftCheckTimestamp"]));
+        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
     }
     if (output["LastOperationId"] !== undefined) {
         contents.LastOperationId = (0, smithy_client_1.expectString)(output["LastOperationId"]);
@@ -16211,7 +16211,7 @@ const deserializeAws_queryStackResource = (output, context) => {
         contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
     }
     if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["Timestamp"]));
+        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
     }
     if (output["ResourceStatus"] !== undefined) {
         contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
@@ -16261,7 +16261,7 @@ const deserializeAws_queryStackResourceDetail = (output, context) => {
         contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
     }
     if (output["LastUpdatedTimestamp"] !== undefined) {
-        contents.LastUpdatedTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastUpdatedTimestamp"]));
+        contents.LastUpdatedTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTimestamp"]));
     }
     if (output["ResourceStatus"] !== undefined) {
         contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
@@ -16332,7 +16332,7 @@ const deserializeAws_queryStackResourceDrift = (output, context) => {
         contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
     }
     if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["Timestamp"]));
+        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
     }
     if (output["ModuleInfo"] !== undefined) {
         contents.ModuleInfo = deserializeAws_queryModuleInfo(output["ModuleInfo"], context);
@@ -16348,7 +16348,7 @@ const deserializeAws_queryStackResourceDriftInformation = (output, context) => {
         contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
     }
     if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastCheckTimestamp"]));
+        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
     }
     return contents;
 };
@@ -16361,7 +16361,7 @@ const deserializeAws_queryStackResourceDriftInformationSummary = (output, contex
         contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
     }
     if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastCheckTimestamp"]));
+        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
     }
     return contents;
 };
@@ -16407,7 +16407,7 @@ const deserializeAws_queryStackResourceSummary = (output, context) => {
         contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
     }
     if (output["LastUpdatedTimestamp"] !== undefined) {
-        contents.LastUpdatedTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastUpdatedTimestamp"]));
+        contents.LastUpdatedTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTimestamp"]));
     }
     if (output["ResourceStatus"] !== undefined) {
         contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
@@ -16536,7 +16536,7 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (output, context) => {
         contents.DriftDetectionStatus = (0, smithy_client_1.expectString)(output["DriftDetectionStatus"]);
     }
     if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastDriftCheckTimestamp"]));
+        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
     }
     if (output["TotalStackInstancesCount"] !== undefined) {
         contents.TotalStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["TotalStackInstancesCount"]);
@@ -16615,10 +16615,10 @@ const deserializeAws_queryStackSetOperation = (output, context) => {
         contents.ExecutionRoleName = (0, smithy_client_1.expectString)(output["ExecutionRoleName"]);
     }
     if (output["CreationTimestamp"] !== undefined) {
-        contents.CreationTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["CreationTimestamp"]));
+        contents.CreationTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTimestamp"]));
     }
     if (output["EndTimestamp"] !== undefined) {
-        contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["EndTimestamp"]));
+        contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["EndTimestamp"]));
     }
     if (output["DeploymentTargets"] !== undefined) {
         contents.DeploymentTargets = deserializeAws_queryDeploymentTargets(output["DeploymentTargets"], context);
@@ -16739,10 +16739,10 @@ const deserializeAws_queryStackSetOperationSummary = (output, context) => {
         contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
     }
     if (output["CreationTimestamp"] !== undefined) {
-        contents.CreationTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["CreationTimestamp"]));
+        contents.CreationTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTimestamp"]));
     }
     if (output["EndTimestamp"] !== undefined) {
-        contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["EndTimestamp"]));
+        contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["EndTimestamp"]));
     }
     if (output["StatusReason"] !== undefined) {
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
@@ -16796,7 +16796,7 @@ const deserializeAws_queryStackSetSummary = (output, context) => {
         contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
     }
     if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastDriftCheckTimestamp"]));
+        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
     }
     if (output["ManagedExecution"] !== undefined) {
         contents.ManagedExecution = deserializeAws_queryManagedExecution(output["ManagedExecution"], context);
@@ -16834,13 +16834,13 @@ const deserializeAws_queryStackSummary = (output, context) => {
         contents.TemplateDescription = (0, smithy_client_1.expectString)(output["TemplateDescription"]);
     }
     if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["CreationTime"]));
+        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
     }
     if (output["LastUpdatedTime"] !== undefined) {
-        contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastUpdatedTime"]));
+        contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTime"]));
     }
     if (output["DeletionTime"] !== undefined) {
-        contents.DeletionTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["DeletionTime"]));
+        contents.DeletionTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["DeletionTime"]));
     }
     if (output["StackStatus"] !== undefined) {
         contents.StackStatus = (0, smithy_client_1.expectString)(output["StackStatus"]);
@@ -16979,7 +16979,7 @@ const deserializeAws_queryTypeConfigurationDetails = (output, context) => {
         contents.Configuration = (0, smithy_client_1.expectString)(output["Configuration"]);
     }
     if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastUpdated"]));
+        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
     }
     if (output["TypeArn"] !== undefined) {
         contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
@@ -17078,7 +17078,7 @@ const deserializeAws_queryTypeSummary = (output, context) => {
         contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
     }
     if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["LastUpdated"]));
+        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
     }
     if (output["Description"] !== undefined) {
         contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
@@ -17140,7 +17140,7 @@ const deserializeAws_queryTypeVersionSummary = (output, context) => {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
     }
     if (output["TimeCreated"] !== undefined) {
-        contents.TimeCreated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["TimeCreated"]));
+        contents.TimeCreated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["TimeCreated"]));
     }
     if (output["Description"] !== undefined) {
         contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
@@ -22435,7 +22435,7 @@ const deserializeAws_queryCredentials = (output, context) => {
         contents.SessionToken = (0, smithy_client_1.expectString)(output["SessionToken"]);
     }
     if (output["Expiration"] !== undefined) {
-        contents.Expiration = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTime)(output["Expiration"]));
+        contents.Expiration = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Expiration"]));
     }
     return contents;
 };
@@ -34773,7 +34773,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 43713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.261.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.261.0","@aws-sdk/config-resolver":"3.259.0","@aws-sdk/credential-provider-node":"3.261.0","@aws-sdk/fetch-http-handler":"3.257.0","@aws-sdk/hash-node":"3.257.0","@aws-sdk/invalid-dependency":"3.257.0","@aws-sdk/middleware-content-length":"3.257.0","@aws-sdk/middleware-endpoint":"3.257.0","@aws-sdk/middleware-host-header":"3.257.0","@aws-sdk/middleware-logger":"3.257.0","@aws-sdk/middleware-recursion-detection":"3.257.0","@aws-sdk/middleware-retry":"3.259.0","@aws-sdk/middleware-serde":"3.257.0","@aws-sdk/middleware-signing":"3.257.0","@aws-sdk/middleware-stack":"3.257.0","@aws-sdk/middleware-user-agent":"3.257.0","@aws-sdk/node-config-provider":"3.259.0","@aws-sdk/node-http-handler":"3.257.0","@aws-sdk/protocol-http":"3.257.0","@aws-sdk/smithy-client":"3.261.0","@aws-sdk/types":"3.257.0","@aws-sdk/url-parser":"3.257.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.261.0","@aws-sdk/util-defaults-mode-node":"3.261.0","@aws-sdk/util-endpoints":"3.257.0","@aws-sdk/util-retry":"3.257.0","@aws-sdk/util-user-agent-browser":"3.257.0","@aws-sdk/util-user-agent-node":"3.259.0","@aws-sdk/util-utf8":"3.254.0","@aws-sdk/util-waiter":"3.257.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.262.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.262.0","@aws-sdk/config-resolver":"3.259.0","@aws-sdk/credential-provider-node":"3.261.0","@aws-sdk/fetch-http-handler":"3.257.0","@aws-sdk/hash-node":"3.257.0","@aws-sdk/invalid-dependency":"3.257.0","@aws-sdk/middleware-content-length":"3.257.0","@aws-sdk/middleware-endpoint":"3.257.0","@aws-sdk/middleware-host-header":"3.257.0","@aws-sdk/middleware-logger":"3.257.0","@aws-sdk/middleware-recursion-detection":"3.257.0","@aws-sdk/middleware-retry":"3.259.0","@aws-sdk/middleware-serde":"3.257.0","@aws-sdk/middleware-signing":"3.257.0","@aws-sdk/middleware-stack":"3.257.0","@aws-sdk/middleware-user-agent":"3.257.0","@aws-sdk/node-config-provider":"3.259.0","@aws-sdk/node-http-handler":"3.257.0","@aws-sdk/protocol-http":"3.257.0","@aws-sdk/smithy-client":"3.261.0","@aws-sdk/types":"3.257.0","@aws-sdk/url-parser":"3.257.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.261.0","@aws-sdk/util-defaults-mode-node":"3.261.0","@aws-sdk/util-endpoints":"3.257.0","@aws-sdk/util-retry":"3.257.0","@aws-sdk/util-user-agent-browser":"3.257.0","@aws-sdk/util-user-agent-node":"3.259.0","@aws-sdk/util-utf8":"3.254.0","@aws-sdk/util-waiter":"3.257.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -34794,7 +34794,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SD
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.261.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.259.0","@aws-sdk/credential-provider-node":"3.261.0","@aws-sdk/fetch-http-handler":"3.257.0","@aws-sdk/hash-node":"3.257.0","@aws-sdk/invalid-dependency":"3.257.0","@aws-sdk/middleware-content-length":"3.257.0","@aws-sdk/middleware-endpoint":"3.257.0","@aws-sdk/middleware-host-header":"3.257.0","@aws-sdk/middleware-logger":"3.257.0","@aws-sdk/middleware-recursion-detection":"3.257.0","@aws-sdk/middleware-retry":"3.259.0","@aws-sdk/middleware-sdk-sts":"3.257.0","@aws-sdk/middleware-serde":"3.257.0","@aws-sdk/middleware-signing":"3.257.0","@aws-sdk/middleware-stack":"3.257.0","@aws-sdk/middleware-user-agent":"3.257.0","@aws-sdk/node-config-provider":"3.259.0","@aws-sdk/node-http-handler":"3.257.0","@aws-sdk/protocol-http":"3.257.0","@aws-sdk/smithy-client":"3.261.0","@aws-sdk/types":"3.257.0","@aws-sdk/url-parser":"3.257.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.261.0","@aws-sdk/util-defaults-mode-node":"3.261.0","@aws-sdk/util-endpoints":"3.257.0","@aws-sdk/util-retry":"3.257.0","@aws-sdk/util-user-agent-browser":"3.257.0","@aws-sdk/util-user-agent-node":"3.259.0","@aws-sdk/util-utf8":"3.254.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.262.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.259.0","@aws-sdk/credential-provider-node":"3.261.0","@aws-sdk/fetch-http-handler":"3.257.0","@aws-sdk/hash-node":"3.257.0","@aws-sdk/invalid-dependency":"3.257.0","@aws-sdk/middleware-content-length":"3.257.0","@aws-sdk/middleware-endpoint":"3.257.0","@aws-sdk/middleware-host-header":"3.257.0","@aws-sdk/middleware-logger":"3.257.0","@aws-sdk/middleware-recursion-detection":"3.257.0","@aws-sdk/middleware-retry":"3.259.0","@aws-sdk/middleware-sdk-sts":"3.257.0","@aws-sdk/middleware-serde":"3.257.0","@aws-sdk/middleware-signing":"3.257.0","@aws-sdk/middleware-stack":"3.257.0","@aws-sdk/middleware-user-agent":"3.257.0","@aws-sdk/node-config-provider":"3.259.0","@aws-sdk/node-http-handler":"3.257.0","@aws-sdk/protocol-http":"3.257.0","@aws-sdk/smithy-client":"3.261.0","@aws-sdk/types":"3.257.0","@aws-sdk/url-parser":"3.257.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.261.0","@aws-sdk/util-defaults-mode-node":"3.261.0","@aws-sdk/util-endpoints":"3.257.0","@aws-sdk/util-retry":"3.257.0","@aws-sdk/util-user-agent-browser":"3.257.0","@aws-sdk/util-user-agent-node":"3.259.0","@aws-sdk/util-utf8":"3.254.0","fast-xml-parser":"4.0.11","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
