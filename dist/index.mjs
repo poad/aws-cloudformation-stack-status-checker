@@ -7955,14 +7955,10 @@ exports.ValidateTemplateOutputFilterSensitiveLog = ValidateTemplateOutputFilterS
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeAccountLimits = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const DescribeAccountLimitsCommand_1 = __nccwpck_require__(90664);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new DescribeAccountLimitsCommand_1.DescribeAccountLimitsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.describeAccountLimits(input, ...args);
 };
 async function* paginateDescribeAccountLimits(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -7970,10 +7966,7 @@ async function* paginateDescribeAccountLimits(config, input, ...additionalArgume
     let page;
     while (hasNext) {
         input.NextToken = token;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -7997,14 +7990,10 @@ exports.paginateDescribeAccountLimits = paginateDescribeAccountLimits;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStackEvents = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const DescribeStackEventsCommand_1 = __nccwpck_require__(87929);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new DescribeStackEventsCommand_1.DescribeStackEventsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.describeStackEvents(input, ...args);
 };
 async function* paginateDescribeStackEvents(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8012,10 +8001,7 @@ async function* paginateDescribeStackEvents(config, input, ...additionalArgument
     let page;
     while (hasNext) {
         input.NextToken = token;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8039,14 +8025,10 @@ exports.paginateDescribeStackEvents = paginateDescribeStackEvents;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStackResourceDrifts = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(22837);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new DescribeStackResourceDriftsCommand_1.DescribeStackResourceDriftsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.describeStackResourceDrifts(input, ...args);
 };
 async function* paginateDescribeStackResourceDrifts(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8055,10 +8037,7 @@ async function* paginateDescribeStackResourceDrifts(config, input, ...additional
     while (hasNext) {
         input.NextToken = token;
         input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8082,14 +8061,10 @@ exports.paginateDescribeStackResourceDrifts = paginateDescribeStackResourceDrift
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStacks = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const DescribeStacksCommand_1 = __nccwpck_require__(79769);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new DescribeStacksCommand_1.DescribeStacksCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.describeStacks(input, ...args);
 };
 async function* paginateDescribeStacks(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8097,10 +8072,7 @@ async function* paginateDescribeStacks(config, input, ...additionalArguments) {
     let page;
     while (hasNext) {
         input.NextToken = token;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8133,14 +8105,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListChangeSets = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListChangeSetsCommand_1 = __nccwpck_require__(87882);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListChangeSetsCommand_1.ListChangeSetsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listChangeSets(input, ...args);
 };
 async function* paginateListChangeSets(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8148,10 +8116,7 @@ async function* paginateListChangeSets(config, input, ...additionalArguments) {
     let page;
     while (hasNext) {
         input.NextToken = token;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8175,14 +8140,10 @@ exports.paginateListChangeSets = paginateListChangeSets;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListExports = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListExportsCommand_1 = __nccwpck_require__(81426);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListExportsCommand_1.ListExportsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listExports(input, ...args);
 };
 async function* paginateListExports(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8190,10 +8151,7 @@ async function* paginateListExports(config, input, ...additionalArguments) {
     let page;
     while (hasNext) {
         input.NextToken = token;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8217,14 +8175,10 @@ exports.paginateListExports = paginateListExports;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListImports = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListImportsCommand_1 = __nccwpck_require__(21574);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListImportsCommand_1.ListImportsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listImports(input, ...args);
 };
 async function* paginateListImports(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8232,10 +8186,7 @@ async function* paginateListImports(config, input, ...additionalArguments) {
     let page;
     while (hasNext) {
         input.NextToken = token;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8259,14 +8210,10 @@ exports.paginateListImports = paginateListImports;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackInstances = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackInstancesCommand_1 = __nccwpck_require__(70488);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackInstancesCommand_1.ListStackInstancesCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listStackInstances(input, ...args);
 };
 async function* paginateListStackInstances(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8275,10 +8222,7 @@ async function* paginateListStackInstances(config, input, ...additionalArguments
     while (hasNext) {
         input.NextToken = token;
         input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8302,14 +8246,10 @@ exports.paginateListStackInstances = paginateListStackInstances;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackResources = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackResourcesCommand_1 = __nccwpck_require__(12602);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackResourcesCommand_1.ListStackResourcesCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listStackResources(input, ...args);
 };
 async function* paginateListStackResources(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8317,10 +8257,7 @@ async function* paginateListStackResources(config, input, ...additionalArguments
     let page;
     while (hasNext) {
         input.NextToken = token;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8344,14 +8281,10 @@ exports.paginateListStackResources = paginateListStackResources;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSetOperationResults = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(12200);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackSetOperationResultsCommand_1.ListStackSetOperationResultsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listStackSetOperationResults(input, ...args);
 };
 async function* paginateListStackSetOperationResults(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8360,10 +8293,7 @@ async function* paginateListStackSetOperationResults(config, input, ...additiona
     while (hasNext) {
         input.NextToken = token;
         input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8387,14 +8317,10 @@ exports.paginateListStackSetOperationResults = paginateListStackSetOperationResu
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSetOperations = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackSetOperationsCommand_1 = __nccwpck_require__(65603);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackSetOperationsCommand_1.ListStackSetOperationsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listStackSetOperations(input, ...args);
 };
 async function* paginateListStackSetOperations(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8403,10 +8329,7 @@ async function* paginateListStackSetOperations(config, input, ...additionalArgum
     while (hasNext) {
         input.NextToken = token;
         input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8430,14 +8353,10 @@ exports.paginateListStackSetOperations = paginateListStackSetOperations;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSets = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackSetsCommand_1 = __nccwpck_require__(25005);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackSetsCommand_1.ListStackSetsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listStackSets(input, ...args);
 };
 async function* paginateListStackSets(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8446,10 +8365,7 @@ async function* paginateListStackSets(config, input, ...additionalArguments) {
     while (hasNext) {
         input.NextToken = token;
         input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8473,14 +8389,10 @@ exports.paginateListStackSets = paginateListStackSets;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStacks = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStacksCommand_1 = __nccwpck_require__(11276);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStacksCommand_1.ListStacksCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listStacks(input, ...args);
 };
 async function* paginateListStacks(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8488,10 +8400,7 @@ async function* paginateListStacks(config, input, ...additionalArguments) {
     let page;
     while (hasNext) {
         input.NextToken = token;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8515,14 +8424,10 @@ exports.paginateListStacks = paginateListStacks;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypeRegistrations = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListTypeRegistrationsCommand_1 = __nccwpck_require__(53280);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListTypeRegistrationsCommand_1.ListTypeRegistrationsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listTypeRegistrations(input, ...args);
 };
 async function* paginateListTypeRegistrations(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8531,10 +8436,7 @@ async function* paginateListTypeRegistrations(config, input, ...additionalArgume
     while (hasNext) {
         input.NextToken = token;
         input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8558,14 +8460,10 @@ exports.paginateListTypeRegistrations = paginateListTypeRegistrations;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypeVersions = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListTypeVersionsCommand_1 = __nccwpck_require__(31414);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListTypeVersionsCommand_1.ListTypeVersionsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listTypeVersions(input, ...args);
 };
 async function* paginateListTypeVersions(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8574,10 +8472,7 @@ async function* paginateListTypeVersions(config, input, ...additionalArguments) 
     while (hasNext) {
         input.NextToken = token;
         input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -8601,14 +8496,10 @@ exports.paginateListTypeVersions = paginateListTypeVersions;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypes = void 0;
-const CloudFormation_1 = __nccwpck_require__(86196);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListTypesCommand_1 = __nccwpck_require__(53520);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListTypesCommand_1.ListTypesCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listTypes(input, ...args);
 };
 async function* paginateListTypes(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -8617,10 +8508,7 @@ async function* paginateListTypes(config, input, ...additionalArguments) {
     while (hasNext) {
         input.NextToken = token;
         input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormation_1.CloudFormation) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
+        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -19933,13 +19821,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListAccountRoles = void 0;
 const ListAccountRolesCommand_1 = __nccwpck_require__(1513);
-const SSO_1 = __nccwpck_require__(69838);
 const SSOClient_1 = __nccwpck_require__(71057);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListAccountRolesCommand_1.ListAccountRolesCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listAccountRoles(input, ...args);
 };
 async function* paginateListAccountRoles(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -19948,10 +19832,7 @@ async function* paginateListAccountRoles(config, input, ...additionalArguments) 
     while (hasNext) {
         input.nextToken = token;
         input["maxResults"] = config.pageSize;
-        if (config.client instanceof SSO_1.SSO) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof SSOClient_1.SSOClient) {
+        if (config.client instanceof SSOClient_1.SSOClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -19976,13 +19857,9 @@ exports.paginateListAccountRoles = paginateListAccountRoles;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListAccounts = void 0;
 const ListAccountsCommand_1 = __nccwpck_require__(64296);
-const SSO_1 = __nccwpck_require__(69838);
 const SSOClient_1 = __nccwpck_require__(71057);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListAccountsCommand_1.ListAccountsCommand(input), ...args);
-};
-const makePagedRequest = async (client, input, ...args) => {
-    return await client.listAccounts(input, ...args);
 };
 async function* paginateListAccounts(config, input, ...additionalArguments) {
     let token = config.startingToken || undefined;
@@ -19991,10 +19868,7 @@ async function* paginateListAccounts(config, input, ...additionalArguments) {
     while (hasNext) {
         input.nextToken = token;
         input["maxResults"] = config.pageSize;
-        if (config.client instanceof SSO_1.SSO) {
-            page = await makePagedRequest(config.client, input, ...additionalArguments);
-        }
-        else if (config.client instanceof SSOClient_1.SSOClient) {
+        if (config.client instanceof SSOClient_1.SSOClient) {
             page = await makePagedClientRequest(config.client, input, ...additionalArguments);
         }
         else {
@@ -24790,23 +24664,33 @@ tslib_1.__exportStar(__nccwpck_require__(9754), exports);
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getLoggerPlugin = exports.loggerMiddlewareOptions = exports.loggerMiddleware = void 0;
 const loggerMiddleware = () => (next, context) => async (args) => {
-    const response = await next(args);
-    const { clientName, commandName, logger, inputFilterSensitiveLog, outputFilterSensitiveLog, dynamoDbDocumentClientOptions = {}, } = context;
+    var _a, _b;
+    const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
     const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
-    if (!logger) {
-        return response;
-    }
-    if (typeof logger.info === "function") {
+    const inputFilterSensitiveLog = overrideInputFilterSensitiveLog !== null && overrideInputFilterSensitiveLog !== void 0 ? overrideInputFilterSensitiveLog : context.inputFilterSensitiveLog;
+    const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog !== null && overrideOutputFilterSensitiveLog !== void 0 ? overrideOutputFilterSensitiveLog : context.outputFilterSensitiveLog;
+    try {
+        const response = await next(args);
         const { $metadata, ...outputWithoutMetadata } = response.output;
-        logger.info({
+        (_a = logger === null || logger === void 0 ? void 0 : logger.info) === null || _a === void 0 ? void 0 : _a.call(logger, {
             clientName,
             commandName,
-            input: (overrideInputFilterSensitiveLog !== null && overrideInputFilterSensitiveLog !== void 0 ? overrideInputFilterSensitiveLog : inputFilterSensitiveLog)(args.input),
-            output: (overrideOutputFilterSensitiveLog !== null && overrideOutputFilterSensitiveLog !== void 0 ? overrideOutputFilterSensitiveLog : outputFilterSensitiveLog)(outputWithoutMetadata),
+            input: inputFilterSensitiveLog(args.input),
+            output: outputFilterSensitiveLog(outputWithoutMetadata),
             metadata: $metadata,
         });
+        return response;
     }
-    return response;
+    catch (error) {
+        (_b = logger === null || logger === void 0 ? void 0 : logger.error) === null || _b === void 0 ? void 0 : _b.call(logger, {
+            clientName,
+            commandName,
+            input: inputFilterSensitiveLog(args.input),
+            error,
+            metadata: error.$metadata,
+        });
+        throw error;
+    }
 };
 exports.loggerMiddleware = loggerMiddleware;
 exports.loggerMiddlewareOptions = {
@@ -27239,8 +27123,17 @@ const swallowError = () => ({});
 const loadSharedConfigFiles = async (init = {}) => {
     const { filepath = (0, getCredentialsFilepath_1.getCredentialsFilepath)(), configFilepath = (0, getConfigFilepath_1.getConfigFilepath)() } = init;
     const parsedFiles = await Promise.all([
-        (0, slurpFile_1.slurpFile)(configFilepath).then(parseIni_1.parseIni).then(getProfileData_1.getProfileData).catch(swallowError),
-        (0, slurpFile_1.slurpFile)(filepath).then(parseIni_1.parseIni).catch(swallowError),
+        (0, slurpFile_1.slurpFile)(configFilepath, {
+            ignoreCache: init.ignoreCache,
+        })
+            .then(parseIni_1.parseIni)
+            .then(getProfileData_1.getProfileData)
+            .catch(swallowError),
+        (0, slurpFile_1.slurpFile)(filepath, {
+            ignoreCache: init.ignoreCache,
+        })
+            .then(parseIni_1.parseIni)
+            .catch(swallowError),
     ]);
     return {
         configFile: parsedFiles[0],
@@ -27344,8 +27237,8 @@ exports.slurpFile = void 0;
 const fs_1 = __nccwpck_require__(57147);
 const { readFile } = fs_1.promises;
 const filePromisesHash = {};
-const slurpFile = (path) => {
-    if (!filePromisesHash[path]) {
+const slurpFile = (path, options) => {
+    if (!filePromisesHash[path] || (options === null || options === void 0 ? void 0 : options.ignoreCache)) {
         filePromisesHash[path] = readFile(path, "utf8");
     }
     return filePromisesHash[path];
@@ -34924,28 +34817,28 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 43713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.282.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.282.0","@aws-sdk/config-resolver":"3.282.0","@aws-sdk/credential-provider-node":"3.282.0","@aws-sdk/fetch-http-handler":"3.282.0","@aws-sdk/hash-node":"3.272.0","@aws-sdk/invalid-dependency":"3.272.0","@aws-sdk/middleware-content-length":"3.282.0","@aws-sdk/middleware-endpoint":"3.282.0","@aws-sdk/middleware-host-header":"3.282.0","@aws-sdk/middleware-logger":"3.272.0","@aws-sdk/middleware-recursion-detection":"3.282.0","@aws-sdk/middleware-retry":"3.282.0","@aws-sdk/middleware-serde":"3.272.0","@aws-sdk/middleware-signing":"3.282.0","@aws-sdk/middleware-stack":"3.272.0","@aws-sdk/middleware-user-agent":"3.282.0","@aws-sdk/node-config-provider":"3.272.0","@aws-sdk/node-http-handler":"3.282.0","@aws-sdk/protocol-http":"3.282.0","@aws-sdk/smithy-client":"3.279.0","@aws-sdk/types":"3.272.0","@aws-sdk/url-parser":"3.272.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.279.0","@aws-sdk/util-defaults-mode-node":"3.282.0","@aws-sdk/util-endpoints":"3.272.0","@aws-sdk/util-retry":"3.272.0","@aws-sdk/util-user-agent-browser":"3.282.0","@aws-sdk/util-user-agent-node":"3.282.0","@aws-sdk/util-utf8":"3.254.0","@aws-sdk/util-waiter":"3.272.0","fast-xml-parser":"4.1.2","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.287.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.287.0","@aws-sdk/config-resolver":"3.287.0","@aws-sdk/credential-provider-node":"3.287.0","@aws-sdk/fetch-http-handler":"3.282.0","@aws-sdk/hash-node":"3.272.0","@aws-sdk/invalid-dependency":"3.272.0","@aws-sdk/middleware-content-length":"3.282.0","@aws-sdk/middleware-endpoint":"3.282.0","@aws-sdk/middleware-host-header":"3.282.0","@aws-sdk/middleware-logger":"3.287.0","@aws-sdk/middleware-recursion-detection":"3.282.0","@aws-sdk/middleware-retry":"3.287.0","@aws-sdk/middleware-serde":"3.272.0","@aws-sdk/middleware-signing":"3.282.0","@aws-sdk/middleware-stack":"3.272.0","@aws-sdk/middleware-user-agent":"3.282.0","@aws-sdk/node-config-provider":"3.287.0","@aws-sdk/node-http-handler":"3.282.0","@aws-sdk/protocol-http":"3.282.0","@aws-sdk/smithy-client":"3.279.0","@aws-sdk/types":"3.272.0","@aws-sdk/url-parser":"3.272.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.279.0","@aws-sdk/util-defaults-mode-node":"3.287.0","@aws-sdk/util-endpoints":"3.272.0","@aws-sdk/util-retry":"3.272.0","@aws-sdk/util-user-agent-browser":"3.282.0","@aws-sdk/util-user-agent-node":"3.287.0","@aws-sdk/util-utf8":"3.254.0","@aws-sdk/util-waiter":"3.272.0","fast-xml-parser":"4.1.2","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 69722:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.282.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.282.0","@aws-sdk/fetch-http-handler":"3.282.0","@aws-sdk/hash-node":"3.272.0","@aws-sdk/invalid-dependency":"3.272.0","@aws-sdk/middleware-content-length":"3.282.0","@aws-sdk/middleware-endpoint":"3.282.0","@aws-sdk/middleware-host-header":"3.282.0","@aws-sdk/middleware-logger":"3.272.0","@aws-sdk/middleware-recursion-detection":"3.282.0","@aws-sdk/middleware-retry":"3.282.0","@aws-sdk/middleware-serde":"3.272.0","@aws-sdk/middleware-stack":"3.272.0","@aws-sdk/middleware-user-agent":"3.282.0","@aws-sdk/node-config-provider":"3.272.0","@aws-sdk/node-http-handler":"3.282.0","@aws-sdk/protocol-http":"3.282.0","@aws-sdk/smithy-client":"3.279.0","@aws-sdk/types":"3.272.0","@aws-sdk/url-parser":"3.272.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.279.0","@aws-sdk/util-defaults-mode-node":"3.282.0","@aws-sdk/util-endpoints":"3.272.0","@aws-sdk/util-retry":"3.272.0","@aws-sdk/util-user-agent-browser":"3.282.0","@aws-sdk/util-user-agent-node":"3.282.0","@aws-sdk/util-utf8":"3.254.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.287.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.287.0","@aws-sdk/fetch-http-handler":"3.282.0","@aws-sdk/hash-node":"3.272.0","@aws-sdk/invalid-dependency":"3.272.0","@aws-sdk/middleware-content-length":"3.282.0","@aws-sdk/middleware-endpoint":"3.282.0","@aws-sdk/middleware-host-header":"3.282.0","@aws-sdk/middleware-logger":"3.287.0","@aws-sdk/middleware-recursion-detection":"3.282.0","@aws-sdk/middleware-retry":"3.287.0","@aws-sdk/middleware-serde":"3.272.0","@aws-sdk/middleware-stack":"3.272.0","@aws-sdk/middleware-user-agent":"3.282.0","@aws-sdk/node-config-provider":"3.287.0","@aws-sdk/node-http-handler":"3.282.0","@aws-sdk/protocol-http":"3.282.0","@aws-sdk/smithy-client":"3.279.0","@aws-sdk/types":"3.272.0","@aws-sdk/url-parser":"3.272.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.279.0","@aws-sdk/util-defaults-mode-node":"3.287.0","@aws-sdk/util-endpoints":"3.272.0","@aws-sdk/util-retry":"3.272.0","@aws-sdk/util-user-agent-browser":"3.282.0","@aws-sdk/util-user-agent-node":"3.287.0","@aws-sdk/util-utf8":"3.254.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
 /***/ 91092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.282.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.282.0","@aws-sdk/fetch-http-handler":"3.282.0","@aws-sdk/hash-node":"3.272.0","@aws-sdk/invalid-dependency":"3.272.0","@aws-sdk/middleware-content-length":"3.282.0","@aws-sdk/middleware-endpoint":"3.282.0","@aws-sdk/middleware-host-header":"3.282.0","@aws-sdk/middleware-logger":"3.272.0","@aws-sdk/middleware-recursion-detection":"3.282.0","@aws-sdk/middleware-retry":"3.282.0","@aws-sdk/middleware-serde":"3.272.0","@aws-sdk/middleware-stack":"3.272.0","@aws-sdk/middleware-user-agent":"3.282.0","@aws-sdk/node-config-provider":"3.272.0","@aws-sdk/node-http-handler":"3.282.0","@aws-sdk/protocol-http":"3.282.0","@aws-sdk/smithy-client":"3.279.0","@aws-sdk/types":"3.272.0","@aws-sdk/url-parser":"3.272.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.279.0","@aws-sdk/util-defaults-mode-node":"3.282.0","@aws-sdk/util-endpoints":"3.272.0","@aws-sdk/util-retry":"3.272.0","@aws-sdk/util-user-agent-browser":"3.282.0","@aws-sdk/util-user-agent-node":"3.282.0","@aws-sdk/util-utf8":"3.254.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.287.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.287.0","@aws-sdk/fetch-http-handler":"3.282.0","@aws-sdk/hash-node":"3.272.0","@aws-sdk/invalid-dependency":"3.272.0","@aws-sdk/middleware-content-length":"3.282.0","@aws-sdk/middleware-endpoint":"3.282.0","@aws-sdk/middleware-host-header":"3.282.0","@aws-sdk/middleware-logger":"3.287.0","@aws-sdk/middleware-recursion-detection":"3.282.0","@aws-sdk/middleware-retry":"3.287.0","@aws-sdk/middleware-serde":"3.272.0","@aws-sdk/middleware-stack":"3.272.0","@aws-sdk/middleware-user-agent":"3.282.0","@aws-sdk/node-config-provider":"3.287.0","@aws-sdk/node-http-handler":"3.282.0","@aws-sdk/protocol-http":"3.282.0","@aws-sdk/smithy-client":"3.279.0","@aws-sdk/types":"3.272.0","@aws-sdk/url-parser":"3.272.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.279.0","@aws-sdk/util-defaults-mode-node":"3.287.0","@aws-sdk/util-endpoints":"3.272.0","@aws-sdk/util-retry":"3.272.0","@aws-sdk/util-user-agent-browser":"3.282.0","@aws-sdk/util-user-agent-node":"3.287.0","@aws-sdk/util-utf8":"3.254.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.282.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.282.0","@aws-sdk/credential-provider-node":"3.282.0","@aws-sdk/fetch-http-handler":"3.282.0","@aws-sdk/hash-node":"3.272.0","@aws-sdk/invalid-dependency":"3.272.0","@aws-sdk/middleware-content-length":"3.282.0","@aws-sdk/middleware-endpoint":"3.282.0","@aws-sdk/middleware-host-header":"3.282.0","@aws-sdk/middleware-logger":"3.272.0","@aws-sdk/middleware-recursion-detection":"3.282.0","@aws-sdk/middleware-retry":"3.282.0","@aws-sdk/middleware-sdk-sts":"3.282.0","@aws-sdk/middleware-serde":"3.272.0","@aws-sdk/middleware-signing":"3.282.0","@aws-sdk/middleware-stack":"3.272.0","@aws-sdk/middleware-user-agent":"3.282.0","@aws-sdk/node-config-provider":"3.272.0","@aws-sdk/node-http-handler":"3.282.0","@aws-sdk/protocol-http":"3.282.0","@aws-sdk/smithy-client":"3.279.0","@aws-sdk/types":"3.272.0","@aws-sdk/url-parser":"3.272.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.279.0","@aws-sdk/util-defaults-mode-node":"3.282.0","@aws-sdk/util-endpoints":"3.272.0","@aws-sdk/util-retry":"3.272.0","@aws-sdk/util-user-agent-browser":"3.282.0","@aws-sdk/util-user-agent-node":"3.282.0","@aws-sdk/util-utf8":"3.254.0","fast-xml-parser":"4.1.2","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.287.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.287.0","@aws-sdk/credential-provider-node":"3.287.0","@aws-sdk/fetch-http-handler":"3.282.0","@aws-sdk/hash-node":"3.272.0","@aws-sdk/invalid-dependency":"3.272.0","@aws-sdk/middleware-content-length":"3.282.0","@aws-sdk/middleware-endpoint":"3.282.0","@aws-sdk/middleware-host-header":"3.282.0","@aws-sdk/middleware-logger":"3.287.0","@aws-sdk/middleware-recursion-detection":"3.282.0","@aws-sdk/middleware-retry":"3.287.0","@aws-sdk/middleware-sdk-sts":"3.282.0","@aws-sdk/middleware-serde":"3.272.0","@aws-sdk/middleware-signing":"3.282.0","@aws-sdk/middleware-stack":"3.272.0","@aws-sdk/middleware-user-agent":"3.282.0","@aws-sdk/node-config-provider":"3.287.0","@aws-sdk/node-http-handler":"3.282.0","@aws-sdk/protocol-http":"3.282.0","@aws-sdk/smithy-client":"3.279.0","@aws-sdk/types":"3.272.0","@aws-sdk/url-parser":"3.272.0","@aws-sdk/util-base64":"3.208.0","@aws-sdk/util-body-length-browser":"3.188.0","@aws-sdk/util-body-length-node":"3.208.0","@aws-sdk/util-defaults-mode-browser":"3.279.0","@aws-sdk/util-defaults-mode-node":"3.287.0","@aws-sdk/util-endpoints":"3.272.0","@aws-sdk/util-retry":"3.272.0","@aws-sdk/util-user-agent-browser":"3.282.0","@aws-sdk/util-user-agent-node":"3.287.0","@aws-sdk/util-utf8":"3.254.0","fast-xml-parser":"4.1.2","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.208.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"overrides":{"typedoc":{"typescript":"~4.6.2"}},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
