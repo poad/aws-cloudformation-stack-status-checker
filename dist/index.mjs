@@ -2827,7 +2827,6 @@ exports.ActivateTypeCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ActivateTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -2853,8 +2852,8 @@ class ActivateTypeCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ActivateTypeInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ActivateTypeOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -2880,7 +2879,6 @@ exports.BatchDescribeTypeConfigurationsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class BatchDescribeTypeConfigurationsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -2906,8 +2904,8 @@ class BatchDescribeTypeConfigurationsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.BatchDescribeTypeConfigurationsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.BatchDescribeTypeConfigurationsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -2933,7 +2931,6 @@ exports.CancelUpdateStackCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class CancelUpdateStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -2959,8 +2956,8 @@ class CancelUpdateStackCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.CancelUpdateStackInputFilterSensitiveLog,
-            outputFilterSensitiveLog: (output) => output,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -2986,7 +2983,6 @@ exports.ContinueUpdateRollbackCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ContinueUpdateRollbackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3012,8 +3008,8 @@ class ContinueUpdateRollbackCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ContinueUpdateRollbackInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ContinueUpdateRollbackOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3039,7 +3035,6 @@ exports.CreateChangeSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class CreateChangeSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3065,8 +3060,8 @@ class CreateChangeSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.CreateChangeSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.CreateChangeSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3092,7 +3087,6 @@ exports.CreateStackCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class CreateStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3118,8 +3112,8 @@ class CreateStackCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.CreateStackInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.CreateStackOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3145,7 +3139,6 @@ exports.CreateStackInstancesCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class CreateStackInstancesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3171,8 +3164,8 @@ class CreateStackInstancesCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.CreateStackInstancesInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.CreateStackInstancesOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3198,7 +3191,6 @@ exports.CreateStackSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class CreateStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3224,8 +3216,8 @@ class CreateStackSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.CreateStackSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.CreateStackSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3251,7 +3243,6 @@ exports.DeactivateTypeCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DeactivateTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3277,8 +3268,8 @@ class DeactivateTypeCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DeactivateTypeInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DeactivateTypeOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3304,7 +3295,6 @@ exports.DeleteChangeSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DeleteChangeSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3330,8 +3320,8 @@ class DeleteChangeSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DeleteChangeSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DeleteChangeSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3357,7 +3347,6 @@ exports.DeleteStackCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DeleteStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3383,8 +3372,8 @@ class DeleteStackCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DeleteStackInputFilterSensitiveLog,
-            outputFilterSensitiveLog: (output) => output,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3410,7 +3399,6 @@ exports.DeleteStackInstancesCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DeleteStackInstancesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3436,8 +3424,8 @@ class DeleteStackInstancesCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DeleteStackInstancesInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DeleteStackInstancesOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3463,7 +3451,6 @@ exports.DeleteStackSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DeleteStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3489,8 +3476,8 @@ class DeleteStackSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DeleteStackSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DeleteStackSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3516,7 +3503,6 @@ exports.DeregisterTypeCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DeregisterTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3542,8 +3528,8 @@ class DeregisterTypeCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DeregisterTypeInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DeregisterTypeOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3569,7 +3555,6 @@ exports.DescribeAccountLimitsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeAccountLimitsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3595,8 +3580,8 @@ class DescribeAccountLimitsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeAccountLimitsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeAccountLimitsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3622,7 +3607,6 @@ exports.DescribeChangeSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeChangeSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3648,8 +3632,8 @@ class DescribeChangeSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeChangeSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeChangeSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3675,7 +3659,6 @@ exports.DescribeChangeSetHooksCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeChangeSetHooksCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3701,8 +3684,8 @@ class DescribeChangeSetHooksCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeChangeSetHooksInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeChangeSetHooksOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3728,7 +3711,6 @@ exports.DescribePublisherCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribePublisherCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3754,8 +3736,8 @@ class DescribePublisherCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribePublisherInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribePublisherOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3781,7 +3763,6 @@ exports.DescribeStackDriftDetectionStatusCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStackDriftDetectionStatusCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3807,8 +3788,8 @@ class DescribeStackDriftDetectionStatusCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStackDriftDetectionStatusInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStackDriftDetectionStatusOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3834,7 +3815,6 @@ exports.DescribeStackEventsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStackEventsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3860,8 +3840,8 @@ class DescribeStackEventsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStackEventsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStackEventsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3887,7 +3867,6 @@ exports.DescribeStackInstanceCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStackInstanceCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3913,8 +3892,8 @@ class DescribeStackInstanceCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStackInstanceInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStackInstanceOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3940,7 +3919,6 @@ exports.DescribeStackResourceCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStackResourceCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -3966,8 +3944,8 @@ class DescribeStackResourceCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStackResourceInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStackResourceOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -3993,7 +3971,6 @@ exports.DescribeStackResourceDriftsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStackResourceDriftsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4019,8 +3996,8 @@ class DescribeStackResourceDriftsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStackResourceDriftsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStackResourceDriftsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4046,7 +4023,6 @@ exports.DescribeStackResourcesCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStackResourcesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4072,8 +4048,8 @@ class DescribeStackResourcesCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStackResourcesInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStackResourcesOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4099,7 +4075,6 @@ exports.DescribeStackSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4125,8 +4100,8 @@ class DescribeStackSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStackSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStackSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4152,7 +4127,6 @@ exports.DescribeStackSetOperationCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStackSetOperationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4178,8 +4152,8 @@ class DescribeStackSetOperationCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStackSetOperationInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStackSetOperationOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4205,7 +4179,6 @@ exports.DescribeStacksCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeStacksCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4231,8 +4204,8 @@ class DescribeStacksCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeStacksInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeStacksOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4258,7 +4231,6 @@ exports.DescribeTypeCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4284,8 +4256,8 @@ class DescribeTypeCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeTypeInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeTypeOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4311,7 +4283,6 @@ exports.DescribeTypeRegistrationCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DescribeTypeRegistrationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4337,8 +4308,8 @@ class DescribeTypeRegistrationCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DescribeTypeRegistrationInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DescribeTypeRegistrationOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4364,7 +4335,6 @@ exports.DetectStackDriftCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DetectStackDriftCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4390,8 +4360,8 @@ class DetectStackDriftCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DetectStackDriftInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DetectStackDriftOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4417,7 +4387,6 @@ exports.DetectStackResourceDriftCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DetectStackResourceDriftCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4443,8 +4412,8 @@ class DetectStackResourceDriftCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DetectStackResourceDriftInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DetectStackResourceDriftOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4470,7 +4439,6 @@ exports.DetectStackSetDriftCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class DetectStackSetDriftCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4496,8 +4464,8 @@ class DetectStackSetDriftCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DetectStackSetDriftInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DetectStackSetDriftOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4523,7 +4491,6 @@ exports.EstimateTemplateCostCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class EstimateTemplateCostCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4549,8 +4516,8 @@ class EstimateTemplateCostCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.EstimateTemplateCostInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.EstimateTemplateCostOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4576,7 +4543,6 @@ exports.ExecuteChangeSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ExecuteChangeSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4602,8 +4568,8 @@ class ExecuteChangeSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ExecuteChangeSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ExecuteChangeSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4629,7 +4595,6 @@ exports.GetStackPolicyCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class GetStackPolicyCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4655,8 +4620,8 @@ class GetStackPolicyCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.GetStackPolicyInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.GetStackPolicyOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4682,7 +4647,6 @@ exports.GetTemplateCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class GetTemplateCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4708,8 +4672,8 @@ class GetTemplateCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.GetTemplateInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.GetTemplateOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4735,7 +4699,6 @@ exports.GetTemplateSummaryCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class GetTemplateSummaryCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4761,8 +4724,8 @@ class GetTemplateSummaryCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.GetTemplateSummaryInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.GetTemplateSummaryOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4788,7 +4751,6 @@ exports.ImportStacksToStackSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ImportStacksToStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4814,8 +4776,8 @@ class ImportStacksToStackSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ImportStacksToStackSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ImportStacksToStackSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4841,7 +4803,6 @@ exports.ListChangeSetsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListChangeSetsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4867,8 +4828,8 @@ class ListChangeSetsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListChangeSetsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListChangeSetsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4894,7 +4855,6 @@ exports.ListExportsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListExportsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4920,8 +4880,8 @@ class ListExportsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListExportsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListExportsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -4947,7 +4907,6 @@ exports.ListImportsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListImportsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -4973,8 +4932,8 @@ class ListImportsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListImportsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListImportsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5000,7 +4959,6 @@ exports.ListStackInstancesCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListStackInstancesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5026,8 +4984,8 @@ class ListStackInstancesCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListStackInstancesInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListStackInstancesOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5053,7 +5011,6 @@ exports.ListStackResourcesCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListStackResourcesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5079,8 +5036,8 @@ class ListStackResourcesCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListStackResourcesInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListStackResourcesOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5106,7 +5063,6 @@ exports.ListStackSetOperationResultsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListStackSetOperationResultsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5132,8 +5088,8 @@ class ListStackSetOperationResultsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListStackSetOperationResultsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListStackSetOperationResultsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5159,7 +5115,6 @@ exports.ListStackSetOperationsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListStackSetOperationsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5185,8 +5140,8 @@ class ListStackSetOperationsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListStackSetOperationsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListStackSetOperationsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5212,7 +5167,6 @@ exports.ListStackSetsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListStackSetsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5238,8 +5192,8 @@ class ListStackSetsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListStackSetsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListStackSetsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5265,7 +5219,6 @@ exports.ListStacksCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListStacksCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5291,8 +5244,8 @@ class ListStacksCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListStacksInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListStacksOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5318,7 +5271,6 @@ exports.ListTypeRegistrationsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListTypeRegistrationsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5344,8 +5296,8 @@ class ListTypeRegistrationsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListTypeRegistrationsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListTypeRegistrationsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5371,7 +5323,6 @@ exports.ListTypeVersionsCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListTypeVersionsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5397,8 +5348,8 @@ class ListTypeVersionsCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListTypeVersionsInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListTypeVersionsOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5424,7 +5375,6 @@ exports.ListTypesCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ListTypesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5450,8 +5400,8 @@ class ListTypesCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ListTypesInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListTypesOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5477,7 +5427,6 @@ exports.PublishTypeCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class PublishTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5503,8 +5452,8 @@ class PublishTypeCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.PublishTypeInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.PublishTypeOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5530,7 +5479,6 @@ exports.RecordHandlerProgressCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class RecordHandlerProgressCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5556,8 +5504,8 @@ class RecordHandlerProgressCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.RecordHandlerProgressInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.RecordHandlerProgressOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5583,7 +5531,6 @@ exports.RegisterPublisherCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class RegisterPublisherCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5609,8 +5556,8 @@ class RegisterPublisherCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.RegisterPublisherInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.RegisterPublisherOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5636,7 +5583,6 @@ exports.RegisterTypeCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class RegisterTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5662,8 +5608,8 @@ class RegisterTypeCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.RegisterTypeInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.RegisterTypeOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5689,7 +5635,6 @@ exports.RollbackStackCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class RollbackStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5715,8 +5660,8 @@ class RollbackStackCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.RollbackStackInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.RollbackStackOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5742,7 +5687,6 @@ exports.SetStackPolicyCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class SetStackPolicyCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5768,8 +5712,8 @@ class SetStackPolicyCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.SetStackPolicyInputFilterSensitiveLog,
-            outputFilterSensitiveLog: (output) => output,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5795,7 +5739,6 @@ exports.SetTypeConfigurationCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class SetTypeConfigurationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5821,8 +5764,8 @@ class SetTypeConfigurationCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.SetTypeConfigurationInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.SetTypeConfigurationOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5848,7 +5791,6 @@ exports.SetTypeDefaultVersionCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class SetTypeDefaultVersionCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5874,8 +5816,8 @@ class SetTypeDefaultVersionCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.SetTypeDefaultVersionInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.SetTypeDefaultVersionOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5901,7 +5843,6 @@ exports.SignalResourceCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class SignalResourceCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5927,8 +5868,8 @@ class SignalResourceCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.SignalResourceInputFilterSensitiveLog,
-            outputFilterSensitiveLog: (output) => output,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -5954,7 +5895,6 @@ exports.StopStackSetOperationCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class StopStackSetOperationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -5980,8 +5920,8 @@ class StopStackSetOperationCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.StopStackSetOperationInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.StopStackSetOperationOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -6007,7 +5947,6 @@ exports.TestTypeCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class TestTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -6033,8 +5972,8 @@ class TestTypeCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.TestTypeInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.TestTypeOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -6060,7 +5999,6 @@ exports.UpdateStackCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class UpdateStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -6086,8 +6024,8 @@ class UpdateStackCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.UpdateStackInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.UpdateStackOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -6113,7 +6051,6 @@ exports.UpdateStackInstancesCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class UpdateStackInstancesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -6139,8 +6076,8 @@ class UpdateStackInstancesCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.UpdateStackInstancesInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.UpdateStackInstancesOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -6166,7 +6103,6 @@ exports.UpdateStackSetCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class UpdateStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -6192,8 +6128,8 @@ class UpdateStackSetCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.UpdateStackSetInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.UpdateStackSetOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -6219,7 +6155,6 @@ exports.UpdateTerminationProtectionCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class UpdateTerminationProtectionCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -6245,8 +6180,8 @@ class UpdateTerminationProtectionCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.UpdateTerminationProtectionInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.UpdateTerminationProtectionOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -6272,7 +6207,6 @@ exports.ValidateTemplateCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(75378);
 const Aws_query_1 = __nccwpck_require__(46110);
 class ValidateTemplateCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -6298,8 +6232,8 @@ class ValidateTemplateCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.ValidateTemplateInputFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ValidateTemplateOutputFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -6498,11 +6432,7 @@ tslib_1.__exportStar(__nccwpck_require__(75378), exports);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.StackInstanceStatus = exports.StackInstanceDetailedStatus = exports.ResourceStatus = exports.HookStatus = exports.StackDriftStatus = exports.StackDriftDetectionStatus = exports.PublisherStatus = exports.IdentityProvider = exports.RegistryType = exports.StackSetNotEmptyException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.PermissionModels = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.InvalidOperationException = exports.RegionConcurrencyType = exports.OnFailure = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.ChangeSetType = exports.ExecutionStatus = exports.ChangeSetStatus = exports.ChangeSetNotFoundException = exports.ChangeSetHooksStatus = exports.HookTargetType = exports.HookInvocationPoint = exports.HookFailureMode = exports.ChangeType = exports.Replacement = exports.RequiresRecreation = exports.ResourceAttribute = exports.EvaluationType = exports.ChangeSource = exports.ChangeAction = exports.Category = exports.Capability = exports.TokenAlreadyExistsException = exports.CallAs = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.VersionBump = exports.ThirdPartyType = exports.AccountGateStatus = exports.AccountFilterType = void 0;
-exports.ResourceToImportFilterSensitiveLog = exports.ParameterFilterSensitiveLog = exports.ContinueUpdateRollbackOutputFilterSensitiveLog = exports.ContinueUpdateRollbackInputFilterSensitiveLog = exports.ChangeSetSummaryFilterSensitiveLog = exports.ChangeSetHookFilterSensitiveLog = exports.ChangeSetHookTargetDetailsFilterSensitiveLog = exports.ChangeSetHookResourceTargetDetailsFilterSensitiveLog = exports.ChangeFilterSensitiveLog = exports.ResourceChangeFilterSensitiveLog = exports.ModuleInfoFilterSensitiveLog = exports.ResourceChangeDetailFilterSensitiveLog = exports.ResourceTargetDefinitionFilterSensitiveLog = exports.CancelUpdateStackInputFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsOutputFilterSensitiveLog = exports.TypeConfigurationDetailsFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsErrorFilterSensitiveLog = exports.BatchDescribeTypeConfigurationsInputFilterSensitiveLog = exports.TypeConfigurationIdentifierFilterSensitiveLog = exports.AutoDeploymentFilterSensitiveLog = exports.ActivateTypeOutputFilterSensitiveLog = exports.ActivateTypeInputFilterSensitiveLog = exports.LoggingConfigFilterSensitiveLog = exports.AccountLimitFilterSensitiveLog = exports.AccountGateResultFilterSensitiveLog = exports.ResourceSignalStatus = exports.HandlerErrorCode = exports.OperationStatus = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.StackSetOperationResultStatus = exports.OperationResultFilterName = exports.StackInstanceFilterName = exports.StackNotFoundException = exports.TemplateStage = exports.RegistrationStatus = exports.Visibility = exports.TypeTestsStatus = exports.ProvisioningType = exports.DeprecatedStatus = exports.OperationNotFoundException = exports.StackSetOperationStatus = exports.StackSetOperationAction = exports.StackSetStatus = exports.StackSetDriftStatus = exports.StackSetDriftDetectionStatus = exports.StackStatus = exports.DifferenceType = exports.StackResourceDriftStatus = exports.StackInstanceNotFoundException = void 0;
-exports.StackResourceDriftFilterSensitiveLog = exports.PropertyDifferenceFilterSensitiveLog = exports.PhysicalResourceIdContextKeyValuePairFilterSensitiveLog = exports.DescribeStackResourceDriftsInputFilterSensitiveLog = exports.DescribeStackResourceOutputFilterSensitiveLog = exports.StackResourceDetailFilterSensitiveLog = exports.StackResourceDriftInformationFilterSensitiveLog = exports.DescribeStackResourceInputFilterSensitiveLog = exports.DescribeStackInstanceOutputFilterSensitiveLog = exports.StackInstanceFilterSensitiveLog = exports.StackInstanceComprehensiveStatusFilterSensitiveLog = exports.DescribeStackInstanceInputFilterSensitiveLog = exports.DescribeStackEventsOutputFilterSensitiveLog = exports.StackEventFilterSensitiveLog = exports.DescribeStackEventsInputFilterSensitiveLog = exports.DescribeStackDriftDetectionStatusOutputFilterSensitiveLog = exports.DescribeStackDriftDetectionStatusInputFilterSensitiveLog = exports.DescribePublisherOutputFilterSensitiveLog = exports.DescribePublisherInputFilterSensitiveLog = exports.DescribeChangeSetHooksOutputFilterSensitiveLog = exports.DescribeChangeSetHooksInputFilterSensitiveLog = exports.DescribeChangeSetOutputFilterSensitiveLog = exports.DescribeChangeSetInputFilterSensitiveLog = exports.DescribeAccountLimitsOutputFilterSensitiveLog = exports.DescribeAccountLimitsInputFilterSensitiveLog = exports.DeregisterTypeOutputFilterSensitiveLog = exports.DeregisterTypeInputFilterSensitiveLog = exports.DeleteStackSetOutputFilterSensitiveLog = exports.DeleteStackSetInputFilterSensitiveLog = exports.DeleteStackInstancesOutputFilterSensitiveLog = exports.DeleteStackInstancesInputFilterSensitiveLog = exports.DeleteStackInputFilterSensitiveLog = exports.DeleteChangeSetOutputFilterSensitiveLog = exports.DeleteChangeSetInputFilterSensitiveLog = exports.DeactivateTypeOutputFilterSensitiveLog = exports.DeactivateTypeInputFilterSensitiveLog = exports.CreateStackSetOutputFilterSensitiveLog = exports.CreateStackSetInputFilterSensitiveLog = exports.ManagedExecutionFilterSensitiveLog = exports.CreateStackInstancesOutputFilterSensitiveLog = exports.CreateStackInstancesInputFilterSensitiveLog = exports.StackSetOperationPreferencesFilterSensitiveLog = exports.DeploymentTargetsFilterSensitiveLog = exports.CreateStackOutputFilterSensitiveLog = exports.CreateStackInputFilterSensitiveLog = exports.CreateChangeSetOutputFilterSensitiveLog = exports.CreateChangeSetInputFilterSensitiveLog = exports.TagFilterSensitiveLog = exports.RollbackConfigurationFilterSensitiveLog = exports.RollbackTriggerFilterSensitiveLog = void 0;
-exports.ListImportsOutputFilterSensitiveLog = exports.ListImportsInputFilterSensitiveLog = exports.ListExportsOutputFilterSensitiveLog = exports.ExportFilterSensitiveLog = exports.ListExportsInputFilterSensitiveLog = exports.ListChangeSetsOutputFilterSensitiveLog = exports.ListChangeSetsInputFilterSensitiveLog = exports.ImportStacksToStackSetOutputFilterSensitiveLog = exports.ImportStacksToStackSetInputFilterSensitiveLog = exports.GetTemplateSummaryOutputFilterSensitiveLog = exports.ResourceIdentifierSummaryFilterSensitiveLog = exports.ParameterDeclarationFilterSensitiveLog = exports.ParameterConstraintsFilterSensitiveLog = exports.GetTemplateSummaryInputFilterSensitiveLog = exports.GetTemplateOutputFilterSensitiveLog = exports.GetTemplateInputFilterSensitiveLog = exports.GetStackPolicyOutputFilterSensitiveLog = exports.GetStackPolicyInputFilterSensitiveLog = exports.ExecuteChangeSetOutputFilterSensitiveLog = exports.ExecuteChangeSetInputFilterSensitiveLog = exports.EstimateTemplateCostOutputFilterSensitiveLog = exports.EstimateTemplateCostInputFilterSensitiveLog = exports.DetectStackSetDriftOutputFilterSensitiveLog = exports.DetectStackSetDriftInputFilterSensitiveLog = exports.DetectStackResourceDriftOutputFilterSensitiveLog = exports.DetectStackResourceDriftInputFilterSensitiveLog = exports.DetectStackDriftOutputFilterSensitiveLog = exports.DetectStackDriftInputFilterSensitiveLog = exports.DescribeTypeRegistrationOutputFilterSensitiveLog = exports.DescribeTypeRegistrationInputFilterSensitiveLog = exports.DescribeTypeOutputFilterSensitiveLog = exports.RequiredActivatedTypeFilterSensitiveLog = exports.DescribeTypeInputFilterSensitiveLog = exports.DescribeStackSetOperationOutputFilterSensitiveLog = exports.StackSetOperationFilterSensitiveLog = exports.StackSetOperationStatusDetailsFilterSensitiveLog = exports.DescribeStackSetOperationInputFilterSensitiveLog = exports.DescribeStackSetOutputFilterSensitiveLog = exports.StackSetFilterSensitiveLog = exports.StackSetDriftDetectionDetailsFilterSensitiveLog = exports.DescribeStackSetInputFilterSensitiveLog = exports.DescribeStacksOutputFilterSensitiveLog = exports.StackFilterSensitiveLog = exports.OutputFilterSensitiveLog = exports.StackDriftInformationFilterSensitiveLog = exports.DescribeStacksInputFilterSensitiveLog = exports.DescribeStackResourcesOutputFilterSensitiveLog = exports.StackResourceFilterSensitiveLog = exports.DescribeStackResourcesInputFilterSensitiveLog = exports.DescribeStackResourceDriftsOutputFilterSensitiveLog = void 0;
-exports.TestTypeInputFilterSensitiveLog = exports.StopStackSetOperationOutputFilterSensitiveLog = exports.StopStackSetOperationInputFilterSensitiveLog = exports.SignalResourceInputFilterSensitiveLog = exports.SetTypeDefaultVersionOutputFilterSensitiveLog = exports.SetTypeDefaultVersionInputFilterSensitiveLog = exports.SetTypeConfigurationOutputFilterSensitiveLog = exports.SetTypeConfigurationInputFilterSensitiveLog = exports.SetStackPolicyInputFilterSensitiveLog = exports.RollbackStackOutputFilterSensitiveLog = exports.RollbackStackInputFilterSensitiveLog = exports.RegisterTypeOutputFilterSensitiveLog = exports.RegisterTypeInputFilterSensitiveLog = exports.RegisterPublisherOutputFilterSensitiveLog = exports.RegisterPublisherInputFilterSensitiveLog = exports.RecordHandlerProgressOutputFilterSensitiveLog = exports.RecordHandlerProgressInputFilterSensitiveLog = exports.PublishTypeOutputFilterSensitiveLog = exports.PublishTypeInputFilterSensitiveLog = exports.ListTypeVersionsOutputFilterSensitiveLog = exports.TypeVersionSummaryFilterSensitiveLog = exports.ListTypeVersionsInputFilterSensitiveLog = exports.ListTypesOutputFilterSensitiveLog = exports.TypeSummaryFilterSensitiveLog = exports.ListTypesInputFilterSensitiveLog = exports.TypeFiltersFilterSensitiveLog = exports.ListTypeRegistrationsOutputFilterSensitiveLog = exports.ListTypeRegistrationsInputFilterSensitiveLog = exports.ListStackSetsOutputFilterSensitiveLog = exports.StackSetSummaryFilterSensitiveLog = exports.ListStackSetsInputFilterSensitiveLog = exports.ListStackSetOperationsOutputFilterSensitiveLog = exports.StackSetOperationSummaryFilterSensitiveLog = exports.ListStackSetOperationsInputFilterSensitiveLog = exports.ListStackSetOperationResultsOutputFilterSensitiveLog = exports.StackSetOperationResultSummaryFilterSensitiveLog = exports.ListStackSetOperationResultsInputFilterSensitiveLog = exports.OperationResultFilterFilterSensitiveLog = exports.ListStacksOutputFilterSensitiveLog = exports.StackSummaryFilterSensitiveLog = exports.StackDriftInformationSummaryFilterSensitiveLog = exports.ListStacksInputFilterSensitiveLog = exports.ListStackResourcesOutputFilterSensitiveLog = exports.StackResourceSummaryFilterSensitiveLog = exports.StackResourceDriftInformationSummaryFilterSensitiveLog = exports.ListStackResourcesInputFilterSensitiveLog = exports.ListStackInstancesOutputFilterSensitiveLog = exports.StackInstanceSummaryFilterSensitiveLog = exports.ListStackInstancesInputFilterSensitiveLog = exports.StackInstanceFilterFilterSensitiveLog = void 0;
-exports.ValidateTemplateOutputFilterSensitiveLog = exports.TemplateParameterFilterSensitiveLog = exports.ValidateTemplateInputFilterSensitiveLog = exports.UpdateTerminationProtectionOutputFilterSensitiveLog = exports.UpdateTerminationProtectionInputFilterSensitiveLog = exports.UpdateStackSetOutputFilterSensitiveLog = exports.UpdateStackSetInputFilterSensitiveLog = exports.UpdateStackInstancesOutputFilterSensitiveLog = exports.UpdateStackInstancesInputFilterSensitiveLog = exports.UpdateStackOutputFilterSensitiveLog = exports.UpdateStackInputFilterSensitiveLog = exports.TestTypeOutputFilterSensitiveLog = void 0;
+exports.ResourceSignalStatus = exports.HandlerErrorCode = exports.OperationStatus = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.StackSetOperationResultStatus = exports.OperationResultFilterName = exports.StackInstanceFilterName = exports.StackNotFoundException = exports.TemplateStage = exports.RegistrationStatus = exports.Visibility = exports.TypeTestsStatus = exports.ProvisioningType = exports.DeprecatedStatus = exports.OperationNotFoundException = exports.StackSetOperationStatus = exports.StackSetOperationAction = exports.StackSetStatus = exports.StackSetDriftStatus = exports.StackSetDriftDetectionStatus = exports.StackStatus = exports.DifferenceType = exports.StackResourceDriftStatus = exports.StackInstanceNotFoundException = void 0;
 const CloudFormationServiceException_1 = __nccwpck_require__(215);
 var AccountFilterType;
 (function (AccountFilterType) {
@@ -7197,754 +7127,6 @@ var ResourceSignalStatus;
     ResourceSignalStatus["FAILURE"] = "FAILURE";
     ResourceSignalStatus["SUCCESS"] = "SUCCESS";
 })(ResourceSignalStatus = exports.ResourceSignalStatus || (exports.ResourceSignalStatus = {}));
-const AccountGateResultFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AccountGateResultFilterSensitiveLog = AccountGateResultFilterSensitiveLog;
-const AccountLimitFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AccountLimitFilterSensitiveLog = AccountLimitFilterSensitiveLog;
-const LoggingConfigFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.LoggingConfigFilterSensitiveLog = LoggingConfigFilterSensitiveLog;
-const ActivateTypeInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ActivateTypeInputFilterSensitiveLog = ActivateTypeInputFilterSensitiveLog;
-const ActivateTypeOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ActivateTypeOutputFilterSensitiveLog = ActivateTypeOutputFilterSensitiveLog;
-const AutoDeploymentFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AutoDeploymentFilterSensitiveLog = AutoDeploymentFilterSensitiveLog;
-const TypeConfigurationIdentifierFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TypeConfigurationIdentifierFilterSensitiveLog = TypeConfigurationIdentifierFilterSensitiveLog;
-const BatchDescribeTypeConfigurationsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.BatchDescribeTypeConfigurationsInputFilterSensitiveLog = BatchDescribeTypeConfigurationsInputFilterSensitiveLog;
-const BatchDescribeTypeConfigurationsErrorFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.BatchDescribeTypeConfigurationsErrorFilterSensitiveLog = BatchDescribeTypeConfigurationsErrorFilterSensitiveLog;
-const TypeConfigurationDetailsFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TypeConfigurationDetailsFilterSensitiveLog = TypeConfigurationDetailsFilterSensitiveLog;
-const BatchDescribeTypeConfigurationsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.BatchDescribeTypeConfigurationsOutputFilterSensitiveLog = BatchDescribeTypeConfigurationsOutputFilterSensitiveLog;
-const CancelUpdateStackInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CancelUpdateStackInputFilterSensitiveLog = CancelUpdateStackInputFilterSensitiveLog;
-const ResourceTargetDefinitionFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ResourceTargetDefinitionFilterSensitiveLog = ResourceTargetDefinitionFilterSensitiveLog;
-const ResourceChangeDetailFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ResourceChangeDetailFilterSensitiveLog = ResourceChangeDetailFilterSensitiveLog;
-const ModuleInfoFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ModuleInfoFilterSensitiveLog = ModuleInfoFilterSensitiveLog;
-const ResourceChangeFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ResourceChangeFilterSensitiveLog = ResourceChangeFilterSensitiveLog;
-const ChangeFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ChangeFilterSensitiveLog = ChangeFilterSensitiveLog;
-const ChangeSetHookResourceTargetDetailsFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ChangeSetHookResourceTargetDetailsFilterSensitiveLog = ChangeSetHookResourceTargetDetailsFilterSensitiveLog;
-const ChangeSetHookTargetDetailsFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ChangeSetHookTargetDetailsFilterSensitiveLog = ChangeSetHookTargetDetailsFilterSensitiveLog;
-const ChangeSetHookFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ChangeSetHookFilterSensitiveLog = ChangeSetHookFilterSensitiveLog;
-const ChangeSetSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ChangeSetSummaryFilterSensitiveLog = ChangeSetSummaryFilterSensitiveLog;
-const ContinueUpdateRollbackInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ContinueUpdateRollbackInputFilterSensitiveLog = ContinueUpdateRollbackInputFilterSensitiveLog;
-const ContinueUpdateRollbackOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ContinueUpdateRollbackOutputFilterSensitiveLog = ContinueUpdateRollbackOutputFilterSensitiveLog;
-const ParameterFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ParameterFilterSensitiveLog = ParameterFilterSensitiveLog;
-const ResourceToImportFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ResourceToImportFilterSensitiveLog = ResourceToImportFilterSensitiveLog;
-const RollbackTriggerFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RollbackTriggerFilterSensitiveLog = RollbackTriggerFilterSensitiveLog;
-const RollbackConfigurationFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RollbackConfigurationFilterSensitiveLog = RollbackConfigurationFilterSensitiveLog;
-const TagFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TagFilterSensitiveLog = TagFilterSensitiveLog;
-const CreateChangeSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateChangeSetInputFilterSensitiveLog = CreateChangeSetInputFilterSensitiveLog;
-const CreateChangeSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateChangeSetOutputFilterSensitiveLog = CreateChangeSetOutputFilterSensitiveLog;
-const CreateStackInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateStackInputFilterSensitiveLog = CreateStackInputFilterSensitiveLog;
-const CreateStackOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateStackOutputFilterSensitiveLog = CreateStackOutputFilterSensitiveLog;
-const DeploymentTargetsFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeploymentTargetsFilterSensitiveLog = DeploymentTargetsFilterSensitiveLog;
-const StackSetOperationPreferencesFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSetOperationPreferencesFilterSensitiveLog = StackSetOperationPreferencesFilterSensitiveLog;
-const CreateStackInstancesInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateStackInstancesInputFilterSensitiveLog = CreateStackInstancesInputFilterSensitiveLog;
-const CreateStackInstancesOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateStackInstancesOutputFilterSensitiveLog = CreateStackInstancesOutputFilterSensitiveLog;
-const ManagedExecutionFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ManagedExecutionFilterSensitiveLog = ManagedExecutionFilterSensitiveLog;
-const CreateStackSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateStackSetInputFilterSensitiveLog = CreateStackSetInputFilterSensitiveLog;
-const CreateStackSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateStackSetOutputFilterSensitiveLog = CreateStackSetOutputFilterSensitiveLog;
-const DeactivateTypeInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeactivateTypeInputFilterSensitiveLog = DeactivateTypeInputFilterSensitiveLog;
-const DeactivateTypeOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeactivateTypeOutputFilterSensitiveLog = DeactivateTypeOutputFilterSensitiveLog;
-const DeleteChangeSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeleteChangeSetInputFilterSensitiveLog = DeleteChangeSetInputFilterSensitiveLog;
-const DeleteChangeSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeleteChangeSetOutputFilterSensitiveLog = DeleteChangeSetOutputFilterSensitiveLog;
-const DeleteStackInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeleteStackInputFilterSensitiveLog = DeleteStackInputFilterSensitiveLog;
-const DeleteStackInstancesInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeleteStackInstancesInputFilterSensitiveLog = DeleteStackInstancesInputFilterSensitiveLog;
-const DeleteStackInstancesOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeleteStackInstancesOutputFilterSensitiveLog = DeleteStackInstancesOutputFilterSensitiveLog;
-const DeleteStackSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeleteStackSetInputFilterSensitiveLog = DeleteStackSetInputFilterSensitiveLog;
-const DeleteStackSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeleteStackSetOutputFilterSensitiveLog = DeleteStackSetOutputFilterSensitiveLog;
-const DeregisterTypeInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeregisterTypeInputFilterSensitiveLog = DeregisterTypeInputFilterSensitiveLog;
-const DeregisterTypeOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DeregisterTypeOutputFilterSensitiveLog = DeregisterTypeOutputFilterSensitiveLog;
-const DescribeAccountLimitsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeAccountLimitsInputFilterSensitiveLog = DescribeAccountLimitsInputFilterSensitiveLog;
-const DescribeAccountLimitsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeAccountLimitsOutputFilterSensitiveLog = DescribeAccountLimitsOutputFilterSensitiveLog;
-const DescribeChangeSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeChangeSetInputFilterSensitiveLog = DescribeChangeSetInputFilterSensitiveLog;
-const DescribeChangeSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeChangeSetOutputFilterSensitiveLog = DescribeChangeSetOutputFilterSensitiveLog;
-const DescribeChangeSetHooksInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeChangeSetHooksInputFilterSensitiveLog = DescribeChangeSetHooksInputFilterSensitiveLog;
-const DescribeChangeSetHooksOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeChangeSetHooksOutputFilterSensitiveLog = DescribeChangeSetHooksOutputFilterSensitiveLog;
-const DescribePublisherInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribePublisherInputFilterSensitiveLog = DescribePublisherInputFilterSensitiveLog;
-const DescribePublisherOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribePublisherOutputFilterSensitiveLog = DescribePublisherOutputFilterSensitiveLog;
-const DescribeStackDriftDetectionStatusInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackDriftDetectionStatusInputFilterSensitiveLog = DescribeStackDriftDetectionStatusInputFilterSensitiveLog;
-const DescribeStackDriftDetectionStatusOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackDriftDetectionStatusOutputFilterSensitiveLog = DescribeStackDriftDetectionStatusOutputFilterSensitiveLog;
-const DescribeStackEventsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackEventsInputFilterSensitiveLog = DescribeStackEventsInputFilterSensitiveLog;
-const StackEventFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackEventFilterSensitiveLog = StackEventFilterSensitiveLog;
-const DescribeStackEventsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackEventsOutputFilterSensitiveLog = DescribeStackEventsOutputFilterSensitiveLog;
-const DescribeStackInstanceInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackInstanceInputFilterSensitiveLog = DescribeStackInstanceInputFilterSensitiveLog;
-const StackInstanceComprehensiveStatusFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackInstanceComprehensiveStatusFilterSensitiveLog = StackInstanceComprehensiveStatusFilterSensitiveLog;
-const StackInstanceFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackInstanceFilterSensitiveLog = StackInstanceFilterSensitiveLog;
-const DescribeStackInstanceOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackInstanceOutputFilterSensitiveLog = DescribeStackInstanceOutputFilterSensitiveLog;
-const DescribeStackResourceInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackResourceInputFilterSensitiveLog = DescribeStackResourceInputFilterSensitiveLog;
-const StackResourceDriftInformationFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackResourceDriftInformationFilterSensitiveLog = StackResourceDriftInformationFilterSensitiveLog;
-const StackResourceDetailFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackResourceDetailFilterSensitiveLog = StackResourceDetailFilterSensitiveLog;
-const DescribeStackResourceOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackResourceOutputFilterSensitiveLog = DescribeStackResourceOutputFilterSensitiveLog;
-const DescribeStackResourceDriftsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackResourceDriftsInputFilterSensitiveLog = DescribeStackResourceDriftsInputFilterSensitiveLog;
-const PhysicalResourceIdContextKeyValuePairFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.PhysicalResourceIdContextKeyValuePairFilterSensitiveLog = PhysicalResourceIdContextKeyValuePairFilterSensitiveLog;
-const PropertyDifferenceFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.PropertyDifferenceFilterSensitiveLog = PropertyDifferenceFilterSensitiveLog;
-const StackResourceDriftFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackResourceDriftFilterSensitiveLog = StackResourceDriftFilterSensitiveLog;
-const DescribeStackResourceDriftsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackResourceDriftsOutputFilterSensitiveLog = DescribeStackResourceDriftsOutputFilterSensitiveLog;
-const DescribeStackResourcesInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackResourcesInputFilterSensitiveLog = DescribeStackResourcesInputFilterSensitiveLog;
-const StackResourceFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackResourceFilterSensitiveLog = StackResourceFilterSensitiveLog;
-const DescribeStackResourcesOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackResourcesOutputFilterSensitiveLog = DescribeStackResourcesOutputFilterSensitiveLog;
-const DescribeStacksInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStacksInputFilterSensitiveLog = DescribeStacksInputFilterSensitiveLog;
-const StackDriftInformationFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackDriftInformationFilterSensitiveLog = StackDriftInformationFilterSensitiveLog;
-const OutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.OutputFilterSensitiveLog = OutputFilterSensitiveLog;
-const StackFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackFilterSensitiveLog = StackFilterSensitiveLog;
-const DescribeStacksOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStacksOutputFilterSensitiveLog = DescribeStacksOutputFilterSensitiveLog;
-const DescribeStackSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackSetInputFilterSensitiveLog = DescribeStackSetInputFilterSensitiveLog;
-const StackSetDriftDetectionDetailsFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSetDriftDetectionDetailsFilterSensitiveLog = StackSetDriftDetectionDetailsFilterSensitiveLog;
-const StackSetFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSetFilterSensitiveLog = StackSetFilterSensitiveLog;
-const DescribeStackSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackSetOutputFilterSensitiveLog = DescribeStackSetOutputFilterSensitiveLog;
-const DescribeStackSetOperationInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackSetOperationInputFilterSensitiveLog = DescribeStackSetOperationInputFilterSensitiveLog;
-const StackSetOperationStatusDetailsFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSetOperationStatusDetailsFilterSensitiveLog = StackSetOperationStatusDetailsFilterSensitiveLog;
-const StackSetOperationFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSetOperationFilterSensitiveLog = StackSetOperationFilterSensitiveLog;
-const DescribeStackSetOperationOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeStackSetOperationOutputFilterSensitiveLog = DescribeStackSetOperationOutputFilterSensitiveLog;
-const DescribeTypeInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeTypeInputFilterSensitiveLog = DescribeTypeInputFilterSensitiveLog;
-const RequiredActivatedTypeFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RequiredActivatedTypeFilterSensitiveLog = RequiredActivatedTypeFilterSensitiveLog;
-const DescribeTypeOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeTypeOutputFilterSensitiveLog = DescribeTypeOutputFilterSensitiveLog;
-const DescribeTypeRegistrationInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeTypeRegistrationInputFilterSensitiveLog = DescribeTypeRegistrationInputFilterSensitiveLog;
-const DescribeTypeRegistrationOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DescribeTypeRegistrationOutputFilterSensitiveLog = DescribeTypeRegistrationOutputFilterSensitiveLog;
-const DetectStackDriftInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DetectStackDriftInputFilterSensitiveLog = DetectStackDriftInputFilterSensitiveLog;
-const DetectStackDriftOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DetectStackDriftOutputFilterSensitiveLog = DetectStackDriftOutputFilterSensitiveLog;
-const DetectStackResourceDriftInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DetectStackResourceDriftInputFilterSensitiveLog = DetectStackResourceDriftInputFilterSensitiveLog;
-const DetectStackResourceDriftOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DetectStackResourceDriftOutputFilterSensitiveLog = DetectStackResourceDriftOutputFilterSensitiveLog;
-const DetectStackSetDriftInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DetectStackSetDriftInputFilterSensitiveLog = DetectStackSetDriftInputFilterSensitiveLog;
-const DetectStackSetDriftOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DetectStackSetDriftOutputFilterSensitiveLog = DetectStackSetDriftOutputFilterSensitiveLog;
-const EstimateTemplateCostInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.EstimateTemplateCostInputFilterSensitiveLog = EstimateTemplateCostInputFilterSensitiveLog;
-const EstimateTemplateCostOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.EstimateTemplateCostOutputFilterSensitiveLog = EstimateTemplateCostOutputFilterSensitiveLog;
-const ExecuteChangeSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ExecuteChangeSetInputFilterSensitiveLog = ExecuteChangeSetInputFilterSensitiveLog;
-const ExecuteChangeSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ExecuteChangeSetOutputFilterSensitiveLog = ExecuteChangeSetOutputFilterSensitiveLog;
-const GetStackPolicyInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetStackPolicyInputFilterSensitiveLog = GetStackPolicyInputFilterSensitiveLog;
-const GetStackPolicyOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetStackPolicyOutputFilterSensitiveLog = GetStackPolicyOutputFilterSensitiveLog;
-const GetTemplateInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetTemplateInputFilterSensitiveLog = GetTemplateInputFilterSensitiveLog;
-const GetTemplateOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetTemplateOutputFilterSensitiveLog = GetTemplateOutputFilterSensitiveLog;
-const GetTemplateSummaryInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetTemplateSummaryInputFilterSensitiveLog = GetTemplateSummaryInputFilterSensitiveLog;
-const ParameterConstraintsFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ParameterConstraintsFilterSensitiveLog = ParameterConstraintsFilterSensitiveLog;
-const ParameterDeclarationFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ParameterDeclarationFilterSensitiveLog = ParameterDeclarationFilterSensitiveLog;
-const ResourceIdentifierSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ResourceIdentifierSummaryFilterSensitiveLog = ResourceIdentifierSummaryFilterSensitiveLog;
-const GetTemplateSummaryOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetTemplateSummaryOutputFilterSensitiveLog = GetTemplateSummaryOutputFilterSensitiveLog;
-const ImportStacksToStackSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ImportStacksToStackSetInputFilterSensitiveLog = ImportStacksToStackSetInputFilterSensitiveLog;
-const ImportStacksToStackSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ImportStacksToStackSetOutputFilterSensitiveLog = ImportStacksToStackSetOutputFilterSensitiveLog;
-const ListChangeSetsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListChangeSetsInputFilterSensitiveLog = ListChangeSetsInputFilterSensitiveLog;
-const ListChangeSetsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListChangeSetsOutputFilterSensitiveLog = ListChangeSetsOutputFilterSensitiveLog;
-const ListExportsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListExportsInputFilterSensitiveLog = ListExportsInputFilterSensitiveLog;
-const ExportFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ExportFilterSensitiveLog = ExportFilterSensitiveLog;
-const ListExportsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListExportsOutputFilterSensitiveLog = ListExportsOutputFilterSensitiveLog;
-const ListImportsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListImportsInputFilterSensitiveLog = ListImportsInputFilterSensitiveLog;
-const ListImportsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListImportsOutputFilterSensitiveLog = ListImportsOutputFilterSensitiveLog;
-const StackInstanceFilterFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackInstanceFilterFilterSensitiveLog = StackInstanceFilterFilterSensitiveLog;
-const ListStackInstancesInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackInstancesInputFilterSensitiveLog = ListStackInstancesInputFilterSensitiveLog;
-const StackInstanceSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackInstanceSummaryFilterSensitiveLog = StackInstanceSummaryFilterSensitiveLog;
-const ListStackInstancesOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackInstancesOutputFilterSensitiveLog = ListStackInstancesOutputFilterSensitiveLog;
-const ListStackResourcesInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackResourcesInputFilterSensitiveLog = ListStackResourcesInputFilterSensitiveLog;
-const StackResourceDriftInformationSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackResourceDriftInformationSummaryFilterSensitiveLog = StackResourceDriftInformationSummaryFilterSensitiveLog;
-const StackResourceSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackResourceSummaryFilterSensitiveLog = StackResourceSummaryFilterSensitiveLog;
-const ListStackResourcesOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackResourcesOutputFilterSensitiveLog = ListStackResourcesOutputFilterSensitiveLog;
-const ListStacksInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStacksInputFilterSensitiveLog = ListStacksInputFilterSensitiveLog;
-const StackDriftInformationSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackDriftInformationSummaryFilterSensitiveLog = StackDriftInformationSummaryFilterSensitiveLog;
-const StackSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSummaryFilterSensitiveLog = StackSummaryFilterSensitiveLog;
-const ListStacksOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStacksOutputFilterSensitiveLog = ListStacksOutputFilterSensitiveLog;
-const OperationResultFilterFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.OperationResultFilterFilterSensitiveLog = OperationResultFilterFilterSensitiveLog;
-const ListStackSetOperationResultsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackSetOperationResultsInputFilterSensitiveLog = ListStackSetOperationResultsInputFilterSensitiveLog;
-const StackSetOperationResultSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSetOperationResultSummaryFilterSensitiveLog = StackSetOperationResultSummaryFilterSensitiveLog;
-const ListStackSetOperationResultsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackSetOperationResultsOutputFilterSensitiveLog = ListStackSetOperationResultsOutputFilterSensitiveLog;
-const ListStackSetOperationsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackSetOperationsInputFilterSensitiveLog = ListStackSetOperationsInputFilterSensitiveLog;
-const StackSetOperationSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSetOperationSummaryFilterSensitiveLog = StackSetOperationSummaryFilterSensitiveLog;
-const ListStackSetOperationsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackSetOperationsOutputFilterSensitiveLog = ListStackSetOperationsOutputFilterSensitiveLog;
-const ListStackSetsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackSetsInputFilterSensitiveLog = ListStackSetsInputFilterSensitiveLog;
-const StackSetSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StackSetSummaryFilterSensitiveLog = StackSetSummaryFilterSensitiveLog;
-const ListStackSetsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListStackSetsOutputFilterSensitiveLog = ListStackSetsOutputFilterSensitiveLog;
-const ListTypeRegistrationsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListTypeRegistrationsInputFilterSensitiveLog = ListTypeRegistrationsInputFilterSensitiveLog;
-const ListTypeRegistrationsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListTypeRegistrationsOutputFilterSensitiveLog = ListTypeRegistrationsOutputFilterSensitiveLog;
-const TypeFiltersFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TypeFiltersFilterSensitiveLog = TypeFiltersFilterSensitiveLog;
-const ListTypesInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListTypesInputFilterSensitiveLog = ListTypesInputFilterSensitiveLog;
-const TypeSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TypeSummaryFilterSensitiveLog = TypeSummaryFilterSensitiveLog;
-const ListTypesOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListTypesOutputFilterSensitiveLog = ListTypesOutputFilterSensitiveLog;
-const ListTypeVersionsInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListTypeVersionsInputFilterSensitiveLog = ListTypeVersionsInputFilterSensitiveLog;
-const TypeVersionSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TypeVersionSummaryFilterSensitiveLog = TypeVersionSummaryFilterSensitiveLog;
-const ListTypeVersionsOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListTypeVersionsOutputFilterSensitiveLog = ListTypeVersionsOutputFilterSensitiveLog;
-const PublishTypeInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.PublishTypeInputFilterSensitiveLog = PublishTypeInputFilterSensitiveLog;
-const PublishTypeOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.PublishTypeOutputFilterSensitiveLog = PublishTypeOutputFilterSensitiveLog;
-const RecordHandlerProgressInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RecordHandlerProgressInputFilterSensitiveLog = RecordHandlerProgressInputFilterSensitiveLog;
-const RecordHandlerProgressOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RecordHandlerProgressOutputFilterSensitiveLog = RecordHandlerProgressOutputFilterSensitiveLog;
-const RegisterPublisherInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RegisterPublisherInputFilterSensitiveLog = RegisterPublisherInputFilterSensitiveLog;
-const RegisterPublisherOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RegisterPublisherOutputFilterSensitiveLog = RegisterPublisherOutputFilterSensitiveLog;
-const RegisterTypeInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RegisterTypeInputFilterSensitiveLog = RegisterTypeInputFilterSensitiveLog;
-const RegisterTypeOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RegisterTypeOutputFilterSensitiveLog = RegisterTypeOutputFilterSensitiveLog;
-const RollbackStackInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RollbackStackInputFilterSensitiveLog = RollbackStackInputFilterSensitiveLog;
-const RollbackStackOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RollbackStackOutputFilterSensitiveLog = RollbackStackOutputFilterSensitiveLog;
-const SetStackPolicyInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.SetStackPolicyInputFilterSensitiveLog = SetStackPolicyInputFilterSensitiveLog;
-const SetTypeConfigurationInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.SetTypeConfigurationInputFilterSensitiveLog = SetTypeConfigurationInputFilterSensitiveLog;
-const SetTypeConfigurationOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.SetTypeConfigurationOutputFilterSensitiveLog = SetTypeConfigurationOutputFilterSensitiveLog;
-const SetTypeDefaultVersionInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.SetTypeDefaultVersionInputFilterSensitiveLog = SetTypeDefaultVersionInputFilterSensitiveLog;
-const SetTypeDefaultVersionOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.SetTypeDefaultVersionOutputFilterSensitiveLog = SetTypeDefaultVersionOutputFilterSensitiveLog;
-const SignalResourceInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.SignalResourceInputFilterSensitiveLog = SignalResourceInputFilterSensitiveLog;
-const StopStackSetOperationInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StopStackSetOperationInputFilterSensitiveLog = StopStackSetOperationInputFilterSensitiveLog;
-const StopStackSetOperationOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StopStackSetOperationOutputFilterSensitiveLog = StopStackSetOperationOutputFilterSensitiveLog;
-const TestTypeInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TestTypeInputFilterSensitiveLog = TestTypeInputFilterSensitiveLog;
-const TestTypeOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TestTypeOutputFilterSensitiveLog = TestTypeOutputFilterSensitiveLog;
-const UpdateStackInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.UpdateStackInputFilterSensitiveLog = UpdateStackInputFilterSensitiveLog;
-const UpdateStackOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.UpdateStackOutputFilterSensitiveLog = UpdateStackOutputFilterSensitiveLog;
-const UpdateStackInstancesInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.UpdateStackInstancesInputFilterSensitiveLog = UpdateStackInstancesInputFilterSensitiveLog;
-const UpdateStackInstancesOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.UpdateStackInstancesOutputFilterSensitiveLog = UpdateStackInstancesOutputFilterSensitiveLog;
-const UpdateStackSetInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.UpdateStackSetInputFilterSensitiveLog = UpdateStackSetInputFilterSensitiveLog;
-const UpdateStackSetOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.UpdateStackSetOutputFilterSensitiveLog = UpdateStackSetOutputFilterSensitiveLog;
-const UpdateTerminationProtectionInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.UpdateTerminationProtectionInputFilterSensitiveLog = UpdateTerminationProtectionInputFilterSensitiveLog;
-const UpdateTerminationProtectionOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.UpdateTerminationProtectionOutputFilterSensitiveLog = UpdateTerminationProtectionOutputFilterSensitiveLog;
-const ValidateTemplateInputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ValidateTemplateInputFilterSensitiveLog = ValidateTemplateInputFilterSensitiveLog;
-const TemplateParameterFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TemplateParameterFilterSensitiveLog = TemplateParameterFilterSensitiveLog;
-const ValidateTemplateOutputFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ValidateTemplateOutputFilterSensitiveLog = ValidateTemplateOutputFilterSensitiveLog;
 
 
 /***/ }),
@@ -13960,10 +13142,7 @@ const serializeAws_queryValidateTemplateInput = (input, context) => {
     return entries;
 };
 const deserializeAws_queryAccountGateResult = (output, context) => {
-    const contents = {
-        Status: undefined,
-        StatusReason: undefined,
-    };
+    const contents = {};
     if (output["Status"] !== undefined) {
         contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
     }
@@ -13973,10 +13152,7 @@ const deserializeAws_queryAccountGateResult = (output, context) => {
     return contents;
 };
 const deserializeAws_queryAccountLimit = (output, context) => {
-    const contents = {
-        Name: undefined,
-        Value: undefined,
-    };
+    const contents = {};
     if (output["Name"] !== undefined) {
         contents.Name = (0, smithy_client_1.expectString)(output["Name"]);
     }
@@ -14000,9 +13176,7 @@ const deserializeAws_queryAccountList = (output, context) => {
     });
 };
 const deserializeAws_queryActivateTypeOutput = (output, context) => {
-    const contents = {
-        Arn: undefined,
-    };
+    const contents = {};
     if (output["Arn"] !== undefined) {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
     }
@@ -14016,19 +13190,14 @@ const deserializeAws_queryAllowedValues = (output, context) => {
     });
 };
 const deserializeAws_queryAlreadyExistsException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryAutoDeployment = (output, context) => {
-    const contents = {
-        Enabled: undefined,
-        RetainStacksOnAccountRemoval: undefined,
-    };
+    const contents = {};
     if (output["Enabled"] !== undefined) {
         contents.Enabled = (0, smithy_client_1.parseBoolean)(output["Enabled"]);
     }
@@ -14038,11 +13207,7 @@ const deserializeAws_queryAutoDeployment = (output, context) => {
     return contents;
 };
 const deserializeAws_queryBatchDescribeTypeConfigurationsError = (output, context) => {
-    const contents = {
-        ErrorCode: undefined,
-        ErrorMessage: undefined,
-        TypeConfigurationIdentifier: undefined,
-    };
+    const contents = {};
     if (output["ErrorCode"] !== undefined) {
         contents.ErrorCode = (0, smithy_client_1.expectString)(output["ErrorCode"]);
     }
@@ -14062,11 +13227,7 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsErrors = (output, conte
     });
 };
 const deserializeAws_queryBatchDescribeTypeConfigurationsOutput = (output, context) => {
-    const contents = {
-        Errors: undefined,
-        UnprocessedTypeConfigurations: undefined,
-        TypeConfigurations: undefined,
-    };
+    const contents = {};
     if (output.Errors === "") {
         contents.Errors = [];
     }
@@ -14096,20 +13257,14 @@ const deserializeAws_queryCapabilities = (output, context) => {
     });
 };
 const deserializeAws_queryCFNRegistryException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryChange = (output, context) => {
-    const contents = {
-        Type: undefined,
-        HookInvocationCount: undefined,
-        ResourceChange: undefined,
-    };
+    const contents = {};
     if (output["Type"] !== undefined) {
         contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
     }
@@ -14129,14 +13284,7 @@ const deserializeAws_queryChanges = (output, context) => {
     });
 };
 const deserializeAws_queryChangeSetHook = (output, context) => {
-    const contents = {
-        InvocationPoint: undefined,
-        FailureMode: undefined,
-        TypeName: undefined,
-        TypeVersionId: undefined,
-        TypeConfigurationVersionId: undefined,
-        TargetDetails: undefined,
-    };
+    const contents = {};
     if (output["InvocationPoint"] !== undefined) {
         contents.InvocationPoint = (0, smithy_client_1.expectString)(output["InvocationPoint"]);
     }
@@ -14158,11 +13306,7 @@ const deserializeAws_queryChangeSetHook = (output, context) => {
     return contents;
 };
 const deserializeAws_queryChangeSetHookResourceTargetDetails = (output, context) => {
-    const contents = {
-        LogicalResourceId: undefined,
-        ResourceType: undefined,
-        ResourceAction: undefined,
-    };
+    const contents = {};
     if (output["LogicalResourceId"] !== undefined) {
         contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
     }
@@ -14182,10 +13326,7 @@ const deserializeAws_queryChangeSetHooks = (output, context) => {
     });
 };
 const deserializeAws_queryChangeSetHookTargetDetails = (output, context) => {
-    const contents = {
-        TargetType: undefined,
-        ResourceTargetDetails: undefined,
-    };
+    const contents = {};
     if (output["TargetType"] !== undefined) {
         contents.TargetType = (0, smithy_client_1.expectString)(output["TargetType"]);
     }
@@ -14195,9 +13336,7 @@ const deserializeAws_queryChangeSetHookTargetDetails = (output, context) => {
     return contents;
 };
 const deserializeAws_queryChangeSetNotFoundException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
@@ -14211,20 +13350,7 @@ const deserializeAws_queryChangeSetSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryChangeSetSummary = (output, context) => {
-    const contents = {
-        StackId: undefined,
-        StackName: undefined,
-        ChangeSetId: undefined,
-        ChangeSetName: undefined,
-        ExecutionStatus: undefined,
-        Status: undefined,
-        StatusReason: undefined,
-        CreationTime: undefined,
-        Description: undefined,
-        IncludeNestedStacks: undefined,
-        ParentChangeSetId: undefined,
-        RootChangeSetId: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
@@ -14268,10 +13394,7 @@ const deserializeAws_queryContinueUpdateRollbackOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryCreateChangeSetOutput = (output, context) => {
-    const contents = {
-        Id: undefined,
-        StackId: undefined,
-    };
+    const contents = {};
     if (output["Id"] !== undefined) {
         contents.Id = (0, smithy_client_1.expectString)(output["Id"]);
     }
@@ -14281,36 +13404,28 @@ const deserializeAws_queryCreateChangeSetOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryCreatedButModifiedException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryCreateStackInstancesOutput = (output, context) => {
-    const contents = {
-        OperationId: undefined,
-    };
+    const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
 const deserializeAws_queryCreateStackOutput = (output, context) => {
-    const contents = {
-        StackId: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
     return contents;
 };
 const deserializeAws_queryCreateStackSetOutput = (output, context) => {
-    const contents = {
-        StackSetId: undefined,
-    };
+    const contents = {};
     if (output["StackSetId"] !== undefined) {
         contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
     }
@@ -14325,9 +13440,7 @@ const deserializeAws_queryDeleteChangeSetOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDeleteStackInstancesOutput = (output, context) => {
-    const contents = {
-        OperationId: undefined,
-    };
+    const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
@@ -14338,12 +13451,7 @@ const deserializeAws_queryDeleteStackSetOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDeploymentTargets = (output, context) => {
-    const contents = {
-        Accounts: undefined,
-        AccountsUrl: undefined,
-        OrganizationalUnitIds: undefined,
-        AccountFilterType: undefined,
-    };
+    const contents = {};
     if (output.Accounts === "") {
         contents.Accounts = [];
     }
@@ -14369,10 +13477,7 @@ const deserializeAws_queryDeregisterTypeOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribeAccountLimitsOutput = (output, context) => {
-    const contents = {
-        AccountLimits: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.AccountLimits === "") {
         contents.AccountLimits = [];
     }
@@ -14385,15 +13490,7 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribeChangeSetHooksOutput = (output, context) => {
-    const contents = {
-        ChangeSetId: undefined,
-        ChangeSetName: undefined,
-        Hooks: undefined,
-        Status: undefined,
-        NextToken: undefined,
-        StackId: undefined,
-        StackName: undefined,
-    };
+    const contents = {};
     if (output["ChangeSetId"] !== undefined) {
         contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
     }
@@ -14421,27 +13518,7 @@ const deserializeAws_queryDescribeChangeSetHooksOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribeChangeSetOutput = (output, context) => {
-    const contents = {
-        ChangeSetName: undefined,
-        ChangeSetId: undefined,
-        StackId: undefined,
-        StackName: undefined,
-        Description: undefined,
-        Parameters: undefined,
-        CreationTime: undefined,
-        ExecutionStatus: undefined,
-        Status: undefined,
-        StatusReason: undefined,
-        NotificationARNs: undefined,
-        RollbackConfiguration: undefined,
-        Capabilities: undefined,
-        Tags: undefined,
-        Changes: undefined,
-        NextToken: undefined,
-        IncludeNestedStacks: undefined,
-        ParentChangeSetId: undefined,
-        RootChangeSetId: undefined,
-    };
+    const contents = {};
     if (output["ChangeSetName"] !== undefined) {
         contents.ChangeSetName = (0, smithy_client_1.expectString)(output["ChangeSetName"]);
     }
@@ -14517,12 +13594,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribePublisherOutput = (output, context) => {
-    const contents = {
-        PublisherId: undefined,
-        PublisherStatus: undefined,
-        IdentityProvider: undefined,
-        PublisherProfile: undefined,
-    };
+    const contents = {};
     if (output["PublisherId"] !== undefined) {
         contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
     }
@@ -14538,15 +13610,7 @@ const deserializeAws_queryDescribePublisherOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (output, context) => {
-    const contents = {
-        StackId: undefined,
-        StackDriftDetectionId: undefined,
-        StackDriftStatus: undefined,
-        DetectionStatus: undefined,
-        DetectionStatusReason: undefined,
-        DriftedStackResourceCount: undefined,
-        Timestamp: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
@@ -14571,10 +13635,7 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (output, con
     return contents;
 };
 const deserializeAws_queryDescribeStackEventsOutput = (output, context) => {
-    const contents = {
-        StackEvents: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.StackEvents === "") {
         contents.StackEvents = [];
     }
@@ -14587,19 +13648,14 @@ const deserializeAws_queryDescribeStackEventsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribeStackInstanceOutput = (output, context) => {
-    const contents = {
-        StackInstance: undefined,
-    };
+    const contents = {};
     if (output["StackInstance"] !== undefined) {
         contents.StackInstance = deserializeAws_queryStackInstance(output["StackInstance"], context);
     }
     return contents;
 };
 const deserializeAws_queryDescribeStackResourceDriftsOutput = (output, context) => {
-    const contents = {
-        StackResourceDrifts: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.StackResourceDrifts === "") {
         contents.StackResourceDrifts = [];
     }
@@ -14612,18 +13668,14 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (output, context) 
     return contents;
 };
 const deserializeAws_queryDescribeStackResourceOutput = (output, context) => {
-    const contents = {
-        StackResourceDetail: undefined,
-    };
+    const contents = {};
     if (output["StackResourceDetail"] !== undefined) {
         contents.StackResourceDetail = deserializeAws_queryStackResourceDetail(output["StackResourceDetail"], context);
     }
     return contents;
 };
 const deserializeAws_queryDescribeStackResourcesOutput = (output, context) => {
-    const contents = {
-        StackResources: undefined,
-    };
+    const contents = {};
     if (output.StackResources === "") {
         contents.StackResources = [];
     }
@@ -14633,28 +13685,21 @@ const deserializeAws_queryDescribeStackResourcesOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribeStackSetOperationOutput = (output, context) => {
-    const contents = {
-        StackSetOperation: undefined,
-    };
+    const contents = {};
     if (output["StackSetOperation"] !== undefined) {
         contents.StackSetOperation = deserializeAws_queryStackSetOperation(output["StackSetOperation"], context);
     }
     return contents;
 };
 const deserializeAws_queryDescribeStackSetOutput = (output, context) => {
-    const contents = {
-        StackSet: undefined,
-    };
+    const contents = {};
     if (output["StackSet"] !== undefined) {
         contents.StackSet = deserializeAws_queryStackSet(output["StackSet"], context);
     }
     return contents;
 };
 const deserializeAws_queryDescribeStacksOutput = (output, context) => {
-    const contents = {
-        Stacks: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.Stacks === "") {
         contents.Stacks = [];
     }
@@ -14667,35 +13712,7 @@ const deserializeAws_queryDescribeStacksOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribeTypeOutput = (output, context) => {
-    const contents = {
-        Arn: undefined,
-        Type: undefined,
-        TypeName: undefined,
-        DefaultVersionId: undefined,
-        IsDefaultVersion: undefined,
-        TypeTestsStatus: undefined,
-        TypeTestsStatusDescription: undefined,
-        Description: undefined,
-        Schema: undefined,
-        ProvisioningType: undefined,
-        DeprecatedStatus: undefined,
-        LoggingConfig: undefined,
-        RequiredActivatedTypes: undefined,
-        ExecutionRoleArn: undefined,
-        Visibility: undefined,
-        SourceUrl: undefined,
-        DocumentationUrl: undefined,
-        LastUpdated: undefined,
-        TimeCreated: undefined,
-        ConfigurationSchema: undefined,
-        PublisherId: undefined,
-        OriginalTypeName: undefined,
-        OriginalTypeArn: undefined,
-        PublicVersionNumber: undefined,
-        LatestPublicVersion: undefined,
-        IsActivated: undefined,
-        AutoUpdate: undefined,
-    };
+    const contents = {};
     if (output["Arn"] !== undefined) {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
     }
@@ -14784,12 +13801,7 @@ const deserializeAws_queryDescribeTypeOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDescribeTypeRegistrationOutput = (output, context) => {
-    const contents = {
-        ProgressStatus: undefined,
-        Description: undefined,
-        TypeArn: undefined,
-        TypeVersionArn: undefined,
-    };
+    const contents = {};
     if (output["ProgressStatus"] !== undefined) {
         contents.ProgressStatus = (0, smithy_client_1.expectString)(output["ProgressStatus"]);
     }
@@ -14805,36 +13817,28 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (output, context) => 
     return contents;
 };
 const deserializeAws_queryDetectStackDriftOutput = (output, context) => {
-    const contents = {
-        StackDriftDetectionId: undefined,
-    };
+    const contents = {};
     if (output["StackDriftDetectionId"] !== undefined) {
         contents.StackDriftDetectionId = (0, smithy_client_1.expectString)(output["StackDriftDetectionId"]);
     }
     return contents;
 };
 const deserializeAws_queryDetectStackResourceDriftOutput = (output, context) => {
-    const contents = {
-        StackResourceDrift: undefined,
-    };
+    const contents = {};
     if (output["StackResourceDrift"] !== undefined) {
         contents.StackResourceDrift = deserializeAws_queryStackResourceDrift(output["StackResourceDrift"], context);
     }
     return contents;
 };
 const deserializeAws_queryDetectStackSetDriftOutput = (output, context) => {
-    const contents = {
-        OperationId: undefined,
-    };
+    const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
 const deserializeAws_queryEstimateTemplateCostOutput = (output, context) => {
-    const contents = {
-        Url: undefined,
-    };
+    const contents = {};
     if (output["Url"] !== undefined) {
         contents.Url = (0, smithy_client_1.expectString)(output["Url"]);
     }
@@ -14845,11 +13849,7 @@ const deserializeAws_queryExecuteChangeSetOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryExport = (output, context) => {
-    const contents = {
-        ExportingStackId: undefined,
-        Name: undefined,
-        Value: undefined,
-    };
+    const contents = {};
     if (output["ExportingStackId"] !== undefined) {
         contents.ExportingStackId = (0, smithy_client_1.expectString)(output["ExportingStackId"]);
     }
@@ -14869,19 +13869,14 @@ const deserializeAws_queryExports = (output, context) => {
     });
 };
 const deserializeAws_queryGetStackPolicyOutput = (output, context) => {
-    const contents = {
-        StackPolicyBody: undefined,
-    };
+    const contents = {};
     if (output["StackPolicyBody"] !== undefined) {
         contents.StackPolicyBody = (0, smithy_client_1.expectString)(output["StackPolicyBody"]);
     }
     return contents;
 };
 const deserializeAws_queryGetTemplateOutput = (output, context) => {
-    const contents = {
-        TemplateBody: undefined,
-        StagesAvailable: undefined,
-    };
+    const contents = {};
     if (output["TemplateBody"] !== undefined) {
         contents.TemplateBody = (0, smithy_client_1.expectString)(output["TemplateBody"]);
     }
@@ -14894,17 +13889,7 @@ const deserializeAws_queryGetTemplateOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryGetTemplateSummaryOutput = (output, context) => {
-    const contents = {
-        Parameters: undefined,
-        Description: undefined,
-        Capabilities: undefined,
-        CapabilitiesReason: undefined,
-        ResourceTypes: undefined,
-        Version: undefined,
-        Metadata: undefined,
-        DeclaredTransforms: undefined,
-        ResourceIdentifierSummaries: undefined,
-    };
+    const contents = {};
     if (output.Parameters === "") {
         contents.Parameters = [];
     }
@@ -14958,64 +13943,49 @@ const deserializeAws_queryImports = (output, context) => {
     });
 };
 const deserializeAws_queryImportStacksToStackSetOutput = (output, context) => {
-    const contents = {
-        OperationId: undefined,
-    };
+    const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
 const deserializeAws_queryInsufficientCapabilitiesException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryInvalidChangeSetStatusException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryInvalidOperationException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryInvalidStateTransitionException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryLimitExceededException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryListChangeSetsOutput = (output, context) => {
-    const contents = {
-        Summaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
@@ -15028,10 +13998,7 @@ const deserializeAws_queryListChangeSetsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListExportsOutput = (output, context) => {
-    const contents = {
-        Exports: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.Exports === "") {
         contents.Exports = [];
     }
@@ -15044,10 +14011,7 @@ const deserializeAws_queryListExportsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListImportsOutput = (output, context) => {
-    const contents = {
-        Imports: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.Imports === "") {
         contents.Imports = [];
     }
@@ -15060,10 +14024,7 @@ const deserializeAws_queryListImportsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListStackInstancesOutput = (output, context) => {
-    const contents = {
-        Summaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
@@ -15076,10 +14037,7 @@ const deserializeAws_queryListStackInstancesOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListStackResourcesOutput = (output, context) => {
-    const contents = {
-        StackResourceSummaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.StackResourceSummaries === "") {
         contents.StackResourceSummaries = [];
     }
@@ -15093,10 +14051,7 @@ const deserializeAws_queryListStackResourcesOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListStackSetOperationResultsOutput = (output, context) => {
-    const contents = {
-        Summaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
@@ -15109,10 +14064,7 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (output, context)
     return contents;
 };
 const deserializeAws_queryListStackSetOperationsOutput = (output, context) => {
-    const contents = {
-        Summaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
@@ -15125,10 +14077,7 @@ const deserializeAws_queryListStackSetOperationsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListStackSetsOutput = (output, context) => {
-    const contents = {
-        Summaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
@@ -15141,10 +14090,7 @@ const deserializeAws_queryListStackSetsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListStacksOutput = (output, context) => {
-    const contents = {
-        StackSummaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.StackSummaries === "") {
         contents.StackSummaries = [];
     }
@@ -15157,10 +14103,7 @@ const deserializeAws_queryListStacksOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListTypeRegistrationsOutput = (output, context) => {
-    const contents = {
-        RegistrationTokenList: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.RegistrationTokenList === "") {
         contents.RegistrationTokenList = [];
     }
@@ -15173,10 +14116,7 @@ const deserializeAws_queryListTypeRegistrationsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListTypesOutput = (output, context) => {
-    const contents = {
-        TypeSummaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.TypeSummaries === "") {
         contents.TypeSummaries = [];
     }
@@ -15189,10 +14129,7 @@ const deserializeAws_queryListTypesOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryListTypeVersionsOutput = (output, context) => {
-    const contents = {
-        TypeVersionSummaries: undefined,
-        NextToken: undefined,
-    };
+    const contents = {};
     if (output.TypeVersionSummaries === "") {
         contents.TypeVersionSummaries = [];
     }
@@ -15205,10 +14142,7 @@ const deserializeAws_queryListTypeVersionsOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryLoggingConfig = (output, context) => {
-    const contents = {
-        LogRoleArn: undefined,
-        LogGroupName: undefined,
-    };
+    const contents = {};
     if (output["LogRoleArn"] !== undefined) {
         contents.LogRoleArn = (0, smithy_client_1.expectString)(output["LogRoleArn"]);
     }
@@ -15225,19 +14159,14 @@ const deserializeAws_queryLogicalResourceIds = (output, context) => {
     });
 };
 const deserializeAws_queryManagedExecution = (output, context) => {
-    const contents = {
-        Active: undefined,
-    };
+    const contents = {};
     if (output["Active"] !== undefined) {
         contents.Active = (0, smithy_client_1.parseBoolean)(output["Active"]);
     }
     return contents;
 };
 const deserializeAws_queryModuleInfo = (output, context) => {
-    const contents = {
-        TypeHierarchy: undefined,
-        LogicalIdHierarchy: undefined,
-    };
+    const contents = {};
     if (output["TypeHierarchy"] !== undefined) {
         contents.TypeHierarchy = (0, smithy_client_1.expectString)(output["TypeHierarchy"]);
     }
@@ -15247,9 +14176,7 @@ const deserializeAws_queryModuleInfo = (output, context) => {
     return contents;
 };
 const deserializeAws_queryNameAlreadyExistsException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
@@ -15263,36 +14190,28 @@ const deserializeAws_queryNotificationARNs = (output, context) => {
     });
 };
 const deserializeAws_queryOperationIdAlreadyExistsException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryOperationInProgressException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryOperationNotFoundException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryOperationStatusCheckFailedException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
@@ -15306,12 +14225,7 @@ const deserializeAws_queryOrganizationalUnitIdList = (output, context) => {
     });
 };
 const deserializeAws_queryOutput = (output, context) => {
-    const contents = {
-        OutputKey: undefined,
-        OutputValue: undefined,
-        Description: undefined,
-        ExportName: undefined,
-    };
+    const contents = {};
     if (output["OutputKey"] !== undefined) {
         contents.OutputKey = (0, smithy_client_1.expectString)(output["OutputKey"]);
     }
@@ -15334,12 +14248,7 @@ const deserializeAws_queryOutputs = (output, context) => {
     });
 };
 const deserializeAws_queryParameter = (output, context) => {
-    const contents = {
-        ParameterKey: undefined,
-        ParameterValue: undefined,
-        UsePreviousValue: undefined,
-        ResolvedValue: undefined,
-    };
+    const contents = {};
     if (output["ParameterKey"] !== undefined) {
         contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
     }
@@ -15355,9 +14264,7 @@ const deserializeAws_queryParameter = (output, context) => {
     return contents;
 };
 const deserializeAws_queryParameterConstraints = (output, context) => {
-    const contents = {
-        AllowedValues: undefined,
-    };
+    const contents = {};
     if (output.AllowedValues === "") {
         contents.AllowedValues = [];
     }
@@ -15367,14 +14274,7 @@ const deserializeAws_queryParameterConstraints = (output, context) => {
     return contents;
 };
 const deserializeAws_queryParameterDeclaration = (output, context) => {
-    const contents = {
-        ParameterKey: undefined,
-        DefaultValue: undefined,
-        ParameterType: undefined,
-        NoEcho: undefined,
-        Description: undefined,
-        ParameterConstraints: undefined,
-    };
+    const contents = {};
     if (output["ParameterKey"] !== undefined) {
         contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
     }
@@ -15417,10 +14317,7 @@ const deserializeAws_queryPhysicalResourceIdContext = (output, context) => {
     });
 };
 const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (output, context) => {
-    const contents = {
-        Key: undefined,
-        Value: undefined,
-    };
+    const contents = {};
     if (output["Key"] !== undefined) {
         contents.Key = (0, smithy_client_1.expectString)(output["Key"]);
     }
@@ -15430,12 +14327,7 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (output, conte
     return contents;
 };
 const deserializeAws_queryPropertyDifference = (output, context) => {
-    const contents = {
-        PropertyPath: undefined,
-        ExpectedValue: undefined,
-        ActualValue: undefined,
-        DifferenceType: undefined,
-    };
+    const contents = {};
     if (output["PropertyPath"] !== undefined) {
         contents.PropertyPath = (0, smithy_client_1.expectString)(output["PropertyPath"]);
     }
@@ -15458,9 +14350,7 @@ const deserializeAws_queryPropertyDifferences = (output, context) => {
     });
 };
 const deserializeAws_queryPublishTypeOutput = (output, context) => {
-    const contents = {
-        PublicTypeArn: undefined,
-    };
+    const contents = {};
     if (output["PublicTypeArn"] !== undefined) {
         contents.PublicTypeArn = (0, smithy_client_1.expectString)(output["PublicTypeArn"]);
     }
@@ -15478,18 +14368,14 @@ const deserializeAws_queryRegionList = (output, context) => {
     });
 };
 const deserializeAws_queryRegisterPublisherOutput = (output, context) => {
-    const contents = {
-        PublisherId: undefined,
-    };
+    const contents = {};
     if (output["PublisherId"] !== undefined) {
         contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
     }
     return contents;
 };
 const deserializeAws_queryRegisterTypeOutput = (output, context) => {
-    const contents = {
-        RegistrationToken: undefined,
-    };
+    const contents = {};
     if (output["RegistrationToken"] !== undefined) {
         contents.RegistrationToken = (0, smithy_client_1.expectString)(output["RegistrationToken"]);
     }
@@ -15503,12 +14389,7 @@ const deserializeAws_queryRegistrationTokenList = (output, context) => {
     });
 };
 const deserializeAws_queryRequiredActivatedType = (output, context) => {
-    const contents = {
-        TypeNameAlias: undefined,
-        OriginalTypeName: undefined,
-        PublisherId: undefined,
-        SupportedMajorVersions: undefined,
-    };
+    const contents = {};
     if (output["TypeNameAlias"] !== undefined) {
         contents.TypeNameAlias = (0, smithy_client_1.expectString)(output["TypeNameAlias"]);
     }
@@ -15535,17 +14416,7 @@ const deserializeAws_queryRequiredActivatedTypes = (output, context) => {
     });
 };
 const deserializeAws_queryResourceChange = (output, context) => {
-    const contents = {
-        Action: undefined,
-        LogicalResourceId: undefined,
-        PhysicalResourceId: undefined,
-        ResourceType: undefined,
-        Replacement: undefined,
-        Scope: undefined,
-        Details: undefined,
-        ChangeSetId: undefined,
-        ModuleInfo: undefined,
-    };
+    const contents = {};
     if (output["Action"] !== undefined) {
         contents.Action = (0, smithy_client_1.expectString)(output["Action"]);
     }
@@ -15582,12 +14453,7 @@ const deserializeAws_queryResourceChange = (output, context) => {
     return contents;
 };
 const deserializeAws_queryResourceChangeDetail = (output, context) => {
-    const contents = {
-        Target: undefined,
-        Evaluation: undefined,
-        ChangeSource: undefined,
-        CausingEntity: undefined,
-    };
+    const contents = {};
     if (output["Target"] !== undefined) {
         contents.Target = deserializeAws_queryResourceTargetDefinition(output["Target"], context);
     }
@@ -15624,11 +14490,7 @@ const deserializeAws_queryResourceIdentifierSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryResourceIdentifierSummary = (output, context) => {
-    const contents = {
-        ResourceType: undefined,
-        LogicalResourceIds: undefined,
-        ResourceIdentifiers: undefined,
-    };
+    const contents = {};
     if (output["ResourceType"] !== undefined) {
         contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
     }
@@ -15647,11 +14509,7 @@ const deserializeAws_queryResourceIdentifierSummary = (output, context) => {
     return contents;
 };
 const deserializeAws_queryResourceTargetDefinition = (output, context) => {
-    const contents = {
-        Attribute: undefined,
-        Name: undefined,
-        RequiresRecreation: undefined,
-    };
+    const contents = {};
     if (output["Attribute"] !== undefined) {
         contents.Attribute = (0, smithy_client_1.expectString)(output["Attribute"]);
     }
@@ -15671,10 +14529,7 @@ const deserializeAws_queryResourceTypes = (output, context) => {
     });
 };
 const deserializeAws_queryRollbackConfiguration = (output, context) => {
-    const contents = {
-        RollbackTriggers: undefined,
-        MonitoringTimeInMinutes: undefined,
-    };
+    const contents = {};
     if (output.RollbackTriggers === "") {
         contents.RollbackTriggers = [];
     }
@@ -15687,19 +14542,14 @@ const deserializeAws_queryRollbackConfiguration = (output, context) => {
     return contents;
 };
 const deserializeAws_queryRollbackStackOutput = (output, context) => {
-    const contents = {
-        StackId: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
     return contents;
 };
 const deserializeAws_queryRollbackTrigger = (output, context) => {
-    const contents = {
-        Arn: undefined,
-        Type: undefined,
-    };
+    const contents = {};
     if (output["Arn"] !== undefined) {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
     }
@@ -15723,9 +14573,7 @@ const deserializeAws_queryScope = (output, context) => {
     });
 };
 const deserializeAws_querySetTypeConfigurationOutput = (output, context) => {
-    const contents = {
-        ConfigurationArn: undefined,
-    };
+    const contents = {};
     if (output["ConfigurationArn"] !== undefined) {
         contents.ConfigurationArn = (0, smithy_client_1.expectString)(output["ConfigurationArn"]);
     }
@@ -15736,30 +14584,7 @@ const deserializeAws_querySetTypeDefaultVersionOutput = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStack = (output, context) => {
-    const contents = {
-        StackId: undefined,
-        StackName: undefined,
-        ChangeSetId: undefined,
-        Description: undefined,
-        Parameters: undefined,
-        CreationTime: undefined,
-        DeletionTime: undefined,
-        LastUpdatedTime: undefined,
-        RollbackConfiguration: undefined,
-        StackStatus: undefined,
-        StackStatusReason: undefined,
-        DisableRollback: undefined,
-        NotificationARNs: undefined,
-        TimeoutInMinutes: undefined,
-        Capabilities: undefined,
-        Outputs: undefined,
-        RoleARN: undefined,
-        Tags: undefined,
-        EnableTerminationProtection: undefined,
-        ParentId: undefined,
-        RootId: undefined,
-        DriftInformation: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
@@ -15844,10 +14669,7 @@ const deserializeAws_queryStack = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackDriftInformation = (output, context) => {
-    const contents = {
-        StackDriftStatus: undefined,
-        LastCheckTimestamp: undefined,
-    };
+    const contents = {};
     if (output["StackDriftStatus"] !== undefined) {
         contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
     }
@@ -15857,10 +14679,7 @@ const deserializeAws_queryStackDriftInformation = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackDriftInformationSummary = (output, context) => {
-    const contents = {
-        StackDriftStatus: undefined,
-        LastCheckTimestamp: undefined,
-    };
+    const contents = {};
     if (output["StackDriftStatus"] !== undefined) {
         contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
     }
@@ -15870,24 +14689,7 @@ const deserializeAws_queryStackDriftInformationSummary = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackEvent = (output, context) => {
-    const contents = {
-        StackId: undefined,
-        EventId: undefined,
-        StackName: undefined,
-        LogicalResourceId: undefined,
-        PhysicalResourceId: undefined,
-        ResourceType: undefined,
-        Timestamp: undefined,
-        ResourceStatus: undefined,
-        ResourceStatusReason: undefined,
-        ResourceProperties: undefined,
-        ClientRequestToken: undefined,
-        HookType: undefined,
-        HookStatus: undefined,
-        HookStatusReason: undefined,
-        HookInvocationPoint: undefined,
-        HookFailureMode: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
@@ -15946,20 +14748,7 @@ const deserializeAws_queryStackEvents = (output, context) => {
     });
 };
 const deserializeAws_queryStackInstance = (output, context) => {
-    const contents = {
-        StackSetId: undefined,
-        Region: undefined,
-        Account: undefined,
-        StackId: undefined,
-        ParameterOverrides: undefined,
-        Status: undefined,
-        StackInstanceStatus: undefined,
-        StatusReason: undefined,
-        OrganizationalUnitId: undefined,
-        DriftStatus: undefined,
-        LastDriftCheckTimestamp: undefined,
-        LastOperationId: undefined,
-    };
+    const contents = {};
     if (output["StackSetId"] !== undefined) {
         contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
     }
@@ -16002,18 +14791,14 @@ const deserializeAws_queryStackInstance = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackInstanceComprehensiveStatus = (output, context) => {
-    const contents = {
-        DetailedStatus: undefined,
-    };
+    const contents = {};
     if (output["DetailedStatus"] !== undefined) {
         contents.DetailedStatus = (0, smithy_client_1.expectString)(output["DetailedStatus"]);
     }
     return contents;
 };
 const deserializeAws_queryStackInstanceNotFoundException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
@@ -16027,19 +14812,7 @@ const deserializeAws_queryStackInstanceSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryStackInstanceSummary = (output, context) => {
-    const contents = {
-        StackSetId: undefined,
-        Region: undefined,
-        Account: undefined,
-        StackId: undefined,
-        Status: undefined,
-        StatusReason: undefined,
-        StackInstanceStatus: undefined,
-        OrganizationalUnitId: undefined,
-        DriftStatus: undefined,
-        LastDriftCheckTimestamp: undefined,
-        LastOperationId: undefined,
-    };
+    const contents = {};
     if (output["StackSetId"] !== undefined) {
         contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
     }
@@ -16076,28 +14849,14 @@ const deserializeAws_queryStackInstanceSummary = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackNotFoundException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryStackResource = (output, context) => {
-    const contents = {
-        StackName: undefined,
-        StackId: undefined,
-        LogicalResourceId: undefined,
-        PhysicalResourceId: undefined,
-        ResourceType: undefined,
-        Timestamp: undefined,
-        ResourceStatus: undefined,
-        ResourceStatusReason: undefined,
-        Description: undefined,
-        DriftInformation: undefined,
-        ModuleInfo: undefined,
-    };
+    const contents = {};
     if (output["StackName"] !== undefined) {
         contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
     }
@@ -16134,20 +14893,7 @@ const deserializeAws_queryStackResource = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackResourceDetail = (output, context) => {
-    const contents = {
-        StackName: undefined,
-        StackId: undefined,
-        LogicalResourceId: undefined,
-        PhysicalResourceId: undefined,
-        ResourceType: undefined,
-        LastUpdatedTimestamp: undefined,
-        ResourceStatus: undefined,
-        ResourceStatusReason: undefined,
-        Description: undefined,
-        Metadata: undefined,
-        DriftInformation: undefined,
-        ModuleInfo: undefined,
-    };
+    const contents = {};
     if (output["StackName"] !== undefined) {
         contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
     }
@@ -16187,19 +14933,7 @@ const deserializeAws_queryStackResourceDetail = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackResourceDrift = (output, context) => {
-    const contents = {
-        StackId: undefined,
-        LogicalResourceId: undefined,
-        PhysicalResourceId: undefined,
-        PhysicalResourceIdContext: undefined,
-        ResourceType: undefined,
-        ExpectedProperties: undefined,
-        ActualProperties: undefined,
-        PropertyDifferences: undefined,
-        StackResourceDriftStatus: undefined,
-        Timestamp: undefined,
-        ModuleInfo: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
@@ -16243,10 +14977,7 @@ const deserializeAws_queryStackResourceDrift = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackResourceDriftInformation = (output, context) => {
-    const contents = {
-        StackResourceDriftStatus: undefined,
-        LastCheckTimestamp: undefined,
-    };
+    const contents = {};
     if (output["StackResourceDriftStatus"] !== undefined) {
         contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
     }
@@ -16256,10 +14987,7 @@ const deserializeAws_queryStackResourceDriftInformation = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackResourceDriftInformationSummary = (output, context) => {
-    const contents = {
-        StackResourceDriftStatus: undefined,
-        LastCheckTimestamp: undefined,
-    };
+    const contents = {};
     if (output["StackResourceDriftStatus"] !== undefined) {
         contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
     }
@@ -16290,16 +15018,7 @@ const deserializeAws_queryStackResourceSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryStackResourceSummary = (output, context) => {
-    const contents = {
-        LogicalResourceId: undefined,
-        PhysicalResourceId: undefined,
-        ResourceType: undefined,
-        LastUpdatedTimestamp: undefined,
-        ResourceStatus: undefined,
-        ResourceStatusReason: undefined,
-        DriftInformation: undefined,
-        ModuleInfo: undefined,
-    };
+    const contents = {};
     if (output["LogicalResourceId"] !== undefined) {
         contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
     }
@@ -16334,25 +15053,7 @@ const deserializeAws_queryStacks = (output, context) => {
     });
 };
 const deserializeAws_queryStackSet = (output, context) => {
-    const contents = {
-        StackSetName: undefined,
-        StackSetId: undefined,
-        Description: undefined,
-        Status: undefined,
-        TemplateBody: undefined,
-        Parameters: undefined,
-        Capabilities: undefined,
-        Tags: undefined,
-        StackSetARN: undefined,
-        AdministrationRoleARN: undefined,
-        ExecutionRoleName: undefined,
-        StackSetDriftDetectionDetails: undefined,
-        AutoDeployment: undefined,
-        PermissionModel: undefined,
-        OrganizationalUnitIds: undefined,
-        ManagedExecution: undefined,
-        Regions: undefined,
-    };
+    const contents = {};
     if (output["StackSetName"] !== undefined) {
         contents.StackSetName = (0, smithy_client_1.expectString)(output["StackSetName"]);
     }
@@ -16422,16 +15123,7 @@ const deserializeAws_queryStackSet = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackSetDriftDetectionDetails = (output, context) => {
-    const contents = {
-        DriftStatus: undefined,
-        DriftDetectionStatus: undefined,
-        LastDriftCheckTimestamp: undefined,
-        TotalStackInstancesCount: undefined,
-        DriftedStackInstancesCount: undefined,
-        InSyncStackInstancesCount: undefined,
-        InProgressStackInstancesCount: undefined,
-        FailedStackInstancesCount: undefined,
-    };
+    const contents = {};
     if (output["DriftStatus"] !== undefined) {
         contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
     }
@@ -16459,40 +15151,21 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackSetNotEmptyException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryStackSetNotFoundException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryStackSetOperation = (output, context) => {
-    const contents = {
-        OperationId: undefined,
-        StackSetId: undefined,
-        Action: undefined,
-        Status: undefined,
-        OperationPreferences: undefined,
-        RetainStacks: undefined,
-        AdministrationRoleARN: undefined,
-        ExecutionRoleName: undefined,
-        CreationTimestamp: undefined,
-        EndTimestamp: undefined,
-        DeploymentTargets: undefined,
-        StackSetDriftDetectionDetails: undefined,
-        StatusReason: undefined,
-        StatusDetails: undefined,
-    };
+    const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
@@ -16538,14 +15211,7 @@ const deserializeAws_queryStackSetOperation = (output, context) => {
     return contents;
 };
 const deserializeAws_queryStackSetOperationPreferences = (output, context) => {
-    const contents = {
-        RegionConcurrencyType: undefined,
-        RegionOrder: undefined,
-        FailureToleranceCount: undefined,
-        FailureTolerancePercentage: undefined,
-        MaxConcurrentCount: undefined,
-        MaxConcurrentPercentage: undefined,
-    };
+    const contents = {};
     if (output["RegionConcurrencyType"] !== undefined) {
         contents.RegionConcurrencyType = (0, smithy_client_1.expectString)(output["RegionConcurrencyType"]);
     }
@@ -16577,14 +15243,7 @@ const deserializeAws_queryStackSetOperationResultSummaries = (output, context) =
     });
 };
 const deserializeAws_queryStackSetOperationResultSummary = (output, context) => {
-    const contents = {
-        Account: undefined,
-        Region: undefined,
-        Status: undefined,
-        StatusReason: undefined,
-        AccountGateResult: undefined,
-        OrganizationalUnitId: undefined,
-    };
+    const contents = {};
     if (output["Account"] !== undefined) {
         contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
     }
@@ -16606,9 +15265,7 @@ const deserializeAws_queryStackSetOperationResultSummary = (output, context) => 
     return contents;
 };
 const deserializeAws_queryStackSetOperationStatusDetails = (output, context) => {
-    const contents = {
-        FailedStackInstancesCount: undefined,
-    };
+    const contents = {};
     if (output["FailedStackInstancesCount"] !== undefined) {
         contents.FailedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["FailedStackInstancesCount"]);
     }
@@ -16622,16 +15279,7 @@ const deserializeAws_queryStackSetOperationSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryStackSetOperationSummary = (output, context) => {
-    const contents = {
-        OperationId: undefined,
-        Action: undefined,
-        Status: undefined,
-        CreationTimestamp: undefined,
-        EndTimestamp: undefined,
-        StatusReason: undefined,
-        StatusDetails: undefined,
-        OperationPreferences: undefined,
-    };
+    const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
@@ -16666,17 +15314,7 @@ const deserializeAws_queryStackSetSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryStackSetSummary = (output, context) => {
-    const contents = {
-        StackSetName: undefined,
-        StackSetId: undefined,
-        Description: undefined,
-        Status: undefined,
-        AutoDeployment: undefined,
-        PermissionModel: undefined,
-        DriftStatus: undefined,
-        LastDriftCheckTimestamp: undefined,
-        ManagedExecution: undefined,
-    };
+    const contents = {};
     if (output["StackSetName"] !== undefined) {
         contents.StackSetName = (0, smithy_client_1.expectString)(output["StackSetName"]);
     }
@@ -16714,19 +15352,7 @@ const deserializeAws_queryStackSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryStackSummary = (output, context) => {
-    const contents = {
-        StackId: undefined,
-        StackName: undefined,
-        TemplateDescription: undefined,
-        CreationTime: undefined,
-        LastUpdatedTime: undefined,
-        DeletionTime: undefined,
-        StackStatus: undefined,
-        StackStatusReason: undefined,
-        ParentId: undefined,
-        RootId: undefined,
-        DriftInformation: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
@@ -16770,9 +15396,7 @@ const deserializeAws_queryStageList = (output, context) => {
     });
 };
 const deserializeAws_queryStaleRequestException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
@@ -16790,10 +15414,7 @@ const deserializeAws_querySupportedMajorVersions = (output, context) => {
     });
 };
 const deserializeAws_queryTag = (output, context) => {
-    const contents = {
-        Key: undefined,
-        Value: undefined,
-    };
+    const contents = {};
     if (output["Key"] !== undefined) {
         contents.Key = (0, smithy_client_1.expectString)(output["Key"]);
     }
@@ -16810,12 +15431,7 @@ const deserializeAws_queryTags = (output, context) => {
     });
 };
 const deserializeAws_queryTemplateParameter = (output, context) => {
-    const contents = {
-        ParameterKey: undefined,
-        DefaultValue: undefined,
-        NoEcho: undefined,
-        Description: undefined,
-    };
+    const contents = {};
     if (output["ParameterKey"] !== undefined) {
         contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
     }
@@ -16838,18 +15454,14 @@ const deserializeAws_queryTemplateParameters = (output, context) => {
     });
 };
 const deserializeAws_queryTestTypeOutput = (output, context) => {
-    const contents = {
-        TypeVersionArn: undefined,
-    };
+    const contents = {};
     if (output["TypeVersionArn"] !== undefined) {
         contents.TypeVersionArn = (0, smithy_client_1.expectString)(output["TypeVersionArn"]);
     }
     return contents;
 };
 const deserializeAws_queryTokenAlreadyExistsException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
@@ -16863,15 +15475,7 @@ const deserializeAws_queryTransformsList = (output, context) => {
     });
 };
 const deserializeAws_queryTypeConfigurationDetails = (output, context) => {
-    const contents = {
-        Arn: undefined,
-        Alias: undefined,
-        Configuration: undefined,
-        LastUpdated: undefined,
-        TypeArn: undefined,
-        TypeName: undefined,
-        IsDefaultConfiguration: undefined,
-    };
+    const contents = {};
     if (output["Arn"] !== undefined) {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
     }
@@ -16903,13 +15507,7 @@ const deserializeAws_queryTypeConfigurationDetailsList = (output, context) => {
     });
 };
 const deserializeAws_queryTypeConfigurationIdentifier = (output, context) => {
-    const contents = {
-        TypeArn: undefined,
-        TypeConfigurationAlias: undefined,
-        TypeConfigurationArn: undefined,
-        Type: undefined,
-        TypeName: undefined,
-    };
+    const contents = {};
     if (output["TypeArn"] !== undefined) {
         contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
     }
@@ -16928,18 +15526,14 @@ const deserializeAws_queryTypeConfigurationIdentifier = (output, context) => {
     return contents;
 };
 const deserializeAws_queryTypeConfigurationNotFoundException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
 const deserializeAws_queryTypeNotFoundException = (output, context) => {
-    const contents = {
-        Message: undefined,
-    };
+    const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
@@ -16953,21 +15547,7 @@ const deserializeAws_queryTypeSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryTypeSummary = (output, context) => {
-    const contents = {
-        Type: undefined,
-        TypeName: undefined,
-        DefaultVersionId: undefined,
-        TypeArn: undefined,
-        LastUpdated: undefined,
-        Description: undefined,
-        PublisherId: undefined,
-        OriginalTypeName: undefined,
-        PublicVersionNumber: undefined,
-        LatestPublicVersion: undefined,
-        PublisherIdentity: undefined,
-        PublisherName: undefined,
-        IsActivated: undefined,
-    };
+    const contents = {};
     if (output["Type"] !== undefined) {
         contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
     }
@@ -17017,16 +15597,7 @@ const deserializeAws_queryTypeVersionSummaries = (output, context) => {
     });
 };
 const deserializeAws_queryTypeVersionSummary = (output, context) => {
-    const contents = {
-        Type: undefined,
-        TypeName: undefined,
-        VersionId: undefined,
-        IsDefaultVersion: undefined,
-        Arn: undefined,
-        TimeCreated: undefined,
-        Description: undefined,
-        PublicVersionNumber: undefined,
-    };
+    const contents = {};
     if (output["Type"] !== undefined) {
         contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
     }
@@ -17061,49 +15632,35 @@ const deserializeAws_queryUnprocessedTypeConfigurations = (output, context) => {
     });
 };
 const deserializeAws_queryUpdateStackInstancesOutput = (output, context) => {
-    const contents = {
-        OperationId: undefined,
-    };
+    const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
 const deserializeAws_queryUpdateStackOutput = (output, context) => {
-    const contents = {
-        StackId: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
     return contents;
 };
 const deserializeAws_queryUpdateStackSetOutput = (output, context) => {
-    const contents = {
-        OperationId: undefined,
-    };
+    const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
 const deserializeAws_queryUpdateTerminationProtectionOutput = (output, context) => {
-    const contents = {
-        StackId: undefined,
-    };
+    const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
     return contents;
 };
 const deserializeAws_queryValidateTemplateOutput = (output, context) => {
-    const contents = {
-        Parameters: undefined,
-        Description: undefined,
-        Capabilities: undefined,
-        CapabilitiesReason: undefined,
-        DeclaredTransforms: undefined,
-    };
+    const contents = {};
     if (output.Parameters === "") {
         contents.Parameters = [];
     }
@@ -18166,7 +16723,6 @@ exports.CreateTokenCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(69374);
 const Aws_restJson1_1 = __nccwpck_require__(21518);
 class CreateTokenCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -18192,8 +16748,8 @@ class CreateTokenCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.CreateTokenRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.CreateTokenResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -18219,7 +16775,6 @@ exports.RegisterClientCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(69374);
 const Aws_restJson1_1 = __nccwpck_require__(21518);
 class RegisterClientCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -18245,8 +16800,8 @@ class RegisterClientCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.RegisterClientRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.RegisterClientResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -18272,7 +16827,6 @@ exports.StartDeviceAuthorizationCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(69374);
 const Aws_restJson1_1 = __nccwpck_require__(21518);
 class StartDeviceAuthorizationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -18298,8 +16852,8 @@ class StartDeviceAuthorizationCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.StartDeviceAuthorizationRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.StartDeviceAuthorizationResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -18432,7 +16986,7 @@ tslib_1.__exportStar(__nccwpck_require__(69374), exports);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.StartDeviceAuthorizationResponseFilterSensitiveLog = exports.StartDeviceAuthorizationRequestFilterSensitiveLog = exports.RegisterClientResponseFilterSensitiveLog = exports.RegisterClientRequestFilterSensitiveLog = exports.CreateTokenResponseFilterSensitiveLog = exports.CreateTokenRequestFilterSensitiveLog = exports.InvalidClientMetadataException = exports.UnsupportedGrantTypeException = exports.UnauthorizedClientException = exports.SlowDownException = exports.InvalidScopeException = exports.InvalidRequestException = exports.InvalidGrantException = exports.InvalidClientException = exports.InternalServerException = exports.ExpiredTokenException = exports.AuthorizationPendingException = exports.AccessDeniedException = void 0;
+exports.InvalidClientMetadataException = exports.UnsupportedGrantTypeException = exports.UnauthorizedClientException = exports.SlowDownException = exports.InvalidScopeException = exports.InvalidRequestException = exports.InvalidGrantException = exports.InvalidClientException = exports.InternalServerException = exports.ExpiredTokenException = exports.AuthorizationPendingException = exports.AccessDeniedException = void 0;
 const SSOOIDCServiceException_1 = __nccwpck_require__(43026);
 class AccessDeniedException extends SSOOIDCServiceException_1.SSOOIDCServiceException {
     constructor(opts) {
@@ -18614,30 +17168,6 @@ class InvalidClientMetadataException extends SSOOIDCServiceException_1.SSOOIDCSe
     }
 }
 exports.InvalidClientMetadataException = InvalidClientMetadataException;
-const CreateTokenRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateTokenRequestFilterSensitiveLog = CreateTokenRequestFilterSensitiveLog;
-const CreateTokenResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CreateTokenResponseFilterSensitiveLog = CreateTokenResponseFilterSensitiveLog;
-const RegisterClientRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RegisterClientRequestFilterSensitiveLog = RegisterClientRequestFilterSensitiveLog;
-const RegisterClientResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RegisterClientResponseFilterSensitiveLog = RegisterClientResponseFilterSensitiveLog;
-const StartDeviceAuthorizationRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StartDeviceAuthorizationRequestFilterSensitiveLog = StartDeviceAuthorizationRequestFilterSensitiveLog;
-const StartDeviceAuthorizationResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.StartDeviceAuthorizationResponseFilterSensitiveLog = StartDeviceAuthorizationResponseFilterSensitiveLog;
 
 
 /***/ }),
@@ -19458,7 +17988,7 @@ class ListAccountRolesCommand extends smithy_client_1.Command {
             clientName,
             commandName,
             inputFilterSensitiveLog: models_0_1.ListAccountRolesRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListAccountRolesResponseFilterSensitiveLog,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -19511,7 +18041,7 @@ class ListAccountsCommand extends smithy_client_1.Command {
             clientName,
             commandName,
             inputFilterSensitiveLog: models_0_1.ListAccountsRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.ListAccountsResponseFilterSensitiveLog,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -19564,7 +18094,7 @@ class LogoutCommand extends smithy_client_1.Command {
             clientName,
             commandName,
             inputFilterSensitiveLog: models_0_1.LogoutRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: (output) => output,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -19699,7 +18229,7 @@ tslib_1.__exportStar(__nccwpck_require__(66390), exports);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.LogoutRequestFilterSensitiveLog = exports.ListAccountsResponseFilterSensitiveLog = exports.ListAccountsRequestFilterSensitiveLog = exports.ListAccountRolesResponseFilterSensitiveLog = exports.RoleInfoFilterSensitiveLog = exports.ListAccountRolesRequestFilterSensitiveLog = exports.GetRoleCredentialsResponseFilterSensitiveLog = exports.RoleCredentialsFilterSensitiveLog = exports.GetRoleCredentialsRequestFilterSensitiveLog = exports.AccountInfoFilterSensitiveLog = exports.UnauthorizedException = exports.TooManyRequestsException = exports.ResourceNotFoundException = exports.InvalidRequestException = void 0;
+exports.LogoutRequestFilterSensitiveLog = exports.ListAccountsRequestFilterSensitiveLog = exports.ListAccountRolesRequestFilterSensitiveLog = exports.GetRoleCredentialsResponseFilterSensitiveLog = exports.RoleCredentialsFilterSensitiveLog = exports.GetRoleCredentialsRequestFilterSensitiveLog = exports.UnauthorizedException = exports.TooManyRequestsException = exports.ResourceNotFoundException = exports.InvalidRequestException = void 0;
 const smithy_client_1 = __nccwpck_require__(4963);
 const SSOServiceException_1 = __nccwpck_require__(81517);
 class InvalidRequestException extends SSOServiceException_1.SSOServiceException {
@@ -19754,10 +18284,6 @@ class UnauthorizedException extends SSOServiceException_1.SSOServiceException {
     }
 }
 exports.UnauthorizedException = UnauthorizedException;
-const AccountInfoFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AccountInfoFilterSensitiveLog = AccountInfoFilterSensitiveLog;
 const GetRoleCredentialsRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.accessToken && { accessToken: smithy_client_1.SENSITIVE_STRING }),
@@ -19779,23 +18305,11 @@ const ListAccountRolesRequestFilterSensitiveLog = (obj) => ({
     ...(obj.accessToken && { accessToken: smithy_client_1.SENSITIVE_STRING }),
 });
 exports.ListAccountRolesRequestFilterSensitiveLog = ListAccountRolesRequestFilterSensitiveLog;
-const RoleInfoFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.RoleInfoFilterSensitiveLog = RoleInfoFilterSensitiveLog;
-const ListAccountRolesResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListAccountRolesResponseFilterSensitiveLog = ListAccountRolesResponseFilterSensitiveLog;
 const ListAccountsRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.accessToken && { accessToken: smithy_client_1.SENSITIVE_STRING }),
 });
 exports.ListAccountsRequestFilterSensitiveLog = ListAccountsRequestFilterSensitiveLog;
-const ListAccountsResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.ListAccountsResponseFilterSensitiveLog = ListAccountsResponseFilterSensitiveLog;
 const LogoutRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.accessToken && { accessToken: smithy_client_1.SENSITIVE_STRING }),
@@ -20593,7 +19107,6 @@ const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const middleware_signing_1 = __nccwpck_require__(14935);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
 class AssumeRoleCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -20621,8 +19134,8 @@ class AssumeRoleCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.AssumeRoleRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.AssumeRoleResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -20648,7 +19161,6 @@ exports.AssumeRoleWithSAMLCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
 class AssumeRoleWithSAMLCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -20675,8 +19187,8 @@ class AssumeRoleWithSAMLCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.AssumeRoleWithSAMLRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.AssumeRoleWithSAMLResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -20702,7 +19214,6 @@ exports.AssumeRoleWithWebIdentityCommand = void 0;
 const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
 class AssumeRoleWithWebIdentityCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -20729,8 +19240,8 @@ class AssumeRoleWithWebIdentityCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -20757,7 +19268,6 @@ const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const middleware_signing_1 = __nccwpck_require__(14935);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
 class DecodeAuthorizationMessageCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -20785,8 +19295,8 @@ class DecodeAuthorizationMessageCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.DecodeAuthorizationMessageRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.DecodeAuthorizationMessageResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -20813,7 +19323,6 @@ const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const middleware_signing_1 = __nccwpck_require__(14935);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
 class GetAccessKeyInfoCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -20841,8 +19350,8 @@ class GetAccessKeyInfoCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.GetAccessKeyInfoRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.GetAccessKeyInfoResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -20869,7 +19378,6 @@ const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const middleware_signing_1 = __nccwpck_require__(14935);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
 class GetCallerIdentityCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -20897,8 +19405,8 @@ class GetCallerIdentityCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.GetCallerIdentityRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.GetCallerIdentityResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -20925,7 +19433,6 @@ const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const middleware_signing_1 = __nccwpck_require__(14935);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
 class GetFederationTokenCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -20953,8 +19460,8 @@ class GetFederationTokenCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.GetFederationTokenRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.GetFederationTokenResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -20981,7 +19488,6 @@ const middleware_endpoint_1 = __nccwpck_require__(5497);
 const middleware_serde_1 = __nccwpck_require__(93631);
 const middleware_signing_1 = __nccwpck_require__(14935);
 const smithy_client_1 = __nccwpck_require__(4963);
-const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
 class GetSessionTokenCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
@@ -21009,8 +19515,8 @@ class GetSessionTokenCommand extends smithy_client_1.Command {
             logger,
             clientName,
             commandName,
-            inputFilterSensitiveLog: models_0_1.GetSessionTokenRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.GetSessionTokenResponseFilterSensitiveLog,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
         };
         const { requestHandler } = configuration;
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
@@ -21268,7 +19774,7 @@ tslib_1.__exportStar(__nccwpck_require__(21780), exports);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.GetSessionTokenResponseFilterSensitiveLog = exports.GetSessionTokenRequestFilterSensitiveLog = exports.GetFederationTokenResponseFilterSensitiveLog = exports.FederatedUserFilterSensitiveLog = exports.GetFederationTokenRequestFilterSensitiveLog = exports.GetCallerIdentityResponseFilterSensitiveLog = exports.GetCallerIdentityRequestFilterSensitiveLog = exports.GetAccessKeyInfoResponseFilterSensitiveLog = exports.GetAccessKeyInfoRequestFilterSensitiveLog = exports.DecodeAuthorizationMessageResponseFilterSensitiveLog = exports.DecodeAuthorizationMessageRequestFilterSensitiveLog = exports.AssumeRoleWithWebIdentityResponseFilterSensitiveLog = exports.AssumeRoleWithWebIdentityRequestFilterSensitiveLog = exports.AssumeRoleWithSAMLResponseFilterSensitiveLog = exports.AssumeRoleWithSAMLRequestFilterSensitiveLog = exports.AssumeRoleResponseFilterSensitiveLog = exports.CredentialsFilterSensitiveLog = exports.AssumeRoleRequestFilterSensitiveLog = exports.TagFilterSensitiveLog = exports.PolicyDescriptorTypeFilterSensitiveLog = exports.AssumedRoleUserFilterSensitiveLog = exports.InvalidAuthorizationMessageException = exports.IDPCommunicationErrorException = exports.InvalidIdentityTokenException = exports.IDPRejectedClaimException = exports.RegionDisabledException = exports.PackedPolicyTooLargeException = exports.MalformedPolicyDocumentException = exports.ExpiredTokenException = void 0;
+exports.InvalidAuthorizationMessageException = exports.IDPCommunicationErrorException = exports.InvalidIdentityTokenException = exports.IDPRejectedClaimException = exports.RegionDisabledException = exports.PackedPolicyTooLargeException = exports.MalformedPolicyDocumentException = exports.ExpiredTokenException = void 0;
 const STSServiceException_1 = __nccwpck_require__(26450);
 class ExpiredTokenException extends STSServiceException_1.STSServiceException {
     constructor(opts) {
@@ -21374,90 +19880,6 @@ class InvalidAuthorizationMessageException extends STSServiceException_1.STSServ
     }
 }
 exports.InvalidAuthorizationMessageException = InvalidAuthorizationMessageException;
-const AssumedRoleUserFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AssumedRoleUserFilterSensitiveLog = AssumedRoleUserFilterSensitiveLog;
-const PolicyDescriptorTypeFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.PolicyDescriptorTypeFilterSensitiveLog = PolicyDescriptorTypeFilterSensitiveLog;
-const TagFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.TagFilterSensitiveLog = TagFilterSensitiveLog;
-const AssumeRoleRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AssumeRoleRequestFilterSensitiveLog = AssumeRoleRequestFilterSensitiveLog;
-const CredentialsFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.CredentialsFilterSensitiveLog = CredentialsFilterSensitiveLog;
-const AssumeRoleResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AssumeRoleResponseFilterSensitiveLog = AssumeRoleResponseFilterSensitiveLog;
-const AssumeRoleWithSAMLRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AssumeRoleWithSAMLRequestFilterSensitiveLog = AssumeRoleWithSAMLRequestFilterSensitiveLog;
-const AssumeRoleWithSAMLResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AssumeRoleWithSAMLResponseFilterSensitiveLog = AssumeRoleWithSAMLResponseFilterSensitiveLog;
-const AssumeRoleWithWebIdentityRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AssumeRoleWithWebIdentityRequestFilterSensitiveLog = AssumeRoleWithWebIdentityRequestFilterSensitiveLog;
-const AssumeRoleWithWebIdentityResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.AssumeRoleWithWebIdentityResponseFilterSensitiveLog = AssumeRoleWithWebIdentityResponseFilterSensitiveLog;
-const DecodeAuthorizationMessageRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DecodeAuthorizationMessageRequestFilterSensitiveLog = DecodeAuthorizationMessageRequestFilterSensitiveLog;
-const DecodeAuthorizationMessageResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.DecodeAuthorizationMessageResponseFilterSensitiveLog = DecodeAuthorizationMessageResponseFilterSensitiveLog;
-const GetAccessKeyInfoRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetAccessKeyInfoRequestFilterSensitiveLog = GetAccessKeyInfoRequestFilterSensitiveLog;
-const GetAccessKeyInfoResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetAccessKeyInfoResponseFilterSensitiveLog = GetAccessKeyInfoResponseFilterSensitiveLog;
-const GetCallerIdentityRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetCallerIdentityRequestFilterSensitiveLog = GetCallerIdentityRequestFilterSensitiveLog;
-const GetCallerIdentityResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetCallerIdentityResponseFilterSensitiveLog = GetCallerIdentityResponseFilterSensitiveLog;
-const GetFederationTokenRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetFederationTokenRequestFilterSensitiveLog = GetFederationTokenRequestFilterSensitiveLog;
-const FederatedUserFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.FederatedUserFilterSensitiveLog = FederatedUserFilterSensitiveLog;
-const GetFederationTokenResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetFederationTokenResponseFilterSensitiveLog = GetFederationTokenResponseFilterSensitiveLog;
-const GetSessionTokenRequestFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetSessionTokenRequestFilterSensitiveLog = GetSessionTokenRequestFilterSensitiveLog;
-const GetSessionTokenResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-});
-exports.GetSessionTokenResponseFilterSensitiveLog = GetSessionTokenResponseFilterSensitiveLog;
 
 
 /***/ }),
@@ -22200,10 +20622,7 @@ const serializeAws_querytagListType = (input, context) => {
     return entries;
 };
 const deserializeAws_queryAssumedRoleUser = (output, context) => {
-    const contents = {
-        AssumedRoleId: undefined,
-        Arn: undefined,
-    };
+    const contents = {};
     if (output["AssumedRoleId"] !== undefined) {
         contents.AssumedRoleId = (0, smithy_client_1.expectString)(output["AssumedRoleId"]);
     }
@@ -22213,12 +20632,7 @@ const deserializeAws_queryAssumedRoleUser = (output, context) => {
     return contents;
 };
 const deserializeAws_queryAssumeRoleResponse = (output, context) => {
-    const contents = {
-        Credentials: undefined,
-        AssumedRoleUser: undefined,
-        PackedPolicySize: undefined,
-        SourceIdentity: undefined,
-    };
+    const contents = {};
     if (output["Credentials"] !== undefined) {
         contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
     }
@@ -22234,17 +20648,7 @@ const deserializeAws_queryAssumeRoleResponse = (output, context) => {
     return contents;
 };
 const deserializeAws_queryAssumeRoleWithSAMLResponse = (output, context) => {
-    const contents = {
-        Credentials: undefined,
-        AssumedRoleUser: undefined,
-        PackedPolicySize: undefined,
-        Subject: undefined,
-        SubjectType: undefined,
-        Issuer: undefined,
-        Audience: undefined,
-        NameQualifier: undefined,
-        SourceIdentity: undefined,
-    };
+    const contents = {};
     if (output["Credentials"] !== undefined) {
         contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
     }
@@ -22275,15 +20679,7 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (output, context) => {
     return contents;
 };
 const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (output, context) => {
-    const contents = {
-        Credentials: undefined,
-        SubjectFromWebIdentityToken: undefined,
-        AssumedRoleUser: undefined,
-        PackedPolicySize: undefined,
-        Provider: undefined,
-        Audience: undefined,
-        SourceIdentity: undefined,
-    };
+    const contents = {};
     if (output["Credentials"] !== undefined) {
         contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
     }
@@ -22308,12 +20704,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (output, context) 
     return contents;
 };
 const deserializeAws_queryCredentials = (output, context) => {
-    const contents = {
-        AccessKeyId: undefined,
-        SecretAccessKey: undefined,
-        SessionToken: undefined,
-        Expiration: undefined,
-    };
+    const contents = {};
     if (output["AccessKeyId"] !== undefined) {
         contents.AccessKeyId = (0, smithy_client_1.expectString)(output["AccessKeyId"]);
     }
@@ -22329,28 +20720,21 @@ const deserializeAws_queryCredentials = (output, context) => {
     return contents;
 };
 const deserializeAws_queryDecodeAuthorizationMessageResponse = (output, context) => {
-    const contents = {
-        DecodedMessage: undefined,
-    };
+    const contents = {};
     if (output["DecodedMessage"] !== undefined) {
         contents.DecodedMessage = (0, smithy_client_1.expectString)(output["DecodedMessage"]);
     }
     return contents;
 };
 const deserializeAws_queryExpiredTokenException = (output, context) => {
-    const contents = {
-        message: undefined,
-    };
+    const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
 const deserializeAws_queryFederatedUser = (output, context) => {
-    const contents = {
-        FederatedUserId: undefined,
-        Arn: undefined,
-    };
+    const contents = {};
     if (output["FederatedUserId"] !== undefined) {
         contents.FederatedUserId = (0, smithy_client_1.expectString)(output["FederatedUserId"]);
     }
@@ -22360,20 +20744,14 @@ const deserializeAws_queryFederatedUser = (output, context) => {
     return contents;
 };
 const deserializeAws_queryGetAccessKeyInfoResponse = (output, context) => {
-    const contents = {
-        Account: undefined,
-    };
+    const contents = {};
     if (output["Account"] !== undefined) {
         contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
     }
     return contents;
 };
 const deserializeAws_queryGetCallerIdentityResponse = (output, context) => {
-    const contents = {
-        UserId: undefined,
-        Account: undefined,
-        Arn: undefined,
-    };
+    const contents = {};
     if (output["UserId"] !== undefined) {
         contents.UserId = (0, smithy_client_1.expectString)(output["UserId"]);
     }
@@ -22386,11 +20764,7 @@ const deserializeAws_queryGetCallerIdentityResponse = (output, context) => {
     return contents;
 };
 const deserializeAws_queryGetFederationTokenResponse = (output, context) => {
-    const contents = {
-        Credentials: undefined,
-        FederatedUser: undefined,
-        PackedPolicySize: undefined,
-    };
+    const contents = {};
     if (output["Credentials"] !== undefined) {
         contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
     }
@@ -22403,72 +20777,56 @@ const deserializeAws_queryGetFederationTokenResponse = (output, context) => {
     return contents;
 };
 const deserializeAws_queryGetSessionTokenResponse = (output, context) => {
-    const contents = {
-        Credentials: undefined,
-    };
+    const contents = {};
     if (output["Credentials"] !== undefined) {
         contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
     }
     return contents;
 };
 const deserializeAws_queryIDPCommunicationErrorException = (output, context) => {
-    const contents = {
-        message: undefined,
-    };
+    const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
 const deserializeAws_queryIDPRejectedClaimException = (output, context) => {
-    const contents = {
-        message: undefined,
-    };
+    const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
 const deserializeAws_queryInvalidAuthorizationMessageException = (output, context) => {
-    const contents = {
-        message: undefined,
-    };
+    const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
 const deserializeAws_queryInvalidIdentityTokenException = (output, context) => {
-    const contents = {
-        message: undefined,
-    };
+    const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
 const deserializeAws_queryMalformedPolicyDocumentException = (output, context) => {
-    const contents = {
-        message: undefined,
-    };
+    const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
 const deserializeAws_queryPackedPolicyTooLargeException = (output, context) => {
-    const contents = {
-        message: undefined,
-    };
+    const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
 const deserializeAws_queryRegionDisabledException = (output, context) => {
-    const contents = {
-        message: undefined,
-    };
+    const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
@@ -34917,28 +33275,28 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 43713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.296.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.296.0","@aws-sdk/config-resolver":"3.296.0","@aws-sdk/credential-provider-node":"3.296.0","@aws-sdk/fetch-http-handler":"3.296.0","@aws-sdk/hash-node":"3.296.0","@aws-sdk/invalid-dependency":"3.296.0","@aws-sdk/middleware-content-length":"3.296.0","@aws-sdk/middleware-endpoint":"3.296.0","@aws-sdk/middleware-host-header":"3.296.0","@aws-sdk/middleware-logger":"3.296.0","@aws-sdk/middleware-recursion-detection":"3.296.0","@aws-sdk/middleware-retry":"3.296.0","@aws-sdk/middleware-serde":"3.296.0","@aws-sdk/middleware-signing":"3.296.0","@aws-sdk/middleware-stack":"3.296.0","@aws-sdk/middleware-user-agent":"3.296.0","@aws-sdk/node-config-provider":"3.296.0","@aws-sdk/node-http-handler":"3.296.0","@aws-sdk/protocol-http":"3.296.0","@aws-sdk/smithy-client":"3.296.0","@aws-sdk/types":"3.296.0","@aws-sdk/url-parser":"3.296.0","@aws-sdk/util-base64":"3.295.0","@aws-sdk/util-body-length-browser":"3.295.0","@aws-sdk/util-body-length-node":"3.295.0","@aws-sdk/util-defaults-mode-browser":"3.296.0","@aws-sdk/util-defaults-mode-node":"3.296.0","@aws-sdk/util-endpoints":"3.296.0","@aws-sdk/util-retry":"3.296.0","@aws-sdk/util-user-agent-browser":"3.296.0","@aws-sdk/util-user-agent-node":"3.296.0","@aws-sdk/util-utf8":"3.295.0","@aws-sdk/util-waiter":"3.296.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.295.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.298.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.298.0","@aws-sdk/config-resolver":"3.296.0","@aws-sdk/credential-provider-node":"3.298.0","@aws-sdk/fetch-http-handler":"3.296.0","@aws-sdk/hash-node":"3.296.0","@aws-sdk/invalid-dependency":"3.296.0","@aws-sdk/middleware-content-length":"3.296.0","@aws-sdk/middleware-endpoint":"3.296.0","@aws-sdk/middleware-host-header":"3.296.0","@aws-sdk/middleware-logger":"3.296.0","@aws-sdk/middleware-recursion-detection":"3.296.0","@aws-sdk/middleware-retry":"3.296.0","@aws-sdk/middleware-serde":"3.296.0","@aws-sdk/middleware-signing":"3.296.0","@aws-sdk/middleware-stack":"3.296.0","@aws-sdk/middleware-user-agent":"3.296.0","@aws-sdk/node-config-provider":"3.296.0","@aws-sdk/node-http-handler":"3.296.0","@aws-sdk/protocol-http":"3.296.0","@aws-sdk/smithy-client":"3.296.0","@aws-sdk/types":"3.296.0","@aws-sdk/url-parser":"3.296.0","@aws-sdk/util-base64":"3.295.0","@aws-sdk/util-body-length-browser":"3.295.0","@aws-sdk/util-body-length-node":"3.295.0","@aws-sdk/util-defaults-mode-browser":"3.296.0","@aws-sdk/util-defaults-mode-node":"3.296.0","@aws-sdk/util-endpoints":"3.296.0","@aws-sdk/util-retry":"3.296.0","@aws-sdk/util-user-agent-browser":"3.296.0","@aws-sdk/util-user-agent-node":"3.296.0","@aws-sdk/util-utf8":"3.295.0","@aws-sdk/util-waiter":"3.296.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.295.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 69722:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.296.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.296.0","@aws-sdk/fetch-http-handler":"3.296.0","@aws-sdk/hash-node":"3.296.0","@aws-sdk/invalid-dependency":"3.296.0","@aws-sdk/middleware-content-length":"3.296.0","@aws-sdk/middleware-endpoint":"3.296.0","@aws-sdk/middleware-host-header":"3.296.0","@aws-sdk/middleware-logger":"3.296.0","@aws-sdk/middleware-recursion-detection":"3.296.0","@aws-sdk/middleware-retry":"3.296.0","@aws-sdk/middleware-serde":"3.296.0","@aws-sdk/middleware-stack":"3.296.0","@aws-sdk/middleware-user-agent":"3.296.0","@aws-sdk/node-config-provider":"3.296.0","@aws-sdk/node-http-handler":"3.296.0","@aws-sdk/protocol-http":"3.296.0","@aws-sdk/smithy-client":"3.296.0","@aws-sdk/types":"3.296.0","@aws-sdk/url-parser":"3.296.0","@aws-sdk/util-base64":"3.295.0","@aws-sdk/util-body-length-browser":"3.295.0","@aws-sdk/util-body-length-node":"3.295.0","@aws-sdk/util-defaults-mode-browser":"3.296.0","@aws-sdk/util-defaults-mode-node":"3.296.0","@aws-sdk/util-endpoints":"3.296.0","@aws-sdk/util-retry":"3.296.0","@aws-sdk/util-user-agent-browser":"3.296.0","@aws-sdk/util-user-agent-node":"3.296.0","@aws-sdk/util-utf8":"3.295.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.295.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.298.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.296.0","@aws-sdk/fetch-http-handler":"3.296.0","@aws-sdk/hash-node":"3.296.0","@aws-sdk/invalid-dependency":"3.296.0","@aws-sdk/middleware-content-length":"3.296.0","@aws-sdk/middleware-endpoint":"3.296.0","@aws-sdk/middleware-host-header":"3.296.0","@aws-sdk/middleware-logger":"3.296.0","@aws-sdk/middleware-recursion-detection":"3.296.0","@aws-sdk/middleware-retry":"3.296.0","@aws-sdk/middleware-serde":"3.296.0","@aws-sdk/middleware-stack":"3.296.0","@aws-sdk/middleware-user-agent":"3.296.0","@aws-sdk/node-config-provider":"3.296.0","@aws-sdk/node-http-handler":"3.296.0","@aws-sdk/protocol-http":"3.296.0","@aws-sdk/smithy-client":"3.296.0","@aws-sdk/types":"3.296.0","@aws-sdk/url-parser":"3.296.0","@aws-sdk/util-base64":"3.295.0","@aws-sdk/util-body-length-browser":"3.295.0","@aws-sdk/util-body-length-node":"3.295.0","@aws-sdk/util-defaults-mode-browser":"3.296.0","@aws-sdk/util-defaults-mode-node":"3.296.0","@aws-sdk/util-endpoints":"3.296.0","@aws-sdk/util-retry":"3.296.0","@aws-sdk/util-user-agent-browser":"3.296.0","@aws-sdk/util-user-agent-node":"3.296.0","@aws-sdk/util-utf8":"3.295.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.295.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
 /***/ 91092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.296.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.296.0","@aws-sdk/fetch-http-handler":"3.296.0","@aws-sdk/hash-node":"3.296.0","@aws-sdk/invalid-dependency":"3.296.0","@aws-sdk/middleware-content-length":"3.296.0","@aws-sdk/middleware-endpoint":"3.296.0","@aws-sdk/middleware-host-header":"3.296.0","@aws-sdk/middleware-logger":"3.296.0","@aws-sdk/middleware-recursion-detection":"3.296.0","@aws-sdk/middleware-retry":"3.296.0","@aws-sdk/middleware-serde":"3.296.0","@aws-sdk/middleware-stack":"3.296.0","@aws-sdk/middleware-user-agent":"3.296.0","@aws-sdk/node-config-provider":"3.296.0","@aws-sdk/node-http-handler":"3.296.0","@aws-sdk/protocol-http":"3.296.0","@aws-sdk/smithy-client":"3.296.0","@aws-sdk/types":"3.296.0","@aws-sdk/url-parser":"3.296.0","@aws-sdk/util-base64":"3.295.0","@aws-sdk/util-body-length-browser":"3.295.0","@aws-sdk/util-body-length-node":"3.295.0","@aws-sdk/util-defaults-mode-browser":"3.296.0","@aws-sdk/util-defaults-mode-node":"3.296.0","@aws-sdk/util-endpoints":"3.296.0","@aws-sdk/util-retry":"3.296.0","@aws-sdk/util-user-agent-browser":"3.296.0","@aws-sdk/util-user-agent-node":"3.296.0","@aws-sdk/util-utf8":"3.295.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.295.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.298.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.296.0","@aws-sdk/fetch-http-handler":"3.296.0","@aws-sdk/hash-node":"3.296.0","@aws-sdk/invalid-dependency":"3.296.0","@aws-sdk/middleware-content-length":"3.296.0","@aws-sdk/middleware-endpoint":"3.296.0","@aws-sdk/middleware-host-header":"3.296.0","@aws-sdk/middleware-logger":"3.296.0","@aws-sdk/middleware-recursion-detection":"3.296.0","@aws-sdk/middleware-retry":"3.296.0","@aws-sdk/middleware-serde":"3.296.0","@aws-sdk/middleware-stack":"3.296.0","@aws-sdk/middleware-user-agent":"3.296.0","@aws-sdk/node-config-provider":"3.296.0","@aws-sdk/node-http-handler":"3.296.0","@aws-sdk/protocol-http":"3.296.0","@aws-sdk/smithy-client":"3.296.0","@aws-sdk/types":"3.296.0","@aws-sdk/url-parser":"3.296.0","@aws-sdk/util-base64":"3.295.0","@aws-sdk/util-body-length-browser":"3.295.0","@aws-sdk/util-body-length-node":"3.295.0","@aws-sdk/util-defaults-mode-browser":"3.296.0","@aws-sdk/util-defaults-mode-node":"3.296.0","@aws-sdk/util-endpoints":"3.296.0","@aws-sdk/util-retry":"3.296.0","@aws-sdk/util-user-agent-browser":"3.296.0","@aws-sdk/util-user-agent-node":"3.296.0","@aws-sdk/util-utf8":"3.295.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.295.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.296.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.296.0","@aws-sdk/credential-provider-node":"3.296.0","@aws-sdk/fetch-http-handler":"3.296.0","@aws-sdk/hash-node":"3.296.0","@aws-sdk/invalid-dependency":"3.296.0","@aws-sdk/middleware-content-length":"3.296.0","@aws-sdk/middleware-endpoint":"3.296.0","@aws-sdk/middleware-host-header":"3.296.0","@aws-sdk/middleware-logger":"3.296.0","@aws-sdk/middleware-recursion-detection":"3.296.0","@aws-sdk/middleware-retry":"3.296.0","@aws-sdk/middleware-sdk-sts":"3.296.0","@aws-sdk/middleware-serde":"3.296.0","@aws-sdk/middleware-signing":"3.296.0","@aws-sdk/middleware-stack":"3.296.0","@aws-sdk/middleware-user-agent":"3.296.0","@aws-sdk/node-config-provider":"3.296.0","@aws-sdk/node-http-handler":"3.296.0","@aws-sdk/protocol-http":"3.296.0","@aws-sdk/smithy-client":"3.296.0","@aws-sdk/types":"3.296.0","@aws-sdk/url-parser":"3.296.0","@aws-sdk/util-base64":"3.295.0","@aws-sdk/util-body-length-browser":"3.295.0","@aws-sdk/util-body-length-node":"3.295.0","@aws-sdk/util-defaults-mode-browser":"3.296.0","@aws-sdk/util-defaults-mode-node":"3.296.0","@aws-sdk/util-endpoints":"3.296.0","@aws-sdk/util-retry":"3.296.0","@aws-sdk/util-user-agent-browser":"3.296.0","@aws-sdk/util-user-agent-node":"3.296.0","@aws-sdk/util-utf8":"3.295.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.295.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.298.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.296.0","@aws-sdk/credential-provider-node":"3.298.0","@aws-sdk/fetch-http-handler":"3.296.0","@aws-sdk/hash-node":"3.296.0","@aws-sdk/invalid-dependency":"3.296.0","@aws-sdk/middleware-content-length":"3.296.0","@aws-sdk/middleware-endpoint":"3.296.0","@aws-sdk/middleware-host-header":"3.296.0","@aws-sdk/middleware-logger":"3.296.0","@aws-sdk/middleware-recursion-detection":"3.296.0","@aws-sdk/middleware-retry":"3.296.0","@aws-sdk/middleware-sdk-sts":"3.296.0","@aws-sdk/middleware-serde":"3.296.0","@aws-sdk/middleware-signing":"3.296.0","@aws-sdk/middleware-stack":"3.296.0","@aws-sdk/middleware-user-agent":"3.296.0","@aws-sdk/node-config-provider":"3.296.0","@aws-sdk/node-http-handler":"3.296.0","@aws-sdk/protocol-http":"3.296.0","@aws-sdk/smithy-client":"3.296.0","@aws-sdk/types":"3.296.0","@aws-sdk/url-parser":"3.296.0","@aws-sdk/util-base64":"3.295.0","@aws-sdk/util-body-length-browser":"3.295.0","@aws-sdk/util-body-length-node":"3.295.0","@aws-sdk/util-defaults-mode-browser":"3.296.0","@aws-sdk/util-defaults-mode-node":"3.296.0","@aws-sdk/util-endpoints":"3.296.0","@aws-sdk/util-retry":"3.296.0","@aws-sdk/util-user-agent-browser":"3.296.0","@aws-sdk/util-user-agent-node":"3.296.0","@aws-sdk/util-utf8":"3.295.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.295.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
