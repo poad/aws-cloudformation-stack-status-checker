@@ -80,9 +80,9 @@
     tslib "^2.5.0"
 
 "@aws-sdk/client-cloudformation@*":
-  version "3.306.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudformation/-/client-cloudformation-3.306.0.tgz#a49a61aecb4ec25ef0972410fe5b043dbc698122"
-  integrity sha512-cyYKSjMV6aSxeBYlJriiazop8kYSpVF6cqNmQvoGLiUySfETMDMAnhmsqIbTfLirpYkvvsms6/75Ulj1deCsAg==
+  version "3.308.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudformation/-/client-cloudformation-3.308.0.tgz#b59bb390965b33952d997f6931091eb8023c57d3"
+  integrity sha512-8NXdyfQBDVOSj/Pt8yq6FW19ASLrgB/vw/1TAaXCNNOKMeUAGplyU0kVhncGv4xPJhSp/4KBQCQ43l8/gPry/g==
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
@@ -2047,9 +2047,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 electron-to-chromium@^1.4.284:
-  version "1.4.352"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.352.tgz#be96bd7c2f4b980deebc9338a49a67430a33ed73"
-  integrity sha512-ikFUEyu5/q+wJpMOxWxTaEVk2M1qKqTGKKyfJmod1CPZxKfYnxVS41/GCBQg21ItBpZybyN8sNpRqCUGm+Zc4Q==
+  version "1.4.355"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.355.tgz#539484310e5a94133bc3df8ba4b6a9dde7a506a4"
+  integrity sha512-056hxzEE4l667YeOccgjhRr5fTiwZ6EIJ4FpzGps4k3YcS8iAhiaBYUBrv5E2LDQJsussscv9EEUwAYKnv+ZKg==
 
 emittery@^0.13.1:
   version "0.13.1"
@@ -2844,7 +2844,7 @@ is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.7:
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.7.tgz#3bc2a85ea742d9e36205dcacdd72ca1fdc51b055"
   integrity sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==
 
-is-core-module@^2.11.0, is-core-module@^2.9.0:
+is-core-module@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.11.0.tgz#ad4cb3e3863e814523c96f3f58d26cc570ff0144"
   integrity sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==
@@ -3911,11 +3911,11 @@ resolve.exports@^2.0.0:
   integrity sha512-X2UW6Nw3n/aMgDVy+0rSqgHlv39WZAlZrXCdnbyEiKm17DSqHX4MmQMaST3FbeWR5FTuRcUwYAziZajji0Y7mg==
 
 resolve@^1.20.0, resolve@^1.22.1:
-  version "1.22.1"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.1.tgz#27cb2ebb53f91abb49470a928bba7558066ac177"
-  integrity sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==
+  version "1.22.2"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.2.tgz#0ed0943d4e301867955766c9f3e1ae6d01c6845f"
+  integrity sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==
   dependencies:
-    is-core-module "^2.9.0"
+    is-core-module "^2.11.0"
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
