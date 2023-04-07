@@ -2859,10 +2859,10 @@ class ActivateTypeCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryActivateTypeCommand)(input, context);
+        return (0, Aws_query_1.se_ActivateTypeCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryActivateTypeCommand)(output, context);
+        return (0, Aws_query_1.de_ActivateTypeCommand)(output, context);
     }
 }
 exports.ActivateTypeCommand = ActivateTypeCommand;
@@ -2911,10 +2911,10 @@ class BatchDescribeTypeConfigurationsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryBatchDescribeTypeConfigurationsCommand)(input, context);
+        return (0, Aws_query_1.se_BatchDescribeTypeConfigurationsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryBatchDescribeTypeConfigurationsCommand)(output, context);
+        return (0, Aws_query_1.de_BatchDescribeTypeConfigurationsCommand)(output, context);
     }
 }
 exports.BatchDescribeTypeConfigurationsCommand = BatchDescribeTypeConfigurationsCommand;
@@ -2963,10 +2963,10 @@ class CancelUpdateStackCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryCancelUpdateStackCommand)(input, context);
+        return (0, Aws_query_1.se_CancelUpdateStackCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryCancelUpdateStackCommand)(output, context);
+        return (0, Aws_query_1.de_CancelUpdateStackCommand)(output, context);
     }
 }
 exports.CancelUpdateStackCommand = CancelUpdateStackCommand;
@@ -3015,10 +3015,10 @@ class ContinueUpdateRollbackCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryContinueUpdateRollbackCommand)(input, context);
+        return (0, Aws_query_1.se_ContinueUpdateRollbackCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryContinueUpdateRollbackCommand)(output, context);
+        return (0, Aws_query_1.de_ContinueUpdateRollbackCommand)(output, context);
     }
 }
 exports.ContinueUpdateRollbackCommand = ContinueUpdateRollbackCommand;
@@ -3067,10 +3067,10 @@ class CreateChangeSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryCreateChangeSetCommand)(input, context);
+        return (0, Aws_query_1.se_CreateChangeSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryCreateChangeSetCommand)(output, context);
+        return (0, Aws_query_1.de_CreateChangeSetCommand)(output, context);
     }
 }
 exports.CreateChangeSetCommand = CreateChangeSetCommand;
@@ -3119,10 +3119,10 @@ class CreateStackCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryCreateStackCommand)(input, context);
+        return (0, Aws_query_1.se_CreateStackCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryCreateStackCommand)(output, context);
+        return (0, Aws_query_1.de_CreateStackCommand)(output, context);
     }
 }
 exports.CreateStackCommand = CreateStackCommand;
@@ -3171,10 +3171,10 @@ class CreateStackInstancesCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryCreateStackInstancesCommand)(input, context);
+        return (0, Aws_query_1.se_CreateStackInstancesCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryCreateStackInstancesCommand)(output, context);
+        return (0, Aws_query_1.de_CreateStackInstancesCommand)(output, context);
     }
 }
 exports.CreateStackInstancesCommand = CreateStackInstancesCommand;
@@ -3223,10 +3223,10 @@ class CreateStackSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryCreateStackSetCommand)(input, context);
+        return (0, Aws_query_1.se_CreateStackSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryCreateStackSetCommand)(output, context);
+        return (0, Aws_query_1.de_CreateStackSetCommand)(output, context);
     }
 }
 exports.CreateStackSetCommand = CreateStackSetCommand;
@@ -3275,10 +3275,10 @@ class DeactivateTypeCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDeactivateTypeCommand)(input, context);
+        return (0, Aws_query_1.se_DeactivateTypeCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDeactivateTypeCommand)(output, context);
+        return (0, Aws_query_1.de_DeactivateTypeCommand)(output, context);
     }
 }
 exports.DeactivateTypeCommand = DeactivateTypeCommand;
@@ -3327,10 +3327,10 @@ class DeleteChangeSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDeleteChangeSetCommand)(input, context);
+        return (0, Aws_query_1.se_DeleteChangeSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDeleteChangeSetCommand)(output, context);
+        return (0, Aws_query_1.de_DeleteChangeSetCommand)(output, context);
     }
 }
 exports.DeleteChangeSetCommand = DeleteChangeSetCommand;
@@ -3379,10 +3379,10 @@ class DeleteStackCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDeleteStackCommand)(input, context);
+        return (0, Aws_query_1.se_DeleteStackCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDeleteStackCommand)(output, context);
+        return (0, Aws_query_1.de_DeleteStackCommand)(output, context);
     }
 }
 exports.DeleteStackCommand = DeleteStackCommand;
@@ -3431,10 +3431,10 @@ class DeleteStackInstancesCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDeleteStackInstancesCommand)(input, context);
+        return (0, Aws_query_1.se_DeleteStackInstancesCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDeleteStackInstancesCommand)(output, context);
+        return (0, Aws_query_1.de_DeleteStackInstancesCommand)(output, context);
     }
 }
 exports.DeleteStackInstancesCommand = DeleteStackInstancesCommand;
@@ -3483,10 +3483,10 @@ class DeleteStackSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDeleteStackSetCommand)(input, context);
+        return (0, Aws_query_1.se_DeleteStackSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDeleteStackSetCommand)(output, context);
+        return (0, Aws_query_1.de_DeleteStackSetCommand)(output, context);
     }
 }
 exports.DeleteStackSetCommand = DeleteStackSetCommand;
@@ -3535,10 +3535,10 @@ class DeregisterTypeCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDeregisterTypeCommand)(input, context);
+        return (0, Aws_query_1.se_DeregisterTypeCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDeregisterTypeCommand)(output, context);
+        return (0, Aws_query_1.de_DeregisterTypeCommand)(output, context);
     }
 }
 exports.DeregisterTypeCommand = DeregisterTypeCommand;
@@ -3587,10 +3587,10 @@ class DescribeAccountLimitsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeAccountLimitsCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeAccountLimitsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeAccountLimitsCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeAccountLimitsCommand)(output, context);
     }
 }
 exports.DescribeAccountLimitsCommand = DescribeAccountLimitsCommand;
@@ -3639,10 +3639,10 @@ class DescribeChangeSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeChangeSetCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeChangeSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeChangeSetCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeChangeSetCommand)(output, context);
     }
 }
 exports.DescribeChangeSetCommand = DescribeChangeSetCommand;
@@ -3691,10 +3691,10 @@ class DescribeChangeSetHooksCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeChangeSetHooksCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeChangeSetHooksCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeChangeSetHooksCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeChangeSetHooksCommand)(output, context);
     }
 }
 exports.DescribeChangeSetHooksCommand = DescribeChangeSetHooksCommand;
@@ -3743,10 +3743,10 @@ class DescribePublisherCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribePublisherCommand)(input, context);
+        return (0, Aws_query_1.se_DescribePublisherCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribePublisherCommand)(output, context);
+        return (0, Aws_query_1.de_DescribePublisherCommand)(output, context);
     }
 }
 exports.DescribePublisherCommand = DescribePublisherCommand;
@@ -3795,10 +3795,10 @@ class DescribeStackDriftDetectionStatusCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStackDriftDetectionStatusCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStackDriftDetectionStatusCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStackDriftDetectionStatusCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStackDriftDetectionStatusCommand)(output, context);
     }
 }
 exports.DescribeStackDriftDetectionStatusCommand = DescribeStackDriftDetectionStatusCommand;
@@ -3847,10 +3847,10 @@ class DescribeStackEventsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStackEventsCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStackEventsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStackEventsCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStackEventsCommand)(output, context);
     }
 }
 exports.DescribeStackEventsCommand = DescribeStackEventsCommand;
@@ -3899,10 +3899,10 @@ class DescribeStackInstanceCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStackInstanceCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStackInstanceCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStackInstanceCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStackInstanceCommand)(output, context);
     }
 }
 exports.DescribeStackInstanceCommand = DescribeStackInstanceCommand;
@@ -3951,10 +3951,10 @@ class DescribeStackResourceCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStackResourceCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStackResourceCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStackResourceCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStackResourceCommand)(output, context);
     }
 }
 exports.DescribeStackResourceCommand = DescribeStackResourceCommand;
@@ -4003,10 +4003,10 @@ class DescribeStackResourceDriftsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStackResourceDriftsCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStackResourceDriftsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStackResourceDriftsCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStackResourceDriftsCommand)(output, context);
     }
 }
 exports.DescribeStackResourceDriftsCommand = DescribeStackResourceDriftsCommand;
@@ -4055,10 +4055,10 @@ class DescribeStackResourcesCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStackResourcesCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStackResourcesCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStackResourcesCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStackResourcesCommand)(output, context);
     }
 }
 exports.DescribeStackResourcesCommand = DescribeStackResourcesCommand;
@@ -4107,10 +4107,10 @@ class DescribeStackSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStackSetCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStackSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStackSetCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStackSetCommand)(output, context);
     }
 }
 exports.DescribeStackSetCommand = DescribeStackSetCommand;
@@ -4159,10 +4159,10 @@ class DescribeStackSetOperationCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStackSetOperationCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStackSetOperationCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStackSetOperationCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStackSetOperationCommand)(output, context);
     }
 }
 exports.DescribeStackSetOperationCommand = DescribeStackSetOperationCommand;
@@ -4211,10 +4211,10 @@ class DescribeStacksCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeStacksCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeStacksCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeStacksCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeStacksCommand)(output, context);
     }
 }
 exports.DescribeStacksCommand = DescribeStacksCommand;
@@ -4263,10 +4263,10 @@ class DescribeTypeCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeTypeCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeTypeCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeTypeCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeTypeCommand)(output, context);
     }
 }
 exports.DescribeTypeCommand = DescribeTypeCommand;
@@ -4315,10 +4315,10 @@ class DescribeTypeRegistrationCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDescribeTypeRegistrationCommand)(input, context);
+        return (0, Aws_query_1.se_DescribeTypeRegistrationCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDescribeTypeRegistrationCommand)(output, context);
+        return (0, Aws_query_1.de_DescribeTypeRegistrationCommand)(output, context);
     }
 }
 exports.DescribeTypeRegistrationCommand = DescribeTypeRegistrationCommand;
@@ -4367,10 +4367,10 @@ class DetectStackDriftCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDetectStackDriftCommand)(input, context);
+        return (0, Aws_query_1.se_DetectStackDriftCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDetectStackDriftCommand)(output, context);
+        return (0, Aws_query_1.de_DetectStackDriftCommand)(output, context);
     }
 }
 exports.DetectStackDriftCommand = DetectStackDriftCommand;
@@ -4419,10 +4419,10 @@ class DetectStackResourceDriftCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDetectStackResourceDriftCommand)(input, context);
+        return (0, Aws_query_1.se_DetectStackResourceDriftCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDetectStackResourceDriftCommand)(output, context);
+        return (0, Aws_query_1.de_DetectStackResourceDriftCommand)(output, context);
     }
 }
 exports.DetectStackResourceDriftCommand = DetectStackResourceDriftCommand;
@@ -4471,10 +4471,10 @@ class DetectStackSetDriftCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDetectStackSetDriftCommand)(input, context);
+        return (0, Aws_query_1.se_DetectStackSetDriftCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDetectStackSetDriftCommand)(output, context);
+        return (0, Aws_query_1.de_DetectStackSetDriftCommand)(output, context);
     }
 }
 exports.DetectStackSetDriftCommand = DetectStackSetDriftCommand;
@@ -4523,10 +4523,10 @@ class EstimateTemplateCostCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryEstimateTemplateCostCommand)(input, context);
+        return (0, Aws_query_1.se_EstimateTemplateCostCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryEstimateTemplateCostCommand)(output, context);
+        return (0, Aws_query_1.de_EstimateTemplateCostCommand)(output, context);
     }
 }
 exports.EstimateTemplateCostCommand = EstimateTemplateCostCommand;
@@ -4575,10 +4575,10 @@ class ExecuteChangeSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryExecuteChangeSetCommand)(input, context);
+        return (0, Aws_query_1.se_ExecuteChangeSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryExecuteChangeSetCommand)(output, context);
+        return (0, Aws_query_1.de_ExecuteChangeSetCommand)(output, context);
     }
 }
 exports.ExecuteChangeSetCommand = ExecuteChangeSetCommand;
@@ -4627,10 +4627,10 @@ class GetStackPolicyCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryGetStackPolicyCommand)(input, context);
+        return (0, Aws_query_1.se_GetStackPolicyCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryGetStackPolicyCommand)(output, context);
+        return (0, Aws_query_1.de_GetStackPolicyCommand)(output, context);
     }
 }
 exports.GetStackPolicyCommand = GetStackPolicyCommand;
@@ -4679,10 +4679,10 @@ class GetTemplateCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryGetTemplateCommand)(input, context);
+        return (0, Aws_query_1.se_GetTemplateCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryGetTemplateCommand)(output, context);
+        return (0, Aws_query_1.de_GetTemplateCommand)(output, context);
     }
 }
 exports.GetTemplateCommand = GetTemplateCommand;
@@ -4731,10 +4731,10 @@ class GetTemplateSummaryCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryGetTemplateSummaryCommand)(input, context);
+        return (0, Aws_query_1.se_GetTemplateSummaryCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryGetTemplateSummaryCommand)(output, context);
+        return (0, Aws_query_1.de_GetTemplateSummaryCommand)(output, context);
     }
 }
 exports.GetTemplateSummaryCommand = GetTemplateSummaryCommand;
@@ -4783,10 +4783,10 @@ class ImportStacksToStackSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryImportStacksToStackSetCommand)(input, context);
+        return (0, Aws_query_1.se_ImportStacksToStackSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryImportStacksToStackSetCommand)(output, context);
+        return (0, Aws_query_1.de_ImportStacksToStackSetCommand)(output, context);
     }
 }
 exports.ImportStacksToStackSetCommand = ImportStacksToStackSetCommand;
@@ -4835,10 +4835,10 @@ class ListChangeSetsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListChangeSetsCommand)(input, context);
+        return (0, Aws_query_1.se_ListChangeSetsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListChangeSetsCommand)(output, context);
+        return (0, Aws_query_1.de_ListChangeSetsCommand)(output, context);
     }
 }
 exports.ListChangeSetsCommand = ListChangeSetsCommand;
@@ -4887,10 +4887,10 @@ class ListExportsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListExportsCommand)(input, context);
+        return (0, Aws_query_1.se_ListExportsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListExportsCommand)(output, context);
+        return (0, Aws_query_1.de_ListExportsCommand)(output, context);
     }
 }
 exports.ListExportsCommand = ListExportsCommand;
@@ -4939,10 +4939,10 @@ class ListImportsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListImportsCommand)(input, context);
+        return (0, Aws_query_1.se_ListImportsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListImportsCommand)(output, context);
+        return (0, Aws_query_1.de_ListImportsCommand)(output, context);
     }
 }
 exports.ListImportsCommand = ListImportsCommand;
@@ -4991,10 +4991,10 @@ class ListStackInstancesCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListStackInstancesCommand)(input, context);
+        return (0, Aws_query_1.se_ListStackInstancesCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListStackInstancesCommand)(output, context);
+        return (0, Aws_query_1.de_ListStackInstancesCommand)(output, context);
     }
 }
 exports.ListStackInstancesCommand = ListStackInstancesCommand;
@@ -5043,10 +5043,10 @@ class ListStackResourcesCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListStackResourcesCommand)(input, context);
+        return (0, Aws_query_1.se_ListStackResourcesCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListStackResourcesCommand)(output, context);
+        return (0, Aws_query_1.de_ListStackResourcesCommand)(output, context);
     }
 }
 exports.ListStackResourcesCommand = ListStackResourcesCommand;
@@ -5095,10 +5095,10 @@ class ListStackSetOperationResultsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListStackSetOperationResultsCommand)(input, context);
+        return (0, Aws_query_1.se_ListStackSetOperationResultsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListStackSetOperationResultsCommand)(output, context);
+        return (0, Aws_query_1.de_ListStackSetOperationResultsCommand)(output, context);
     }
 }
 exports.ListStackSetOperationResultsCommand = ListStackSetOperationResultsCommand;
@@ -5147,10 +5147,10 @@ class ListStackSetOperationsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListStackSetOperationsCommand)(input, context);
+        return (0, Aws_query_1.se_ListStackSetOperationsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListStackSetOperationsCommand)(output, context);
+        return (0, Aws_query_1.de_ListStackSetOperationsCommand)(output, context);
     }
 }
 exports.ListStackSetOperationsCommand = ListStackSetOperationsCommand;
@@ -5199,10 +5199,10 @@ class ListStackSetsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListStackSetsCommand)(input, context);
+        return (0, Aws_query_1.se_ListStackSetsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListStackSetsCommand)(output, context);
+        return (0, Aws_query_1.de_ListStackSetsCommand)(output, context);
     }
 }
 exports.ListStackSetsCommand = ListStackSetsCommand;
@@ -5251,10 +5251,10 @@ class ListStacksCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListStacksCommand)(input, context);
+        return (0, Aws_query_1.se_ListStacksCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListStacksCommand)(output, context);
+        return (0, Aws_query_1.de_ListStacksCommand)(output, context);
     }
 }
 exports.ListStacksCommand = ListStacksCommand;
@@ -5303,10 +5303,10 @@ class ListTypeRegistrationsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListTypeRegistrationsCommand)(input, context);
+        return (0, Aws_query_1.se_ListTypeRegistrationsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListTypeRegistrationsCommand)(output, context);
+        return (0, Aws_query_1.de_ListTypeRegistrationsCommand)(output, context);
     }
 }
 exports.ListTypeRegistrationsCommand = ListTypeRegistrationsCommand;
@@ -5355,10 +5355,10 @@ class ListTypeVersionsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListTypeVersionsCommand)(input, context);
+        return (0, Aws_query_1.se_ListTypeVersionsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListTypeVersionsCommand)(output, context);
+        return (0, Aws_query_1.de_ListTypeVersionsCommand)(output, context);
     }
 }
 exports.ListTypeVersionsCommand = ListTypeVersionsCommand;
@@ -5407,10 +5407,10 @@ class ListTypesCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryListTypesCommand)(input, context);
+        return (0, Aws_query_1.se_ListTypesCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryListTypesCommand)(output, context);
+        return (0, Aws_query_1.de_ListTypesCommand)(output, context);
     }
 }
 exports.ListTypesCommand = ListTypesCommand;
@@ -5459,10 +5459,10 @@ class PublishTypeCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryPublishTypeCommand)(input, context);
+        return (0, Aws_query_1.se_PublishTypeCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryPublishTypeCommand)(output, context);
+        return (0, Aws_query_1.de_PublishTypeCommand)(output, context);
     }
 }
 exports.PublishTypeCommand = PublishTypeCommand;
@@ -5511,10 +5511,10 @@ class RecordHandlerProgressCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryRecordHandlerProgressCommand)(input, context);
+        return (0, Aws_query_1.se_RecordHandlerProgressCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryRecordHandlerProgressCommand)(output, context);
+        return (0, Aws_query_1.de_RecordHandlerProgressCommand)(output, context);
     }
 }
 exports.RecordHandlerProgressCommand = RecordHandlerProgressCommand;
@@ -5563,10 +5563,10 @@ class RegisterPublisherCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryRegisterPublisherCommand)(input, context);
+        return (0, Aws_query_1.se_RegisterPublisherCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryRegisterPublisherCommand)(output, context);
+        return (0, Aws_query_1.de_RegisterPublisherCommand)(output, context);
     }
 }
 exports.RegisterPublisherCommand = RegisterPublisherCommand;
@@ -5615,10 +5615,10 @@ class RegisterTypeCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryRegisterTypeCommand)(input, context);
+        return (0, Aws_query_1.se_RegisterTypeCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryRegisterTypeCommand)(output, context);
+        return (0, Aws_query_1.de_RegisterTypeCommand)(output, context);
     }
 }
 exports.RegisterTypeCommand = RegisterTypeCommand;
@@ -5667,10 +5667,10 @@ class RollbackStackCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryRollbackStackCommand)(input, context);
+        return (0, Aws_query_1.se_RollbackStackCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryRollbackStackCommand)(output, context);
+        return (0, Aws_query_1.de_RollbackStackCommand)(output, context);
     }
 }
 exports.RollbackStackCommand = RollbackStackCommand;
@@ -5719,10 +5719,10 @@ class SetStackPolicyCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_querySetStackPolicyCommand)(input, context);
+        return (0, Aws_query_1.se_SetStackPolicyCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_querySetStackPolicyCommand)(output, context);
+        return (0, Aws_query_1.de_SetStackPolicyCommand)(output, context);
     }
 }
 exports.SetStackPolicyCommand = SetStackPolicyCommand;
@@ -5771,10 +5771,10 @@ class SetTypeConfigurationCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_querySetTypeConfigurationCommand)(input, context);
+        return (0, Aws_query_1.se_SetTypeConfigurationCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_querySetTypeConfigurationCommand)(output, context);
+        return (0, Aws_query_1.de_SetTypeConfigurationCommand)(output, context);
     }
 }
 exports.SetTypeConfigurationCommand = SetTypeConfigurationCommand;
@@ -5823,10 +5823,10 @@ class SetTypeDefaultVersionCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_querySetTypeDefaultVersionCommand)(input, context);
+        return (0, Aws_query_1.se_SetTypeDefaultVersionCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_querySetTypeDefaultVersionCommand)(output, context);
+        return (0, Aws_query_1.de_SetTypeDefaultVersionCommand)(output, context);
     }
 }
 exports.SetTypeDefaultVersionCommand = SetTypeDefaultVersionCommand;
@@ -5875,10 +5875,10 @@ class SignalResourceCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_querySignalResourceCommand)(input, context);
+        return (0, Aws_query_1.se_SignalResourceCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_querySignalResourceCommand)(output, context);
+        return (0, Aws_query_1.de_SignalResourceCommand)(output, context);
     }
 }
 exports.SignalResourceCommand = SignalResourceCommand;
@@ -5927,10 +5927,10 @@ class StopStackSetOperationCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryStopStackSetOperationCommand)(input, context);
+        return (0, Aws_query_1.se_StopStackSetOperationCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryStopStackSetOperationCommand)(output, context);
+        return (0, Aws_query_1.de_StopStackSetOperationCommand)(output, context);
     }
 }
 exports.StopStackSetOperationCommand = StopStackSetOperationCommand;
@@ -5979,10 +5979,10 @@ class TestTypeCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryTestTypeCommand)(input, context);
+        return (0, Aws_query_1.se_TestTypeCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryTestTypeCommand)(output, context);
+        return (0, Aws_query_1.de_TestTypeCommand)(output, context);
     }
 }
 exports.TestTypeCommand = TestTypeCommand;
@@ -6031,10 +6031,10 @@ class UpdateStackCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryUpdateStackCommand)(input, context);
+        return (0, Aws_query_1.se_UpdateStackCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryUpdateStackCommand)(output, context);
+        return (0, Aws_query_1.de_UpdateStackCommand)(output, context);
     }
 }
 exports.UpdateStackCommand = UpdateStackCommand;
@@ -6083,10 +6083,10 @@ class UpdateStackInstancesCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryUpdateStackInstancesCommand)(input, context);
+        return (0, Aws_query_1.se_UpdateStackInstancesCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryUpdateStackInstancesCommand)(output, context);
+        return (0, Aws_query_1.de_UpdateStackInstancesCommand)(output, context);
     }
 }
 exports.UpdateStackInstancesCommand = UpdateStackInstancesCommand;
@@ -6135,10 +6135,10 @@ class UpdateStackSetCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryUpdateStackSetCommand)(input, context);
+        return (0, Aws_query_1.se_UpdateStackSetCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryUpdateStackSetCommand)(output, context);
+        return (0, Aws_query_1.de_UpdateStackSetCommand)(output, context);
     }
 }
 exports.UpdateStackSetCommand = UpdateStackSetCommand;
@@ -6187,10 +6187,10 @@ class UpdateTerminationProtectionCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryUpdateTerminationProtectionCommand)(input, context);
+        return (0, Aws_query_1.se_UpdateTerminationProtectionCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryUpdateTerminationProtectionCommand)(output, context);
+        return (0, Aws_query_1.de_UpdateTerminationProtectionCommand)(output, context);
     }
 }
 exports.UpdateTerminationProtectionCommand = UpdateTerminationProtectionCommand;
@@ -6239,10 +6239,10 @@ class ValidateTemplateCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryValidateTemplateCommand)(input, context);
+        return (0, Aws_query_1.se_ValidateTemplateCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryValidateTemplateCommand)(output, context);
+        return (0, Aws_query_1.de_ValidateTemplateCommand)(output, context);
     }
 }
 exports.ValidateTemplateCommand = ValidateTemplateCommand;
@@ -7687,888 +7687,888 @@ tslib_1.__exportStar(__nccwpck_require__(60985), exports);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.serializeAws_queryListTypeVersionsCommand = exports.serializeAws_queryListTypesCommand = exports.serializeAws_queryListTypeRegistrationsCommand = exports.serializeAws_queryListStackSetsCommand = exports.serializeAws_queryListStackSetOperationsCommand = exports.serializeAws_queryListStackSetOperationResultsCommand = exports.serializeAws_queryListStacksCommand = exports.serializeAws_queryListStackResourcesCommand = exports.serializeAws_queryListStackInstancesCommand = exports.serializeAws_queryListImportsCommand = exports.serializeAws_queryListExportsCommand = exports.serializeAws_queryListChangeSetsCommand = exports.serializeAws_queryImportStacksToStackSetCommand = exports.serializeAws_queryGetTemplateSummaryCommand = exports.serializeAws_queryGetTemplateCommand = exports.serializeAws_queryGetStackPolicyCommand = exports.serializeAws_queryExecuteChangeSetCommand = exports.serializeAws_queryEstimateTemplateCostCommand = exports.serializeAws_queryDetectStackSetDriftCommand = exports.serializeAws_queryDetectStackResourceDriftCommand = exports.serializeAws_queryDetectStackDriftCommand = exports.serializeAws_queryDescribeTypeRegistrationCommand = exports.serializeAws_queryDescribeTypeCommand = exports.serializeAws_queryDescribeStackSetOperationCommand = exports.serializeAws_queryDescribeStackSetCommand = exports.serializeAws_queryDescribeStacksCommand = exports.serializeAws_queryDescribeStackResourcesCommand = exports.serializeAws_queryDescribeStackResourceDriftsCommand = exports.serializeAws_queryDescribeStackResourceCommand = exports.serializeAws_queryDescribeStackInstanceCommand = exports.serializeAws_queryDescribeStackEventsCommand = exports.serializeAws_queryDescribeStackDriftDetectionStatusCommand = exports.serializeAws_queryDescribePublisherCommand = exports.serializeAws_queryDescribeChangeSetHooksCommand = exports.serializeAws_queryDescribeChangeSetCommand = exports.serializeAws_queryDescribeAccountLimitsCommand = exports.serializeAws_queryDeregisterTypeCommand = exports.serializeAws_queryDeleteStackSetCommand = exports.serializeAws_queryDeleteStackInstancesCommand = exports.serializeAws_queryDeleteStackCommand = exports.serializeAws_queryDeleteChangeSetCommand = exports.serializeAws_queryDeactivateTypeCommand = exports.serializeAws_queryCreateStackSetCommand = exports.serializeAws_queryCreateStackInstancesCommand = exports.serializeAws_queryCreateStackCommand = exports.serializeAws_queryCreateChangeSetCommand = exports.serializeAws_queryContinueUpdateRollbackCommand = exports.serializeAws_queryCancelUpdateStackCommand = exports.serializeAws_queryBatchDescribeTypeConfigurationsCommand = exports.serializeAws_queryActivateTypeCommand = void 0;
-exports.deserializeAws_queryExecuteChangeSetCommand = exports.deserializeAws_queryEstimateTemplateCostCommand = exports.deserializeAws_queryDetectStackSetDriftCommand = exports.deserializeAws_queryDetectStackResourceDriftCommand = exports.deserializeAws_queryDetectStackDriftCommand = exports.deserializeAws_queryDescribeTypeRegistrationCommand = exports.deserializeAws_queryDescribeTypeCommand = exports.deserializeAws_queryDescribeStackSetOperationCommand = exports.deserializeAws_queryDescribeStackSetCommand = exports.deserializeAws_queryDescribeStacksCommand = exports.deserializeAws_queryDescribeStackResourcesCommand = exports.deserializeAws_queryDescribeStackResourceDriftsCommand = exports.deserializeAws_queryDescribeStackResourceCommand = exports.deserializeAws_queryDescribeStackInstanceCommand = exports.deserializeAws_queryDescribeStackEventsCommand = exports.deserializeAws_queryDescribeStackDriftDetectionStatusCommand = exports.deserializeAws_queryDescribePublisherCommand = exports.deserializeAws_queryDescribeChangeSetHooksCommand = exports.deserializeAws_queryDescribeChangeSetCommand = exports.deserializeAws_queryDescribeAccountLimitsCommand = exports.deserializeAws_queryDeregisterTypeCommand = exports.deserializeAws_queryDeleteStackSetCommand = exports.deserializeAws_queryDeleteStackInstancesCommand = exports.deserializeAws_queryDeleteStackCommand = exports.deserializeAws_queryDeleteChangeSetCommand = exports.deserializeAws_queryDeactivateTypeCommand = exports.deserializeAws_queryCreateStackSetCommand = exports.deserializeAws_queryCreateStackInstancesCommand = exports.deserializeAws_queryCreateStackCommand = exports.deserializeAws_queryCreateChangeSetCommand = exports.deserializeAws_queryContinueUpdateRollbackCommand = exports.deserializeAws_queryCancelUpdateStackCommand = exports.deserializeAws_queryBatchDescribeTypeConfigurationsCommand = exports.deserializeAws_queryActivateTypeCommand = exports.serializeAws_queryValidateTemplateCommand = exports.serializeAws_queryUpdateTerminationProtectionCommand = exports.serializeAws_queryUpdateStackSetCommand = exports.serializeAws_queryUpdateStackInstancesCommand = exports.serializeAws_queryUpdateStackCommand = exports.serializeAws_queryTestTypeCommand = exports.serializeAws_queryStopStackSetOperationCommand = exports.serializeAws_querySignalResourceCommand = exports.serializeAws_querySetTypeDefaultVersionCommand = exports.serializeAws_querySetTypeConfigurationCommand = exports.serializeAws_querySetStackPolicyCommand = exports.serializeAws_queryRollbackStackCommand = exports.serializeAws_queryRegisterTypeCommand = exports.serializeAws_queryRegisterPublisherCommand = exports.serializeAws_queryRecordHandlerProgressCommand = exports.serializeAws_queryPublishTypeCommand = void 0;
-exports.deserializeAws_queryValidateTemplateCommand = exports.deserializeAws_queryUpdateTerminationProtectionCommand = exports.deserializeAws_queryUpdateStackSetCommand = exports.deserializeAws_queryUpdateStackInstancesCommand = exports.deserializeAws_queryUpdateStackCommand = exports.deserializeAws_queryTestTypeCommand = exports.deserializeAws_queryStopStackSetOperationCommand = exports.deserializeAws_querySignalResourceCommand = exports.deserializeAws_querySetTypeDefaultVersionCommand = exports.deserializeAws_querySetTypeConfigurationCommand = exports.deserializeAws_querySetStackPolicyCommand = exports.deserializeAws_queryRollbackStackCommand = exports.deserializeAws_queryRegisterTypeCommand = exports.deserializeAws_queryRegisterPublisherCommand = exports.deserializeAws_queryRecordHandlerProgressCommand = exports.deserializeAws_queryPublishTypeCommand = exports.deserializeAws_queryListTypeVersionsCommand = exports.deserializeAws_queryListTypesCommand = exports.deserializeAws_queryListTypeRegistrationsCommand = exports.deserializeAws_queryListStackSetsCommand = exports.deserializeAws_queryListStackSetOperationsCommand = exports.deserializeAws_queryListStackSetOperationResultsCommand = exports.deserializeAws_queryListStacksCommand = exports.deserializeAws_queryListStackResourcesCommand = exports.deserializeAws_queryListStackInstancesCommand = exports.deserializeAws_queryListImportsCommand = exports.deserializeAws_queryListExportsCommand = exports.deserializeAws_queryListChangeSetsCommand = exports.deserializeAws_queryImportStacksToStackSetCommand = exports.deserializeAws_queryGetTemplateSummaryCommand = exports.deserializeAws_queryGetTemplateCommand = exports.deserializeAws_queryGetStackPolicyCommand = void 0;
+exports.se_ListTypeVersionsCommand = exports.se_ListTypesCommand = exports.se_ListTypeRegistrationsCommand = exports.se_ListStackSetsCommand = exports.se_ListStackSetOperationsCommand = exports.se_ListStackSetOperationResultsCommand = exports.se_ListStacksCommand = exports.se_ListStackResourcesCommand = exports.se_ListStackInstancesCommand = exports.se_ListImportsCommand = exports.se_ListExportsCommand = exports.se_ListChangeSetsCommand = exports.se_ImportStacksToStackSetCommand = exports.se_GetTemplateSummaryCommand = exports.se_GetTemplateCommand = exports.se_GetStackPolicyCommand = exports.se_ExecuteChangeSetCommand = exports.se_EstimateTemplateCostCommand = exports.se_DetectStackSetDriftCommand = exports.se_DetectStackResourceDriftCommand = exports.se_DetectStackDriftCommand = exports.se_DescribeTypeRegistrationCommand = exports.se_DescribeTypeCommand = exports.se_DescribeStackSetOperationCommand = exports.se_DescribeStackSetCommand = exports.se_DescribeStacksCommand = exports.se_DescribeStackResourcesCommand = exports.se_DescribeStackResourceDriftsCommand = exports.se_DescribeStackResourceCommand = exports.se_DescribeStackInstanceCommand = exports.se_DescribeStackEventsCommand = exports.se_DescribeStackDriftDetectionStatusCommand = exports.se_DescribePublisherCommand = exports.se_DescribeChangeSetHooksCommand = exports.se_DescribeChangeSetCommand = exports.se_DescribeAccountLimitsCommand = exports.se_DeregisterTypeCommand = exports.se_DeleteStackSetCommand = exports.se_DeleteStackInstancesCommand = exports.se_DeleteStackCommand = exports.se_DeleteChangeSetCommand = exports.se_DeactivateTypeCommand = exports.se_CreateStackSetCommand = exports.se_CreateStackInstancesCommand = exports.se_CreateStackCommand = exports.se_CreateChangeSetCommand = exports.se_ContinueUpdateRollbackCommand = exports.se_CancelUpdateStackCommand = exports.se_BatchDescribeTypeConfigurationsCommand = exports.se_ActivateTypeCommand = void 0;
+exports.de_ExecuteChangeSetCommand = exports.de_EstimateTemplateCostCommand = exports.de_DetectStackSetDriftCommand = exports.de_DetectStackResourceDriftCommand = exports.de_DetectStackDriftCommand = exports.de_DescribeTypeRegistrationCommand = exports.de_DescribeTypeCommand = exports.de_DescribeStackSetOperationCommand = exports.de_DescribeStackSetCommand = exports.de_DescribeStacksCommand = exports.de_DescribeStackResourcesCommand = exports.de_DescribeStackResourceDriftsCommand = exports.de_DescribeStackResourceCommand = exports.de_DescribeStackInstanceCommand = exports.de_DescribeStackEventsCommand = exports.de_DescribeStackDriftDetectionStatusCommand = exports.de_DescribePublisherCommand = exports.de_DescribeChangeSetHooksCommand = exports.de_DescribeChangeSetCommand = exports.de_DescribeAccountLimitsCommand = exports.de_DeregisterTypeCommand = exports.de_DeleteStackSetCommand = exports.de_DeleteStackInstancesCommand = exports.de_DeleteStackCommand = exports.de_DeleteChangeSetCommand = exports.de_DeactivateTypeCommand = exports.de_CreateStackSetCommand = exports.de_CreateStackInstancesCommand = exports.de_CreateStackCommand = exports.de_CreateChangeSetCommand = exports.de_ContinueUpdateRollbackCommand = exports.de_CancelUpdateStackCommand = exports.de_BatchDescribeTypeConfigurationsCommand = exports.de_ActivateTypeCommand = exports.se_ValidateTemplateCommand = exports.se_UpdateTerminationProtectionCommand = exports.se_UpdateStackSetCommand = exports.se_UpdateStackInstancesCommand = exports.se_UpdateStackCommand = exports.se_TestTypeCommand = exports.se_StopStackSetOperationCommand = exports.se_SignalResourceCommand = exports.se_SetTypeDefaultVersionCommand = exports.se_SetTypeConfigurationCommand = exports.se_SetStackPolicyCommand = exports.se_RollbackStackCommand = exports.se_RegisterTypeCommand = exports.se_RegisterPublisherCommand = exports.se_RecordHandlerProgressCommand = exports.se_PublishTypeCommand = void 0;
+exports.de_ValidateTemplateCommand = exports.de_UpdateTerminationProtectionCommand = exports.de_UpdateStackSetCommand = exports.de_UpdateStackInstancesCommand = exports.de_UpdateStackCommand = exports.de_TestTypeCommand = exports.de_StopStackSetOperationCommand = exports.de_SignalResourceCommand = exports.de_SetTypeDefaultVersionCommand = exports.de_SetTypeConfigurationCommand = exports.de_SetStackPolicyCommand = exports.de_RollbackStackCommand = exports.de_RegisterTypeCommand = exports.de_RegisterPublisherCommand = exports.de_RecordHandlerProgressCommand = exports.de_PublishTypeCommand = exports.de_ListTypeVersionsCommand = exports.de_ListTypesCommand = exports.de_ListTypeRegistrationsCommand = exports.de_ListStackSetsCommand = exports.de_ListStackSetOperationsCommand = exports.de_ListStackSetOperationResultsCommand = exports.de_ListStacksCommand = exports.de_ListStackResourcesCommand = exports.de_ListStackInstancesCommand = exports.de_ListImportsCommand = exports.de_ListExportsCommand = exports.de_ListChangeSetsCommand = exports.de_ImportStacksToStackSetCommand = exports.de_GetTemplateSummaryCommand = exports.de_GetTemplateCommand = exports.de_GetStackPolicyCommand = void 0;
 const protocol_http_1 = __nccwpck_require__(70223);
 const smithy_client_1 = __nccwpck_require__(4963);
 const fast_xml_parser_1 = __nccwpck_require__(12603);
 const uuid_1 = __nccwpck_require__(75840);
 const CloudFormationServiceException_1 = __nccwpck_require__(215);
 const models_0_1 = __nccwpck_require__(75378);
-const serializeAws_queryActivateTypeCommand = async (input, context) => {
+const se_ActivateTypeCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryActivateTypeInput(input, context),
+        ...se_ActivateTypeInput(input, context),
         Action: "ActivateType",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryActivateTypeCommand = serializeAws_queryActivateTypeCommand;
-const serializeAws_queryBatchDescribeTypeConfigurationsCommand = async (input, context) => {
+exports.se_ActivateTypeCommand = se_ActivateTypeCommand;
+const se_BatchDescribeTypeConfigurationsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryBatchDescribeTypeConfigurationsInput(input, context),
+        ...se_BatchDescribeTypeConfigurationsInput(input, context),
         Action: "BatchDescribeTypeConfigurations",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryBatchDescribeTypeConfigurationsCommand = serializeAws_queryBatchDescribeTypeConfigurationsCommand;
-const serializeAws_queryCancelUpdateStackCommand = async (input, context) => {
+exports.se_BatchDescribeTypeConfigurationsCommand = se_BatchDescribeTypeConfigurationsCommand;
+const se_CancelUpdateStackCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryCancelUpdateStackInput(input, context),
+        ...se_CancelUpdateStackInput(input, context),
         Action: "CancelUpdateStack",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryCancelUpdateStackCommand = serializeAws_queryCancelUpdateStackCommand;
-const serializeAws_queryContinueUpdateRollbackCommand = async (input, context) => {
+exports.se_CancelUpdateStackCommand = se_CancelUpdateStackCommand;
+const se_ContinueUpdateRollbackCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryContinueUpdateRollbackInput(input, context),
+        ...se_ContinueUpdateRollbackInput(input, context),
         Action: "ContinueUpdateRollback",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryContinueUpdateRollbackCommand = serializeAws_queryContinueUpdateRollbackCommand;
-const serializeAws_queryCreateChangeSetCommand = async (input, context) => {
+exports.se_ContinueUpdateRollbackCommand = se_ContinueUpdateRollbackCommand;
+const se_CreateChangeSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryCreateChangeSetInput(input, context),
+        ...se_CreateChangeSetInput(input, context),
         Action: "CreateChangeSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryCreateChangeSetCommand = serializeAws_queryCreateChangeSetCommand;
-const serializeAws_queryCreateStackCommand = async (input, context) => {
+exports.se_CreateChangeSetCommand = se_CreateChangeSetCommand;
+const se_CreateStackCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryCreateStackInput(input, context),
+        ...se_CreateStackInput(input, context),
         Action: "CreateStack",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryCreateStackCommand = serializeAws_queryCreateStackCommand;
-const serializeAws_queryCreateStackInstancesCommand = async (input, context) => {
+exports.se_CreateStackCommand = se_CreateStackCommand;
+const se_CreateStackInstancesCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryCreateStackInstancesInput(input, context),
+        ...se_CreateStackInstancesInput(input, context),
         Action: "CreateStackInstances",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryCreateStackInstancesCommand = serializeAws_queryCreateStackInstancesCommand;
-const serializeAws_queryCreateStackSetCommand = async (input, context) => {
+exports.se_CreateStackInstancesCommand = se_CreateStackInstancesCommand;
+const se_CreateStackSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryCreateStackSetInput(input, context),
+        ...se_CreateStackSetInput(input, context),
         Action: "CreateStackSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryCreateStackSetCommand = serializeAws_queryCreateStackSetCommand;
-const serializeAws_queryDeactivateTypeCommand = async (input, context) => {
+exports.se_CreateStackSetCommand = se_CreateStackSetCommand;
+const se_DeactivateTypeCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDeactivateTypeInput(input, context),
+        ...se_DeactivateTypeInput(input, context),
         Action: "DeactivateType",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDeactivateTypeCommand = serializeAws_queryDeactivateTypeCommand;
-const serializeAws_queryDeleteChangeSetCommand = async (input, context) => {
+exports.se_DeactivateTypeCommand = se_DeactivateTypeCommand;
+const se_DeleteChangeSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDeleteChangeSetInput(input, context),
+        ...se_DeleteChangeSetInput(input, context),
         Action: "DeleteChangeSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDeleteChangeSetCommand = serializeAws_queryDeleteChangeSetCommand;
-const serializeAws_queryDeleteStackCommand = async (input, context) => {
+exports.se_DeleteChangeSetCommand = se_DeleteChangeSetCommand;
+const se_DeleteStackCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDeleteStackInput(input, context),
+        ...se_DeleteStackInput(input, context),
         Action: "DeleteStack",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDeleteStackCommand = serializeAws_queryDeleteStackCommand;
-const serializeAws_queryDeleteStackInstancesCommand = async (input, context) => {
+exports.se_DeleteStackCommand = se_DeleteStackCommand;
+const se_DeleteStackInstancesCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDeleteStackInstancesInput(input, context),
+        ...se_DeleteStackInstancesInput(input, context),
         Action: "DeleteStackInstances",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDeleteStackInstancesCommand = serializeAws_queryDeleteStackInstancesCommand;
-const serializeAws_queryDeleteStackSetCommand = async (input, context) => {
+exports.se_DeleteStackInstancesCommand = se_DeleteStackInstancesCommand;
+const se_DeleteStackSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDeleteStackSetInput(input, context),
+        ...se_DeleteStackSetInput(input, context),
         Action: "DeleteStackSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDeleteStackSetCommand = serializeAws_queryDeleteStackSetCommand;
-const serializeAws_queryDeregisterTypeCommand = async (input, context) => {
+exports.se_DeleteStackSetCommand = se_DeleteStackSetCommand;
+const se_DeregisterTypeCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDeregisterTypeInput(input, context),
+        ...se_DeregisterTypeInput(input, context),
         Action: "DeregisterType",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDeregisterTypeCommand = serializeAws_queryDeregisterTypeCommand;
-const serializeAws_queryDescribeAccountLimitsCommand = async (input, context) => {
+exports.se_DeregisterTypeCommand = se_DeregisterTypeCommand;
+const se_DescribeAccountLimitsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeAccountLimitsInput(input, context),
+        ...se_DescribeAccountLimitsInput(input, context),
         Action: "DescribeAccountLimits",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeAccountLimitsCommand = serializeAws_queryDescribeAccountLimitsCommand;
-const serializeAws_queryDescribeChangeSetCommand = async (input, context) => {
+exports.se_DescribeAccountLimitsCommand = se_DescribeAccountLimitsCommand;
+const se_DescribeChangeSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeChangeSetInput(input, context),
+        ...se_DescribeChangeSetInput(input, context),
         Action: "DescribeChangeSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeChangeSetCommand = serializeAws_queryDescribeChangeSetCommand;
-const serializeAws_queryDescribeChangeSetHooksCommand = async (input, context) => {
+exports.se_DescribeChangeSetCommand = se_DescribeChangeSetCommand;
+const se_DescribeChangeSetHooksCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeChangeSetHooksInput(input, context),
+        ...se_DescribeChangeSetHooksInput(input, context),
         Action: "DescribeChangeSetHooks",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeChangeSetHooksCommand = serializeAws_queryDescribeChangeSetHooksCommand;
-const serializeAws_queryDescribePublisherCommand = async (input, context) => {
+exports.se_DescribeChangeSetHooksCommand = se_DescribeChangeSetHooksCommand;
+const se_DescribePublisherCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribePublisherInput(input, context),
+        ...se_DescribePublisherInput(input, context),
         Action: "DescribePublisher",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribePublisherCommand = serializeAws_queryDescribePublisherCommand;
-const serializeAws_queryDescribeStackDriftDetectionStatusCommand = async (input, context) => {
+exports.se_DescribePublisherCommand = se_DescribePublisherCommand;
+const se_DescribeStackDriftDetectionStatusCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStackDriftDetectionStatusInput(input, context),
+        ...se_DescribeStackDriftDetectionStatusInput(input, context),
         Action: "DescribeStackDriftDetectionStatus",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStackDriftDetectionStatusCommand = serializeAws_queryDescribeStackDriftDetectionStatusCommand;
-const serializeAws_queryDescribeStackEventsCommand = async (input, context) => {
+exports.se_DescribeStackDriftDetectionStatusCommand = se_DescribeStackDriftDetectionStatusCommand;
+const se_DescribeStackEventsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStackEventsInput(input, context),
+        ...se_DescribeStackEventsInput(input, context),
         Action: "DescribeStackEvents",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStackEventsCommand = serializeAws_queryDescribeStackEventsCommand;
-const serializeAws_queryDescribeStackInstanceCommand = async (input, context) => {
+exports.se_DescribeStackEventsCommand = se_DescribeStackEventsCommand;
+const se_DescribeStackInstanceCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStackInstanceInput(input, context),
+        ...se_DescribeStackInstanceInput(input, context),
         Action: "DescribeStackInstance",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStackInstanceCommand = serializeAws_queryDescribeStackInstanceCommand;
-const serializeAws_queryDescribeStackResourceCommand = async (input, context) => {
+exports.se_DescribeStackInstanceCommand = se_DescribeStackInstanceCommand;
+const se_DescribeStackResourceCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStackResourceInput(input, context),
+        ...se_DescribeStackResourceInput(input, context),
         Action: "DescribeStackResource",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStackResourceCommand = serializeAws_queryDescribeStackResourceCommand;
-const serializeAws_queryDescribeStackResourceDriftsCommand = async (input, context) => {
+exports.se_DescribeStackResourceCommand = se_DescribeStackResourceCommand;
+const se_DescribeStackResourceDriftsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStackResourceDriftsInput(input, context),
+        ...se_DescribeStackResourceDriftsInput(input, context),
         Action: "DescribeStackResourceDrifts",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStackResourceDriftsCommand = serializeAws_queryDescribeStackResourceDriftsCommand;
-const serializeAws_queryDescribeStackResourcesCommand = async (input, context) => {
+exports.se_DescribeStackResourceDriftsCommand = se_DescribeStackResourceDriftsCommand;
+const se_DescribeStackResourcesCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStackResourcesInput(input, context),
+        ...se_DescribeStackResourcesInput(input, context),
         Action: "DescribeStackResources",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStackResourcesCommand = serializeAws_queryDescribeStackResourcesCommand;
-const serializeAws_queryDescribeStacksCommand = async (input, context) => {
+exports.se_DescribeStackResourcesCommand = se_DescribeStackResourcesCommand;
+const se_DescribeStacksCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStacksInput(input, context),
+        ...se_DescribeStacksInput(input, context),
         Action: "DescribeStacks",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStacksCommand = serializeAws_queryDescribeStacksCommand;
-const serializeAws_queryDescribeStackSetCommand = async (input, context) => {
+exports.se_DescribeStacksCommand = se_DescribeStacksCommand;
+const se_DescribeStackSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStackSetInput(input, context),
+        ...se_DescribeStackSetInput(input, context),
         Action: "DescribeStackSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStackSetCommand = serializeAws_queryDescribeStackSetCommand;
-const serializeAws_queryDescribeStackSetOperationCommand = async (input, context) => {
+exports.se_DescribeStackSetCommand = se_DescribeStackSetCommand;
+const se_DescribeStackSetOperationCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeStackSetOperationInput(input, context),
+        ...se_DescribeStackSetOperationInput(input, context),
         Action: "DescribeStackSetOperation",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeStackSetOperationCommand = serializeAws_queryDescribeStackSetOperationCommand;
-const serializeAws_queryDescribeTypeCommand = async (input, context) => {
+exports.se_DescribeStackSetOperationCommand = se_DescribeStackSetOperationCommand;
+const se_DescribeTypeCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeTypeInput(input, context),
+        ...se_DescribeTypeInput(input, context),
         Action: "DescribeType",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeTypeCommand = serializeAws_queryDescribeTypeCommand;
-const serializeAws_queryDescribeTypeRegistrationCommand = async (input, context) => {
+exports.se_DescribeTypeCommand = se_DescribeTypeCommand;
+const se_DescribeTypeRegistrationCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDescribeTypeRegistrationInput(input, context),
+        ...se_DescribeTypeRegistrationInput(input, context),
         Action: "DescribeTypeRegistration",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDescribeTypeRegistrationCommand = serializeAws_queryDescribeTypeRegistrationCommand;
-const serializeAws_queryDetectStackDriftCommand = async (input, context) => {
+exports.se_DescribeTypeRegistrationCommand = se_DescribeTypeRegistrationCommand;
+const se_DetectStackDriftCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDetectStackDriftInput(input, context),
+        ...se_DetectStackDriftInput(input, context),
         Action: "DetectStackDrift",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDetectStackDriftCommand = serializeAws_queryDetectStackDriftCommand;
-const serializeAws_queryDetectStackResourceDriftCommand = async (input, context) => {
+exports.se_DetectStackDriftCommand = se_DetectStackDriftCommand;
+const se_DetectStackResourceDriftCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDetectStackResourceDriftInput(input, context),
+        ...se_DetectStackResourceDriftInput(input, context),
         Action: "DetectStackResourceDrift",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDetectStackResourceDriftCommand = serializeAws_queryDetectStackResourceDriftCommand;
-const serializeAws_queryDetectStackSetDriftCommand = async (input, context) => {
+exports.se_DetectStackResourceDriftCommand = se_DetectStackResourceDriftCommand;
+const se_DetectStackSetDriftCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDetectStackSetDriftInput(input, context),
+        ...se_DetectStackSetDriftInput(input, context),
         Action: "DetectStackSetDrift",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDetectStackSetDriftCommand = serializeAws_queryDetectStackSetDriftCommand;
-const serializeAws_queryEstimateTemplateCostCommand = async (input, context) => {
+exports.se_DetectStackSetDriftCommand = se_DetectStackSetDriftCommand;
+const se_EstimateTemplateCostCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryEstimateTemplateCostInput(input, context),
+        ...se_EstimateTemplateCostInput(input, context),
         Action: "EstimateTemplateCost",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryEstimateTemplateCostCommand = serializeAws_queryEstimateTemplateCostCommand;
-const serializeAws_queryExecuteChangeSetCommand = async (input, context) => {
+exports.se_EstimateTemplateCostCommand = se_EstimateTemplateCostCommand;
+const se_ExecuteChangeSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryExecuteChangeSetInput(input, context),
+        ...se_ExecuteChangeSetInput(input, context),
         Action: "ExecuteChangeSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryExecuteChangeSetCommand = serializeAws_queryExecuteChangeSetCommand;
-const serializeAws_queryGetStackPolicyCommand = async (input, context) => {
+exports.se_ExecuteChangeSetCommand = se_ExecuteChangeSetCommand;
+const se_GetStackPolicyCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryGetStackPolicyInput(input, context),
+        ...se_GetStackPolicyInput(input, context),
         Action: "GetStackPolicy",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryGetStackPolicyCommand = serializeAws_queryGetStackPolicyCommand;
-const serializeAws_queryGetTemplateCommand = async (input, context) => {
+exports.se_GetStackPolicyCommand = se_GetStackPolicyCommand;
+const se_GetTemplateCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryGetTemplateInput(input, context),
+        ...se_GetTemplateInput(input, context),
         Action: "GetTemplate",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryGetTemplateCommand = serializeAws_queryGetTemplateCommand;
-const serializeAws_queryGetTemplateSummaryCommand = async (input, context) => {
+exports.se_GetTemplateCommand = se_GetTemplateCommand;
+const se_GetTemplateSummaryCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryGetTemplateSummaryInput(input, context),
+        ...se_GetTemplateSummaryInput(input, context),
         Action: "GetTemplateSummary",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryGetTemplateSummaryCommand = serializeAws_queryGetTemplateSummaryCommand;
-const serializeAws_queryImportStacksToStackSetCommand = async (input, context) => {
+exports.se_GetTemplateSummaryCommand = se_GetTemplateSummaryCommand;
+const se_ImportStacksToStackSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryImportStacksToStackSetInput(input, context),
+        ...se_ImportStacksToStackSetInput(input, context),
         Action: "ImportStacksToStackSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryImportStacksToStackSetCommand = serializeAws_queryImportStacksToStackSetCommand;
-const serializeAws_queryListChangeSetsCommand = async (input, context) => {
+exports.se_ImportStacksToStackSetCommand = se_ImportStacksToStackSetCommand;
+const se_ListChangeSetsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListChangeSetsInput(input, context),
+        ...se_ListChangeSetsInput(input, context),
         Action: "ListChangeSets",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListChangeSetsCommand = serializeAws_queryListChangeSetsCommand;
-const serializeAws_queryListExportsCommand = async (input, context) => {
+exports.se_ListChangeSetsCommand = se_ListChangeSetsCommand;
+const se_ListExportsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListExportsInput(input, context),
+        ...se_ListExportsInput(input, context),
         Action: "ListExports",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListExportsCommand = serializeAws_queryListExportsCommand;
-const serializeAws_queryListImportsCommand = async (input, context) => {
+exports.se_ListExportsCommand = se_ListExportsCommand;
+const se_ListImportsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListImportsInput(input, context),
+        ...se_ListImportsInput(input, context),
         Action: "ListImports",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListImportsCommand = serializeAws_queryListImportsCommand;
-const serializeAws_queryListStackInstancesCommand = async (input, context) => {
+exports.se_ListImportsCommand = se_ListImportsCommand;
+const se_ListStackInstancesCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListStackInstancesInput(input, context),
+        ...se_ListStackInstancesInput(input, context),
         Action: "ListStackInstances",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListStackInstancesCommand = serializeAws_queryListStackInstancesCommand;
-const serializeAws_queryListStackResourcesCommand = async (input, context) => {
+exports.se_ListStackInstancesCommand = se_ListStackInstancesCommand;
+const se_ListStackResourcesCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListStackResourcesInput(input, context),
+        ...se_ListStackResourcesInput(input, context),
         Action: "ListStackResources",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListStackResourcesCommand = serializeAws_queryListStackResourcesCommand;
-const serializeAws_queryListStacksCommand = async (input, context) => {
+exports.se_ListStackResourcesCommand = se_ListStackResourcesCommand;
+const se_ListStacksCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListStacksInput(input, context),
+        ...se_ListStacksInput(input, context),
         Action: "ListStacks",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListStacksCommand = serializeAws_queryListStacksCommand;
-const serializeAws_queryListStackSetOperationResultsCommand = async (input, context) => {
+exports.se_ListStacksCommand = se_ListStacksCommand;
+const se_ListStackSetOperationResultsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListStackSetOperationResultsInput(input, context),
+        ...se_ListStackSetOperationResultsInput(input, context),
         Action: "ListStackSetOperationResults",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListStackSetOperationResultsCommand = serializeAws_queryListStackSetOperationResultsCommand;
-const serializeAws_queryListStackSetOperationsCommand = async (input, context) => {
+exports.se_ListStackSetOperationResultsCommand = se_ListStackSetOperationResultsCommand;
+const se_ListStackSetOperationsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListStackSetOperationsInput(input, context),
+        ...se_ListStackSetOperationsInput(input, context),
         Action: "ListStackSetOperations",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListStackSetOperationsCommand = serializeAws_queryListStackSetOperationsCommand;
-const serializeAws_queryListStackSetsCommand = async (input, context) => {
+exports.se_ListStackSetOperationsCommand = se_ListStackSetOperationsCommand;
+const se_ListStackSetsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListStackSetsInput(input, context),
+        ...se_ListStackSetsInput(input, context),
         Action: "ListStackSets",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListStackSetsCommand = serializeAws_queryListStackSetsCommand;
-const serializeAws_queryListTypeRegistrationsCommand = async (input, context) => {
+exports.se_ListStackSetsCommand = se_ListStackSetsCommand;
+const se_ListTypeRegistrationsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListTypeRegistrationsInput(input, context),
+        ...se_ListTypeRegistrationsInput(input, context),
         Action: "ListTypeRegistrations",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListTypeRegistrationsCommand = serializeAws_queryListTypeRegistrationsCommand;
-const serializeAws_queryListTypesCommand = async (input, context) => {
+exports.se_ListTypeRegistrationsCommand = se_ListTypeRegistrationsCommand;
+const se_ListTypesCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListTypesInput(input, context),
+        ...se_ListTypesInput(input, context),
         Action: "ListTypes",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListTypesCommand = serializeAws_queryListTypesCommand;
-const serializeAws_queryListTypeVersionsCommand = async (input, context) => {
+exports.se_ListTypesCommand = se_ListTypesCommand;
+const se_ListTypeVersionsCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryListTypeVersionsInput(input, context),
+        ...se_ListTypeVersionsInput(input, context),
         Action: "ListTypeVersions",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryListTypeVersionsCommand = serializeAws_queryListTypeVersionsCommand;
-const serializeAws_queryPublishTypeCommand = async (input, context) => {
+exports.se_ListTypeVersionsCommand = se_ListTypeVersionsCommand;
+const se_PublishTypeCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryPublishTypeInput(input, context),
+        ...se_PublishTypeInput(input, context),
         Action: "PublishType",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryPublishTypeCommand = serializeAws_queryPublishTypeCommand;
-const serializeAws_queryRecordHandlerProgressCommand = async (input, context) => {
+exports.se_PublishTypeCommand = se_PublishTypeCommand;
+const se_RecordHandlerProgressCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryRecordHandlerProgressInput(input, context),
+        ...se_RecordHandlerProgressInput(input, context),
         Action: "RecordHandlerProgress",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryRecordHandlerProgressCommand = serializeAws_queryRecordHandlerProgressCommand;
-const serializeAws_queryRegisterPublisherCommand = async (input, context) => {
+exports.se_RecordHandlerProgressCommand = se_RecordHandlerProgressCommand;
+const se_RegisterPublisherCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryRegisterPublisherInput(input, context),
+        ...se_RegisterPublisherInput(input, context),
         Action: "RegisterPublisher",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryRegisterPublisherCommand = serializeAws_queryRegisterPublisherCommand;
-const serializeAws_queryRegisterTypeCommand = async (input, context) => {
+exports.se_RegisterPublisherCommand = se_RegisterPublisherCommand;
+const se_RegisterTypeCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryRegisterTypeInput(input, context),
+        ...se_RegisterTypeInput(input, context),
         Action: "RegisterType",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryRegisterTypeCommand = serializeAws_queryRegisterTypeCommand;
-const serializeAws_queryRollbackStackCommand = async (input, context) => {
+exports.se_RegisterTypeCommand = se_RegisterTypeCommand;
+const se_RollbackStackCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryRollbackStackInput(input, context),
+        ...se_RollbackStackInput(input, context),
         Action: "RollbackStack",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryRollbackStackCommand = serializeAws_queryRollbackStackCommand;
-const serializeAws_querySetStackPolicyCommand = async (input, context) => {
+exports.se_RollbackStackCommand = se_RollbackStackCommand;
+const se_SetStackPolicyCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_querySetStackPolicyInput(input, context),
+        ...se_SetStackPolicyInput(input, context),
         Action: "SetStackPolicy",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_querySetStackPolicyCommand = serializeAws_querySetStackPolicyCommand;
-const serializeAws_querySetTypeConfigurationCommand = async (input, context) => {
+exports.se_SetStackPolicyCommand = se_SetStackPolicyCommand;
+const se_SetTypeConfigurationCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_querySetTypeConfigurationInput(input, context),
+        ...se_SetTypeConfigurationInput(input, context),
         Action: "SetTypeConfiguration",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_querySetTypeConfigurationCommand = serializeAws_querySetTypeConfigurationCommand;
-const serializeAws_querySetTypeDefaultVersionCommand = async (input, context) => {
+exports.se_SetTypeConfigurationCommand = se_SetTypeConfigurationCommand;
+const se_SetTypeDefaultVersionCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_querySetTypeDefaultVersionInput(input, context),
+        ...se_SetTypeDefaultVersionInput(input, context),
         Action: "SetTypeDefaultVersion",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_querySetTypeDefaultVersionCommand = serializeAws_querySetTypeDefaultVersionCommand;
-const serializeAws_querySignalResourceCommand = async (input, context) => {
+exports.se_SetTypeDefaultVersionCommand = se_SetTypeDefaultVersionCommand;
+const se_SignalResourceCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_querySignalResourceInput(input, context),
+        ...se_SignalResourceInput(input, context),
         Action: "SignalResource",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_querySignalResourceCommand = serializeAws_querySignalResourceCommand;
-const serializeAws_queryStopStackSetOperationCommand = async (input, context) => {
+exports.se_SignalResourceCommand = se_SignalResourceCommand;
+const se_StopStackSetOperationCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryStopStackSetOperationInput(input, context),
+        ...se_StopStackSetOperationInput(input, context),
         Action: "StopStackSetOperation",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryStopStackSetOperationCommand = serializeAws_queryStopStackSetOperationCommand;
-const serializeAws_queryTestTypeCommand = async (input, context) => {
+exports.se_StopStackSetOperationCommand = se_StopStackSetOperationCommand;
+const se_TestTypeCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryTestTypeInput(input, context),
+        ...se_TestTypeInput(input, context),
         Action: "TestType",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryTestTypeCommand = serializeAws_queryTestTypeCommand;
-const serializeAws_queryUpdateStackCommand = async (input, context) => {
+exports.se_TestTypeCommand = se_TestTypeCommand;
+const se_UpdateStackCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryUpdateStackInput(input, context),
+        ...se_UpdateStackInput(input, context),
         Action: "UpdateStack",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryUpdateStackCommand = serializeAws_queryUpdateStackCommand;
-const serializeAws_queryUpdateStackInstancesCommand = async (input, context) => {
+exports.se_UpdateStackCommand = se_UpdateStackCommand;
+const se_UpdateStackInstancesCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryUpdateStackInstancesInput(input, context),
+        ...se_UpdateStackInstancesInput(input, context),
         Action: "UpdateStackInstances",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryUpdateStackInstancesCommand = serializeAws_queryUpdateStackInstancesCommand;
-const serializeAws_queryUpdateStackSetCommand = async (input, context) => {
+exports.se_UpdateStackInstancesCommand = se_UpdateStackInstancesCommand;
+const se_UpdateStackSetCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryUpdateStackSetInput(input, context),
+        ...se_UpdateStackSetInput(input, context),
         Action: "UpdateStackSet",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryUpdateStackSetCommand = serializeAws_queryUpdateStackSetCommand;
-const serializeAws_queryUpdateTerminationProtectionCommand = async (input, context) => {
+exports.se_UpdateStackSetCommand = se_UpdateStackSetCommand;
+const se_UpdateTerminationProtectionCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryUpdateTerminationProtectionInput(input, context),
+        ...se_UpdateTerminationProtectionInput(input, context),
         Action: "UpdateTerminationProtection",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryUpdateTerminationProtectionCommand = serializeAws_queryUpdateTerminationProtectionCommand;
-const serializeAws_queryValidateTemplateCommand = async (input, context) => {
+exports.se_UpdateTerminationProtectionCommand = se_UpdateTerminationProtectionCommand;
+const se_ValidateTemplateCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryValidateTemplateInput(input, context),
+        ...se_ValidateTemplateInput(input, context),
         Action: "ValidateTemplate",
         Version: "2010-05-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryValidateTemplateCommand = serializeAws_queryValidateTemplateCommand;
-const deserializeAws_queryActivateTypeCommand = async (output, context) => {
+exports.se_ValidateTemplateCommand = se_ValidateTemplateCommand;
+const de_ActivateTypeCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryActivateTypeCommandError(output, context);
+        return de_ActivateTypeCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryActivateTypeOutput(data.ActivateTypeResult, context);
+    contents = de_ActivateTypeOutput(data.ActivateTypeResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryActivateTypeCommand = deserializeAws_queryActivateTypeCommand;
-const deserializeAws_queryActivateTypeCommandError = async (output, context) => {
+exports.de_ActivateTypeCommand = de_ActivateTypeCommand;
+const de_ActivateTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8577,10 +8577,10 @@ const deserializeAws_queryActivateTypeCommandError = async (output, context) => 
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeNotFoundException":
         case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8591,21 +8591,21 @@ const deserializeAws_queryActivateTypeCommandError = async (output, context) => 
             });
     }
 };
-const deserializeAws_queryBatchDescribeTypeConfigurationsCommand = async (output, context) => {
+const de_BatchDescribeTypeConfigurationsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryBatchDescribeTypeConfigurationsCommandError(output, context);
+        return de_BatchDescribeTypeConfigurationsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryBatchDescribeTypeConfigurationsOutput(data.BatchDescribeTypeConfigurationsResult, context);
+    contents = de_BatchDescribeTypeConfigurationsOutput(data.BatchDescribeTypeConfigurationsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryBatchDescribeTypeConfigurationsCommand = deserializeAws_queryBatchDescribeTypeConfigurationsCommand;
-const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (output, context) => {
+exports.de_BatchDescribeTypeConfigurationsCommand = de_BatchDescribeTypeConfigurationsCommand;
+const de_BatchDescribeTypeConfigurationsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8614,10 +8614,10 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (o
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeConfigurationNotFoundException":
         case "com.amazonaws.cloudformation#TypeConfigurationNotFoundException":
-            throw await deserializeAws_queryTypeConfigurationNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeConfigurationNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8628,9 +8628,9 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsCommandError = async (o
             });
     }
 };
-const deserializeAws_queryCancelUpdateStackCommand = async (output, context) => {
+const de_CancelUpdateStackCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryCancelUpdateStackCommandError(output, context);
+        return de_CancelUpdateStackCommandError(output, context);
     }
     await collectBody(output.body, context);
     const response = {
@@ -8638,8 +8638,8 @@ const deserializeAws_queryCancelUpdateStackCommand = async (output, context) => 
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryCancelUpdateStackCommand = deserializeAws_queryCancelUpdateStackCommand;
-const deserializeAws_queryCancelUpdateStackCommandError = async (output, context) => {
+exports.de_CancelUpdateStackCommand = de_CancelUpdateStackCommand;
+const de_CancelUpdateStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8648,7 +8648,7 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (output, context
     switch (errorCode) {
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-            throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8659,21 +8659,21 @@ const deserializeAws_queryCancelUpdateStackCommandError = async (output, context
             });
     }
 };
-const deserializeAws_queryContinueUpdateRollbackCommand = async (output, context) => {
+const de_ContinueUpdateRollbackCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryContinueUpdateRollbackCommandError(output, context);
+        return de_ContinueUpdateRollbackCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryContinueUpdateRollbackOutput(data.ContinueUpdateRollbackResult, context);
+    contents = de_ContinueUpdateRollbackOutput(data.ContinueUpdateRollbackResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryContinueUpdateRollbackCommand = deserializeAws_queryContinueUpdateRollbackCommand;
-const deserializeAws_queryContinueUpdateRollbackCommandError = async (output, context) => {
+exports.de_ContinueUpdateRollbackCommand = de_ContinueUpdateRollbackCommand;
+const de_ContinueUpdateRollbackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8682,7 +8682,7 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (output, co
     switch (errorCode) {
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-            throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8693,21 +8693,21 @@ const deserializeAws_queryContinueUpdateRollbackCommandError = async (output, co
             });
     }
 };
-const deserializeAws_queryCreateChangeSetCommand = async (output, context) => {
+const de_CreateChangeSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryCreateChangeSetCommandError(output, context);
+        return de_CreateChangeSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryCreateChangeSetOutput(data.CreateChangeSetResult, context);
+    contents = de_CreateChangeSetOutput(data.CreateChangeSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryCreateChangeSetCommand = deserializeAws_queryCreateChangeSetCommand;
-const deserializeAws_queryCreateChangeSetCommandError = async (output, context) => {
+exports.de_CreateChangeSetCommand = de_CreateChangeSetCommand;
+const de_CreateChangeSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8716,13 +8716,13 @@ const deserializeAws_queryCreateChangeSetCommandError = async (output, context) 
     switch (errorCode) {
         case "AlreadyExistsException":
         case "com.amazonaws.cloudformation#AlreadyExistsException":
-            throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
         case "InsufficientCapabilitiesException":
         case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-            throw await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context);
+            throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
         case "LimitExceededException":
         case "com.amazonaws.cloudformation#LimitExceededException":
-            throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+            throw await de_LimitExceededExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8733,21 +8733,21 @@ const deserializeAws_queryCreateChangeSetCommandError = async (output, context) 
             });
     }
 };
-const deserializeAws_queryCreateStackCommand = async (output, context) => {
+const de_CreateStackCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryCreateStackCommandError(output, context);
+        return de_CreateStackCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryCreateStackOutput(data.CreateStackResult, context);
+    contents = de_CreateStackOutput(data.CreateStackResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryCreateStackCommand = deserializeAws_queryCreateStackCommand;
-const deserializeAws_queryCreateStackCommandError = async (output, context) => {
+exports.de_CreateStackCommand = de_CreateStackCommand;
+const de_CreateStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8756,16 +8756,16 @@ const deserializeAws_queryCreateStackCommandError = async (output, context) => {
     switch (errorCode) {
         case "AlreadyExistsException":
         case "com.amazonaws.cloudformation#AlreadyExistsException":
-            throw await deserializeAws_queryAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
         case "InsufficientCapabilitiesException":
         case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-            throw await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context);
+            throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
         case "LimitExceededException":
         case "com.amazonaws.cloudformation#LimitExceededException":
-            throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+            throw await de_LimitExceededExceptionRes(parsedOutput, context);
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-            throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8776,21 +8776,21 @@ const deserializeAws_queryCreateStackCommandError = async (output, context) => {
             });
     }
 };
-const deserializeAws_queryCreateStackInstancesCommand = async (output, context) => {
+const de_CreateStackInstancesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryCreateStackInstancesCommandError(output, context);
+        return de_CreateStackInstancesCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryCreateStackInstancesOutput(data.CreateStackInstancesResult, context);
+    contents = de_CreateStackInstancesOutput(data.CreateStackInstancesResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryCreateStackInstancesCommand = deserializeAws_queryCreateStackInstancesCommand;
-const deserializeAws_queryCreateStackInstancesCommandError = async (output, context) => {
+exports.de_CreateStackInstancesCommand = de_CreateStackInstancesCommand;
+const de_CreateStackInstancesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8799,22 +8799,22 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (output, cont
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
-            throw await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context);
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
         case "LimitExceededException":
         case "com.amazonaws.cloudformation#LimitExceededException":
-            throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+            throw await de_LimitExceededExceptionRes(parsedOutput, context);
         case "OperationIdAlreadyExistsException":
         case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-            throw await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
         case "OperationInProgressException":
         case "com.amazonaws.cloudformation#OperationInProgressException":
-            throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
+            throw await de_OperationInProgressExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         case "StaleRequestException":
         case "com.amazonaws.cloudformation#StaleRequestException":
-            throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
+            throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8825,21 +8825,21 @@ const deserializeAws_queryCreateStackInstancesCommandError = async (output, cont
             });
     }
 };
-const deserializeAws_queryCreateStackSetCommand = async (output, context) => {
+const de_CreateStackSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryCreateStackSetCommandError(output, context);
+        return de_CreateStackSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryCreateStackSetOutput(data.CreateStackSetResult, context);
+    contents = de_CreateStackSetOutput(data.CreateStackSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryCreateStackSetCommand = deserializeAws_queryCreateStackSetCommand;
-const deserializeAws_queryCreateStackSetCommandError = async (output, context) => {
+exports.de_CreateStackSetCommand = de_CreateStackSetCommand;
+const de_CreateStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8848,13 +8848,13 @@ const deserializeAws_queryCreateStackSetCommandError = async (output, context) =
     switch (errorCode) {
         case "CreatedButModifiedException":
         case "com.amazonaws.cloudformation#CreatedButModifiedException":
-            throw await deserializeAws_queryCreatedButModifiedExceptionResponse(parsedOutput, context);
+            throw await de_CreatedButModifiedExceptionRes(parsedOutput, context);
         case "LimitExceededException":
         case "com.amazonaws.cloudformation#LimitExceededException":
-            throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+            throw await de_LimitExceededExceptionRes(parsedOutput, context);
         case "NameAlreadyExistsException":
         case "com.amazonaws.cloudformation#NameAlreadyExistsException":
-            throw await deserializeAws_queryNameAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_NameAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8865,21 +8865,21 @@ const deserializeAws_queryCreateStackSetCommandError = async (output, context) =
             });
     }
 };
-const deserializeAws_queryDeactivateTypeCommand = async (output, context) => {
+const de_DeactivateTypeCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDeactivateTypeCommandError(output, context);
+        return de_DeactivateTypeCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDeactivateTypeOutput(data.DeactivateTypeResult, context);
+    contents = de_DeactivateTypeOutput(data.DeactivateTypeResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDeactivateTypeCommand = deserializeAws_queryDeactivateTypeCommand;
-const deserializeAws_queryDeactivateTypeCommandError = async (output, context) => {
+exports.de_DeactivateTypeCommand = de_DeactivateTypeCommand;
+const de_DeactivateTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8888,10 +8888,10 @@ const deserializeAws_queryDeactivateTypeCommandError = async (output, context) =
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeNotFoundException":
         case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8902,21 +8902,21 @@ const deserializeAws_queryDeactivateTypeCommandError = async (output, context) =
             });
     }
 };
-const deserializeAws_queryDeleteChangeSetCommand = async (output, context) => {
+const de_DeleteChangeSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDeleteChangeSetCommandError(output, context);
+        return de_DeleteChangeSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDeleteChangeSetOutput(data.DeleteChangeSetResult, context);
+    contents = de_DeleteChangeSetOutput(data.DeleteChangeSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDeleteChangeSetCommand = deserializeAws_queryDeleteChangeSetCommand;
-const deserializeAws_queryDeleteChangeSetCommandError = async (output, context) => {
+exports.de_DeleteChangeSetCommand = de_DeleteChangeSetCommand;
+const de_DeleteChangeSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8925,7 +8925,7 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (output, context) 
     switch (errorCode) {
         case "InvalidChangeSetStatus":
         case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
-            throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
+            throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8936,9 +8936,9 @@ const deserializeAws_queryDeleteChangeSetCommandError = async (output, context) 
             });
     }
 };
-const deserializeAws_queryDeleteStackCommand = async (output, context) => {
+const de_DeleteStackCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDeleteStackCommandError(output, context);
+        return de_DeleteStackCommandError(output, context);
     }
     await collectBody(output.body, context);
     const response = {
@@ -8946,8 +8946,8 @@ const deserializeAws_queryDeleteStackCommand = async (output, context) => {
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDeleteStackCommand = deserializeAws_queryDeleteStackCommand;
-const deserializeAws_queryDeleteStackCommandError = async (output, context) => {
+exports.de_DeleteStackCommand = de_DeleteStackCommand;
+const de_DeleteStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8956,7 +8956,7 @@ const deserializeAws_queryDeleteStackCommandError = async (output, context) => {
     switch (errorCode) {
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-            throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -8967,21 +8967,21 @@ const deserializeAws_queryDeleteStackCommandError = async (output, context) => {
             });
     }
 };
-const deserializeAws_queryDeleteStackInstancesCommand = async (output, context) => {
+const de_DeleteStackInstancesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDeleteStackInstancesCommandError(output, context);
+        return de_DeleteStackInstancesCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDeleteStackInstancesOutput(data.DeleteStackInstancesResult, context);
+    contents = de_DeleteStackInstancesOutput(data.DeleteStackInstancesResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDeleteStackInstancesCommand = deserializeAws_queryDeleteStackInstancesCommand;
-const deserializeAws_queryDeleteStackInstancesCommandError = async (output, context) => {
+exports.de_DeleteStackInstancesCommand = de_DeleteStackInstancesCommand;
+const de_DeleteStackInstancesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -8990,19 +8990,19 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (output, cont
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
-            throw await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context);
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
         case "OperationIdAlreadyExistsException":
         case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-            throw await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
         case "OperationInProgressException":
         case "com.amazonaws.cloudformation#OperationInProgressException":
-            throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
+            throw await de_OperationInProgressExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         case "StaleRequestException":
         case "com.amazonaws.cloudformation#StaleRequestException":
-            throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
+            throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9013,21 +9013,21 @@ const deserializeAws_queryDeleteStackInstancesCommandError = async (output, cont
             });
     }
 };
-const deserializeAws_queryDeleteStackSetCommand = async (output, context) => {
+const de_DeleteStackSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDeleteStackSetCommandError(output, context);
+        return de_DeleteStackSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDeleteStackSetOutput(data.DeleteStackSetResult, context);
+    contents = de_DeleteStackSetOutput(data.DeleteStackSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDeleteStackSetCommand = deserializeAws_queryDeleteStackSetCommand;
-const deserializeAws_queryDeleteStackSetCommandError = async (output, context) => {
+exports.de_DeleteStackSetCommand = de_DeleteStackSetCommand;
+const de_DeleteStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9036,10 +9036,10 @@ const deserializeAws_queryDeleteStackSetCommandError = async (output, context) =
     switch (errorCode) {
         case "OperationInProgressException":
         case "com.amazonaws.cloudformation#OperationInProgressException":
-            throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
+            throw await de_OperationInProgressExceptionRes(parsedOutput, context);
         case "StackSetNotEmptyException":
         case "com.amazonaws.cloudformation#StackSetNotEmptyException":
-            throw await deserializeAws_queryStackSetNotEmptyExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotEmptyExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9050,21 +9050,21 @@ const deserializeAws_queryDeleteStackSetCommandError = async (output, context) =
             });
     }
 };
-const deserializeAws_queryDeregisterTypeCommand = async (output, context) => {
+const de_DeregisterTypeCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDeregisterTypeCommandError(output, context);
+        return de_DeregisterTypeCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDeregisterTypeOutput(data.DeregisterTypeResult, context);
+    contents = de_DeregisterTypeOutput(data.DeregisterTypeResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDeregisterTypeCommand = deserializeAws_queryDeregisterTypeCommand;
-const deserializeAws_queryDeregisterTypeCommandError = async (output, context) => {
+exports.de_DeregisterTypeCommand = de_DeregisterTypeCommand;
+const de_DeregisterTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9073,10 +9073,10 @@ const deserializeAws_queryDeregisterTypeCommandError = async (output, context) =
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeNotFoundException":
         case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9087,21 +9087,21 @@ const deserializeAws_queryDeregisterTypeCommandError = async (output, context) =
             });
     }
 };
-const deserializeAws_queryDescribeAccountLimitsCommand = async (output, context) => {
+const de_DescribeAccountLimitsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeAccountLimitsCommandError(output, context);
+        return de_DescribeAccountLimitsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
+    contents = de_DescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeAccountLimitsCommand = deserializeAws_queryDescribeAccountLimitsCommand;
-const deserializeAws_queryDescribeAccountLimitsCommandError = async (output, context) => {
+exports.de_DescribeAccountLimitsCommand = de_DescribeAccountLimitsCommand;
+const de_DescribeAccountLimitsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9115,21 +9115,21 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (output, con
         errorCode,
     });
 };
-const deserializeAws_queryDescribeChangeSetCommand = async (output, context) => {
+const de_DescribeChangeSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeChangeSetCommandError(output, context);
+        return de_DescribeChangeSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeChangeSetOutput(data.DescribeChangeSetResult, context);
+    contents = de_DescribeChangeSetOutput(data.DescribeChangeSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeChangeSetCommand = deserializeAws_queryDescribeChangeSetCommand;
-const deserializeAws_queryDescribeChangeSetCommandError = async (output, context) => {
+exports.de_DescribeChangeSetCommand = de_DescribeChangeSetCommand;
+const de_DescribeChangeSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9138,7 +9138,7 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (output, context
     switch (errorCode) {
         case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-            throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9149,21 +9149,21 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (output, context
             });
     }
 };
-const deserializeAws_queryDescribeChangeSetHooksCommand = async (output, context) => {
+const de_DescribeChangeSetHooksCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeChangeSetHooksCommandError(output, context);
+        return de_DescribeChangeSetHooksCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeChangeSetHooksOutput(data.DescribeChangeSetHooksResult, context);
+    contents = de_DescribeChangeSetHooksOutput(data.DescribeChangeSetHooksResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeChangeSetHooksCommand = deserializeAws_queryDescribeChangeSetHooksCommand;
-const deserializeAws_queryDescribeChangeSetHooksCommandError = async (output, context) => {
+exports.de_DescribeChangeSetHooksCommand = de_DescribeChangeSetHooksCommand;
+const de_DescribeChangeSetHooksCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9172,7 +9172,7 @@ const deserializeAws_queryDescribeChangeSetHooksCommandError = async (output, co
     switch (errorCode) {
         case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-            throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9183,21 +9183,21 @@ const deserializeAws_queryDescribeChangeSetHooksCommandError = async (output, co
             });
     }
 };
-const deserializeAws_queryDescribePublisherCommand = async (output, context) => {
+const de_DescribePublisherCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribePublisherCommandError(output, context);
+        return de_DescribePublisherCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribePublisherOutput(data.DescribePublisherResult, context);
+    contents = de_DescribePublisherOutput(data.DescribePublisherResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribePublisherCommand = deserializeAws_queryDescribePublisherCommand;
-const deserializeAws_queryDescribePublisherCommandError = async (output, context) => {
+exports.de_DescribePublisherCommand = de_DescribePublisherCommand;
+const de_DescribePublisherCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9206,7 +9206,7 @@ const deserializeAws_queryDescribePublisherCommandError = async (output, context
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9217,21 +9217,21 @@ const deserializeAws_queryDescribePublisherCommandError = async (output, context
             });
     }
 };
-const deserializeAws_queryDescribeStackDriftDetectionStatusCommand = async (output, context) => {
+const de_DescribeStackDriftDetectionStatusCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStackDriftDetectionStatusCommandError(output, context);
+        return de_DescribeStackDriftDetectionStatusCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStackDriftDetectionStatusOutput(data.DescribeStackDriftDetectionStatusResult, context);
+    contents = de_DescribeStackDriftDetectionStatusOutput(data.DescribeStackDriftDetectionStatusResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStackDriftDetectionStatusCommand = deserializeAws_queryDescribeStackDriftDetectionStatusCommand;
-const deserializeAws_queryDescribeStackDriftDetectionStatusCommandError = async (output, context) => {
+exports.de_DescribeStackDriftDetectionStatusCommand = de_DescribeStackDriftDetectionStatusCommand;
+const de_DescribeStackDriftDetectionStatusCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9245,21 +9245,21 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusCommandError = async 
         errorCode,
     });
 };
-const deserializeAws_queryDescribeStackEventsCommand = async (output, context) => {
+const de_DescribeStackEventsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStackEventsCommandError(output, context);
+        return de_DescribeStackEventsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStackEventsOutput(data.DescribeStackEventsResult, context);
+    contents = de_DescribeStackEventsOutput(data.DescribeStackEventsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStackEventsCommand = deserializeAws_queryDescribeStackEventsCommand;
-const deserializeAws_queryDescribeStackEventsCommandError = async (output, context) => {
+exports.de_DescribeStackEventsCommand = de_DescribeStackEventsCommand;
+const de_DescribeStackEventsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9273,21 +9273,21 @@ const deserializeAws_queryDescribeStackEventsCommandError = async (output, conte
         errorCode,
     });
 };
-const deserializeAws_queryDescribeStackInstanceCommand = async (output, context) => {
+const de_DescribeStackInstanceCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStackInstanceCommandError(output, context);
+        return de_DescribeStackInstanceCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStackInstanceOutput(data.DescribeStackInstanceResult, context);
+    contents = de_DescribeStackInstanceOutput(data.DescribeStackInstanceResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStackInstanceCommand = deserializeAws_queryDescribeStackInstanceCommand;
-const deserializeAws_queryDescribeStackInstanceCommandError = async (output, context) => {
+exports.de_DescribeStackInstanceCommand = de_DescribeStackInstanceCommand;
+const de_DescribeStackInstanceCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9296,10 +9296,10 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (output, con
     switch (errorCode) {
         case "StackInstanceNotFoundException":
         case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-            throw await deserializeAws_queryStackInstanceNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9310,21 +9310,21 @@ const deserializeAws_queryDescribeStackInstanceCommandError = async (output, con
             });
     }
 };
-const deserializeAws_queryDescribeStackResourceCommand = async (output, context) => {
+const de_DescribeStackResourceCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStackResourceCommandError(output, context);
+        return de_DescribeStackResourceCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStackResourceOutput(data.DescribeStackResourceResult, context);
+    contents = de_DescribeStackResourceOutput(data.DescribeStackResourceResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStackResourceCommand = deserializeAws_queryDescribeStackResourceCommand;
-const deserializeAws_queryDescribeStackResourceCommandError = async (output, context) => {
+exports.de_DescribeStackResourceCommand = de_DescribeStackResourceCommand;
+const de_DescribeStackResourceCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9338,21 +9338,21 @@ const deserializeAws_queryDescribeStackResourceCommandError = async (output, con
         errorCode,
     });
 };
-const deserializeAws_queryDescribeStackResourceDriftsCommand = async (output, context) => {
+const de_DescribeStackResourceDriftsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStackResourceDriftsCommandError(output, context);
+        return de_DescribeStackResourceDriftsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStackResourceDriftsOutput(data.DescribeStackResourceDriftsResult, context);
+    contents = de_DescribeStackResourceDriftsOutput(data.DescribeStackResourceDriftsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStackResourceDriftsCommand = deserializeAws_queryDescribeStackResourceDriftsCommand;
-const deserializeAws_queryDescribeStackResourceDriftsCommandError = async (output, context) => {
+exports.de_DescribeStackResourceDriftsCommand = de_DescribeStackResourceDriftsCommand;
+const de_DescribeStackResourceDriftsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9366,21 +9366,21 @@ const deserializeAws_queryDescribeStackResourceDriftsCommandError = async (outpu
         errorCode,
     });
 };
-const deserializeAws_queryDescribeStackResourcesCommand = async (output, context) => {
+const de_DescribeStackResourcesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStackResourcesCommandError(output, context);
+        return de_DescribeStackResourcesCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStackResourcesOutput(data.DescribeStackResourcesResult, context);
+    contents = de_DescribeStackResourcesOutput(data.DescribeStackResourcesResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStackResourcesCommand = deserializeAws_queryDescribeStackResourcesCommand;
-const deserializeAws_queryDescribeStackResourcesCommandError = async (output, context) => {
+exports.de_DescribeStackResourcesCommand = de_DescribeStackResourcesCommand;
+const de_DescribeStackResourcesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9394,21 +9394,21 @@ const deserializeAws_queryDescribeStackResourcesCommandError = async (output, co
         errorCode,
     });
 };
-const deserializeAws_queryDescribeStacksCommand = async (output, context) => {
+const de_DescribeStacksCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStacksCommandError(output, context);
+        return de_DescribeStacksCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStacksOutput(data.DescribeStacksResult, context);
+    contents = de_DescribeStacksOutput(data.DescribeStacksResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStacksCommand = deserializeAws_queryDescribeStacksCommand;
-const deserializeAws_queryDescribeStacksCommandError = async (output, context) => {
+exports.de_DescribeStacksCommand = de_DescribeStacksCommand;
+const de_DescribeStacksCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9422,21 +9422,21 @@ const deserializeAws_queryDescribeStacksCommandError = async (output, context) =
         errorCode,
     });
 };
-const deserializeAws_queryDescribeStackSetCommand = async (output, context) => {
+const de_DescribeStackSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStackSetCommandError(output, context);
+        return de_DescribeStackSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStackSetOutput(data.DescribeStackSetResult, context);
+    contents = de_DescribeStackSetOutput(data.DescribeStackSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStackSetCommand = deserializeAws_queryDescribeStackSetCommand;
-const deserializeAws_queryDescribeStackSetCommandError = async (output, context) => {
+exports.de_DescribeStackSetCommand = de_DescribeStackSetCommand;
+const de_DescribeStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9445,7 +9445,7 @@ const deserializeAws_queryDescribeStackSetCommandError = async (output, context)
     switch (errorCode) {
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9456,21 +9456,21 @@ const deserializeAws_queryDescribeStackSetCommandError = async (output, context)
             });
     }
 };
-const deserializeAws_queryDescribeStackSetOperationCommand = async (output, context) => {
+const de_DescribeStackSetOperationCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeStackSetOperationCommandError(output, context);
+        return de_DescribeStackSetOperationCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeStackSetOperationOutput(data.DescribeStackSetOperationResult, context);
+    contents = de_DescribeStackSetOperationOutput(data.DescribeStackSetOperationResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeStackSetOperationCommand = deserializeAws_queryDescribeStackSetOperationCommand;
-const deserializeAws_queryDescribeStackSetOperationCommandError = async (output, context) => {
+exports.de_DescribeStackSetOperationCommand = de_DescribeStackSetOperationCommand;
+const de_DescribeStackSetOperationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9479,10 +9479,10 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (output,
     switch (errorCode) {
         case "OperationNotFoundException":
         case "com.amazonaws.cloudformation#OperationNotFoundException":
-            throw await deserializeAws_queryOperationNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9493,21 +9493,21 @@ const deserializeAws_queryDescribeStackSetOperationCommandError = async (output,
             });
     }
 };
-const deserializeAws_queryDescribeTypeCommand = async (output, context) => {
+const de_DescribeTypeCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeTypeCommandError(output, context);
+        return de_DescribeTypeCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeTypeOutput(data.DescribeTypeResult, context);
+    contents = de_DescribeTypeOutput(data.DescribeTypeResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeTypeCommand = deserializeAws_queryDescribeTypeCommand;
-const deserializeAws_queryDescribeTypeCommandError = async (output, context) => {
+exports.de_DescribeTypeCommand = de_DescribeTypeCommand;
+const de_DescribeTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9516,10 +9516,10 @@ const deserializeAws_queryDescribeTypeCommandError = async (output, context) => 
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeNotFoundException":
         case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9530,21 +9530,21 @@ const deserializeAws_queryDescribeTypeCommandError = async (output, context) => 
             });
     }
 };
-const deserializeAws_queryDescribeTypeRegistrationCommand = async (output, context) => {
+const de_DescribeTypeRegistrationCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDescribeTypeRegistrationCommandError(output, context);
+        return de_DescribeTypeRegistrationCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDescribeTypeRegistrationOutput(data.DescribeTypeRegistrationResult, context);
+    contents = de_DescribeTypeRegistrationOutput(data.DescribeTypeRegistrationResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDescribeTypeRegistrationCommand = deserializeAws_queryDescribeTypeRegistrationCommand;
-const deserializeAws_queryDescribeTypeRegistrationCommandError = async (output, context) => {
+exports.de_DescribeTypeRegistrationCommand = de_DescribeTypeRegistrationCommand;
+const de_DescribeTypeRegistrationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9553,7 +9553,7 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (output, 
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9564,21 +9564,21 @@ const deserializeAws_queryDescribeTypeRegistrationCommandError = async (output, 
             });
     }
 };
-const deserializeAws_queryDetectStackDriftCommand = async (output, context) => {
+const de_DetectStackDriftCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDetectStackDriftCommandError(output, context);
+        return de_DetectStackDriftCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDetectStackDriftOutput(data.DetectStackDriftResult, context);
+    contents = de_DetectStackDriftOutput(data.DetectStackDriftResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDetectStackDriftCommand = deserializeAws_queryDetectStackDriftCommand;
-const deserializeAws_queryDetectStackDriftCommandError = async (output, context) => {
+exports.de_DetectStackDriftCommand = de_DetectStackDriftCommand;
+const de_DetectStackDriftCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9592,21 +9592,21 @@ const deserializeAws_queryDetectStackDriftCommandError = async (output, context)
         errorCode,
     });
 };
-const deserializeAws_queryDetectStackResourceDriftCommand = async (output, context) => {
+const de_DetectStackResourceDriftCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDetectStackResourceDriftCommandError(output, context);
+        return de_DetectStackResourceDriftCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDetectStackResourceDriftOutput(data.DetectStackResourceDriftResult, context);
+    contents = de_DetectStackResourceDriftOutput(data.DetectStackResourceDriftResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDetectStackResourceDriftCommand = deserializeAws_queryDetectStackResourceDriftCommand;
-const deserializeAws_queryDetectStackResourceDriftCommandError = async (output, context) => {
+exports.de_DetectStackResourceDriftCommand = de_DetectStackResourceDriftCommand;
+const de_DetectStackResourceDriftCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9620,21 +9620,21 @@ const deserializeAws_queryDetectStackResourceDriftCommandError = async (output, 
         errorCode,
     });
 };
-const deserializeAws_queryDetectStackSetDriftCommand = async (output, context) => {
+const de_DetectStackSetDriftCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDetectStackSetDriftCommandError(output, context);
+        return de_DetectStackSetDriftCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDetectStackSetDriftOutput(data.DetectStackSetDriftResult, context);
+    contents = de_DetectStackSetDriftOutput(data.DetectStackSetDriftResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDetectStackSetDriftCommand = deserializeAws_queryDetectStackSetDriftCommand;
-const deserializeAws_queryDetectStackSetDriftCommandError = async (output, context) => {
+exports.de_DetectStackSetDriftCommand = de_DetectStackSetDriftCommand;
+const de_DetectStackSetDriftCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9643,13 +9643,13 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (output, conte
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
-            throw await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context);
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
         case "OperationInProgressException":
         case "com.amazonaws.cloudformation#OperationInProgressException":
-            throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
+            throw await de_OperationInProgressExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9660,21 +9660,21 @@ const deserializeAws_queryDetectStackSetDriftCommandError = async (output, conte
             });
     }
 };
-const deserializeAws_queryEstimateTemplateCostCommand = async (output, context) => {
+const de_EstimateTemplateCostCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryEstimateTemplateCostCommandError(output, context);
+        return de_EstimateTemplateCostCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryEstimateTemplateCostOutput(data.EstimateTemplateCostResult, context);
+    contents = de_EstimateTemplateCostOutput(data.EstimateTemplateCostResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryEstimateTemplateCostCommand = deserializeAws_queryEstimateTemplateCostCommand;
-const deserializeAws_queryEstimateTemplateCostCommandError = async (output, context) => {
+exports.de_EstimateTemplateCostCommand = de_EstimateTemplateCostCommand;
+const de_EstimateTemplateCostCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9688,21 +9688,21 @@ const deserializeAws_queryEstimateTemplateCostCommandError = async (output, cont
         errorCode,
     });
 };
-const deserializeAws_queryExecuteChangeSetCommand = async (output, context) => {
+const de_ExecuteChangeSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryExecuteChangeSetCommandError(output, context);
+        return de_ExecuteChangeSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryExecuteChangeSetOutput(data.ExecuteChangeSetResult, context);
+    contents = de_ExecuteChangeSetOutput(data.ExecuteChangeSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryExecuteChangeSetCommand = deserializeAws_queryExecuteChangeSetCommand;
-const deserializeAws_queryExecuteChangeSetCommandError = async (output, context) => {
+exports.de_ExecuteChangeSetCommand = de_ExecuteChangeSetCommand;
+const de_ExecuteChangeSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9711,16 +9711,16 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (output, context)
     switch (errorCode) {
         case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-            throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
         case "InsufficientCapabilitiesException":
         case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-            throw await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context);
+            throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
         case "InvalidChangeSetStatus":
         case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
-            throw await deserializeAws_queryInvalidChangeSetStatusExceptionResponse(parsedOutput, context);
+            throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-            throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9731,21 +9731,21 @@ const deserializeAws_queryExecuteChangeSetCommandError = async (output, context)
             });
     }
 };
-const deserializeAws_queryGetStackPolicyCommand = async (output, context) => {
+const de_GetStackPolicyCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryGetStackPolicyCommandError(output, context);
+        return de_GetStackPolicyCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryGetStackPolicyOutput(data.GetStackPolicyResult, context);
+    contents = de_GetStackPolicyOutput(data.GetStackPolicyResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryGetStackPolicyCommand = deserializeAws_queryGetStackPolicyCommand;
-const deserializeAws_queryGetStackPolicyCommandError = async (output, context) => {
+exports.de_GetStackPolicyCommand = de_GetStackPolicyCommand;
+const de_GetStackPolicyCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9759,21 +9759,21 @@ const deserializeAws_queryGetStackPolicyCommandError = async (output, context) =
         errorCode,
     });
 };
-const deserializeAws_queryGetTemplateCommand = async (output, context) => {
+const de_GetTemplateCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryGetTemplateCommandError(output, context);
+        return de_GetTemplateCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryGetTemplateOutput(data.GetTemplateResult, context);
+    contents = de_GetTemplateOutput(data.GetTemplateResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryGetTemplateCommand = deserializeAws_queryGetTemplateCommand;
-const deserializeAws_queryGetTemplateCommandError = async (output, context) => {
+exports.de_GetTemplateCommand = de_GetTemplateCommand;
+const de_GetTemplateCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9782,7 +9782,7 @@ const deserializeAws_queryGetTemplateCommandError = async (output, context) => {
     switch (errorCode) {
         case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-            throw await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9793,21 +9793,21 @@ const deserializeAws_queryGetTemplateCommandError = async (output, context) => {
             });
     }
 };
-const deserializeAws_queryGetTemplateSummaryCommand = async (output, context) => {
+const de_GetTemplateSummaryCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryGetTemplateSummaryCommandError(output, context);
+        return de_GetTemplateSummaryCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryGetTemplateSummaryOutput(data.GetTemplateSummaryResult, context);
+    contents = de_GetTemplateSummaryOutput(data.GetTemplateSummaryResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryGetTemplateSummaryCommand = deserializeAws_queryGetTemplateSummaryCommand;
-const deserializeAws_queryGetTemplateSummaryCommandError = async (output, context) => {
+exports.de_GetTemplateSummaryCommand = de_GetTemplateSummaryCommand;
+const de_GetTemplateSummaryCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9816,7 +9816,7 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (output, contex
     switch (errorCode) {
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9827,21 +9827,21 @@ const deserializeAws_queryGetTemplateSummaryCommandError = async (output, contex
             });
     }
 };
-const deserializeAws_queryImportStacksToStackSetCommand = async (output, context) => {
+const de_ImportStacksToStackSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryImportStacksToStackSetCommandError(output, context);
+        return de_ImportStacksToStackSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryImportStacksToStackSetOutput(data.ImportStacksToStackSetResult, context);
+    contents = de_ImportStacksToStackSetOutput(data.ImportStacksToStackSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryImportStacksToStackSetCommand = deserializeAws_queryImportStacksToStackSetCommand;
-const deserializeAws_queryImportStacksToStackSetCommandError = async (output, context) => {
+exports.de_ImportStacksToStackSetCommand = de_ImportStacksToStackSetCommand;
+const de_ImportStacksToStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9850,25 +9850,25 @@ const deserializeAws_queryImportStacksToStackSetCommandError = async (output, co
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
-            throw await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context);
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
         case "LimitExceededException":
         case "com.amazonaws.cloudformation#LimitExceededException":
-            throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+            throw await de_LimitExceededExceptionRes(parsedOutput, context);
         case "OperationIdAlreadyExistsException":
         case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-            throw await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
         case "OperationInProgressException":
         case "com.amazonaws.cloudformation#OperationInProgressException":
-            throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
+            throw await de_OperationInProgressExceptionRes(parsedOutput, context);
         case "StackNotFoundException":
         case "com.amazonaws.cloudformation#StackNotFoundException":
-            throw await deserializeAws_queryStackNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackNotFoundExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         case "StaleRequestException":
         case "com.amazonaws.cloudformation#StaleRequestException":
-            throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
+            throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9879,21 +9879,21 @@ const deserializeAws_queryImportStacksToStackSetCommandError = async (output, co
             });
     }
 };
-const deserializeAws_queryListChangeSetsCommand = async (output, context) => {
+const de_ListChangeSetsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListChangeSetsCommandError(output, context);
+        return de_ListChangeSetsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListChangeSetsOutput(data.ListChangeSetsResult, context);
+    contents = de_ListChangeSetsOutput(data.ListChangeSetsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListChangeSetsCommand = deserializeAws_queryListChangeSetsCommand;
-const deserializeAws_queryListChangeSetsCommandError = async (output, context) => {
+exports.de_ListChangeSetsCommand = de_ListChangeSetsCommand;
+const de_ListChangeSetsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9907,21 +9907,21 @@ const deserializeAws_queryListChangeSetsCommandError = async (output, context) =
         errorCode,
     });
 };
-const deserializeAws_queryListExportsCommand = async (output, context) => {
+const de_ListExportsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListExportsCommandError(output, context);
+        return de_ListExportsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListExportsOutput(data.ListExportsResult, context);
+    contents = de_ListExportsOutput(data.ListExportsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListExportsCommand = deserializeAws_queryListExportsCommand;
-const deserializeAws_queryListExportsCommandError = async (output, context) => {
+exports.de_ListExportsCommand = de_ListExportsCommand;
+const de_ListExportsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9935,21 +9935,21 @@ const deserializeAws_queryListExportsCommandError = async (output, context) => {
         errorCode,
     });
 };
-const deserializeAws_queryListImportsCommand = async (output, context) => {
+const de_ListImportsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListImportsCommandError(output, context);
+        return de_ListImportsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListImportsOutput(data.ListImportsResult, context);
+    contents = de_ListImportsOutput(data.ListImportsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListImportsCommand = deserializeAws_queryListImportsCommand;
-const deserializeAws_queryListImportsCommandError = async (output, context) => {
+exports.de_ListImportsCommand = de_ListImportsCommand;
+const de_ListImportsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9963,21 +9963,21 @@ const deserializeAws_queryListImportsCommandError = async (output, context) => {
         errorCode,
     });
 };
-const deserializeAws_queryListStackInstancesCommand = async (output, context) => {
+const de_ListStackInstancesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListStackInstancesCommandError(output, context);
+        return de_ListStackInstancesCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListStackInstancesOutput(data.ListStackInstancesResult, context);
+    contents = de_ListStackInstancesOutput(data.ListStackInstancesResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListStackInstancesCommand = deserializeAws_queryListStackInstancesCommand;
-const deserializeAws_queryListStackInstancesCommandError = async (output, context) => {
+exports.de_ListStackInstancesCommand = de_ListStackInstancesCommand;
+const de_ListStackInstancesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -9986,7 +9986,7 @@ const deserializeAws_queryListStackInstancesCommandError = async (output, contex
     switch (errorCode) {
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -9997,21 +9997,21 @@ const deserializeAws_queryListStackInstancesCommandError = async (output, contex
             });
     }
 };
-const deserializeAws_queryListStackResourcesCommand = async (output, context) => {
+const de_ListStackResourcesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListStackResourcesCommandError(output, context);
+        return de_ListStackResourcesCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListStackResourcesOutput(data.ListStackResourcesResult, context);
+    contents = de_ListStackResourcesOutput(data.ListStackResourcesResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListStackResourcesCommand = deserializeAws_queryListStackResourcesCommand;
-const deserializeAws_queryListStackResourcesCommandError = async (output, context) => {
+exports.de_ListStackResourcesCommand = de_ListStackResourcesCommand;
+const de_ListStackResourcesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10025,21 +10025,21 @@ const deserializeAws_queryListStackResourcesCommandError = async (output, contex
         errorCode,
     });
 };
-const deserializeAws_queryListStacksCommand = async (output, context) => {
+const de_ListStacksCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListStacksCommandError(output, context);
+        return de_ListStacksCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListStacksOutput(data.ListStacksResult, context);
+    contents = de_ListStacksOutput(data.ListStacksResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListStacksCommand = deserializeAws_queryListStacksCommand;
-const deserializeAws_queryListStacksCommandError = async (output, context) => {
+exports.de_ListStacksCommand = de_ListStacksCommand;
+const de_ListStacksCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10053,21 +10053,21 @@ const deserializeAws_queryListStacksCommandError = async (output, context) => {
         errorCode,
     });
 };
-const deserializeAws_queryListStackSetOperationResultsCommand = async (output, context) => {
+const de_ListStackSetOperationResultsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListStackSetOperationResultsCommandError(output, context);
+        return de_ListStackSetOperationResultsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListStackSetOperationResultsOutput(data.ListStackSetOperationResultsResult, context);
+    contents = de_ListStackSetOperationResultsOutput(data.ListStackSetOperationResultsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListStackSetOperationResultsCommand = deserializeAws_queryListStackSetOperationResultsCommand;
-const deserializeAws_queryListStackSetOperationResultsCommandError = async (output, context) => {
+exports.de_ListStackSetOperationResultsCommand = de_ListStackSetOperationResultsCommand;
+const de_ListStackSetOperationResultsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10076,10 +10076,10 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (outp
     switch (errorCode) {
         case "OperationNotFoundException":
         case "com.amazonaws.cloudformation#OperationNotFoundException":
-            throw await deserializeAws_queryOperationNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10090,21 +10090,21 @@ const deserializeAws_queryListStackSetOperationResultsCommandError = async (outp
             });
     }
 };
-const deserializeAws_queryListStackSetOperationsCommand = async (output, context) => {
+const de_ListStackSetOperationsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListStackSetOperationsCommandError(output, context);
+        return de_ListStackSetOperationsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListStackSetOperationsOutput(data.ListStackSetOperationsResult, context);
+    contents = de_ListStackSetOperationsOutput(data.ListStackSetOperationsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListStackSetOperationsCommand = deserializeAws_queryListStackSetOperationsCommand;
-const deserializeAws_queryListStackSetOperationsCommandError = async (output, context) => {
+exports.de_ListStackSetOperationsCommand = de_ListStackSetOperationsCommand;
+const de_ListStackSetOperationsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10113,7 +10113,7 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (output, co
     switch (errorCode) {
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10124,21 +10124,21 @@ const deserializeAws_queryListStackSetOperationsCommandError = async (output, co
             });
     }
 };
-const deserializeAws_queryListStackSetsCommand = async (output, context) => {
+const de_ListStackSetsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListStackSetsCommandError(output, context);
+        return de_ListStackSetsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListStackSetsOutput(data.ListStackSetsResult, context);
+    contents = de_ListStackSetsOutput(data.ListStackSetsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListStackSetsCommand = deserializeAws_queryListStackSetsCommand;
-const deserializeAws_queryListStackSetsCommandError = async (output, context) => {
+exports.de_ListStackSetsCommand = de_ListStackSetsCommand;
+const de_ListStackSetsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10152,21 +10152,21 @@ const deserializeAws_queryListStackSetsCommandError = async (output, context) =>
         errorCode,
     });
 };
-const deserializeAws_queryListTypeRegistrationsCommand = async (output, context) => {
+const de_ListTypeRegistrationsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListTypeRegistrationsCommandError(output, context);
+        return de_ListTypeRegistrationsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListTypeRegistrationsOutput(data.ListTypeRegistrationsResult, context);
+    contents = de_ListTypeRegistrationsOutput(data.ListTypeRegistrationsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListTypeRegistrationsCommand = deserializeAws_queryListTypeRegistrationsCommand;
-const deserializeAws_queryListTypeRegistrationsCommandError = async (output, context) => {
+exports.de_ListTypeRegistrationsCommand = de_ListTypeRegistrationsCommand;
+const de_ListTypeRegistrationsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10175,7 +10175,7 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (output, con
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10186,21 +10186,21 @@ const deserializeAws_queryListTypeRegistrationsCommandError = async (output, con
             });
     }
 };
-const deserializeAws_queryListTypesCommand = async (output, context) => {
+const de_ListTypesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListTypesCommandError(output, context);
+        return de_ListTypesCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListTypesOutput(data.ListTypesResult, context);
+    contents = de_ListTypesOutput(data.ListTypesResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListTypesCommand = deserializeAws_queryListTypesCommand;
-const deserializeAws_queryListTypesCommandError = async (output, context) => {
+exports.de_ListTypesCommand = de_ListTypesCommand;
+const de_ListTypesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10209,7 +10209,7 @@ const deserializeAws_queryListTypesCommandError = async (output, context) => {
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10220,21 +10220,21 @@ const deserializeAws_queryListTypesCommandError = async (output, context) => {
             });
     }
 };
-const deserializeAws_queryListTypeVersionsCommand = async (output, context) => {
+const de_ListTypeVersionsCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryListTypeVersionsCommandError(output, context);
+        return de_ListTypeVersionsCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryListTypeVersionsOutput(data.ListTypeVersionsResult, context);
+    contents = de_ListTypeVersionsOutput(data.ListTypeVersionsResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryListTypeVersionsCommand = deserializeAws_queryListTypeVersionsCommand;
-const deserializeAws_queryListTypeVersionsCommandError = async (output, context) => {
+exports.de_ListTypeVersionsCommand = de_ListTypeVersionsCommand;
+const de_ListTypeVersionsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10243,7 +10243,7 @@ const deserializeAws_queryListTypeVersionsCommandError = async (output, context)
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10254,21 +10254,21 @@ const deserializeAws_queryListTypeVersionsCommandError = async (output, context)
             });
     }
 };
-const deserializeAws_queryPublishTypeCommand = async (output, context) => {
+const de_PublishTypeCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryPublishTypeCommandError(output, context);
+        return de_PublishTypeCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryPublishTypeOutput(data.PublishTypeResult, context);
+    contents = de_PublishTypeOutput(data.PublishTypeResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryPublishTypeCommand = deserializeAws_queryPublishTypeCommand;
-const deserializeAws_queryPublishTypeCommandError = async (output, context) => {
+exports.de_PublishTypeCommand = de_PublishTypeCommand;
+const de_PublishTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10277,10 +10277,10 @@ const deserializeAws_queryPublishTypeCommandError = async (output, context) => {
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeNotFoundException":
         case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10291,21 +10291,21 @@ const deserializeAws_queryPublishTypeCommandError = async (output, context) => {
             });
     }
 };
-const deserializeAws_queryRecordHandlerProgressCommand = async (output, context) => {
+const de_RecordHandlerProgressCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryRecordHandlerProgressCommandError(output, context);
+        return de_RecordHandlerProgressCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryRecordHandlerProgressOutput(data.RecordHandlerProgressResult, context);
+    contents = de_RecordHandlerProgressOutput(data.RecordHandlerProgressResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryRecordHandlerProgressCommand = deserializeAws_queryRecordHandlerProgressCommand;
-const deserializeAws_queryRecordHandlerProgressCommandError = async (output, context) => {
+exports.de_RecordHandlerProgressCommand = de_RecordHandlerProgressCommand;
+const de_RecordHandlerProgressCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10314,10 +10314,10 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (output, con
     switch (errorCode) {
         case "ConditionalCheckFailed":
         case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
-            throw await deserializeAws_queryOperationStatusCheckFailedExceptionResponse(parsedOutput, context);
+            throw await de_OperationStatusCheckFailedExceptionRes(parsedOutput, context);
         case "InvalidStateTransition":
         case "com.amazonaws.cloudformation#InvalidStateTransitionException":
-            throw await deserializeAws_queryInvalidStateTransitionExceptionResponse(parsedOutput, context);
+            throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10328,21 +10328,21 @@ const deserializeAws_queryRecordHandlerProgressCommandError = async (output, con
             });
     }
 };
-const deserializeAws_queryRegisterPublisherCommand = async (output, context) => {
+const de_RegisterPublisherCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryRegisterPublisherCommandError(output, context);
+        return de_RegisterPublisherCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryRegisterPublisherOutput(data.RegisterPublisherResult, context);
+    contents = de_RegisterPublisherOutput(data.RegisterPublisherResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryRegisterPublisherCommand = deserializeAws_queryRegisterPublisherCommand;
-const deserializeAws_queryRegisterPublisherCommandError = async (output, context) => {
+exports.de_RegisterPublisherCommand = de_RegisterPublisherCommand;
+const de_RegisterPublisherCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10351,7 +10351,7 @@ const deserializeAws_queryRegisterPublisherCommandError = async (output, context
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10362,21 +10362,21 @@ const deserializeAws_queryRegisterPublisherCommandError = async (output, context
             });
     }
 };
-const deserializeAws_queryRegisterTypeCommand = async (output, context) => {
+const de_RegisterTypeCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryRegisterTypeCommandError(output, context);
+        return de_RegisterTypeCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryRegisterTypeOutput(data.RegisterTypeResult, context);
+    contents = de_RegisterTypeOutput(data.RegisterTypeResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryRegisterTypeCommand = deserializeAws_queryRegisterTypeCommand;
-const deserializeAws_queryRegisterTypeCommandError = async (output, context) => {
+exports.de_RegisterTypeCommand = de_RegisterTypeCommand;
+const de_RegisterTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10385,7 +10385,7 @@ const deserializeAws_queryRegisterTypeCommandError = async (output, context) => 
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10396,21 +10396,21 @@ const deserializeAws_queryRegisterTypeCommandError = async (output, context) => 
             });
     }
 };
-const deserializeAws_queryRollbackStackCommand = async (output, context) => {
+const de_RollbackStackCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryRollbackStackCommandError(output, context);
+        return de_RollbackStackCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryRollbackStackOutput(data.RollbackStackResult, context);
+    contents = de_RollbackStackOutput(data.RollbackStackResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryRollbackStackCommand = deserializeAws_queryRollbackStackCommand;
-const deserializeAws_queryRollbackStackCommandError = async (output, context) => {
+exports.de_RollbackStackCommand = de_RollbackStackCommand;
+const de_RollbackStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10419,7 +10419,7 @@ const deserializeAws_queryRollbackStackCommandError = async (output, context) =>
     switch (errorCode) {
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-            throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10430,9 +10430,9 @@ const deserializeAws_queryRollbackStackCommandError = async (output, context) =>
             });
     }
 };
-const deserializeAws_querySetStackPolicyCommand = async (output, context) => {
+const de_SetStackPolicyCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_querySetStackPolicyCommandError(output, context);
+        return de_SetStackPolicyCommandError(output, context);
     }
     await collectBody(output.body, context);
     const response = {
@@ -10440,8 +10440,8 @@ const deserializeAws_querySetStackPolicyCommand = async (output, context) => {
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_querySetStackPolicyCommand = deserializeAws_querySetStackPolicyCommand;
-const deserializeAws_querySetStackPolicyCommandError = async (output, context) => {
+exports.de_SetStackPolicyCommand = de_SetStackPolicyCommand;
+const de_SetStackPolicyCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10455,21 +10455,21 @@ const deserializeAws_querySetStackPolicyCommandError = async (output, context) =
         errorCode,
     });
 };
-const deserializeAws_querySetTypeConfigurationCommand = async (output, context) => {
+const de_SetTypeConfigurationCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_querySetTypeConfigurationCommandError(output, context);
+        return de_SetTypeConfigurationCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_querySetTypeConfigurationOutput(data.SetTypeConfigurationResult, context);
+    contents = de_SetTypeConfigurationOutput(data.SetTypeConfigurationResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_querySetTypeConfigurationCommand = deserializeAws_querySetTypeConfigurationCommand;
-const deserializeAws_querySetTypeConfigurationCommandError = async (output, context) => {
+exports.de_SetTypeConfigurationCommand = de_SetTypeConfigurationCommand;
+const de_SetTypeConfigurationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10478,10 +10478,10 @@ const deserializeAws_querySetTypeConfigurationCommandError = async (output, cont
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeNotFoundException":
         case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10492,21 +10492,21 @@ const deserializeAws_querySetTypeConfigurationCommandError = async (output, cont
             });
     }
 };
-const deserializeAws_querySetTypeDefaultVersionCommand = async (output, context) => {
+const de_SetTypeDefaultVersionCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_querySetTypeDefaultVersionCommandError(output, context);
+        return de_SetTypeDefaultVersionCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_querySetTypeDefaultVersionOutput(data.SetTypeDefaultVersionResult, context);
+    contents = de_SetTypeDefaultVersionOutput(data.SetTypeDefaultVersionResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_querySetTypeDefaultVersionCommand = deserializeAws_querySetTypeDefaultVersionCommand;
-const deserializeAws_querySetTypeDefaultVersionCommandError = async (output, context) => {
+exports.de_SetTypeDefaultVersionCommand = de_SetTypeDefaultVersionCommand;
+const de_SetTypeDefaultVersionCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10515,10 +10515,10 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (output, con
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeNotFoundException":
         case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10529,9 +10529,9 @@ const deserializeAws_querySetTypeDefaultVersionCommandError = async (output, con
             });
     }
 };
-const deserializeAws_querySignalResourceCommand = async (output, context) => {
+const de_SignalResourceCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_querySignalResourceCommandError(output, context);
+        return de_SignalResourceCommandError(output, context);
     }
     await collectBody(output.body, context);
     const response = {
@@ -10539,8 +10539,8 @@ const deserializeAws_querySignalResourceCommand = async (output, context) => {
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_querySignalResourceCommand = deserializeAws_querySignalResourceCommand;
-const deserializeAws_querySignalResourceCommandError = async (output, context) => {
+exports.de_SignalResourceCommand = de_SignalResourceCommand;
+const de_SignalResourceCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10554,21 +10554,21 @@ const deserializeAws_querySignalResourceCommandError = async (output, context) =
         errorCode,
     });
 };
-const deserializeAws_queryStopStackSetOperationCommand = async (output, context) => {
+const de_StopStackSetOperationCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryStopStackSetOperationCommandError(output, context);
+        return de_StopStackSetOperationCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryStopStackSetOperationOutput(data.StopStackSetOperationResult, context);
+    contents = de_StopStackSetOperationOutput(data.StopStackSetOperationResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryStopStackSetOperationCommand = deserializeAws_queryStopStackSetOperationCommand;
-const deserializeAws_queryStopStackSetOperationCommandError = async (output, context) => {
+exports.de_StopStackSetOperationCommand = de_StopStackSetOperationCommand;
+const de_StopStackSetOperationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10577,13 +10577,13 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (output, con
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
-            throw await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context);
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
         case "OperationNotFoundException":
         case "com.amazonaws.cloudformation#OperationNotFoundException":
-            throw await deserializeAws_queryOperationNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10594,21 +10594,21 @@ const deserializeAws_queryStopStackSetOperationCommandError = async (output, con
             });
     }
 };
-const deserializeAws_queryTestTypeCommand = async (output, context) => {
+const de_TestTypeCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryTestTypeCommandError(output, context);
+        return de_TestTypeCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryTestTypeOutput(data.TestTypeResult, context);
+    contents = de_TestTypeOutput(data.TestTypeResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryTestTypeCommand = deserializeAws_queryTestTypeCommand;
-const deserializeAws_queryTestTypeCommandError = async (output, context) => {
+exports.de_TestTypeCommand = de_TestTypeCommand;
+const de_TestTypeCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10617,10 +10617,10 @@ const deserializeAws_queryTestTypeCommandError = async (output, context) => {
     switch (errorCode) {
         case "CFNRegistryException":
         case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await deserializeAws_queryCFNRegistryExceptionResponse(parsedOutput, context);
+            throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         case "TypeNotFoundException":
         case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await deserializeAws_queryTypeNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10631,21 +10631,21 @@ const deserializeAws_queryTestTypeCommandError = async (output, context) => {
             });
     }
 };
-const deserializeAws_queryUpdateStackCommand = async (output, context) => {
+const de_UpdateStackCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryUpdateStackCommandError(output, context);
+        return de_UpdateStackCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryUpdateStackOutput(data.UpdateStackResult, context);
+    contents = de_UpdateStackOutput(data.UpdateStackResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryUpdateStackCommand = deserializeAws_queryUpdateStackCommand;
-const deserializeAws_queryUpdateStackCommandError = async (output, context) => {
+exports.de_UpdateStackCommand = de_UpdateStackCommand;
+const de_UpdateStackCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10654,10 +10654,10 @@ const deserializeAws_queryUpdateStackCommandError = async (output, context) => {
     switch (errorCode) {
         case "InsufficientCapabilitiesException":
         case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-            throw await deserializeAws_queryInsufficientCapabilitiesExceptionResponse(parsedOutput, context);
+            throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
         case "TokenAlreadyExistsException":
         case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-            throw await deserializeAws_queryTokenAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10668,21 +10668,21 @@ const deserializeAws_queryUpdateStackCommandError = async (output, context) => {
             });
     }
 };
-const deserializeAws_queryUpdateStackInstancesCommand = async (output, context) => {
+const de_UpdateStackInstancesCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryUpdateStackInstancesCommandError(output, context);
+        return de_UpdateStackInstancesCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryUpdateStackInstancesOutput(data.UpdateStackInstancesResult, context);
+    contents = de_UpdateStackInstancesOutput(data.UpdateStackInstancesResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryUpdateStackInstancesCommand = deserializeAws_queryUpdateStackInstancesCommand;
-const deserializeAws_queryUpdateStackInstancesCommandError = async (output, context) => {
+exports.de_UpdateStackInstancesCommand = de_UpdateStackInstancesCommand;
+const de_UpdateStackInstancesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10691,22 +10691,22 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (output, cont
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
-            throw await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context);
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
         case "OperationIdAlreadyExistsException":
         case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-            throw await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
         case "OperationInProgressException":
         case "com.amazonaws.cloudformation#OperationInProgressException":
-            throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
+            throw await de_OperationInProgressExceptionRes(parsedOutput, context);
         case "StackInstanceNotFoundException":
         case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-            throw await deserializeAws_queryStackInstanceNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         case "StaleRequestException":
         case "com.amazonaws.cloudformation#StaleRequestException":
-            throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
+            throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10717,21 +10717,21 @@ const deserializeAws_queryUpdateStackInstancesCommandError = async (output, cont
             });
     }
 };
-const deserializeAws_queryUpdateStackSetCommand = async (output, context) => {
+const de_UpdateStackSetCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryUpdateStackSetCommandError(output, context);
+        return de_UpdateStackSetCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryUpdateStackSetOutput(data.UpdateStackSetResult, context);
+    contents = de_UpdateStackSetOutput(data.UpdateStackSetResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryUpdateStackSetCommand = deserializeAws_queryUpdateStackSetCommand;
-const deserializeAws_queryUpdateStackSetCommandError = async (output, context) => {
+exports.de_UpdateStackSetCommand = de_UpdateStackSetCommand;
+const de_UpdateStackSetCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10740,22 +10740,22 @@ const deserializeAws_queryUpdateStackSetCommandError = async (output, context) =
     switch (errorCode) {
         case "InvalidOperationException":
         case "com.amazonaws.cloudformation#InvalidOperationException":
-            throw await deserializeAws_queryInvalidOperationExceptionResponse(parsedOutput, context);
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
         case "OperationIdAlreadyExistsException":
         case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-            throw await deserializeAws_queryOperationIdAlreadyExistsExceptionResponse(parsedOutput, context);
+            throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
         case "OperationInProgressException":
         case "com.amazonaws.cloudformation#OperationInProgressException":
-            throw await deserializeAws_queryOperationInProgressExceptionResponse(parsedOutput, context);
+            throw await de_OperationInProgressExceptionRes(parsedOutput, context);
         case "StackInstanceNotFoundException":
         case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-            throw await deserializeAws_queryStackInstanceNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
         case "StackSetNotFoundException":
         case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await deserializeAws_queryStackSetNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         case "StaleRequestException":
         case "com.amazonaws.cloudformation#StaleRequestException":
-            throw await deserializeAws_queryStaleRequestExceptionResponse(parsedOutput, context);
+            throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -10766,21 +10766,21 @@ const deserializeAws_queryUpdateStackSetCommandError = async (output, context) =
             });
     }
 };
-const deserializeAws_queryUpdateTerminationProtectionCommand = async (output, context) => {
+const de_UpdateTerminationProtectionCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryUpdateTerminationProtectionCommandError(output, context);
+        return de_UpdateTerminationProtectionCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryUpdateTerminationProtectionOutput(data.UpdateTerminationProtectionResult, context);
+    contents = de_UpdateTerminationProtectionOutput(data.UpdateTerminationProtectionResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryUpdateTerminationProtectionCommand = deserializeAws_queryUpdateTerminationProtectionCommand;
-const deserializeAws_queryUpdateTerminationProtectionCommandError = async (output, context) => {
+exports.de_UpdateTerminationProtectionCommand = de_UpdateTerminationProtectionCommand;
+const de_UpdateTerminationProtectionCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10794,21 +10794,21 @@ const deserializeAws_queryUpdateTerminationProtectionCommandError = async (outpu
         errorCode,
     });
 };
-const deserializeAws_queryValidateTemplateCommand = async (output, context) => {
+const de_ValidateTemplateCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryValidateTemplateCommandError(output, context);
+        return de_ValidateTemplateCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryValidateTemplateOutput(data.ValidateTemplateResult, context);
+    contents = de_ValidateTemplateOutput(data.ValidateTemplateResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryValidateTemplateCommand = deserializeAws_queryValidateTemplateCommand;
-const deserializeAws_queryValidateTemplateCommandError = async (output, context) => {
+exports.de_ValidateTemplateCommand = de_ValidateTemplateCommand;
+const de_ValidateTemplateCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -10822,205 +10822,205 @@ const deserializeAws_queryValidateTemplateCommandError = async (output, context)
         errorCode,
     });
 };
-const deserializeAws_queryAlreadyExistsExceptionResponse = async (parsedOutput, context) => {
+const de_AlreadyExistsExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryAlreadyExistsException(body.Error, context);
+    const deserialized = de_AlreadyExistsException(body.Error, context);
     const exception = new models_0_1.AlreadyExistsException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryCFNRegistryExceptionResponse = async (parsedOutput, context) => {
+const de_CFNRegistryExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryCFNRegistryException(body.Error, context);
+    const deserialized = de_CFNRegistryException(body.Error, context);
     const exception = new models_0_1.CFNRegistryException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryChangeSetNotFoundExceptionResponse = async (parsedOutput, context) => {
+const de_ChangeSetNotFoundExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryChangeSetNotFoundException(body.Error, context);
+    const deserialized = de_ChangeSetNotFoundException(body.Error, context);
     const exception = new models_0_1.ChangeSetNotFoundException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryCreatedButModifiedExceptionResponse = async (parsedOutput, context) => {
+const de_CreatedButModifiedExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryCreatedButModifiedException(body.Error, context);
+    const deserialized = de_CreatedButModifiedException(body.Error, context);
     const exception = new models_0_1.CreatedButModifiedException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryInsufficientCapabilitiesExceptionResponse = async (parsedOutput, context) => {
+const de_InsufficientCapabilitiesExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryInsufficientCapabilitiesException(body.Error, context);
+    const deserialized = de_InsufficientCapabilitiesException(body.Error, context);
     const exception = new models_0_1.InsufficientCapabilitiesException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryInvalidChangeSetStatusExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidChangeSetStatusExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryInvalidChangeSetStatusException(body.Error, context);
+    const deserialized = de_InvalidChangeSetStatusException(body.Error, context);
     const exception = new models_0_1.InvalidChangeSetStatusException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryInvalidOperationExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidOperationExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryInvalidOperationException(body.Error, context);
+    const deserialized = de_InvalidOperationException(body.Error, context);
     const exception = new models_0_1.InvalidOperationException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryInvalidStateTransitionExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidStateTransitionExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryInvalidStateTransitionException(body.Error, context);
+    const deserialized = de_InvalidStateTransitionException(body.Error, context);
     const exception = new models_0_1.InvalidStateTransitionException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryLimitExceededExceptionResponse = async (parsedOutput, context) => {
+const de_LimitExceededExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryLimitExceededException(body.Error, context);
+    const deserialized = de_LimitExceededException(body.Error, context);
     const exception = new models_0_1.LimitExceededException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryNameAlreadyExistsExceptionResponse = async (parsedOutput, context) => {
+const de_NameAlreadyExistsExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryNameAlreadyExistsException(body.Error, context);
+    const deserialized = de_NameAlreadyExistsException(body.Error, context);
     const exception = new models_0_1.NameAlreadyExistsException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryOperationIdAlreadyExistsExceptionResponse = async (parsedOutput, context) => {
+const de_OperationIdAlreadyExistsExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryOperationIdAlreadyExistsException(body.Error, context);
+    const deserialized = de_OperationIdAlreadyExistsException(body.Error, context);
     const exception = new models_0_1.OperationIdAlreadyExistsException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryOperationInProgressExceptionResponse = async (parsedOutput, context) => {
+const de_OperationInProgressExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryOperationInProgressException(body.Error, context);
+    const deserialized = de_OperationInProgressException(body.Error, context);
     const exception = new models_0_1.OperationInProgressException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryOperationNotFoundExceptionResponse = async (parsedOutput, context) => {
+const de_OperationNotFoundExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryOperationNotFoundException(body.Error, context);
+    const deserialized = de_OperationNotFoundException(body.Error, context);
     const exception = new models_0_1.OperationNotFoundException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryOperationStatusCheckFailedExceptionResponse = async (parsedOutput, context) => {
+const de_OperationStatusCheckFailedExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryOperationStatusCheckFailedException(body.Error, context);
+    const deserialized = de_OperationStatusCheckFailedException(body.Error, context);
     const exception = new models_0_1.OperationStatusCheckFailedException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryStackInstanceNotFoundExceptionResponse = async (parsedOutput, context) => {
+const de_StackInstanceNotFoundExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryStackInstanceNotFoundException(body.Error, context);
+    const deserialized = de_StackInstanceNotFoundException(body.Error, context);
     const exception = new models_0_1.StackInstanceNotFoundException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryStackNotFoundExceptionResponse = async (parsedOutput, context) => {
+const de_StackNotFoundExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryStackNotFoundException(body.Error, context);
+    const deserialized = de_StackNotFoundException(body.Error, context);
     const exception = new models_0_1.StackNotFoundException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryStackSetNotEmptyExceptionResponse = async (parsedOutput, context) => {
+const de_StackSetNotEmptyExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryStackSetNotEmptyException(body.Error, context);
+    const deserialized = de_StackSetNotEmptyException(body.Error, context);
     const exception = new models_0_1.StackSetNotEmptyException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryStackSetNotFoundExceptionResponse = async (parsedOutput, context) => {
+const de_StackSetNotFoundExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryStackSetNotFoundException(body.Error, context);
+    const deserialized = de_StackSetNotFoundException(body.Error, context);
     const exception = new models_0_1.StackSetNotFoundException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryStaleRequestExceptionResponse = async (parsedOutput, context) => {
+const de_StaleRequestExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryStaleRequestException(body.Error, context);
+    const deserialized = de_StaleRequestException(body.Error, context);
     const exception = new models_0_1.StaleRequestException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryTokenAlreadyExistsExceptionResponse = async (parsedOutput, context) => {
+const de_TokenAlreadyExistsExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryTokenAlreadyExistsException(body.Error, context);
+    const deserialized = de_TokenAlreadyExistsException(body.Error, context);
     const exception = new models_0_1.TokenAlreadyExistsException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryTypeConfigurationNotFoundExceptionResponse = async (parsedOutput, context) => {
+const de_TypeConfigurationNotFoundExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryTypeConfigurationNotFoundException(body.Error, context);
+    const deserialized = de_TypeConfigurationNotFoundException(body.Error, context);
     const exception = new models_0_1.TypeConfigurationNotFoundException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryTypeNotFoundExceptionResponse = async (parsedOutput, context) => {
+const de_TypeNotFoundExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryTypeNotFoundException(body.Error, context);
+    const deserialized = de_TypeNotFoundException(body.Error, context);
     const exception = new models_0_1.TypeNotFoundException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const serializeAws_queryAccountList = (input, context) => {
+const se_AccountList = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -11032,7 +11032,7 @@ const serializeAws_queryAccountList = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryActivateTypeInput = (input, context) => {
+const se_ActivateTypeInput = (input, context) => {
     const entries = {};
     if (input.Type != null) {
         entries["Type"] = input.Type;
@@ -11053,7 +11053,7 @@ const serializeAws_queryActivateTypeInput = (input, context) => {
         entries["AutoUpdate"] = input.AutoUpdate;
     }
     if (input.LoggingConfig != null) {
-        const memberEntries = serializeAws_queryLoggingConfig(input.LoggingConfig, context);
+        const memberEntries = se_LoggingConfig(input.LoggingConfig, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LoggingConfig.${key}`;
             entries[loc] = value;
@@ -11070,7 +11070,7 @@ const serializeAws_queryActivateTypeInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryAutoDeployment = (input, context) => {
+const se_AutoDeployment = (input, context) => {
     const entries = {};
     if (input.Enabled != null) {
         entries["Enabled"] = input.Enabled;
@@ -11080,10 +11080,10 @@ const serializeAws_queryAutoDeployment = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryBatchDescribeTypeConfigurationsInput = (input, context) => {
+const se_BatchDescribeTypeConfigurationsInput = (input, context) => {
     const entries = {};
     if (input.TypeConfigurationIdentifiers != null) {
-        const memberEntries = serializeAws_queryTypeConfigurationIdentifiers(input.TypeConfigurationIdentifiers, context);
+        const memberEntries = se_TypeConfigurationIdentifiers(input.TypeConfigurationIdentifiers, context);
         if (input.TypeConfigurationIdentifiers?.length === 0) {
             entries.TypeConfigurationIdentifiers = [];
         }
@@ -11094,7 +11094,7 @@ const serializeAws_queryBatchDescribeTypeConfigurationsInput = (input, context) 
     }
     return entries;
 };
-const serializeAws_queryCancelUpdateStackInput = (input, context) => {
+const se_CancelUpdateStackInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11104,7 +11104,7 @@ const serializeAws_queryCancelUpdateStackInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryCapabilities = (input, context) => {
+const se_Capabilities = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -11116,7 +11116,7 @@ const serializeAws_queryCapabilities = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryContinueUpdateRollbackInput = (input, context) => {
+const se_ContinueUpdateRollbackInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11125,7 +11125,7 @@ const serializeAws_queryContinueUpdateRollbackInput = (input, context) => {
         entries["RoleARN"] = input.RoleARN;
     }
     if (input.ResourcesToSkip != null) {
-        const memberEntries = serializeAws_queryResourcesToSkip(input.ResourcesToSkip, context);
+        const memberEntries = se_ResourcesToSkip(input.ResourcesToSkip, context);
         if (input.ResourcesToSkip?.length === 0) {
             entries.ResourcesToSkip = [];
         }
@@ -11139,7 +11139,7 @@ const serializeAws_queryContinueUpdateRollbackInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryCreateChangeSetInput = (input, context) => {
+const se_CreateChangeSetInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11154,7 +11154,7 @@ const serializeAws_queryCreateChangeSetInput = (input, context) => {
         entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
     }
     if (input.Parameters != null) {
-        const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+        const memberEntries = se_Parameters(input.Parameters, context);
         if (input.Parameters?.length === 0) {
             entries.Parameters = [];
         }
@@ -11164,7 +11164,7 @@ const serializeAws_queryCreateChangeSetInput = (input, context) => {
         });
     }
     if (input.Capabilities != null) {
-        const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+        const memberEntries = se_Capabilities(input.Capabilities, context);
         if (input.Capabilities?.length === 0) {
             entries.Capabilities = [];
         }
@@ -11174,7 +11174,7 @@ const serializeAws_queryCreateChangeSetInput = (input, context) => {
         });
     }
     if (input.ResourceTypes != null) {
-        const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
+        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
         if (input.ResourceTypes?.length === 0) {
             entries.ResourceTypes = [];
         }
@@ -11187,14 +11187,14 @@ const serializeAws_queryCreateChangeSetInput = (input, context) => {
         entries["RoleARN"] = input.RoleARN;
     }
     if (input.RollbackConfiguration != null) {
-        const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
+        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
     if (input.NotificationARNs != null) {
-        const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
+        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
         if (input.NotificationARNs?.length === 0) {
             entries.NotificationARNs = [];
         }
@@ -11204,7 +11204,7 @@ const serializeAws_queryCreateChangeSetInput = (input, context) => {
         });
     }
     if (input.Tags != null) {
-        const memberEntries = serializeAws_queryTags(input.Tags, context);
+        const memberEntries = se_Tags(input.Tags, context);
         if (input.Tags?.length === 0) {
             entries.Tags = [];
         }
@@ -11226,7 +11226,7 @@ const serializeAws_queryCreateChangeSetInput = (input, context) => {
         entries["ChangeSetType"] = input.ChangeSetType;
     }
     if (input.ResourcesToImport != null) {
-        const memberEntries = serializeAws_queryResourcesToImport(input.ResourcesToImport, context);
+        const memberEntries = se_ResourcesToImport(input.ResourcesToImport, context);
         if (input.ResourcesToImport?.length === 0) {
             entries.ResourcesToImport = [];
         }
@@ -11240,7 +11240,7 @@ const serializeAws_queryCreateChangeSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryCreateStackInput = (input, context) => {
+const se_CreateStackInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11252,7 +11252,7 @@ const serializeAws_queryCreateStackInput = (input, context) => {
         entries["TemplateURL"] = input.TemplateURL;
     }
     if (input.Parameters != null) {
-        const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+        const memberEntries = se_Parameters(input.Parameters, context);
         if (input.Parameters?.length === 0) {
             entries.Parameters = [];
         }
@@ -11265,7 +11265,7 @@ const serializeAws_queryCreateStackInput = (input, context) => {
         entries["DisableRollback"] = input.DisableRollback;
     }
     if (input.RollbackConfiguration != null) {
-        const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
+        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
@@ -11275,7 +11275,7 @@ const serializeAws_queryCreateStackInput = (input, context) => {
         entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
     }
     if (input.NotificationARNs != null) {
-        const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
+        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
         if (input.NotificationARNs?.length === 0) {
             entries.NotificationARNs = [];
         }
@@ -11285,7 +11285,7 @@ const serializeAws_queryCreateStackInput = (input, context) => {
         });
     }
     if (input.Capabilities != null) {
-        const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+        const memberEntries = se_Capabilities(input.Capabilities, context);
         if (input.Capabilities?.length === 0) {
             entries.Capabilities = [];
         }
@@ -11295,7 +11295,7 @@ const serializeAws_queryCreateStackInput = (input, context) => {
         });
     }
     if (input.ResourceTypes != null) {
-        const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
+        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
         if (input.ResourceTypes?.length === 0) {
             entries.ResourceTypes = [];
         }
@@ -11317,7 +11317,7 @@ const serializeAws_queryCreateStackInput = (input, context) => {
         entries["StackPolicyURL"] = input.StackPolicyURL;
     }
     if (input.Tags != null) {
-        const memberEntries = serializeAws_queryTags(input.Tags, context);
+        const memberEntries = se_Tags(input.Tags, context);
         if (input.Tags?.length === 0) {
             entries.Tags = [];
         }
@@ -11334,13 +11334,13 @@ const serializeAws_queryCreateStackInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryCreateStackInstancesInput = (input, context) => {
+const se_CreateStackInstancesInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
     if (input.Accounts != null) {
-        const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+        const memberEntries = se_AccountList(input.Accounts, context);
         if (input.Accounts?.length === 0) {
             entries.Accounts = [];
         }
@@ -11350,14 +11350,14 @@ const serializeAws_queryCreateStackInstancesInput = (input, context) => {
         });
     }
     if (input.DeploymentTargets != null) {
-        const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
+        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
     if (input.Regions != null) {
-        const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+        const memberEntries = se_RegionList(input.Regions, context);
         if (input.Regions?.length === 0) {
             entries.Regions = [];
         }
@@ -11367,7 +11367,7 @@ const serializeAws_queryCreateStackInstancesInput = (input, context) => {
         });
     }
     if (input.ParameterOverrides != null) {
-        const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
+        const memberEntries = se_Parameters(input.ParameterOverrides, context);
         if (input.ParameterOverrides?.length === 0) {
             entries.ParameterOverrides = [];
         }
@@ -11377,7 +11377,7 @@ const serializeAws_queryCreateStackInstancesInput = (input, context) => {
         });
     }
     if (input.OperationPreferences != null) {
-        const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
@@ -11394,7 +11394,7 @@ const serializeAws_queryCreateStackInstancesInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryCreateStackSetInput = (input, context) => {
+const se_CreateStackSetInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -11412,7 +11412,7 @@ const serializeAws_queryCreateStackSetInput = (input, context) => {
         entries["StackId"] = input.StackId;
     }
     if (input.Parameters != null) {
-        const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+        const memberEntries = se_Parameters(input.Parameters, context);
         if (input.Parameters?.length === 0) {
             entries.Parameters = [];
         }
@@ -11422,7 +11422,7 @@ const serializeAws_queryCreateStackSetInput = (input, context) => {
         });
     }
     if (input.Capabilities != null) {
-        const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+        const memberEntries = se_Capabilities(input.Capabilities, context);
         if (input.Capabilities?.length === 0) {
             entries.Capabilities = [];
         }
@@ -11432,7 +11432,7 @@ const serializeAws_queryCreateStackSetInput = (input, context) => {
         });
     }
     if (input.Tags != null) {
-        const memberEntries = serializeAws_queryTags(input.Tags, context);
+        const memberEntries = se_Tags(input.Tags, context);
         if (input.Tags?.length === 0) {
             entries.Tags = [];
         }
@@ -11451,7 +11451,7 @@ const serializeAws_queryCreateStackSetInput = (input, context) => {
         entries["PermissionModel"] = input.PermissionModel;
     }
     if (input.AutoDeployment != null) {
-        const memberEntries = serializeAws_queryAutoDeployment(input.AutoDeployment, context);
+        const memberEntries = se_AutoDeployment(input.AutoDeployment, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `AutoDeployment.${key}`;
             entries[loc] = value;
@@ -11467,7 +11467,7 @@ const serializeAws_queryCreateStackSetInput = (input, context) => {
         entries["ClientRequestToken"] = input.ClientRequestToken;
     }
     if (input.ManagedExecution != null) {
-        const memberEntries = serializeAws_queryManagedExecution(input.ManagedExecution, context);
+        const memberEntries = se_ManagedExecution(input.ManagedExecution, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ManagedExecution.${key}`;
             entries[loc] = value;
@@ -11475,7 +11475,7 @@ const serializeAws_queryCreateStackSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDeactivateTypeInput = (input, context) => {
+const se_DeactivateTypeInput = (input, context) => {
     const entries = {};
     if (input.TypeName != null) {
         entries["TypeName"] = input.TypeName;
@@ -11488,7 +11488,7 @@ const serializeAws_queryDeactivateTypeInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDeleteChangeSetInput = (input, context) => {
+const se_DeleteChangeSetInput = (input, context) => {
     const entries = {};
     if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
@@ -11498,13 +11498,13 @@ const serializeAws_queryDeleteChangeSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDeleteStackInput = (input, context) => {
+const se_DeleteStackInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
     if (input.RetainResources != null) {
-        const memberEntries = serializeAws_queryRetainResources(input.RetainResources, context);
+        const memberEntries = se_RetainResources(input.RetainResources, context);
         if (input.RetainResources?.length === 0) {
             entries.RetainResources = [];
         }
@@ -11521,13 +11521,13 @@ const serializeAws_queryDeleteStackInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDeleteStackInstancesInput = (input, context) => {
+const se_DeleteStackInstancesInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
     if (input.Accounts != null) {
-        const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+        const memberEntries = se_AccountList(input.Accounts, context);
         if (input.Accounts?.length === 0) {
             entries.Accounts = [];
         }
@@ -11537,14 +11537,14 @@ const serializeAws_queryDeleteStackInstancesInput = (input, context) => {
         });
     }
     if (input.DeploymentTargets != null) {
-        const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
+        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
     if (input.Regions != null) {
-        const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+        const memberEntries = se_RegionList(input.Regions, context);
         if (input.Regions?.length === 0) {
             entries.Regions = [];
         }
@@ -11554,7 +11554,7 @@ const serializeAws_queryDeleteStackInstancesInput = (input, context) => {
         });
     }
     if (input.OperationPreferences != null) {
-        const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
@@ -11574,7 +11574,7 @@ const serializeAws_queryDeleteStackInstancesInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDeleteStackSetInput = (input, context) => {
+const se_DeleteStackSetInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -11584,10 +11584,10 @@ const serializeAws_queryDeleteStackSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDeploymentTargets = (input, context) => {
+const se_DeploymentTargets = (input, context) => {
     const entries = {};
     if (input.Accounts != null) {
-        const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+        const memberEntries = se_AccountList(input.Accounts, context);
         if (input.Accounts?.length === 0) {
             entries.Accounts = [];
         }
@@ -11600,7 +11600,7 @@ const serializeAws_queryDeploymentTargets = (input, context) => {
         entries["AccountsUrl"] = input.AccountsUrl;
     }
     if (input.OrganizationalUnitIds != null) {
-        const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
+        const memberEntries = se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context);
         if (input.OrganizationalUnitIds?.length === 0) {
             entries.OrganizationalUnitIds = [];
         }
@@ -11614,7 +11614,7 @@ const serializeAws_queryDeploymentTargets = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDeregisterTypeInput = (input, context) => {
+const se_DeregisterTypeInput = (input, context) => {
     const entries = {};
     if (input.Arn != null) {
         entries["Arn"] = input.Arn;
@@ -11630,14 +11630,14 @@ const serializeAws_queryDeregisterTypeInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeAccountLimitsInput = (input, context) => {
+const se_DescribeAccountLimitsInput = (input, context) => {
     const entries = {};
     if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
-const serializeAws_queryDescribeChangeSetHooksInput = (input, context) => {
+const se_DescribeChangeSetHooksInput = (input, context) => {
     const entries = {};
     if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
@@ -11653,7 +11653,7 @@ const serializeAws_queryDescribeChangeSetHooksInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeChangeSetInput = (input, context) => {
+const se_DescribeChangeSetInput = (input, context) => {
     const entries = {};
     if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
@@ -11666,21 +11666,21 @@ const serializeAws_queryDescribeChangeSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribePublisherInput = (input, context) => {
+const se_DescribePublisherInput = (input, context) => {
     const entries = {};
     if (input.PublisherId != null) {
         entries["PublisherId"] = input.PublisherId;
     }
     return entries;
 };
-const serializeAws_queryDescribeStackDriftDetectionStatusInput = (input, context) => {
+const se_DescribeStackDriftDetectionStatusInput = (input, context) => {
     const entries = {};
     if (input.StackDriftDetectionId != null) {
         entries["StackDriftDetectionId"] = input.StackDriftDetectionId;
     }
     return entries;
 };
-const serializeAws_queryDescribeStackEventsInput = (input, context) => {
+const se_DescribeStackEventsInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11690,7 +11690,7 @@ const serializeAws_queryDescribeStackEventsInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeStackInstanceInput = (input, context) => {
+const se_DescribeStackInstanceInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -11706,13 +11706,13 @@ const serializeAws_queryDescribeStackInstanceInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeStackResourceDriftsInput = (input, context) => {
+const se_DescribeStackResourceDriftsInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
     if (input.StackResourceDriftStatusFilters != null) {
-        const memberEntries = serializeAws_queryStackResourceDriftStatusFilters(input.StackResourceDriftStatusFilters, context);
+        const memberEntries = se_StackResourceDriftStatusFilters(input.StackResourceDriftStatusFilters, context);
         if (input.StackResourceDriftStatusFilters?.length === 0) {
             entries.StackResourceDriftStatusFilters = [];
         }
@@ -11729,7 +11729,7 @@ const serializeAws_queryDescribeStackResourceDriftsInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeStackResourceInput = (input, context) => {
+const se_DescribeStackResourceInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11739,7 +11739,7 @@ const serializeAws_queryDescribeStackResourceInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeStackResourcesInput = (input, context) => {
+const se_DescribeStackResourcesInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11752,7 +11752,7 @@ const serializeAws_queryDescribeStackResourcesInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeStackSetInput = (input, context) => {
+const se_DescribeStackSetInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -11762,7 +11762,7 @@ const serializeAws_queryDescribeStackSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeStackSetOperationInput = (input, context) => {
+const se_DescribeStackSetOperationInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -11775,7 +11775,7 @@ const serializeAws_queryDescribeStackSetOperationInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeStacksInput = (input, context) => {
+const se_DescribeStacksInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11785,7 +11785,7 @@ const serializeAws_queryDescribeStacksInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeTypeInput = (input, context) => {
+const se_DescribeTypeInput = (input, context) => {
     const entries = {};
     if (input.Type != null) {
         entries["Type"] = input.Type;
@@ -11807,20 +11807,20 @@ const serializeAws_queryDescribeTypeInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDescribeTypeRegistrationInput = (input, context) => {
+const se_DescribeTypeRegistrationInput = (input, context) => {
     const entries = {};
     if (input.RegistrationToken != null) {
         entries["RegistrationToken"] = input.RegistrationToken;
     }
     return entries;
 };
-const serializeAws_queryDetectStackDriftInput = (input, context) => {
+const se_DetectStackDriftInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
     if (input.LogicalResourceIds != null) {
-        const memberEntries = serializeAws_queryLogicalResourceIds(input.LogicalResourceIds, context);
+        const memberEntries = se_LogicalResourceIds(input.LogicalResourceIds, context);
         if (input.LogicalResourceIds?.length === 0) {
             entries.LogicalResourceIds = [];
         }
@@ -11831,7 +11831,7 @@ const serializeAws_queryDetectStackDriftInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDetectStackResourceDriftInput = (input, context) => {
+const se_DetectStackResourceDriftInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11841,13 +11841,13 @@ const serializeAws_queryDetectStackResourceDriftInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDetectStackSetDriftInput = (input, context) => {
+const se_DetectStackSetDriftInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
     if (input.OperationPreferences != null) {
-        const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
@@ -11864,7 +11864,7 @@ const serializeAws_queryDetectStackSetDriftInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryEstimateTemplateCostInput = (input, context) => {
+const se_EstimateTemplateCostInput = (input, context) => {
     const entries = {};
     if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
@@ -11873,7 +11873,7 @@ const serializeAws_queryEstimateTemplateCostInput = (input, context) => {
         entries["TemplateURL"] = input.TemplateURL;
     }
     if (input.Parameters != null) {
-        const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+        const memberEntries = se_Parameters(input.Parameters, context);
         if (input.Parameters?.length === 0) {
             entries.Parameters = [];
         }
@@ -11884,7 +11884,7 @@ const serializeAws_queryEstimateTemplateCostInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryExecuteChangeSetInput = (input, context) => {
+const se_ExecuteChangeSetInput = (input, context) => {
     const entries = {};
     if (input.ChangeSetName != null) {
         entries["ChangeSetName"] = input.ChangeSetName;
@@ -11900,14 +11900,14 @@ const serializeAws_queryExecuteChangeSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryGetStackPolicyInput = (input, context) => {
+const se_GetStackPolicyInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
     }
     return entries;
 };
-const serializeAws_queryGetTemplateInput = (input, context) => {
+const se_GetTemplateInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11920,7 +11920,7 @@ const serializeAws_queryGetTemplateInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryGetTemplateSummaryInput = (input, context) => {
+const se_GetTemplateSummaryInput = (input, context) => {
     const entries = {};
     if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
@@ -11939,13 +11939,13 @@ const serializeAws_queryGetTemplateSummaryInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryImportStacksToStackSetInput = (input, context) => {
+const se_ImportStacksToStackSetInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
     if (input.StackIds != null) {
-        const memberEntries = serializeAws_queryStackIdList(input.StackIds, context);
+        const memberEntries = se_StackIdList(input.StackIds, context);
         if (input.StackIds?.length === 0) {
             entries.StackIds = [];
         }
@@ -11958,7 +11958,7 @@ const serializeAws_queryImportStacksToStackSetInput = (input, context) => {
         entries["StackIdsUrl"] = input.StackIdsUrl;
     }
     if (input.OrganizationalUnitIds != null) {
-        const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
+        const memberEntries = se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context);
         if (input.OrganizationalUnitIds?.length === 0) {
             entries.OrganizationalUnitIds = [];
         }
@@ -11968,7 +11968,7 @@ const serializeAws_queryImportStacksToStackSetInput = (input, context) => {
         });
     }
     if (input.OperationPreferences != null) {
-        const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
@@ -11985,7 +11985,7 @@ const serializeAws_queryImportStacksToStackSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListChangeSetsInput = (input, context) => {
+const se_ListChangeSetsInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -11995,14 +11995,14 @@ const serializeAws_queryListChangeSetsInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListExportsInput = (input, context) => {
+const se_ListExportsInput = (input, context) => {
     const entries = {};
     if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     return entries;
 };
-const serializeAws_queryListImportsInput = (input, context) => {
+const se_ListImportsInput = (input, context) => {
     const entries = {};
     if (input.ExportName != null) {
         entries["ExportName"] = input.ExportName;
@@ -12012,7 +12012,7 @@ const serializeAws_queryListImportsInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListStackInstancesInput = (input, context) => {
+const se_ListStackInstancesInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -12024,7 +12024,7 @@ const serializeAws_queryListStackInstancesInput = (input, context) => {
         entries["MaxResults"] = input.MaxResults;
     }
     if (input.Filters != null) {
-        const memberEntries = serializeAws_queryStackInstanceFilters(input.Filters, context);
+        const memberEntries = se_StackInstanceFilters(input.Filters, context);
         if (input.Filters?.length === 0) {
             entries.Filters = [];
         }
@@ -12044,7 +12044,7 @@ const serializeAws_queryListStackInstancesInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListStackResourcesInput = (input, context) => {
+const se_ListStackResourcesInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -12054,7 +12054,7 @@ const serializeAws_queryListStackResourcesInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListStackSetOperationResultsInput = (input, context) => {
+const se_ListStackSetOperationResultsInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -12072,7 +12072,7 @@ const serializeAws_queryListStackSetOperationResultsInput = (input, context) => 
         entries["CallAs"] = input.CallAs;
     }
     if (input.Filters != null) {
-        const memberEntries = serializeAws_queryOperationResultFilters(input.Filters, context);
+        const memberEntries = se_OperationResultFilters(input.Filters, context);
         if (input.Filters?.length === 0) {
             entries.Filters = [];
         }
@@ -12083,7 +12083,7 @@ const serializeAws_queryListStackSetOperationResultsInput = (input, context) => 
     }
     return entries;
 };
-const serializeAws_queryListStackSetOperationsInput = (input, context) => {
+const se_ListStackSetOperationsInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -12099,7 +12099,7 @@ const serializeAws_queryListStackSetOperationsInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListStackSetsInput = (input, context) => {
+const se_ListStackSetsInput = (input, context) => {
     const entries = {};
     if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
@@ -12115,13 +12115,13 @@ const serializeAws_queryListStackSetsInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListStacksInput = (input, context) => {
+const se_ListStacksInput = (input, context) => {
     const entries = {};
     if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
     }
     if (input.StackStatusFilter != null) {
-        const memberEntries = serializeAws_queryStackStatusFilter(input.StackStatusFilter, context);
+        const memberEntries = se_StackStatusFilter(input.StackStatusFilter, context);
         if (input.StackStatusFilter?.length === 0) {
             entries.StackStatusFilter = [];
         }
@@ -12132,7 +12132,7 @@ const serializeAws_queryListStacksInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListTypeRegistrationsInput = (input, context) => {
+const se_ListTypeRegistrationsInput = (input, context) => {
     const entries = {};
     if (input.Type != null) {
         entries["Type"] = input.Type;
@@ -12154,7 +12154,7 @@ const serializeAws_queryListTypeRegistrationsInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListTypesInput = (input, context) => {
+const se_ListTypesInput = (input, context) => {
     const entries = {};
     if (input.Visibility != null) {
         entries["Visibility"] = input.Visibility;
@@ -12169,7 +12169,7 @@ const serializeAws_queryListTypesInput = (input, context) => {
         entries["Type"] = input.Type;
     }
     if (input.Filters != null) {
-        const memberEntries = serializeAws_queryTypeFilters(input.Filters, context);
+        const memberEntries = se_TypeFilters(input.Filters, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Filters.${key}`;
             entries[loc] = value;
@@ -12183,7 +12183,7 @@ const serializeAws_queryListTypesInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryListTypeVersionsInput = (input, context) => {
+const se_ListTypeVersionsInput = (input, context) => {
     const entries = {};
     if (input.Type != null) {
         entries["Type"] = input.Type;
@@ -12208,7 +12208,7 @@ const serializeAws_queryListTypeVersionsInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryLoggingConfig = (input, context) => {
+const se_LoggingConfig = (input, context) => {
     const entries = {};
     if (input.LogRoleArn != null) {
         entries["LogRoleArn"] = input.LogRoleArn;
@@ -12218,7 +12218,7 @@ const serializeAws_queryLoggingConfig = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryLogicalResourceIds = (input, context) => {
+const se_LogicalResourceIds = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12230,14 +12230,14 @@ const serializeAws_queryLogicalResourceIds = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryManagedExecution = (input, context) => {
+const se_ManagedExecution = (input, context) => {
     const entries = {};
     if (input.Active != null) {
         entries["Active"] = input.Active;
     }
     return entries;
 };
-const serializeAws_queryNotificationARNs = (input, context) => {
+const se_NotificationARNs = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12249,7 +12249,7 @@ const serializeAws_queryNotificationARNs = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryOperationResultFilter = (input, context) => {
+const se_OperationResultFilter = (input, context) => {
     const entries = {};
     if (input.Name != null) {
         entries["Name"] = input.Name;
@@ -12259,14 +12259,14 @@ const serializeAws_queryOperationResultFilter = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryOperationResultFilters = (input, context) => {
+const se_OperationResultFilters = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryOperationResultFilter(entry, context);
+        const memberEntries = se_OperationResultFilter(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -12274,7 +12274,7 @@ const serializeAws_queryOperationResultFilters = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryOrganizationalUnitIdList = (input, context) => {
+const se_OrganizationalUnitIdList = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12286,7 +12286,7 @@ const serializeAws_queryOrganizationalUnitIdList = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryParameter = (input, context) => {
+const se_Parameter = (input, context) => {
     const entries = {};
     if (input.ParameterKey != null) {
         entries["ParameterKey"] = input.ParameterKey;
@@ -12302,14 +12302,14 @@ const serializeAws_queryParameter = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryParameters = (input, context) => {
+const se_Parameters = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryParameter(entry, context);
+        const memberEntries = se_Parameter(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -12317,7 +12317,7 @@ const serializeAws_queryParameters = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryPublishTypeInput = (input, context) => {
+const se_PublishTypeInput = (input, context) => {
     const entries = {};
     if (input.Type != null) {
         entries["Type"] = input.Type;
@@ -12333,7 +12333,7 @@ const serializeAws_queryPublishTypeInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRecordHandlerProgressInput = (input, context) => {
+const se_RecordHandlerProgressInput = (input, context) => {
     const entries = {};
     if (input.BearerToken != null) {
         entries["BearerToken"] = input.BearerToken;
@@ -12358,7 +12358,7 @@ const serializeAws_queryRecordHandlerProgressInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRegionList = (input, context) => {
+const se_RegionList = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12370,7 +12370,7 @@ const serializeAws_queryRegionList = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRegisterPublisherInput = (input, context) => {
+const se_RegisterPublisherInput = (input, context) => {
     const entries = {};
     if (input.AcceptTermsAndConditions != null) {
         entries["AcceptTermsAndConditions"] = input.AcceptTermsAndConditions;
@@ -12380,7 +12380,7 @@ const serializeAws_queryRegisterPublisherInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRegisterTypeInput = (input, context) => {
+const se_RegisterTypeInput = (input, context) => {
     const entries = {};
     if (input.Type != null) {
         entries["Type"] = input.Type;
@@ -12392,7 +12392,7 @@ const serializeAws_queryRegisterTypeInput = (input, context) => {
         entries["SchemaHandlerPackage"] = input.SchemaHandlerPackage;
     }
     if (input.LoggingConfig != null) {
-        const memberEntries = serializeAws_queryLoggingConfig(input.LoggingConfig, context);
+        const memberEntries = se_LoggingConfig(input.LoggingConfig, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LoggingConfig.${key}`;
             entries[loc] = value;
@@ -12406,7 +12406,7 @@ const serializeAws_queryRegisterTypeInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryResourceIdentifierProperties = (input, context) => {
+const se_ResourceIdentifierProperties = (input, context) => {
     const entries = {};
     let counter = 1;
     Object.keys(input)
@@ -12418,14 +12418,14 @@ const serializeAws_queryResourceIdentifierProperties = (input, context) => {
     });
     return entries;
 };
-const serializeAws_queryResourcesToImport = (input, context) => {
+const se_ResourcesToImport = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryResourceToImport(entry, context);
+        const memberEntries = se_ResourceToImport(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -12433,7 +12433,7 @@ const serializeAws_queryResourcesToImport = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryResourcesToSkip = (input, context) => {
+const se_ResourcesToSkip = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12445,7 +12445,7 @@ const serializeAws_queryResourcesToSkip = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryResourceToImport = (input, context) => {
+const se_ResourceToImport = (input, context) => {
     const entries = {};
     if (input.ResourceType != null) {
         entries["ResourceType"] = input.ResourceType;
@@ -12454,7 +12454,7 @@ const serializeAws_queryResourceToImport = (input, context) => {
         entries["LogicalResourceId"] = input.LogicalResourceId;
     }
     if (input.ResourceIdentifier != null) {
-        const memberEntries = serializeAws_queryResourceIdentifierProperties(input.ResourceIdentifier, context);
+        const memberEntries = se_ResourceIdentifierProperties(input.ResourceIdentifier, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourceIdentifier.${key}`;
             entries[loc] = value;
@@ -12462,7 +12462,7 @@ const serializeAws_queryResourceToImport = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryResourceTypes = (input, context) => {
+const se_ResourceTypes = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12474,7 +12474,7 @@ const serializeAws_queryResourceTypes = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRetainResources = (input, context) => {
+const se_RetainResources = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12486,10 +12486,10 @@ const serializeAws_queryRetainResources = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRollbackConfiguration = (input, context) => {
+const se_RollbackConfiguration = (input, context) => {
     const entries = {};
     if (input.RollbackTriggers != null) {
-        const memberEntries = serializeAws_queryRollbackTriggers(input.RollbackTriggers, context);
+        const memberEntries = se_RollbackTriggers(input.RollbackTriggers, context);
         if (input.RollbackTriggers?.length === 0) {
             entries.RollbackTriggers = [];
         }
@@ -12503,7 +12503,7 @@ const serializeAws_queryRollbackConfiguration = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRollbackStackInput = (input, context) => {
+const se_RollbackStackInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -12516,7 +12516,7 @@ const serializeAws_queryRollbackStackInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRollbackTrigger = (input, context) => {
+const se_RollbackTrigger = (input, context) => {
     const entries = {};
     if (input.Arn != null) {
         entries["Arn"] = input.Arn;
@@ -12526,14 +12526,14 @@ const serializeAws_queryRollbackTrigger = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryRollbackTriggers = (input, context) => {
+const se_RollbackTriggers = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryRollbackTrigger(entry, context);
+        const memberEntries = se_RollbackTrigger(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -12541,7 +12541,7 @@ const serializeAws_queryRollbackTriggers = (input, context) => {
     }
     return entries;
 };
-const serializeAws_querySetStackPolicyInput = (input, context) => {
+const se_SetStackPolicyInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -12554,7 +12554,7 @@ const serializeAws_querySetStackPolicyInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_querySetTypeConfigurationInput = (input, context) => {
+const se_SetTypeConfigurationInput = (input, context) => {
     const entries = {};
     if (input.TypeArn != null) {
         entries["TypeArn"] = input.TypeArn;
@@ -12573,7 +12573,7 @@ const serializeAws_querySetTypeConfigurationInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_querySetTypeDefaultVersionInput = (input, context) => {
+const se_SetTypeDefaultVersionInput = (input, context) => {
     const entries = {};
     if (input.Arn != null) {
         entries["Arn"] = input.Arn;
@@ -12589,7 +12589,7 @@ const serializeAws_querySetTypeDefaultVersionInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_querySignalResourceInput = (input, context) => {
+const se_SignalResourceInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -12605,7 +12605,7 @@ const serializeAws_querySignalResourceInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryStackIdList = (input, context) => {
+const se_StackIdList = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12617,7 +12617,7 @@ const serializeAws_queryStackIdList = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryStackInstanceFilter = (input, context) => {
+const se_StackInstanceFilter = (input, context) => {
     const entries = {};
     if (input.Name != null) {
         entries["Name"] = input.Name;
@@ -12627,14 +12627,14 @@ const serializeAws_queryStackInstanceFilter = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryStackInstanceFilters = (input, context) => {
+const se_StackInstanceFilters = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryStackInstanceFilter(entry, context);
+        const memberEntries = se_StackInstanceFilter(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -12642,7 +12642,7 @@ const serializeAws_queryStackInstanceFilters = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryStackResourceDriftStatusFilters = (input, context) => {
+const se_StackResourceDriftStatusFilters = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12654,13 +12654,13 @@ const serializeAws_queryStackResourceDriftStatusFilters = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryStackSetOperationPreferences = (input, context) => {
+const se_StackSetOperationPreferences = (input, context) => {
     const entries = {};
     if (input.RegionConcurrencyType != null) {
         entries["RegionConcurrencyType"] = input.RegionConcurrencyType;
     }
     if (input.RegionOrder != null) {
-        const memberEntries = serializeAws_queryRegionList(input.RegionOrder, context);
+        const memberEntries = se_RegionList(input.RegionOrder, context);
         if (input.RegionOrder?.length === 0) {
             entries.RegionOrder = [];
         }
@@ -12683,7 +12683,7 @@ const serializeAws_queryStackSetOperationPreferences = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryStackStatusFilter = (input, context) => {
+const se_StackStatusFilter = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -12695,7 +12695,7 @@ const serializeAws_queryStackStatusFilter = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryStopStackSetOperationInput = (input, context) => {
+const se_StopStackSetOperationInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -12708,7 +12708,7 @@ const serializeAws_queryStopStackSetOperationInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryTag = (input, context) => {
+const se_Tag = (input, context) => {
     const entries = {};
     if (input.Key != null) {
         entries["Key"] = input.Key;
@@ -12718,14 +12718,14 @@ const serializeAws_queryTag = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryTags = (input, context) => {
+const se_Tags = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryTag(entry, context);
+        const memberEntries = se_Tag(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -12733,7 +12733,7 @@ const serializeAws_queryTags = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryTestTypeInput = (input, context) => {
+const se_TestTypeInput = (input, context) => {
     const entries = {};
     if (input.Arn != null) {
         entries["Arn"] = input.Arn;
@@ -12752,7 +12752,7 @@ const serializeAws_queryTestTypeInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryTypeConfigurationIdentifier = (input, context) => {
+const se_TypeConfigurationIdentifier = (input, context) => {
     const entries = {};
     if (input.TypeArn != null) {
         entries["TypeArn"] = input.TypeArn;
@@ -12771,14 +12771,14 @@ const serializeAws_queryTypeConfigurationIdentifier = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryTypeConfigurationIdentifiers = (input, context) => {
+const se_TypeConfigurationIdentifiers = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryTypeConfigurationIdentifier(entry, context);
+        const memberEntries = se_TypeConfigurationIdentifier(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -12786,7 +12786,7 @@ const serializeAws_queryTypeConfigurationIdentifiers = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryTypeFilters = (input, context) => {
+const se_TypeFilters = (input, context) => {
     const entries = {};
     if (input.Category != null) {
         entries["Category"] = input.Category;
@@ -12799,7 +12799,7 @@ const serializeAws_queryTypeFilters = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryUpdateStackInput = (input, context) => {
+const se_UpdateStackInput = (input, context) => {
     const entries = {};
     if (input.StackName != null) {
         entries["StackName"] = input.StackName;
@@ -12820,7 +12820,7 @@ const serializeAws_queryUpdateStackInput = (input, context) => {
         entries["StackPolicyDuringUpdateURL"] = input.StackPolicyDuringUpdateURL;
     }
     if (input.Parameters != null) {
-        const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+        const memberEntries = se_Parameters(input.Parameters, context);
         if (input.Parameters?.length === 0) {
             entries.Parameters = [];
         }
@@ -12830,7 +12830,7 @@ const serializeAws_queryUpdateStackInput = (input, context) => {
         });
     }
     if (input.Capabilities != null) {
-        const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+        const memberEntries = se_Capabilities(input.Capabilities, context);
         if (input.Capabilities?.length === 0) {
             entries.Capabilities = [];
         }
@@ -12840,7 +12840,7 @@ const serializeAws_queryUpdateStackInput = (input, context) => {
         });
     }
     if (input.ResourceTypes != null) {
-        const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
+        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
         if (input.ResourceTypes?.length === 0) {
             entries.ResourceTypes = [];
         }
@@ -12853,7 +12853,7 @@ const serializeAws_queryUpdateStackInput = (input, context) => {
         entries["RoleARN"] = input.RoleARN;
     }
     if (input.RollbackConfiguration != null) {
-        const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
+        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
@@ -12866,7 +12866,7 @@ const serializeAws_queryUpdateStackInput = (input, context) => {
         entries["StackPolicyURL"] = input.StackPolicyURL;
     }
     if (input.NotificationARNs != null) {
-        const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
+        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
         if (input.NotificationARNs?.length === 0) {
             entries.NotificationARNs = [];
         }
@@ -12876,7 +12876,7 @@ const serializeAws_queryUpdateStackInput = (input, context) => {
         });
     }
     if (input.Tags != null) {
-        const memberEntries = serializeAws_queryTags(input.Tags, context);
+        const memberEntries = se_Tags(input.Tags, context);
         if (input.Tags?.length === 0) {
             entries.Tags = [];
         }
@@ -12893,13 +12893,13 @@ const serializeAws_queryUpdateStackInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryUpdateStackInstancesInput = (input, context) => {
+const se_UpdateStackInstancesInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
     }
     if (input.Accounts != null) {
-        const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+        const memberEntries = se_AccountList(input.Accounts, context);
         if (input.Accounts?.length === 0) {
             entries.Accounts = [];
         }
@@ -12909,14 +12909,14 @@ const serializeAws_queryUpdateStackInstancesInput = (input, context) => {
         });
     }
     if (input.DeploymentTargets != null) {
-        const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
+        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
     if (input.Regions != null) {
-        const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+        const memberEntries = se_RegionList(input.Regions, context);
         if (input.Regions?.length === 0) {
             entries.Regions = [];
         }
@@ -12926,7 +12926,7 @@ const serializeAws_queryUpdateStackInstancesInput = (input, context) => {
         });
     }
     if (input.ParameterOverrides != null) {
-        const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
+        const memberEntries = se_Parameters(input.ParameterOverrides, context);
         if (input.ParameterOverrides?.length === 0) {
             entries.ParameterOverrides = [];
         }
@@ -12936,7 +12936,7 @@ const serializeAws_queryUpdateStackInstancesInput = (input, context) => {
         });
     }
     if (input.OperationPreferences != null) {
-        const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
@@ -12953,7 +12953,7 @@ const serializeAws_queryUpdateStackInstancesInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryUpdateStackSetInput = (input, context) => {
+const se_UpdateStackSetInput = (input, context) => {
     const entries = {};
     if (input.StackSetName != null) {
         entries["StackSetName"] = input.StackSetName;
@@ -12971,7 +12971,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
     }
     if (input.Parameters != null) {
-        const memberEntries = serializeAws_queryParameters(input.Parameters, context);
+        const memberEntries = se_Parameters(input.Parameters, context);
         if (input.Parameters?.length === 0) {
             entries.Parameters = [];
         }
@@ -12981,7 +12981,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         });
     }
     if (input.Capabilities != null) {
-        const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
+        const memberEntries = se_Capabilities(input.Capabilities, context);
         if (input.Capabilities?.length === 0) {
             entries.Capabilities = [];
         }
@@ -12991,7 +12991,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         });
     }
     if (input.Tags != null) {
-        const memberEntries = serializeAws_queryTags(input.Tags, context);
+        const memberEntries = se_Tags(input.Tags, context);
         if (input.Tags?.length === 0) {
             entries.Tags = [];
         }
@@ -13001,7 +13001,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         });
     }
     if (input.OperationPreferences != null) {
-        const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
+        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
@@ -13014,7 +13014,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         entries["ExecutionRoleName"] = input.ExecutionRoleName;
     }
     if (input.DeploymentTargets != null) {
-        const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
+        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
@@ -13024,7 +13024,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         entries["PermissionModel"] = input.PermissionModel;
     }
     if (input.AutoDeployment != null) {
-        const memberEntries = serializeAws_queryAutoDeployment(input.AutoDeployment, context);
+        const memberEntries = se_AutoDeployment(input.AutoDeployment, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `AutoDeployment.${key}`;
             entries[loc] = value;
@@ -13037,7 +13037,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         entries["OperationId"] = input.OperationId;
     }
     if (input.Accounts != null) {
-        const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
+        const memberEntries = se_AccountList(input.Accounts, context);
         if (input.Accounts?.length === 0) {
             entries.Accounts = [];
         }
@@ -13047,7 +13047,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         });
     }
     if (input.Regions != null) {
-        const memberEntries = serializeAws_queryRegionList(input.Regions, context);
+        const memberEntries = se_RegionList(input.Regions, context);
         if (input.Regions?.length === 0) {
             entries.Regions = [];
         }
@@ -13060,7 +13060,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
         entries["CallAs"] = input.CallAs;
     }
     if (input.ManagedExecution != null) {
-        const memberEntries = serializeAws_queryManagedExecution(input.ManagedExecution, context);
+        const memberEntries = se_ManagedExecution(input.ManagedExecution, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ManagedExecution.${key}`;
             entries[loc] = value;
@@ -13068,7 +13068,7 @@ const serializeAws_queryUpdateStackSetInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryUpdateTerminationProtectionInput = (input, context) => {
+const se_UpdateTerminationProtectionInput = (input, context) => {
     const entries = {};
     if (input.EnableTerminationProtection != null) {
         entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
@@ -13078,7 +13078,7 @@ const serializeAws_queryUpdateTerminationProtectionInput = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryValidateTemplateInput = (input, context) => {
+const se_ValidateTemplateInput = (input, context) => {
     const entries = {};
     if (input.TemplateBody != null) {
         entries["TemplateBody"] = input.TemplateBody;
@@ -13088,7 +13088,7 @@ const serializeAws_queryValidateTemplateInput = (input, context) => {
     }
     return entries;
 };
-const deserializeAws_queryAccountGateResult = (output, context) => {
+const de_AccountGateResult = (output, context) => {
     const contents = {};
     if (output["Status"] !== undefined) {
         contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
@@ -13098,7 +13098,7 @@ const deserializeAws_queryAccountGateResult = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryAccountLimit = (output, context) => {
+const de_AccountLimit = (output, context) => {
     const contents = {};
     if (output["Name"] !== undefined) {
         contents.Name = (0, smithy_client_1.expectString)(output["Name"]);
@@ -13108,42 +13108,42 @@ const deserializeAws_queryAccountLimit = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryAccountLimitList = (output, context) => {
+const de_AccountLimitList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryAccountLimit(entry, context);
+        return de_AccountLimit(entry, context);
     });
 };
-const deserializeAws_queryAccountList = (output, context) => {
+const de_AccountList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryActivateTypeOutput = (output, context) => {
+const de_ActivateTypeOutput = (output, context) => {
     const contents = {};
     if (output["Arn"] !== undefined) {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
     }
     return contents;
 };
-const deserializeAws_queryAllowedValues = (output, context) => {
+const de_AllowedValues = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryAlreadyExistsException = (output, context) => {
+const de_AlreadyExistsException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryAutoDeployment = (output, context) => {
+const de_AutoDeployment = (output, context) => {
     const contents = {};
     if (output["Enabled"] !== undefined) {
         contents.Enabled = (0, smithy_client_1.parseBoolean)(output["Enabled"]);
@@ -13153,7 +13153,7 @@ const deserializeAws_queryAutoDeployment = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryBatchDescribeTypeConfigurationsError = (output, context) => {
+const de_BatchDescribeTypeConfigurationsError = (output, context) => {
     const contents = {};
     if (output["ErrorCode"] !== undefined) {
         contents.ErrorCode = (0, smithy_client_1.expectString)(output["ErrorCode"]);
@@ -13162,55 +13162,55 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsError = (output, contex
         contents.ErrorMessage = (0, smithy_client_1.expectString)(output["ErrorMessage"]);
     }
     if (output["TypeConfigurationIdentifier"] !== undefined) {
-        contents.TypeConfigurationIdentifier = deserializeAws_queryTypeConfigurationIdentifier(output["TypeConfigurationIdentifier"], context);
+        contents.TypeConfigurationIdentifier = de_TypeConfigurationIdentifier(output["TypeConfigurationIdentifier"], context);
     }
     return contents;
 };
-const deserializeAws_queryBatchDescribeTypeConfigurationsErrors = (output, context) => {
+const de_BatchDescribeTypeConfigurationsErrors = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryBatchDescribeTypeConfigurationsError(entry, context);
+        return de_BatchDescribeTypeConfigurationsError(entry, context);
     });
 };
-const deserializeAws_queryBatchDescribeTypeConfigurationsOutput = (output, context) => {
+const de_BatchDescribeTypeConfigurationsOutput = (output, context) => {
     const contents = {};
     if (output.Errors === "") {
         contents.Errors = [];
     }
     else if (output["Errors"] !== undefined && output["Errors"]["member"] !== undefined) {
-        contents.Errors = deserializeAws_queryBatchDescribeTypeConfigurationsErrors((0, smithy_client_1.getArrayIfSingleItem)(output["Errors"]["member"]), context);
+        contents.Errors = de_BatchDescribeTypeConfigurationsErrors((0, smithy_client_1.getArrayIfSingleItem)(output["Errors"]["member"]), context);
     }
     if (output.UnprocessedTypeConfigurations === "") {
         contents.UnprocessedTypeConfigurations = [];
     }
     else if (output["UnprocessedTypeConfigurations"] !== undefined &&
         output["UnprocessedTypeConfigurations"]["member"] !== undefined) {
-        contents.UnprocessedTypeConfigurations = deserializeAws_queryUnprocessedTypeConfigurations((0, smithy_client_1.getArrayIfSingleItem)(output["UnprocessedTypeConfigurations"]["member"]), context);
+        contents.UnprocessedTypeConfigurations = de_UnprocessedTypeConfigurations((0, smithy_client_1.getArrayIfSingleItem)(output["UnprocessedTypeConfigurations"]["member"]), context);
     }
     if (output.TypeConfigurations === "") {
         contents.TypeConfigurations = [];
     }
     else if (output["TypeConfigurations"] !== undefined && output["TypeConfigurations"]["member"] !== undefined) {
-        contents.TypeConfigurations = deserializeAws_queryTypeConfigurationDetailsList((0, smithy_client_1.getArrayIfSingleItem)(output["TypeConfigurations"]["member"]), context);
+        contents.TypeConfigurations = de_TypeConfigurationDetailsList((0, smithy_client_1.getArrayIfSingleItem)(output["TypeConfigurations"]["member"]), context);
     }
     return contents;
 };
-const deserializeAws_queryCapabilities = (output, context) => {
+const de_Capabilities = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryCFNRegistryException = (output, context) => {
+const de_CFNRegistryException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryChange = (output, context) => {
+const de_Change = (output, context) => {
     const contents = {};
     if (output["Type"] !== undefined) {
         contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
@@ -13219,18 +13219,18 @@ const deserializeAws_queryChange = (output, context) => {
         contents.HookInvocationCount = (0, smithy_client_1.strictParseInt32)(output["HookInvocationCount"]);
     }
     if (output["ResourceChange"] !== undefined) {
-        contents.ResourceChange = deserializeAws_queryResourceChange(output["ResourceChange"], context);
+        contents.ResourceChange = de_ResourceChange(output["ResourceChange"], context);
     }
     return contents;
 };
-const deserializeAws_queryChanges = (output, context) => {
+const de_Changes = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryChange(entry, context);
+        return de_Change(entry, context);
     });
 };
-const deserializeAws_queryChangeSetHook = (output, context) => {
+const de_ChangeSetHook = (output, context) => {
     const contents = {};
     if (output["InvocationPoint"] !== undefined) {
         contents.InvocationPoint = (0, smithy_client_1.expectString)(output["InvocationPoint"]);
@@ -13248,11 +13248,11 @@ const deserializeAws_queryChangeSetHook = (output, context) => {
         contents.TypeConfigurationVersionId = (0, smithy_client_1.expectString)(output["TypeConfigurationVersionId"]);
     }
     if (output["TargetDetails"] !== undefined) {
-        contents.TargetDetails = deserializeAws_queryChangeSetHookTargetDetails(output["TargetDetails"], context);
+        contents.TargetDetails = de_ChangeSetHookTargetDetails(output["TargetDetails"], context);
     }
     return contents;
 };
-const deserializeAws_queryChangeSetHookResourceTargetDetails = (output, context) => {
+const de_ChangeSetHookResourceTargetDetails = (output, context) => {
     const contents = {};
     if (output["LogicalResourceId"] !== undefined) {
         contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
@@ -13265,38 +13265,38 @@ const deserializeAws_queryChangeSetHookResourceTargetDetails = (output, context)
     }
     return contents;
 };
-const deserializeAws_queryChangeSetHooks = (output, context) => {
+const de_ChangeSetHooks = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryChangeSetHook(entry, context);
+        return de_ChangeSetHook(entry, context);
     });
 };
-const deserializeAws_queryChangeSetHookTargetDetails = (output, context) => {
+const de_ChangeSetHookTargetDetails = (output, context) => {
     const contents = {};
     if (output["TargetType"] !== undefined) {
         contents.TargetType = (0, smithy_client_1.expectString)(output["TargetType"]);
     }
     if (output["ResourceTargetDetails"] !== undefined) {
-        contents.ResourceTargetDetails = deserializeAws_queryChangeSetHookResourceTargetDetails(output["ResourceTargetDetails"], context);
+        contents.ResourceTargetDetails = de_ChangeSetHookResourceTargetDetails(output["ResourceTargetDetails"], context);
     }
     return contents;
 };
-const deserializeAws_queryChangeSetNotFoundException = (output, context) => {
+const de_ChangeSetNotFoundException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryChangeSetSummaries = (output, context) => {
+const de_ChangeSetSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryChangeSetSummary(entry, context);
+        return de_ChangeSetSummary(entry, context);
     });
 };
-const deserializeAws_queryChangeSetSummary = (output, context) => {
+const de_ChangeSetSummary = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
@@ -13336,11 +13336,11 @@ const deserializeAws_queryChangeSetSummary = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryContinueUpdateRollbackOutput = (output, context) => {
+const de_ContinueUpdateRollbackOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_queryCreateChangeSetOutput = (output, context) => {
+const de_CreateChangeSetOutput = (output, context) => {
     const contents = {};
     if (output["Id"] !== undefined) {
         contents.Id = (0, smithy_client_1.expectString)(output["Id"]);
@@ -13350,60 +13350,60 @@ const deserializeAws_queryCreateChangeSetOutput = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryCreatedButModifiedException = (output, context) => {
+const de_CreatedButModifiedException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryCreateStackInstancesOutput = (output, context) => {
+const de_CreateStackInstancesOutput = (output, context) => {
     const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
-const deserializeAws_queryCreateStackOutput = (output, context) => {
+const de_CreateStackOutput = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
     return contents;
 };
-const deserializeAws_queryCreateStackSetOutput = (output, context) => {
+const de_CreateStackSetOutput = (output, context) => {
     const contents = {};
     if (output["StackSetId"] !== undefined) {
         contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
     }
     return contents;
 };
-const deserializeAws_queryDeactivateTypeOutput = (output, context) => {
+const de_DeactivateTypeOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_queryDeleteChangeSetOutput = (output, context) => {
+const de_DeleteChangeSetOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_queryDeleteStackInstancesOutput = (output, context) => {
+const de_DeleteStackInstancesOutput = (output, context) => {
     const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
-const deserializeAws_queryDeleteStackSetOutput = (output, context) => {
+const de_DeleteStackSetOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_queryDeploymentTargets = (output, context) => {
+const de_DeploymentTargets = (output, context) => {
     const contents = {};
     if (output.Accounts === "") {
         contents.Accounts = [];
     }
     else if (output["Accounts"] !== undefined && output["Accounts"]["member"] !== undefined) {
-        contents.Accounts = deserializeAws_queryAccountList((0, smithy_client_1.getArrayIfSingleItem)(output["Accounts"]["member"]), context);
+        contents.Accounts = de_AccountList((0, smithy_client_1.getArrayIfSingleItem)(output["Accounts"]["member"]), context);
     }
     if (output["AccountsUrl"] !== undefined) {
         contents.AccountsUrl = (0, smithy_client_1.expectString)(output["AccountsUrl"]);
@@ -13412,31 +13412,31 @@ const deserializeAws_queryDeploymentTargets = (output, context) => {
         contents.OrganizationalUnitIds = [];
     }
     else if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
-        contents.OrganizationalUnitIds = deserializeAws_queryOrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output["OrganizationalUnitIds"]["member"]), context);
+        contents.OrganizationalUnitIds = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output["OrganizationalUnitIds"]["member"]), context);
     }
     if (output["AccountFilterType"] !== undefined) {
         contents.AccountFilterType = (0, smithy_client_1.expectString)(output["AccountFilterType"]);
     }
     return contents;
 };
-const deserializeAws_queryDeregisterTypeOutput = (output, context) => {
+const de_DeregisterTypeOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_queryDescribeAccountLimitsOutput = (output, context) => {
+const de_DescribeAccountLimitsOutput = (output, context) => {
     const contents = {};
     if (output.AccountLimits === "") {
         contents.AccountLimits = [];
     }
     else if (output["AccountLimits"] !== undefined && output["AccountLimits"]["member"] !== undefined) {
-        contents.AccountLimits = deserializeAws_queryAccountLimitList((0, smithy_client_1.getArrayIfSingleItem)(output["AccountLimits"]["member"]), context);
+        contents.AccountLimits = de_AccountLimitList((0, smithy_client_1.getArrayIfSingleItem)(output["AccountLimits"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryDescribeChangeSetHooksOutput = (output, context) => {
+const de_DescribeChangeSetHooksOutput = (output, context) => {
     const contents = {};
     if (output["ChangeSetId"] !== undefined) {
         contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
@@ -13448,7 +13448,7 @@ const deserializeAws_queryDescribeChangeSetHooksOutput = (output, context) => {
         contents.Hooks = [];
     }
     else if (output["Hooks"] !== undefined && output["Hooks"]["member"] !== undefined) {
-        contents.Hooks = deserializeAws_queryChangeSetHooks((0, smithy_client_1.getArrayIfSingleItem)(output["Hooks"]["member"]), context);
+        contents.Hooks = de_ChangeSetHooks((0, smithy_client_1.getArrayIfSingleItem)(output["Hooks"]["member"]), context);
     }
     if (output["Status"] !== undefined) {
         contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
@@ -13464,7 +13464,7 @@ const deserializeAws_queryDescribeChangeSetHooksOutput = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryDescribeChangeSetOutput = (output, context) => {
+const de_DescribeChangeSetOutput = (output, context) => {
     const contents = {};
     if (output["ChangeSetName"] !== undefined) {
         contents.ChangeSetName = (0, smithy_client_1.expectString)(output["ChangeSetName"]);
@@ -13485,7 +13485,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (output, context) => {
         contents.Parameters = [];
     }
     else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = deserializeAws_queryParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
     }
     if (output["CreationTime"] !== undefined) {
         contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
@@ -13503,28 +13503,28 @@ const deserializeAws_queryDescribeChangeSetOutput = (output, context) => {
         contents.NotificationARNs = [];
     }
     else if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-        contents.NotificationARNs = deserializeAws_queryNotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output["NotificationARNs"]["member"]), context);
+        contents.NotificationARNs = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output["NotificationARNs"]["member"]), context);
     }
     if (output["RollbackConfiguration"] !== undefined) {
-        contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(output["RollbackConfiguration"], context);
+        contents.RollbackConfiguration = de_RollbackConfiguration(output["RollbackConfiguration"], context);
     }
     if (output.Capabilities === "") {
         contents.Capabilities = [];
     }
     else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = deserializeAws_queryCapabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
     }
     if (output.Tags === "") {
         contents.Tags = [];
     }
     else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = deserializeAws_queryTags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
     }
     if (output.Changes === "") {
         contents.Changes = [];
     }
     else if (output["Changes"] !== undefined && output["Changes"]["member"] !== undefined) {
-        contents.Changes = deserializeAws_queryChanges((0, smithy_client_1.getArrayIfSingleItem)(output["Changes"]["member"]), context);
+        contents.Changes = de_Changes((0, smithy_client_1.getArrayIfSingleItem)(output["Changes"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
@@ -13540,7 +13540,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryDescribePublisherOutput = (output, context) => {
+const de_DescribePublisherOutput = (output, context) => {
     const contents = {};
     if (output["PublisherId"] !== undefined) {
         contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
@@ -13556,7 +13556,7 @@ const deserializeAws_queryDescribePublisherOutput = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (output, context) => {
+const de_DescribeStackDriftDetectionStatusOutput = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
@@ -13581,84 +13581,84 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (output, con
     }
     return contents;
 };
-const deserializeAws_queryDescribeStackEventsOutput = (output, context) => {
+const de_DescribeStackEventsOutput = (output, context) => {
     const contents = {};
     if (output.StackEvents === "") {
         contents.StackEvents = [];
     }
     else if (output["StackEvents"] !== undefined && output["StackEvents"]["member"] !== undefined) {
-        contents.StackEvents = deserializeAws_queryStackEvents((0, smithy_client_1.getArrayIfSingleItem)(output["StackEvents"]["member"]), context);
+        contents.StackEvents = de_StackEvents((0, smithy_client_1.getArrayIfSingleItem)(output["StackEvents"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryDescribeStackInstanceOutput = (output, context) => {
+const de_DescribeStackInstanceOutput = (output, context) => {
     const contents = {};
     if (output["StackInstance"] !== undefined) {
-        contents.StackInstance = deserializeAws_queryStackInstance(output["StackInstance"], context);
+        contents.StackInstance = de_StackInstance(output["StackInstance"], context);
     }
     return contents;
 };
-const deserializeAws_queryDescribeStackResourceDriftsOutput = (output, context) => {
+const de_DescribeStackResourceDriftsOutput = (output, context) => {
     const contents = {};
     if (output.StackResourceDrifts === "") {
         contents.StackResourceDrifts = [];
     }
     else if (output["StackResourceDrifts"] !== undefined && output["StackResourceDrifts"]["member"] !== undefined) {
-        contents.StackResourceDrifts = deserializeAws_queryStackResourceDrifts((0, smithy_client_1.getArrayIfSingleItem)(output["StackResourceDrifts"]["member"]), context);
+        contents.StackResourceDrifts = de_StackResourceDrifts((0, smithy_client_1.getArrayIfSingleItem)(output["StackResourceDrifts"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryDescribeStackResourceOutput = (output, context) => {
+const de_DescribeStackResourceOutput = (output, context) => {
     const contents = {};
     if (output["StackResourceDetail"] !== undefined) {
-        contents.StackResourceDetail = deserializeAws_queryStackResourceDetail(output["StackResourceDetail"], context);
+        contents.StackResourceDetail = de_StackResourceDetail(output["StackResourceDetail"], context);
     }
     return contents;
 };
-const deserializeAws_queryDescribeStackResourcesOutput = (output, context) => {
+const de_DescribeStackResourcesOutput = (output, context) => {
     const contents = {};
     if (output.StackResources === "") {
         contents.StackResources = [];
     }
     else if (output["StackResources"] !== undefined && output["StackResources"]["member"] !== undefined) {
-        contents.StackResources = deserializeAws_queryStackResources((0, smithy_client_1.getArrayIfSingleItem)(output["StackResources"]["member"]), context);
+        contents.StackResources = de_StackResources((0, smithy_client_1.getArrayIfSingleItem)(output["StackResources"]["member"]), context);
     }
     return contents;
 };
-const deserializeAws_queryDescribeStackSetOperationOutput = (output, context) => {
+const de_DescribeStackSetOperationOutput = (output, context) => {
     const contents = {};
     if (output["StackSetOperation"] !== undefined) {
-        contents.StackSetOperation = deserializeAws_queryStackSetOperation(output["StackSetOperation"], context);
+        contents.StackSetOperation = de_StackSetOperation(output["StackSetOperation"], context);
     }
     return contents;
 };
-const deserializeAws_queryDescribeStackSetOutput = (output, context) => {
+const de_DescribeStackSetOutput = (output, context) => {
     const contents = {};
     if (output["StackSet"] !== undefined) {
-        contents.StackSet = deserializeAws_queryStackSet(output["StackSet"], context);
+        contents.StackSet = de_StackSet(output["StackSet"], context);
     }
     return contents;
 };
-const deserializeAws_queryDescribeStacksOutput = (output, context) => {
+const de_DescribeStacksOutput = (output, context) => {
     const contents = {};
     if (output.Stacks === "") {
         contents.Stacks = [];
     }
     else if (output["Stacks"] !== undefined && output["Stacks"]["member"] !== undefined) {
-        contents.Stacks = deserializeAws_queryStacks((0, smithy_client_1.getArrayIfSingleItem)(output["Stacks"]["member"]), context);
+        contents.Stacks = de_Stacks((0, smithy_client_1.getArrayIfSingleItem)(output["Stacks"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryDescribeTypeOutput = (output, context) => {
+const de_DescribeTypeOutput = (output, context) => {
     const contents = {};
     if (output["Arn"] !== undefined) {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
@@ -13694,14 +13694,14 @@ const deserializeAws_queryDescribeTypeOutput = (output, context) => {
         contents.DeprecatedStatus = (0, smithy_client_1.expectString)(output["DeprecatedStatus"]);
     }
     if (output["LoggingConfig"] !== undefined) {
-        contents.LoggingConfig = deserializeAws_queryLoggingConfig(output["LoggingConfig"], context);
+        contents.LoggingConfig = de_LoggingConfig(output["LoggingConfig"], context);
     }
     if (output.RequiredActivatedTypes === "") {
         contents.RequiredActivatedTypes = [];
     }
     else if (output["RequiredActivatedTypes"] !== undefined &&
         output["RequiredActivatedTypes"]["member"] !== undefined) {
-        contents.RequiredActivatedTypes = deserializeAws_queryRequiredActivatedTypes((0, smithy_client_1.getArrayIfSingleItem)(output["RequiredActivatedTypes"]["member"]), context);
+        contents.RequiredActivatedTypes = de_RequiredActivatedTypes((0, smithy_client_1.getArrayIfSingleItem)(output["RequiredActivatedTypes"]["member"]), context);
     }
     if (output["ExecutionRoleArn"] !== undefined) {
         contents.ExecutionRoleArn = (0, smithy_client_1.expectString)(output["ExecutionRoleArn"]);
@@ -13747,7 +13747,7 @@ const deserializeAws_queryDescribeTypeOutput = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryDescribeTypeRegistrationOutput = (output, context) => {
+const de_DescribeTypeRegistrationOutput = (output, context) => {
     const contents = {};
     if (output["ProgressStatus"] !== undefined) {
         contents.ProgressStatus = (0, smithy_client_1.expectString)(output["ProgressStatus"]);
@@ -13763,39 +13763,39 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (output, context) => 
     }
     return contents;
 };
-const deserializeAws_queryDetectStackDriftOutput = (output, context) => {
+const de_DetectStackDriftOutput = (output, context) => {
     const contents = {};
     if (output["StackDriftDetectionId"] !== undefined) {
         contents.StackDriftDetectionId = (0, smithy_client_1.expectString)(output["StackDriftDetectionId"]);
     }
     return contents;
 };
-const deserializeAws_queryDetectStackResourceDriftOutput = (output, context) => {
+const de_DetectStackResourceDriftOutput = (output, context) => {
     const contents = {};
     if (output["StackResourceDrift"] !== undefined) {
-        contents.StackResourceDrift = deserializeAws_queryStackResourceDrift(output["StackResourceDrift"], context);
+        contents.StackResourceDrift = de_StackResourceDrift(output["StackResourceDrift"], context);
     }
     return contents;
 };
-const deserializeAws_queryDetectStackSetDriftOutput = (output, context) => {
+const de_DetectStackSetDriftOutput = (output, context) => {
     const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
-const deserializeAws_queryEstimateTemplateCostOutput = (output, context) => {
+const de_EstimateTemplateCostOutput = (output, context) => {
     const contents = {};
     if (output["Url"] !== undefined) {
         contents.Url = (0, smithy_client_1.expectString)(output["Url"]);
     }
     return contents;
 };
-const deserializeAws_queryExecuteChangeSetOutput = (output, context) => {
+const de_ExecuteChangeSetOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_queryExport = (output, context) => {
+const de_Export = (output, context) => {
     const contents = {};
     if (output["ExportingStackId"] !== undefined) {
         contents.ExportingStackId = (0, smithy_client_1.expectString)(output["ExportingStackId"]);
@@ -13808,21 +13808,21 @@ const deserializeAws_queryExport = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryExports = (output, context) => {
+const de_Exports = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryExport(entry, context);
+        return de_Export(entry, context);
     });
 };
-const deserializeAws_queryGetStackPolicyOutput = (output, context) => {
+const de_GetStackPolicyOutput = (output, context) => {
     const contents = {};
     if (output["StackPolicyBody"] !== undefined) {
         contents.StackPolicyBody = (0, smithy_client_1.expectString)(output["StackPolicyBody"]);
     }
     return contents;
 };
-const deserializeAws_queryGetTemplateOutput = (output, context) => {
+const de_GetTemplateOutput = (output, context) => {
     const contents = {};
     if (output["TemplateBody"] !== undefined) {
         contents.TemplateBody = (0, smithy_client_1.expectString)(output["TemplateBody"]);
@@ -13831,17 +13831,17 @@ const deserializeAws_queryGetTemplateOutput = (output, context) => {
         contents.StagesAvailable = [];
     }
     else if (output["StagesAvailable"] !== undefined && output["StagesAvailable"]["member"] !== undefined) {
-        contents.StagesAvailable = deserializeAws_queryStageList((0, smithy_client_1.getArrayIfSingleItem)(output["StagesAvailable"]["member"]), context);
+        contents.StagesAvailable = de_StageList((0, smithy_client_1.getArrayIfSingleItem)(output["StagesAvailable"]["member"]), context);
     }
     return contents;
 };
-const deserializeAws_queryGetTemplateSummaryOutput = (output, context) => {
+const de_GetTemplateSummaryOutput = (output, context) => {
     const contents = {};
     if (output.Parameters === "") {
         contents.Parameters = [];
     }
     else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = deserializeAws_queryParameterDeclarations((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+        contents.Parameters = de_ParameterDeclarations((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
     }
     if (output["Description"] !== undefined) {
         contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
@@ -13850,7 +13850,7 @@ const deserializeAws_queryGetTemplateSummaryOutput = (output, context) => {
         contents.Capabilities = [];
     }
     else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = deserializeAws_queryCapabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
     }
     if (output["CapabilitiesReason"] !== undefined) {
         contents.CapabilitiesReason = (0, smithy_client_1.expectString)(output["CapabilitiesReason"]);
@@ -13859,7 +13859,7 @@ const deserializeAws_queryGetTemplateSummaryOutput = (output, context) => {
         contents.ResourceTypes = [];
     }
     else if (output["ResourceTypes"] !== undefined && output["ResourceTypes"]["member"] !== undefined) {
-        contents.ResourceTypes = deserializeAws_queryResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceTypes"]["member"]), context);
+        contents.ResourceTypes = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceTypes"]["member"]), context);
     }
     if (output["Version"] !== undefined) {
         contents.Version = (0, smithy_client_1.expectString)(output["Version"]);
@@ -13871,224 +13871,224 @@ const deserializeAws_queryGetTemplateSummaryOutput = (output, context) => {
         contents.DeclaredTransforms = [];
     }
     else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-        contents.DeclaredTransforms = deserializeAws_queryTransformsList((0, smithy_client_1.getArrayIfSingleItem)(output["DeclaredTransforms"]["member"]), context);
+        contents.DeclaredTransforms = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output["DeclaredTransforms"]["member"]), context);
     }
     if (output.ResourceIdentifierSummaries === "") {
         contents.ResourceIdentifierSummaries = [];
     }
     else if (output["ResourceIdentifierSummaries"] !== undefined &&
         output["ResourceIdentifierSummaries"]["member"] !== undefined) {
-        contents.ResourceIdentifierSummaries = deserializeAws_queryResourceIdentifierSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceIdentifierSummaries"]["member"]), context);
+        contents.ResourceIdentifierSummaries = de_ResourceIdentifierSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceIdentifierSummaries"]["member"]), context);
     }
     return contents;
 };
-const deserializeAws_queryImports = (output, context) => {
+const de_Imports = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryImportStacksToStackSetOutput = (output, context) => {
+const de_ImportStacksToStackSetOutput = (output, context) => {
     const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
-const deserializeAws_queryInsufficientCapabilitiesException = (output, context) => {
+const de_InsufficientCapabilitiesException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryInvalidChangeSetStatusException = (output, context) => {
+const de_InvalidChangeSetStatusException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryInvalidOperationException = (output, context) => {
+const de_InvalidOperationException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryInvalidStateTransitionException = (output, context) => {
+const de_InvalidStateTransitionException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryLimitExceededException = (output, context) => {
+const de_LimitExceededException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryListChangeSetsOutput = (output, context) => {
+const de_ListChangeSetsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
     else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = deserializeAws_queryChangeSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+        contents.Summaries = de_ChangeSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListExportsOutput = (output, context) => {
+const de_ListExportsOutput = (output, context) => {
     const contents = {};
     if (output.Exports === "") {
         contents.Exports = [];
     }
     else if (output["Exports"] !== undefined && output["Exports"]["member"] !== undefined) {
-        contents.Exports = deserializeAws_queryExports((0, smithy_client_1.getArrayIfSingleItem)(output["Exports"]["member"]), context);
+        contents.Exports = de_Exports((0, smithy_client_1.getArrayIfSingleItem)(output["Exports"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListImportsOutput = (output, context) => {
+const de_ListImportsOutput = (output, context) => {
     const contents = {};
     if (output.Imports === "") {
         contents.Imports = [];
     }
     else if (output["Imports"] !== undefined && output["Imports"]["member"] !== undefined) {
-        contents.Imports = deserializeAws_queryImports((0, smithy_client_1.getArrayIfSingleItem)(output["Imports"]["member"]), context);
+        contents.Imports = de_Imports((0, smithy_client_1.getArrayIfSingleItem)(output["Imports"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListStackInstancesOutput = (output, context) => {
+const de_ListStackInstancesOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
     else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = deserializeAws_queryStackInstanceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+        contents.Summaries = de_StackInstanceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListStackResourcesOutput = (output, context) => {
+const de_ListStackResourcesOutput = (output, context) => {
     const contents = {};
     if (output.StackResourceSummaries === "") {
         contents.StackResourceSummaries = [];
     }
     else if (output["StackResourceSummaries"] !== undefined &&
         output["StackResourceSummaries"]["member"] !== undefined) {
-        contents.StackResourceSummaries = deserializeAws_queryStackResourceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["StackResourceSummaries"]["member"]), context);
+        contents.StackResourceSummaries = de_StackResourceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["StackResourceSummaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListStackSetOperationResultsOutput = (output, context) => {
+const de_ListStackSetOperationResultsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
     else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = deserializeAws_queryStackSetOperationResultSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+        contents.Summaries = de_StackSetOperationResultSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListStackSetOperationsOutput = (output, context) => {
+const de_ListStackSetOperationsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
     else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = deserializeAws_queryStackSetOperationSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+        contents.Summaries = de_StackSetOperationSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListStackSetsOutput = (output, context) => {
+const de_ListStackSetsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
         contents.Summaries = [];
     }
     else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = deserializeAws_queryStackSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+        contents.Summaries = de_StackSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListStacksOutput = (output, context) => {
+const de_ListStacksOutput = (output, context) => {
     const contents = {};
     if (output.StackSummaries === "") {
         contents.StackSummaries = [];
     }
     else if (output["StackSummaries"] !== undefined && output["StackSummaries"]["member"] !== undefined) {
-        contents.StackSummaries = deserializeAws_queryStackSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["StackSummaries"]["member"]), context);
+        contents.StackSummaries = de_StackSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["StackSummaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListTypeRegistrationsOutput = (output, context) => {
+const de_ListTypeRegistrationsOutput = (output, context) => {
     const contents = {};
     if (output.RegistrationTokenList === "") {
         contents.RegistrationTokenList = [];
     }
     else if (output["RegistrationTokenList"] !== undefined && output["RegistrationTokenList"]["member"] !== undefined) {
-        contents.RegistrationTokenList = deserializeAws_queryRegistrationTokenList((0, smithy_client_1.getArrayIfSingleItem)(output["RegistrationTokenList"]["member"]), context);
+        contents.RegistrationTokenList = de_RegistrationTokenList((0, smithy_client_1.getArrayIfSingleItem)(output["RegistrationTokenList"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListTypesOutput = (output, context) => {
+const de_ListTypesOutput = (output, context) => {
     const contents = {};
     if (output.TypeSummaries === "") {
         contents.TypeSummaries = [];
     }
     else if (output["TypeSummaries"] !== undefined && output["TypeSummaries"]["member"] !== undefined) {
-        contents.TypeSummaries = deserializeAws_queryTypeSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["TypeSummaries"]["member"]), context);
+        contents.TypeSummaries = de_TypeSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["TypeSummaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryListTypeVersionsOutput = (output, context) => {
+const de_ListTypeVersionsOutput = (output, context) => {
     const contents = {};
     if (output.TypeVersionSummaries === "") {
         contents.TypeVersionSummaries = [];
     }
     else if (output["TypeVersionSummaries"] !== undefined && output["TypeVersionSummaries"]["member"] !== undefined) {
-        contents.TypeVersionSummaries = deserializeAws_queryTypeVersionSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["TypeVersionSummaries"]["member"]), context);
+        contents.TypeVersionSummaries = de_TypeVersionSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["TypeVersionSummaries"]["member"]), context);
     }
     if (output["NextToken"] !== undefined) {
         contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
     }
     return contents;
 };
-const deserializeAws_queryLoggingConfig = (output, context) => {
+const de_LoggingConfig = (output, context) => {
     const contents = {};
     if (output["LogRoleArn"] !== undefined) {
         contents.LogRoleArn = (0, smithy_client_1.expectString)(output["LogRoleArn"]);
@@ -14098,21 +14098,21 @@ const deserializeAws_queryLoggingConfig = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryLogicalResourceIds = (output, context) => {
+const de_LogicalResourceIds = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryManagedExecution = (output, context) => {
+const de_ManagedExecution = (output, context) => {
     const contents = {};
     if (output["Active"] !== undefined) {
         contents.Active = (0, smithy_client_1.parseBoolean)(output["Active"]);
     }
     return contents;
 };
-const deserializeAws_queryModuleInfo = (output, context) => {
+const de_ModuleInfo = (output, context) => {
     const contents = {};
     if (output["TypeHierarchy"] !== undefined) {
         contents.TypeHierarchy = (0, smithy_client_1.expectString)(output["TypeHierarchy"]);
@@ -14122,56 +14122,56 @@ const deserializeAws_queryModuleInfo = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryNameAlreadyExistsException = (output, context) => {
+const de_NameAlreadyExistsException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryNotificationARNs = (output, context) => {
+const de_NotificationARNs = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryOperationIdAlreadyExistsException = (output, context) => {
+const de_OperationIdAlreadyExistsException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryOperationInProgressException = (output, context) => {
+const de_OperationInProgressException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryOperationNotFoundException = (output, context) => {
+const de_OperationNotFoundException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryOperationStatusCheckFailedException = (output, context) => {
+const de_OperationStatusCheckFailedException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryOrganizationalUnitIdList = (output, context) => {
+const de_OrganizationalUnitIdList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryOutput = (output, context) => {
+const de_Output = (output, context) => {
     const contents = {};
     if (output["OutputKey"] !== undefined) {
         contents.OutputKey = (0, smithy_client_1.expectString)(output["OutputKey"]);
@@ -14187,14 +14187,14 @@ const deserializeAws_queryOutput = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryOutputs = (output, context) => {
+const de_Outputs = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryOutput(entry, context);
+        return de_Output(entry, context);
     });
 };
-const deserializeAws_queryParameter = (output, context) => {
+const de_Parameter = (output, context) => {
     const contents = {};
     if (output["ParameterKey"] !== undefined) {
         contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
@@ -14210,17 +14210,17 @@ const deserializeAws_queryParameter = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryParameterConstraints = (output, context) => {
+const de_ParameterConstraints = (output, context) => {
     const contents = {};
     if (output.AllowedValues === "") {
         contents.AllowedValues = [];
     }
     else if (output["AllowedValues"] !== undefined && output["AllowedValues"]["member"] !== undefined) {
-        contents.AllowedValues = deserializeAws_queryAllowedValues((0, smithy_client_1.getArrayIfSingleItem)(output["AllowedValues"]["member"]), context);
+        contents.AllowedValues = de_AllowedValues((0, smithy_client_1.getArrayIfSingleItem)(output["AllowedValues"]["member"]), context);
     }
     return contents;
 };
-const deserializeAws_queryParameterDeclaration = (output, context) => {
+const de_ParameterDeclaration = (output, context) => {
     const contents = {};
     if (output["ParameterKey"] !== undefined) {
         contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
@@ -14238,32 +14238,32 @@ const deserializeAws_queryParameterDeclaration = (output, context) => {
         contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
     }
     if (output["ParameterConstraints"] !== undefined) {
-        contents.ParameterConstraints = deserializeAws_queryParameterConstraints(output["ParameterConstraints"], context);
+        contents.ParameterConstraints = de_ParameterConstraints(output["ParameterConstraints"], context);
     }
     return contents;
 };
-const deserializeAws_queryParameterDeclarations = (output, context) => {
+const de_ParameterDeclarations = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryParameterDeclaration(entry, context);
+        return de_ParameterDeclaration(entry, context);
     });
 };
-const deserializeAws_queryParameters = (output, context) => {
+const de_Parameters = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryParameter(entry, context);
+        return de_Parameter(entry, context);
     });
 };
-const deserializeAws_queryPhysicalResourceIdContext = (output, context) => {
+const de_PhysicalResourceIdContext = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context);
+        return de_PhysicalResourceIdContextKeyValuePair(entry, context);
     });
 };
-const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (output, context) => {
+const de_PhysicalResourceIdContextKeyValuePair = (output, context) => {
     const contents = {};
     if (output["Key"] !== undefined) {
         contents.Key = (0, smithy_client_1.expectString)(output["Key"]);
@@ -14273,7 +14273,7 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (output, conte
     }
     return contents;
 };
-const deserializeAws_queryPropertyDifference = (output, context) => {
+const de_PropertyDifference = (output, context) => {
     const contents = {};
     if (output["PropertyPath"] !== undefined) {
         contents.PropertyPath = (0, smithy_client_1.expectString)(output["PropertyPath"]);
@@ -14289,53 +14289,53 @@ const deserializeAws_queryPropertyDifference = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryPropertyDifferences = (output, context) => {
+const de_PropertyDifferences = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryPropertyDifference(entry, context);
+        return de_PropertyDifference(entry, context);
     });
 };
-const deserializeAws_queryPublishTypeOutput = (output, context) => {
+const de_PublishTypeOutput = (output, context) => {
     const contents = {};
     if (output["PublicTypeArn"] !== undefined) {
         contents.PublicTypeArn = (0, smithy_client_1.expectString)(output["PublicTypeArn"]);
     }
     return contents;
 };
-const deserializeAws_queryRecordHandlerProgressOutput = (output, context) => {
+const de_RecordHandlerProgressOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_queryRegionList = (output, context) => {
+const de_RegionList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryRegisterPublisherOutput = (output, context) => {
+const de_RegisterPublisherOutput = (output, context) => {
     const contents = {};
     if (output["PublisherId"] !== undefined) {
         contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
     }
     return contents;
 };
-const deserializeAws_queryRegisterTypeOutput = (output, context) => {
+const de_RegisterTypeOutput = (output, context) => {
     const contents = {};
     if (output["RegistrationToken"] !== undefined) {
         contents.RegistrationToken = (0, smithy_client_1.expectString)(output["RegistrationToken"]);
     }
     return contents;
 };
-const deserializeAws_queryRegistrationTokenList = (output, context) => {
+const de_RegistrationTokenList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryRequiredActivatedType = (output, context) => {
+const de_RequiredActivatedType = (output, context) => {
     const contents = {};
     if (output["TypeNameAlias"] !== undefined) {
         contents.TypeNameAlias = (0, smithy_client_1.expectString)(output["TypeNameAlias"]);
@@ -14351,18 +14351,18 @@ const deserializeAws_queryRequiredActivatedType = (output, context) => {
     }
     else if (output["SupportedMajorVersions"] !== undefined &&
         output["SupportedMajorVersions"]["member"] !== undefined) {
-        contents.SupportedMajorVersions = deserializeAws_querySupportedMajorVersions((0, smithy_client_1.getArrayIfSingleItem)(output["SupportedMajorVersions"]["member"]), context);
+        contents.SupportedMajorVersions = de_SupportedMajorVersions((0, smithy_client_1.getArrayIfSingleItem)(output["SupportedMajorVersions"]["member"]), context);
     }
     return contents;
 };
-const deserializeAws_queryRequiredActivatedTypes = (output, context) => {
+const de_RequiredActivatedTypes = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryRequiredActivatedType(entry, context);
+        return de_RequiredActivatedType(entry, context);
     });
 };
-const deserializeAws_queryResourceChange = (output, context) => {
+const de_ResourceChange = (output, context) => {
     const contents = {};
     if (output["Action"] !== undefined) {
         contents.Action = (0, smithy_client_1.expectString)(output["Action"]);
@@ -14383,26 +14383,26 @@ const deserializeAws_queryResourceChange = (output, context) => {
         contents.Scope = [];
     }
     else if (output["Scope"] !== undefined && output["Scope"]["member"] !== undefined) {
-        contents.Scope = deserializeAws_queryScope((0, smithy_client_1.getArrayIfSingleItem)(output["Scope"]["member"]), context);
+        contents.Scope = de_Scope((0, smithy_client_1.getArrayIfSingleItem)(output["Scope"]["member"]), context);
     }
     if (output.Details === "") {
         contents.Details = [];
     }
     else if (output["Details"] !== undefined && output["Details"]["member"] !== undefined) {
-        contents.Details = deserializeAws_queryResourceChangeDetails((0, smithy_client_1.getArrayIfSingleItem)(output["Details"]["member"]), context);
+        contents.Details = de_ResourceChangeDetails((0, smithy_client_1.getArrayIfSingleItem)(output["Details"]["member"]), context);
     }
     if (output["ChangeSetId"] !== undefined) {
         contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
     }
     if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = deserializeAws_queryModuleInfo(output["ModuleInfo"], context);
+        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
     }
     return contents;
 };
-const deserializeAws_queryResourceChangeDetail = (output, context) => {
+const de_ResourceChangeDetail = (output, context) => {
     const contents = {};
     if (output["Target"] !== undefined) {
-        contents.Target = deserializeAws_queryResourceTargetDefinition(output["Target"], context);
+        contents.Target = de_ResourceTargetDefinition(output["Target"], context);
     }
     if (output["Evaluation"] !== undefined) {
         contents.Evaluation = (0, smithy_client_1.expectString)(output["Evaluation"]);
@@ -14415,28 +14415,28 @@ const deserializeAws_queryResourceChangeDetail = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryResourceChangeDetails = (output, context) => {
+const de_ResourceChangeDetails = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryResourceChangeDetail(entry, context);
+        return de_ResourceChangeDetail(entry, context);
     });
 };
-const deserializeAws_queryResourceIdentifiers = (output, context) => {
+const de_ResourceIdentifiers = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryResourceIdentifierSummaries = (output, context) => {
+const de_ResourceIdentifierSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryResourceIdentifierSummary(entry, context);
+        return de_ResourceIdentifierSummary(entry, context);
     });
 };
-const deserializeAws_queryResourceIdentifierSummary = (output, context) => {
+const de_ResourceIdentifierSummary = (output, context) => {
     const contents = {};
     if (output["ResourceType"] !== undefined) {
         contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
@@ -14445,17 +14445,17 @@ const deserializeAws_queryResourceIdentifierSummary = (output, context) => {
         contents.LogicalResourceIds = [];
     }
     else if (output["LogicalResourceIds"] !== undefined && output["LogicalResourceIds"]["member"] !== undefined) {
-        contents.LogicalResourceIds = deserializeAws_queryLogicalResourceIds((0, smithy_client_1.getArrayIfSingleItem)(output["LogicalResourceIds"]["member"]), context);
+        contents.LogicalResourceIds = de_LogicalResourceIds((0, smithy_client_1.getArrayIfSingleItem)(output["LogicalResourceIds"]["member"]), context);
     }
     if (output.ResourceIdentifiers === "") {
         contents.ResourceIdentifiers = [];
     }
     else if (output["ResourceIdentifiers"] !== undefined && output["ResourceIdentifiers"]["member"] !== undefined) {
-        contents.ResourceIdentifiers = deserializeAws_queryResourceIdentifiers((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceIdentifiers"]["member"]), context);
+        contents.ResourceIdentifiers = de_ResourceIdentifiers((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceIdentifiers"]["member"]), context);
     }
     return contents;
 };
-const deserializeAws_queryResourceTargetDefinition = (output, context) => {
+const de_ResourceTargetDefinition = (output, context) => {
     const contents = {};
     if (output["Attribute"] !== undefined) {
         contents.Attribute = (0, smithy_client_1.expectString)(output["Attribute"]);
@@ -14468,34 +14468,34 @@ const deserializeAws_queryResourceTargetDefinition = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryResourceTypes = (output, context) => {
+const de_ResourceTypes = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryRollbackConfiguration = (output, context) => {
+const de_RollbackConfiguration = (output, context) => {
     const contents = {};
     if (output.RollbackTriggers === "") {
         contents.RollbackTriggers = [];
     }
     else if (output["RollbackTriggers"] !== undefined && output["RollbackTriggers"]["member"] !== undefined) {
-        contents.RollbackTriggers = deserializeAws_queryRollbackTriggers((0, smithy_client_1.getArrayIfSingleItem)(output["RollbackTriggers"]["member"]), context);
+        contents.RollbackTriggers = de_RollbackTriggers((0, smithy_client_1.getArrayIfSingleItem)(output["RollbackTriggers"]["member"]), context);
     }
     if (output["MonitoringTimeInMinutes"] !== undefined) {
         contents.MonitoringTimeInMinutes = (0, smithy_client_1.strictParseInt32)(output["MonitoringTimeInMinutes"]);
     }
     return contents;
 };
-const deserializeAws_queryRollbackStackOutput = (output, context) => {
+const de_RollbackStackOutput = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
     return contents;
 };
-const deserializeAws_queryRollbackTrigger = (output, context) => {
+const de_RollbackTrigger = (output, context) => {
     const contents = {};
     if (output["Arn"] !== undefined) {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
@@ -14505,32 +14505,32 @@ const deserializeAws_queryRollbackTrigger = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryRollbackTriggers = (output, context) => {
+const de_RollbackTriggers = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryRollbackTrigger(entry, context);
+        return de_RollbackTrigger(entry, context);
     });
 };
-const deserializeAws_queryScope = (output, context) => {
+const de_Scope = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_querySetTypeConfigurationOutput = (output, context) => {
+const de_SetTypeConfigurationOutput = (output, context) => {
     const contents = {};
     if (output["ConfigurationArn"] !== undefined) {
         contents.ConfigurationArn = (0, smithy_client_1.expectString)(output["ConfigurationArn"]);
     }
     return contents;
 };
-const deserializeAws_querySetTypeDefaultVersionOutput = (output, context) => {
+const de_SetTypeDefaultVersionOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_queryStack = (output, context) => {
+const de_Stack = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
@@ -14548,7 +14548,7 @@ const deserializeAws_queryStack = (output, context) => {
         contents.Parameters = [];
     }
     else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = deserializeAws_queryParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
     }
     if (output["CreationTime"] !== undefined) {
         contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
@@ -14560,7 +14560,7 @@ const deserializeAws_queryStack = (output, context) => {
         contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTime"]));
     }
     if (output["RollbackConfiguration"] !== undefined) {
-        contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(output["RollbackConfiguration"], context);
+        contents.RollbackConfiguration = de_RollbackConfiguration(output["RollbackConfiguration"], context);
     }
     if (output["StackStatus"] !== undefined) {
         contents.StackStatus = (0, smithy_client_1.expectString)(output["StackStatus"]);
@@ -14575,7 +14575,7 @@ const deserializeAws_queryStack = (output, context) => {
         contents.NotificationARNs = [];
     }
     else if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-        contents.NotificationARNs = deserializeAws_queryNotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output["NotificationARNs"]["member"]), context);
+        contents.NotificationARNs = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output["NotificationARNs"]["member"]), context);
     }
     if (output["TimeoutInMinutes"] !== undefined) {
         contents.TimeoutInMinutes = (0, smithy_client_1.strictParseInt32)(output["TimeoutInMinutes"]);
@@ -14584,13 +14584,13 @@ const deserializeAws_queryStack = (output, context) => {
         contents.Capabilities = [];
     }
     else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = deserializeAws_queryCapabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
     }
     if (output.Outputs === "") {
         contents.Outputs = [];
     }
     else if (output["Outputs"] !== undefined && output["Outputs"]["member"] !== undefined) {
-        contents.Outputs = deserializeAws_queryOutputs((0, smithy_client_1.getArrayIfSingleItem)(output["Outputs"]["member"]), context);
+        contents.Outputs = de_Outputs((0, smithy_client_1.getArrayIfSingleItem)(output["Outputs"]["member"]), context);
     }
     if (output["RoleARN"] !== undefined) {
         contents.RoleARN = (0, smithy_client_1.expectString)(output["RoleARN"]);
@@ -14599,7 +14599,7 @@ const deserializeAws_queryStack = (output, context) => {
         contents.Tags = [];
     }
     else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = deserializeAws_queryTags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
     }
     if (output["EnableTerminationProtection"] !== undefined) {
         contents.EnableTerminationProtection = (0, smithy_client_1.parseBoolean)(output["EnableTerminationProtection"]);
@@ -14611,11 +14611,11 @@ const deserializeAws_queryStack = (output, context) => {
         contents.RootId = (0, smithy_client_1.expectString)(output["RootId"]);
     }
     if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = deserializeAws_queryStackDriftInformation(output["DriftInformation"], context);
+        contents.DriftInformation = de_StackDriftInformation(output["DriftInformation"], context);
     }
     return contents;
 };
-const deserializeAws_queryStackDriftInformation = (output, context) => {
+const de_StackDriftInformation = (output, context) => {
     const contents = {};
     if (output["StackDriftStatus"] !== undefined) {
         contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
@@ -14625,7 +14625,7 @@ const deserializeAws_queryStackDriftInformation = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryStackDriftInformationSummary = (output, context) => {
+const de_StackDriftInformationSummary = (output, context) => {
     const contents = {};
     if (output["StackDriftStatus"] !== undefined) {
         contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
@@ -14635,7 +14635,7 @@ const deserializeAws_queryStackDriftInformationSummary = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryStackEvent = (output, context) => {
+const de_StackEvent = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
@@ -14687,14 +14687,14 @@ const deserializeAws_queryStackEvent = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryStackEvents = (output, context) => {
+const de_StackEvents = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackEvent(entry, context);
+        return de_StackEvent(entry, context);
     });
 };
-const deserializeAws_queryStackInstance = (output, context) => {
+const de_StackInstance = (output, context) => {
     const contents = {};
     if (output["StackSetId"] !== undefined) {
         contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
@@ -14712,13 +14712,13 @@ const deserializeAws_queryStackInstance = (output, context) => {
         contents.ParameterOverrides = [];
     }
     else if (output["ParameterOverrides"] !== undefined && output["ParameterOverrides"]["member"] !== undefined) {
-        contents.ParameterOverrides = deserializeAws_queryParameters((0, smithy_client_1.getArrayIfSingleItem)(output["ParameterOverrides"]["member"]), context);
+        contents.ParameterOverrides = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["ParameterOverrides"]["member"]), context);
     }
     if (output["Status"] !== undefined) {
         contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
     }
     if (output["StackInstanceStatus"] !== undefined) {
-        contents.StackInstanceStatus = deserializeAws_queryStackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
+        contents.StackInstanceStatus = de_StackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
     }
     if (output["StatusReason"] !== undefined) {
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
@@ -14737,28 +14737,28 @@ const deserializeAws_queryStackInstance = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryStackInstanceComprehensiveStatus = (output, context) => {
+const de_StackInstanceComprehensiveStatus = (output, context) => {
     const contents = {};
     if (output["DetailedStatus"] !== undefined) {
         contents.DetailedStatus = (0, smithy_client_1.expectString)(output["DetailedStatus"]);
     }
     return contents;
 };
-const deserializeAws_queryStackInstanceNotFoundException = (output, context) => {
+const de_StackInstanceNotFoundException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryStackInstanceSummaries = (output, context) => {
+const de_StackInstanceSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackInstanceSummary(entry, context);
+        return de_StackInstanceSummary(entry, context);
     });
 };
-const deserializeAws_queryStackInstanceSummary = (output, context) => {
+const de_StackInstanceSummary = (output, context) => {
     const contents = {};
     if (output["StackSetId"] !== undefined) {
         contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
@@ -14779,7 +14779,7 @@ const deserializeAws_queryStackInstanceSummary = (output, context) => {
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
     }
     if (output["StackInstanceStatus"] !== undefined) {
-        contents.StackInstanceStatus = deserializeAws_queryStackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
+        contents.StackInstanceStatus = de_StackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
     }
     if (output["OrganizationalUnitId"] !== undefined) {
         contents.OrganizationalUnitId = (0, smithy_client_1.expectString)(output["OrganizationalUnitId"]);
@@ -14795,14 +14795,14 @@ const deserializeAws_queryStackInstanceSummary = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryStackNotFoundException = (output, context) => {
+const de_StackNotFoundException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryStackResource = (output, context) => {
+const de_StackResource = (output, context) => {
     const contents = {};
     if (output["StackName"] !== undefined) {
         contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
@@ -14832,14 +14832,14 @@ const deserializeAws_queryStackResource = (output, context) => {
         contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
     }
     if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(output["DriftInformation"], context);
+        contents.DriftInformation = de_StackResourceDriftInformation(output["DriftInformation"], context);
     }
     if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = deserializeAws_queryModuleInfo(output["ModuleInfo"], context);
+        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
     }
     return contents;
 };
-const deserializeAws_queryStackResourceDetail = (output, context) => {
+const de_StackResourceDetail = (output, context) => {
     const contents = {};
     if (output["StackName"] !== undefined) {
         contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
@@ -14872,14 +14872,14 @@ const deserializeAws_queryStackResourceDetail = (output, context) => {
         contents.Metadata = (0, smithy_client_1.expectString)(output["Metadata"]);
     }
     if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = deserializeAws_queryStackResourceDriftInformation(output["DriftInformation"], context);
+        contents.DriftInformation = de_StackResourceDriftInformation(output["DriftInformation"], context);
     }
     if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = deserializeAws_queryModuleInfo(output["ModuleInfo"], context);
+        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
     }
     return contents;
 };
-const deserializeAws_queryStackResourceDrift = (output, context) => {
+const de_StackResourceDrift = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
@@ -14895,7 +14895,7 @@ const deserializeAws_queryStackResourceDrift = (output, context) => {
     }
     else if (output["PhysicalResourceIdContext"] !== undefined &&
         output["PhysicalResourceIdContext"]["member"] !== undefined) {
-        contents.PhysicalResourceIdContext = deserializeAws_queryPhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output["PhysicalResourceIdContext"]["member"]), context);
+        contents.PhysicalResourceIdContext = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output["PhysicalResourceIdContext"]["member"]), context);
     }
     if (output["ResourceType"] !== undefined) {
         contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
@@ -14910,7 +14910,7 @@ const deserializeAws_queryStackResourceDrift = (output, context) => {
         contents.PropertyDifferences = [];
     }
     else if (output["PropertyDifferences"] !== undefined && output["PropertyDifferences"]["member"] !== undefined) {
-        contents.PropertyDifferences = deserializeAws_queryPropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output["PropertyDifferences"]["member"]), context);
+        contents.PropertyDifferences = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output["PropertyDifferences"]["member"]), context);
     }
     if (output["StackResourceDriftStatus"] !== undefined) {
         contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
@@ -14919,11 +14919,11 @@ const deserializeAws_queryStackResourceDrift = (output, context) => {
         contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
     }
     if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = deserializeAws_queryModuleInfo(output["ModuleInfo"], context);
+        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
     }
     return contents;
 };
-const deserializeAws_queryStackResourceDriftInformation = (output, context) => {
+const de_StackResourceDriftInformation = (output, context) => {
     const contents = {};
     if (output["StackResourceDriftStatus"] !== undefined) {
         contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
@@ -14933,7 +14933,7 @@ const deserializeAws_queryStackResourceDriftInformation = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryStackResourceDriftInformationSummary = (output, context) => {
+const de_StackResourceDriftInformationSummary = (output, context) => {
     const contents = {};
     if (output["StackResourceDriftStatus"] !== undefined) {
         contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
@@ -14943,28 +14943,28 @@ const deserializeAws_queryStackResourceDriftInformationSummary = (output, contex
     }
     return contents;
 };
-const deserializeAws_queryStackResourceDrifts = (output, context) => {
+const de_StackResourceDrifts = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackResourceDrift(entry, context);
+        return de_StackResourceDrift(entry, context);
     });
 };
-const deserializeAws_queryStackResources = (output, context) => {
+const de_StackResources = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackResource(entry, context);
+        return de_StackResource(entry, context);
     });
 };
-const deserializeAws_queryStackResourceSummaries = (output, context) => {
+const de_StackResourceSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackResourceSummary(entry, context);
+        return de_StackResourceSummary(entry, context);
     });
 };
-const deserializeAws_queryStackResourceSummary = (output, context) => {
+const de_StackResourceSummary = (output, context) => {
     const contents = {};
     if (output["LogicalResourceId"] !== undefined) {
         contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
@@ -14985,21 +14985,21 @@ const deserializeAws_queryStackResourceSummary = (output, context) => {
         contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
     }
     if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = deserializeAws_queryStackResourceDriftInformationSummary(output["DriftInformation"], context);
+        contents.DriftInformation = de_StackResourceDriftInformationSummary(output["DriftInformation"], context);
     }
     if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = deserializeAws_queryModuleInfo(output["ModuleInfo"], context);
+        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
     }
     return contents;
 };
-const deserializeAws_queryStacks = (output, context) => {
+const de_Stacks = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStack(entry, context);
+        return de_Stack(entry, context);
     });
 };
-const deserializeAws_queryStackSet = (output, context) => {
+const de_StackSet = (output, context) => {
     const contents = {};
     if (output["StackSetName"] !== undefined) {
         contents.StackSetName = (0, smithy_client_1.expectString)(output["StackSetName"]);
@@ -15020,19 +15020,19 @@ const deserializeAws_queryStackSet = (output, context) => {
         contents.Parameters = [];
     }
     else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = deserializeAws_queryParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
     }
     if (output.Capabilities === "") {
         contents.Capabilities = [];
     }
     else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = deserializeAws_queryCapabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
     }
     if (output.Tags === "") {
         contents.Tags = [];
     }
     else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = deserializeAws_queryTags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
     }
     if (output["StackSetARN"] !== undefined) {
         contents.StackSetARN = (0, smithy_client_1.expectString)(output["StackSetARN"]);
@@ -15044,10 +15044,10 @@ const deserializeAws_queryStackSet = (output, context) => {
         contents.ExecutionRoleName = (0, smithy_client_1.expectString)(output["ExecutionRoleName"]);
     }
     if (output["StackSetDriftDetectionDetails"] !== undefined) {
-        contents.StackSetDriftDetectionDetails = deserializeAws_queryStackSetDriftDetectionDetails(output["StackSetDriftDetectionDetails"], context);
+        contents.StackSetDriftDetectionDetails = de_StackSetDriftDetectionDetails(output["StackSetDriftDetectionDetails"], context);
     }
     if (output["AutoDeployment"] !== undefined) {
-        contents.AutoDeployment = deserializeAws_queryAutoDeployment(output["AutoDeployment"], context);
+        contents.AutoDeployment = de_AutoDeployment(output["AutoDeployment"], context);
     }
     if (output["PermissionModel"] !== undefined) {
         contents.PermissionModel = (0, smithy_client_1.expectString)(output["PermissionModel"]);
@@ -15056,20 +15056,20 @@ const deserializeAws_queryStackSet = (output, context) => {
         contents.OrganizationalUnitIds = [];
     }
     else if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
-        contents.OrganizationalUnitIds = deserializeAws_queryOrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output["OrganizationalUnitIds"]["member"]), context);
+        contents.OrganizationalUnitIds = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output["OrganizationalUnitIds"]["member"]), context);
     }
     if (output["ManagedExecution"] !== undefined) {
-        contents.ManagedExecution = deserializeAws_queryManagedExecution(output["ManagedExecution"], context);
+        contents.ManagedExecution = de_ManagedExecution(output["ManagedExecution"], context);
     }
     if (output.Regions === "") {
         contents.Regions = [];
     }
     else if (output["Regions"] !== undefined && output["Regions"]["member"] !== undefined) {
-        contents.Regions = deserializeAws_queryRegionList((0, smithy_client_1.getArrayIfSingleItem)(output["Regions"]["member"]), context);
+        contents.Regions = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output["Regions"]["member"]), context);
     }
     return contents;
 };
-const deserializeAws_queryStackSetDriftDetectionDetails = (output, context) => {
+const de_StackSetDriftDetectionDetails = (output, context) => {
     const contents = {};
     if (output["DriftStatus"] !== undefined) {
         contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
@@ -15097,21 +15097,21 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryStackSetNotEmptyException = (output, context) => {
+const de_StackSetNotEmptyException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryStackSetNotFoundException = (output, context) => {
+const de_StackSetNotFoundException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryStackSetOperation = (output, context) => {
+const de_StackSetOperation = (output, context) => {
     const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
@@ -15126,7 +15126,7 @@ const deserializeAws_queryStackSetOperation = (output, context) => {
         contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
     }
     if (output["OperationPreferences"] !== undefined) {
-        contents.OperationPreferences = deserializeAws_queryStackSetOperationPreferences(output["OperationPreferences"], context);
+        contents.OperationPreferences = de_StackSetOperationPreferences(output["OperationPreferences"], context);
     }
     if (output["RetainStacks"] !== undefined) {
         contents.RetainStacks = (0, smithy_client_1.parseBoolean)(output["RetainStacks"]);
@@ -15144,20 +15144,20 @@ const deserializeAws_queryStackSetOperation = (output, context) => {
         contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["EndTimestamp"]));
     }
     if (output["DeploymentTargets"] !== undefined) {
-        contents.DeploymentTargets = deserializeAws_queryDeploymentTargets(output["DeploymentTargets"], context);
+        contents.DeploymentTargets = de_DeploymentTargets(output["DeploymentTargets"], context);
     }
     if (output["StackSetDriftDetectionDetails"] !== undefined) {
-        contents.StackSetDriftDetectionDetails = deserializeAws_queryStackSetDriftDetectionDetails(output["StackSetDriftDetectionDetails"], context);
+        contents.StackSetDriftDetectionDetails = de_StackSetDriftDetectionDetails(output["StackSetDriftDetectionDetails"], context);
     }
     if (output["StatusReason"] !== undefined) {
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
     }
     if (output["StatusDetails"] !== undefined) {
-        contents.StatusDetails = deserializeAws_queryStackSetOperationStatusDetails(output["StatusDetails"], context);
+        contents.StatusDetails = de_StackSetOperationStatusDetails(output["StatusDetails"], context);
     }
     return contents;
 };
-const deserializeAws_queryStackSetOperationPreferences = (output, context) => {
+const de_StackSetOperationPreferences = (output, context) => {
     const contents = {};
     if (output["RegionConcurrencyType"] !== undefined) {
         contents.RegionConcurrencyType = (0, smithy_client_1.expectString)(output["RegionConcurrencyType"]);
@@ -15166,7 +15166,7 @@ const deserializeAws_queryStackSetOperationPreferences = (output, context) => {
         contents.RegionOrder = [];
     }
     else if (output["RegionOrder"] !== undefined && output["RegionOrder"]["member"] !== undefined) {
-        contents.RegionOrder = deserializeAws_queryRegionList((0, smithy_client_1.getArrayIfSingleItem)(output["RegionOrder"]["member"]), context);
+        contents.RegionOrder = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output["RegionOrder"]["member"]), context);
     }
     if (output["FailureToleranceCount"] !== undefined) {
         contents.FailureToleranceCount = (0, smithy_client_1.strictParseInt32)(output["FailureToleranceCount"]);
@@ -15182,14 +15182,14 @@ const deserializeAws_queryStackSetOperationPreferences = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryStackSetOperationResultSummaries = (output, context) => {
+const de_StackSetOperationResultSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackSetOperationResultSummary(entry, context);
+        return de_StackSetOperationResultSummary(entry, context);
     });
 };
-const deserializeAws_queryStackSetOperationResultSummary = (output, context) => {
+const de_StackSetOperationResultSummary = (output, context) => {
     const contents = {};
     if (output["Account"] !== undefined) {
         contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
@@ -15204,28 +15204,28 @@ const deserializeAws_queryStackSetOperationResultSummary = (output, context) => 
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
     }
     if (output["AccountGateResult"] !== undefined) {
-        contents.AccountGateResult = deserializeAws_queryAccountGateResult(output["AccountGateResult"], context);
+        contents.AccountGateResult = de_AccountGateResult(output["AccountGateResult"], context);
     }
     if (output["OrganizationalUnitId"] !== undefined) {
         contents.OrganizationalUnitId = (0, smithy_client_1.expectString)(output["OrganizationalUnitId"]);
     }
     return contents;
 };
-const deserializeAws_queryStackSetOperationStatusDetails = (output, context) => {
+const de_StackSetOperationStatusDetails = (output, context) => {
     const contents = {};
     if (output["FailedStackInstancesCount"] !== undefined) {
         contents.FailedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["FailedStackInstancesCount"]);
     }
     return contents;
 };
-const deserializeAws_queryStackSetOperationSummaries = (output, context) => {
+const de_StackSetOperationSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackSetOperationSummary(entry, context);
+        return de_StackSetOperationSummary(entry, context);
     });
 };
-const deserializeAws_queryStackSetOperationSummary = (output, context) => {
+const de_StackSetOperationSummary = (output, context) => {
     const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
@@ -15246,21 +15246,21 @@ const deserializeAws_queryStackSetOperationSummary = (output, context) => {
         contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
     }
     if (output["StatusDetails"] !== undefined) {
-        contents.StatusDetails = deserializeAws_queryStackSetOperationStatusDetails(output["StatusDetails"], context);
+        contents.StatusDetails = de_StackSetOperationStatusDetails(output["StatusDetails"], context);
     }
     if (output["OperationPreferences"] !== undefined) {
-        contents.OperationPreferences = deserializeAws_queryStackSetOperationPreferences(output["OperationPreferences"], context);
+        contents.OperationPreferences = de_StackSetOperationPreferences(output["OperationPreferences"], context);
     }
     return contents;
 };
-const deserializeAws_queryStackSetSummaries = (output, context) => {
+const de_StackSetSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackSetSummary(entry, context);
+        return de_StackSetSummary(entry, context);
     });
 };
-const deserializeAws_queryStackSetSummary = (output, context) => {
+const de_StackSetSummary = (output, context) => {
     const contents = {};
     if (output["StackSetName"] !== undefined) {
         contents.StackSetName = (0, smithy_client_1.expectString)(output["StackSetName"]);
@@ -15275,7 +15275,7 @@ const deserializeAws_queryStackSetSummary = (output, context) => {
         contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
     }
     if (output["AutoDeployment"] !== undefined) {
-        contents.AutoDeployment = deserializeAws_queryAutoDeployment(output["AutoDeployment"], context);
+        contents.AutoDeployment = de_AutoDeployment(output["AutoDeployment"], context);
     }
     if (output["PermissionModel"] !== undefined) {
         contents.PermissionModel = (0, smithy_client_1.expectString)(output["PermissionModel"]);
@@ -15287,18 +15287,18 @@ const deserializeAws_queryStackSetSummary = (output, context) => {
         contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
     }
     if (output["ManagedExecution"] !== undefined) {
-        contents.ManagedExecution = deserializeAws_queryManagedExecution(output["ManagedExecution"], context);
+        contents.ManagedExecution = de_ManagedExecution(output["ManagedExecution"], context);
     }
     return contents;
 };
-const deserializeAws_queryStackSummaries = (output, context) => {
+const de_StackSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryStackSummary(entry, context);
+        return de_StackSummary(entry, context);
     });
 };
-const deserializeAws_queryStackSummary = (output, context) => {
+const de_StackSummary = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
@@ -15331,36 +15331,36 @@ const deserializeAws_queryStackSummary = (output, context) => {
         contents.RootId = (0, smithy_client_1.expectString)(output["RootId"]);
     }
     if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = deserializeAws_queryStackDriftInformationSummary(output["DriftInformation"], context);
+        contents.DriftInformation = de_StackDriftInformationSummary(output["DriftInformation"], context);
     }
     return contents;
 };
-const deserializeAws_queryStageList = (output, context) => {
+const de_StageList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryStaleRequestException = (output, context) => {
+const de_StaleRequestException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryStopStackSetOperationOutput = (output, context) => {
+const de_StopStackSetOperationOutput = (output, context) => {
     const contents = {};
     return contents;
 };
-const deserializeAws_querySupportedMajorVersions = (output, context) => {
+const de_SupportedMajorVersions = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.strictParseInt32)(entry);
     });
 };
-const deserializeAws_queryTag = (output, context) => {
+const de_Tag = (output, context) => {
     const contents = {};
     if (output["Key"] !== undefined) {
         contents.Key = (0, smithy_client_1.expectString)(output["Key"]);
@@ -15370,14 +15370,14 @@ const deserializeAws_queryTag = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryTags = (output, context) => {
+const de_Tags = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryTag(entry, context);
+        return de_Tag(entry, context);
     });
 };
-const deserializeAws_queryTemplateParameter = (output, context) => {
+const de_TemplateParameter = (output, context) => {
     const contents = {};
     if (output["ParameterKey"] !== undefined) {
         contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
@@ -15393,35 +15393,35 @@ const deserializeAws_queryTemplateParameter = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryTemplateParameters = (output, context) => {
+const de_TemplateParameters = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryTemplateParameter(entry, context);
+        return de_TemplateParameter(entry, context);
     });
 };
-const deserializeAws_queryTestTypeOutput = (output, context) => {
+const de_TestTypeOutput = (output, context) => {
     const contents = {};
     if (output["TypeVersionArn"] !== undefined) {
         contents.TypeVersionArn = (0, smithy_client_1.expectString)(output["TypeVersionArn"]);
     }
     return contents;
 };
-const deserializeAws_queryTokenAlreadyExistsException = (output, context) => {
+const de_TokenAlreadyExistsException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryTransformsList = (output, context) => {
+const de_TransformsList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
-const deserializeAws_queryTypeConfigurationDetails = (output, context) => {
+const de_TypeConfigurationDetails = (output, context) => {
     const contents = {};
     if (output["Arn"] !== undefined) {
         contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
@@ -15446,14 +15446,14 @@ const deserializeAws_queryTypeConfigurationDetails = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryTypeConfigurationDetailsList = (output, context) => {
+const de_TypeConfigurationDetailsList = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryTypeConfigurationDetails(entry, context);
+        return de_TypeConfigurationDetails(entry, context);
     });
 };
-const deserializeAws_queryTypeConfigurationIdentifier = (output, context) => {
+const de_TypeConfigurationIdentifier = (output, context) => {
     const contents = {};
     if (output["TypeArn"] !== undefined) {
         contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
@@ -15472,28 +15472,28 @@ const deserializeAws_queryTypeConfigurationIdentifier = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryTypeConfigurationNotFoundException = (output, context) => {
+const de_TypeConfigurationNotFoundException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryTypeNotFoundException = (output, context) => {
+const de_TypeNotFoundException = (output, context) => {
     const contents = {};
     if (output["Message"] !== undefined) {
         contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
     }
     return contents;
 };
-const deserializeAws_queryTypeSummaries = (output, context) => {
+const de_TypeSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryTypeSummary(entry, context);
+        return de_TypeSummary(entry, context);
     });
 };
-const deserializeAws_queryTypeSummary = (output, context) => {
+const de_TypeSummary = (output, context) => {
     const contents = {};
     if (output["Type"] !== undefined) {
         contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
@@ -15536,14 +15536,14 @@ const deserializeAws_queryTypeSummary = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryTypeVersionSummaries = (output, context) => {
+const de_TypeVersionSummaries = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryTypeVersionSummary(entry, context);
+        return de_TypeVersionSummary(entry, context);
     });
 };
-const deserializeAws_queryTypeVersionSummary = (output, context) => {
+const de_TypeVersionSummary = (output, context) => {
     const contents = {};
     if (output["Type"] !== undefined) {
         contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
@@ -15571,48 +15571,48 @@ const deserializeAws_queryTypeVersionSummary = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryUnprocessedTypeConfigurations = (output, context) => {
+const de_UnprocessedTypeConfigurations = (output, context) => {
     return (output || [])
         .filter((e) => e != null)
         .map((entry) => {
-        return deserializeAws_queryTypeConfigurationIdentifier(entry, context);
+        return de_TypeConfigurationIdentifier(entry, context);
     });
 };
-const deserializeAws_queryUpdateStackInstancesOutput = (output, context) => {
+const de_UpdateStackInstancesOutput = (output, context) => {
     const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
-const deserializeAws_queryUpdateStackOutput = (output, context) => {
+const de_UpdateStackOutput = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
     return contents;
 };
-const deserializeAws_queryUpdateStackSetOutput = (output, context) => {
+const de_UpdateStackSetOutput = (output, context) => {
     const contents = {};
     if (output["OperationId"] !== undefined) {
         contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
     }
     return contents;
 };
-const deserializeAws_queryUpdateTerminationProtectionOutput = (output, context) => {
+const de_UpdateTerminationProtectionOutput = (output, context) => {
     const contents = {};
     if (output["StackId"] !== undefined) {
         contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
     }
     return contents;
 };
-const deserializeAws_queryValidateTemplateOutput = (output, context) => {
+const de_ValidateTemplateOutput = (output, context) => {
     const contents = {};
     if (output.Parameters === "") {
         contents.Parameters = [];
     }
     else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = deserializeAws_queryTemplateParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+        contents.Parameters = de_TemplateParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
     }
     if (output["Description"] !== undefined) {
         contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
@@ -15621,7 +15621,7 @@ const deserializeAws_queryValidateTemplateOutput = (output, context) => {
         contents.Capabilities = [];
     }
     else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = deserializeAws_queryCapabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
     }
     if (output["CapabilitiesReason"] !== undefined) {
         contents.CapabilitiesReason = (0, smithy_client_1.expectString)(output["CapabilitiesReason"]);
@@ -15630,7 +15630,7 @@ const deserializeAws_queryValidateTemplateOutput = (output, context) => {
         contents.DeclaredTransforms = [];
     }
     else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-        contents.DeclaredTransforms = deserializeAws_queryTransformsList((0, smithy_client_1.getArrayIfSingleItem)(output["DeclaredTransforms"]["member"]), context);
+        contents.DeclaredTransforms = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output["DeclaredTransforms"]["member"]), context);
     }
     return contents;
 };
@@ -16717,10 +16717,10 @@ class CreateTokenCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_restJson1_1.serializeAws_restJson1CreateTokenCommand)(input, context);
+        return (0, Aws_restJson1_1.se_CreateTokenCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_restJson1_1.deserializeAws_restJson1CreateTokenCommand)(output, context);
+        return (0, Aws_restJson1_1.de_CreateTokenCommand)(output, context);
     }
 }
 exports.CreateTokenCommand = CreateTokenCommand;
@@ -16769,10 +16769,10 @@ class RegisterClientCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_restJson1_1.serializeAws_restJson1RegisterClientCommand)(input, context);
+        return (0, Aws_restJson1_1.se_RegisterClientCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_restJson1_1.deserializeAws_restJson1RegisterClientCommand)(output, context);
+        return (0, Aws_restJson1_1.de_RegisterClientCommand)(output, context);
     }
 }
 exports.RegisterClientCommand = RegisterClientCommand;
@@ -16821,10 +16821,10 @@ class StartDeviceAuthorizationCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_restJson1_1.serializeAws_restJson1StartDeviceAuthorizationCommand)(input, context);
+        return (0, Aws_restJson1_1.se_StartDeviceAuthorizationCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_restJson1_1.deserializeAws_restJson1StartDeviceAuthorizationCommand)(output, context);
+        return (0, Aws_restJson1_1.de_StartDeviceAuthorizationCommand)(output, context);
     }
 }
 exports.StartDeviceAuthorizationCommand = StartDeviceAuthorizationCommand;
@@ -17139,12 +17139,12 @@ exports.InvalidClientMetadataException = InvalidClientMetadataException;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.deserializeAws_restJson1StartDeviceAuthorizationCommand = exports.deserializeAws_restJson1RegisterClientCommand = exports.deserializeAws_restJson1CreateTokenCommand = exports.serializeAws_restJson1StartDeviceAuthorizationCommand = exports.serializeAws_restJson1RegisterClientCommand = exports.serializeAws_restJson1CreateTokenCommand = void 0;
+exports.de_StartDeviceAuthorizationCommand = exports.de_RegisterClientCommand = exports.de_CreateTokenCommand = exports.se_StartDeviceAuthorizationCommand = exports.se_RegisterClientCommand = exports.se_CreateTokenCommand = void 0;
 const protocol_http_1 = __nccwpck_require__(70223);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(69374);
 const SSOOIDCServiceException_1 = __nccwpck_require__(43026);
-const serializeAws_restJson1CreateTokenCommand = async (input, context) => {
+const se_CreateTokenCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const headers = {
         "content-type": "application/json",
@@ -17159,7 +17159,7 @@ const serializeAws_restJson1CreateTokenCommand = async (input, context) => {
         ...(input.grantType != null && { grantType: input.grantType }),
         ...(input.redirectUri != null && { redirectUri: input.redirectUri }),
         ...(input.refreshToken != null && { refreshToken: input.refreshToken }),
-        ...(input.scope != null && { scope: serializeAws_restJson1Scopes(input.scope, context) }),
+        ...(input.scope != null && { scope: se_Scopes(input.scope, context) }),
     });
     return new protocol_http_1.HttpRequest({
         protocol,
@@ -17171,8 +17171,8 @@ const serializeAws_restJson1CreateTokenCommand = async (input, context) => {
         body,
     });
 };
-exports.serializeAws_restJson1CreateTokenCommand = serializeAws_restJson1CreateTokenCommand;
-const serializeAws_restJson1RegisterClientCommand = async (input, context) => {
+exports.se_CreateTokenCommand = se_CreateTokenCommand;
+const se_RegisterClientCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const headers = {
         "content-type": "application/json",
@@ -17182,7 +17182,7 @@ const serializeAws_restJson1RegisterClientCommand = async (input, context) => {
     body = JSON.stringify({
         ...(input.clientName != null && { clientName: input.clientName }),
         ...(input.clientType != null && { clientType: input.clientType }),
-        ...(input.scopes != null && { scopes: serializeAws_restJson1Scopes(input.scopes, context) }),
+        ...(input.scopes != null && { scopes: se_Scopes(input.scopes, context) }),
     });
     return new protocol_http_1.HttpRequest({
         protocol,
@@ -17194,8 +17194,8 @@ const serializeAws_restJson1RegisterClientCommand = async (input, context) => {
         body,
     });
 };
-exports.serializeAws_restJson1RegisterClientCommand = serializeAws_restJson1RegisterClientCommand;
-const serializeAws_restJson1StartDeviceAuthorizationCommand = async (input, context) => {
+exports.se_RegisterClientCommand = se_RegisterClientCommand;
+const se_StartDeviceAuthorizationCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const headers = {
         "content-type": "application/json",
@@ -17217,10 +17217,10 @@ const serializeAws_restJson1StartDeviceAuthorizationCommand = async (input, cont
         body,
     });
 };
-exports.serializeAws_restJson1StartDeviceAuthorizationCommand = serializeAws_restJson1StartDeviceAuthorizationCommand;
-const deserializeAws_restJson1CreateTokenCommand = async (output, context) => {
+exports.se_StartDeviceAuthorizationCommand = se_StartDeviceAuthorizationCommand;
+const de_CreateTokenCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
-        return deserializeAws_restJson1CreateTokenCommandError(output, context);
+        return de_CreateTokenCommandError(output, context);
     }
     const contents = map({
         $metadata: deserializeMetadata(output),
@@ -17243,8 +17243,8 @@ const deserializeAws_restJson1CreateTokenCommand = async (output, context) => {
     }
     return contents;
 };
-exports.deserializeAws_restJson1CreateTokenCommand = deserializeAws_restJson1CreateTokenCommand;
-const deserializeAws_restJson1CreateTokenCommandError = async (output, context) => {
+exports.de_CreateTokenCommand = de_CreateTokenCommand;
+const de_CreateTokenCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -17253,37 +17253,37 @@ const deserializeAws_restJson1CreateTokenCommandError = async (output, context) 
     switch (errorCode) {
         case "AccessDeniedException":
         case "com.amazonaws.ssooidc#AccessDeniedException":
-            throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+            throw await de_AccessDeniedExceptionRes(parsedOutput, context);
         case "AuthorizationPendingException":
         case "com.amazonaws.ssooidc#AuthorizationPendingException":
-            throw await deserializeAws_restJson1AuthorizationPendingExceptionResponse(parsedOutput, context);
+            throw await de_AuthorizationPendingExceptionRes(parsedOutput, context);
         case "ExpiredTokenException":
         case "com.amazonaws.ssooidc#ExpiredTokenException":
-            throw await deserializeAws_restJson1ExpiredTokenExceptionResponse(parsedOutput, context);
+            throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
         case "InternalServerException":
         case "com.amazonaws.ssooidc#InternalServerException":
-            throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+            throw await de_InternalServerExceptionRes(parsedOutput, context);
         case "InvalidClientException":
         case "com.amazonaws.ssooidc#InvalidClientException":
-            throw await deserializeAws_restJson1InvalidClientExceptionResponse(parsedOutput, context);
+            throw await de_InvalidClientExceptionRes(parsedOutput, context);
         case "InvalidGrantException":
         case "com.amazonaws.ssooidc#InvalidGrantException":
-            throw await deserializeAws_restJson1InvalidGrantExceptionResponse(parsedOutput, context);
+            throw await de_InvalidGrantExceptionRes(parsedOutput, context);
         case "InvalidRequestException":
         case "com.amazonaws.ssooidc#InvalidRequestException":
-            throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+            throw await de_InvalidRequestExceptionRes(parsedOutput, context);
         case "InvalidScopeException":
         case "com.amazonaws.ssooidc#InvalidScopeException":
-            throw await deserializeAws_restJson1InvalidScopeExceptionResponse(parsedOutput, context);
+            throw await de_InvalidScopeExceptionRes(parsedOutput, context);
         case "SlowDownException":
         case "com.amazonaws.ssooidc#SlowDownException":
-            throw await deserializeAws_restJson1SlowDownExceptionResponse(parsedOutput, context);
+            throw await de_SlowDownExceptionRes(parsedOutput, context);
         case "UnauthorizedClientException":
         case "com.amazonaws.ssooidc#UnauthorizedClientException":
-            throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+            throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
         case "UnsupportedGrantTypeException":
         case "com.amazonaws.ssooidc#UnsupportedGrantTypeException":
-            throw await deserializeAws_restJson1UnsupportedGrantTypeExceptionResponse(parsedOutput, context);
+            throw await de_UnsupportedGrantTypeExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -17294,9 +17294,9 @@ const deserializeAws_restJson1CreateTokenCommandError = async (output, context) 
             });
     }
 };
-const deserializeAws_restJson1RegisterClientCommand = async (output, context) => {
+const de_RegisterClientCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
-        return deserializeAws_restJson1RegisterClientCommandError(output, context);
+        return de_RegisterClientCommandError(output, context);
     }
     const contents = map({
         $metadata: deserializeMetadata(output),
@@ -17322,8 +17322,8 @@ const deserializeAws_restJson1RegisterClientCommand = async (output, context) =>
     }
     return contents;
 };
-exports.deserializeAws_restJson1RegisterClientCommand = deserializeAws_restJson1RegisterClientCommand;
-const deserializeAws_restJson1RegisterClientCommandError = async (output, context) => {
+exports.de_RegisterClientCommand = de_RegisterClientCommand;
+const de_RegisterClientCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -17332,16 +17332,16 @@ const deserializeAws_restJson1RegisterClientCommandError = async (output, contex
     switch (errorCode) {
         case "InternalServerException":
         case "com.amazonaws.ssooidc#InternalServerException":
-            throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+            throw await de_InternalServerExceptionRes(parsedOutput, context);
         case "InvalidClientMetadataException":
         case "com.amazonaws.ssooidc#InvalidClientMetadataException":
-            throw await deserializeAws_restJson1InvalidClientMetadataExceptionResponse(parsedOutput, context);
+            throw await de_InvalidClientMetadataExceptionRes(parsedOutput, context);
         case "InvalidRequestException":
         case "com.amazonaws.ssooidc#InvalidRequestException":
-            throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+            throw await de_InvalidRequestExceptionRes(parsedOutput, context);
         case "InvalidScopeException":
         case "com.amazonaws.ssooidc#InvalidScopeException":
-            throw await deserializeAws_restJson1InvalidScopeExceptionResponse(parsedOutput, context);
+            throw await de_InvalidScopeExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -17352,9 +17352,9 @@ const deserializeAws_restJson1RegisterClientCommandError = async (output, contex
             });
     }
 };
-const deserializeAws_restJson1StartDeviceAuthorizationCommand = async (output, context) => {
+const de_StartDeviceAuthorizationCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
-        return deserializeAws_restJson1StartDeviceAuthorizationCommandError(output, context);
+        return de_StartDeviceAuthorizationCommandError(output, context);
     }
     const contents = map({
         $metadata: deserializeMetadata(output),
@@ -17380,8 +17380,8 @@ const deserializeAws_restJson1StartDeviceAuthorizationCommand = async (output, c
     }
     return contents;
 };
-exports.deserializeAws_restJson1StartDeviceAuthorizationCommand = deserializeAws_restJson1StartDeviceAuthorizationCommand;
-const deserializeAws_restJson1StartDeviceAuthorizationCommandError = async (output, context) => {
+exports.de_StartDeviceAuthorizationCommand = de_StartDeviceAuthorizationCommand;
+const de_StartDeviceAuthorizationCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -17390,19 +17390,19 @@ const deserializeAws_restJson1StartDeviceAuthorizationCommandError = async (outp
     switch (errorCode) {
         case "InternalServerException":
         case "com.amazonaws.ssooidc#InternalServerException":
-            throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+            throw await de_InternalServerExceptionRes(parsedOutput, context);
         case "InvalidClientException":
         case "com.amazonaws.ssooidc#InvalidClientException":
-            throw await deserializeAws_restJson1InvalidClientExceptionResponse(parsedOutput, context);
+            throw await de_InvalidClientExceptionRes(parsedOutput, context);
         case "InvalidRequestException":
         case "com.amazonaws.ssooidc#InvalidRequestException":
-            throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+            throw await de_InvalidRequestExceptionRes(parsedOutput, context);
         case "SlowDownException":
         case "com.amazonaws.ssooidc#SlowDownException":
-            throw await deserializeAws_restJson1SlowDownExceptionResponse(parsedOutput, context);
+            throw await de_SlowDownExceptionRes(parsedOutput, context);
         case "UnauthorizedClientException":
         case "com.amazonaws.ssooidc#UnauthorizedClientException":
-            throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+            throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -17414,7 +17414,7 @@ const deserializeAws_restJson1StartDeviceAuthorizationCommandError = async (outp
     }
 };
 const map = smithy_client_1.map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (parsedOutput, context) => {
+const de_AccessDeniedExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17429,7 +17429,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (parsedOutpu
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1AuthorizationPendingExceptionResponse = async (parsedOutput, context) => {
+const de_AuthorizationPendingExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17444,7 +17444,7 @@ const deserializeAws_restJson1AuthorizationPendingExceptionResponse = async (par
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1ExpiredTokenExceptionResponse = async (parsedOutput, context) => {
+const de_ExpiredTokenExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17459,7 +17459,7 @@ const deserializeAws_restJson1ExpiredTokenExceptionResponse = async (parsedOutpu
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1InternalServerExceptionResponse = async (parsedOutput, context) => {
+const de_InternalServerExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17474,7 +17474,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (parsedOut
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1InvalidClientExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidClientExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17489,7 +17489,7 @@ const deserializeAws_restJson1InvalidClientExceptionResponse = async (parsedOutp
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1InvalidClientMetadataExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidClientMetadataExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17504,7 +17504,7 @@ const deserializeAws_restJson1InvalidClientMetadataExceptionResponse = async (pa
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1InvalidGrantExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidGrantExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17519,7 +17519,7 @@ const deserializeAws_restJson1InvalidGrantExceptionResponse = async (parsedOutpu
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidRequestExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17534,7 +17534,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (parsedOut
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1InvalidScopeExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidScopeExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17549,7 +17549,7 @@ const deserializeAws_restJson1InvalidScopeExceptionResponse = async (parsedOutpu
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1SlowDownExceptionResponse = async (parsedOutput, context) => {
+const de_SlowDownExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17564,7 +17564,7 @@ const deserializeAws_restJson1SlowDownExceptionResponse = async (parsedOutput, c
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (parsedOutput, context) => {
+const de_UnauthorizedClientExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17579,7 +17579,7 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (parse
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1UnsupportedGrantTypeExceptionResponse = async (parsedOutput, context) => {
+const de_UnsupportedGrantTypeExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.error != null) {
@@ -17594,7 +17594,7 @@ const deserializeAws_restJson1UnsupportedGrantTypeExceptionResponse = async (par
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const serializeAws_restJson1Scopes = (input, context) => {
+const se_Scopes = (input, context) => {
     return input
         .filter((e) => e != null)
         .map((entry) => {
@@ -17903,10 +17903,10 @@ class GetRoleCredentialsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_restJson1_1.serializeAws_restJson1GetRoleCredentialsCommand)(input, context);
+        return (0, Aws_restJson1_1.se_GetRoleCredentialsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_restJson1_1.deserializeAws_restJson1GetRoleCredentialsCommand)(output, context);
+        return (0, Aws_restJson1_1.de_GetRoleCredentialsCommand)(output, context);
     }
 }
 exports.GetRoleCredentialsCommand = GetRoleCredentialsCommand;
@@ -17956,10 +17956,10 @@ class ListAccountRolesCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_restJson1_1.serializeAws_restJson1ListAccountRolesCommand)(input, context);
+        return (0, Aws_restJson1_1.se_ListAccountRolesCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_restJson1_1.deserializeAws_restJson1ListAccountRolesCommand)(output, context);
+        return (0, Aws_restJson1_1.de_ListAccountRolesCommand)(output, context);
     }
 }
 exports.ListAccountRolesCommand = ListAccountRolesCommand;
@@ -18009,10 +18009,10 @@ class ListAccountsCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_restJson1_1.serializeAws_restJson1ListAccountsCommand)(input, context);
+        return (0, Aws_restJson1_1.se_ListAccountsCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_restJson1_1.deserializeAws_restJson1ListAccountsCommand)(output, context);
+        return (0, Aws_restJson1_1.de_ListAccountsCommand)(output, context);
     }
 }
 exports.ListAccountsCommand = ListAccountsCommand;
@@ -18062,10 +18062,10 @@ class LogoutCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_restJson1_1.serializeAws_restJson1LogoutCommand)(input, context);
+        return (0, Aws_restJson1_1.se_LogoutCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_restJson1_1.deserializeAws_restJson1LogoutCommand)(output, context);
+        return (0, Aws_restJson1_1.de_LogoutCommand)(output, context);
     }
 }
 exports.LogoutCommand = LogoutCommand;
@@ -18380,12 +18380,12 @@ tslib_1.__exportStar(__nccwpck_require__(50938), exports);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.deserializeAws_restJson1LogoutCommand = exports.deserializeAws_restJson1ListAccountsCommand = exports.deserializeAws_restJson1ListAccountRolesCommand = exports.deserializeAws_restJson1GetRoleCredentialsCommand = exports.serializeAws_restJson1LogoutCommand = exports.serializeAws_restJson1ListAccountsCommand = exports.serializeAws_restJson1ListAccountRolesCommand = exports.serializeAws_restJson1GetRoleCredentialsCommand = void 0;
+exports.de_LogoutCommand = exports.de_ListAccountsCommand = exports.de_ListAccountRolesCommand = exports.de_GetRoleCredentialsCommand = exports.se_LogoutCommand = exports.se_ListAccountsCommand = exports.se_ListAccountRolesCommand = exports.se_GetRoleCredentialsCommand = void 0;
 const protocol_http_1 = __nccwpck_require__(70223);
 const smithy_client_1 = __nccwpck_require__(4963);
 const models_0_1 = __nccwpck_require__(66390);
 const SSOServiceException_1 = __nccwpck_require__(81517);
-const serializeAws_restJson1GetRoleCredentialsCommand = async (input, context) => {
+const se_GetRoleCredentialsCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const headers = map({}, isSerializableHeaderValue, {
         "x-amz-sso_bearer_token": input.accessToken,
@@ -18407,8 +18407,8 @@ const serializeAws_restJson1GetRoleCredentialsCommand = async (input, context) =
         body,
     });
 };
-exports.serializeAws_restJson1GetRoleCredentialsCommand = serializeAws_restJson1GetRoleCredentialsCommand;
-const serializeAws_restJson1ListAccountRolesCommand = async (input, context) => {
+exports.se_GetRoleCredentialsCommand = se_GetRoleCredentialsCommand;
+const se_ListAccountRolesCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const headers = map({}, isSerializableHeaderValue, {
         "x-amz-sso_bearer_token": input.accessToken,
@@ -18431,8 +18431,8 @@ const serializeAws_restJson1ListAccountRolesCommand = async (input, context) => 
         body,
     });
 };
-exports.serializeAws_restJson1ListAccountRolesCommand = serializeAws_restJson1ListAccountRolesCommand;
-const serializeAws_restJson1ListAccountsCommand = async (input, context) => {
+exports.se_ListAccountRolesCommand = se_ListAccountRolesCommand;
+const se_ListAccountsCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const headers = map({}, isSerializableHeaderValue, {
         "x-amz-sso_bearer_token": input.accessToken,
@@ -18454,8 +18454,8 @@ const serializeAws_restJson1ListAccountsCommand = async (input, context) => {
         body,
     });
 };
-exports.serializeAws_restJson1ListAccountsCommand = serializeAws_restJson1ListAccountsCommand;
-const serializeAws_restJson1LogoutCommand = async (input, context) => {
+exports.se_ListAccountsCommand = se_ListAccountsCommand;
+const se_LogoutCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const headers = map({}, isSerializableHeaderValue, {
         "x-amz-sso_bearer_token": input.accessToken,
@@ -18472,22 +18472,22 @@ const serializeAws_restJson1LogoutCommand = async (input, context) => {
         body,
     });
 };
-exports.serializeAws_restJson1LogoutCommand = serializeAws_restJson1LogoutCommand;
-const deserializeAws_restJson1GetRoleCredentialsCommand = async (output, context) => {
+exports.se_LogoutCommand = se_LogoutCommand;
+const de_GetRoleCredentialsCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
-        return deserializeAws_restJson1GetRoleCredentialsCommandError(output, context);
+        return de_GetRoleCredentialsCommandError(output, context);
     }
     const contents = map({
         $metadata: deserializeMetadata(output),
     });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
     if (data.roleCredentials != null) {
-        contents.roleCredentials = deserializeAws_restJson1RoleCredentials(data.roleCredentials, context);
+        contents.roleCredentials = de_RoleCredentials(data.roleCredentials, context);
     }
     return contents;
 };
-exports.deserializeAws_restJson1GetRoleCredentialsCommand = deserializeAws_restJson1GetRoleCredentialsCommand;
-const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, context) => {
+exports.de_GetRoleCredentialsCommand = de_GetRoleCredentialsCommand;
+const de_GetRoleCredentialsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -18496,16 +18496,16 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, co
     switch (errorCode) {
         case "InvalidRequestException":
         case "com.amazonaws.sso#InvalidRequestException":
-            throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+            throw await de_InvalidRequestExceptionRes(parsedOutput, context);
         case "ResourceNotFoundException":
         case "com.amazonaws.sso#ResourceNotFoundException":
-            throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
         case "TooManyRequestsException":
         case "com.amazonaws.sso#TooManyRequestsException":
-            throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+            throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
         case "UnauthorizedException":
         case "com.amazonaws.sso#UnauthorizedException":
-            throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+            throw await de_UnauthorizedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -18516,9 +18516,9 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (output, co
             });
     }
 };
-const deserializeAws_restJson1ListAccountRolesCommand = async (output, context) => {
+const de_ListAccountRolesCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
-        return deserializeAws_restJson1ListAccountRolesCommandError(output, context);
+        return de_ListAccountRolesCommandError(output, context);
     }
     const contents = map({
         $metadata: deserializeMetadata(output),
@@ -18528,12 +18528,12 @@ const deserializeAws_restJson1ListAccountRolesCommand = async (output, context) 
         contents.nextToken = (0, smithy_client_1.expectString)(data.nextToken);
     }
     if (data.roleList != null) {
-        contents.roleList = deserializeAws_restJson1RoleListType(data.roleList, context);
+        contents.roleList = de_RoleListType(data.roleList, context);
     }
     return contents;
 };
-exports.deserializeAws_restJson1ListAccountRolesCommand = deserializeAws_restJson1ListAccountRolesCommand;
-const deserializeAws_restJson1ListAccountRolesCommandError = async (output, context) => {
+exports.de_ListAccountRolesCommand = de_ListAccountRolesCommand;
+const de_ListAccountRolesCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -18542,16 +18542,16 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (output, cont
     switch (errorCode) {
         case "InvalidRequestException":
         case "com.amazonaws.sso#InvalidRequestException":
-            throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+            throw await de_InvalidRequestExceptionRes(parsedOutput, context);
         case "ResourceNotFoundException":
         case "com.amazonaws.sso#ResourceNotFoundException":
-            throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
         case "TooManyRequestsException":
         case "com.amazonaws.sso#TooManyRequestsException":
-            throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+            throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
         case "UnauthorizedException":
         case "com.amazonaws.sso#UnauthorizedException":
-            throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+            throw await de_UnauthorizedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -18562,24 +18562,24 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (output, cont
             });
     }
 };
-const deserializeAws_restJson1ListAccountsCommand = async (output, context) => {
+const de_ListAccountsCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
-        return deserializeAws_restJson1ListAccountsCommandError(output, context);
+        return de_ListAccountsCommandError(output, context);
     }
     const contents = map({
         $metadata: deserializeMetadata(output),
     });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
     if (data.accountList != null) {
-        contents.accountList = deserializeAws_restJson1AccountListType(data.accountList, context);
+        contents.accountList = de_AccountListType(data.accountList, context);
     }
     if (data.nextToken != null) {
         contents.nextToken = (0, smithy_client_1.expectString)(data.nextToken);
     }
     return contents;
 };
-exports.deserializeAws_restJson1ListAccountsCommand = deserializeAws_restJson1ListAccountsCommand;
-const deserializeAws_restJson1ListAccountsCommandError = async (output, context) => {
+exports.de_ListAccountsCommand = de_ListAccountsCommand;
+const de_ListAccountsCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -18588,16 +18588,16 @@ const deserializeAws_restJson1ListAccountsCommandError = async (output, context)
     switch (errorCode) {
         case "InvalidRequestException":
         case "com.amazonaws.sso#InvalidRequestException":
-            throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+            throw await de_InvalidRequestExceptionRes(parsedOutput, context);
         case "ResourceNotFoundException":
         case "com.amazonaws.sso#ResourceNotFoundException":
-            throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+            throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
         case "TooManyRequestsException":
         case "com.amazonaws.sso#TooManyRequestsException":
-            throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+            throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
         case "UnauthorizedException":
         case "com.amazonaws.sso#UnauthorizedException":
-            throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+            throw await de_UnauthorizedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -18608,9 +18608,9 @@ const deserializeAws_restJson1ListAccountsCommandError = async (output, context)
             });
     }
 };
-const deserializeAws_restJson1LogoutCommand = async (output, context) => {
+const de_LogoutCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
-        return deserializeAws_restJson1LogoutCommandError(output, context);
+        return de_LogoutCommandError(output, context);
     }
     const contents = map({
         $metadata: deserializeMetadata(output),
@@ -18618,8 +18618,8 @@ const deserializeAws_restJson1LogoutCommand = async (output, context) => {
     await collectBody(output.body, context);
     return contents;
 };
-exports.deserializeAws_restJson1LogoutCommand = deserializeAws_restJson1LogoutCommand;
-const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
+exports.de_LogoutCommand = de_LogoutCommand;
+const de_LogoutCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -18628,13 +18628,13 @@ const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
     switch (errorCode) {
         case "InvalidRequestException":
         case "com.amazonaws.sso#InvalidRequestException":
-            throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+            throw await de_InvalidRequestExceptionRes(parsedOutput, context);
         case "TooManyRequestsException":
         case "com.amazonaws.sso#TooManyRequestsException":
-            throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+            throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
         case "UnauthorizedException":
         case "com.amazonaws.sso#UnauthorizedException":
-            throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+            throw await de_UnauthorizedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -18646,7 +18646,7 @@ const deserializeAws_restJson1LogoutCommandError = async (output, context) => {
     }
 };
 const map = smithy_client_1.map;
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidRequestExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.message != null) {
@@ -18658,7 +18658,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (parsedOut
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (parsedOutput, context) => {
+const de_ResourceNotFoundExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.message != null) {
@@ -18670,7 +18670,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (parsedO
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (parsedOutput, context) => {
+const de_TooManyRequestsExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.message != null) {
@@ -18682,7 +18682,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (parsedOu
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1UnauthorizedExceptionResponse = async (parsedOutput, context) => {
+const de_UnauthorizedExceptionRes = async (parsedOutput, context) => {
     const contents = map({});
     const data = parsedOutput.body;
     if (data.message != null) {
@@ -18694,25 +18694,25 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (parsedOutpu
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
-const deserializeAws_restJson1AccountInfo = (output, context) => {
+const de_AccountInfo = (output, context) => {
     return {
         accountId: (0, smithy_client_1.expectString)(output.accountId),
         accountName: (0, smithy_client_1.expectString)(output.accountName),
         emailAddress: (0, smithy_client_1.expectString)(output.emailAddress),
     };
 };
-const deserializeAws_restJson1AccountListType = (output, context) => {
+const de_AccountListType = (output, context) => {
     const retVal = (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         if (entry === null) {
             return null;
         }
-        return deserializeAws_restJson1AccountInfo(entry, context);
+        return de_AccountInfo(entry, context);
     });
     return retVal;
 };
-const deserializeAws_restJson1RoleCredentials = (output, context) => {
+const de_RoleCredentials = (output, context) => {
     return {
         accessKeyId: (0, smithy_client_1.expectString)(output.accessKeyId),
         expiration: (0, smithy_client_1.expectLong)(output.expiration),
@@ -18720,20 +18720,20 @@ const deserializeAws_restJson1RoleCredentials = (output, context) => {
         sessionToken: (0, smithy_client_1.expectString)(output.sessionToken),
     };
 };
-const deserializeAws_restJson1RoleInfo = (output, context) => {
+const de_RoleInfo = (output, context) => {
     return {
         accountId: (0, smithy_client_1.expectString)(output.accountId),
         roleName: (0, smithy_client_1.expectString)(output.roleName),
     };
 };
-const deserializeAws_restJson1RoleListType = (output, context) => {
+const de_RoleListType = (output, context) => {
     const retVal = (output || [])
         .filter((e) => e != null)
         .map((entry) => {
         if (entry === null) {
             return null;
         }
-        return deserializeAws_restJson1RoleInfo(entry, context);
+        return de_RoleInfo(entry, context);
     });
     return retVal;
 };
@@ -19103,10 +19103,10 @@ class AssumeRoleCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryAssumeRoleCommand)(input, context);
+        return (0, Aws_query_1.se_AssumeRoleCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryAssumeRoleCommand)(output, context);
+        return (0, Aws_query_1.de_AssumeRoleCommand)(output, context);
     }
 }
 exports.AssumeRoleCommand = AssumeRoleCommand;
@@ -19156,10 +19156,10 @@ class AssumeRoleWithSAMLCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryAssumeRoleWithSAMLCommand)(input, context);
+        return (0, Aws_query_1.se_AssumeRoleWithSAMLCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryAssumeRoleWithSAMLCommand)(output, context);
+        return (0, Aws_query_1.de_AssumeRoleWithSAMLCommand)(output, context);
     }
 }
 exports.AssumeRoleWithSAMLCommand = AssumeRoleWithSAMLCommand;
@@ -19209,10 +19209,10 @@ class AssumeRoleWithWebIdentityCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryAssumeRoleWithWebIdentityCommand)(input, context);
+        return (0, Aws_query_1.se_AssumeRoleWithWebIdentityCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryAssumeRoleWithWebIdentityCommand)(output, context);
+        return (0, Aws_query_1.de_AssumeRoleWithWebIdentityCommand)(output, context);
     }
 }
 exports.AssumeRoleWithWebIdentityCommand = AssumeRoleWithWebIdentityCommand;
@@ -19264,10 +19264,10 @@ class DecodeAuthorizationMessageCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryDecodeAuthorizationMessageCommand)(input, context);
+        return (0, Aws_query_1.se_DecodeAuthorizationMessageCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryDecodeAuthorizationMessageCommand)(output, context);
+        return (0, Aws_query_1.de_DecodeAuthorizationMessageCommand)(output, context);
     }
 }
 exports.DecodeAuthorizationMessageCommand = DecodeAuthorizationMessageCommand;
@@ -19319,10 +19319,10 @@ class GetAccessKeyInfoCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryGetAccessKeyInfoCommand)(input, context);
+        return (0, Aws_query_1.se_GetAccessKeyInfoCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryGetAccessKeyInfoCommand)(output, context);
+        return (0, Aws_query_1.de_GetAccessKeyInfoCommand)(output, context);
     }
 }
 exports.GetAccessKeyInfoCommand = GetAccessKeyInfoCommand;
@@ -19374,10 +19374,10 @@ class GetCallerIdentityCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryGetCallerIdentityCommand)(input, context);
+        return (0, Aws_query_1.se_GetCallerIdentityCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryGetCallerIdentityCommand)(output, context);
+        return (0, Aws_query_1.de_GetCallerIdentityCommand)(output, context);
     }
 }
 exports.GetCallerIdentityCommand = GetCallerIdentityCommand;
@@ -19429,10 +19429,10 @@ class GetFederationTokenCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryGetFederationTokenCommand)(input, context);
+        return (0, Aws_query_1.se_GetFederationTokenCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryGetFederationTokenCommand)(output, context);
+        return (0, Aws_query_1.de_GetFederationTokenCommand)(output, context);
     }
 }
 exports.GetFederationTokenCommand = GetFederationTokenCommand;
@@ -19484,10 +19484,10 @@ class GetSessionTokenCommand extends smithy_client_1.Command {
         return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
     }
     serialize(input, context) {
-        return (0, Aws_query_1.serializeAws_queryGetSessionTokenCommand)(input, context);
+        return (0, Aws_query_1.se_GetSessionTokenCommand)(input, context);
     }
     deserialize(output, context) {
-        return (0, Aws_query_1.deserializeAws_queryGetSessionTokenCommand)(output, context);
+        return (0, Aws_query_1.de_GetSessionTokenCommand)(output, context);
     }
 }
 exports.GetSessionTokenCommand = GetSessionTokenCommand;
@@ -19851,131 +19851,131 @@ exports.InvalidAuthorizationMessageException = InvalidAuthorizationMessageExcept
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.deserializeAws_queryGetSessionTokenCommand = exports.deserializeAws_queryGetFederationTokenCommand = exports.deserializeAws_queryGetCallerIdentityCommand = exports.deserializeAws_queryGetAccessKeyInfoCommand = exports.deserializeAws_queryDecodeAuthorizationMessageCommand = exports.deserializeAws_queryAssumeRoleWithWebIdentityCommand = exports.deserializeAws_queryAssumeRoleWithSAMLCommand = exports.deserializeAws_queryAssumeRoleCommand = exports.serializeAws_queryGetSessionTokenCommand = exports.serializeAws_queryGetFederationTokenCommand = exports.serializeAws_queryGetCallerIdentityCommand = exports.serializeAws_queryGetAccessKeyInfoCommand = exports.serializeAws_queryDecodeAuthorizationMessageCommand = exports.serializeAws_queryAssumeRoleWithWebIdentityCommand = exports.serializeAws_queryAssumeRoleWithSAMLCommand = exports.serializeAws_queryAssumeRoleCommand = void 0;
+exports.de_GetSessionTokenCommand = exports.de_GetFederationTokenCommand = exports.de_GetCallerIdentityCommand = exports.de_GetAccessKeyInfoCommand = exports.de_DecodeAuthorizationMessageCommand = exports.de_AssumeRoleWithWebIdentityCommand = exports.de_AssumeRoleWithSAMLCommand = exports.de_AssumeRoleCommand = exports.se_GetSessionTokenCommand = exports.se_GetFederationTokenCommand = exports.se_GetCallerIdentityCommand = exports.se_GetAccessKeyInfoCommand = exports.se_DecodeAuthorizationMessageCommand = exports.se_AssumeRoleWithWebIdentityCommand = exports.se_AssumeRoleWithSAMLCommand = exports.se_AssumeRoleCommand = void 0;
 const protocol_http_1 = __nccwpck_require__(70223);
 const smithy_client_1 = __nccwpck_require__(4963);
 const fast_xml_parser_1 = __nccwpck_require__(12603);
 const models_0_1 = __nccwpck_require__(21780);
 const STSServiceException_1 = __nccwpck_require__(26450);
-const serializeAws_queryAssumeRoleCommand = async (input, context) => {
+const se_AssumeRoleCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryAssumeRoleRequest(input, context),
+        ...se_AssumeRoleRequest(input, context),
         Action: "AssumeRole",
         Version: "2011-06-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryAssumeRoleCommand = serializeAws_queryAssumeRoleCommand;
-const serializeAws_queryAssumeRoleWithSAMLCommand = async (input, context) => {
+exports.se_AssumeRoleCommand = se_AssumeRoleCommand;
+const se_AssumeRoleWithSAMLCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryAssumeRoleWithSAMLRequest(input, context),
+        ...se_AssumeRoleWithSAMLRequest(input, context),
         Action: "AssumeRoleWithSAML",
         Version: "2011-06-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryAssumeRoleWithSAMLCommand = serializeAws_queryAssumeRoleWithSAMLCommand;
-const serializeAws_queryAssumeRoleWithWebIdentityCommand = async (input, context) => {
+exports.se_AssumeRoleWithSAMLCommand = se_AssumeRoleWithSAMLCommand;
+const se_AssumeRoleWithWebIdentityCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryAssumeRoleWithWebIdentityRequest(input, context),
+        ...se_AssumeRoleWithWebIdentityRequest(input, context),
         Action: "AssumeRoleWithWebIdentity",
         Version: "2011-06-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryAssumeRoleWithWebIdentityCommand = serializeAws_queryAssumeRoleWithWebIdentityCommand;
-const serializeAws_queryDecodeAuthorizationMessageCommand = async (input, context) => {
+exports.se_AssumeRoleWithWebIdentityCommand = se_AssumeRoleWithWebIdentityCommand;
+const se_DecodeAuthorizationMessageCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryDecodeAuthorizationMessageRequest(input, context),
+        ...se_DecodeAuthorizationMessageRequest(input, context),
         Action: "DecodeAuthorizationMessage",
         Version: "2011-06-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryDecodeAuthorizationMessageCommand = serializeAws_queryDecodeAuthorizationMessageCommand;
-const serializeAws_queryGetAccessKeyInfoCommand = async (input, context) => {
+exports.se_DecodeAuthorizationMessageCommand = se_DecodeAuthorizationMessageCommand;
+const se_GetAccessKeyInfoCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryGetAccessKeyInfoRequest(input, context),
+        ...se_GetAccessKeyInfoRequest(input, context),
         Action: "GetAccessKeyInfo",
         Version: "2011-06-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryGetAccessKeyInfoCommand = serializeAws_queryGetAccessKeyInfoCommand;
-const serializeAws_queryGetCallerIdentityCommand = async (input, context) => {
+exports.se_GetAccessKeyInfoCommand = se_GetAccessKeyInfoCommand;
+const se_GetCallerIdentityCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryGetCallerIdentityRequest(input, context),
+        ...se_GetCallerIdentityRequest(input, context),
         Action: "GetCallerIdentity",
         Version: "2011-06-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryGetCallerIdentityCommand = serializeAws_queryGetCallerIdentityCommand;
-const serializeAws_queryGetFederationTokenCommand = async (input, context) => {
+exports.se_GetCallerIdentityCommand = se_GetCallerIdentityCommand;
+const se_GetFederationTokenCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryGetFederationTokenRequest(input, context),
+        ...se_GetFederationTokenRequest(input, context),
         Action: "GetFederationToken",
         Version: "2011-06-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryGetFederationTokenCommand = serializeAws_queryGetFederationTokenCommand;
-const serializeAws_queryGetSessionTokenCommand = async (input, context) => {
+exports.se_GetFederationTokenCommand = se_GetFederationTokenCommand;
+const se_GetSessionTokenCommand = async (input, context) => {
     const headers = {
         "content-type": "application/x-www-form-urlencoded",
     };
     let body;
     body = buildFormUrlencodedString({
-        ...serializeAws_queryGetSessionTokenRequest(input, context),
+        ...se_GetSessionTokenRequest(input, context),
         Action: "GetSessionToken",
         Version: "2011-06-15",
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
-exports.serializeAws_queryGetSessionTokenCommand = serializeAws_queryGetSessionTokenCommand;
-const deserializeAws_queryAssumeRoleCommand = async (output, context) => {
+exports.se_GetSessionTokenCommand = se_GetSessionTokenCommand;
+const de_AssumeRoleCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryAssumeRoleCommandError(output, context);
+        return de_AssumeRoleCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryAssumeRoleResponse(data.AssumeRoleResult, context);
+    contents = de_AssumeRoleResponse(data.AssumeRoleResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryAssumeRoleCommand = deserializeAws_queryAssumeRoleCommand;
-const deserializeAws_queryAssumeRoleCommandError = async (output, context) => {
+exports.de_AssumeRoleCommand = de_AssumeRoleCommand;
+const de_AssumeRoleCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -19984,16 +19984,16 @@ const deserializeAws_queryAssumeRoleCommandError = async (output, context) => {
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
-            throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
+            throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
         case "MalformedPolicyDocument":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
-            throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+            throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
         case "PackedPolicyTooLarge":
         case "com.amazonaws.sts#PackedPolicyTooLargeException":
-            throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
+            throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
         case "RegionDisabledException":
         case "com.amazonaws.sts#RegionDisabledException":
-            throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
+            throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -20004,21 +20004,21 @@ const deserializeAws_queryAssumeRoleCommandError = async (output, context) => {
             });
     }
 };
-const deserializeAws_queryAssumeRoleWithSAMLCommand = async (output, context) => {
+const de_AssumeRoleWithSAMLCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryAssumeRoleWithSAMLCommandError(output, context);
+        return de_AssumeRoleWithSAMLCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryAssumeRoleWithSAMLResponse(data.AssumeRoleWithSAMLResult, context);
+    contents = de_AssumeRoleWithSAMLResponse(data.AssumeRoleWithSAMLResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryAssumeRoleWithSAMLCommand = deserializeAws_queryAssumeRoleWithSAMLCommand;
-const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (output, context) => {
+exports.de_AssumeRoleWithSAMLCommand = de_AssumeRoleWithSAMLCommand;
+const de_AssumeRoleWithSAMLCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -20027,22 +20027,22 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (output, contex
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
-            throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
+            throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
         case "IDPRejectedClaim":
         case "com.amazonaws.sts#IDPRejectedClaimException":
-            throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
+            throw await de_IDPRejectedClaimExceptionRes(parsedOutput, context);
         case "InvalidIdentityToken":
         case "com.amazonaws.sts#InvalidIdentityTokenException":
-            throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
+            throw await de_InvalidIdentityTokenExceptionRes(parsedOutput, context);
         case "MalformedPolicyDocument":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
-            throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+            throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
         case "PackedPolicyTooLarge":
         case "com.amazonaws.sts#PackedPolicyTooLargeException":
-            throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
+            throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
         case "RegionDisabledException":
         case "com.amazonaws.sts#RegionDisabledException":
-            throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
+            throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -20053,21 +20053,21 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (output, contex
             });
     }
 };
-const deserializeAws_queryAssumeRoleWithWebIdentityCommand = async (output, context) => {
+const de_AssumeRoleWithWebIdentityCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryAssumeRoleWithWebIdentityCommandError(output, context);
+        return de_AssumeRoleWithWebIdentityCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryAssumeRoleWithWebIdentityResponse(data.AssumeRoleWithWebIdentityResult, context);
+    contents = de_AssumeRoleWithWebIdentityResponse(data.AssumeRoleWithWebIdentityResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryAssumeRoleWithWebIdentityCommand = deserializeAws_queryAssumeRoleWithWebIdentityCommand;
-const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (output, context) => {
+exports.de_AssumeRoleWithWebIdentityCommand = de_AssumeRoleWithWebIdentityCommand;
+const de_AssumeRoleWithWebIdentityCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -20076,25 +20076,25 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (output,
     switch (errorCode) {
         case "ExpiredTokenException":
         case "com.amazonaws.sts#ExpiredTokenException":
-            throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
+            throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
         case "IDPCommunicationError":
         case "com.amazonaws.sts#IDPCommunicationErrorException":
-            throw await deserializeAws_queryIDPCommunicationErrorExceptionResponse(parsedOutput, context);
+            throw await de_IDPCommunicationErrorExceptionRes(parsedOutput, context);
         case "IDPRejectedClaim":
         case "com.amazonaws.sts#IDPRejectedClaimException":
-            throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
+            throw await de_IDPRejectedClaimExceptionRes(parsedOutput, context);
         case "InvalidIdentityToken":
         case "com.amazonaws.sts#InvalidIdentityTokenException":
-            throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
+            throw await de_InvalidIdentityTokenExceptionRes(parsedOutput, context);
         case "MalformedPolicyDocument":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
-            throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+            throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
         case "PackedPolicyTooLarge":
         case "com.amazonaws.sts#PackedPolicyTooLargeException":
-            throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
+            throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
         case "RegionDisabledException":
         case "com.amazonaws.sts#RegionDisabledException":
-            throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
+            throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -20105,21 +20105,21 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (output,
             });
     }
 };
-const deserializeAws_queryDecodeAuthorizationMessageCommand = async (output, context) => {
+const de_DecodeAuthorizationMessageCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryDecodeAuthorizationMessageCommandError(output, context);
+        return de_DecodeAuthorizationMessageCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryDecodeAuthorizationMessageResponse(data.DecodeAuthorizationMessageResult, context);
+    contents = de_DecodeAuthorizationMessageResponse(data.DecodeAuthorizationMessageResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryDecodeAuthorizationMessageCommand = deserializeAws_queryDecodeAuthorizationMessageCommand;
-const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (output, context) => {
+exports.de_DecodeAuthorizationMessageCommand = de_DecodeAuthorizationMessageCommand;
+const de_DecodeAuthorizationMessageCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -20128,7 +20128,7 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (output
     switch (errorCode) {
         case "InvalidAuthorizationMessageException":
         case "com.amazonaws.sts#InvalidAuthorizationMessageException":
-            throw await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(parsedOutput, context);
+            throw await de_InvalidAuthorizationMessageExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -20139,21 +20139,21 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (output
             });
     }
 };
-const deserializeAws_queryGetAccessKeyInfoCommand = async (output, context) => {
+const de_GetAccessKeyInfoCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryGetAccessKeyInfoCommandError(output, context);
+        return de_GetAccessKeyInfoCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryGetAccessKeyInfoResponse(data.GetAccessKeyInfoResult, context);
+    contents = de_GetAccessKeyInfoResponse(data.GetAccessKeyInfoResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryGetAccessKeyInfoCommand = deserializeAws_queryGetAccessKeyInfoCommand;
-const deserializeAws_queryGetAccessKeyInfoCommandError = async (output, context) => {
+exports.de_GetAccessKeyInfoCommand = de_GetAccessKeyInfoCommand;
+const de_GetAccessKeyInfoCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -20167,21 +20167,21 @@ const deserializeAws_queryGetAccessKeyInfoCommandError = async (output, context)
         errorCode,
     });
 };
-const deserializeAws_queryGetCallerIdentityCommand = async (output, context) => {
+const de_GetCallerIdentityCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryGetCallerIdentityCommandError(output, context);
+        return de_GetCallerIdentityCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryGetCallerIdentityResponse(data.GetCallerIdentityResult, context);
+    contents = de_GetCallerIdentityResponse(data.GetCallerIdentityResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryGetCallerIdentityCommand = deserializeAws_queryGetCallerIdentityCommand;
-const deserializeAws_queryGetCallerIdentityCommandError = async (output, context) => {
+exports.de_GetCallerIdentityCommand = de_GetCallerIdentityCommand;
+const de_GetCallerIdentityCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -20195,21 +20195,21 @@ const deserializeAws_queryGetCallerIdentityCommandError = async (output, context
         errorCode,
     });
 };
-const deserializeAws_queryGetFederationTokenCommand = async (output, context) => {
+const de_GetFederationTokenCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryGetFederationTokenCommandError(output, context);
+        return de_GetFederationTokenCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryGetFederationTokenResponse(data.GetFederationTokenResult, context);
+    contents = de_GetFederationTokenResponse(data.GetFederationTokenResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryGetFederationTokenCommand = deserializeAws_queryGetFederationTokenCommand;
-const deserializeAws_queryGetFederationTokenCommandError = async (output, context) => {
+exports.de_GetFederationTokenCommand = de_GetFederationTokenCommand;
+const de_GetFederationTokenCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -20218,13 +20218,13 @@ const deserializeAws_queryGetFederationTokenCommandError = async (output, contex
     switch (errorCode) {
         case "MalformedPolicyDocument":
         case "com.amazonaws.sts#MalformedPolicyDocumentException":
-            throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+            throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
         case "PackedPolicyTooLarge":
         case "com.amazonaws.sts#PackedPolicyTooLargeException":
-            throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
+            throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
         case "RegionDisabledException":
         case "com.amazonaws.sts#RegionDisabledException":
-            throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
+            throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -20235,21 +20235,21 @@ const deserializeAws_queryGetFederationTokenCommandError = async (output, contex
             });
     }
 };
-const deserializeAws_queryGetSessionTokenCommand = async (output, context) => {
+const de_GetSessionTokenCommand = async (output, context) => {
     if (output.statusCode >= 300) {
-        return deserializeAws_queryGetSessionTokenCommandError(output, context);
+        return de_GetSessionTokenCommandError(output, context);
     }
     const data = await parseBody(output.body, context);
     let contents = {};
-    contents = deserializeAws_queryGetSessionTokenResponse(data.GetSessionTokenResult, context);
+    contents = de_GetSessionTokenResponse(data.GetSessionTokenResult, context);
     const response = {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
     return Promise.resolve(response);
 };
-exports.deserializeAws_queryGetSessionTokenCommand = deserializeAws_queryGetSessionTokenCommand;
-const deserializeAws_queryGetSessionTokenCommandError = async (output, context) => {
+exports.de_GetSessionTokenCommand = de_GetSessionTokenCommand;
+const de_GetSessionTokenCommandError = async (output, context) => {
     const parsedOutput = {
         ...output,
         body: await parseErrorBody(output.body, context),
@@ -20258,7 +20258,7 @@ const deserializeAws_queryGetSessionTokenCommandError = async (output, context) 
     switch (errorCode) {
         case "RegionDisabledException":
         case "com.amazonaws.sts#RegionDisabledException":
-            throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
+            throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             (0, smithy_client_1.throwDefaultError)({
@@ -20269,79 +20269,79 @@ const deserializeAws_queryGetSessionTokenCommandError = async (output, context) 
             });
     }
 };
-const deserializeAws_queryExpiredTokenExceptionResponse = async (parsedOutput, context) => {
+const de_ExpiredTokenExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryExpiredTokenException(body.Error, context);
+    const deserialized = de_ExpiredTokenException(body.Error, context);
     const exception = new models_0_1.ExpiredTokenException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryIDPCommunicationErrorExceptionResponse = async (parsedOutput, context) => {
+const de_IDPCommunicationErrorExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryIDPCommunicationErrorException(body.Error, context);
+    const deserialized = de_IDPCommunicationErrorException(body.Error, context);
     const exception = new models_0_1.IDPCommunicationErrorException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryIDPRejectedClaimExceptionResponse = async (parsedOutput, context) => {
+const de_IDPRejectedClaimExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryIDPRejectedClaimException(body.Error, context);
+    const deserialized = de_IDPRejectedClaimException(body.Error, context);
     const exception = new models_0_1.IDPRejectedClaimException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryInvalidAuthorizationMessageExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidAuthorizationMessageExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryInvalidAuthorizationMessageException(body.Error, context);
+    const deserialized = de_InvalidAuthorizationMessageException(body.Error, context);
     const exception = new models_0_1.InvalidAuthorizationMessageException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryInvalidIdentityTokenExceptionResponse = async (parsedOutput, context) => {
+const de_InvalidIdentityTokenExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryInvalidIdentityTokenException(body.Error, context);
+    const deserialized = de_InvalidIdentityTokenException(body.Error, context);
     const exception = new models_0_1.InvalidIdentityTokenException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (parsedOutput, context) => {
+const de_MalformedPolicyDocumentExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryMalformedPolicyDocumentException(body.Error, context);
+    const deserialized = de_MalformedPolicyDocumentException(body.Error, context);
     const exception = new models_0_1.MalformedPolicyDocumentException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryPackedPolicyTooLargeExceptionResponse = async (parsedOutput, context) => {
+const de_PackedPolicyTooLargeExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryPackedPolicyTooLargeException(body.Error, context);
+    const deserialized = de_PackedPolicyTooLargeException(body.Error, context);
     const exception = new models_0_1.PackedPolicyTooLargeException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const deserializeAws_queryRegionDisabledExceptionResponse = async (parsedOutput, context) => {
+const de_RegionDisabledExceptionRes = async (parsedOutput, context) => {
     const body = parsedOutput.body;
-    const deserialized = deserializeAws_queryRegionDisabledException(body.Error, context);
+    const deserialized = de_RegionDisabledException(body.Error, context);
     const exception = new models_0_1.RegionDisabledException({
         $metadata: deserializeMetadata(parsedOutput),
         ...deserialized,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, body);
 };
-const serializeAws_queryAssumeRoleRequest = (input, context) => {
+const se_AssumeRoleRequest = (input, context) => {
     const entries = {};
     if (input.RoleArn != null) {
         entries["RoleArn"] = input.RoleArn;
@@ -20350,7 +20350,7 @@ const serializeAws_queryAssumeRoleRequest = (input, context) => {
         entries["RoleSessionName"] = input.RoleSessionName;
     }
     if (input.PolicyArns != null) {
-        const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
         if (input.PolicyArns?.length === 0) {
             entries.PolicyArns = [];
         }
@@ -20366,7 +20366,7 @@ const serializeAws_queryAssumeRoleRequest = (input, context) => {
         entries["DurationSeconds"] = input.DurationSeconds;
     }
     if (input.Tags != null) {
-        const memberEntries = serializeAws_querytagListType(input.Tags, context);
+        const memberEntries = se_tagListType(input.Tags, context);
         if (input.Tags?.length === 0) {
             entries.Tags = [];
         }
@@ -20376,7 +20376,7 @@ const serializeAws_queryAssumeRoleRequest = (input, context) => {
         });
     }
     if (input.TransitiveTagKeys != null) {
-        const memberEntries = serializeAws_querytagKeyListType(input.TransitiveTagKeys, context);
+        const memberEntries = se_tagKeyListType(input.TransitiveTagKeys, context);
         if (input.TransitiveTagKeys?.length === 0) {
             entries.TransitiveTagKeys = [];
         }
@@ -20399,7 +20399,7 @@ const serializeAws_queryAssumeRoleRequest = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryAssumeRoleWithSAMLRequest = (input, context) => {
+const se_AssumeRoleWithSAMLRequest = (input, context) => {
     const entries = {};
     if (input.RoleArn != null) {
         entries["RoleArn"] = input.RoleArn;
@@ -20411,7 +20411,7 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (input, context) => {
         entries["SAMLAssertion"] = input.SAMLAssertion;
     }
     if (input.PolicyArns != null) {
-        const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
         if (input.PolicyArns?.length === 0) {
             entries.PolicyArns = [];
         }
@@ -20428,7 +20428,7 @@ const serializeAws_queryAssumeRoleWithSAMLRequest = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryAssumeRoleWithWebIdentityRequest = (input, context) => {
+const se_AssumeRoleWithWebIdentityRequest = (input, context) => {
     const entries = {};
     if (input.RoleArn != null) {
         entries["RoleArn"] = input.RoleArn;
@@ -20443,7 +20443,7 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (input, context) => {
         entries["ProviderId"] = input.ProviderId;
     }
     if (input.PolicyArns != null) {
-        const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
         if (input.PolicyArns?.length === 0) {
             entries.PolicyArns = [];
         }
@@ -20460,25 +20460,25 @@ const serializeAws_queryAssumeRoleWithWebIdentityRequest = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryDecodeAuthorizationMessageRequest = (input, context) => {
+const se_DecodeAuthorizationMessageRequest = (input, context) => {
     const entries = {};
     if (input.EncodedMessage != null) {
         entries["EncodedMessage"] = input.EncodedMessage;
     }
     return entries;
 };
-const serializeAws_queryGetAccessKeyInfoRequest = (input, context) => {
+const se_GetAccessKeyInfoRequest = (input, context) => {
     const entries = {};
     if (input.AccessKeyId != null) {
         entries["AccessKeyId"] = input.AccessKeyId;
     }
     return entries;
 };
-const serializeAws_queryGetCallerIdentityRequest = (input, context) => {
+const se_GetCallerIdentityRequest = (input, context) => {
     const entries = {};
     return entries;
 };
-const serializeAws_queryGetFederationTokenRequest = (input, context) => {
+const se_GetFederationTokenRequest = (input, context) => {
     const entries = {};
     if (input.Name != null) {
         entries["Name"] = input.Name;
@@ -20487,7 +20487,7 @@ const serializeAws_queryGetFederationTokenRequest = (input, context) => {
         entries["Policy"] = input.Policy;
     }
     if (input.PolicyArns != null) {
-        const memberEntries = serializeAws_querypolicyDescriptorListType(input.PolicyArns, context);
+        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
         if (input.PolicyArns?.length === 0) {
             entries.PolicyArns = [];
         }
@@ -20500,7 +20500,7 @@ const serializeAws_queryGetFederationTokenRequest = (input, context) => {
         entries["DurationSeconds"] = input.DurationSeconds;
     }
     if (input.Tags != null) {
-        const memberEntries = serializeAws_querytagListType(input.Tags, context);
+        const memberEntries = se_tagListType(input.Tags, context);
         if (input.Tags?.length === 0) {
             entries.Tags = [];
         }
@@ -20511,7 +20511,7 @@ const serializeAws_queryGetFederationTokenRequest = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryGetSessionTokenRequest = (input, context) => {
+const se_GetSessionTokenRequest = (input, context) => {
     const entries = {};
     if (input.DurationSeconds != null) {
         entries["DurationSeconds"] = input.DurationSeconds;
@@ -20524,14 +20524,14 @@ const serializeAws_queryGetSessionTokenRequest = (input, context) => {
     }
     return entries;
 };
-const serializeAws_querypolicyDescriptorListType = (input, context) => {
+const se_policyDescriptorListType = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryPolicyDescriptorType(entry, context);
+        const memberEntries = se_PolicyDescriptorType(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -20539,14 +20539,14 @@ const serializeAws_querypolicyDescriptorListType = (input, context) => {
     }
     return entries;
 };
-const serializeAws_queryPolicyDescriptorType = (input, context) => {
+const se_PolicyDescriptorType = (input, context) => {
     const entries = {};
     if (input.arn != null) {
         entries["arn"] = input.arn;
     }
     return entries;
 };
-const serializeAws_queryTag = (input, context) => {
+const se_Tag = (input, context) => {
     const entries = {};
     if (input.Key != null) {
         entries["Key"] = input.Key;
@@ -20556,7 +20556,7 @@ const serializeAws_queryTag = (input, context) => {
     }
     return entries;
 };
-const serializeAws_querytagKeyListType = (input, context) => {
+const se_tagKeyListType = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
@@ -20568,14 +20568,14 @@ const serializeAws_querytagKeyListType = (input, context) => {
     }
     return entries;
 };
-const serializeAws_querytagListType = (input, context) => {
+const se_tagListType = (input, context) => {
     const entries = {};
     let counter = 1;
     for (const entry of input) {
         if (entry === null) {
             continue;
         }
-        const memberEntries = serializeAws_queryTag(entry, context);
+        const memberEntries = se_Tag(entry, context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             entries[`member.${counter}.${key}`] = value;
         });
@@ -20583,7 +20583,7 @@ const serializeAws_querytagListType = (input, context) => {
     }
     return entries;
 };
-const deserializeAws_queryAssumedRoleUser = (output, context) => {
+const de_AssumedRoleUser = (output, context) => {
     const contents = {};
     if (output["AssumedRoleId"] !== undefined) {
         contents.AssumedRoleId = (0, smithy_client_1.expectString)(output["AssumedRoleId"]);
@@ -20593,13 +20593,13 @@ const deserializeAws_queryAssumedRoleUser = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryAssumeRoleResponse = (output, context) => {
+const de_AssumeRoleResponse = (output, context) => {
     const contents = {};
     if (output["Credentials"] !== undefined) {
-        contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
+        contents.Credentials = de_Credentials(output["Credentials"], context);
     }
     if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
+        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
     }
     if (output["PackedPolicySize"] !== undefined) {
         contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
@@ -20609,13 +20609,13 @@ const deserializeAws_queryAssumeRoleResponse = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryAssumeRoleWithSAMLResponse = (output, context) => {
+const de_AssumeRoleWithSAMLResponse = (output, context) => {
     const contents = {};
     if (output["Credentials"] !== undefined) {
-        contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
+        contents.Credentials = de_Credentials(output["Credentials"], context);
     }
     if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
+        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
     }
     if (output["PackedPolicySize"] !== undefined) {
         contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
@@ -20640,16 +20640,16 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (output, context) => {
+const de_AssumeRoleWithWebIdentityResponse = (output, context) => {
     const contents = {};
     if (output["Credentials"] !== undefined) {
-        contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
+        contents.Credentials = de_Credentials(output["Credentials"], context);
     }
     if (output["SubjectFromWebIdentityToken"] !== undefined) {
         contents.SubjectFromWebIdentityToken = (0, smithy_client_1.expectString)(output["SubjectFromWebIdentityToken"]);
     }
     if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = deserializeAws_queryAssumedRoleUser(output["AssumedRoleUser"], context);
+        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
     }
     if (output["PackedPolicySize"] !== undefined) {
         contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
@@ -20665,7 +20665,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (output, context) 
     }
     return contents;
 };
-const deserializeAws_queryCredentials = (output, context) => {
+const de_Credentials = (output, context) => {
     const contents = {};
     if (output["AccessKeyId"] !== undefined) {
         contents.AccessKeyId = (0, smithy_client_1.expectString)(output["AccessKeyId"]);
@@ -20681,21 +20681,21 @@ const deserializeAws_queryCredentials = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryDecodeAuthorizationMessageResponse = (output, context) => {
+const de_DecodeAuthorizationMessageResponse = (output, context) => {
     const contents = {};
     if (output["DecodedMessage"] !== undefined) {
         contents.DecodedMessage = (0, smithy_client_1.expectString)(output["DecodedMessage"]);
     }
     return contents;
 };
-const deserializeAws_queryExpiredTokenException = (output, context) => {
+const de_ExpiredTokenException = (output, context) => {
     const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
-const deserializeAws_queryFederatedUser = (output, context) => {
+const de_FederatedUser = (output, context) => {
     const contents = {};
     if (output["FederatedUserId"] !== undefined) {
         contents.FederatedUserId = (0, smithy_client_1.expectString)(output["FederatedUserId"]);
@@ -20705,14 +20705,14 @@ const deserializeAws_queryFederatedUser = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryGetAccessKeyInfoResponse = (output, context) => {
+const de_GetAccessKeyInfoResponse = (output, context) => {
     const contents = {};
     if (output["Account"] !== undefined) {
         contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
     }
     return contents;
 };
-const deserializeAws_queryGetCallerIdentityResponse = (output, context) => {
+const de_GetCallerIdentityResponse = (output, context) => {
     const contents = {};
     if (output["UserId"] !== undefined) {
         contents.UserId = (0, smithy_client_1.expectString)(output["UserId"]);
@@ -20725,69 +20725,69 @@ const deserializeAws_queryGetCallerIdentityResponse = (output, context) => {
     }
     return contents;
 };
-const deserializeAws_queryGetFederationTokenResponse = (output, context) => {
+const de_GetFederationTokenResponse = (output, context) => {
     const contents = {};
     if (output["Credentials"] !== undefined) {
-        contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
+        contents.Credentials = de_Credentials(output["Credentials"], context);
     }
     if (output["FederatedUser"] !== undefined) {
-        contents.FederatedUser = deserializeAws_queryFederatedUser(output["FederatedUser"], context);
+        contents.FederatedUser = de_FederatedUser(output["FederatedUser"], context);
     }
     if (output["PackedPolicySize"] !== undefined) {
         contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
     }
     return contents;
 };
-const deserializeAws_queryGetSessionTokenResponse = (output, context) => {
+const de_GetSessionTokenResponse = (output, context) => {
     const contents = {};
     if (output["Credentials"] !== undefined) {
-        contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
+        contents.Credentials = de_Credentials(output["Credentials"], context);
     }
     return contents;
 };
-const deserializeAws_queryIDPCommunicationErrorException = (output, context) => {
+const de_IDPCommunicationErrorException = (output, context) => {
     const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
-const deserializeAws_queryIDPRejectedClaimException = (output, context) => {
+const de_IDPRejectedClaimException = (output, context) => {
     const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
-const deserializeAws_queryInvalidAuthorizationMessageException = (output, context) => {
+const de_InvalidAuthorizationMessageException = (output, context) => {
     const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
-const deserializeAws_queryInvalidIdentityTokenException = (output, context) => {
+const de_InvalidIdentityTokenException = (output, context) => {
     const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
-const deserializeAws_queryMalformedPolicyDocumentException = (output, context) => {
+const de_MalformedPolicyDocumentException = (output, context) => {
     const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
-const deserializeAws_queryPackedPolicyTooLargeException = (output, context) => {
+const de_PackedPolicyTooLargeException = (output, context) => {
     const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
     }
     return contents;
 };
-const deserializeAws_queryRegionDisabledException = (output, context) => {
+const de_RegionDisabledException = (output, context) => {
     const contents = {};
     if (output["message"] !== undefined) {
         contents.message = (0, smithy_client_1.expectString)(output["message"]);
@@ -26760,7 +26760,7 @@ exports.LazyJsonString = LazyJsonString;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.convertMap = exports.map = void 0;
+exports.take = exports.convertMap = exports.map = void 0;
 function map(arg0, arg1, arg2) {
     let target;
     let filter;
@@ -26785,25 +26785,7 @@ function map(arg0, arg1, arg2) {
             target[key] = instructions[key];
             continue;
         }
-        let [filter, value] = instructions[key];
-        if (typeof value === "function") {
-            let _value;
-            const defaultFilterPassed = filter === undefined && (_value = value()) != null;
-            const customFilterPassed = (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
-            if (defaultFilterPassed) {
-                target[key] = _value;
-            }
-            else if (customFilterPassed) {
-                target[key] = value();
-            }
-        }
-        else {
-            const defaultFilterPassed = filter === undefined && value != null;
-            const customFilterPassed = (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
-            if (defaultFilterPassed || customFilterPassed) {
-                target[key] = value;
-            }
-        }
+        applyInstruction(target, null, instructions, key);
     }
     return target;
 }
@@ -26816,6 +26798,14 @@ const convertMap = (target) => {
     return output;
 };
 exports.convertMap = convertMap;
+const take = (source, instructions) => {
+    const out = {};
+    for (const key in instructions) {
+        applyInstruction(out, source, instructions, key);
+    }
+    return out;
+};
+exports.take = take;
 const mapWithFilter = (target, filter, instructions) => {
     return map(target, Object.entries(instructions).reduce((_instructions, [key, value]) => {
         if (Array.isArray(value)) {
@@ -26832,6 +26822,40 @@ const mapWithFilter = (target, filter, instructions) => {
         return _instructions;
     }, {}));
 };
+const applyInstruction = (target, source, instructions, targetKey) => {
+    if (source !== null) {
+        let instruction = instructions[targetKey];
+        if (typeof instruction === "function") {
+            instruction = [, instruction];
+        }
+        const [filter = nonNullish, valueFn = pass, sourceKey = targetKey] = instruction;
+        if ((typeof filter === "function" && filter(source[sourceKey])) || (typeof filter !== "function" && !!filter)) {
+            target[targetKey] = valueFn(source[sourceKey]);
+        }
+        return;
+    }
+    let [filter, value] = instructions[targetKey];
+    if (typeof value === "function") {
+        let _value;
+        const defaultFilterPassed = filter === undefined && (_value = value()) != null;
+        const customFilterPassed = (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
+        if (defaultFilterPassed) {
+            target[targetKey] = _value;
+        }
+        else if (customFilterPassed) {
+            target[targetKey] = value();
+        }
+    }
+    else {
+        const defaultFilterPassed = filter === undefined && value != null;
+        const customFilterPassed = (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
+        if (defaultFilterPassed || customFilterPassed) {
+            target[targetKey] = value;
+        }
+    }
+};
+const nonNullish = (_) => _ != null;
+const pass = (_) => _;
 
 
 /***/ }),
@@ -33305,28 +33329,28 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 43713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.308.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.306.0","@aws-sdk/config-resolver":"3.306.0","@aws-sdk/credential-provider-node":"3.306.0","@aws-sdk/fetch-http-handler":"3.306.0","@aws-sdk/hash-node":"3.306.0","@aws-sdk/invalid-dependency":"3.306.0","@aws-sdk/middleware-content-length":"3.306.0","@aws-sdk/middleware-endpoint":"3.306.0","@aws-sdk/middleware-host-header":"3.306.0","@aws-sdk/middleware-logger":"3.306.0","@aws-sdk/middleware-recursion-detection":"3.306.0","@aws-sdk/middleware-retry":"3.306.0","@aws-sdk/middleware-serde":"3.306.0","@aws-sdk/middleware-signing":"3.306.0","@aws-sdk/middleware-stack":"3.306.0","@aws-sdk/middleware-user-agent":"3.306.0","@aws-sdk/node-config-provider":"3.306.0","@aws-sdk/node-http-handler":"3.306.0","@aws-sdk/protocol-http":"3.306.0","@aws-sdk/smithy-client":"3.306.0","@aws-sdk/types":"3.306.0","@aws-sdk/url-parser":"3.306.0","@aws-sdk/util-base64":"3.303.0","@aws-sdk/util-body-length-browser":"3.303.0","@aws-sdk/util-body-length-node":"3.303.0","@aws-sdk/util-defaults-mode-browser":"3.306.0","@aws-sdk/util-defaults-mode-node":"3.306.0","@aws-sdk/util-endpoints":"3.306.0","@aws-sdk/util-retry":"3.306.0","@aws-sdk/util-user-agent-browser":"3.306.0","@aws-sdk/util-user-agent-node":"3.306.0","@aws-sdk/util-utf8":"3.303.0","@aws-sdk/util-waiter":"3.306.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.303.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.309.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.309.0","@aws-sdk/config-resolver":"3.306.0","@aws-sdk/credential-provider-node":"3.309.0","@aws-sdk/fetch-http-handler":"3.306.0","@aws-sdk/hash-node":"3.306.0","@aws-sdk/invalid-dependency":"3.306.0","@aws-sdk/middleware-content-length":"3.306.0","@aws-sdk/middleware-endpoint":"3.306.0","@aws-sdk/middleware-host-header":"3.306.0","@aws-sdk/middleware-logger":"3.306.0","@aws-sdk/middleware-recursion-detection":"3.306.0","@aws-sdk/middleware-retry":"3.306.0","@aws-sdk/middleware-serde":"3.306.0","@aws-sdk/middleware-signing":"3.306.0","@aws-sdk/middleware-stack":"3.306.0","@aws-sdk/middleware-user-agent":"3.306.0","@aws-sdk/node-config-provider":"3.306.0","@aws-sdk/node-http-handler":"3.306.0","@aws-sdk/protocol-http":"3.306.0","@aws-sdk/smithy-client":"3.309.0","@aws-sdk/types":"3.306.0","@aws-sdk/url-parser":"3.306.0","@aws-sdk/util-base64":"3.303.0","@aws-sdk/util-body-length-browser":"3.303.0","@aws-sdk/util-body-length-node":"3.303.0","@aws-sdk/util-defaults-mode-browser":"3.309.0","@aws-sdk/util-defaults-mode-node":"3.309.0","@aws-sdk/util-endpoints":"3.306.0","@aws-sdk/util-retry":"3.306.0","@aws-sdk/util-user-agent-browser":"3.306.0","@aws-sdk/util-user-agent-node":"3.306.0","@aws-sdk/util-utf8":"3.303.0","@aws-sdk/util-waiter":"3.306.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.303.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 69722:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.306.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.306.0","@aws-sdk/fetch-http-handler":"3.306.0","@aws-sdk/hash-node":"3.306.0","@aws-sdk/invalid-dependency":"3.306.0","@aws-sdk/middleware-content-length":"3.306.0","@aws-sdk/middleware-endpoint":"3.306.0","@aws-sdk/middleware-host-header":"3.306.0","@aws-sdk/middleware-logger":"3.306.0","@aws-sdk/middleware-recursion-detection":"3.306.0","@aws-sdk/middleware-retry":"3.306.0","@aws-sdk/middleware-serde":"3.306.0","@aws-sdk/middleware-stack":"3.306.0","@aws-sdk/middleware-user-agent":"3.306.0","@aws-sdk/node-config-provider":"3.306.0","@aws-sdk/node-http-handler":"3.306.0","@aws-sdk/protocol-http":"3.306.0","@aws-sdk/smithy-client":"3.306.0","@aws-sdk/types":"3.306.0","@aws-sdk/url-parser":"3.306.0","@aws-sdk/util-base64":"3.303.0","@aws-sdk/util-body-length-browser":"3.303.0","@aws-sdk/util-body-length-node":"3.303.0","@aws-sdk/util-defaults-mode-browser":"3.306.0","@aws-sdk/util-defaults-mode-node":"3.306.0","@aws-sdk/util-endpoints":"3.306.0","@aws-sdk/util-retry":"3.306.0","@aws-sdk/util-user-agent-browser":"3.306.0","@aws-sdk/util-user-agent-node":"3.306.0","@aws-sdk/util-utf8":"3.303.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.303.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.309.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.306.0","@aws-sdk/fetch-http-handler":"3.306.0","@aws-sdk/hash-node":"3.306.0","@aws-sdk/invalid-dependency":"3.306.0","@aws-sdk/middleware-content-length":"3.306.0","@aws-sdk/middleware-endpoint":"3.306.0","@aws-sdk/middleware-host-header":"3.306.0","@aws-sdk/middleware-logger":"3.306.0","@aws-sdk/middleware-recursion-detection":"3.306.0","@aws-sdk/middleware-retry":"3.306.0","@aws-sdk/middleware-serde":"3.306.0","@aws-sdk/middleware-stack":"3.306.0","@aws-sdk/middleware-user-agent":"3.306.0","@aws-sdk/node-config-provider":"3.306.0","@aws-sdk/node-http-handler":"3.306.0","@aws-sdk/protocol-http":"3.306.0","@aws-sdk/smithy-client":"3.309.0","@aws-sdk/types":"3.306.0","@aws-sdk/url-parser":"3.306.0","@aws-sdk/util-base64":"3.303.0","@aws-sdk/util-body-length-browser":"3.303.0","@aws-sdk/util-body-length-node":"3.303.0","@aws-sdk/util-defaults-mode-browser":"3.309.0","@aws-sdk/util-defaults-mode-node":"3.309.0","@aws-sdk/util-endpoints":"3.306.0","@aws-sdk/util-retry":"3.306.0","@aws-sdk/util-user-agent-browser":"3.306.0","@aws-sdk/util-user-agent-node":"3.306.0","@aws-sdk/util-utf8":"3.303.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.303.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
 /***/ 91092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.306.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.306.0","@aws-sdk/fetch-http-handler":"3.306.0","@aws-sdk/hash-node":"3.306.0","@aws-sdk/invalid-dependency":"3.306.0","@aws-sdk/middleware-content-length":"3.306.0","@aws-sdk/middleware-endpoint":"3.306.0","@aws-sdk/middleware-host-header":"3.306.0","@aws-sdk/middleware-logger":"3.306.0","@aws-sdk/middleware-recursion-detection":"3.306.0","@aws-sdk/middleware-retry":"3.306.0","@aws-sdk/middleware-serde":"3.306.0","@aws-sdk/middleware-stack":"3.306.0","@aws-sdk/middleware-user-agent":"3.306.0","@aws-sdk/node-config-provider":"3.306.0","@aws-sdk/node-http-handler":"3.306.0","@aws-sdk/protocol-http":"3.306.0","@aws-sdk/smithy-client":"3.306.0","@aws-sdk/types":"3.306.0","@aws-sdk/url-parser":"3.306.0","@aws-sdk/util-base64":"3.303.0","@aws-sdk/util-body-length-browser":"3.303.0","@aws-sdk/util-body-length-node":"3.303.0","@aws-sdk/util-defaults-mode-browser":"3.306.0","@aws-sdk/util-defaults-mode-node":"3.306.0","@aws-sdk/util-endpoints":"3.306.0","@aws-sdk/util-retry":"3.306.0","@aws-sdk/util-user-agent-browser":"3.306.0","@aws-sdk/util-user-agent-node":"3.306.0","@aws-sdk/util-utf8":"3.303.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.303.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.309.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.306.0","@aws-sdk/fetch-http-handler":"3.306.0","@aws-sdk/hash-node":"3.306.0","@aws-sdk/invalid-dependency":"3.306.0","@aws-sdk/middleware-content-length":"3.306.0","@aws-sdk/middleware-endpoint":"3.306.0","@aws-sdk/middleware-host-header":"3.306.0","@aws-sdk/middleware-logger":"3.306.0","@aws-sdk/middleware-recursion-detection":"3.306.0","@aws-sdk/middleware-retry":"3.306.0","@aws-sdk/middleware-serde":"3.306.0","@aws-sdk/middleware-stack":"3.306.0","@aws-sdk/middleware-user-agent":"3.306.0","@aws-sdk/node-config-provider":"3.306.0","@aws-sdk/node-http-handler":"3.306.0","@aws-sdk/protocol-http":"3.306.0","@aws-sdk/smithy-client":"3.309.0","@aws-sdk/types":"3.306.0","@aws-sdk/url-parser":"3.306.0","@aws-sdk/util-base64":"3.303.0","@aws-sdk/util-body-length-browser":"3.303.0","@aws-sdk/util-body-length-node":"3.303.0","@aws-sdk/util-defaults-mode-browser":"3.309.0","@aws-sdk/util-defaults-mode-node":"3.309.0","@aws-sdk/util-endpoints":"3.306.0","@aws-sdk/util-retry":"3.306.0","@aws-sdk/util-user-agent-browser":"3.306.0","@aws-sdk/util-user-agent-node":"3.306.0","@aws-sdk/util-utf8":"3.303.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.303.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.306.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.306.0","@aws-sdk/credential-provider-node":"3.306.0","@aws-sdk/fetch-http-handler":"3.306.0","@aws-sdk/hash-node":"3.306.0","@aws-sdk/invalid-dependency":"3.306.0","@aws-sdk/middleware-content-length":"3.306.0","@aws-sdk/middleware-endpoint":"3.306.0","@aws-sdk/middleware-host-header":"3.306.0","@aws-sdk/middleware-logger":"3.306.0","@aws-sdk/middleware-recursion-detection":"3.306.0","@aws-sdk/middleware-retry":"3.306.0","@aws-sdk/middleware-sdk-sts":"3.306.0","@aws-sdk/middleware-serde":"3.306.0","@aws-sdk/middleware-signing":"3.306.0","@aws-sdk/middleware-stack":"3.306.0","@aws-sdk/middleware-user-agent":"3.306.0","@aws-sdk/node-config-provider":"3.306.0","@aws-sdk/node-http-handler":"3.306.0","@aws-sdk/protocol-http":"3.306.0","@aws-sdk/smithy-client":"3.306.0","@aws-sdk/types":"3.306.0","@aws-sdk/url-parser":"3.306.0","@aws-sdk/util-base64":"3.303.0","@aws-sdk/util-body-length-browser":"3.303.0","@aws-sdk/util-body-length-node":"3.303.0","@aws-sdk/util-defaults-mode-browser":"3.306.0","@aws-sdk/util-defaults-mode-node":"3.306.0","@aws-sdk/util-endpoints":"3.306.0","@aws-sdk/util-retry":"3.306.0","@aws-sdk/util-user-agent-browser":"3.306.0","@aws-sdk/util-user-agent-node":"3.306.0","@aws-sdk/util-utf8":"3.303.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.303.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.309.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.306.0","@aws-sdk/credential-provider-node":"3.309.0","@aws-sdk/fetch-http-handler":"3.306.0","@aws-sdk/hash-node":"3.306.0","@aws-sdk/invalid-dependency":"3.306.0","@aws-sdk/middleware-content-length":"3.306.0","@aws-sdk/middleware-endpoint":"3.306.0","@aws-sdk/middleware-host-header":"3.306.0","@aws-sdk/middleware-logger":"3.306.0","@aws-sdk/middleware-recursion-detection":"3.306.0","@aws-sdk/middleware-retry":"3.306.0","@aws-sdk/middleware-sdk-sts":"3.306.0","@aws-sdk/middleware-serde":"3.306.0","@aws-sdk/middleware-signing":"3.306.0","@aws-sdk/middleware-stack":"3.306.0","@aws-sdk/middleware-user-agent":"3.306.0","@aws-sdk/node-config-provider":"3.306.0","@aws-sdk/node-http-handler":"3.306.0","@aws-sdk/protocol-http":"3.306.0","@aws-sdk/smithy-client":"3.309.0","@aws-sdk/types":"3.306.0","@aws-sdk/url-parser":"3.306.0","@aws-sdk/util-base64":"3.303.0","@aws-sdk/util-body-length-browser":"3.303.0","@aws-sdk/util-body-length-node":"3.303.0","@aws-sdk/util-defaults-mode-browser":"3.309.0","@aws-sdk/util-defaults-mode-node":"3.309.0","@aws-sdk/util-endpoints":"3.306.0","@aws-sdk/util-retry":"3.306.0","@aws-sdk/util-user-agent-browser":"3.306.0","@aws-sdk/util-user-agent-node":"3.306.0","@aws-sdk/util-utf8":"3.303.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.303.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
