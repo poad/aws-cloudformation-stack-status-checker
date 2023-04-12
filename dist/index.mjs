@@ -7697,9 +7697,7 @@ const uuid_1 = __nccwpck_require__(75840);
 const CloudFormationServiceException_1 = __nccwpck_require__(215);
 const models_0_1 = __nccwpck_require__(75378);
 const se_ActivateTypeCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ActivateTypeInput(input, context),
@@ -7710,9 +7708,7 @@ const se_ActivateTypeCommand = async (input, context) => {
 };
 exports.se_ActivateTypeCommand = se_ActivateTypeCommand;
 const se_BatchDescribeTypeConfigurationsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_BatchDescribeTypeConfigurationsInput(input, context),
@@ -7723,9 +7719,7 @@ const se_BatchDescribeTypeConfigurationsCommand = async (input, context) => {
 };
 exports.se_BatchDescribeTypeConfigurationsCommand = se_BatchDescribeTypeConfigurationsCommand;
 const se_CancelUpdateStackCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_CancelUpdateStackInput(input, context),
@@ -7736,9 +7730,7 @@ const se_CancelUpdateStackCommand = async (input, context) => {
 };
 exports.se_CancelUpdateStackCommand = se_CancelUpdateStackCommand;
 const se_ContinueUpdateRollbackCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ContinueUpdateRollbackInput(input, context),
@@ -7749,9 +7741,7 @@ const se_ContinueUpdateRollbackCommand = async (input, context) => {
 };
 exports.se_ContinueUpdateRollbackCommand = se_ContinueUpdateRollbackCommand;
 const se_CreateChangeSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateChangeSetInput(input, context),
@@ -7762,9 +7752,7 @@ const se_CreateChangeSetCommand = async (input, context) => {
 };
 exports.se_CreateChangeSetCommand = se_CreateChangeSetCommand;
 const se_CreateStackCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackInput(input, context),
@@ -7775,9 +7763,7 @@ const se_CreateStackCommand = async (input, context) => {
 };
 exports.se_CreateStackCommand = se_CreateStackCommand;
 const se_CreateStackInstancesCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackInstancesInput(input, context),
@@ -7788,9 +7774,7 @@ const se_CreateStackInstancesCommand = async (input, context) => {
 };
 exports.se_CreateStackInstancesCommand = se_CreateStackInstancesCommand;
 const se_CreateStackSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackSetInput(input, context),
@@ -7801,9 +7785,7 @@ const se_CreateStackSetCommand = async (input, context) => {
 };
 exports.se_CreateStackSetCommand = se_CreateStackSetCommand;
 const se_DeactivateTypeCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DeactivateTypeInput(input, context),
@@ -7814,9 +7796,7 @@ const se_DeactivateTypeCommand = async (input, context) => {
 };
 exports.se_DeactivateTypeCommand = se_DeactivateTypeCommand;
 const se_DeleteChangeSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteChangeSetInput(input, context),
@@ -7827,9 +7807,7 @@ const se_DeleteChangeSetCommand = async (input, context) => {
 };
 exports.se_DeleteChangeSetCommand = se_DeleteChangeSetCommand;
 const se_DeleteStackCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackInput(input, context),
@@ -7840,9 +7818,7 @@ const se_DeleteStackCommand = async (input, context) => {
 };
 exports.se_DeleteStackCommand = se_DeleteStackCommand;
 const se_DeleteStackInstancesCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackInstancesInput(input, context),
@@ -7853,9 +7829,7 @@ const se_DeleteStackInstancesCommand = async (input, context) => {
 };
 exports.se_DeleteStackInstancesCommand = se_DeleteStackInstancesCommand;
 const se_DeleteStackSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackSetInput(input, context),
@@ -7866,9 +7840,7 @@ const se_DeleteStackSetCommand = async (input, context) => {
 };
 exports.se_DeleteStackSetCommand = se_DeleteStackSetCommand;
 const se_DeregisterTypeCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DeregisterTypeInput(input, context),
@@ -7879,9 +7851,7 @@ const se_DeregisterTypeCommand = async (input, context) => {
 };
 exports.se_DeregisterTypeCommand = se_DeregisterTypeCommand;
 const se_DescribeAccountLimitsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeAccountLimitsInput(input, context),
@@ -7892,9 +7862,7 @@ const se_DescribeAccountLimitsCommand = async (input, context) => {
 };
 exports.se_DescribeAccountLimitsCommand = se_DescribeAccountLimitsCommand;
 const se_DescribeChangeSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeChangeSetInput(input, context),
@@ -7905,9 +7873,7 @@ const se_DescribeChangeSetCommand = async (input, context) => {
 };
 exports.se_DescribeChangeSetCommand = se_DescribeChangeSetCommand;
 const se_DescribeChangeSetHooksCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeChangeSetHooksInput(input, context),
@@ -7918,9 +7884,7 @@ const se_DescribeChangeSetHooksCommand = async (input, context) => {
 };
 exports.se_DescribeChangeSetHooksCommand = se_DescribeChangeSetHooksCommand;
 const se_DescribePublisherCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribePublisherInput(input, context),
@@ -7931,9 +7895,7 @@ const se_DescribePublisherCommand = async (input, context) => {
 };
 exports.se_DescribePublisherCommand = se_DescribePublisherCommand;
 const se_DescribeStackDriftDetectionStatusCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackDriftDetectionStatusInput(input, context),
@@ -7944,9 +7906,7 @@ const se_DescribeStackDriftDetectionStatusCommand = async (input, context) => {
 };
 exports.se_DescribeStackDriftDetectionStatusCommand = se_DescribeStackDriftDetectionStatusCommand;
 const se_DescribeStackEventsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackEventsInput(input, context),
@@ -7957,9 +7917,7 @@ const se_DescribeStackEventsCommand = async (input, context) => {
 };
 exports.se_DescribeStackEventsCommand = se_DescribeStackEventsCommand;
 const se_DescribeStackInstanceCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackInstanceInput(input, context),
@@ -7970,9 +7928,7 @@ const se_DescribeStackInstanceCommand = async (input, context) => {
 };
 exports.se_DescribeStackInstanceCommand = se_DescribeStackInstanceCommand;
 const se_DescribeStackResourceCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourceInput(input, context),
@@ -7983,9 +7939,7 @@ const se_DescribeStackResourceCommand = async (input, context) => {
 };
 exports.se_DescribeStackResourceCommand = se_DescribeStackResourceCommand;
 const se_DescribeStackResourceDriftsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourceDriftsInput(input, context),
@@ -7996,9 +7950,7 @@ const se_DescribeStackResourceDriftsCommand = async (input, context) => {
 };
 exports.se_DescribeStackResourceDriftsCommand = se_DescribeStackResourceDriftsCommand;
 const se_DescribeStackResourcesCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourcesInput(input, context),
@@ -8009,9 +7961,7 @@ const se_DescribeStackResourcesCommand = async (input, context) => {
 };
 exports.se_DescribeStackResourcesCommand = se_DescribeStackResourcesCommand;
 const se_DescribeStacksCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStacksInput(input, context),
@@ -8022,9 +7972,7 @@ const se_DescribeStacksCommand = async (input, context) => {
 };
 exports.se_DescribeStacksCommand = se_DescribeStacksCommand;
 const se_DescribeStackSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackSetInput(input, context),
@@ -8035,9 +7983,7 @@ const se_DescribeStackSetCommand = async (input, context) => {
 };
 exports.se_DescribeStackSetCommand = se_DescribeStackSetCommand;
 const se_DescribeStackSetOperationCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackSetOperationInput(input, context),
@@ -8048,9 +7994,7 @@ const se_DescribeStackSetOperationCommand = async (input, context) => {
 };
 exports.se_DescribeStackSetOperationCommand = se_DescribeStackSetOperationCommand;
 const se_DescribeTypeCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeTypeInput(input, context),
@@ -8061,9 +8005,7 @@ const se_DescribeTypeCommand = async (input, context) => {
 };
 exports.se_DescribeTypeCommand = se_DescribeTypeCommand;
 const se_DescribeTypeRegistrationCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeTypeRegistrationInput(input, context),
@@ -8074,9 +8016,7 @@ const se_DescribeTypeRegistrationCommand = async (input, context) => {
 };
 exports.se_DescribeTypeRegistrationCommand = se_DescribeTypeRegistrationCommand;
 const se_DetectStackDriftCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackDriftInput(input, context),
@@ -8087,9 +8027,7 @@ const se_DetectStackDriftCommand = async (input, context) => {
 };
 exports.se_DetectStackDriftCommand = se_DetectStackDriftCommand;
 const se_DetectStackResourceDriftCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackResourceDriftInput(input, context),
@@ -8100,9 +8038,7 @@ const se_DetectStackResourceDriftCommand = async (input, context) => {
 };
 exports.se_DetectStackResourceDriftCommand = se_DetectStackResourceDriftCommand;
 const se_DetectStackSetDriftCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackSetDriftInput(input, context),
@@ -8113,9 +8049,7 @@ const se_DetectStackSetDriftCommand = async (input, context) => {
 };
 exports.se_DetectStackSetDriftCommand = se_DetectStackSetDriftCommand;
 const se_EstimateTemplateCostCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_EstimateTemplateCostInput(input, context),
@@ -8126,9 +8060,7 @@ const se_EstimateTemplateCostCommand = async (input, context) => {
 };
 exports.se_EstimateTemplateCostCommand = se_EstimateTemplateCostCommand;
 const se_ExecuteChangeSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ExecuteChangeSetInput(input, context),
@@ -8139,9 +8071,7 @@ const se_ExecuteChangeSetCommand = async (input, context) => {
 };
 exports.se_ExecuteChangeSetCommand = se_ExecuteChangeSetCommand;
 const se_GetStackPolicyCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_GetStackPolicyInput(input, context),
@@ -8152,9 +8082,7 @@ const se_GetStackPolicyCommand = async (input, context) => {
 };
 exports.se_GetStackPolicyCommand = se_GetStackPolicyCommand;
 const se_GetTemplateCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_GetTemplateInput(input, context),
@@ -8165,9 +8093,7 @@ const se_GetTemplateCommand = async (input, context) => {
 };
 exports.se_GetTemplateCommand = se_GetTemplateCommand;
 const se_GetTemplateSummaryCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_GetTemplateSummaryInput(input, context),
@@ -8178,9 +8104,7 @@ const se_GetTemplateSummaryCommand = async (input, context) => {
 };
 exports.se_GetTemplateSummaryCommand = se_GetTemplateSummaryCommand;
 const se_ImportStacksToStackSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ImportStacksToStackSetInput(input, context),
@@ -8191,9 +8115,7 @@ const se_ImportStacksToStackSetCommand = async (input, context) => {
 };
 exports.se_ImportStacksToStackSetCommand = se_ImportStacksToStackSetCommand;
 const se_ListChangeSetsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListChangeSetsInput(input, context),
@@ -8204,9 +8126,7 @@ const se_ListChangeSetsCommand = async (input, context) => {
 };
 exports.se_ListChangeSetsCommand = se_ListChangeSetsCommand;
 const se_ListExportsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListExportsInput(input, context),
@@ -8217,9 +8137,7 @@ const se_ListExportsCommand = async (input, context) => {
 };
 exports.se_ListExportsCommand = se_ListExportsCommand;
 const se_ListImportsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListImportsInput(input, context),
@@ -8230,9 +8148,7 @@ const se_ListImportsCommand = async (input, context) => {
 };
 exports.se_ListImportsCommand = se_ListImportsCommand;
 const se_ListStackInstancesCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackInstancesInput(input, context),
@@ -8243,9 +8159,7 @@ const se_ListStackInstancesCommand = async (input, context) => {
 };
 exports.se_ListStackInstancesCommand = se_ListStackInstancesCommand;
 const se_ListStackResourcesCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackResourcesInput(input, context),
@@ -8256,9 +8170,7 @@ const se_ListStackResourcesCommand = async (input, context) => {
 };
 exports.se_ListStackResourcesCommand = se_ListStackResourcesCommand;
 const se_ListStacksCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStacksInput(input, context),
@@ -8269,9 +8181,7 @@ const se_ListStacksCommand = async (input, context) => {
 };
 exports.se_ListStacksCommand = se_ListStacksCommand;
 const se_ListStackSetOperationResultsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetOperationResultsInput(input, context),
@@ -8282,9 +8192,7 @@ const se_ListStackSetOperationResultsCommand = async (input, context) => {
 };
 exports.se_ListStackSetOperationResultsCommand = se_ListStackSetOperationResultsCommand;
 const se_ListStackSetOperationsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetOperationsInput(input, context),
@@ -8295,9 +8203,7 @@ const se_ListStackSetOperationsCommand = async (input, context) => {
 };
 exports.se_ListStackSetOperationsCommand = se_ListStackSetOperationsCommand;
 const se_ListStackSetsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetsInput(input, context),
@@ -8308,9 +8214,7 @@ const se_ListStackSetsCommand = async (input, context) => {
 };
 exports.se_ListStackSetsCommand = se_ListStackSetsCommand;
 const se_ListTypeRegistrationsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypeRegistrationsInput(input, context),
@@ -8321,9 +8225,7 @@ const se_ListTypeRegistrationsCommand = async (input, context) => {
 };
 exports.se_ListTypeRegistrationsCommand = se_ListTypeRegistrationsCommand;
 const se_ListTypesCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypesInput(input, context),
@@ -8334,9 +8236,7 @@ const se_ListTypesCommand = async (input, context) => {
 };
 exports.se_ListTypesCommand = se_ListTypesCommand;
 const se_ListTypeVersionsCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypeVersionsInput(input, context),
@@ -8347,9 +8247,7 @@ const se_ListTypeVersionsCommand = async (input, context) => {
 };
 exports.se_ListTypeVersionsCommand = se_ListTypeVersionsCommand;
 const se_PublishTypeCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_PublishTypeInput(input, context),
@@ -8360,9 +8258,7 @@ const se_PublishTypeCommand = async (input, context) => {
 };
 exports.se_PublishTypeCommand = se_PublishTypeCommand;
 const se_RecordHandlerProgressCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_RecordHandlerProgressInput(input, context),
@@ -8373,9 +8269,7 @@ const se_RecordHandlerProgressCommand = async (input, context) => {
 };
 exports.se_RecordHandlerProgressCommand = se_RecordHandlerProgressCommand;
 const se_RegisterPublisherCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_RegisterPublisherInput(input, context),
@@ -8386,9 +8280,7 @@ const se_RegisterPublisherCommand = async (input, context) => {
 };
 exports.se_RegisterPublisherCommand = se_RegisterPublisherCommand;
 const se_RegisterTypeCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_RegisterTypeInput(input, context),
@@ -8399,9 +8291,7 @@ const se_RegisterTypeCommand = async (input, context) => {
 };
 exports.se_RegisterTypeCommand = se_RegisterTypeCommand;
 const se_RollbackStackCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_RollbackStackInput(input, context),
@@ -8412,9 +8302,7 @@ const se_RollbackStackCommand = async (input, context) => {
 };
 exports.se_RollbackStackCommand = se_RollbackStackCommand;
 const se_SetStackPolicyCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_SetStackPolicyInput(input, context),
@@ -8425,9 +8313,7 @@ const se_SetStackPolicyCommand = async (input, context) => {
 };
 exports.se_SetStackPolicyCommand = se_SetStackPolicyCommand;
 const se_SetTypeConfigurationCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_SetTypeConfigurationInput(input, context),
@@ -8438,9 +8324,7 @@ const se_SetTypeConfigurationCommand = async (input, context) => {
 };
 exports.se_SetTypeConfigurationCommand = se_SetTypeConfigurationCommand;
 const se_SetTypeDefaultVersionCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_SetTypeDefaultVersionInput(input, context),
@@ -8451,9 +8335,7 @@ const se_SetTypeDefaultVersionCommand = async (input, context) => {
 };
 exports.se_SetTypeDefaultVersionCommand = se_SetTypeDefaultVersionCommand;
 const se_SignalResourceCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_SignalResourceInput(input, context),
@@ -8464,9 +8346,7 @@ const se_SignalResourceCommand = async (input, context) => {
 };
 exports.se_SignalResourceCommand = se_SignalResourceCommand;
 const se_StopStackSetOperationCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_StopStackSetOperationInput(input, context),
@@ -8477,9 +8357,7 @@ const se_StopStackSetOperationCommand = async (input, context) => {
 };
 exports.se_StopStackSetOperationCommand = se_StopStackSetOperationCommand;
 const se_TestTypeCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_TestTypeInput(input, context),
@@ -8490,9 +8368,7 @@ const se_TestTypeCommand = async (input, context) => {
 };
 exports.se_TestTypeCommand = se_TestTypeCommand;
 const se_UpdateStackCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackInput(input, context),
@@ -8503,9 +8379,7 @@ const se_UpdateStackCommand = async (input, context) => {
 };
 exports.se_UpdateStackCommand = se_UpdateStackCommand;
 const se_UpdateStackInstancesCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackInstancesInput(input, context),
@@ -8516,9 +8390,7 @@ const se_UpdateStackInstancesCommand = async (input, context) => {
 };
 exports.se_UpdateStackInstancesCommand = se_UpdateStackInstancesCommand;
 const se_UpdateStackSetCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackSetInput(input, context),
@@ -8529,9 +8401,7 @@ const se_UpdateStackSetCommand = async (input, context) => {
 };
 exports.se_UpdateStackSetCommand = se_UpdateStackSetCommand;
 const se_UpdateTerminationProtectionCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateTerminationProtectionInput(input, context),
@@ -8542,9 +8412,7 @@ const se_UpdateTerminationProtectionCommand = async (input, context) => {
 };
 exports.se_UpdateTerminationProtectionCommand = se_UpdateTerminationProtectionCommand;
 const se_ValidateTemplateCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ValidateTemplateInput(input, context),
@@ -15665,6 +15533,9 @@ const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, bod
     }
     return new protocol_http_1.HttpRequest(contents);
 };
+const SHARED_HEADERS = {
+    "content-type": "application/x-www-form-urlencoded",
+};
 const parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
         const parser = new fast_xml_parser_1.XMLParser({
@@ -19858,9 +19729,7 @@ const fast_xml_parser_1 = __nccwpck_require__(12603);
 const models_0_1 = __nccwpck_require__(21780);
 const STSServiceException_1 = __nccwpck_require__(26450);
 const se_AssumeRoleCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleRequest(input, context),
@@ -19871,9 +19740,7 @@ const se_AssumeRoleCommand = async (input, context) => {
 };
 exports.se_AssumeRoleCommand = se_AssumeRoleCommand;
 const se_AssumeRoleWithSAMLCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleWithSAMLRequest(input, context),
@@ -19884,9 +19751,7 @@ const se_AssumeRoleWithSAMLCommand = async (input, context) => {
 };
 exports.se_AssumeRoleWithSAMLCommand = se_AssumeRoleWithSAMLCommand;
 const se_AssumeRoleWithWebIdentityCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleWithWebIdentityRequest(input, context),
@@ -19897,9 +19762,7 @@ const se_AssumeRoleWithWebIdentityCommand = async (input, context) => {
 };
 exports.se_AssumeRoleWithWebIdentityCommand = se_AssumeRoleWithWebIdentityCommand;
 const se_DecodeAuthorizationMessageCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_DecodeAuthorizationMessageRequest(input, context),
@@ -19910,9 +19773,7 @@ const se_DecodeAuthorizationMessageCommand = async (input, context) => {
 };
 exports.se_DecodeAuthorizationMessageCommand = se_DecodeAuthorizationMessageCommand;
 const se_GetAccessKeyInfoCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_GetAccessKeyInfoRequest(input, context),
@@ -19923,9 +19784,7 @@ const se_GetAccessKeyInfoCommand = async (input, context) => {
 };
 exports.se_GetAccessKeyInfoCommand = se_GetAccessKeyInfoCommand;
 const se_GetCallerIdentityCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_GetCallerIdentityRequest(input, context),
@@ -19936,9 +19795,7 @@ const se_GetCallerIdentityCommand = async (input, context) => {
 };
 exports.se_GetCallerIdentityCommand = se_GetCallerIdentityCommand;
 const se_GetFederationTokenCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_GetFederationTokenRequest(input, context),
@@ -19949,9 +19806,7 @@ const se_GetFederationTokenCommand = async (input, context) => {
 };
 exports.se_GetFederationTokenCommand = se_GetFederationTokenCommand;
 const se_GetSessionTokenCommand = async (input, context) => {
-    const headers = {
-        "content-type": "application/x-www-form-urlencoded",
-    };
+    const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_GetSessionTokenRequest(input, context),
@@ -20824,6 +20679,9 @@ const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, bod
         contents.body = body;
     }
     return new protocol_http_1.HttpRequest(contents);
+};
+const SHARED_HEADERS = {
+    "content-type": "application/x-www-form-urlencoded",
 };
 const parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -33329,7 +33187,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 43713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.310.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.310.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.310.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.310.0","@aws-sdk/util-defaults-mode-node":"3.310.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","@aws-sdk/util-waiter":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.312.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.312.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.310.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.310.0","@aws-sdk/util-defaults-mode-node":"3.310.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","@aws-sdk/util-waiter":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -33350,7 +33208,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SD
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.310.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-sdk-sts":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.310.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.310.0","@aws-sdk/util-defaults-mode-node":"3.310.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.312.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-sdk-sts":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.310.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.310.0","@aws-sdk/util-defaults-mode-node":"3.310.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
