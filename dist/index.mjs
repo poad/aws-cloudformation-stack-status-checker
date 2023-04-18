@@ -8433,7 +8433,7 @@ const de_ActivateTypeCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ActivateTypeCommand = de_ActivateTypeCommand;
 const de_ActivateTypeCommandError = async (output, context) => {
@@ -8451,10 +8451,9 @@ const de_ActivateTypeCommandError = async (output, context) => {
             throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8470,7 +8469,7 @@ const de_BatchDescribeTypeConfigurationsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_BatchDescribeTypeConfigurationsCommand = de_BatchDescribeTypeConfigurationsCommand;
 const de_BatchDescribeTypeConfigurationsCommandError = async (output, context) => {
@@ -8488,10 +8487,9 @@ const de_BatchDescribeTypeConfigurationsCommandError = async (output, context) =
             throw await de_TypeConfigurationNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8504,7 +8502,7 @@ const de_CancelUpdateStackCommand = async (output, context) => {
     const response = {
         $metadata: deserializeMetadata(output),
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_CancelUpdateStackCommand = de_CancelUpdateStackCommand;
 const de_CancelUpdateStackCommandError = async (output, context) => {
@@ -8519,10 +8517,9 @@ const de_CancelUpdateStackCommandError = async (output, context) => {
             throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8538,7 +8535,7 @@ const de_ContinueUpdateRollbackCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ContinueUpdateRollbackCommand = de_ContinueUpdateRollbackCommand;
 const de_ContinueUpdateRollbackCommandError = async (output, context) => {
@@ -8553,10 +8550,9 @@ const de_ContinueUpdateRollbackCommandError = async (output, context) => {
             throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8572,7 +8568,7 @@ const de_CreateChangeSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_CreateChangeSetCommand = de_CreateChangeSetCommand;
 const de_CreateChangeSetCommandError = async (output, context) => {
@@ -8593,10 +8589,9 @@ const de_CreateChangeSetCommandError = async (output, context) => {
             throw await de_LimitExceededExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8612,7 +8607,7 @@ const de_CreateStackCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_CreateStackCommand = de_CreateStackCommand;
 const de_CreateStackCommandError = async (output, context) => {
@@ -8636,10 +8631,9 @@ const de_CreateStackCommandError = async (output, context) => {
             throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8655,7 +8649,7 @@ const de_CreateStackInstancesCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_CreateStackInstancesCommand = de_CreateStackInstancesCommand;
 const de_CreateStackInstancesCommandError = async (output, context) => {
@@ -8685,10 +8679,9 @@ const de_CreateStackInstancesCommandError = async (output, context) => {
             throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8704,7 +8697,7 @@ const de_CreateStackSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_CreateStackSetCommand = de_CreateStackSetCommand;
 const de_CreateStackSetCommandError = async (output, context) => {
@@ -8725,10 +8718,9 @@ const de_CreateStackSetCommandError = async (output, context) => {
             throw await de_NameAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8744,7 +8736,7 @@ const de_DeactivateTypeCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DeactivateTypeCommand = de_DeactivateTypeCommand;
 const de_DeactivateTypeCommandError = async (output, context) => {
@@ -8762,10 +8754,9 @@ const de_DeactivateTypeCommandError = async (output, context) => {
             throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8781,7 +8772,7 @@ const de_DeleteChangeSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DeleteChangeSetCommand = de_DeleteChangeSetCommand;
 const de_DeleteChangeSetCommandError = async (output, context) => {
@@ -8796,10 +8787,9 @@ const de_DeleteChangeSetCommandError = async (output, context) => {
             throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8812,7 +8802,7 @@ const de_DeleteStackCommand = async (output, context) => {
     const response = {
         $metadata: deserializeMetadata(output),
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DeleteStackCommand = de_DeleteStackCommand;
 const de_DeleteStackCommandError = async (output, context) => {
@@ -8827,10 +8817,9 @@ const de_DeleteStackCommandError = async (output, context) => {
             throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8846,7 +8835,7 @@ const de_DeleteStackInstancesCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DeleteStackInstancesCommand = de_DeleteStackInstancesCommand;
 const de_DeleteStackInstancesCommandError = async (output, context) => {
@@ -8873,10 +8862,9 @@ const de_DeleteStackInstancesCommandError = async (output, context) => {
             throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8892,7 +8880,7 @@ const de_DeleteStackSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DeleteStackSetCommand = de_DeleteStackSetCommand;
 const de_DeleteStackSetCommandError = async (output, context) => {
@@ -8910,10 +8898,9 @@ const de_DeleteStackSetCommandError = async (output, context) => {
             throw await de_StackSetNotEmptyExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8929,7 +8916,7 @@ const de_DeregisterTypeCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DeregisterTypeCommand = de_DeregisterTypeCommand;
 const de_DeregisterTypeCommandError = async (output, context) => {
@@ -8947,10 +8934,9 @@ const de_DeregisterTypeCommandError = async (output, context) => {
             throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -8966,7 +8952,7 @@ const de_DescribeAccountLimitsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeAccountLimitsCommand = de_DescribeAccountLimitsCommand;
 const de_DescribeAccountLimitsCommandError = async (output, context) => {
@@ -8976,10 +8962,9 @@ const de_DescribeAccountLimitsCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -8994,7 +8979,7 @@ const de_DescribeChangeSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeChangeSetCommand = de_DescribeChangeSetCommand;
 const de_DescribeChangeSetCommandError = async (output, context) => {
@@ -9009,10 +8994,9 @@ const de_DescribeChangeSetCommandError = async (output, context) => {
             throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9028,7 +9012,7 @@ const de_DescribeChangeSetHooksCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeChangeSetHooksCommand = de_DescribeChangeSetHooksCommand;
 const de_DescribeChangeSetHooksCommandError = async (output, context) => {
@@ -9043,10 +9027,9 @@ const de_DescribeChangeSetHooksCommandError = async (output, context) => {
             throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9062,7 +9045,7 @@ const de_DescribePublisherCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribePublisherCommand = de_DescribePublisherCommand;
 const de_DescribePublisherCommandError = async (output, context) => {
@@ -9077,10 +9060,9 @@ const de_DescribePublisherCommandError = async (output, context) => {
             throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9096,7 +9078,7 @@ const de_DescribeStackDriftDetectionStatusCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStackDriftDetectionStatusCommand = de_DescribeStackDriftDetectionStatusCommand;
 const de_DescribeStackDriftDetectionStatusCommandError = async (output, context) => {
@@ -9106,10 +9088,9 @@ const de_DescribeStackDriftDetectionStatusCommandError = async (output, context)
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9124,7 +9105,7 @@ const de_DescribeStackEventsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStackEventsCommand = de_DescribeStackEventsCommand;
 const de_DescribeStackEventsCommandError = async (output, context) => {
@@ -9134,10 +9115,9 @@ const de_DescribeStackEventsCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9152,7 +9132,7 @@ const de_DescribeStackInstanceCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStackInstanceCommand = de_DescribeStackInstanceCommand;
 const de_DescribeStackInstanceCommandError = async (output, context) => {
@@ -9170,10 +9150,9 @@ const de_DescribeStackInstanceCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9189,7 +9168,7 @@ const de_DescribeStackResourceCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStackResourceCommand = de_DescribeStackResourceCommand;
 const de_DescribeStackResourceCommandError = async (output, context) => {
@@ -9199,10 +9178,9 @@ const de_DescribeStackResourceCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9217,7 +9195,7 @@ const de_DescribeStackResourceDriftsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStackResourceDriftsCommand = de_DescribeStackResourceDriftsCommand;
 const de_DescribeStackResourceDriftsCommandError = async (output, context) => {
@@ -9227,10 +9205,9 @@ const de_DescribeStackResourceDriftsCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9245,7 +9222,7 @@ const de_DescribeStackResourcesCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStackResourcesCommand = de_DescribeStackResourcesCommand;
 const de_DescribeStackResourcesCommandError = async (output, context) => {
@@ -9255,10 +9232,9 @@ const de_DescribeStackResourcesCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9273,7 +9249,7 @@ const de_DescribeStacksCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStacksCommand = de_DescribeStacksCommand;
 const de_DescribeStacksCommandError = async (output, context) => {
@@ -9283,10 +9259,9 @@ const de_DescribeStacksCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9301,7 +9276,7 @@ const de_DescribeStackSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStackSetCommand = de_DescribeStackSetCommand;
 const de_DescribeStackSetCommandError = async (output, context) => {
@@ -9316,10 +9291,9 @@ const de_DescribeStackSetCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9335,7 +9309,7 @@ const de_DescribeStackSetOperationCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeStackSetOperationCommand = de_DescribeStackSetOperationCommand;
 const de_DescribeStackSetOperationCommandError = async (output, context) => {
@@ -9353,10 +9327,9 @@ const de_DescribeStackSetOperationCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9372,7 +9345,7 @@ const de_DescribeTypeCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeTypeCommand = de_DescribeTypeCommand;
 const de_DescribeTypeCommandError = async (output, context) => {
@@ -9390,10 +9363,9 @@ const de_DescribeTypeCommandError = async (output, context) => {
             throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9409,7 +9381,7 @@ const de_DescribeTypeRegistrationCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DescribeTypeRegistrationCommand = de_DescribeTypeRegistrationCommand;
 const de_DescribeTypeRegistrationCommandError = async (output, context) => {
@@ -9424,10 +9396,9 @@ const de_DescribeTypeRegistrationCommandError = async (output, context) => {
             throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9443,7 +9414,7 @@ const de_DetectStackDriftCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DetectStackDriftCommand = de_DetectStackDriftCommand;
 const de_DetectStackDriftCommandError = async (output, context) => {
@@ -9453,10 +9424,9 @@ const de_DetectStackDriftCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9471,7 +9441,7 @@ const de_DetectStackResourceDriftCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DetectStackResourceDriftCommand = de_DetectStackResourceDriftCommand;
 const de_DetectStackResourceDriftCommandError = async (output, context) => {
@@ -9481,10 +9451,9 @@ const de_DetectStackResourceDriftCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9499,7 +9468,7 @@ const de_DetectStackSetDriftCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DetectStackSetDriftCommand = de_DetectStackSetDriftCommand;
 const de_DetectStackSetDriftCommandError = async (output, context) => {
@@ -9520,10 +9489,9 @@ const de_DetectStackSetDriftCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9539,7 +9507,7 @@ const de_EstimateTemplateCostCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_EstimateTemplateCostCommand = de_EstimateTemplateCostCommand;
 const de_EstimateTemplateCostCommandError = async (output, context) => {
@@ -9549,10 +9517,9 @@ const de_EstimateTemplateCostCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9567,7 +9534,7 @@ const de_ExecuteChangeSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ExecuteChangeSetCommand = de_ExecuteChangeSetCommand;
 const de_ExecuteChangeSetCommandError = async (output, context) => {
@@ -9591,10 +9558,9 @@ const de_ExecuteChangeSetCommandError = async (output, context) => {
             throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9610,7 +9576,7 @@ const de_GetStackPolicyCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_GetStackPolicyCommand = de_GetStackPolicyCommand;
 const de_GetStackPolicyCommandError = async (output, context) => {
@@ -9620,10 +9586,9 @@ const de_GetStackPolicyCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9638,7 +9603,7 @@ const de_GetTemplateCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_GetTemplateCommand = de_GetTemplateCommand;
 const de_GetTemplateCommandError = async (output, context) => {
@@ -9653,10 +9618,9 @@ const de_GetTemplateCommandError = async (output, context) => {
             throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9672,7 +9636,7 @@ const de_GetTemplateSummaryCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_GetTemplateSummaryCommand = de_GetTemplateSummaryCommand;
 const de_GetTemplateSummaryCommandError = async (output, context) => {
@@ -9687,10 +9651,9 @@ const de_GetTemplateSummaryCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9706,7 +9669,7 @@ const de_ImportStacksToStackSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ImportStacksToStackSetCommand = de_ImportStacksToStackSetCommand;
 const de_ImportStacksToStackSetCommandError = async (output, context) => {
@@ -9739,10 +9702,9 @@ const de_ImportStacksToStackSetCommandError = async (output, context) => {
             throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9758,7 +9720,7 @@ const de_ListChangeSetsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListChangeSetsCommand = de_ListChangeSetsCommand;
 const de_ListChangeSetsCommandError = async (output, context) => {
@@ -9768,10 +9730,9 @@ const de_ListChangeSetsCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9786,7 +9747,7 @@ const de_ListExportsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListExportsCommand = de_ListExportsCommand;
 const de_ListExportsCommandError = async (output, context) => {
@@ -9796,10 +9757,9 @@ const de_ListExportsCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9814,7 +9774,7 @@ const de_ListImportsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListImportsCommand = de_ListImportsCommand;
 const de_ListImportsCommandError = async (output, context) => {
@@ -9824,10 +9784,9 @@ const de_ListImportsCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9842,7 +9801,7 @@ const de_ListStackInstancesCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListStackInstancesCommand = de_ListStackInstancesCommand;
 const de_ListStackInstancesCommandError = async (output, context) => {
@@ -9857,10 +9816,9 @@ const de_ListStackInstancesCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9876,7 +9834,7 @@ const de_ListStackResourcesCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListStackResourcesCommand = de_ListStackResourcesCommand;
 const de_ListStackResourcesCommandError = async (output, context) => {
@@ -9886,10 +9844,9 @@ const de_ListStackResourcesCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9904,7 +9861,7 @@ const de_ListStacksCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListStacksCommand = de_ListStacksCommand;
 const de_ListStacksCommandError = async (output, context) => {
@@ -9914,10 +9871,9 @@ const de_ListStacksCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -9932,7 +9888,7 @@ const de_ListStackSetOperationResultsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListStackSetOperationResultsCommand = de_ListStackSetOperationResultsCommand;
 const de_ListStackSetOperationResultsCommandError = async (output, context) => {
@@ -9950,10 +9906,9 @@ const de_ListStackSetOperationResultsCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -9969,7 +9924,7 @@ const de_ListStackSetOperationsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListStackSetOperationsCommand = de_ListStackSetOperationsCommand;
 const de_ListStackSetOperationsCommandError = async (output, context) => {
@@ -9984,10 +9939,9 @@ const de_ListStackSetOperationsCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10003,7 +9957,7 @@ const de_ListStackSetsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListStackSetsCommand = de_ListStackSetsCommand;
 const de_ListStackSetsCommandError = async (output, context) => {
@@ -10013,10 +9967,9 @@ const de_ListStackSetsCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -10031,7 +9984,7 @@ const de_ListTypeRegistrationsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListTypeRegistrationsCommand = de_ListTypeRegistrationsCommand;
 const de_ListTypeRegistrationsCommandError = async (output, context) => {
@@ -10046,10 +9999,9 @@ const de_ListTypeRegistrationsCommandError = async (output, context) => {
             throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10065,7 +10017,7 @@ const de_ListTypesCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListTypesCommand = de_ListTypesCommand;
 const de_ListTypesCommandError = async (output, context) => {
@@ -10080,10 +10032,9 @@ const de_ListTypesCommandError = async (output, context) => {
             throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10099,7 +10050,7 @@ const de_ListTypeVersionsCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ListTypeVersionsCommand = de_ListTypeVersionsCommand;
 const de_ListTypeVersionsCommandError = async (output, context) => {
@@ -10114,10 +10065,9 @@ const de_ListTypeVersionsCommandError = async (output, context) => {
             throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10133,7 +10083,7 @@ const de_PublishTypeCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_PublishTypeCommand = de_PublishTypeCommand;
 const de_PublishTypeCommandError = async (output, context) => {
@@ -10151,10 +10101,9 @@ const de_PublishTypeCommandError = async (output, context) => {
             throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10170,7 +10119,7 @@ const de_RecordHandlerProgressCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_RecordHandlerProgressCommand = de_RecordHandlerProgressCommand;
 const de_RecordHandlerProgressCommandError = async (output, context) => {
@@ -10188,10 +10137,9 @@ const de_RecordHandlerProgressCommandError = async (output, context) => {
             throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10207,7 +10155,7 @@ const de_RegisterPublisherCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_RegisterPublisherCommand = de_RegisterPublisherCommand;
 const de_RegisterPublisherCommandError = async (output, context) => {
@@ -10222,10 +10170,9 @@ const de_RegisterPublisherCommandError = async (output, context) => {
             throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10241,7 +10188,7 @@ const de_RegisterTypeCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_RegisterTypeCommand = de_RegisterTypeCommand;
 const de_RegisterTypeCommandError = async (output, context) => {
@@ -10256,10 +10203,9 @@ const de_RegisterTypeCommandError = async (output, context) => {
             throw await de_CFNRegistryExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10275,7 +10221,7 @@ const de_RollbackStackCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_RollbackStackCommand = de_RollbackStackCommand;
 const de_RollbackStackCommandError = async (output, context) => {
@@ -10290,10 +10236,9 @@ const de_RollbackStackCommandError = async (output, context) => {
             throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10306,7 +10251,7 @@ const de_SetStackPolicyCommand = async (output, context) => {
     const response = {
         $metadata: deserializeMetadata(output),
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_SetStackPolicyCommand = de_SetStackPolicyCommand;
 const de_SetStackPolicyCommandError = async (output, context) => {
@@ -10316,10 +10261,9 @@ const de_SetStackPolicyCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -10334,7 +10278,7 @@ const de_SetTypeConfigurationCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_SetTypeConfigurationCommand = de_SetTypeConfigurationCommand;
 const de_SetTypeConfigurationCommandError = async (output, context) => {
@@ -10352,10 +10296,9 @@ const de_SetTypeConfigurationCommandError = async (output, context) => {
             throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10371,7 +10314,7 @@ const de_SetTypeDefaultVersionCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_SetTypeDefaultVersionCommand = de_SetTypeDefaultVersionCommand;
 const de_SetTypeDefaultVersionCommandError = async (output, context) => {
@@ -10389,10 +10332,9 @@ const de_SetTypeDefaultVersionCommandError = async (output, context) => {
             throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10405,7 +10347,7 @@ const de_SignalResourceCommand = async (output, context) => {
     const response = {
         $metadata: deserializeMetadata(output),
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_SignalResourceCommand = de_SignalResourceCommand;
 const de_SignalResourceCommandError = async (output, context) => {
@@ -10415,10 +10357,9 @@ const de_SignalResourceCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -10433,7 +10374,7 @@ const de_StopStackSetOperationCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_StopStackSetOperationCommand = de_StopStackSetOperationCommand;
 const de_StopStackSetOperationCommandError = async (output, context) => {
@@ -10454,10 +10395,9 @@ const de_StopStackSetOperationCommandError = async (output, context) => {
             throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10473,7 +10413,7 @@ const de_TestTypeCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_TestTypeCommand = de_TestTypeCommand;
 const de_TestTypeCommandError = async (output, context) => {
@@ -10491,10 +10431,9 @@ const de_TestTypeCommandError = async (output, context) => {
             throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10510,7 +10449,7 @@ const de_UpdateStackCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_UpdateStackCommand = de_UpdateStackCommand;
 const de_UpdateStackCommandError = async (output, context) => {
@@ -10528,10 +10467,9 @@ const de_UpdateStackCommandError = async (output, context) => {
             throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10547,7 +10485,7 @@ const de_UpdateStackInstancesCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_UpdateStackInstancesCommand = de_UpdateStackInstancesCommand;
 const de_UpdateStackInstancesCommandError = async (output, context) => {
@@ -10577,10 +10515,9 @@ const de_UpdateStackInstancesCommandError = async (output, context) => {
             throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10596,7 +10533,7 @@ const de_UpdateStackSetCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_UpdateStackSetCommand = de_UpdateStackSetCommand;
 const de_UpdateStackSetCommandError = async (output, context) => {
@@ -10626,10 +10563,9 @@ const de_UpdateStackSetCommandError = async (output, context) => {
             throw await de_StaleRequestExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
                 errorCode,
             });
     }
@@ -10645,7 +10581,7 @@ const de_UpdateTerminationProtectionCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_UpdateTerminationProtectionCommand = de_UpdateTerminationProtectionCommand;
 const de_UpdateTerminationProtectionCommandError = async (output, context) => {
@@ -10655,10 +10591,9 @@ const de_UpdateTerminationProtectionCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -10673,7 +10608,7 @@ const de_ValidateTemplateCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_ValidateTemplateCommand = de_ValidateTemplateCommand;
 const de_ValidateTemplateCommandError = async (output, context) => {
@@ -10683,10 +10618,9 @@ const de_ValidateTemplateCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: CloudFormationServiceException_1.CloudFormationServiceException,
         errorCode,
     });
 };
@@ -15515,6 +15449,7 @@ const collectBody = (streamBody = new Uint8Array(), context) => {
     return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 const collectBodyString = (streamBody, context) => collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+const throwDefaultError = (0, smithy_client_1.withBaseException)(CloudFormationServiceException_1.CloudFormationServiceException);
 const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, body) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const contents = {
@@ -17022,16 +16957,16 @@ const se_CreateTokenCommand = async (input, context) => {
     };
     const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/token";
     let body;
-    body = JSON.stringify({
-        ...(input.clientId != null && { clientId: input.clientId }),
-        ...(input.clientSecret != null && { clientSecret: input.clientSecret }),
-        ...(input.code != null && { code: input.code }),
-        ...(input.deviceCode != null && { deviceCode: input.deviceCode }),
-        ...(input.grantType != null && { grantType: input.grantType }),
-        ...(input.redirectUri != null && { redirectUri: input.redirectUri }),
-        ...(input.refreshToken != null && { refreshToken: input.refreshToken }),
-        ...(input.scope != null && { scope: se_Scopes(input.scope, context) }),
-    });
+    body = JSON.stringify((0, smithy_client_1.take)(input, {
+        clientId: [],
+        clientSecret: [],
+        code: [],
+        deviceCode: [],
+        grantType: [],
+        redirectUri: [],
+        refreshToken: [],
+        scope: (_) => (0, smithy_client_1._json)(_),
+    }));
     return new protocol_http_1.HttpRequest({
         protocol,
         hostname,
@@ -17050,11 +16985,11 @@ const se_RegisterClientCommand = async (input, context) => {
     };
     const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/client/register";
     let body;
-    body = JSON.stringify({
-        ...(input.clientName != null && { clientName: input.clientName }),
-        ...(input.clientType != null && { clientType: input.clientType }),
-        ...(input.scopes != null && { scopes: se_Scopes(input.scopes, context) }),
-    });
+    body = JSON.stringify((0, smithy_client_1.take)(input, {
+        clientName: [],
+        clientType: [],
+        scopes: (_) => (0, smithy_client_1._json)(_),
+    }));
     return new protocol_http_1.HttpRequest({
         protocol,
         hostname,
@@ -17073,11 +17008,11 @@ const se_StartDeviceAuthorizationCommand = async (input, context) => {
     };
     const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device_authorization";
     let body;
-    body = JSON.stringify({
-        ...(input.clientId != null && { clientId: input.clientId }),
-        ...(input.clientSecret != null && { clientSecret: input.clientSecret }),
-        ...(input.startUrl != null && { startUrl: input.startUrl }),
-    });
+    body = JSON.stringify((0, smithy_client_1.take)(input, {
+        clientId: [],
+        clientSecret: [],
+        startUrl: [],
+    }));
     return new protocol_http_1.HttpRequest({
         protocol,
         hostname,
@@ -17093,25 +17028,18 @@ const de_CreateTokenCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CreateTokenCommandError(output, context);
     }
-    const contents = map({
+    const contents = (0, smithy_client_1.map)({
         $metadata: deserializeMetadata(output),
     });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.accessToken != null) {
-        contents.accessToken = (0, smithy_client_1.expectString)(data.accessToken);
-    }
-    if (data.expiresIn != null) {
-        contents.expiresIn = (0, smithy_client_1.expectInt32)(data.expiresIn);
-    }
-    if (data.idToken != null) {
-        contents.idToken = (0, smithy_client_1.expectString)(data.idToken);
-    }
-    if (data.refreshToken != null) {
-        contents.refreshToken = (0, smithy_client_1.expectString)(data.refreshToken);
-    }
-    if (data.tokenType != null) {
-        contents.tokenType = (0, smithy_client_1.expectString)(data.tokenType);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        accessToken: smithy_client_1.expectString,
+        expiresIn: smithy_client_1.expectInt32,
+        idToken: smithy_client_1.expectString,
+        refreshToken: smithy_client_1.expectString,
+        tokenType: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     return contents;
 };
 exports.de_CreateTokenCommand = de_CreateTokenCommand;
@@ -17157,10 +17085,9 @@ const de_CreateTokenCommandError = async (output, context) => {
             throw await de_UnsupportedGrantTypeExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody,
-                exceptionCtor: SSOOIDCServiceException_1.SSOOIDCServiceException,
                 errorCode,
             });
     }
@@ -17169,28 +17096,19 @@ const de_RegisterClientCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_RegisterClientCommandError(output, context);
     }
-    const contents = map({
+    const contents = (0, smithy_client_1.map)({
         $metadata: deserializeMetadata(output),
     });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.authorizationEndpoint != null) {
-        contents.authorizationEndpoint = (0, smithy_client_1.expectString)(data.authorizationEndpoint);
-    }
-    if (data.clientId != null) {
-        contents.clientId = (0, smithy_client_1.expectString)(data.clientId);
-    }
-    if (data.clientIdIssuedAt != null) {
-        contents.clientIdIssuedAt = (0, smithy_client_1.expectLong)(data.clientIdIssuedAt);
-    }
-    if (data.clientSecret != null) {
-        contents.clientSecret = (0, smithy_client_1.expectString)(data.clientSecret);
-    }
-    if (data.clientSecretExpiresAt != null) {
-        contents.clientSecretExpiresAt = (0, smithy_client_1.expectLong)(data.clientSecretExpiresAt);
-    }
-    if (data.tokenEndpoint != null) {
-        contents.tokenEndpoint = (0, smithy_client_1.expectString)(data.tokenEndpoint);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        authorizationEndpoint: smithy_client_1.expectString,
+        clientId: smithy_client_1.expectString,
+        clientIdIssuedAt: smithy_client_1.expectLong,
+        clientSecret: smithy_client_1.expectString,
+        clientSecretExpiresAt: smithy_client_1.expectLong,
+        tokenEndpoint: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     return contents;
 };
 exports.de_RegisterClientCommand = de_RegisterClientCommand;
@@ -17215,10 +17133,9 @@ const de_RegisterClientCommandError = async (output, context) => {
             throw await de_InvalidScopeExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody,
-                exceptionCtor: SSOOIDCServiceException_1.SSOOIDCServiceException,
                 errorCode,
             });
     }
@@ -17227,28 +17144,19 @@ const de_StartDeviceAuthorizationCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_StartDeviceAuthorizationCommandError(output, context);
     }
-    const contents = map({
+    const contents = (0, smithy_client_1.map)({
         $metadata: deserializeMetadata(output),
     });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.deviceCode != null) {
-        contents.deviceCode = (0, smithy_client_1.expectString)(data.deviceCode);
-    }
-    if (data.expiresIn != null) {
-        contents.expiresIn = (0, smithy_client_1.expectInt32)(data.expiresIn);
-    }
-    if (data.interval != null) {
-        contents.interval = (0, smithy_client_1.expectInt32)(data.interval);
-    }
-    if (data.userCode != null) {
-        contents.userCode = (0, smithy_client_1.expectString)(data.userCode);
-    }
-    if (data.verificationUri != null) {
-        contents.verificationUri = (0, smithy_client_1.expectString)(data.verificationUri);
-    }
-    if (data.verificationUriComplete != null) {
-        contents.verificationUriComplete = (0, smithy_client_1.expectString)(data.verificationUriComplete);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        deviceCode: smithy_client_1.expectString,
+        expiresIn: smithy_client_1.expectInt32,
+        interval: smithy_client_1.expectInt32,
+        userCode: smithy_client_1.expectString,
+        verificationUri: smithy_client_1.expectString,
+        verificationUriComplete: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     return contents;
 };
 exports.de_StartDeviceAuthorizationCommand = de_StartDeviceAuthorizationCommand;
@@ -17276,24 +17184,22 @@ const de_StartDeviceAuthorizationCommandError = async (output, context) => {
             throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody,
-                exceptionCtor: SSOOIDCServiceException_1.SSOOIDCServiceException,
                 errorCode,
             });
     }
 };
-const map = smithy_client_1.map;
+const throwDefaultError = (0, smithy_client_1.withBaseException)(SSOOIDCServiceException_1.SSOOIDCServiceException);
 const de_AccessDeniedExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.AccessDeniedException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17301,14 +17207,13 @@ const de_AccessDeniedExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_AuthorizationPendingExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.AuthorizationPendingException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17316,14 +17221,13 @@ const de_AuthorizationPendingExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_ExpiredTokenExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.ExpiredTokenException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17331,14 +17235,13 @@ const de_ExpiredTokenExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_InternalServerExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.InternalServerException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17346,14 +17249,13 @@ const de_InternalServerExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_InvalidClientExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.InvalidClientException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17361,14 +17263,13 @@ const de_InvalidClientExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_InvalidClientMetadataExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.InvalidClientMetadataException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17376,14 +17277,13 @@ const de_InvalidClientMetadataExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_InvalidGrantExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.InvalidGrantException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17391,14 +17291,13 @@ const de_InvalidGrantExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_InvalidRequestExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.InvalidRequestException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17406,14 +17305,13 @@ const de_InvalidRequestExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_InvalidScopeExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.InvalidScopeException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17421,14 +17319,13 @@ const de_InvalidScopeExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_SlowDownExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.SlowDownException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17436,14 +17333,13 @@ const de_SlowDownExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_UnauthorizedClientExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.UnauthorizedClientException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -17451,26 +17347,18 @@ const de_UnauthorizedClientExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_UnsupportedGrantTypeExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.error != null) {
-        contents.error = (0, smithy_client_1.expectString)(data.error);
-    }
-    if (data.error_description != null) {
-        contents.error_description = (0, smithy_client_1.expectString)(data.error_description);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        error: smithy_client_1.expectString,
+        error_description: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.UnsupportedGrantTypeException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
-};
-const se_Scopes = (input, context) => {
-    return input
-        .filter((e) => e != null)
-        .map((entry) => {
-        return entry;
-    });
 };
 const deserializeMetadata = (output) => ({
     httpStatusCode: output.statusCode,
@@ -18258,11 +18146,11 @@ const models_0_1 = __nccwpck_require__(66390);
 const SSOServiceException_1 = __nccwpck_require__(81517);
 const se_GetRoleCredentialsCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const headers = map({}, isSerializableHeaderValue, {
+    const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
         "x-amz-sso_bearer_token": input.accessToken,
     });
     const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/federation/credentials";
-    const query = map({
+    const query = (0, smithy_client_1.map)({
         role_name: [, (0, smithy_client_1.expectNonNull)(input.roleName, `roleName`)],
         account_id: [, (0, smithy_client_1.expectNonNull)(input.accountId, `accountId`)],
     });
@@ -18281,11 +18169,11 @@ const se_GetRoleCredentialsCommand = async (input, context) => {
 exports.se_GetRoleCredentialsCommand = se_GetRoleCredentialsCommand;
 const se_ListAccountRolesCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const headers = map({}, isSerializableHeaderValue, {
+    const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
         "x-amz-sso_bearer_token": input.accessToken,
     });
     const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/roles";
-    const query = map({
+    const query = (0, smithy_client_1.map)({
         next_token: [, input.nextToken],
         max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
         account_id: [, (0, smithy_client_1.expectNonNull)(input.accountId, `accountId`)],
@@ -18305,11 +18193,11 @@ const se_ListAccountRolesCommand = async (input, context) => {
 exports.se_ListAccountRolesCommand = se_ListAccountRolesCommand;
 const se_ListAccountsCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const headers = map({}, isSerializableHeaderValue, {
+    const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
         "x-amz-sso_bearer_token": input.accessToken,
     });
     const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/accounts";
-    const query = map({
+    const query = (0, smithy_client_1.map)({
         next_token: [, input.nextToken],
         max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
     });
@@ -18328,7 +18216,7 @@ const se_ListAccountsCommand = async (input, context) => {
 exports.se_ListAccountsCommand = se_ListAccountsCommand;
 const se_LogoutCommand = async (input, context) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const headers = map({}, isSerializableHeaderValue, {
+    const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
         "x-amz-sso_bearer_token": input.accessToken,
     });
     const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logout";
@@ -18348,13 +18236,14 @@ const de_GetRoleCredentialsCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_GetRoleCredentialsCommandError(output, context);
     }
-    const contents = map({
+    const contents = (0, smithy_client_1.map)({
         $metadata: deserializeMetadata(output),
     });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.roleCredentials != null) {
-        contents.roleCredentials = de_RoleCredentials(data.roleCredentials, context);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        roleCredentials: smithy_client_1._json,
+    });
+    Object.assign(contents, doc);
     return contents;
 };
 exports.de_GetRoleCredentialsCommand = de_GetRoleCredentialsCommand;
@@ -18379,10 +18268,9 @@ const de_GetRoleCredentialsCommandError = async (output, context) => {
             throw await de_UnauthorizedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody,
-                exceptionCtor: SSOServiceException_1.SSOServiceException,
                 errorCode,
             });
     }
@@ -18391,16 +18279,15 @@ const de_ListAccountRolesCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_ListAccountRolesCommandError(output, context);
     }
-    const contents = map({
+    const contents = (0, smithy_client_1.map)({
         $metadata: deserializeMetadata(output),
     });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.nextToken != null) {
-        contents.nextToken = (0, smithy_client_1.expectString)(data.nextToken);
-    }
-    if (data.roleList != null) {
-        contents.roleList = de_RoleListType(data.roleList, context);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        nextToken: smithy_client_1.expectString,
+        roleList: smithy_client_1._json,
+    });
+    Object.assign(contents, doc);
     return contents;
 };
 exports.de_ListAccountRolesCommand = de_ListAccountRolesCommand;
@@ -18425,10 +18312,9 @@ const de_ListAccountRolesCommandError = async (output, context) => {
             throw await de_UnauthorizedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody,
-                exceptionCtor: SSOServiceException_1.SSOServiceException,
                 errorCode,
             });
     }
@@ -18437,16 +18323,15 @@ const de_ListAccountsCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_ListAccountsCommandError(output, context);
     }
-    const contents = map({
+    const contents = (0, smithy_client_1.map)({
         $metadata: deserializeMetadata(output),
     });
     const data = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.expectObject)(await parseBody(output.body, context)), "body");
-    if (data.accountList != null) {
-        contents.accountList = de_AccountListType(data.accountList, context);
-    }
-    if (data.nextToken != null) {
-        contents.nextToken = (0, smithy_client_1.expectString)(data.nextToken);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        accountList: smithy_client_1._json,
+        nextToken: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     return contents;
 };
 exports.de_ListAccountsCommand = de_ListAccountsCommand;
@@ -18471,10 +18356,9 @@ const de_ListAccountsCommandError = async (output, context) => {
             throw await de_UnauthorizedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody,
-                exceptionCtor: SSOServiceException_1.SSOServiceException,
                 errorCode,
             });
     }
@@ -18483,7 +18367,7 @@ const de_LogoutCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_LogoutCommandError(output, context);
     }
-    const contents = map({
+    const contents = (0, smithy_client_1.map)({
         $metadata: deserializeMetadata(output),
     });
     await collectBody(output.body, context);
@@ -18508,21 +18392,21 @@ const de_LogoutCommandError = async (output, context) => {
             throw await de_UnauthorizedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody,
-                exceptionCtor: SSOServiceException_1.SSOServiceException,
                 errorCode,
             });
     }
 };
-const map = smithy_client_1.map;
+const throwDefaultError = (0, smithy_client_1.withBaseException)(SSOServiceException_1.SSOServiceException);
 const de_InvalidRequestExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.message != null) {
-        contents.message = (0, smithy_client_1.expectString)(data.message);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        message: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.InvalidRequestException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -18530,11 +18414,12 @@ const de_InvalidRequestExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_ResourceNotFoundExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.message != null) {
-        contents.message = (0, smithy_client_1.expectString)(data.message);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        message: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.ResourceNotFoundException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -18542,11 +18427,12 @@ const de_ResourceNotFoundExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_TooManyRequestsExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.message != null) {
-        contents.message = (0, smithy_client_1.expectString)(data.message);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        message: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.TooManyRequestsException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
@@ -18554,59 +18440,17 @@ const de_TooManyRequestsExceptionRes = async (parsedOutput, context) => {
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
 };
 const de_UnauthorizedExceptionRes = async (parsedOutput, context) => {
-    const contents = map({});
+    const contents = (0, smithy_client_1.map)({});
     const data = parsedOutput.body;
-    if (data.message != null) {
-        contents.message = (0, smithy_client_1.expectString)(data.message);
-    }
+    const doc = (0, smithy_client_1.take)(data, {
+        message: smithy_client_1.expectString,
+    });
+    Object.assign(contents, doc);
     const exception = new models_0_1.UnauthorizedException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
     });
     return (0, smithy_client_1.decorateServiceException)(exception, parsedOutput.body);
-};
-const de_AccountInfo = (output, context) => {
-    return {
-        accountId: (0, smithy_client_1.expectString)(output.accountId),
-        accountName: (0, smithy_client_1.expectString)(output.accountName),
-        emailAddress: (0, smithy_client_1.expectString)(output.emailAddress),
-    };
-};
-const de_AccountListType = (output, context) => {
-    const retVal = (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
-        return de_AccountInfo(entry, context);
-    });
-    return retVal;
-};
-const de_RoleCredentials = (output, context) => {
-    return {
-        accessKeyId: (0, smithy_client_1.expectString)(output.accessKeyId),
-        expiration: (0, smithy_client_1.expectLong)(output.expiration),
-        secretAccessKey: (0, smithy_client_1.expectString)(output.secretAccessKey),
-        sessionToken: (0, smithy_client_1.expectString)(output.sessionToken),
-    };
-};
-const de_RoleInfo = (output, context) => {
-    return {
-        accountId: (0, smithy_client_1.expectString)(output.accountId),
-        roleName: (0, smithy_client_1.expectString)(output.roleName),
-    };
-};
-const de_RoleListType = (output, context) => {
-    const retVal = (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        if (entry === null) {
-            return null;
-        }
-        return de_RoleInfo(entry, context);
-    });
-    return retVal;
 };
 const deserializeMetadata = (output) => ({
     httpStatusCode: output.statusCode,
@@ -19827,7 +19671,7 @@ const de_AssumeRoleCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_AssumeRoleCommand = de_AssumeRoleCommand;
 const de_AssumeRoleCommandError = async (output, context) => {
@@ -19851,10 +19695,9 @@ const de_AssumeRoleCommandError = async (output, context) => {
             throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: STSServiceException_1.STSServiceException,
                 errorCode,
             });
     }
@@ -19870,7 +19713,7 @@ const de_AssumeRoleWithSAMLCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_AssumeRoleWithSAMLCommand = de_AssumeRoleWithSAMLCommand;
 const de_AssumeRoleWithSAMLCommandError = async (output, context) => {
@@ -19900,10 +19743,9 @@ const de_AssumeRoleWithSAMLCommandError = async (output, context) => {
             throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: STSServiceException_1.STSServiceException,
                 errorCode,
             });
     }
@@ -19919,7 +19761,7 @@ const de_AssumeRoleWithWebIdentityCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_AssumeRoleWithWebIdentityCommand = de_AssumeRoleWithWebIdentityCommand;
 const de_AssumeRoleWithWebIdentityCommandError = async (output, context) => {
@@ -19952,10 +19794,9 @@ const de_AssumeRoleWithWebIdentityCommandError = async (output, context) => {
             throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: STSServiceException_1.STSServiceException,
                 errorCode,
             });
     }
@@ -19971,7 +19812,7 @@ const de_DecodeAuthorizationMessageCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_DecodeAuthorizationMessageCommand = de_DecodeAuthorizationMessageCommand;
 const de_DecodeAuthorizationMessageCommandError = async (output, context) => {
@@ -19986,10 +19827,9 @@ const de_DecodeAuthorizationMessageCommandError = async (output, context) => {
             throw await de_InvalidAuthorizationMessageExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: STSServiceException_1.STSServiceException,
                 errorCode,
             });
     }
@@ -20005,7 +19845,7 @@ const de_GetAccessKeyInfoCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_GetAccessKeyInfoCommand = de_GetAccessKeyInfoCommand;
 const de_GetAccessKeyInfoCommandError = async (output, context) => {
@@ -20015,10 +19855,9 @@ const de_GetAccessKeyInfoCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: STSServiceException_1.STSServiceException,
         errorCode,
     });
 };
@@ -20033,7 +19872,7 @@ const de_GetCallerIdentityCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_GetCallerIdentityCommand = de_GetCallerIdentityCommand;
 const de_GetCallerIdentityCommandError = async (output, context) => {
@@ -20043,10 +19882,9 @@ const de_GetCallerIdentityCommandError = async (output, context) => {
     };
     const errorCode = loadQueryErrorCode(output, parsedOutput.body);
     const parsedBody = parsedOutput.body;
-    (0, smithy_client_1.throwDefaultError)({
+    return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: STSServiceException_1.STSServiceException,
         errorCode,
     });
 };
@@ -20061,7 +19899,7 @@ const de_GetFederationTokenCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_GetFederationTokenCommand = de_GetFederationTokenCommand;
 const de_GetFederationTokenCommandError = async (output, context) => {
@@ -20082,10 +19920,9 @@ const de_GetFederationTokenCommandError = async (output, context) => {
             throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: STSServiceException_1.STSServiceException,
                 errorCode,
             });
     }
@@ -20101,7 +19938,7 @@ const de_GetSessionTokenCommand = async (output, context) => {
         $metadata: deserializeMetadata(output),
         ...contents,
     };
-    return Promise.resolve(response);
+    return response;
 };
 exports.de_GetSessionTokenCommand = de_GetSessionTokenCommand;
 const de_GetSessionTokenCommandError = async (output, context) => {
@@ -20116,10 +19953,9 @@ const de_GetSessionTokenCommandError = async (output, context) => {
             throw await de_RegionDisabledExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
-            (0, smithy_client_1.throwDefaultError)({
+            return throwDefaultError({
                 output,
                 parsedBody: parsedBody.Error,
-                exceptionCtor: STSServiceException_1.STSServiceException,
                 errorCode,
             });
     }
@@ -20662,6 +20498,7 @@ const collectBody = (streamBody = new Uint8Array(), context) => {
     return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 const collectBodyString = (streamBody, context) => collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+const throwDefaultError = (0, smithy_client_1.withBaseException)(STSServiceException_1.STSServiceException);
 const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, body) => {
     const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
     const contents = {
@@ -26375,7 +26212,7 @@ const stripLeadingZeroes = (value) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.throwDefaultError = void 0;
+exports.withBaseException = exports.throwDefaultError = void 0;
 const exceptions_1 = __nccwpck_require__(57778);
 const throwDefaultError = ({ output, parsedBody, exceptionCtor, errorCode }) => {
     const $metadata = deserializeMetadata(output);
@@ -26388,6 +26225,12 @@ const throwDefaultError = ({ output, parsedBody, exceptionCtor, errorCode }) => 
     throw (0, exceptions_1.decorateServiceException)(response, parsedBody);
 };
 exports.throwDefaultError = throwDefaultError;
+const withBaseException = (ExceptionCtor) => {
+    return ({ output, parsedBody, errorCode }) => {
+        (0, exports.throwDefaultError)({ output, parsedBody, exceptionCtor: ExceptionCtor, errorCode });
+    };
+};
+exports.withBaseException = withBaseException;
 const deserializeMetadata = (output) => {
     var _a, _b;
     return ({
@@ -26563,6 +26406,7 @@ tslib_1.__exportStar(__nccwpck_require__(21599), exports);
 tslib_1.__exportStar(__nccwpck_require__(34014), exports);
 tslib_1.__exportStar(__nccwpck_require__(80308), exports);
 tslib_1.__exportStar(__nccwpck_require__(38000), exports);
+tslib_1.__exportStar(__nccwpck_require__(59801), exports);
 tslib_1.__exportStar(__nccwpck_require__(48730), exports);
 
 
@@ -27028,6 +26872,36 @@ const serializeFloat = (value) => {
     }
 };
 exports.serializeFloat = serializeFloat;
+
+
+/***/ }),
+
+/***/ 59801:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports._json = void 0;
+const _json = (obj) => {
+    if (obj == null) {
+        return {};
+    }
+    if (Array.isArray(obj)) {
+        return obj.filter((_) => _ != null);
+    }
+    if (typeof obj === "object") {
+        const target = {};
+        for (const key of Object.keys(obj)) {
+            if (obj[key] == null) {
+                continue;
+            }
+            target[key] = (0, exports._json)(obj[key]);
+        }
+        return target;
+    }
+    return obj;
+};
+exports._json = _json;
 
 
 /***/ }),
@@ -33187,28 +33061,28 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 43713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.312.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.312.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.310.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.310.0","@aws-sdk/util-defaults-mode-node":"3.310.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","@aws-sdk/util-waiter":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.315.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.315.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.315.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.315.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.315.0","@aws-sdk/util-defaults-mode-node":"3.315.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","@aws-sdk/util-waiter":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 69722:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.310.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.310.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.310.0","@aws-sdk/util-defaults-mode-node":"3.310.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.315.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.315.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.315.0","@aws-sdk/util-defaults-mode-node":"3.315.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
 /***/ 91092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.310.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.310.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.310.0","@aws-sdk/util-defaults-mode-node":"3.310.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.315.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.315.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.315.0","@aws-sdk/util-defaults-mode-node":"3.315.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.312.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-sdk-sts":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.310.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.310.0","@aws-sdk/util-defaults-mode-node":"3.310.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.315.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.315.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-sdk-sts":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.315.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.315.0","@aws-sdk/util-defaults-mode-node":"3.315.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
