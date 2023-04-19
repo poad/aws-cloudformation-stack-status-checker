@@ -1773,6 +1773,7 @@ function isLoopbackAddress(host) {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CloudFormation = void 0;
+const smithy_client_1 = __nccwpck_require__(4963);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ActivateTypeCommand_1 = __nccwpck_require__(48434);
 const BatchDescribeTypeConfigurationsCommand_1 = __nccwpck_require__(77385);
@@ -1840,933 +1841,78 @@ const UpdateStackInstancesCommand_1 = __nccwpck_require__(25455);
 const UpdateStackSetCommand_1 = __nccwpck_require__(70556);
 const UpdateTerminationProtectionCommand_1 = __nccwpck_require__(50917);
 const ValidateTemplateCommand_1 = __nccwpck_require__(11609);
+const commands = {
+    ActivateTypeCommand: ActivateTypeCommand_1.ActivateTypeCommand,
+    BatchDescribeTypeConfigurationsCommand: BatchDescribeTypeConfigurationsCommand_1.BatchDescribeTypeConfigurationsCommand,
+    CancelUpdateStackCommand: CancelUpdateStackCommand_1.CancelUpdateStackCommand,
+    ContinueUpdateRollbackCommand: ContinueUpdateRollbackCommand_1.ContinueUpdateRollbackCommand,
+    CreateChangeSetCommand: CreateChangeSetCommand_1.CreateChangeSetCommand,
+    CreateStackCommand: CreateStackCommand_1.CreateStackCommand,
+    CreateStackInstancesCommand: CreateStackInstancesCommand_1.CreateStackInstancesCommand,
+    CreateStackSetCommand: CreateStackSetCommand_1.CreateStackSetCommand,
+    DeactivateTypeCommand: DeactivateTypeCommand_1.DeactivateTypeCommand,
+    DeleteChangeSetCommand: DeleteChangeSetCommand_1.DeleteChangeSetCommand,
+    DeleteStackCommand: DeleteStackCommand_1.DeleteStackCommand,
+    DeleteStackInstancesCommand: DeleteStackInstancesCommand_1.DeleteStackInstancesCommand,
+    DeleteStackSetCommand: DeleteStackSetCommand_1.DeleteStackSetCommand,
+    DeregisterTypeCommand: DeregisterTypeCommand_1.DeregisterTypeCommand,
+    DescribeAccountLimitsCommand: DescribeAccountLimitsCommand_1.DescribeAccountLimitsCommand,
+    DescribeChangeSetCommand: DescribeChangeSetCommand_1.DescribeChangeSetCommand,
+    DescribeChangeSetHooksCommand: DescribeChangeSetHooksCommand_1.DescribeChangeSetHooksCommand,
+    DescribePublisherCommand: DescribePublisherCommand_1.DescribePublisherCommand,
+    DescribeStackDriftDetectionStatusCommand: DescribeStackDriftDetectionStatusCommand_1.DescribeStackDriftDetectionStatusCommand,
+    DescribeStackEventsCommand: DescribeStackEventsCommand_1.DescribeStackEventsCommand,
+    DescribeStackInstanceCommand: DescribeStackInstanceCommand_1.DescribeStackInstanceCommand,
+    DescribeStackResourceCommand: DescribeStackResourceCommand_1.DescribeStackResourceCommand,
+    DescribeStackResourceDriftsCommand: DescribeStackResourceDriftsCommand_1.DescribeStackResourceDriftsCommand,
+    DescribeStackResourcesCommand: DescribeStackResourcesCommand_1.DescribeStackResourcesCommand,
+    DescribeStacksCommand: DescribeStacksCommand_1.DescribeStacksCommand,
+    DescribeStackSetCommand: DescribeStackSetCommand_1.DescribeStackSetCommand,
+    DescribeStackSetOperationCommand: DescribeStackSetOperationCommand_1.DescribeStackSetOperationCommand,
+    DescribeTypeCommand: DescribeTypeCommand_1.DescribeTypeCommand,
+    DescribeTypeRegistrationCommand: DescribeTypeRegistrationCommand_1.DescribeTypeRegistrationCommand,
+    DetectStackDriftCommand: DetectStackDriftCommand_1.DetectStackDriftCommand,
+    DetectStackResourceDriftCommand: DetectStackResourceDriftCommand_1.DetectStackResourceDriftCommand,
+    DetectStackSetDriftCommand: DetectStackSetDriftCommand_1.DetectStackSetDriftCommand,
+    EstimateTemplateCostCommand: EstimateTemplateCostCommand_1.EstimateTemplateCostCommand,
+    ExecuteChangeSetCommand: ExecuteChangeSetCommand_1.ExecuteChangeSetCommand,
+    GetStackPolicyCommand: GetStackPolicyCommand_1.GetStackPolicyCommand,
+    GetTemplateCommand: GetTemplateCommand_1.GetTemplateCommand,
+    GetTemplateSummaryCommand: GetTemplateSummaryCommand_1.GetTemplateSummaryCommand,
+    ImportStacksToStackSetCommand: ImportStacksToStackSetCommand_1.ImportStacksToStackSetCommand,
+    ListChangeSetsCommand: ListChangeSetsCommand_1.ListChangeSetsCommand,
+    ListExportsCommand: ListExportsCommand_1.ListExportsCommand,
+    ListImportsCommand: ListImportsCommand_1.ListImportsCommand,
+    ListStackInstancesCommand: ListStackInstancesCommand_1.ListStackInstancesCommand,
+    ListStackResourcesCommand: ListStackResourcesCommand_1.ListStackResourcesCommand,
+    ListStacksCommand: ListStacksCommand_1.ListStacksCommand,
+    ListStackSetOperationResultsCommand: ListStackSetOperationResultsCommand_1.ListStackSetOperationResultsCommand,
+    ListStackSetOperationsCommand: ListStackSetOperationsCommand_1.ListStackSetOperationsCommand,
+    ListStackSetsCommand: ListStackSetsCommand_1.ListStackSetsCommand,
+    ListTypeRegistrationsCommand: ListTypeRegistrationsCommand_1.ListTypeRegistrationsCommand,
+    ListTypesCommand: ListTypesCommand_1.ListTypesCommand,
+    ListTypeVersionsCommand: ListTypeVersionsCommand_1.ListTypeVersionsCommand,
+    PublishTypeCommand: PublishTypeCommand_1.PublishTypeCommand,
+    RecordHandlerProgressCommand: RecordHandlerProgressCommand_1.RecordHandlerProgressCommand,
+    RegisterPublisherCommand: RegisterPublisherCommand_1.RegisterPublisherCommand,
+    RegisterTypeCommand: RegisterTypeCommand_1.RegisterTypeCommand,
+    RollbackStackCommand: RollbackStackCommand_1.RollbackStackCommand,
+    SetStackPolicyCommand: SetStackPolicyCommand_1.SetStackPolicyCommand,
+    SetTypeConfigurationCommand: SetTypeConfigurationCommand_1.SetTypeConfigurationCommand,
+    SetTypeDefaultVersionCommand: SetTypeDefaultVersionCommand_1.SetTypeDefaultVersionCommand,
+    SignalResourceCommand: SignalResourceCommand_1.SignalResourceCommand,
+    StopStackSetOperationCommand: StopStackSetOperationCommand_1.StopStackSetOperationCommand,
+    TestTypeCommand: TestTypeCommand_1.TestTypeCommand,
+    UpdateStackCommand: UpdateStackCommand_1.UpdateStackCommand,
+    UpdateStackInstancesCommand: UpdateStackInstancesCommand_1.UpdateStackInstancesCommand,
+    UpdateStackSetCommand: UpdateStackSetCommand_1.UpdateStackSetCommand,
+    UpdateTerminationProtectionCommand: UpdateTerminationProtectionCommand_1.UpdateTerminationProtectionCommand,
+    ValidateTemplateCommand: ValidateTemplateCommand_1.ValidateTemplateCommand,
+};
 class CloudFormation extends CloudFormationClient_1.CloudFormationClient {
-    activateType(args, optionsOrCb, cb) {
-        const command = new ActivateTypeCommand_1.ActivateTypeCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    batchDescribeTypeConfigurations(args, optionsOrCb, cb) {
-        const command = new BatchDescribeTypeConfigurationsCommand_1.BatchDescribeTypeConfigurationsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    cancelUpdateStack(args, optionsOrCb, cb) {
-        const command = new CancelUpdateStackCommand_1.CancelUpdateStackCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    continueUpdateRollback(args, optionsOrCb, cb) {
-        const command = new ContinueUpdateRollbackCommand_1.ContinueUpdateRollbackCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    createChangeSet(args, optionsOrCb, cb) {
-        const command = new CreateChangeSetCommand_1.CreateChangeSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    createStack(args, optionsOrCb, cb) {
-        const command = new CreateStackCommand_1.CreateStackCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    createStackInstances(args, optionsOrCb, cb) {
-        const command = new CreateStackInstancesCommand_1.CreateStackInstancesCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    createStackSet(args, optionsOrCb, cb) {
-        const command = new CreateStackSetCommand_1.CreateStackSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    deactivateType(args, optionsOrCb, cb) {
-        const command = new DeactivateTypeCommand_1.DeactivateTypeCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    deleteChangeSet(args, optionsOrCb, cb) {
-        const command = new DeleteChangeSetCommand_1.DeleteChangeSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    deleteStack(args, optionsOrCb, cb) {
-        const command = new DeleteStackCommand_1.DeleteStackCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    deleteStackInstances(args, optionsOrCb, cb) {
-        const command = new DeleteStackInstancesCommand_1.DeleteStackInstancesCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    deleteStackSet(args, optionsOrCb, cb) {
-        const command = new DeleteStackSetCommand_1.DeleteStackSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    deregisterType(args, optionsOrCb, cb) {
-        const command = new DeregisterTypeCommand_1.DeregisterTypeCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeAccountLimits(args, optionsOrCb, cb) {
-        const command = new DescribeAccountLimitsCommand_1.DescribeAccountLimitsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeChangeSet(args, optionsOrCb, cb) {
-        const command = new DescribeChangeSetCommand_1.DescribeChangeSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeChangeSetHooks(args, optionsOrCb, cb) {
-        const command = new DescribeChangeSetHooksCommand_1.DescribeChangeSetHooksCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describePublisher(args, optionsOrCb, cb) {
-        const command = new DescribePublisherCommand_1.DescribePublisherCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStackDriftDetectionStatus(args, optionsOrCb, cb) {
-        const command = new DescribeStackDriftDetectionStatusCommand_1.DescribeStackDriftDetectionStatusCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStackEvents(args, optionsOrCb, cb) {
-        const command = new DescribeStackEventsCommand_1.DescribeStackEventsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStackInstance(args, optionsOrCb, cb) {
-        const command = new DescribeStackInstanceCommand_1.DescribeStackInstanceCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStackResource(args, optionsOrCb, cb) {
-        const command = new DescribeStackResourceCommand_1.DescribeStackResourceCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStackResourceDrifts(args, optionsOrCb, cb) {
-        const command = new DescribeStackResourceDriftsCommand_1.DescribeStackResourceDriftsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStackResources(args, optionsOrCb, cb) {
-        const command = new DescribeStackResourcesCommand_1.DescribeStackResourcesCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStacks(args, optionsOrCb, cb) {
-        const command = new DescribeStacksCommand_1.DescribeStacksCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStackSet(args, optionsOrCb, cb) {
-        const command = new DescribeStackSetCommand_1.DescribeStackSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeStackSetOperation(args, optionsOrCb, cb) {
-        const command = new DescribeStackSetOperationCommand_1.DescribeStackSetOperationCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeType(args, optionsOrCb, cb) {
-        const command = new DescribeTypeCommand_1.DescribeTypeCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    describeTypeRegistration(args, optionsOrCb, cb) {
-        const command = new DescribeTypeRegistrationCommand_1.DescribeTypeRegistrationCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    detectStackDrift(args, optionsOrCb, cb) {
-        const command = new DetectStackDriftCommand_1.DetectStackDriftCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    detectStackResourceDrift(args, optionsOrCb, cb) {
-        const command = new DetectStackResourceDriftCommand_1.DetectStackResourceDriftCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    detectStackSetDrift(args, optionsOrCb, cb) {
-        const command = new DetectStackSetDriftCommand_1.DetectStackSetDriftCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    estimateTemplateCost(args, optionsOrCb, cb) {
-        const command = new EstimateTemplateCostCommand_1.EstimateTemplateCostCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    executeChangeSet(args, optionsOrCb, cb) {
-        const command = new ExecuteChangeSetCommand_1.ExecuteChangeSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    getStackPolicy(args, optionsOrCb, cb) {
-        const command = new GetStackPolicyCommand_1.GetStackPolicyCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    getTemplate(args, optionsOrCb, cb) {
-        const command = new GetTemplateCommand_1.GetTemplateCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    getTemplateSummary(args, optionsOrCb, cb) {
-        const command = new GetTemplateSummaryCommand_1.GetTemplateSummaryCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    importStacksToStackSet(args, optionsOrCb, cb) {
-        const command = new ImportStacksToStackSetCommand_1.ImportStacksToStackSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listChangeSets(args, optionsOrCb, cb) {
-        const command = new ListChangeSetsCommand_1.ListChangeSetsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listExports(args, optionsOrCb, cb) {
-        const command = new ListExportsCommand_1.ListExportsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listImports(args, optionsOrCb, cb) {
-        const command = new ListImportsCommand_1.ListImportsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listStackInstances(args, optionsOrCb, cb) {
-        const command = new ListStackInstancesCommand_1.ListStackInstancesCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listStackResources(args, optionsOrCb, cb) {
-        const command = new ListStackResourcesCommand_1.ListStackResourcesCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listStacks(args, optionsOrCb, cb) {
-        const command = new ListStacksCommand_1.ListStacksCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listStackSetOperationResults(args, optionsOrCb, cb) {
-        const command = new ListStackSetOperationResultsCommand_1.ListStackSetOperationResultsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listStackSetOperations(args, optionsOrCb, cb) {
-        const command = new ListStackSetOperationsCommand_1.ListStackSetOperationsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listStackSets(args, optionsOrCb, cb) {
-        const command = new ListStackSetsCommand_1.ListStackSetsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listTypeRegistrations(args, optionsOrCb, cb) {
-        const command = new ListTypeRegistrationsCommand_1.ListTypeRegistrationsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listTypes(args, optionsOrCb, cb) {
-        const command = new ListTypesCommand_1.ListTypesCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listTypeVersions(args, optionsOrCb, cb) {
-        const command = new ListTypeVersionsCommand_1.ListTypeVersionsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    publishType(args, optionsOrCb, cb) {
-        const command = new PublishTypeCommand_1.PublishTypeCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    recordHandlerProgress(args, optionsOrCb, cb) {
-        const command = new RecordHandlerProgressCommand_1.RecordHandlerProgressCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    registerPublisher(args, optionsOrCb, cb) {
-        const command = new RegisterPublisherCommand_1.RegisterPublisherCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    registerType(args, optionsOrCb, cb) {
-        const command = new RegisterTypeCommand_1.RegisterTypeCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    rollbackStack(args, optionsOrCb, cb) {
-        const command = new RollbackStackCommand_1.RollbackStackCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    setStackPolicy(args, optionsOrCb, cb) {
-        const command = new SetStackPolicyCommand_1.SetStackPolicyCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    setTypeConfiguration(args, optionsOrCb, cb) {
-        const command = new SetTypeConfigurationCommand_1.SetTypeConfigurationCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    setTypeDefaultVersion(args, optionsOrCb, cb) {
-        const command = new SetTypeDefaultVersionCommand_1.SetTypeDefaultVersionCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    signalResource(args, optionsOrCb, cb) {
-        const command = new SignalResourceCommand_1.SignalResourceCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    stopStackSetOperation(args, optionsOrCb, cb) {
-        const command = new StopStackSetOperationCommand_1.StopStackSetOperationCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    testType(args, optionsOrCb, cb) {
-        const command = new TestTypeCommand_1.TestTypeCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    updateStack(args, optionsOrCb, cb) {
-        const command = new UpdateStackCommand_1.UpdateStackCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    updateStackInstances(args, optionsOrCb, cb) {
-        const command = new UpdateStackInstancesCommand_1.UpdateStackInstancesCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    updateStackSet(args, optionsOrCb, cb) {
-        const command = new UpdateStackSetCommand_1.UpdateStackSetCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    updateTerminationProtection(args, optionsOrCb, cb) {
-        const command = new UpdateTerminationProtectionCommand_1.UpdateTerminationProtectionCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    validateTemplate(args, optionsOrCb, cb) {
-        const command = new ValidateTemplateCommand_1.ValidateTemplateCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
 }
 exports.CloudFormation = CloudFormation;
+(0, smithy_client_1.createAggregatedClient)(commands, CloudFormation);
 
 
 /***/ }),
@@ -16385,55 +15531,20 @@ exports.waitUntilTypeRegistrationComplete = waitUntilTypeRegistrationComplete;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SSOOIDC = void 0;
+const smithy_client_1 = __nccwpck_require__(4963);
 const CreateTokenCommand_1 = __nccwpck_require__(62853);
 const RegisterClientCommand_1 = __nccwpck_require__(36677);
 const StartDeviceAuthorizationCommand_1 = __nccwpck_require__(38359);
 const SSOOIDCClient_1 = __nccwpck_require__(70139);
+const commands = {
+    CreateTokenCommand: CreateTokenCommand_1.CreateTokenCommand,
+    RegisterClientCommand: RegisterClientCommand_1.RegisterClientCommand,
+    StartDeviceAuthorizationCommand: StartDeviceAuthorizationCommand_1.StartDeviceAuthorizationCommand,
+};
 class SSOOIDC extends SSOOIDCClient_1.SSOOIDCClient {
-    createToken(args, optionsOrCb, cb) {
-        const command = new CreateTokenCommand_1.CreateTokenCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    registerClient(args, optionsOrCb, cb) {
-        const command = new RegisterClientCommand_1.RegisterClientCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    startDeviceAuthorization(args, optionsOrCb, cb) {
-        const command = new StartDeviceAuthorizationCommand_1.StartDeviceAuthorizationCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
 }
 exports.SSOOIDC = SSOOIDC;
+(0, smithy_client_1.createAggregatedClient)(commands, SSOOIDC);
 
 
 /***/ }),
@@ -17508,70 +16619,22 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SSO = void 0;
+const smithy_client_1 = __nccwpck_require__(4963);
 const GetRoleCredentialsCommand_1 = __nccwpck_require__(18972);
 const ListAccountRolesCommand_1 = __nccwpck_require__(1513);
 const ListAccountsCommand_1 = __nccwpck_require__(64296);
 const LogoutCommand_1 = __nccwpck_require__(12586);
 const SSOClient_1 = __nccwpck_require__(71057);
+const commands = {
+    GetRoleCredentialsCommand: GetRoleCredentialsCommand_1.GetRoleCredentialsCommand,
+    ListAccountRolesCommand: ListAccountRolesCommand_1.ListAccountRolesCommand,
+    ListAccountsCommand: ListAccountsCommand_1.ListAccountsCommand,
+    LogoutCommand: LogoutCommand_1.LogoutCommand,
+};
 class SSO extends SSOClient_1.SSOClient {
-    getRoleCredentials(args, optionsOrCb, cb) {
-        const command = new GetRoleCredentialsCommand_1.GetRoleCredentialsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listAccountRoles(args, optionsOrCb, cb) {
-        const command = new ListAccountRolesCommand_1.ListAccountRolesCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    listAccounts(args, optionsOrCb, cb) {
-        const command = new ListAccountsCommand_1.ListAccountsCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    logout(args, optionsOrCb, cb) {
-        const command = new LogoutCommand_1.LogoutCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
 }
 exports.SSO = SSO;
+(0, smithy_client_1.createAggregatedClient)(commands, SSO);
 
 
 /***/ }),
@@ -18600,6 +17663,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.STS = void 0;
+const smithy_client_1 = __nccwpck_require__(4963);
 const AssumeRoleCommand_1 = __nccwpck_require__(59802);
 const AssumeRoleWithSAMLCommand_1 = __nccwpck_require__(72865);
 const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(37451);
@@ -18609,121 +17673,20 @@ const GetCallerIdentityCommand_1 = __nccwpck_require__(24278);
 const GetFederationTokenCommand_1 = __nccwpck_require__(57552);
 const GetSessionTokenCommand_1 = __nccwpck_require__(43285);
 const STSClient_1 = __nccwpck_require__(64195);
+const commands = {
+    AssumeRoleCommand: AssumeRoleCommand_1.AssumeRoleCommand,
+    AssumeRoleWithSAMLCommand: AssumeRoleWithSAMLCommand_1.AssumeRoleWithSAMLCommand,
+    AssumeRoleWithWebIdentityCommand: AssumeRoleWithWebIdentityCommand_1.AssumeRoleWithWebIdentityCommand,
+    DecodeAuthorizationMessageCommand: DecodeAuthorizationMessageCommand_1.DecodeAuthorizationMessageCommand,
+    GetAccessKeyInfoCommand: GetAccessKeyInfoCommand_1.GetAccessKeyInfoCommand,
+    GetCallerIdentityCommand: GetCallerIdentityCommand_1.GetCallerIdentityCommand,
+    GetFederationTokenCommand: GetFederationTokenCommand_1.GetFederationTokenCommand,
+    GetSessionTokenCommand: GetSessionTokenCommand_1.GetSessionTokenCommand,
+};
 class STS extends STSClient_1.STSClient {
-    assumeRole(args, optionsOrCb, cb) {
-        const command = new AssumeRoleCommand_1.AssumeRoleCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    assumeRoleWithSAML(args, optionsOrCb, cb) {
-        const command = new AssumeRoleWithSAMLCommand_1.AssumeRoleWithSAMLCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    assumeRoleWithWebIdentity(args, optionsOrCb, cb) {
-        const command = new AssumeRoleWithWebIdentityCommand_1.AssumeRoleWithWebIdentityCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    decodeAuthorizationMessage(args, optionsOrCb, cb) {
-        const command = new DecodeAuthorizationMessageCommand_1.DecodeAuthorizationMessageCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    getAccessKeyInfo(args, optionsOrCb, cb) {
-        const command = new GetAccessKeyInfoCommand_1.GetAccessKeyInfoCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    getCallerIdentity(args, optionsOrCb, cb) {
-        const command = new GetCallerIdentityCommand_1.GetCallerIdentityCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    getFederationToken(args, optionsOrCb, cb) {
-        const command = new GetFederationTokenCommand_1.GetFederationTokenCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
-    getSessionToken(args, optionsOrCb, cb) {
-        const command = new GetSessionTokenCommand_1.GetSessionTokenCommand(args);
-        if (typeof optionsOrCb === "function") {
-            this.send(command, optionsOrCb);
-        }
-        else if (typeof cb === "function") {
-            if (typeof optionsOrCb !== "object")
-                throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-            this.send(command, optionsOrCb || {}, cb);
-        }
-        else {
-            return this.send(command, optionsOrCb);
-        }
-    }
 }
 exports.STS = STS;
+(0, smithy_client_1.createAggregatedClient)(commands, STS);
 
 
 /***/ }),
@@ -26005,6 +24968,38 @@ exports.SENSITIVE_STRING = "***SensitiveInformation***";
 
 /***/ }),
 
+/***/ 65516:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createAggregatedClient = void 0;
+const createAggregatedClient = (commands, Client) => {
+    for (const command of Object.keys(commands)) {
+        const CommandCtor = commands[command];
+        const methodImpl = async function (args, optionsOrCb, cb) {
+            const command = new CommandCtor(args);
+            if (typeof optionsOrCb === "function") {
+                this.send(command, optionsOrCb);
+            }
+            else if (typeof cb === "function") {
+                if (typeof optionsOrCb !== "object")
+                    throw new Error(`Expected http options but got ${typeof optionsOrCb}`);
+                this.send(command, optionsOrCb || {}, cb);
+            }
+            else {
+                return this.send(command, optionsOrCb);
+            }
+        };
+        const methodName = (command[0].toLowerCase() + command.slice(1)).replace(/Command$/, "");
+        Client.prototype[methodName] = methodImpl;
+    }
+};
+exports.createAggregatedClient = createAggregatedClient;
+
+
+/***/ }),
+
 /***/ 24695:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
@@ -26393,6 +25388,7 @@ tslib_1.__exportStar(__nccwpck_require__(78571), exports);
 tslib_1.__exportStar(__nccwpck_require__(36034), exports);
 tslib_1.__exportStar(__nccwpck_require__(4014), exports);
 tslib_1.__exportStar(__nccwpck_require__(78392), exports);
+tslib_1.__exportStar(__nccwpck_require__(65516), exports);
 tslib_1.__exportStar(__nccwpck_require__(24695), exports);
 tslib_1.__exportStar(__nccwpck_require__(47222), exports);
 tslib_1.__exportStar(__nccwpck_require__(33088), exports);
@@ -33061,28 +32057,28 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 43713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.315.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.315.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.315.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.315.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.315.0","@aws-sdk/util-defaults-mode-node":"3.315.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","@aws-sdk/util-waiter":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.316.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.316.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.316.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.316.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.316.0","@aws-sdk/util-defaults-mode-node":"3.316.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","@aws-sdk/util-waiter":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
 /***/ 69722:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.315.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.315.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.315.0","@aws-sdk/util-defaults-mode-node":"3.315.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.316.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.316.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.316.0","@aws-sdk/util-defaults-mode-node":"3.316.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
 /***/ 91092:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.315.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.315.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.315.0","@aws-sdk/util-defaults-mode-node":"3.315.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.316.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.316.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.316.0","@aws-sdk/util-defaults-mode-node":"3.316.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
 /***/ 7947:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.315.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.315.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-sdk-sts":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.315.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.315.0","@aws-sdk/util-defaults-mode-node":"3.315.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.316.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/config-resolver":"3.310.0","@aws-sdk/credential-provider-node":"3.316.0","@aws-sdk/fetch-http-handler":"3.310.0","@aws-sdk/hash-node":"3.310.0","@aws-sdk/invalid-dependency":"3.310.0","@aws-sdk/middleware-content-length":"3.310.0","@aws-sdk/middleware-endpoint":"3.310.0","@aws-sdk/middleware-host-header":"3.310.0","@aws-sdk/middleware-logger":"3.310.0","@aws-sdk/middleware-recursion-detection":"3.310.0","@aws-sdk/middleware-retry":"3.310.0","@aws-sdk/middleware-sdk-sts":"3.310.0","@aws-sdk/middleware-serde":"3.310.0","@aws-sdk/middleware-signing":"3.310.0","@aws-sdk/middleware-stack":"3.310.0","@aws-sdk/middleware-user-agent":"3.310.0","@aws-sdk/node-config-provider":"3.310.0","@aws-sdk/node-http-handler":"3.310.0","@aws-sdk/protocol-http":"3.310.0","@aws-sdk/smithy-client":"3.316.0","@aws-sdk/types":"3.310.0","@aws-sdk/url-parser":"3.310.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.316.0","@aws-sdk/util-defaults-mode-node":"3.316.0","@aws-sdk/util-endpoints":"3.310.0","@aws-sdk/util-retry":"3.310.0","@aws-sdk/util-user-agent-browser":"3.310.0","@aws-sdk/util-user-agent-node":"3.310.0","@aws-sdk/util-utf8":"3.310.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
