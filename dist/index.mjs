@@ -2333,6 +2333,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CloudFormation = void 0;
 const smithy_client_1 = __nccwpck_require__(4963);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
+const ActivateOrganizationsAccessCommand_1 = __nccwpck_require__(15634);
 const ActivateTypeCommand_1 = __nccwpck_require__(48434);
 const BatchDescribeTypeConfigurationsCommand_1 = __nccwpck_require__(77385);
 const CancelUpdateStackCommand_1 = __nccwpck_require__(88544);
@@ -2341,6 +2342,7 @@ const CreateChangeSetCommand_1 = __nccwpck_require__(27066);
 const CreateStackCommand_1 = __nccwpck_require__(94382);
 const CreateStackInstancesCommand_1 = __nccwpck_require__(79648);
 const CreateStackSetCommand_1 = __nccwpck_require__(59691);
+const DeactivateOrganizationsAccessCommand_1 = __nccwpck_require__(24623);
 const DeactivateTypeCommand_1 = __nccwpck_require__(57493);
 const DeleteChangeSetCommand_1 = __nccwpck_require__(51096);
 const DeleteStackCommand_1 = __nccwpck_require__(38501);
@@ -2350,6 +2352,7 @@ const DeregisterTypeCommand_1 = __nccwpck_require__(15931);
 const DescribeAccountLimitsCommand_1 = __nccwpck_require__(90664);
 const DescribeChangeSetCommand_1 = __nccwpck_require__(94895);
 const DescribeChangeSetHooksCommand_1 = __nccwpck_require__(76824);
+const DescribeOrganizationsAccessCommand_1 = __nccwpck_require__(54280);
 const DescribePublisherCommand_1 = __nccwpck_require__(27761);
 const DescribeStackDriftDetectionStatusCommand_1 = __nccwpck_require__(13680);
 const DescribeStackEventsCommand_1 = __nccwpck_require__(87929);
@@ -2400,6 +2403,7 @@ const UpdateStackSetCommand_1 = __nccwpck_require__(70556);
 const UpdateTerminationProtectionCommand_1 = __nccwpck_require__(50917);
 const ValidateTemplateCommand_1 = __nccwpck_require__(11609);
 const commands = {
+    ActivateOrganizationsAccessCommand: ActivateOrganizationsAccessCommand_1.ActivateOrganizationsAccessCommand,
     ActivateTypeCommand: ActivateTypeCommand_1.ActivateTypeCommand,
     BatchDescribeTypeConfigurationsCommand: BatchDescribeTypeConfigurationsCommand_1.BatchDescribeTypeConfigurationsCommand,
     CancelUpdateStackCommand: CancelUpdateStackCommand_1.CancelUpdateStackCommand,
@@ -2408,6 +2412,7 @@ const commands = {
     CreateStackCommand: CreateStackCommand_1.CreateStackCommand,
     CreateStackInstancesCommand: CreateStackInstancesCommand_1.CreateStackInstancesCommand,
     CreateStackSetCommand: CreateStackSetCommand_1.CreateStackSetCommand,
+    DeactivateOrganizationsAccessCommand: DeactivateOrganizationsAccessCommand_1.DeactivateOrganizationsAccessCommand,
     DeactivateTypeCommand: DeactivateTypeCommand_1.DeactivateTypeCommand,
     DeleteChangeSetCommand: DeleteChangeSetCommand_1.DeleteChangeSetCommand,
     DeleteStackCommand: DeleteStackCommand_1.DeleteStackCommand,
@@ -2417,6 +2422,7 @@ const commands = {
     DescribeAccountLimitsCommand: DescribeAccountLimitsCommand_1.DescribeAccountLimitsCommand,
     DescribeChangeSetCommand: DescribeChangeSetCommand_1.DescribeChangeSetCommand,
     DescribeChangeSetHooksCommand: DescribeChangeSetHooksCommand_1.DescribeChangeSetHooksCommand,
+    DescribeOrganizationsAccessCommand: DescribeOrganizationsAccessCommand_1.DescribeOrganizationsAccessCommand,
     DescribePublisherCommand: DescribePublisherCommand_1.DescribePublisherCommand,
     DescribeStackDriftDetectionStatusCommand: DescribeStackDriftDetectionStatusCommand_1.DescribeStackDriftDetectionStatusCommand,
     DescribeStackEventsCommand: DescribeStackEventsCommand_1.DescribeStackEventsCommand,
@@ -2519,6 +2525,59 @@ class CloudFormationClient extends smithy_client_1.Client {
     }
 }
 exports.CloudFormationClient = CloudFormationClient;
+
+
+/***/ }),
+
+/***/ 15634:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ActivateOrganizationsAccessCommand = exports.$Command = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
+const middleware_serde_1 = __nccwpck_require__(93631);
+const smithy_client_1 = __nccwpck_require__(4963);
+Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
+const Aws_query_1 = __nccwpck_require__(46110);
+class ActivateOrganizationsAccessCommand extends smithy_client_1.Command {
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
+    constructor(input) {
+        super();
+        this.input = input;
+    }
+    resolveMiddleware(clientStack, configuration, options) {
+        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ActivateOrganizationsAccessCommand.getEndpointParameterInstructions()));
+        const stack = clientStack.concat(this.middlewareStack);
+        const { logger } = configuration;
+        const clientName = "CloudFormationClient";
+        const commandName = "ActivateOrganizationsAccessCommand";
+        const handlerExecutionContext = {
+            logger,
+            clientName,
+            commandName,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
+        };
+        const { requestHandler } = configuration;
+        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
+    }
+    serialize(input, context) {
+        return (0, Aws_query_1.se_ActivateOrganizationsAccessCommand)(input, context);
+    }
+    deserialize(output, context) {
+        return (0, Aws_query_1.de_ActivateOrganizationsAccessCommand)(output, context);
+    }
+}
+exports.ActivateOrganizationsAccessCommand = ActivateOrganizationsAccessCommand;
 
 
 /***/ }),
@@ -2943,6 +3002,59 @@ class CreateStackSetCommand extends smithy_client_1.Command {
     }
 }
 exports.CreateStackSetCommand = CreateStackSetCommand;
+
+
+/***/ }),
+
+/***/ 24623:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DeactivateOrganizationsAccessCommand = exports.$Command = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
+const middleware_serde_1 = __nccwpck_require__(93631);
+const smithy_client_1 = __nccwpck_require__(4963);
+Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
+const Aws_query_1 = __nccwpck_require__(46110);
+class DeactivateOrganizationsAccessCommand extends smithy_client_1.Command {
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
+    constructor(input) {
+        super();
+        this.input = input;
+    }
+    resolveMiddleware(clientStack, configuration, options) {
+        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeactivateOrganizationsAccessCommand.getEndpointParameterInstructions()));
+        const stack = clientStack.concat(this.middlewareStack);
+        const { logger } = configuration;
+        const clientName = "CloudFormationClient";
+        const commandName = "DeactivateOrganizationsAccessCommand";
+        const handlerExecutionContext = {
+            logger,
+            clientName,
+            commandName,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
+        };
+        const { requestHandler } = configuration;
+        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
+    }
+    serialize(input, context) {
+        return (0, Aws_query_1.se_DeactivateOrganizationsAccessCommand)(input, context);
+    }
+    deserialize(output, context) {
+        return (0, Aws_query_1.de_DeactivateOrganizationsAccessCommand)(output, context);
+    }
+}
+exports.DeactivateOrganizationsAccessCommand = DeactivateOrganizationsAccessCommand;
 
 
 /***/ }),
@@ -3420,6 +3532,59 @@ class DescribeChangeSetHooksCommand extends smithy_client_1.Command {
     }
 }
 exports.DescribeChangeSetHooksCommand = DescribeChangeSetHooksCommand;
+
+
+/***/ }),
+
+/***/ 54280:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DescribeOrganizationsAccessCommand = exports.$Command = void 0;
+const middleware_endpoint_1 = __nccwpck_require__(5497);
+const middleware_serde_1 = __nccwpck_require__(93631);
+const smithy_client_1 = __nccwpck_require__(4963);
+Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
+const Aws_query_1 = __nccwpck_require__(46110);
+class DescribeOrganizationsAccessCommand extends smithy_client_1.Command {
+    static getEndpointParameterInstructions() {
+        return {
+            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+            Endpoint: { type: "builtInParams", name: "endpoint" },
+            Region: { type: "builtInParams", name: "region" },
+            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+        };
+    }
+    constructor(input) {
+        super();
+        this.input = input;
+    }
+    resolveMiddleware(clientStack, configuration, options) {
+        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeOrganizationsAccessCommand.getEndpointParameterInstructions()));
+        const stack = clientStack.concat(this.middlewareStack);
+        const { logger } = configuration;
+        const clientName = "CloudFormationClient";
+        const commandName = "DescribeOrganizationsAccessCommand";
+        const handlerExecutionContext = {
+            logger,
+            clientName,
+            commandName,
+            inputFilterSensitiveLog: (_) => _,
+            outputFilterSensitiveLog: (_) => _,
+        };
+        const { requestHandler } = configuration;
+        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
+    }
+    serialize(input, context) {
+        return (0, Aws_query_1.se_DescribeOrganizationsAccessCommand)(input, context);
+    }
+    deserialize(output, context) {
+        return (0, Aws_query_1.de_DescribeOrganizationsAccessCommand)(output, context);
+    }
+}
+exports.DescribeOrganizationsAccessCommand = DescribeOrganizationsAccessCommand;
 
 
 /***/ }),
@@ -6027,6 +6192,7 @@ exports.ValidateTemplateCommand = ValidateTemplateCommand;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(4351);
+tslib_1.__exportStar(__nccwpck_require__(15634), exports);
 tslib_1.__exportStar(__nccwpck_require__(48434), exports);
 tslib_1.__exportStar(__nccwpck_require__(77385), exports);
 tslib_1.__exportStar(__nccwpck_require__(88544), exports);
@@ -6035,6 +6201,7 @@ tslib_1.__exportStar(__nccwpck_require__(27066), exports);
 tslib_1.__exportStar(__nccwpck_require__(94382), exports);
 tslib_1.__exportStar(__nccwpck_require__(79648), exports);
 tslib_1.__exportStar(__nccwpck_require__(59691), exports);
+tslib_1.__exportStar(__nccwpck_require__(24623), exports);
 tslib_1.__exportStar(__nccwpck_require__(57493), exports);
 tslib_1.__exportStar(__nccwpck_require__(51096), exports);
 tslib_1.__exportStar(__nccwpck_require__(38501), exports);
@@ -6044,6 +6211,7 @@ tslib_1.__exportStar(__nccwpck_require__(15931), exports);
 tslib_1.__exportStar(__nccwpck_require__(90664), exports);
 tslib_1.__exportStar(__nccwpck_require__(94895), exports);
 tslib_1.__exportStar(__nccwpck_require__(76824), exports);
+tslib_1.__exportStar(__nccwpck_require__(54280), exports);
 tslib_1.__exportStar(__nccwpck_require__(27761), exports);
 tslib_1.__exportStar(__nccwpck_require__(13680), exports);
 tslib_1.__exportStar(__nccwpck_require__(87929), exports);
@@ -6203,8 +6371,8 @@ tslib_1.__exportStar(__nccwpck_require__(75378), exports);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.StackInstanceStatus = exports.StackInstanceDetailedStatus = exports.ResourceStatus = exports.HookStatus = exports.StackDriftStatus = exports.StackDriftDetectionStatus = exports.PublisherStatus = exports.IdentityProvider = exports.RegistryType = exports.StackSetNotEmptyException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.PermissionModels = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.InvalidOperationException = exports.RegionConcurrencyType = exports.OnFailure = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.ChangeSetType = exports.ExecutionStatus = exports.ChangeSetStatus = exports.ChangeSetNotFoundException = exports.ChangeSetHooksStatus = exports.HookTargetType = exports.HookInvocationPoint = exports.HookFailureMode = exports.ChangeType = exports.Replacement = exports.RequiresRecreation = exports.ResourceAttribute = exports.EvaluationType = exports.ChangeSource = exports.ChangeAction = exports.Category = exports.Capability = exports.TokenAlreadyExistsException = exports.CallAs = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.VersionBump = exports.ThirdPartyType = exports.AccountGateStatus = exports.AccountFilterType = void 0;
-exports.ResourceSignalStatus = exports.HandlerErrorCode = exports.OperationStatus = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.StackSetOperationResultStatus = exports.OperationResultFilterName = exports.StackInstanceFilterName = exports.StackNotFoundException = exports.TemplateStage = exports.RegistrationStatus = exports.Visibility = exports.TypeTestsStatus = exports.ProvisioningType = exports.DeprecatedStatus = exports.OperationNotFoundException = exports.StackSetOperationStatus = exports.StackSetOperationAction = exports.StackSetStatus = exports.StackSetDriftStatus = exports.StackSetDriftDetectionStatus = exports.StackStatus = exports.DifferenceType = exports.StackResourceDriftStatus = exports.StackInstanceNotFoundException = void 0;
+exports.ResourceStatus = exports.HookStatus = exports.StackDriftStatus = exports.StackDriftDetectionStatus = exports.PublisherStatus = exports.IdentityProvider = exports.OrganizationStatus = exports.RegistryType = exports.StackSetNotEmptyException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.PermissionModels = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.RegionConcurrencyType = exports.OnFailure = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.ChangeSetType = exports.ExecutionStatus = exports.ChangeSetStatus = exports.ChangeSetNotFoundException = exports.ChangeSetHooksStatus = exports.HookTargetType = exports.HookInvocationPoint = exports.HookFailureMode = exports.ChangeType = exports.Replacement = exports.RequiresRecreation = exports.ResourceAttribute = exports.EvaluationType = exports.ChangeSource = exports.ChangeAction = exports.Category = exports.Capability = exports.TokenAlreadyExistsException = exports.CallAs = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.VersionBump = exports.ThirdPartyType = exports.OperationNotFoundException = exports.InvalidOperationException = exports.AccountGateStatus = exports.AccountFilterType = void 0;
+exports.ResourceSignalStatus = exports.HandlerErrorCode = exports.OperationStatus = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.StackSetOperationResultStatus = exports.OperationResultFilterName = exports.StackInstanceFilterName = exports.StackNotFoundException = exports.TemplateStage = exports.RegistrationStatus = exports.Visibility = exports.TypeTestsStatus = exports.ProvisioningType = exports.DeprecatedStatus = exports.StackSetOperationStatus = exports.StackSetOperationAction = exports.StackSetStatus = exports.StackSetDriftStatus = exports.StackSetDriftDetectionStatus = exports.StackStatus = exports.DifferenceType = exports.StackResourceDriftStatus = exports.StackInstanceNotFoundException = exports.StackInstanceStatus = exports.StackInstanceDetailedStatus = void 0;
 const CloudFormationServiceException_1 = __nccwpck_require__(215);
 exports.AccountFilterType = {
     DIFFERENCE: "DIFFERENCE",
@@ -6217,6 +6385,34 @@ exports.AccountGateStatus = {
     SKIPPED: "SKIPPED",
     SUCCEEDED: "SUCCEEDED",
 };
+class InvalidOperationException extends CloudFormationServiceException_1.CloudFormationServiceException {
+    constructor(opts) {
+        super({
+            name: "InvalidOperationException",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "InvalidOperationException";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, InvalidOperationException.prototype);
+        this.Message = opts.Message;
+    }
+}
+exports.InvalidOperationException = InvalidOperationException;
+class OperationNotFoundException extends CloudFormationServiceException_1.CloudFormationServiceException {
+    constructor(opts) {
+        super({
+            name: "OperationNotFoundException",
+            $fault: "client",
+            ...opts,
+        });
+        this.name = "OperationNotFoundException";
+        this.$fault = "client";
+        Object.setPrototypeOf(this, OperationNotFoundException.prototype);
+        this.Message = opts.Message;
+    }
+}
+exports.OperationNotFoundException = OperationNotFoundException;
 exports.ThirdPartyType = {
     HOOK: "HOOK",
     MODULE: "MODULE",
@@ -6439,20 +6635,6 @@ exports.RegionConcurrencyType = {
     PARALLEL: "PARALLEL",
     SEQUENTIAL: "SEQUENTIAL",
 };
-class InvalidOperationException extends CloudFormationServiceException_1.CloudFormationServiceException {
-    constructor(opts) {
-        super({
-            name: "InvalidOperationException",
-            $fault: "client",
-            ...opts,
-        });
-        this.name = "InvalidOperationException";
-        this.$fault = "client";
-        Object.setPrototypeOf(this, InvalidOperationException.prototype);
-        this.Message = opts.Message;
-    }
-}
-exports.InvalidOperationException = InvalidOperationException;
 class OperationIdAlreadyExistsException extends CloudFormationServiceException_1.CloudFormationServiceException {
     constructor(opts) {
         super({
@@ -6573,6 +6755,11 @@ exports.RegistryType = {
     HOOK: "HOOK",
     MODULE: "MODULE",
     RESOURCE: "RESOURCE",
+};
+exports.OrganizationStatus = {
+    DISABLED: "DISABLED",
+    DISABLED_PERMANENTLY: "DISABLED_PERMANENTLY",
+    ENABLED: "ENABLED",
 };
 exports.IdentityProvider = {
     AWS_Marketplace: "AWS_Marketplace",
@@ -6717,20 +6904,6 @@ exports.StackSetOperationStatus = {
     STOPPING: "STOPPING",
     SUCCEEDED: "SUCCEEDED",
 };
-class OperationNotFoundException extends CloudFormationServiceException_1.CloudFormationServiceException {
-    constructor(opts) {
-        super({
-            name: "OperationNotFoundException",
-            $fault: "client",
-            ...opts,
-        });
-        this.name = "OperationNotFoundException";
-        this.$fault = "client";
-        Object.setPrototypeOf(this, OperationNotFoundException.prototype);
-        this.Message = opts.Message;
-    }
-}
-exports.OperationNotFoundException = OperationNotFoundException;
 exports.DeprecatedStatus = {
     DEPRECATED: "DEPRECATED",
     LIVE: "LIVE",
@@ -7459,15 +7632,26 @@ tslib_1.__exportStar(__nccwpck_require__(60985), exports);
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.se_ListTypeVersionsCommand = exports.se_ListTypesCommand = exports.se_ListTypeRegistrationsCommand = exports.se_ListStackSetsCommand = exports.se_ListStackSetOperationsCommand = exports.se_ListStackSetOperationResultsCommand = exports.se_ListStacksCommand = exports.se_ListStackResourcesCommand = exports.se_ListStackInstancesCommand = exports.se_ListImportsCommand = exports.se_ListExportsCommand = exports.se_ListChangeSetsCommand = exports.se_ImportStacksToStackSetCommand = exports.se_GetTemplateSummaryCommand = exports.se_GetTemplateCommand = exports.se_GetStackPolicyCommand = exports.se_ExecuteChangeSetCommand = exports.se_EstimateTemplateCostCommand = exports.se_DetectStackSetDriftCommand = exports.se_DetectStackResourceDriftCommand = exports.se_DetectStackDriftCommand = exports.se_DescribeTypeRegistrationCommand = exports.se_DescribeTypeCommand = exports.se_DescribeStackSetOperationCommand = exports.se_DescribeStackSetCommand = exports.se_DescribeStacksCommand = exports.se_DescribeStackResourcesCommand = exports.se_DescribeStackResourceDriftsCommand = exports.se_DescribeStackResourceCommand = exports.se_DescribeStackInstanceCommand = exports.se_DescribeStackEventsCommand = exports.se_DescribeStackDriftDetectionStatusCommand = exports.se_DescribePublisherCommand = exports.se_DescribeChangeSetHooksCommand = exports.se_DescribeChangeSetCommand = exports.se_DescribeAccountLimitsCommand = exports.se_DeregisterTypeCommand = exports.se_DeleteStackSetCommand = exports.se_DeleteStackInstancesCommand = exports.se_DeleteStackCommand = exports.se_DeleteChangeSetCommand = exports.se_DeactivateTypeCommand = exports.se_CreateStackSetCommand = exports.se_CreateStackInstancesCommand = exports.se_CreateStackCommand = exports.se_CreateChangeSetCommand = exports.se_ContinueUpdateRollbackCommand = exports.se_CancelUpdateStackCommand = exports.se_BatchDescribeTypeConfigurationsCommand = exports.se_ActivateTypeCommand = void 0;
-exports.de_ExecuteChangeSetCommand = exports.de_EstimateTemplateCostCommand = exports.de_DetectStackSetDriftCommand = exports.de_DetectStackResourceDriftCommand = exports.de_DetectStackDriftCommand = exports.de_DescribeTypeRegistrationCommand = exports.de_DescribeTypeCommand = exports.de_DescribeStackSetOperationCommand = exports.de_DescribeStackSetCommand = exports.de_DescribeStacksCommand = exports.de_DescribeStackResourcesCommand = exports.de_DescribeStackResourceDriftsCommand = exports.de_DescribeStackResourceCommand = exports.de_DescribeStackInstanceCommand = exports.de_DescribeStackEventsCommand = exports.de_DescribeStackDriftDetectionStatusCommand = exports.de_DescribePublisherCommand = exports.de_DescribeChangeSetHooksCommand = exports.de_DescribeChangeSetCommand = exports.de_DescribeAccountLimitsCommand = exports.de_DeregisterTypeCommand = exports.de_DeleteStackSetCommand = exports.de_DeleteStackInstancesCommand = exports.de_DeleteStackCommand = exports.de_DeleteChangeSetCommand = exports.de_DeactivateTypeCommand = exports.de_CreateStackSetCommand = exports.de_CreateStackInstancesCommand = exports.de_CreateStackCommand = exports.de_CreateChangeSetCommand = exports.de_ContinueUpdateRollbackCommand = exports.de_CancelUpdateStackCommand = exports.de_BatchDescribeTypeConfigurationsCommand = exports.de_ActivateTypeCommand = exports.se_ValidateTemplateCommand = exports.se_UpdateTerminationProtectionCommand = exports.se_UpdateStackSetCommand = exports.se_UpdateStackInstancesCommand = exports.se_UpdateStackCommand = exports.se_TestTypeCommand = exports.se_StopStackSetOperationCommand = exports.se_SignalResourceCommand = exports.se_SetTypeDefaultVersionCommand = exports.se_SetTypeConfigurationCommand = exports.se_SetStackPolicyCommand = exports.se_RollbackStackCommand = exports.se_RegisterTypeCommand = exports.se_RegisterPublisherCommand = exports.se_RecordHandlerProgressCommand = exports.se_PublishTypeCommand = void 0;
-exports.de_ValidateTemplateCommand = exports.de_UpdateTerminationProtectionCommand = exports.de_UpdateStackSetCommand = exports.de_UpdateStackInstancesCommand = exports.de_UpdateStackCommand = exports.de_TestTypeCommand = exports.de_StopStackSetOperationCommand = exports.de_SignalResourceCommand = exports.de_SetTypeDefaultVersionCommand = exports.de_SetTypeConfigurationCommand = exports.de_SetStackPolicyCommand = exports.de_RollbackStackCommand = exports.de_RegisterTypeCommand = exports.de_RegisterPublisherCommand = exports.de_RecordHandlerProgressCommand = exports.de_PublishTypeCommand = exports.de_ListTypeVersionsCommand = exports.de_ListTypesCommand = exports.de_ListTypeRegistrationsCommand = exports.de_ListStackSetsCommand = exports.de_ListStackSetOperationsCommand = exports.de_ListStackSetOperationResultsCommand = exports.de_ListStacksCommand = exports.de_ListStackResourcesCommand = exports.de_ListStackInstancesCommand = exports.de_ListImportsCommand = exports.de_ListExportsCommand = exports.de_ListChangeSetsCommand = exports.de_ImportStacksToStackSetCommand = exports.de_GetTemplateSummaryCommand = exports.de_GetTemplateCommand = exports.de_GetStackPolicyCommand = void 0;
+exports.se_ListStackSetsCommand = exports.se_ListStackSetOperationsCommand = exports.se_ListStackSetOperationResultsCommand = exports.se_ListStacksCommand = exports.se_ListStackResourcesCommand = exports.se_ListStackInstancesCommand = exports.se_ListImportsCommand = exports.se_ListExportsCommand = exports.se_ListChangeSetsCommand = exports.se_ImportStacksToStackSetCommand = exports.se_GetTemplateSummaryCommand = exports.se_GetTemplateCommand = exports.se_GetStackPolicyCommand = exports.se_ExecuteChangeSetCommand = exports.se_EstimateTemplateCostCommand = exports.se_DetectStackSetDriftCommand = exports.se_DetectStackResourceDriftCommand = exports.se_DetectStackDriftCommand = exports.se_DescribeTypeRegistrationCommand = exports.se_DescribeTypeCommand = exports.se_DescribeStackSetOperationCommand = exports.se_DescribeStackSetCommand = exports.se_DescribeStacksCommand = exports.se_DescribeStackResourcesCommand = exports.se_DescribeStackResourceDriftsCommand = exports.se_DescribeStackResourceCommand = exports.se_DescribeStackInstanceCommand = exports.se_DescribeStackEventsCommand = exports.se_DescribeStackDriftDetectionStatusCommand = exports.se_DescribePublisherCommand = exports.se_DescribeOrganizationsAccessCommand = exports.se_DescribeChangeSetHooksCommand = exports.se_DescribeChangeSetCommand = exports.se_DescribeAccountLimitsCommand = exports.se_DeregisterTypeCommand = exports.se_DeleteStackSetCommand = exports.se_DeleteStackInstancesCommand = exports.se_DeleteStackCommand = exports.se_DeleteChangeSetCommand = exports.se_DeactivateTypeCommand = exports.se_DeactivateOrganizationsAccessCommand = exports.se_CreateStackSetCommand = exports.se_CreateStackInstancesCommand = exports.se_CreateStackCommand = exports.se_CreateChangeSetCommand = exports.se_ContinueUpdateRollbackCommand = exports.se_CancelUpdateStackCommand = exports.se_BatchDescribeTypeConfigurationsCommand = exports.se_ActivateTypeCommand = exports.se_ActivateOrganizationsAccessCommand = void 0;
+exports.de_DescribeTypeCommand = exports.de_DescribeStackSetOperationCommand = exports.de_DescribeStackSetCommand = exports.de_DescribeStacksCommand = exports.de_DescribeStackResourcesCommand = exports.de_DescribeStackResourceDriftsCommand = exports.de_DescribeStackResourceCommand = exports.de_DescribeStackInstanceCommand = exports.de_DescribeStackEventsCommand = exports.de_DescribeStackDriftDetectionStatusCommand = exports.de_DescribePublisherCommand = exports.de_DescribeOrganizationsAccessCommand = exports.de_DescribeChangeSetHooksCommand = exports.de_DescribeChangeSetCommand = exports.de_DescribeAccountLimitsCommand = exports.de_DeregisterTypeCommand = exports.de_DeleteStackSetCommand = exports.de_DeleteStackInstancesCommand = exports.de_DeleteStackCommand = exports.de_DeleteChangeSetCommand = exports.de_DeactivateTypeCommand = exports.de_DeactivateOrganizationsAccessCommand = exports.de_CreateStackSetCommand = exports.de_CreateStackInstancesCommand = exports.de_CreateStackCommand = exports.de_CreateChangeSetCommand = exports.de_ContinueUpdateRollbackCommand = exports.de_CancelUpdateStackCommand = exports.de_BatchDescribeTypeConfigurationsCommand = exports.de_ActivateTypeCommand = exports.de_ActivateOrganizationsAccessCommand = exports.se_ValidateTemplateCommand = exports.se_UpdateTerminationProtectionCommand = exports.se_UpdateStackSetCommand = exports.se_UpdateStackInstancesCommand = exports.se_UpdateStackCommand = exports.se_TestTypeCommand = exports.se_StopStackSetOperationCommand = exports.se_SignalResourceCommand = exports.se_SetTypeDefaultVersionCommand = exports.se_SetTypeConfigurationCommand = exports.se_SetStackPolicyCommand = exports.se_RollbackStackCommand = exports.se_RegisterTypeCommand = exports.se_RegisterPublisherCommand = exports.se_RecordHandlerProgressCommand = exports.se_PublishTypeCommand = exports.se_ListTypeVersionsCommand = exports.se_ListTypesCommand = exports.se_ListTypeRegistrationsCommand = void 0;
+exports.de_ValidateTemplateCommand = exports.de_UpdateTerminationProtectionCommand = exports.de_UpdateStackSetCommand = exports.de_UpdateStackInstancesCommand = exports.de_UpdateStackCommand = exports.de_TestTypeCommand = exports.de_StopStackSetOperationCommand = exports.de_SignalResourceCommand = exports.de_SetTypeDefaultVersionCommand = exports.de_SetTypeConfigurationCommand = exports.de_SetStackPolicyCommand = exports.de_RollbackStackCommand = exports.de_RegisterTypeCommand = exports.de_RegisterPublisherCommand = exports.de_RecordHandlerProgressCommand = exports.de_PublishTypeCommand = exports.de_ListTypeVersionsCommand = exports.de_ListTypesCommand = exports.de_ListTypeRegistrationsCommand = exports.de_ListStackSetsCommand = exports.de_ListStackSetOperationsCommand = exports.de_ListStackSetOperationResultsCommand = exports.de_ListStacksCommand = exports.de_ListStackResourcesCommand = exports.de_ListStackInstancesCommand = exports.de_ListImportsCommand = exports.de_ListExportsCommand = exports.de_ListChangeSetsCommand = exports.de_ImportStacksToStackSetCommand = exports.de_GetTemplateSummaryCommand = exports.de_GetTemplateCommand = exports.de_GetStackPolicyCommand = exports.de_ExecuteChangeSetCommand = exports.de_EstimateTemplateCostCommand = exports.de_DetectStackSetDriftCommand = exports.de_DetectStackResourceDriftCommand = exports.de_DetectStackDriftCommand = exports.de_DescribeTypeRegistrationCommand = void 0;
 const smithy_client_1 = __nccwpck_require__(4963);
 const protocol_http_1 = __nccwpck_require__(64418);
 const fast_xml_parser_1 = __nccwpck_require__(12603);
 const uuid_1 = __nccwpck_require__(75840);
 const CloudFormationServiceException_1 = __nccwpck_require__(215);
 const models_0_1 = __nccwpck_require__(75378);
+const se_ActivateOrganizationsAccessCommand = async (input, context) => {
+    const headers = SHARED_HEADERS;
+    let body;
+    body = buildFormUrlencodedString({
+        ...se_ActivateOrganizationsAccessInput(input, context),
+        Action: "ActivateOrganizationsAccess",
+        Version: "2010-05-15",
+    });
+    return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+exports.se_ActivateOrganizationsAccessCommand = se_ActivateOrganizationsAccessCommand;
 const se_ActivateTypeCommand = async (input, context) => {
     const headers = SHARED_HEADERS;
     let body;
@@ -7556,6 +7740,17 @@ const se_CreateStackSetCommand = async (input, context) => {
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 exports.se_CreateStackSetCommand = se_CreateStackSetCommand;
+const se_DeactivateOrganizationsAccessCommand = async (input, context) => {
+    const headers = SHARED_HEADERS;
+    let body;
+    body = buildFormUrlencodedString({
+        ...se_DeactivateOrganizationsAccessInput(input, context),
+        Action: "DeactivateOrganizationsAccess",
+        Version: "2010-05-15",
+    });
+    return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+exports.se_DeactivateOrganizationsAccessCommand = se_DeactivateOrganizationsAccessCommand;
 const se_DeactivateTypeCommand = async (input, context) => {
     const headers = SHARED_HEADERS;
     let body;
@@ -7655,6 +7850,17 @@ const se_DescribeChangeSetHooksCommand = async (input, context) => {
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 exports.se_DescribeChangeSetHooksCommand = se_DescribeChangeSetHooksCommand;
+const se_DescribeOrganizationsAccessCommand = async (input, context) => {
+    const headers = SHARED_HEADERS;
+    let body;
+    body = buildFormUrlencodedString({
+        ...se_DescribeOrganizationsAccessInput(input, context),
+        Action: "DescribeOrganizationsAccess",
+        Version: "2010-05-15",
+    });
+    return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+exports.se_DescribeOrganizationsAccessCommand = se_DescribeOrganizationsAccessCommand;
 const se_DescribePublisherCommand = async (input, context) => {
     const headers = SHARED_HEADERS;
     let body;
@@ -8194,6 +8400,42 @@ const se_ValidateTemplateCommand = async (input, context) => {
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 exports.se_ValidateTemplateCommand = se_ValidateTemplateCommand;
+const de_ActivateOrganizationsAccessCommand = async (output, context) => {
+    if (output.statusCode >= 300) {
+        return de_ActivateOrganizationsAccessCommandError(output, context);
+    }
+    const data = await parseBody(output.body, context);
+    let contents = {};
+    contents = de_ActivateOrganizationsAccessOutput(data.ActivateOrganizationsAccessResult, context);
+    const response = {
+        $metadata: deserializeMetadata(output),
+        ...contents,
+    };
+    return response;
+};
+exports.de_ActivateOrganizationsAccessCommand = de_ActivateOrganizationsAccessCommand;
+const de_ActivateOrganizationsAccessCommandError = async (output, context) => {
+    const parsedOutput = {
+        ...output,
+        body: await parseErrorBody(output.body, context),
+    };
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    switch (errorCode) {
+        case "InvalidOperationException":
+        case "com.amazonaws.cloudformation#InvalidOperationException":
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+        case "OperationNotFoundException":
+        case "com.amazonaws.cloudformation#OperationNotFoundException":
+            throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
+        default:
+            const parsedBody = parsedOutput.body;
+            return throwDefaultError({
+                output,
+                parsedBody: parsedBody.Error,
+                errorCode,
+            });
+    }
+};
 const de_ActivateTypeCommand = async (output, context) => {
     if (output.statusCode >= 300) {
         return de_ActivateTypeCommandError(output, context);
@@ -8488,6 +8730,42 @@ const de_CreateStackSetCommandError = async (output, context) => {
         case "NameAlreadyExistsException":
         case "com.amazonaws.cloudformation#NameAlreadyExistsException":
             throw await de_NameAlreadyExistsExceptionRes(parsedOutput, context);
+        default:
+            const parsedBody = parsedOutput.body;
+            return throwDefaultError({
+                output,
+                parsedBody: parsedBody.Error,
+                errorCode,
+            });
+    }
+};
+const de_DeactivateOrganizationsAccessCommand = async (output, context) => {
+    if (output.statusCode >= 300) {
+        return de_DeactivateOrganizationsAccessCommandError(output, context);
+    }
+    const data = await parseBody(output.body, context);
+    let contents = {};
+    contents = de_DeactivateOrganizationsAccessOutput(data.DeactivateOrganizationsAccessResult, context);
+    const response = {
+        $metadata: deserializeMetadata(output),
+        ...contents,
+    };
+    return response;
+};
+exports.de_DeactivateOrganizationsAccessCommand = de_DeactivateOrganizationsAccessCommand;
+const de_DeactivateOrganizationsAccessCommandError = async (output, context) => {
+    const parsedOutput = {
+        ...output,
+        body: await parseErrorBody(output.body, context),
+    };
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    switch (errorCode) {
+        case "InvalidOperationException":
+        case "com.amazonaws.cloudformation#InvalidOperationException":
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+        case "OperationNotFoundException":
+        case "com.amazonaws.cloudformation#OperationNotFoundException":
+            throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             return throwDefaultError({
@@ -8797,6 +9075,42 @@ const de_DescribeChangeSetHooksCommandError = async (output, context) => {
         case "ChangeSetNotFound":
         case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
             throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
+        default:
+            const parsedBody = parsedOutput.body;
+            return throwDefaultError({
+                output,
+                parsedBody: parsedBody.Error,
+                errorCode,
+            });
+    }
+};
+const de_DescribeOrganizationsAccessCommand = async (output, context) => {
+    if (output.statusCode >= 300) {
+        return de_DescribeOrganizationsAccessCommandError(output, context);
+    }
+    const data = await parseBody(output.body, context);
+    let contents = {};
+    contents = de_DescribeOrganizationsAccessOutput(data.DescribeOrganizationsAccessResult, context);
+    const response = {
+        $metadata: deserializeMetadata(output),
+        ...contents,
+    };
+    return response;
+};
+exports.de_DescribeOrganizationsAccessCommand = de_DescribeOrganizationsAccessCommand;
+const de_DescribeOrganizationsAccessCommandError = async (output, context) => {
+    const parsedOutput = {
+        ...output,
+        body: await parseErrorBody(output.body, context),
+    };
+    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+    switch (errorCode) {
+        case "InvalidOperationException":
+        case "com.amazonaws.cloudformation#InvalidOperationException":
+            throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+        case "OperationNotFoundException":
+        case "com.amazonaws.cloudformation#OperationNotFoundException":
+            throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             return throwDefaultError({
@@ -10606,6 +10920,10 @@ const se_AccountList = (input, context) => {
     }
     return entries;
 };
+const se_ActivateOrganizationsAccessInput = (input, context) => {
+    const entries = {};
+    return entries;
+};
 const se_ActivateTypeInput = (input, context) => {
     const entries = {};
     if (input.Type != null) {
@@ -11049,6 +11367,10 @@ const se_CreateStackSetInput = (input, context) => {
     }
     return entries;
 };
+const se_DeactivateOrganizationsAccessInput = (input, context) => {
+    const entries = {};
+    return entries;
+};
 const se_DeactivateTypeInput = (input, context) => {
     const entries = {};
     if (input.TypeName != null) {
@@ -11237,6 +11559,13 @@ const se_DescribeChangeSetInput = (input, context) => {
     }
     if (input.NextToken != null) {
         entries["NextToken"] = input.NextToken;
+    }
+    return entries;
+};
+const se_DescribeOrganizationsAccessInput = (input, context) => {
+    const entries = {};
+    if (input.CallAs != null) {
+        entries["CallAs"] = input.CallAs;
     }
     return entries;
 };
@@ -12696,6 +13025,10 @@ const de_AccountList = (output, context) => {
         return (0, smithy_client_1.expectString)(entry);
     });
 };
+const de_ActivateOrganizationsAccessOutput = (output, context) => {
+    const contents = {};
+    return contents;
+};
 const de_ActivateTypeOutput = (output, context) => {
     const contents = {};
     if (output["Arn"] !== undefined) {
@@ -12952,6 +13285,10 @@ const de_CreateStackSetOutput = (output, context) => {
     }
     return contents;
 };
+const de_DeactivateOrganizationsAccessOutput = (output, context) => {
+    const contents = {};
+    return contents;
+};
 const de_DeactivateTypeOutput = (output, context) => {
     const contents = {};
     return contents;
@@ -13111,6 +13448,13 @@ const de_DescribeChangeSetOutput = (output, context) => {
     }
     if (output["RootChangeSetId"] !== undefined) {
         contents.RootChangeSetId = (0, smithy_client_1.expectString)(output["RootChangeSetId"]);
+    }
+    return contents;
+};
+const de_DescribeOrganizationsAccessOutput = (output, context) => {
+    const contents = {};
+    if (output["Status"] !== undefined) {
+        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
     }
     return contents;
 };
@@ -33687,7 +34031,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ 43713:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.345.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.345.0","@aws-sdk/config-resolver":"3.342.0","@aws-sdk/credential-provider-node":"3.345.0","@aws-sdk/fetch-http-handler":"3.342.0","@aws-sdk/hash-node":"3.344.0","@aws-sdk/invalid-dependency":"3.342.0","@aws-sdk/middleware-content-length":"3.342.0","@aws-sdk/middleware-endpoint":"3.344.0","@aws-sdk/middleware-host-header":"3.342.0","@aws-sdk/middleware-logger":"3.342.0","@aws-sdk/middleware-recursion-detection":"3.342.0","@aws-sdk/middleware-retry":"3.342.0","@aws-sdk/middleware-serde":"3.342.0","@aws-sdk/middleware-signing":"3.342.0","@aws-sdk/middleware-stack":"3.342.0","@aws-sdk/middleware-user-agent":"3.345.0","@aws-sdk/node-config-provider":"3.342.0","@aws-sdk/node-http-handler":"3.344.0","@aws-sdk/smithy-client":"3.342.0","@aws-sdk/types":"3.342.0","@aws-sdk/url-parser":"3.342.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.342.0","@aws-sdk/util-defaults-mode-node":"3.342.0","@aws-sdk/util-endpoints":"3.342.0","@aws-sdk/util-retry":"3.342.0","@aws-sdk/util-user-agent-browser":"3.345.0","@aws-sdk/util-user-agent-node":"3.345.0","@aws-sdk/util-utf8":"3.310.0","@aws-sdk/util-waiter":"3.342.0","@smithy/protocol-http":"^1.0.1","@smithy/types":"^1.0.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.346.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.345.0","@aws-sdk/config-resolver":"3.342.0","@aws-sdk/credential-provider-node":"3.345.0","@aws-sdk/fetch-http-handler":"3.342.0","@aws-sdk/hash-node":"3.344.0","@aws-sdk/invalid-dependency":"3.342.0","@aws-sdk/middleware-content-length":"3.342.0","@aws-sdk/middleware-endpoint":"3.344.0","@aws-sdk/middleware-host-header":"3.342.0","@aws-sdk/middleware-logger":"3.342.0","@aws-sdk/middleware-recursion-detection":"3.342.0","@aws-sdk/middleware-retry":"3.342.0","@aws-sdk/middleware-serde":"3.342.0","@aws-sdk/middleware-signing":"3.342.0","@aws-sdk/middleware-stack":"3.342.0","@aws-sdk/middleware-user-agent":"3.345.0","@aws-sdk/node-config-provider":"3.342.0","@aws-sdk/node-http-handler":"3.344.0","@aws-sdk/smithy-client":"3.342.0","@aws-sdk/types":"3.342.0","@aws-sdk/url-parser":"3.342.0","@aws-sdk/util-base64":"3.310.0","@aws-sdk/util-body-length-browser":"3.310.0","@aws-sdk/util-body-length-node":"3.310.0","@aws-sdk/util-defaults-mode-browser":"3.342.0","@aws-sdk/util-defaults-mode-node":"3.342.0","@aws-sdk/util-endpoints":"3.342.0","@aws-sdk/util-retry":"3.342.0","@aws-sdk/util-user-agent-browser":"3.345.0","@aws-sdk/util-user-agent-node":"3.345.0","@aws-sdk/util-utf8":"3.310.0","@aws-sdk/util-waiter":"3.342.0","@smithy/protocol-http":"^1.0.1","@smithy/types":"^1.0.0","fast-xml-parser":"4.1.2","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.310.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typedoc":"0.23.23","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
