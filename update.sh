@@ -13,6 +13,7 @@ if [ $result -ne 0 ]; then
   exit $result
 fi
 
+cd "${CURRENT}/test"
 result=$?
 if [ $result -ne 0 ]; then
   cd "${CUR}"
@@ -20,7 +21,22 @@ if [ $result -ne 0 ]; then
 fi
 echo ""
 pwd
-yarn install && yarn upgrade && rm -rf dist && yarn build && yarn package && rm -rf node_modules && yarn install --production && git add dist node_modules -f
+pnpm install && pnpm up && pnpm build
+result=$?
+if [ $result -ne 0 ]; then
+  cd "${CUR}"
+  exit $result
+fi
+
+cd "${CURRENT}"
+result=$?
+if [ $result -ne 0 ]; then
+  cd "${CUR}"
+  exit $result
+fi
+echo ""
+pwd
+pnpm install && pnpm up && rm -rf dist && pnpm build && pnpm package && rm -rf node_modules && pnpm install --production && git add dist node_modules -f
 result=$?
 if [ $result -ne 0 ]; then
   cd "${CUR}"
