@@ -6,31 +6,31 @@ settings:
 
 dependencies:
   aws-cdk-lib:
-    specifier: ^2.89.0
-    version: 2.89.0(constructs@10.2.69)
+    specifier: ^2.94.0
+    version: 2.94.0(constructs@10.2.70)
   constructs:
-    specifier: ^10.2.69
-    version: 10.2.69
+    specifier: ^10.2.70
+    version: 10.2.70
   source-map-support:
     specifier: ^0.5.21
     version: 0.5.21
 
 devDependencies:
   '@types/node':
-    specifier: ^20.4.5
-    version: 20.4.5
+    specifier: ^20.5.9
+    version: 20.5.9
   '@types/prettier':
     specifier: ^2.7.3
     version: 2.7.3
   aws-cdk:
-    specifier: ^2.89.0
-    version: 2.89.0
+    specifier: ^2.94.0
+    version: 2.94.0
   ts-node:
     specifier: ^10.9.1
-    version: 10.9.1(@types/node@20.4.5)(typescript@5.1.6)
+    version: 10.9.1(@types/node@20.5.9)(typescript@5.2.2)
   typescript:
-    specifier: ^5.1.6
-    version: 5.1.6
+    specifier: ^5.2.2
+    version: 5.2.2
 
 packages:
 
@@ -42,8 +42,8 @@ packages:
     resolution: {integrity: sha512-3M2tELJOxQv0apCIiuKQ4pAbncz9GuLwnKFqxifWfe77wuMxyTRPmxssYHs42ePqzap1LT6GDcPygGs+hHstLg==}
     dev: false
 
-  /@aws-cdk/asset-node-proxy-agent-v5@2.0.166:
-    resolution: {integrity: sha512-j0xnccpUQHXJKPgCwQcGGNu4lRiC1PptYfdxBIH1L4dRK91iBxtSQHESRQX+yB47oGLaF/WfNN/aF3WXwlhikg==}
+  /@aws-cdk/asset-node-proxy-agent-v6@2.0.1:
+    resolution: {integrity: sha512-DDt4SLdLOwWCjGtltH4VCST7hpOI5DzieuhGZsBpZ+AgJdSI2GCjklCXm0GCTwJG/SolkL5dtQXyUKgg9luBDg==}
     dev: false
 
   /@cspotcode/source-map-support@0.8.1:
@@ -85,8 +85,8 @@ packages:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
     dev: true
 
-  /@types/node@20.4.5:
-    resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
+  /@types/node@20.5.9:
+    resolution: {integrity: sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==}
     dev: true
 
   /@types/prettier@2.7.3:
@@ -108,16 +108,16 @@ packages:
     resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
     dev: true
 
-  /aws-cdk-lib@2.89.0(constructs@10.2.69):
-    resolution: {integrity: sha512-UgyiS/u9d27MsL3M8Hz9yvi5AiJUQUGvqfQw6qDXrnyGMIC4gsNTc00VUT+LCXgtqQM/wF1jDUrODxkWglAiAw==}
+  /aws-cdk-lib@2.94.0(constructs@10.2.70):
+    resolution: {integrity: sha512-pB/UzKeM+p/wY9WuFYkEewOFUh2r8qwaML63is4vUChXY2G2Bj3pGyfJ97Xir2Q5KIhgJPJz5igdouI4+F9A+g==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       constructs: ^10.0.0
     dependencies:
       '@aws-cdk/asset-awscli-v1': 2.2.200
       '@aws-cdk/asset-kubectl-v20': 2.1.2
-      '@aws-cdk/asset-node-proxy-agent-v5': 2.0.166
-      constructs: 10.2.69
+      '@aws-cdk/asset-node-proxy-agent-v6': 2.0.1
+      constructs: 10.2.70
     dev: false
     bundledDependencies:
       - '@balena/dockerignore'
@@ -131,8 +131,8 @@ packages:
       - table
       - yaml
 
-  /aws-cdk@2.89.0:
-    resolution: {integrity: sha512-4FF/5jNd86x9iSk/xQB1KRFWkhMWd/Z7x7tOwztgZYDj6aYR/3Xru7pb2BD6s6Oli/eeQaXTG11+eY9zdrJIQA==}
+  /aws-cdk@2.94.0:
+    resolution: {integrity: sha512-9bJkzxFDYZDwPDfZi/DSUODn4HFRzuXWPhpFgIIgRykfT18P+iAIJ1AEhaaCmlqrrog5yQgN+2iYd9BwDsiBeg==}
     engines: {node: '>= 14.15.0'}
     hasBin: true
     optionalDependencies:
@@ -143,8 +143,8 @@ packages:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: false
 
-  /constructs@10.2.69:
-    resolution: {integrity: sha512-0AiM/uQe5Uk6JVe/62oolmSN2MjbFQkOlYrM3fFGZLKuT+g7xlAI10EebFhyCcZwI2JAcWuWCmmCAyCothxjuw==}
+  /constructs@10.2.70:
+    resolution: {integrity: sha512-z6zr1E8K/9tzJbCQzY0UGX0/oVKPFKu9C/mzEnghCG6TAJINnvlq0CMKm63XqqeMleadZYm5T3sZGJKcxJS/Pg==}
     engines: {node: '>= 16.14.0'}
     dev: false
 
@@ -181,7 +181,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /ts-node@10.9.1(@types/node@20.4.5)(typescript@5.1.6):
+  /ts-node@10.9.1(@types/node@20.5.9)(typescript@5.2.2):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -200,20 +200,20 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.4.5
+      '@types/node': 20.5.9
       acorn: 8.10.0
       acorn-walk: 8.2.0
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.1.6
+      typescript: 5.2.2
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
 
-  /typescript@5.1.6:
-    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+  /typescript@5.2.2:
+    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true

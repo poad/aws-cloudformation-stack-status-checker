@@ -27,15 +27,14 @@ jobs:
       name: Install pnpm
       id: pnpm-install
       with:
-        version: 8.6.3
         run_install: |
           - recursive: true
             args: [--no-frozen-lockfile, --strict-peer-dependencies]
 
-    - name: Use Node.js 16.x
+    - name: Use Node.js 20.x
       uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: 20.x
         check-latest: true
     - name: setup
       run: pnpm -g i prettier rimraf
@@ -74,16 +73,15 @@ jobs:
       name: Install pnpm
       id: pnpm-install
       with:
-        version: 8.6.3
         run_install: |
           - recursive: true
             cwd: test
             args: [--no-frozen-lockfile, --strict-peer-dependencies]
 
-    - name: Use Node.js 16.x
+    - name: Use Node.js 20.x
       uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: 20.x
         check-latest: true
 
     - name: Install AWS CDK and pnpm

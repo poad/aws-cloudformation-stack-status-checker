@@ -12,5 +12,5 @@ outputs:
   status:
     description: 'The status of AWS CloudFormation Stack.'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.mjs'
