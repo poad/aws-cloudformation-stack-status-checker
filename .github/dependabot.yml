@@ -4,12 +4,16 @@ updates:
     directory: /
     schedule:
       interval: daily
+    groups:
+      actions:
+        patterns:
+          - '*'
 
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
     groups:
-      misc:
+      npm:
         patterns:
           - '*'

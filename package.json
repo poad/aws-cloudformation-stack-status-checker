@@ -1,18 +1,21 @@
 {
   "name": "aws-cloudformation-stack-status-checker",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "TypeScript template action",
   "main": "lib/main.mjs",
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write '**/*.mts'",
-    "format-check": "prettier --check '**/*.mts'",
-    "lint": "eslint src/**/*.mts",
+    "style:fix": "prettier --write '**/*.mts'",
+    "style:check": "prettier --check '**/*.mts'",
+    "eslint:fix": "eslint src/**/*.mts --fix",
+    "eslint:check": "eslint src/**/*.mts",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest --passWithNoTests",
-    "all": "pnpm build && pnpm format && pnpm lint && pnpm package && pnpm test"
+    "lint": "pnpm run --parallel /^.*:check/",
+    "lint-fix": "pnpm run /^.*:fix/",
+    "all": "pnpm build && pnpm lint-fix && pnpm package && pnpm test"
   },
   "repository": {
     "type": "git",
