@@ -11,7 +11,7 @@
 ```yaml
     - name: 'Retrives status of AWS CloudFormation Stack'
       id: stack-status
-      uses: poad/aws-cloudformation-stack-status-checker@v1.0.0
+      uses: poad/aws-cloudformation-stack-status-checker@v2.0.0
       with: 
         stack-name: 'test-stack'
   
@@ -35,7 +35,7 @@ To check the stack for a region other than the default region, specify `region` 
 ```yaml
     - name: 'Retrives status of AWS CloudFormation Stack'
       id: stack-status
-      uses: poad/aws-cloudformation-stack-status-checker@v1.0.0
+      uses: poad/aws-cloudformation-stack-status-checker@v2.0.0
       with: 
         stack-name: 'test-stack'
         region: us-west-2
