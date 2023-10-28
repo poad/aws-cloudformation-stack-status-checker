@@ -13,8 +13,8 @@
     "eslint:check": "eslint src/**/*.mts",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest --passWithNoTests",
-    "lint": "pnpm run --parallel /^.*:check/",
-    "lint-fix": "pnpm run /^.*:fix/",
+    "lint": "pnpm run --parallel /^.*:check$/",
+    "lint-fix": "pnpm run /^.*:fix$/",
     "all": "pnpm build && pnpm lint-fix && pnpm package && pnpm test"
   },
   "repository": {
