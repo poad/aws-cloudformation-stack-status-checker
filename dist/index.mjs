@@ -21303,7 +21303,7 @@ exports.resolveStsAuthConfig = resolveStsAuthConfig;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveSigV4AuthConfig = exports.resolveAwsAuthConfig = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
-const signature_v4_1 = __nccwpck_require__(40869);
+const signature_v4_1 = __nccwpck_require__(64231);
 const util_middleware_1 = __nccwpck_require__(47194);
 const CREDENTIAL_EXPIRE_WINDOW = 300000;
 const resolveAwsAuthConfig = (input) => {
@@ -28016,7 +28016,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
-/***/ 83926:
+/***/ 309:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -28026,15 +28026,15 @@ const eventstream_codec_1 = __nccwpck_require__(19665);
 const util_hex_encoding_1 = __nccwpck_require__(7623);
 const util_middleware_1 = __nccwpck_require__(47194);
 const util_utf8_1 = __nccwpck_require__(94099);
-const constants_1 = __nccwpck_require__(71531);
-const credentialDerivation_1 = __nccwpck_require__(91094);
-const getCanonicalHeaders_1 = __nccwpck_require__(50941);
-const getCanonicalQuery_1 = __nccwpck_require__(63470);
-const getPayloadHash_1 = __nccwpck_require__(70552);
-const headerUtil_1 = __nccwpck_require__(97243);
-const moveHeadersToQuery_1 = __nccwpck_require__(99096);
-const prepareRequest_1 = __nccwpck_require__(22749);
-const utilDate_1 = __nccwpck_require__(46239);
+const constants_1 = __nccwpck_require__(56753);
+const credentialDerivation_1 = __nccwpck_require__(27825);
+const getCanonicalHeaders_1 = __nccwpck_require__(26431);
+const getCanonicalQuery_1 = __nccwpck_require__(10743);
+const getPayloadHash_1 = __nccwpck_require__(32472);
+const headerUtil_1 = __nccwpck_require__(53544);
+const moveHeadersToQuery_1 = __nccwpck_require__(34610);
+const prepareRequest_1 = __nccwpck_require__(6056);
+const utilDate_1 = __nccwpck_require__(84103);
 class SignatureV4 {
     constructor({ applyChecksum, credentials, region, service, sha256, uriEscapePath = true, }) {
         this.headerMarshaller = new eventstream_codec_1.HeaderMarshaller(util_utf8_1.toUtf8, util_utf8_1.fromUtf8);
@@ -28217,7 +28217,7 @@ const getCanonicalHeaderList = (headers) => Object.keys(headers).sort().join(";"
 
 /***/ }),
 
-/***/ 86220:
+/***/ 55022:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -28241,7 +28241,7 @@ exports.cloneQuery = cloneQuery;
 
 /***/ }),
 
-/***/ 71531:
+/***/ 56753:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -28294,7 +28294,7 @@ exports.MAX_PRESIGNED_TTL = 60 * 60 * 24 * 7;
 
 /***/ }),
 
-/***/ 91094:
+/***/ 27825:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -28302,7 +28302,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.clearCredentialCache = exports.getSigningKey = exports.createScope = void 0;
 const util_hex_encoding_1 = __nccwpck_require__(7623);
 const util_utf8_1 = __nccwpck_require__(94099);
-const constants_1 = __nccwpck_require__(71531);
+const constants_1 = __nccwpck_require__(56753);
 const signingKeyCache = {};
 const cacheQueue = [];
 const createScope = (shortDate, region, service) => `${shortDate}/${region}/${service}/${constants_1.KEY_TYPE_IDENTIFIER}`;
@@ -28340,13 +28340,13 @@ const hmac = (ctor, secret, data) => {
 
 /***/ }),
 
-/***/ 50941:
+/***/ 26431:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getCanonicalHeaders = void 0;
-const constants_1 = __nccwpck_require__(71531);
+const constants_1 = __nccwpck_require__(56753);
 const getCanonicalHeaders = ({ headers }, unsignableHeaders, signableHeaders) => {
     const canonical = {};
     for (const headerName of Object.keys(headers).sort()) {
@@ -28371,14 +28371,14 @@ exports.getCanonicalHeaders = getCanonicalHeaders;
 
 /***/ }),
 
-/***/ 63470:
+/***/ 10743:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getCanonicalQuery = void 0;
 const util_uri_escape_1 = __nccwpck_require__(68289);
-const constants_1 = __nccwpck_require__(71531);
+const constants_1 = __nccwpck_require__(56753);
 const getCanonicalQuery = ({ query = {} }) => {
     const keys = [];
     const serialized = {};
@@ -28409,7 +28409,7 @@ exports.getCanonicalQuery = getCanonicalQuery;
 
 /***/ }),
 
-/***/ 70552:
+/***/ 32472:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -28418,7 +28418,7 @@ exports.getPayloadHash = void 0;
 const is_array_buffer_1 = __nccwpck_require__(33413);
 const util_hex_encoding_1 = __nccwpck_require__(7623);
 const util_utf8_1 = __nccwpck_require__(94099);
-const constants_1 = __nccwpck_require__(71531);
+const constants_1 = __nccwpck_require__(56753);
 const getPayloadHash = async ({ headers, body }, hashConstructor) => {
     for (const headerName of Object.keys(headers)) {
         if (headerName.toLowerCase() === constants_1.SHA256_HEADER) {
@@ -28440,7 +28440,7 @@ exports.getPayloadHash = getPayloadHash;
 
 /***/ }),
 
-/***/ 97243:
+/***/ 53544:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -28479,36 +28479,36 @@ exports.deleteHeader = deleteHeader;
 
 /***/ }),
 
-/***/ 40869:
+/***/ 64231:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.prepareRequest = exports.moveHeadersToQuery = exports.getPayloadHash = exports.getCanonicalQuery = exports.getCanonicalHeaders = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(83926), exports);
-var getCanonicalHeaders_1 = __nccwpck_require__(50941);
+tslib_1.__exportStar(__nccwpck_require__(309), exports);
+var getCanonicalHeaders_1 = __nccwpck_require__(26431);
 Object.defineProperty(exports, "getCanonicalHeaders", ({ enumerable: true, get: function () { return getCanonicalHeaders_1.getCanonicalHeaders; } }));
-var getCanonicalQuery_1 = __nccwpck_require__(63470);
+var getCanonicalQuery_1 = __nccwpck_require__(10743);
 Object.defineProperty(exports, "getCanonicalQuery", ({ enumerable: true, get: function () { return getCanonicalQuery_1.getCanonicalQuery; } }));
-var getPayloadHash_1 = __nccwpck_require__(70552);
+var getPayloadHash_1 = __nccwpck_require__(32472);
 Object.defineProperty(exports, "getPayloadHash", ({ enumerable: true, get: function () { return getPayloadHash_1.getPayloadHash; } }));
-var moveHeadersToQuery_1 = __nccwpck_require__(99096);
+var moveHeadersToQuery_1 = __nccwpck_require__(34610);
 Object.defineProperty(exports, "moveHeadersToQuery", ({ enumerable: true, get: function () { return moveHeadersToQuery_1.moveHeadersToQuery; } }));
-var prepareRequest_1 = __nccwpck_require__(22749);
+var prepareRequest_1 = __nccwpck_require__(6056);
 Object.defineProperty(exports, "prepareRequest", ({ enumerable: true, get: function () { return prepareRequest_1.prepareRequest; } }));
-tslib_1.__exportStar(__nccwpck_require__(91094), exports);
+tslib_1.__exportStar(__nccwpck_require__(27825), exports);
 
 
 /***/ }),
 
-/***/ 99096:
+/***/ 34610:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.moveHeadersToQuery = void 0;
-const cloneRequest_1 = __nccwpck_require__(86220);
+const cloneRequest_1 = __nccwpck_require__(55022);
 const moveHeadersToQuery = (request, options = {}) => {
     var _a;
     const { headers, query = {} } = typeof request.clone === "function" ? request.clone() : (0, cloneRequest_1.cloneRequest)(request);
@@ -28530,14 +28530,14 @@ exports.moveHeadersToQuery = moveHeadersToQuery;
 
 /***/ }),
 
-/***/ 22749:
+/***/ 6056:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.prepareRequest = void 0;
-const cloneRequest_1 = __nccwpck_require__(86220);
-const constants_1 = __nccwpck_require__(71531);
+const cloneRequest_1 = __nccwpck_require__(55022);
+const constants_1 = __nccwpck_require__(56753);
 const prepareRequest = (request) => {
     request = typeof request.clone === "function" ? request.clone() : (0, cloneRequest_1.cloneRequest)(request);
     for (const headerName of Object.keys(request.headers)) {
@@ -28552,7 +28552,7 @@ exports.prepareRequest = prepareRequest;
 
 /***/ }),
 
-/***/ 46239:
+/***/ 84103:
 /***/ ((__unused_webpack_module, exports) => {
 
 
