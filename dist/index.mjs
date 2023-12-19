@@ -2091,84 +2091,84 @@ exports.uint32ArrayFrom = uint32ArrayFrom;
 
 /***/ }),
 
-/***/ 7144:
+/***/ 63830:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CloudFormation = void 0;
 const smithy_client_1 = __nccwpck_require__(96899);
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ActivateOrganizationsAccessCommand_1 = __nccwpck_require__(6581);
-const ActivateTypeCommand_1 = __nccwpck_require__(52375);
-const BatchDescribeTypeConfigurationsCommand_1 = __nccwpck_require__(45675);
-const CancelUpdateStackCommand_1 = __nccwpck_require__(95294);
-const ContinueUpdateRollbackCommand_1 = __nccwpck_require__(18699);
-const CreateChangeSetCommand_1 = __nccwpck_require__(40393);
-const CreateStackCommand_1 = __nccwpck_require__(93239);
-const CreateStackInstancesCommand_1 = __nccwpck_require__(56427);
-const CreateStackSetCommand_1 = __nccwpck_require__(31236);
-const DeactivateOrganizationsAccessCommand_1 = __nccwpck_require__(95653);
-const DeactivateTypeCommand_1 = __nccwpck_require__(59387);
-const DeleteChangeSetCommand_1 = __nccwpck_require__(24623);
-const DeleteStackCommand_1 = __nccwpck_require__(51790);
-const DeleteStackInstancesCommand_1 = __nccwpck_require__(53687);
-const DeleteStackSetCommand_1 = __nccwpck_require__(43236);
-const DeregisterTypeCommand_1 = __nccwpck_require__(5571);
-const DescribeAccountLimitsCommand_1 = __nccwpck_require__(25747);
-const DescribeChangeSetCommand_1 = __nccwpck_require__(87580);
-const DescribeChangeSetHooksCommand_1 = __nccwpck_require__(38580);
-const DescribeOrganizationsAccessCommand_1 = __nccwpck_require__(74524);
-const DescribePublisherCommand_1 = __nccwpck_require__(32619);
-const DescribeStackDriftDetectionStatusCommand_1 = __nccwpck_require__(23693);
-const DescribeStackEventsCommand_1 = __nccwpck_require__(9948);
-const DescribeStackInstanceCommand_1 = __nccwpck_require__(96990);
-const DescribeStackResourceCommand_1 = __nccwpck_require__(14852);
-const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(3098);
-const DescribeStackResourcesCommand_1 = __nccwpck_require__(32768);
-const DescribeStacksCommand_1 = __nccwpck_require__(19361);
-const DescribeStackSetCommand_1 = __nccwpck_require__(73838);
-const DescribeStackSetOperationCommand_1 = __nccwpck_require__(38887);
-const DescribeTypeCommand_1 = __nccwpck_require__(6070);
-const DescribeTypeRegistrationCommand_1 = __nccwpck_require__(93836);
-const DetectStackDriftCommand_1 = __nccwpck_require__(12763);
-const DetectStackResourceDriftCommand_1 = __nccwpck_require__(48326);
-const DetectStackSetDriftCommand_1 = __nccwpck_require__(2156);
-const EstimateTemplateCostCommand_1 = __nccwpck_require__(34811);
-const ExecuteChangeSetCommand_1 = __nccwpck_require__(51245);
-const GetStackPolicyCommand_1 = __nccwpck_require__(63007);
-const GetTemplateCommand_1 = __nccwpck_require__(60145);
-const GetTemplateSummaryCommand_1 = __nccwpck_require__(15392);
-const ImportStacksToStackSetCommand_1 = __nccwpck_require__(80789);
-const ListChangeSetsCommand_1 = __nccwpck_require__(59981);
-const ListExportsCommand_1 = __nccwpck_require__(83084);
-const ListImportsCommand_1 = __nccwpck_require__(27682);
-const ListStackInstanceResourceDriftsCommand_1 = __nccwpck_require__(96);
-const ListStackInstancesCommand_1 = __nccwpck_require__(45991);
-const ListStackResourcesCommand_1 = __nccwpck_require__(1679);
-const ListStacksCommand_1 = __nccwpck_require__(55130);
-const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(87565);
-const ListStackSetOperationsCommand_1 = __nccwpck_require__(73846);
-const ListStackSetsCommand_1 = __nccwpck_require__(78993);
-const ListTypeRegistrationsCommand_1 = __nccwpck_require__(8807);
-const ListTypesCommand_1 = __nccwpck_require__(22882);
-const ListTypeVersionsCommand_1 = __nccwpck_require__(11486);
-const PublishTypeCommand_1 = __nccwpck_require__(79120);
-const RecordHandlerProgressCommand_1 = __nccwpck_require__(34538);
-const RegisterPublisherCommand_1 = __nccwpck_require__(88301);
-const RegisterTypeCommand_1 = __nccwpck_require__(44473);
-const RollbackStackCommand_1 = __nccwpck_require__(80535);
-const SetStackPolicyCommand_1 = __nccwpck_require__(13996);
-const SetTypeConfigurationCommand_1 = __nccwpck_require__(33480);
-const SetTypeDefaultVersionCommand_1 = __nccwpck_require__(34513);
-const SignalResourceCommand_1 = __nccwpck_require__(29033);
-const StopStackSetOperationCommand_1 = __nccwpck_require__(64911);
-const TestTypeCommand_1 = __nccwpck_require__(21352);
-const UpdateStackCommand_1 = __nccwpck_require__(50659);
-const UpdateStackInstancesCommand_1 = __nccwpck_require__(72526);
-const UpdateStackSetCommand_1 = __nccwpck_require__(61181);
-const UpdateTerminationProtectionCommand_1 = __nccwpck_require__(98831);
-const ValidateTemplateCommand_1 = __nccwpck_require__(28662);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ActivateOrganizationsAccessCommand_1 = __nccwpck_require__(83756);
+const ActivateTypeCommand_1 = __nccwpck_require__(72050);
+const BatchDescribeTypeConfigurationsCommand_1 = __nccwpck_require__(66401);
+const CancelUpdateStackCommand_1 = __nccwpck_require__(29924);
+const ContinueUpdateRollbackCommand_1 = __nccwpck_require__(47116);
+const CreateChangeSetCommand_1 = __nccwpck_require__(71591);
+const CreateStackCommand_1 = __nccwpck_require__(57531);
+const CreateStackInstancesCommand_1 = __nccwpck_require__(90077);
+const CreateStackSetCommand_1 = __nccwpck_require__(31517);
+const DeactivateOrganizationsAccessCommand_1 = __nccwpck_require__(95099);
+const DeactivateTypeCommand_1 = __nccwpck_require__(33421);
+const DeleteChangeSetCommand_1 = __nccwpck_require__(62236);
+const DeleteStackCommand_1 = __nccwpck_require__(46009);
+const DeleteStackInstancesCommand_1 = __nccwpck_require__(24222);
+const DeleteStackSetCommand_1 = __nccwpck_require__(65076);
+const DeregisterTypeCommand_1 = __nccwpck_require__(17008);
+const DescribeAccountLimitsCommand_1 = __nccwpck_require__(59135);
+const DescribeChangeSetCommand_1 = __nccwpck_require__(96086);
+const DescribeChangeSetHooksCommand_1 = __nccwpck_require__(63571);
+const DescribeOrganizationsAccessCommand_1 = __nccwpck_require__(67968);
+const DescribePublisherCommand_1 = __nccwpck_require__(8566);
+const DescribeStackDriftDetectionStatusCommand_1 = __nccwpck_require__(61769);
+const DescribeStackEventsCommand_1 = __nccwpck_require__(31593);
+const DescribeStackInstanceCommand_1 = __nccwpck_require__(16334);
+const DescribeStackResourceCommand_1 = __nccwpck_require__(14961);
+const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(40849);
+const DescribeStackResourcesCommand_1 = __nccwpck_require__(30726);
+const DescribeStacksCommand_1 = __nccwpck_require__(44962);
+const DescribeStackSetCommand_1 = __nccwpck_require__(48770);
+const DescribeStackSetOperationCommand_1 = __nccwpck_require__(67091);
+const DescribeTypeCommand_1 = __nccwpck_require__(69242);
+const DescribeTypeRegistrationCommand_1 = __nccwpck_require__(5691);
+const DetectStackDriftCommand_1 = __nccwpck_require__(81542);
+const DetectStackResourceDriftCommand_1 = __nccwpck_require__(87715);
+const DetectStackSetDriftCommand_1 = __nccwpck_require__(92031);
+const EstimateTemplateCostCommand_1 = __nccwpck_require__(6145);
+const ExecuteChangeSetCommand_1 = __nccwpck_require__(86055);
+const GetStackPolicyCommand_1 = __nccwpck_require__(66023);
+const GetTemplateCommand_1 = __nccwpck_require__(82879);
+const GetTemplateSummaryCommand_1 = __nccwpck_require__(88450);
+const ImportStacksToStackSetCommand_1 = __nccwpck_require__(10716);
+const ListChangeSetsCommand_1 = __nccwpck_require__(68430);
+const ListExportsCommand_1 = __nccwpck_require__(98717);
+const ListImportsCommand_1 = __nccwpck_require__(49298);
+const ListStackInstanceResourceDriftsCommand_1 = __nccwpck_require__(62794);
+const ListStackInstancesCommand_1 = __nccwpck_require__(47056);
+const ListStackResourcesCommand_1 = __nccwpck_require__(83140);
+const ListStacksCommand_1 = __nccwpck_require__(69532);
+const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(85121);
+const ListStackSetOperationsCommand_1 = __nccwpck_require__(49438);
+const ListStackSetsCommand_1 = __nccwpck_require__(21271);
+const ListTypeRegistrationsCommand_1 = __nccwpck_require__(43292);
+const ListTypesCommand_1 = __nccwpck_require__(50206);
+const ListTypeVersionsCommand_1 = __nccwpck_require__(9579);
+const PublishTypeCommand_1 = __nccwpck_require__(96596);
+const RecordHandlerProgressCommand_1 = __nccwpck_require__(29847);
+const RegisterPublisherCommand_1 = __nccwpck_require__(95081);
+const RegisterTypeCommand_1 = __nccwpck_require__(9018);
+const RollbackStackCommand_1 = __nccwpck_require__(20595);
+const SetStackPolicyCommand_1 = __nccwpck_require__(23617);
+const SetTypeConfigurationCommand_1 = __nccwpck_require__(86781);
+const SetTypeDefaultVersionCommand_1 = __nccwpck_require__(4961);
+const SignalResourceCommand_1 = __nccwpck_require__(29983);
+const StopStackSetOperationCommand_1 = __nccwpck_require__(42827);
+const TestTypeCommand_1 = __nccwpck_require__(2896);
+const UpdateStackCommand_1 = __nccwpck_require__(15697);
+const UpdateStackInstancesCommand_1 = __nccwpck_require__(15139);
+const UpdateStackSetCommand_1 = __nccwpck_require__(76345);
+const UpdateTerminationProtectionCommand_1 = __nccwpck_require__(22994);
+const ValidateTemplateCommand_1 = __nccwpck_require__(67890);
 const commands = {
     ActivateOrganizationsAccessCommand: ActivateOrganizationsAccessCommand_1.ActivateOrganizationsAccessCommand,
     ActivateTypeCommand: ActivateTypeCommand_1.ActivateTypeCommand,
@@ -2249,7 +2249,7 @@ exports.CloudFormation = CloudFormation;
 
 /***/ }),
 
-/***/ 84097:
+/***/ 36514:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2266,9 +2266,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_retry_1 = __nccwpck_require__(29699);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const EndpointParameters_1 = __nccwpck_require__(77363);
-const runtimeConfig_1 = __nccwpck_require__(46928);
-const runtimeExtensions_1 = __nccwpck_require__(64185);
+const EndpointParameters_1 = __nccwpck_require__(95096);
+const runtimeConfig_1 = __nccwpck_require__(91547);
+const runtimeExtensions_1 = __nccwpck_require__(49207);
 class CloudFormationClient extends smithy_client_1.Client {
     constructor(...[configuration]) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration || {});
@@ -2299,7 +2299,7 @@ exports.CloudFormationClient = CloudFormationClient;
 
 /***/ }),
 
-/***/ 6581:
+/***/ 83756:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2310,7 +2310,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ActivateOrganizationsAccessCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2357,7 +2357,7 @@ exports.ActivateOrganizationsAccessCommand = ActivateOrganizationsAccessCommand;
 
 /***/ }),
 
-/***/ 52375:
+/***/ 72050:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2368,7 +2368,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ActivateTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2415,7 +2415,7 @@ exports.ActivateTypeCommand = ActivateTypeCommand;
 
 /***/ }),
 
-/***/ 45675:
+/***/ 66401:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2426,7 +2426,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class BatchDescribeTypeConfigurationsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2473,7 +2473,7 @@ exports.BatchDescribeTypeConfigurationsCommand = BatchDescribeTypeConfigurations
 
 /***/ }),
 
-/***/ 95294:
+/***/ 29924:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2484,7 +2484,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class CancelUpdateStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2531,7 +2531,7 @@ exports.CancelUpdateStackCommand = CancelUpdateStackCommand;
 
 /***/ }),
 
-/***/ 18699:
+/***/ 47116:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2542,7 +2542,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ContinueUpdateRollbackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2589,7 +2589,7 @@ exports.ContinueUpdateRollbackCommand = ContinueUpdateRollbackCommand;
 
 /***/ }),
 
-/***/ 40393:
+/***/ 71591:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2600,7 +2600,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class CreateChangeSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2647,7 +2647,7 @@ exports.CreateChangeSetCommand = CreateChangeSetCommand;
 
 /***/ }),
 
-/***/ 93239:
+/***/ 57531:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2658,7 +2658,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class CreateStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2705,7 +2705,7 @@ exports.CreateStackCommand = CreateStackCommand;
 
 /***/ }),
 
-/***/ 56427:
+/***/ 90077:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2716,7 +2716,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class CreateStackInstancesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2763,7 +2763,7 @@ exports.CreateStackInstancesCommand = CreateStackInstancesCommand;
 
 /***/ }),
 
-/***/ 31236:
+/***/ 31517:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2774,7 +2774,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class CreateStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2821,7 +2821,7 @@ exports.CreateStackSetCommand = CreateStackSetCommand;
 
 /***/ }),
 
-/***/ 95653:
+/***/ 95099:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2832,7 +2832,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DeactivateOrganizationsAccessCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2879,7 +2879,7 @@ exports.DeactivateOrganizationsAccessCommand = DeactivateOrganizationsAccessComm
 
 /***/ }),
 
-/***/ 59387:
+/***/ 33421:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2890,7 +2890,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DeactivateTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2937,7 +2937,7 @@ exports.DeactivateTypeCommand = DeactivateTypeCommand;
 
 /***/ }),
 
-/***/ 24623:
+/***/ 62236:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2948,7 +2948,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DeleteChangeSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -2995,7 +2995,7 @@ exports.DeleteChangeSetCommand = DeleteChangeSetCommand;
 
 /***/ }),
 
-/***/ 51790:
+/***/ 46009:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3006,7 +3006,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DeleteStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3053,7 +3053,7 @@ exports.DeleteStackCommand = DeleteStackCommand;
 
 /***/ }),
 
-/***/ 53687:
+/***/ 24222:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3064,7 +3064,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DeleteStackInstancesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3111,7 +3111,7 @@ exports.DeleteStackInstancesCommand = DeleteStackInstancesCommand;
 
 /***/ }),
 
-/***/ 43236:
+/***/ 65076:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3122,7 +3122,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DeleteStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3169,7 +3169,7 @@ exports.DeleteStackSetCommand = DeleteStackSetCommand;
 
 /***/ }),
 
-/***/ 5571:
+/***/ 17008:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3180,7 +3180,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DeregisterTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3227,7 +3227,7 @@ exports.DeregisterTypeCommand = DeregisterTypeCommand;
 
 /***/ }),
 
-/***/ 25747:
+/***/ 59135:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3238,7 +3238,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeAccountLimitsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3285,7 +3285,7 @@ exports.DescribeAccountLimitsCommand = DescribeAccountLimitsCommand;
 
 /***/ }),
 
-/***/ 87580:
+/***/ 96086:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3296,7 +3296,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeChangeSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3343,7 +3343,7 @@ exports.DescribeChangeSetCommand = DescribeChangeSetCommand;
 
 /***/ }),
 
-/***/ 38580:
+/***/ 63571:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3354,7 +3354,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeChangeSetHooksCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3401,7 +3401,7 @@ exports.DescribeChangeSetHooksCommand = DescribeChangeSetHooksCommand;
 
 /***/ }),
 
-/***/ 74524:
+/***/ 67968:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3412,7 +3412,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeOrganizationsAccessCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3459,7 +3459,7 @@ exports.DescribeOrganizationsAccessCommand = DescribeOrganizationsAccessCommand;
 
 /***/ }),
 
-/***/ 32619:
+/***/ 8566:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3470,7 +3470,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribePublisherCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3517,7 +3517,7 @@ exports.DescribePublisherCommand = DescribePublisherCommand;
 
 /***/ }),
 
-/***/ 23693:
+/***/ 61769:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3528,7 +3528,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStackDriftDetectionStatusCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3575,7 +3575,7 @@ exports.DescribeStackDriftDetectionStatusCommand = DescribeStackDriftDetectionSt
 
 /***/ }),
 
-/***/ 9948:
+/***/ 31593:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3586,7 +3586,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStackEventsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3633,7 +3633,7 @@ exports.DescribeStackEventsCommand = DescribeStackEventsCommand;
 
 /***/ }),
 
-/***/ 96990:
+/***/ 16334:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3644,7 +3644,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStackInstanceCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3691,7 +3691,7 @@ exports.DescribeStackInstanceCommand = DescribeStackInstanceCommand;
 
 /***/ }),
 
-/***/ 14852:
+/***/ 14961:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3702,7 +3702,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStackResourceCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3749,7 +3749,7 @@ exports.DescribeStackResourceCommand = DescribeStackResourceCommand;
 
 /***/ }),
 
-/***/ 3098:
+/***/ 40849:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3760,7 +3760,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStackResourceDriftsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3807,7 +3807,7 @@ exports.DescribeStackResourceDriftsCommand = DescribeStackResourceDriftsCommand;
 
 /***/ }),
 
-/***/ 32768:
+/***/ 30726:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3818,7 +3818,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStackResourcesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3865,7 +3865,7 @@ exports.DescribeStackResourcesCommand = DescribeStackResourcesCommand;
 
 /***/ }),
 
-/***/ 73838:
+/***/ 48770:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3876,7 +3876,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3923,7 +3923,7 @@ exports.DescribeStackSetCommand = DescribeStackSetCommand;
 
 /***/ }),
 
-/***/ 38887:
+/***/ 67091:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3934,7 +3934,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStackSetOperationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -3981,7 +3981,7 @@ exports.DescribeStackSetOperationCommand = DescribeStackSetOperationCommand;
 
 /***/ }),
 
-/***/ 19361:
+/***/ 44962:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3992,7 +3992,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeStacksCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4039,7 +4039,7 @@ exports.DescribeStacksCommand = DescribeStacksCommand;
 
 /***/ }),
 
-/***/ 6070:
+/***/ 69242:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4050,7 +4050,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4097,7 +4097,7 @@ exports.DescribeTypeCommand = DescribeTypeCommand;
 
 /***/ }),
 
-/***/ 93836:
+/***/ 5691:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4108,7 +4108,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DescribeTypeRegistrationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4155,7 +4155,7 @@ exports.DescribeTypeRegistrationCommand = DescribeTypeRegistrationCommand;
 
 /***/ }),
 
-/***/ 12763:
+/***/ 81542:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4166,7 +4166,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DetectStackDriftCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4213,7 +4213,7 @@ exports.DetectStackDriftCommand = DetectStackDriftCommand;
 
 /***/ }),
 
-/***/ 48326:
+/***/ 87715:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4224,7 +4224,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DetectStackResourceDriftCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4271,7 +4271,7 @@ exports.DetectStackResourceDriftCommand = DetectStackResourceDriftCommand;
 
 /***/ }),
 
-/***/ 2156:
+/***/ 92031:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4282,7 +4282,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class DetectStackSetDriftCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4329,7 +4329,7 @@ exports.DetectStackSetDriftCommand = DetectStackSetDriftCommand;
 
 /***/ }),
 
-/***/ 34811:
+/***/ 6145:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4340,7 +4340,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class EstimateTemplateCostCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4387,7 +4387,7 @@ exports.EstimateTemplateCostCommand = EstimateTemplateCostCommand;
 
 /***/ }),
 
-/***/ 51245:
+/***/ 86055:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4398,7 +4398,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ExecuteChangeSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4445,7 +4445,7 @@ exports.ExecuteChangeSetCommand = ExecuteChangeSetCommand;
 
 /***/ }),
 
-/***/ 63007:
+/***/ 66023:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4456,7 +4456,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class GetStackPolicyCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4503,7 +4503,7 @@ exports.GetStackPolicyCommand = GetStackPolicyCommand;
 
 /***/ }),
 
-/***/ 60145:
+/***/ 82879:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4514,7 +4514,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class GetTemplateCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4561,7 +4561,7 @@ exports.GetTemplateCommand = GetTemplateCommand;
 
 /***/ }),
 
-/***/ 15392:
+/***/ 88450:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4572,7 +4572,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class GetTemplateSummaryCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4619,7 +4619,7 @@ exports.GetTemplateSummaryCommand = GetTemplateSummaryCommand;
 
 /***/ }),
 
-/***/ 80789:
+/***/ 10716:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4630,7 +4630,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ImportStacksToStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4677,7 +4677,7 @@ exports.ImportStacksToStackSetCommand = ImportStacksToStackSetCommand;
 
 /***/ }),
 
-/***/ 59981:
+/***/ 68430:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4688,7 +4688,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListChangeSetsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4735,7 +4735,7 @@ exports.ListChangeSetsCommand = ListChangeSetsCommand;
 
 /***/ }),
 
-/***/ 83084:
+/***/ 98717:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4746,7 +4746,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListExportsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4793,7 +4793,7 @@ exports.ListExportsCommand = ListExportsCommand;
 
 /***/ }),
 
-/***/ 27682:
+/***/ 49298:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4804,7 +4804,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListImportsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4851,7 +4851,7 @@ exports.ListImportsCommand = ListImportsCommand;
 
 /***/ }),
 
-/***/ 96:
+/***/ 62794:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4862,7 +4862,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListStackInstanceResourceDriftsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4909,7 +4909,7 @@ exports.ListStackInstanceResourceDriftsCommand = ListStackInstanceResourceDrifts
 
 /***/ }),
 
-/***/ 45991:
+/***/ 47056:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4920,7 +4920,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListStackInstancesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -4967,7 +4967,7 @@ exports.ListStackInstancesCommand = ListStackInstancesCommand;
 
 /***/ }),
 
-/***/ 1679:
+/***/ 83140:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4978,7 +4978,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListStackResourcesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5025,7 +5025,7 @@ exports.ListStackResourcesCommand = ListStackResourcesCommand;
 
 /***/ }),
 
-/***/ 87565:
+/***/ 85121:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5036,7 +5036,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListStackSetOperationResultsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5083,7 +5083,7 @@ exports.ListStackSetOperationResultsCommand = ListStackSetOperationResultsComman
 
 /***/ }),
 
-/***/ 73846:
+/***/ 49438:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5094,7 +5094,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListStackSetOperationsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5141,7 +5141,7 @@ exports.ListStackSetOperationsCommand = ListStackSetOperationsCommand;
 
 /***/ }),
 
-/***/ 78993:
+/***/ 21271:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5152,7 +5152,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListStackSetsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5199,7 +5199,7 @@ exports.ListStackSetsCommand = ListStackSetsCommand;
 
 /***/ }),
 
-/***/ 55130:
+/***/ 69532:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5210,7 +5210,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListStacksCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5257,7 +5257,7 @@ exports.ListStacksCommand = ListStacksCommand;
 
 /***/ }),
 
-/***/ 8807:
+/***/ 43292:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5268,7 +5268,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListTypeRegistrationsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5315,7 +5315,7 @@ exports.ListTypeRegistrationsCommand = ListTypeRegistrationsCommand;
 
 /***/ }),
 
-/***/ 11486:
+/***/ 9579:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5326,7 +5326,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListTypeVersionsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5373,7 +5373,7 @@ exports.ListTypeVersionsCommand = ListTypeVersionsCommand;
 
 /***/ }),
 
-/***/ 22882:
+/***/ 50206:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5384,7 +5384,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ListTypesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5431,7 +5431,7 @@ exports.ListTypesCommand = ListTypesCommand;
 
 /***/ }),
 
-/***/ 79120:
+/***/ 96596:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5442,7 +5442,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class PublishTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5489,7 +5489,7 @@ exports.PublishTypeCommand = PublishTypeCommand;
 
 /***/ }),
 
-/***/ 34538:
+/***/ 29847:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5500,7 +5500,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class RecordHandlerProgressCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5547,7 +5547,7 @@ exports.RecordHandlerProgressCommand = RecordHandlerProgressCommand;
 
 /***/ }),
 
-/***/ 88301:
+/***/ 95081:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5558,7 +5558,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class RegisterPublisherCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5605,7 +5605,7 @@ exports.RegisterPublisherCommand = RegisterPublisherCommand;
 
 /***/ }),
 
-/***/ 44473:
+/***/ 9018:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5616,7 +5616,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class RegisterTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5663,7 +5663,7 @@ exports.RegisterTypeCommand = RegisterTypeCommand;
 
 /***/ }),
 
-/***/ 80535:
+/***/ 20595:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5674,7 +5674,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class RollbackStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5721,7 +5721,7 @@ exports.RollbackStackCommand = RollbackStackCommand;
 
 /***/ }),
 
-/***/ 13996:
+/***/ 23617:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5732,7 +5732,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class SetStackPolicyCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5779,7 +5779,7 @@ exports.SetStackPolicyCommand = SetStackPolicyCommand;
 
 /***/ }),
 
-/***/ 33480:
+/***/ 86781:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5790,7 +5790,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class SetTypeConfigurationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5837,7 +5837,7 @@ exports.SetTypeConfigurationCommand = SetTypeConfigurationCommand;
 
 /***/ }),
 
-/***/ 34513:
+/***/ 4961:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5848,7 +5848,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class SetTypeDefaultVersionCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5895,7 +5895,7 @@ exports.SetTypeDefaultVersionCommand = SetTypeDefaultVersionCommand;
 
 /***/ }),
 
-/***/ 29033:
+/***/ 29983:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5906,7 +5906,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class SignalResourceCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -5953,7 +5953,7 @@ exports.SignalResourceCommand = SignalResourceCommand;
 
 /***/ }),
 
-/***/ 64911:
+/***/ 42827:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5964,7 +5964,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class StopStackSetOperationCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -6011,7 +6011,7 @@ exports.StopStackSetOperationCommand = StopStackSetOperationCommand;
 
 /***/ }),
 
-/***/ 21352:
+/***/ 2896:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -6022,7 +6022,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class TestTypeCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -6069,7 +6069,7 @@ exports.TestTypeCommand = TestTypeCommand;
 
 /***/ }),
 
-/***/ 50659:
+/***/ 15697:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -6080,7 +6080,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class UpdateStackCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -6127,7 +6127,7 @@ exports.UpdateStackCommand = UpdateStackCommand;
 
 /***/ }),
 
-/***/ 72526:
+/***/ 15139:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -6138,7 +6138,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class UpdateStackInstancesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -6185,7 +6185,7 @@ exports.UpdateStackInstancesCommand = UpdateStackInstancesCommand;
 
 /***/ }),
 
-/***/ 61181:
+/***/ 76345:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -6196,7 +6196,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class UpdateStackSetCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -6243,7 +6243,7 @@ exports.UpdateStackSetCommand = UpdateStackSetCommand;
 
 /***/ }),
 
-/***/ 98831:
+/***/ 22994:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -6254,7 +6254,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class UpdateTerminationProtectionCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -6301,7 +6301,7 @@ exports.UpdateTerminationProtectionCommand = UpdateTerminationProtectionCommand;
 
 /***/ }),
 
-/***/ 28662:
+/***/ 67890:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -6312,7 +6312,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(93154);
+const Aws_query_1 = __nccwpck_require__(76170);
 class ValidateTemplateCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -6359,87 +6359,87 @@ exports.ValidateTemplateCommand = ValidateTemplateCommand;
 
 /***/ }),
 
-/***/ 7282:
+/***/ 56418:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(6581), exports);
-tslib_1.__exportStar(__nccwpck_require__(52375), exports);
-tslib_1.__exportStar(__nccwpck_require__(45675), exports);
-tslib_1.__exportStar(__nccwpck_require__(95294), exports);
-tslib_1.__exportStar(__nccwpck_require__(18699), exports);
-tslib_1.__exportStar(__nccwpck_require__(40393), exports);
-tslib_1.__exportStar(__nccwpck_require__(93239), exports);
-tslib_1.__exportStar(__nccwpck_require__(56427), exports);
-tslib_1.__exportStar(__nccwpck_require__(31236), exports);
-tslib_1.__exportStar(__nccwpck_require__(95653), exports);
-tslib_1.__exportStar(__nccwpck_require__(59387), exports);
-tslib_1.__exportStar(__nccwpck_require__(24623), exports);
-tslib_1.__exportStar(__nccwpck_require__(51790), exports);
-tslib_1.__exportStar(__nccwpck_require__(53687), exports);
-tslib_1.__exportStar(__nccwpck_require__(43236), exports);
-tslib_1.__exportStar(__nccwpck_require__(5571), exports);
-tslib_1.__exportStar(__nccwpck_require__(25747), exports);
-tslib_1.__exportStar(__nccwpck_require__(87580), exports);
-tslib_1.__exportStar(__nccwpck_require__(38580), exports);
-tslib_1.__exportStar(__nccwpck_require__(74524), exports);
-tslib_1.__exportStar(__nccwpck_require__(32619), exports);
-tslib_1.__exportStar(__nccwpck_require__(23693), exports);
-tslib_1.__exportStar(__nccwpck_require__(9948), exports);
-tslib_1.__exportStar(__nccwpck_require__(96990), exports);
-tslib_1.__exportStar(__nccwpck_require__(14852), exports);
-tslib_1.__exportStar(__nccwpck_require__(3098), exports);
-tslib_1.__exportStar(__nccwpck_require__(32768), exports);
-tslib_1.__exportStar(__nccwpck_require__(73838), exports);
-tslib_1.__exportStar(__nccwpck_require__(38887), exports);
-tslib_1.__exportStar(__nccwpck_require__(19361), exports);
-tslib_1.__exportStar(__nccwpck_require__(6070), exports);
-tslib_1.__exportStar(__nccwpck_require__(93836), exports);
-tslib_1.__exportStar(__nccwpck_require__(12763), exports);
-tslib_1.__exportStar(__nccwpck_require__(48326), exports);
-tslib_1.__exportStar(__nccwpck_require__(2156), exports);
-tslib_1.__exportStar(__nccwpck_require__(34811), exports);
-tslib_1.__exportStar(__nccwpck_require__(51245), exports);
-tslib_1.__exportStar(__nccwpck_require__(63007), exports);
-tslib_1.__exportStar(__nccwpck_require__(60145), exports);
-tslib_1.__exportStar(__nccwpck_require__(15392), exports);
-tslib_1.__exportStar(__nccwpck_require__(80789), exports);
-tslib_1.__exportStar(__nccwpck_require__(59981), exports);
-tslib_1.__exportStar(__nccwpck_require__(83084), exports);
-tslib_1.__exportStar(__nccwpck_require__(27682), exports);
-tslib_1.__exportStar(__nccwpck_require__(96), exports);
-tslib_1.__exportStar(__nccwpck_require__(45991), exports);
-tslib_1.__exportStar(__nccwpck_require__(1679), exports);
-tslib_1.__exportStar(__nccwpck_require__(87565), exports);
-tslib_1.__exportStar(__nccwpck_require__(73846), exports);
-tslib_1.__exportStar(__nccwpck_require__(78993), exports);
-tslib_1.__exportStar(__nccwpck_require__(55130), exports);
-tslib_1.__exportStar(__nccwpck_require__(8807), exports);
-tslib_1.__exportStar(__nccwpck_require__(11486), exports);
-tslib_1.__exportStar(__nccwpck_require__(22882), exports);
-tslib_1.__exportStar(__nccwpck_require__(79120), exports);
-tslib_1.__exportStar(__nccwpck_require__(34538), exports);
-tslib_1.__exportStar(__nccwpck_require__(88301), exports);
-tslib_1.__exportStar(__nccwpck_require__(44473), exports);
-tslib_1.__exportStar(__nccwpck_require__(80535), exports);
-tslib_1.__exportStar(__nccwpck_require__(13996), exports);
-tslib_1.__exportStar(__nccwpck_require__(33480), exports);
-tslib_1.__exportStar(__nccwpck_require__(34513), exports);
-tslib_1.__exportStar(__nccwpck_require__(29033), exports);
-tslib_1.__exportStar(__nccwpck_require__(64911), exports);
-tslib_1.__exportStar(__nccwpck_require__(21352), exports);
-tslib_1.__exportStar(__nccwpck_require__(50659), exports);
-tslib_1.__exportStar(__nccwpck_require__(72526), exports);
-tslib_1.__exportStar(__nccwpck_require__(61181), exports);
-tslib_1.__exportStar(__nccwpck_require__(98831), exports);
-tslib_1.__exportStar(__nccwpck_require__(28662), exports);
+tslib_1.__exportStar(__nccwpck_require__(83756), exports);
+tslib_1.__exportStar(__nccwpck_require__(72050), exports);
+tslib_1.__exportStar(__nccwpck_require__(66401), exports);
+tslib_1.__exportStar(__nccwpck_require__(29924), exports);
+tslib_1.__exportStar(__nccwpck_require__(47116), exports);
+tslib_1.__exportStar(__nccwpck_require__(71591), exports);
+tslib_1.__exportStar(__nccwpck_require__(57531), exports);
+tslib_1.__exportStar(__nccwpck_require__(90077), exports);
+tslib_1.__exportStar(__nccwpck_require__(31517), exports);
+tslib_1.__exportStar(__nccwpck_require__(95099), exports);
+tslib_1.__exportStar(__nccwpck_require__(33421), exports);
+tslib_1.__exportStar(__nccwpck_require__(62236), exports);
+tslib_1.__exportStar(__nccwpck_require__(46009), exports);
+tslib_1.__exportStar(__nccwpck_require__(24222), exports);
+tslib_1.__exportStar(__nccwpck_require__(65076), exports);
+tslib_1.__exportStar(__nccwpck_require__(17008), exports);
+tslib_1.__exportStar(__nccwpck_require__(59135), exports);
+tslib_1.__exportStar(__nccwpck_require__(96086), exports);
+tslib_1.__exportStar(__nccwpck_require__(63571), exports);
+tslib_1.__exportStar(__nccwpck_require__(67968), exports);
+tslib_1.__exportStar(__nccwpck_require__(8566), exports);
+tslib_1.__exportStar(__nccwpck_require__(61769), exports);
+tslib_1.__exportStar(__nccwpck_require__(31593), exports);
+tslib_1.__exportStar(__nccwpck_require__(16334), exports);
+tslib_1.__exportStar(__nccwpck_require__(14961), exports);
+tslib_1.__exportStar(__nccwpck_require__(40849), exports);
+tslib_1.__exportStar(__nccwpck_require__(30726), exports);
+tslib_1.__exportStar(__nccwpck_require__(48770), exports);
+tslib_1.__exportStar(__nccwpck_require__(67091), exports);
+tslib_1.__exportStar(__nccwpck_require__(44962), exports);
+tslib_1.__exportStar(__nccwpck_require__(69242), exports);
+tslib_1.__exportStar(__nccwpck_require__(5691), exports);
+tslib_1.__exportStar(__nccwpck_require__(81542), exports);
+tslib_1.__exportStar(__nccwpck_require__(87715), exports);
+tslib_1.__exportStar(__nccwpck_require__(92031), exports);
+tslib_1.__exportStar(__nccwpck_require__(6145), exports);
+tslib_1.__exportStar(__nccwpck_require__(86055), exports);
+tslib_1.__exportStar(__nccwpck_require__(66023), exports);
+tslib_1.__exportStar(__nccwpck_require__(82879), exports);
+tslib_1.__exportStar(__nccwpck_require__(88450), exports);
+tslib_1.__exportStar(__nccwpck_require__(10716), exports);
+tslib_1.__exportStar(__nccwpck_require__(68430), exports);
+tslib_1.__exportStar(__nccwpck_require__(98717), exports);
+tslib_1.__exportStar(__nccwpck_require__(49298), exports);
+tslib_1.__exportStar(__nccwpck_require__(62794), exports);
+tslib_1.__exportStar(__nccwpck_require__(47056), exports);
+tslib_1.__exportStar(__nccwpck_require__(83140), exports);
+tslib_1.__exportStar(__nccwpck_require__(85121), exports);
+tslib_1.__exportStar(__nccwpck_require__(49438), exports);
+tslib_1.__exportStar(__nccwpck_require__(21271), exports);
+tslib_1.__exportStar(__nccwpck_require__(69532), exports);
+tslib_1.__exportStar(__nccwpck_require__(43292), exports);
+tslib_1.__exportStar(__nccwpck_require__(9579), exports);
+tslib_1.__exportStar(__nccwpck_require__(50206), exports);
+tslib_1.__exportStar(__nccwpck_require__(96596), exports);
+tslib_1.__exportStar(__nccwpck_require__(29847), exports);
+tslib_1.__exportStar(__nccwpck_require__(95081), exports);
+tslib_1.__exportStar(__nccwpck_require__(9018), exports);
+tslib_1.__exportStar(__nccwpck_require__(20595), exports);
+tslib_1.__exportStar(__nccwpck_require__(23617), exports);
+tslib_1.__exportStar(__nccwpck_require__(86781), exports);
+tslib_1.__exportStar(__nccwpck_require__(4961), exports);
+tslib_1.__exportStar(__nccwpck_require__(29983), exports);
+tslib_1.__exportStar(__nccwpck_require__(42827), exports);
+tslib_1.__exportStar(__nccwpck_require__(2896), exports);
+tslib_1.__exportStar(__nccwpck_require__(15697), exports);
+tslib_1.__exportStar(__nccwpck_require__(15139), exports);
+tslib_1.__exportStar(__nccwpck_require__(76345), exports);
+tslib_1.__exportStar(__nccwpck_require__(22994), exports);
+tslib_1.__exportStar(__nccwpck_require__(67890), exports);
 
 
 /***/ }),
 
-/***/ 77363:
+/***/ 95096:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -6458,14 +6458,14 @@ exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
 
 /***/ }),
 
-/***/ 30385:
+/***/ 44559:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(91686);
-const ruleset_1 = __nccwpck_require__(49357);
+const ruleset_1 = __nccwpck_require__(76379);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -6477,7 +6477,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 49357:
+/***/ 76379:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -6491,27 +6491,27 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 17655:
+/***/ 35574:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CloudFormationServiceException = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(84097), exports);
-tslib_1.__exportStar(__nccwpck_require__(7144), exports);
-tslib_1.__exportStar(__nccwpck_require__(7282), exports);
-tslib_1.__exportStar(__nccwpck_require__(88596), exports);
-tslib_1.__exportStar(__nccwpck_require__(76963), exports);
-tslib_1.__exportStar(__nccwpck_require__(43838), exports);
+tslib_1.__exportStar(__nccwpck_require__(36514), exports);
+tslib_1.__exportStar(__nccwpck_require__(63830), exports);
+tslib_1.__exportStar(__nccwpck_require__(56418), exports);
+tslib_1.__exportStar(__nccwpck_require__(17367), exports);
+tslib_1.__exportStar(__nccwpck_require__(74055), exports);
+tslib_1.__exportStar(__nccwpck_require__(41204), exports);
 __nccwpck_require__(75934);
-var CloudFormationServiceException_1 = __nccwpck_require__(8051);
+var CloudFormationServiceException_1 = __nccwpck_require__(34360);
 Object.defineProperty(exports, "CloudFormationServiceException", ({ enumerable: true, get: function () { return CloudFormationServiceException_1.CloudFormationServiceException; } }));
 
 
 /***/ }),
 
-/***/ 8051:
+/***/ 34360:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -6530,25 +6530,25 @@ exports.CloudFormationServiceException = CloudFormationServiceException;
 
 /***/ }),
 
-/***/ 43838:
+/***/ 41204:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(64344), exports);
+tslib_1.__exportStar(__nccwpck_require__(13200), exports);
 
 
 /***/ }),
 
-/***/ 64344:
+/***/ 13200:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.StackDriftStatus = exports.StackDriftDetectionStatus = exports.PublisherStatus = exports.IdentityProvider = exports.OrganizationStatus = exports.RegistryType = exports.StackSetNotEmptyException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.PermissionModels = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.RegionConcurrencyType = exports.ConcurrencyMode = exports.OnFailure = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.OnStackFailure = exports.ChangeSetType = exports.ExecutionStatus = exports.ChangeSetStatus = exports.ChangeSetNotFoundException = exports.ChangeSetHooksStatus = exports.HookTargetType = exports.HookInvocationPoint = exports.HookFailureMode = exports.ChangeType = exports.Replacement = exports.RequiresRecreation = exports.ResourceAttribute = exports.EvaluationType = exports.ChangeSource = exports.ChangeAction = exports.Category = exports.Capability = exports.TokenAlreadyExistsException = exports.CallAs = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.VersionBump = exports.ThirdPartyType = exports.OperationNotFoundException = exports.InvalidOperationException = exports.AccountGateStatus = exports.AccountFilterType = void 0;
 exports.ResourceSignalStatus = exports.HandlerErrorCode = exports.OperationStatus = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.StackSetOperationResultStatus = exports.OperationResultFilterName = exports.StackInstanceFilterName = exports.StackNotFoundException = exports.TemplateStage = exports.RegistrationStatus = exports.Visibility = exports.TypeTestsStatus = exports.ProvisioningType = exports.DeprecatedStatus = exports.StackSetOperationStatus = exports.StackSetOperationAction = exports.StackSetStatus = exports.StackSetDriftStatus = exports.StackSetDriftDetectionStatus = exports.StackStatus = exports.DifferenceType = exports.StackResourceDriftStatus = exports.StackInstanceNotFoundException = exports.StackInstanceStatus = exports.StackInstanceDetailedStatus = exports.ResourceStatus = exports.HookStatus = void 0;
-const CloudFormationServiceException_1 = __nccwpck_require__(8051);
+const CloudFormationServiceException_1 = __nccwpck_require__(34360);
 exports.AccountFilterType = {
     DIFFERENCE: "DIFFERENCE",
     INTERSECTION: "INTERSECTION",
@@ -7210,14 +7210,14 @@ exports.ResourceSignalStatus = {
 
 /***/ }),
 
-/***/ 42537:
+/***/ 45815:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeAccountLimits = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const DescribeAccountLimitsCommand_1 = __nccwpck_require__(25747);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const DescribeAccountLimitsCommand_1 = __nccwpck_require__(59135);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new DescribeAccountLimitsCommand_1.DescribeAccountLimitsCommand(input), ...args);
 };
@@ -7245,14 +7245,14 @@ exports.paginateDescribeAccountLimits = paginateDescribeAccountLimits;
 
 /***/ }),
 
-/***/ 40523:
+/***/ 14578:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStackEvents = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const DescribeStackEventsCommand_1 = __nccwpck_require__(9948);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const DescribeStackEventsCommand_1 = __nccwpck_require__(31593);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new DescribeStackEventsCommand_1.DescribeStackEventsCommand(input), ...args);
 };
@@ -7280,14 +7280,14 @@ exports.paginateDescribeStackEvents = paginateDescribeStackEvents;
 
 /***/ }),
 
-/***/ 17562:
+/***/ 14877:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStackResourceDrifts = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(3098);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(40849);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new DescribeStackResourceDriftsCommand_1.DescribeStackResourceDriftsCommand(input), ...args);
 };
@@ -7316,14 +7316,14 @@ exports.paginateDescribeStackResourceDrifts = paginateDescribeStackResourceDrift
 
 /***/ }),
 
-/***/ 41872:
+/***/ 84810:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStacks = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const DescribeStacksCommand_1 = __nccwpck_require__(19361);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const DescribeStacksCommand_1 = __nccwpck_require__(44962);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new DescribeStacksCommand_1.DescribeStacksCommand(input), ...args);
 };
@@ -7351,7 +7351,7 @@ exports.paginateDescribeStacks = paginateDescribeStacks;
 
 /***/ }),
 
-/***/ 52975:
+/***/ 2857:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -7360,14 +7360,14 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
-/***/ 13714:
+/***/ 63462:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListChangeSets = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListChangeSetsCommand_1 = __nccwpck_require__(59981);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListChangeSetsCommand_1 = __nccwpck_require__(68430);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListChangeSetsCommand_1.ListChangeSetsCommand(input), ...args);
 };
@@ -7395,14 +7395,14 @@ exports.paginateListChangeSets = paginateListChangeSets;
 
 /***/ }),
 
-/***/ 31498:
+/***/ 2618:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListExports = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListExportsCommand_1 = __nccwpck_require__(83084);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListExportsCommand_1 = __nccwpck_require__(98717);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListExportsCommand_1.ListExportsCommand(input), ...args);
 };
@@ -7430,14 +7430,14 @@ exports.paginateListExports = paginateListExports;
 
 /***/ }),
 
-/***/ 40902:
+/***/ 77956:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListImports = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListImportsCommand_1 = __nccwpck_require__(27682);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListImportsCommand_1 = __nccwpck_require__(49298);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListImportsCommand_1.ListImportsCommand(input), ...args);
 };
@@ -7465,14 +7465,14 @@ exports.paginateListImports = paginateListImports;
 
 /***/ }),
 
-/***/ 76:
+/***/ 29763:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackInstances = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListStackInstancesCommand_1 = __nccwpck_require__(45991);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListStackInstancesCommand_1 = __nccwpck_require__(47056);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackInstancesCommand_1.ListStackInstancesCommand(input), ...args);
 };
@@ -7501,14 +7501,14 @@ exports.paginateListStackInstances = paginateListStackInstances;
 
 /***/ }),
 
-/***/ 36908:
+/***/ 32474:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackResources = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListStackResourcesCommand_1 = __nccwpck_require__(1679);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListStackResourcesCommand_1 = __nccwpck_require__(83140);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackResourcesCommand_1.ListStackResourcesCommand(input), ...args);
 };
@@ -7536,14 +7536,14 @@ exports.paginateListStackResources = paginateListStackResources;
 
 /***/ }),
 
-/***/ 17540:
+/***/ 81493:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSetOperationResults = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(87565);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(85121);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackSetOperationResultsCommand_1.ListStackSetOperationResultsCommand(input), ...args);
 };
@@ -7572,14 +7572,14 @@ exports.paginateListStackSetOperationResults = paginateListStackSetOperationResu
 
 /***/ }),
 
-/***/ 14535:
+/***/ 6951:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSetOperations = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListStackSetOperationsCommand_1 = __nccwpck_require__(73846);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListStackSetOperationsCommand_1 = __nccwpck_require__(49438);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackSetOperationsCommand_1.ListStackSetOperationsCommand(input), ...args);
 };
@@ -7608,14 +7608,14 @@ exports.paginateListStackSetOperations = paginateListStackSetOperations;
 
 /***/ }),
 
-/***/ 11748:
+/***/ 38540:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSets = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListStackSetsCommand_1 = __nccwpck_require__(78993);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListStackSetsCommand_1 = __nccwpck_require__(21271);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStackSetsCommand_1.ListStackSetsCommand(input), ...args);
 };
@@ -7644,14 +7644,14 @@ exports.paginateListStackSets = paginateListStackSets;
 
 /***/ }),
 
-/***/ 47966:
+/***/ 30303:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStacks = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListStacksCommand_1 = __nccwpck_require__(55130);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListStacksCommand_1 = __nccwpck_require__(69532);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListStacksCommand_1.ListStacksCommand(input), ...args);
 };
@@ -7679,14 +7679,14 @@ exports.paginateListStacks = paginateListStacks;
 
 /***/ }),
 
-/***/ 2746:
+/***/ 97025:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypeRegistrations = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListTypeRegistrationsCommand_1 = __nccwpck_require__(8807);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListTypeRegistrationsCommand_1 = __nccwpck_require__(43292);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListTypeRegistrationsCommand_1.ListTypeRegistrationsCommand(input), ...args);
 };
@@ -7715,14 +7715,14 @@ exports.paginateListTypeRegistrations = paginateListTypeRegistrations;
 
 /***/ }),
 
-/***/ 73269:
+/***/ 20713:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypeVersions = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListTypeVersionsCommand_1 = __nccwpck_require__(11486);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListTypeVersionsCommand_1 = __nccwpck_require__(9579);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListTypeVersionsCommand_1.ListTypeVersionsCommand(input), ...args);
 };
@@ -7751,14 +7751,14 @@ exports.paginateListTypeVersions = paginateListTypeVersions;
 
 /***/ }),
 
-/***/ 96642:
+/***/ 21480:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypes = void 0;
-const CloudFormationClient_1 = __nccwpck_require__(84097);
-const ListTypesCommand_1 = __nccwpck_require__(22882);
+const CloudFormationClient_1 = __nccwpck_require__(36514);
+const ListTypesCommand_1 = __nccwpck_require__(50206);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListTypesCommand_1.ListTypesCommand(input), ...args);
 };
@@ -7787,34 +7787,34 @@ exports.paginateListTypes = paginateListTypes;
 
 /***/ }),
 
-/***/ 88596:
+/***/ 17367:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(42537), exports);
-tslib_1.__exportStar(__nccwpck_require__(40523), exports);
-tslib_1.__exportStar(__nccwpck_require__(17562), exports);
-tslib_1.__exportStar(__nccwpck_require__(41872), exports);
-tslib_1.__exportStar(__nccwpck_require__(52975), exports);
-tslib_1.__exportStar(__nccwpck_require__(13714), exports);
-tslib_1.__exportStar(__nccwpck_require__(31498), exports);
-tslib_1.__exportStar(__nccwpck_require__(40902), exports);
-tslib_1.__exportStar(__nccwpck_require__(76), exports);
-tslib_1.__exportStar(__nccwpck_require__(36908), exports);
-tslib_1.__exportStar(__nccwpck_require__(17540), exports);
-tslib_1.__exportStar(__nccwpck_require__(14535), exports);
-tslib_1.__exportStar(__nccwpck_require__(11748), exports);
-tslib_1.__exportStar(__nccwpck_require__(47966), exports);
-tslib_1.__exportStar(__nccwpck_require__(2746), exports);
-tslib_1.__exportStar(__nccwpck_require__(73269), exports);
-tslib_1.__exportStar(__nccwpck_require__(96642), exports);
+tslib_1.__exportStar(__nccwpck_require__(45815), exports);
+tslib_1.__exportStar(__nccwpck_require__(14578), exports);
+tslib_1.__exportStar(__nccwpck_require__(14877), exports);
+tslib_1.__exportStar(__nccwpck_require__(84810), exports);
+tslib_1.__exportStar(__nccwpck_require__(2857), exports);
+tslib_1.__exportStar(__nccwpck_require__(63462), exports);
+tslib_1.__exportStar(__nccwpck_require__(2618), exports);
+tslib_1.__exportStar(__nccwpck_require__(77956), exports);
+tslib_1.__exportStar(__nccwpck_require__(29763), exports);
+tslib_1.__exportStar(__nccwpck_require__(32474), exports);
+tslib_1.__exportStar(__nccwpck_require__(81493), exports);
+tslib_1.__exportStar(__nccwpck_require__(6951), exports);
+tslib_1.__exportStar(__nccwpck_require__(38540), exports);
+tslib_1.__exportStar(__nccwpck_require__(30303), exports);
+tslib_1.__exportStar(__nccwpck_require__(97025), exports);
+tslib_1.__exportStar(__nccwpck_require__(20713), exports);
+tslib_1.__exportStar(__nccwpck_require__(21480), exports);
 
 
 /***/ }),
 
-/***/ 93154:
+/***/ 76170:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -7826,15 +7826,15 @@ const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_1 = __nccwpck_require__(96899);
 const fast_xml_parser_1 = __nccwpck_require__(64751);
 const uuid_1 = __nccwpck_require__(42033);
-const CloudFormationServiceException_1 = __nccwpck_require__(8051);
-const models_0_1 = __nccwpck_require__(64344);
+const CloudFormationServiceException_1 = __nccwpck_require__(34360);
+const models_0_1 = __nccwpck_require__(13200);
 const se_ActivateOrganizationsAccessCommand = async (input, context) => {
     const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_ActivateOrganizationsAccessInput(input, context),
-        Action: "ActivateOrganizationsAccess",
-        Version: "2010-05-15",
+        [_A]: _AOA,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7844,8 +7844,8 @@ const se_ActivateTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ActivateTypeInput(input, context),
-        Action: "ActivateType",
-        Version: "2010-05-15",
+        [_A]: _AT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7855,8 +7855,8 @@ const se_BatchDescribeTypeConfigurationsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_BatchDescribeTypeConfigurationsInput(input, context),
-        Action: "BatchDescribeTypeConfigurations",
-        Version: "2010-05-15",
+        [_A]: _BDTC,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7866,8 +7866,8 @@ const se_CancelUpdateStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CancelUpdateStackInput(input, context),
-        Action: "CancelUpdateStack",
-        Version: "2010-05-15",
+        [_A]: _CUS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7877,8 +7877,8 @@ const se_ContinueUpdateRollbackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ContinueUpdateRollbackInput(input, context),
-        Action: "ContinueUpdateRollback",
-        Version: "2010-05-15",
+        [_A]: _CUR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7888,8 +7888,8 @@ const se_CreateChangeSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateChangeSetInput(input, context),
-        Action: "CreateChangeSet",
-        Version: "2010-05-15",
+        [_A]: _CCS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7899,8 +7899,8 @@ const se_CreateStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackInput(input, context),
-        Action: "CreateStack",
-        Version: "2010-05-15",
+        [_A]: _CS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7910,8 +7910,8 @@ const se_CreateStackInstancesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackInstancesInput(input, context),
-        Action: "CreateStackInstances",
-        Version: "2010-05-15",
+        [_A]: _CSI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7921,8 +7921,8 @@ const se_CreateStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackSetInput(input, context),
-        Action: "CreateStackSet",
-        Version: "2010-05-15",
+        [_A]: _CSS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7932,8 +7932,8 @@ const se_DeactivateOrganizationsAccessCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeactivateOrganizationsAccessInput(input, context),
-        Action: "DeactivateOrganizationsAccess",
-        Version: "2010-05-15",
+        [_A]: _DOA,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7943,8 +7943,8 @@ const se_DeactivateTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeactivateTypeInput(input, context),
-        Action: "DeactivateType",
-        Version: "2010-05-15",
+        [_A]: _DT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7954,8 +7954,8 @@ const se_DeleteChangeSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteChangeSetInput(input, context),
-        Action: "DeleteChangeSet",
-        Version: "2010-05-15",
+        [_A]: _DCS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7965,8 +7965,8 @@ const se_DeleteStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackInput(input, context),
-        Action: "DeleteStack",
-        Version: "2010-05-15",
+        [_A]: _DS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7976,8 +7976,8 @@ const se_DeleteStackInstancesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackInstancesInput(input, context),
-        Action: "DeleteStackInstances",
-        Version: "2010-05-15",
+        [_A]: _DSI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7987,8 +7987,8 @@ const se_DeleteStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackSetInput(input, context),
-        Action: "DeleteStackSet",
-        Version: "2010-05-15",
+        [_A]: _DSS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7998,8 +7998,8 @@ const se_DeregisterTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeregisterTypeInput(input, context),
-        Action: "DeregisterType",
-        Version: "2010-05-15",
+        [_A]: _DTe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8009,8 +8009,8 @@ const se_DescribeAccountLimitsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeAccountLimitsInput(input, context),
-        Action: "DescribeAccountLimits",
-        Version: "2010-05-15",
+        [_A]: _DAL,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8020,8 +8020,8 @@ const se_DescribeChangeSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeChangeSetInput(input, context),
-        Action: "DescribeChangeSet",
-        Version: "2010-05-15",
+        [_A]: _DCSe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8031,8 +8031,8 @@ const se_DescribeChangeSetHooksCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeChangeSetHooksInput(input, context),
-        Action: "DescribeChangeSetHooks",
-        Version: "2010-05-15",
+        [_A]: _DCSH,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8042,8 +8042,8 @@ const se_DescribeOrganizationsAccessCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeOrganizationsAccessInput(input, context),
-        Action: "DescribeOrganizationsAccess",
-        Version: "2010-05-15",
+        [_A]: _DOAe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8053,8 +8053,8 @@ const se_DescribePublisherCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribePublisherInput(input, context),
-        Action: "DescribePublisher",
-        Version: "2010-05-15",
+        [_A]: _DP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8064,8 +8064,8 @@ const se_DescribeStackDriftDetectionStatusCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackDriftDetectionStatusInput(input, context),
-        Action: "DescribeStackDriftDetectionStatus",
-        Version: "2010-05-15",
+        [_A]: _DSDDS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8075,8 +8075,8 @@ const se_DescribeStackEventsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackEventsInput(input, context),
-        Action: "DescribeStackEvents",
-        Version: "2010-05-15",
+        [_A]: _DSE,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8086,8 +8086,8 @@ const se_DescribeStackInstanceCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackInstanceInput(input, context),
-        Action: "DescribeStackInstance",
-        Version: "2010-05-15",
+        [_A]: _DSIe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8097,8 +8097,8 @@ const se_DescribeStackResourceCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourceInput(input, context),
-        Action: "DescribeStackResource",
-        Version: "2010-05-15",
+        [_A]: _DSR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8108,8 +8108,8 @@ const se_DescribeStackResourceDriftsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourceDriftsInput(input, context),
-        Action: "DescribeStackResourceDrifts",
-        Version: "2010-05-15",
+        [_A]: _DSRD,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8119,8 +8119,8 @@ const se_DescribeStackResourcesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourcesInput(input, context),
-        Action: "DescribeStackResources",
-        Version: "2010-05-15",
+        [_A]: _DSRe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8130,8 +8130,8 @@ const se_DescribeStacksCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStacksInput(input, context),
-        Action: "DescribeStacks",
-        Version: "2010-05-15",
+        [_A]: _DSe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8141,8 +8141,8 @@ const se_DescribeStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackSetInput(input, context),
-        Action: "DescribeStackSet",
-        Version: "2010-05-15",
+        [_A]: _DSSe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8152,8 +8152,8 @@ const se_DescribeStackSetOperationCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackSetOperationInput(input, context),
-        Action: "DescribeStackSetOperation",
-        Version: "2010-05-15",
+        [_A]: _DSSO,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8163,8 +8163,8 @@ const se_DescribeTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeTypeInput(input, context),
-        Action: "DescribeType",
-        Version: "2010-05-15",
+        [_A]: _DTes,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8174,8 +8174,8 @@ const se_DescribeTypeRegistrationCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeTypeRegistrationInput(input, context),
-        Action: "DescribeTypeRegistration",
-        Version: "2010-05-15",
+        [_A]: _DTR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8185,8 +8185,8 @@ const se_DetectStackDriftCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackDriftInput(input, context),
-        Action: "DetectStackDrift",
-        Version: "2010-05-15",
+        [_A]: _DSD,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8196,8 +8196,8 @@ const se_DetectStackResourceDriftCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackResourceDriftInput(input, context),
-        Action: "DetectStackResourceDrift",
-        Version: "2010-05-15",
+        [_A]: _DSRDe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8207,8 +8207,8 @@ const se_DetectStackSetDriftCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackSetDriftInput(input, context),
-        Action: "DetectStackSetDrift",
-        Version: "2010-05-15",
+        [_A]: _DSSD,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8218,8 +8218,8 @@ const se_EstimateTemplateCostCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_EstimateTemplateCostInput(input, context),
-        Action: "EstimateTemplateCost",
-        Version: "2010-05-15",
+        [_A]: _ETC,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8229,8 +8229,8 @@ const se_ExecuteChangeSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ExecuteChangeSetInput(input, context),
-        Action: "ExecuteChangeSet",
-        Version: "2010-05-15",
+        [_A]: _ECS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8240,8 +8240,8 @@ const se_GetStackPolicyCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetStackPolicyInput(input, context),
-        Action: "GetStackPolicy",
-        Version: "2010-05-15",
+        [_A]: _GSP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8251,8 +8251,8 @@ const se_GetTemplateCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetTemplateInput(input, context),
-        Action: "GetTemplate",
-        Version: "2010-05-15",
+        [_A]: _GT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8262,8 +8262,8 @@ const se_GetTemplateSummaryCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetTemplateSummaryInput(input, context),
-        Action: "GetTemplateSummary",
-        Version: "2010-05-15",
+        [_A]: _GTS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8273,8 +8273,8 @@ const se_ImportStacksToStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ImportStacksToStackSetInput(input, context),
-        Action: "ImportStacksToStackSet",
-        Version: "2010-05-15",
+        [_A]: _ISTSS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8284,8 +8284,8 @@ const se_ListChangeSetsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListChangeSetsInput(input, context),
-        Action: "ListChangeSets",
-        Version: "2010-05-15",
+        [_A]: _LCS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8295,8 +8295,8 @@ const se_ListExportsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListExportsInput(input, context),
-        Action: "ListExports",
-        Version: "2010-05-15",
+        [_A]: _LE,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8306,8 +8306,8 @@ const se_ListImportsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListImportsInput(input, context),
-        Action: "ListImports",
-        Version: "2010-05-15",
+        [_A]: _LI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8317,8 +8317,8 @@ const se_ListStackInstanceResourceDriftsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackInstanceResourceDriftsInput(input, context),
-        Action: "ListStackInstanceResourceDrifts",
-        Version: "2010-05-15",
+        [_A]: _LSIRD,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8328,8 +8328,8 @@ const se_ListStackInstancesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackInstancesInput(input, context),
-        Action: "ListStackInstances",
-        Version: "2010-05-15",
+        [_A]: _LSI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8339,8 +8339,8 @@ const se_ListStackResourcesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackResourcesInput(input, context),
-        Action: "ListStackResources",
-        Version: "2010-05-15",
+        [_A]: _LSR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8350,8 +8350,8 @@ const se_ListStacksCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStacksInput(input, context),
-        Action: "ListStacks",
-        Version: "2010-05-15",
+        [_A]: _LS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8361,8 +8361,8 @@ const se_ListStackSetOperationResultsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetOperationResultsInput(input, context),
-        Action: "ListStackSetOperationResults",
-        Version: "2010-05-15",
+        [_A]: _LSSOR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8372,8 +8372,8 @@ const se_ListStackSetOperationsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetOperationsInput(input, context),
-        Action: "ListStackSetOperations",
-        Version: "2010-05-15",
+        [_A]: _LSSO,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8383,8 +8383,8 @@ const se_ListStackSetsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetsInput(input, context),
-        Action: "ListStackSets",
-        Version: "2010-05-15",
+        [_A]: _LSS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8394,8 +8394,8 @@ const se_ListTypeRegistrationsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypeRegistrationsInput(input, context),
-        Action: "ListTypeRegistrations",
-        Version: "2010-05-15",
+        [_A]: _LTR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8405,8 +8405,8 @@ const se_ListTypesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypesInput(input, context),
-        Action: "ListTypes",
-        Version: "2010-05-15",
+        [_A]: _LT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8416,8 +8416,8 @@ const se_ListTypeVersionsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypeVersionsInput(input, context),
-        Action: "ListTypeVersions",
-        Version: "2010-05-15",
+        [_A]: _LTV,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8427,8 +8427,8 @@ const se_PublishTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_PublishTypeInput(input, context),
-        Action: "PublishType",
-        Version: "2010-05-15",
+        [_A]: _PT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8438,8 +8438,8 @@ const se_RecordHandlerProgressCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_RecordHandlerProgressInput(input, context),
-        Action: "RecordHandlerProgress",
-        Version: "2010-05-15",
+        [_A]: _RHP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8449,8 +8449,8 @@ const se_RegisterPublisherCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_RegisterPublisherInput(input, context),
-        Action: "RegisterPublisher",
-        Version: "2010-05-15",
+        [_A]: _RP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8460,8 +8460,8 @@ const se_RegisterTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_RegisterTypeInput(input, context),
-        Action: "RegisterType",
-        Version: "2010-05-15",
+        [_A]: _RT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8471,8 +8471,8 @@ const se_RollbackStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_RollbackStackInput(input, context),
-        Action: "RollbackStack",
-        Version: "2010-05-15",
+        [_A]: _RS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8482,8 +8482,8 @@ const se_SetStackPolicyCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_SetStackPolicyInput(input, context),
-        Action: "SetStackPolicy",
-        Version: "2010-05-15",
+        [_A]: _SSP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8493,8 +8493,8 @@ const se_SetTypeConfigurationCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_SetTypeConfigurationInput(input, context),
-        Action: "SetTypeConfiguration",
-        Version: "2010-05-15",
+        [_A]: _STC,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8504,8 +8504,8 @@ const se_SetTypeDefaultVersionCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_SetTypeDefaultVersionInput(input, context),
-        Action: "SetTypeDefaultVersion",
-        Version: "2010-05-15",
+        [_A]: _STDV,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8515,8 +8515,8 @@ const se_SignalResourceCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_SignalResourceInput(input, context),
-        Action: "SignalResource",
-        Version: "2010-05-15",
+        [_A]: _SR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8526,8 +8526,8 @@ const se_StopStackSetOperationCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_StopStackSetOperationInput(input, context),
-        Action: "StopStackSetOperation",
-        Version: "2010-05-15",
+        [_A]: _SSSO,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8537,8 +8537,8 @@ const se_TestTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_TestTypeInput(input, context),
-        Action: "TestType",
-        Version: "2010-05-15",
+        [_A]: _TT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8548,8 +8548,8 @@ const se_UpdateStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackInput(input, context),
-        Action: "UpdateStack",
-        Version: "2010-05-15",
+        [_A]: _US,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8559,8 +8559,8 @@ const se_UpdateStackInstancesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackInstancesInput(input, context),
-        Action: "UpdateStackInstances",
-        Version: "2010-05-15",
+        [_A]: _USI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8570,8 +8570,8 @@ const se_UpdateStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackSetInput(input, context),
-        Action: "UpdateStackSet",
-        Version: "2010-05-15",
+        [_A]: _USS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8581,8 +8581,8 @@ const se_UpdateTerminationProtectionCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateTerminationProtectionInput(input, context),
-        Action: "UpdateTerminationProtection",
-        Version: "2010-05-15",
+        [_A]: _UTP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -8592,8 +8592,8 @@ const se_ValidateTemplateCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ValidateTemplateInput(input, context),
-        Action: "ValidateTemplate",
-        Version: "2010-05-15",
+        [_A]: _VT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -11163,57 +11163,57 @@ const se_ActivateOrganizationsAccessInput = (input, context) => {
 };
 const se_ActivateTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.PublicTypeArn != null) {
-        entries["PublicTypeArn"] = input.PublicTypeArn;
+    if (input[_PTA] != null) {
+        entries[_PTA] = input[_PTA];
     }
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.TypeNameAlias != null) {
-        entries["TypeNameAlias"] = input.TypeNameAlias;
+    if (input[_TNA] != null) {
+        entries[_TNA] = input[_TNA];
     }
-    if (input.AutoUpdate != null) {
-        entries["AutoUpdate"] = input.AutoUpdate;
+    if (input[_AU] != null) {
+        entries[_AU] = input[_AU];
     }
-    if (input.LoggingConfig != null) {
-        const memberEntries = se_LoggingConfig(input.LoggingConfig, context);
+    if (input[_LC] != null) {
+        const memberEntries = se_LoggingConfig(input[_LC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LoggingConfig.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ExecutionRoleArn != null) {
-        entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+    if (input[_ERA] != null) {
+        entries[_ERA] = input[_ERA];
     }
-    if (input.VersionBump != null) {
-        entries["VersionBump"] = input.VersionBump;
+    if (input[_VB] != null) {
+        entries[_VB] = input[_VB];
     }
-    if (input.MajorVersion != null) {
-        entries["MajorVersion"] = input.MajorVersion;
+    if (input[_MV] != null) {
+        entries[_MV] = input[_MV];
     }
     return entries;
 };
 const se_AutoDeployment = (input, context) => {
     const entries = {};
-    if (input.Enabled != null) {
-        entries["Enabled"] = input.Enabled;
+    if (input[_E] != null) {
+        entries[_E] = input[_E];
     }
-    if (input.RetainStacksOnAccountRemoval != null) {
-        entries["RetainStacksOnAccountRemoval"] = input.RetainStacksOnAccountRemoval;
+    if (input[_RSOAR] != null) {
+        entries[_RSOAR] = input[_RSOAR];
     }
     return entries;
 };
 const se_BatchDescribeTypeConfigurationsInput = (input, context) => {
     const entries = {};
-    if (input.TypeConfigurationIdentifiers != null) {
-        const memberEntries = se_TypeConfigurationIdentifiers(input.TypeConfigurationIdentifiers, context);
-        if (input.TypeConfigurationIdentifiers?.length === 0) {
+    if (input[_TCI] != null) {
+        const memberEntries = se_TypeConfigurationIdentifiers(input[_TCI], context);
+        if (input[_TCI]?.length === 0) {
             entries.TypeConfigurationIdentifiers = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11225,11 +11225,11 @@ const se_BatchDescribeTypeConfigurationsInput = (input, context) => {
 };
 const se_CancelUpdateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
@@ -11247,15 +11247,15 @@ const se_Capabilities = (input, context) => {
 };
 const se_ContinueUpdateRollbackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.ResourcesToSkip != null) {
-        const memberEntries = se_ResourcesToSkip(input.ResourcesToSkip, context);
-        if (input.ResourcesToSkip?.length === 0) {
+    if (input[_RTS] != null) {
+        const memberEntries = se_ResourcesToSkip(input[_RTS], context);
+        if (input[_RTS]?.length === 0) {
             entries.ResourcesToSkip = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11263,28 +11263,28 @@ const se_ContinueUpdateRollbackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
 const se_CreateChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.UsePreviousTemplate != null) {
-        entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+    if (input[_UPT] != null) {
+        entries[_UPT] = input[_UPT];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11292,9 +11292,9 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11302,9 +11302,9 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes != null) {
-        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-        if (input.ResourceTypes?.length === 0) {
+    if (input[_RTe] != null) {
+        const memberEntries = se_ResourceTypes(input[_RTe], context);
+        if (input[_RTe]?.length === 0) {
             entries.ResourceTypes = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11312,19 +11312,19 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.RollbackConfiguration != null) {
-        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+    if (input[_RC] != null) {
+        const memberEntries = se_RollbackConfiguration(input[_RC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.NotificationARNs != null) {
-        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-        if (input.NotificationARNs?.length === 0) {
+    if (input[_NARN] != null) {
+        const memberEntries = se_NotificationARNs(input[_NARN], context);
+        if (input[_NARN]?.length === 0) {
             entries.NotificationARNs = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11332,9 +11332,9 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11342,21 +11342,21 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.ClientToken != null) {
-        entries["ClientToken"] = input.ClientToken;
+    if (input[_CT] != null) {
+        entries[_CT] = input[_CT];
     }
-    if (input.Description != null) {
-        entries["Description"] = input.Description;
+    if (input[_D] != null) {
+        entries[_D] = input[_D];
     }
-    if (input.ChangeSetType != null) {
-        entries["ChangeSetType"] = input.ChangeSetType;
+    if (input[_CST] != null) {
+        entries[_CST] = input[_CST];
     }
-    if (input.ResourcesToImport != null) {
-        const memberEntries = se_ResourcesToImport(input.ResourcesToImport, context);
-        if (input.ResourcesToImport?.length === 0) {
+    if (input[_RTI] != null) {
+        const memberEntries = se_ResourcesToImport(input[_RTI], context);
+        if (input[_RTI]?.length === 0) {
             entries.ResourcesToImport = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11364,31 +11364,31 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.IncludeNestedStacks != null) {
-        entries["IncludeNestedStacks"] = input.IncludeNestedStacks;
+    if (input[_INS] != null) {
+        entries[_INS] = input[_INS];
     }
-    if (input.OnStackFailure != null) {
-        entries["OnStackFailure"] = input.OnStackFailure;
+    if (input[_OSF] != null) {
+        entries[_OSF] = input[_OSF];
     }
-    if (input.ImportExistingResources != null) {
-        entries["ImportExistingResources"] = input.ImportExistingResources;
+    if (input[_IER] != null) {
+        entries[_IER] = input[_IER];
     }
     return entries;
 };
 const se_CreateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11396,22 +11396,22 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DisableRollback != null) {
-        entries["DisableRollback"] = input.DisableRollback;
+    if (input[_DR] != null) {
+        entries[_DR] = input[_DR];
     }
-    if (input.RollbackConfiguration != null) {
-        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+    if (input[_RC] != null) {
+        const memberEntries = se_RollbackConfiguration(input[_RC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.TimeoutInMinutes != null) {
-        entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
+    if (input[_TIM] != null) {
+        entries[_TIM] = input[_TIM];
     }
-    if (input.NotificationARNs != null) {
-        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-        if (input.NotificationARNs?.length === 0) {
+    if (input[_NARN] != null) {
+        const memberEntries = se_NotificationARNs(input[_NARN], context);
+        if (input[_NARN]?.length === 0) {
             entries.NotificationARNs = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11419,9 +11419,9 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11429,9 +11429,9 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes != null) {
-        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-        if (input.ResourceTypes?.length === 0) {
+    if (input[_RTe] != null) {
+        const memberEntries = se_ResourceTypes(input[_RTe], context);
+        if (input[_RTe]?.length === 0) {
             entries.ResourceTypes = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11439,21 +11439,21 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.OnFailure != null) {
-        entries["OnFailure"] = input.OnFailure;
+    if (input[_OF] != null) {
+        entries[_OF] = input[_OF];
     }
-    if (input.StackPolicyBody != null) {
-        entries["StackPolicyBody"] = input.StackPolicyBody;
+    if (input[_SPB] != null) {
+        entries[_SPB] = input[_SPB];
     }
-    if (input.StackPolicyURL != null) {
-        entries["StackPolicyURL"] = input.StackPolicyURL;
+    if (input[_SPURL] != null) {
+        entries[_SPURL] = input[_SPURL];
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11461,25 +11461,25 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.EnableTerminationProtection != null) {
-        entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
+    if (input[_ETP] != null) {
+        entries[_ETP] = input[_ETP];
     }
-    if (input.RetainExceptOnCreate != null) {
-        entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+    if (input[_REOC] != null) {
+        entries[_REOC] = input[_REOC];
     }
     return entries;
 };
 const se_CreateStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11487,16 +11487,16 @@ const se_CreateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets != null) {
-        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+    if (input[_DTep] != null) {
+        const memberEntries = se_DeploymentTargets(input[_DTep], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions != null) {
-        const memberEntries = se_RegionList(input.Regions, context);
-        if (input.Regions?.length === 0) {
+    if (input[_R] != null) {
+        const memberEntries = se_RegionList(input[_R], context);
+        if (input[_R]?.length === 0) {
             entries.Regions = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11504,9 +11504,9 @@ const se_CreateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ParameterOverrides != null) {
-        const memberEntries = se_Parameters(input.ParameterOverrides, context);
-        if (input.ParameterOverrides?.length === 0) {
+    if (input[_PO] != null) {
+        const memberEntries = se_Parameters(input[_PO], context);
+        if (input[_PO]?.length === 0) {
             entries.ParameterOverrides = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11514,44 +11514,44 @@ const se_CreateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_CreateStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Description != null) {
-        entries["Description"] = input.Description;
+    if (input[_D] != null) {
+        entries[_D] = input[_D];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.StackId != null) {
-        entries["StackId"] = input.StackId;
+    if (input[_SI] != null) {
+        entries[_SI] = input[_SI];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11559,9 +11559,9 @@ const se_CreateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11569,9 +11569,9 @@ const se_CreateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11579,33 +11579,33 @@ const se_CreateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.AdministrationRoleARN != null) {
-        entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
+    if (input[_ARARN] != null) {
+        entries[_ARARN] = input[_ARARN];
     }
-    if (input.ExecutionRoleName != null) {
-        entries["ExecutionRoleName"] = input.ExecutionRoleName;
+    if (input[_ERN] != null) {
+        entries[_ERN] = input[_ERN];
     }
-    if (input.PermissionModel != null) {
-        entries["PermissionModel"] = input.PermissionModel;
+    if (input[_PM] != null) {
+        entries[_PM] = input[_PM];
     }
-    if (input.AutoDeployment != null) {
-        const memberEntries = se_AutoDeployment(input.AutoDeployment, context);
+    if (input[_AD] != null) {
+        const memberEntries = se_AutoDeployment(input[_AD], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `AutoDeployment.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
-    if (input.ClientRequestToken === undefined) {
-        input.ClientRequestToken = (0, uuid_1.v4)();
+    if (input[_CRT] === undefined) {
+        input[_CRT] = (0, uuid_1.v4)();
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.ManagedExecution != null) {
-        const memberEntries = se_ManagedExecution(input.ManagedExecution, context);
+    if (input[_ME] != null) {
+        const memberEntries = se_ManagedExecution(input[_ME], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ManagedExecution.${key}`;
             entries[loc] = value;
@@ -11619,35 +11619,35 @@ const se_DeactivateOrganizationsAccessInput = (input, context) => {
 };
 const se_DeactivateTypeInput = (input, context) => {
     const entries = {};
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
     return entries;
 };
 const se_DeleteChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
     return entries;
 };
 const se_DeleteStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.RetainResources != null) {
-        const memberEntries = se_RetainResources(input.RetainResources, context);
-        if (input.RetainResources?.length === 0) {
+    if (input[_RR] != null) {
+        const memberEntries = se_RetainResources(input[_RR], context);
+        if (input[_RR]?.length === 0) {
             entries.RetainResources = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11655,22 +11655,22 @@ const se_DeleteStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
 const se_DeleteStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11678,16 +11678,16 @@ const se_DeleteStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets != null) {
-        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+    if (input[_DTep] != null) {
+        const memberEntries = se_DeploymentTargets(input[_DTep], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions != null) {
-        const memberEntries = se_RegionList(input.Regions, context);
-        if (input.Regions?.length === 0) {
+    if (input[_R] != null) {
+        const memberEntries = se_RegionList(input[_R], context);
+        if (input[_R]?.length === 0) {
             entries.Regions = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11695,42 +11695,42 @@ const se_DeleteStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.RetainStacks != null) {
-        entries["RetainStacks"] = input.RetainStacks;
+    if (input[_RSe] != null) {
+        entries[_RSe] = input[_RSe];
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DeleteStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DeploymentTargets = (input, context) => {
     const entries = {};
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11738,12 +11738,12 @@ const se_DeploymentTargets = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.AccountsUrl != null) {
-        entries["AccountsUrl"] = input.AccountsUrl;
+    if (input[_AUc] != null) {
+        entries[_AUc] = input[_AUc];
     }
-    if (input.OrganizationalUnitIds != null) {
-        const memberEntries = se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context);
-        if (input.OrganizationalUnitIds?.length === 0) {
+    if (input[_OUI] != null) {
+        const memberEntries = se_OrganizationalUnitIdList(input[_OUI], context);
+        if (input[_OUI]?.length === 0) {
             entries.OrganizationalUnitIds = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11751,118 +11751,118 @@ const se_DeploymentTargets = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.AccountFilterType != null) {
-        entries["AccountFilterType"] = input.AccountFilterType;
+    if (input[_AFT] != null) {
+        entries[_AFT] = input[_AFT];
     }
     return entries;
 };
 const se_DeregisterTypeInput = (input, context) => {
     const entries = {};
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.VersionId != null) {
-        entries["VersionId"] = input.VersionId;
+    if (input[_VI] != null) {
+        entries[_VI] = input[_VI];
     }
     return entries;
 };
 const se_DescribeAccountLimitsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_DescribeChangeSetHooksInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
     return entries;
 };
 const se_DescribeChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_DescribeOrganizationsAccessInput = (input, context) => {
     const entries = {};
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DescribePublisherInput = (input, context) => {
     const entries = {};
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
     return entries;
 };
 const se_DescribeStackDriftDetectionStatusInput = (input, context) => {
     const entries = {};
-    if (input.StackDriftDetectionId != null) {
-        entries["StackDriftDetectionId"] = input.StackDriftDetectionId;
+    if (input[_SDDI] != null) {
+        entries[_SDDI] = input[_SDDI];
     }
     return entries;
 };
 const se_DescribeStackEventsInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_DescribeStackInstanceInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.StackInstanceAccount != null) {
-        entries["StackInstanceAccount"] = input.StackInstanceAccount;
+    if (input[_SIA] != null) {
+        entries[_SIA] = input[_SIA];
     }
-    if (input.StackInstanceRegion != null) {
-        entries["StackInstanceRegion"] = input.StackInstanceRegion;
+    if (input[_SIR] != null) {
+        entries[_SIR] = input[_SIR];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DescribeStackResourceDriftsInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.StackResourceDriftStatusFilters != null) {
-        const memberEntries = se_StackResourceDriftStatusFilters(input.StackResourceDriftStatusFilters, context);
-        if (input.StackResourceDriftStatusFilters?.length === 0) {
+    if (input[_SRDSF] != null) {
+        const memberEntries = se_StackResourceDriftStatusFilters(input[_SRDSF], context);
+        if (input[_SRDSF]?.length === 0) {
             entries.StackResourceDriftStatusFilters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11870,107 +11870,107 @@ const se_DescribeStackResourceDriftsInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
     return entries;
 };
 const se_DescribeStackResourceInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
     return entries;
 };
 const se_DescribeStackResourcesInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
-    if (input.PhysicalResourceId != null) {
-        entries["PhysicalResourceId"] = input.PhysicalResourceId;
+    if (input[_PRI] != null) {
+        entries[_PRI] = input[_PRI];
     }
     return entries;
 };
 const se_DescribeStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DescribeStackSetOperationInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DescribeStacksInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_DescribeTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.VersionId != null) {
-        entries["VersionId"] = input.VersionId;
+    if (input[_VI] != null) {
+        entries[_VI] = input[_VI];
     }
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
-    if (input.PublicVersionNumber != null) {
-        entries["PublicVersionNumber"] = input.PublicVersionNumber;
+    if (input[_PVN] != null) {
+        entries[_PVN] = input[_PVN];
     }
     return entries;
 };
 const se_DescribeTypeRegistrationInput = (input, context) => {
     const entries = {};
-    if (input.RegistrationToken != null) {
-        entries["RegistrationToken"] = input.RegistrationToken;
+    if (input[_RTeg] != null) {
+        entries[_RTeg] = input[_RTeg];
     }
     return entries;
 };
 const se_DetectStackDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceIds != null) {
-        const memberEntries = se_LogicalResourceIds(input.LogicalResourceIds, context);
-        if (input.LogicalResourceIds?.length === 0) {
+    if (input[_LRIo] != null) {
+        const memberEntries = se_LogicalResourceIds(input[_LRIo], context);
+        if (input[_LRIo]?.length === 0) {
             entries.LogicalResourceIds = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -11982,48 +11982,48 @@ const se_DetectStackDriftInput = (input, context) => {
 };
 const se_DetectStackResourceDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
     return entries;
 };
 const se_DetectStackSetDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_EstimateTemplateCostInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12035,62 +12035,62 @@ const se_EstimateTemplateCostInput = (input, context) => {
 };
 const se_ExecuteChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.DisableRollback != null) {
-        entries["DisableRollback"] = input.DisableRollback;
+    if (input[_DR] != null) {
+        entries[_DR] = input[_DR];
     }
-    if (input.RetainExceptOnCreate != null) {
-        entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+    if (input[_REOC] != null) {
+        entries[_REOC] = input[_REOC];
     }
     return entries;
 };
 const se_GetStackPolicyInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
     return entries;
 };
 const se_GetTemplateInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.TemplateStage != null) {
-        entries["TemplateStage"] = input.TemplateStage;
+    if (input[_TS] != null) {
+        entries[_TS] = input[_TS];
     }
     return entries;
 };
 const se_GetTemplateSummaryInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
-    if (input.TemplateSummaryConfig != null) {
-        const memberEntries = se_TemplateSummaryConfig(input.TemplateSummaryConfig, context);
+    if (input[_TSC] != null) {
+        const memberEntries = se_TemplateSummaryConfig(input[_TSC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `TemplateSummaryConfig.${key}`;
             entries[loc] = value;
@@ -12100,12 +12100,12 @@ const se_GetTemplateSummaryInput = (input, context) => {
 };
 const se_ImportStacksToStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.StackIds != null) {
-        const memberEntries = se_StackIdList(input.StackIds, context);
-        if (input.StackIds?.length === 0) {
+    if (input[_SIt] != null) {
+        const memberEntries = se_StackIdList(input[_SIt], context);
+        if (input[_SIt]?.length === 0) {
             entries.StackIds = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12113,12 +12113,12 @@ const se_ImportStacksToStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.StackIdsUrl != null) {
-        entries["StackIdsUrl"] = input.StackIdsUrl;
+    if (input[_SIU] != null) {
+        entries[_SIU] = input[_SIU];
     }
-    if (input.OrganizationalUnitIds != null) {
-        const memberEntries = se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context);
-        if (input.OrganizationalUnitIds?.length === 0) {
+    if (input[_OUI] != null) {
+        const memberEntries = se_OrganizationalUnitIdList(input[_OUI], context);
+        if (input[_OUI]?.length === 0) {
             entries.OrganizationalUnitIds = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12126,65 +12126,65 @@ const se_ImportStacksToStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListChangeSetsInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListExportsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListImportsInput = (input, context) => {
     const entries = {};
-    if (input.ExportName != null) {
-        entries["ExportName"] = input.ExportName;
+    if (input[_EN] != null) {
+        entries[_EN] = input[_EN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListStackInstanceResourceDriftsInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.StackInstanceResourceDriftStatuses != null) {
-        const memberEntries = se_StackResourceDriftStatusFilters(input.StackInstanceResourceDriftStatuses, context);
-        if (input.StackInstanceResourceDriftStatuses?.length === 0) {
+    if (input[_SIRDS] != null) {
+        const memberEntries = se_StackResourceDriftStatusFilters(input[_SIRDS], context);
+        if (input[_SIRDS]?.length === 0) {
             entries.StackInstanceResourceDriftStatuses = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12192,34 +12192,34 @@ const se_ListStackInstanceResourceDriftsInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.StackInstanceAccount != null) {
-        entries["StackInstanceAccount"] = input.StackInstanceAccount;
+    if (input[_SIA] != null) {
+        entries[_SIA] = input[_SIA];
     }
-    if (input.StackInstanceRegion != null) {
-        entries["StackInstanceRegion"] = input.StackInstanceRegion;
+    if (input[_SIR] != null) {
+        entries[_SIR] = input[_SIR];
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.Filters != null) {
-        const memberEntries = se_StackInstanceFilters(input.Filters, context);
-        if (input.Filters?.length === 0) {
+    if (input[_F] != null) {
+        const memberEntries = se_StackInstanceFilters(input[_F], context);
+        if (input[_F]?.length === 0) {
             entries.Filters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12227,47 +12227,47 @@ const se_ListStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.StackInstanceAccount != null) {
-        entries["StackInstanceAccount"] = input.StackInstanceAccount;
+    if (input[_SIA] != null) {
+        entries[_SIA] = input[_SIA];
     }
-    if (input.StackInstanceRegion != null) {
-        entries["StackInstanceRegion"] = input.StackInstanceRegion;
+    if (input[_SIR] != null) {
+        entries[_SIR] = input[_SIR];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListStackResourcesInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListStackSetOperationResultsInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
-    if (input.Filters != null) {
-        const memberEntries = se_OperationResultFilters(input.Filters, context);
-        if (input.Filters?.length === 0) {
+    if (input[_F] != null) {
+        const memberEntries = se_OperationResultFilters(input[_F], context);
+        if (input[_F]?.length === 0) {
             entries.Filters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12279,44 +12279,44 @@ const se_ListStackSetOperationResultsInput = (input, context) => {
 };
 const se_ListStackSetOperationsInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListStackSetsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.Status != null) {
-        entries["Status"] = input.Status;
+    if (input[_S] != null) {
+        entries[_S] = input[_S];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListStacksInput = (input, context) => {
     const entries = {};
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.StackStatusFilter != null) {
-        const memberEntries = se_StackStatusFilter(input.StackStatusFilter, context);
-        if (input.StackStatusFilter?.length === 0) {
+    if (input[_SSF] != null) {
+        const memberEntries = se_StackStatusFilter(input[_SSF], context);
+        if (input[_SSF]?.length === 0) {
             entries.StackStatusFilter = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12328,87 +12328,87 @@ const se_ListStacksInput = (input, context) => {
 };
 const se_ListTypeRegistrationsInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.TypeArn != null) {
-        entries["TypeArn"] = input.TypeArn;
+    if (input[_TA] != null) {
+        entries[_TA] = input[_TA];
     }
-    if (input.RegistrationStatusFilter != null) {
-        entries["RegistrationStatusFilter"] = input.RegistrationStatusFilter;
+    if (input[_RSF] != null) {
+        entries[_RSF] = input[_RSF];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListTypesInput = (input, context) => {
     const entries = {};
-    if (input.Visibility != null) {
-        entries["Visibility"] = input.Visibility;
+    if (input[_Vi] != null) {
+        entries[_Vi] = input[_Vi];
     }
-    if (input.ProvisioningType != null) {
-        entries["ProvisioningType"] = input.ProvisioningType;
+    if (input[_PTr] != null) {
+        entries[_PTr] = input[_PTr];
     }
-    if (input.DeprecatedStatus != null) {
-        entries["DeprecatedStatus"] = input.DeprecatedStatus;
+    if (input[_DSep] != null) {
+        entries[_DSep] = input[_DSep];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.Filters != null) {
-        const memberEntries = se_TypeFilters(input.Filters, context);
+    if (input[_F] != null) {
+        const memberEntries = se_TypeFilters(input[_F], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Filters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListTypeVersionsInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.DeprecatedStatus != null) {
-        entries["DeprecatedStatus"] = input.DeprecatedStatus;
+    if (input[_DSep] != null) {
+        entries[_DSep] = input[_DSep];
     }
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
     return entries;
 };
 const se_LoggingConfig = (input, context) => {
     const entries = {};
-    if (input.LogRoleArn != null) {
-        entries["LogRoleArn"] = input.LogRoleArn;
+    if (input[_LRA] != null) {
+        entries[_LRA] = input[_LRA];
     }
-    if (input.LogGroupName != null) {
-        entries["LogGroupName"] = input.LogGroupName;
+    if (input[_LGN] != null) {
+        entries[_LGN] = input[_LGN];
     }
     return entries;
 };
@@ -12426,8 +12426,8 @@ const se_LogicalResourceIds = (input, context) => {
 };
 const se_ManagedExecution = (input, context) => {
     const entries = {};
-    if (input.Active != null) {
-        entries["Active"] = input.Active;
+    if (input[_Act] != null) {
+        entries[_Act] = input[_Act];
     }
     return entries;
 };
@@ -12445,11 +12445,11 @@ const se_NotificationARNs = (input, context) => {
 };
 const se_OperationResultFilter = (input, context) => {
     const entries = {};
-    if (input.Name != null) {
-        entries["Name"] = input.Name;
+    if (input[_N] != null) {
+        entries[_N] = input[_N];
     }
-    if (input.Values != null) {
-        entries["Values"] = input.Values;
+    if (input[_Va] != null) {
+        entries[_Va] = input[_Va];
     }
     return entries;
 };
@@ -12482,17 +12482,17 @@ const se_OrganizationalUnitIdList = (input, context) => {
 };
 const se_Parameter = (input, context) => {
     const entries = {};
-    if (input.ParameterKey != null) {
-        entries["ParameterKey"] = input.ParameterKey;
+    if (input[_PK] != null) {
+        entries[_PK] = input[_PK];
     }
-    if (input.ParameterValue != null) {
-        entries["ParameterValue"] = input.ParameterValue;
+    if (input[_PV] != null) {
+        entries[_PV] = input[_PV];
     }
-    if (input.UsePreviousValue != null) {
-        entries["UsePreviousValue"] = input.UsePreviousValue;
+    if (input[_UPV] != null) {
+        entries[_UPV] = input[_UPV];
     }
-    if (input.ResolvedValue != null) {
-        entries["ResolvedValue"] = input.ResolvedValue;
+    if (input[_RV] != null) {
+        entries[_RV] = input[_RV];
     }
     return entries;
 };
@@ -12513,42 +12513,42 @@ const se_Parameters = (input, context) => {
 };
 const se_PublishTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.PublicVersionNumber != null) {
-        entries["PublicVersionNumber"] = input.PublicVersionNumber;
+    if (input[_PVN] != null) {
+        entries[_PVN] = input[_PVN];
     }
     return entries;
 };
 const se_RecordHandlerProgressInput = (input, context) => {
     const entries = {};
-    if (input.BearerToken != null) {
-        entries["BearerToken"] = input.BearerToken;
+    if (input[_BT] != null) {
+        entries[_BT] = input[_BT];
     }
-    if (input.OperationStatus != null) {
-        entries["OperationStatus"] = input.OperationStatus;
+    if (input[_OS] != null) {
+        entries[_OS] = input[_OS];
     }
-    if (input.CurrentOperationStatus != null) {
-        entries["CurrentOperationStatus"] = input.CurrentOperationStatus;
+    if (input[_COS] != null) {
+        entries[_COS] = input[_COS];
     }
-    if (input.StatusMessage != null) {
-        entries["StatusMessage"] = input.StatusMessage;
+    if (input[_SM] != null) {
+        entries[_SM] = input[_SM];
     }
-    if (input.ErrorCode != null) {
-        entries["ErrorCode"] = input.ErrorCode;
+    if (input[_EC] != null) {
+        entries[_EC] = input[_EC];
     }
-    if (input.ResourceModel != null) {
-        entries["ResourceModel"] = input.ResourceModel;
+    if (input[_RM] != null) {
+        entries[_RM] = input[_RM];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
@@ -12566,37 +12566,37 @@ const se_RegionList = (input, context) => {
 };
 const se_RegisterPublisherInput = (input, context) => {
     const entries = {};
-    if (input.AcceptTermsAndConditions != null) {
-        entries["AcceptTermsAndConditions"] = input.AcceptTermsAndConditions;
+    if (input[_ATAC] != null) {
+        entries[_ATAC] = input[_ATAC];
     }
-    if (input.ConnectionArn != null) {
-        entries["ConnectionArn"] = input.ConnectionArn;
+    if (input[_CAo] != null) {
+        entries[_CAo] = input[_CAo];
     }
     return entries;
 };
 const se_RegisterTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.SchemaHandlerPackage != null) {
-        entries["SchemaHandlerPackage"] = input.SchemaHandlerPackage;
+    if (input[_SHP] != null) {
+        entries[_SHP] = input[_SHP];
     }
-    if (input.LoggingConfig != null) {
-        const memberEntries = se_LoggingConfig(input.LoggingConfig, context);
+    if (input[_LC] != null) {
+        const memberEntries = se_LoggingConfig(input[_LC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LoggingConfig.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ExecutionRoleArn != null) {
-        entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+    if (input[_ERA] != null) {
+        entries[_ERA] = input[_ERA];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
@@ -12641,14 +12641,14 @@ const se_ResourcesToSkip = (input, context) => {
 };
 const se_ResourceToImport = (input, context) => {
     const entries = {};
-    if (input.ResourceType != null) {
-        entries["ResourceType"] = input.ResourceType;
+    if (input[_RTes] != null) {
+        entries[_RTes] = input[_RTes];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
-    if (input.ResourceIdentifier != null) {
-        const memberEntries = se_ResourceIdentifierProperties(input.ResourceIdentifier, context);
+    if (input[_RI] != null) {
+        const memberEntries = se_ResourceIdentifierProperties(input[_RI], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourceIdentifier.${key}`;
             entries[loc] = value;
@@ -12682,9 +12682,9 @@ const se_RetainResources = (input, context) => {
 };
 const se_RollbackConfiguration = (input, context) => {
     const entries = {};
-    if (input.RollbackTriggers != null) {
-        const memberEntries = se_RollbackTriggers(input.RollbackTriggers, context);
-        if (input.RollbackTriggers?.length === 0) {
+    if (input[_RTo] != null) {
+        const memberEntries = se_RollbackTriggers(input[_RTo], context);
+        if (input[_RTo]?.length === 0) {
             entries.RollbackTriggers = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12692,34 +12692,34 @@ const se_RollbackConfiguration = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.MonitoringTimeInMinutes != null) {
-        entries["MonitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
+    if (input[_MTIM] != null) {
+        entries[_MTIM] = input[_MTIM];
     }
     return entries;
 };
 const se_RollbackStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.RetainExceptOnCreate != null) {
-        entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+    if (input[_REOC] != null) {
+        entries[_REOC] = input[_REOC];
     }
     return entries;
 };
 const se_RollbackTrigger = (input, context) => {
     const entries = {};
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
     return entries;
 };
@@ -12740,65 +12740,65 @@ const se_RollbackTriggers = (input, context) => {
 };
 const se_SetStackPolicyInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.StackPolicyBody != null) {
-        entries["StackPolicyBody"] = input.StackPolicyBody;
+    if (input[_SPB] != null) {
+        entries[_SPB] = input[_SPB];
     }
-    if (input.StackPolicyURL != null) {
-        entries["StackPolicyURL"] = input.StackPolicyURL;
+    if (input[_SPURL] != null) {
+        entries[_SPURL] = input[_SPURL];
     }
     return entries;
 };
 const se_SetTypeConfigurationInput = (input, context) => {
     const entries = {};
-    if (input.TypeArn != null) {
-        entries["TypeArn"] = input.TypeArn;
+    if (input[_TA] != null) {
+        entries[_TA] = input[_TA];
     }
-    if (input.Configuration != null) {
-        entries["Configuration"] = input.Configuration;
+    if (input[_Co] != null) {
+        entries[_Co] = input[_Co];
     }
-    if (input.ConfigurationAlias != null) {
-        entries["ConfigurationAlias"] = input.ConfigurationAlias;
+    if (input[_CAon] != null) {
+        entries[_CAon] = input[_CAon];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
     return entries;
 };
 const se_SetTypeDefaultVersionInput = (input, context) => {
     const entries = {};
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.VersionId != null) {
-        entries["VersionId"] = input.VersionId;
+    if (input[_VI] != null) {
+        entries[_VI] = input[_VI];
     }
     return entries;
 };
 const se_SignalResourceInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
-    if (input.UniqueId != null) {
-        entries["UniqueId"] = input.UniqueId;
+    if (input[_UI] != null) {
+        entries[_UI] = input[_UI];
     }
-    if (input.Status != null) {
-        entries["Status"] = input.Status;
+    if (input[_S] != null) {
+        entries[_S] = input[_S];
     }
     return entries;
 };
@@ -12816,11 +12816,11 @@ const se_StackIdList = (input, context) => {
 };
 const se_StackInstanceFilter = (input, context) => {
     const entries = {};
-    if (input.Name != null) {
-        entries["Name"] = input.Name;
+    if (input[_N] != null) {
+        entries[_N] = input[_N];
     }
-    if (input.Values != null) {
-        entries["Values"] = input.Values;
+    if (input[_Va] != null) {
+        entries[_Va] = input[_Va];
     }
     return entries;
 };
@@ -12853,12 +12853,12 @@ const se_StackResourceDriftStatusFilters = (input, context) => {
 };
 const se_StackSetOperationPreferences = (input, context) => {
     const entries = {};
-    if (input.RegionConcurrencyType != null) {
-        entries["RegionConcurrencyType"] = input.RegionConcurrencyType;
+    if (input[_RCT] != null) {
+        entries[_RCT] = input[_RCT];
     }
-    if (input.RegionOrder != null) {
-        const memberEntries = se_RegionList(input.RegionOrder, context);
-        if (input.RegionOrder?.length === 0) {
+    if (input[_RO] != null) {
+        const memberEntries = se_RegionList(input[_RO], context);
+        if (input[_RO]?.length === 0) {
             entries.RegionOrder = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12866,20 +12866,20 @@ const se_StackSetOperationPreferences = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.FailureToleranceCount != null) {
-        entries["FailureToleranceCount"] = input.FailureToleranceCount;
+    if (input[_FTC] != null) {
+        entries[_FTC] = input[_FTC];
     }
-    if (input.FailureTolerancePercentage != null) {
-        entries["FailureTolerancePercentage"] = input.FailureTolerancePercentage;
+    if (input[_FTP] != null) {
+        entries[_FTP] = input[_FTP];
     }
-    if (input.MaxConcurrentCount != null) {
-        entries["MaxConcurrentCount"] = input.MaxConcurrentCount;
+    if (input[_MCC] != null) {
+        entries[_MCC] = input[_MCC];
     }
-    if (input.MaxConcurrentPercentage != null) {
-        entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
+    if (input[_MCP] != null) {
+        entries[_MCP] = input[_MCP];
     }
-    if (input.ConcurrencyMode != null) {
-        entries["ConcurrencyMode"] = input.ConcurrencyMode;
+    if (input[_CM] != null) {
+        entries[_CM] = input[_CM];
     }
     return entries;
 };
@@ -12897,24 +12897,24 @@ const se_StackStatusFilter = (input, context) => {
 };
 const se_StopStackSetOperationInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_Tag = (input, context) => {
     const entries = {};
-    if (input.Key != null) {
-        entries["Key"] = input.Key;
+    if (input[_K] != null) {
+        entries[_K] = input[_K];
     }
-    if (input.Value != null) {
-        entries["Value"] = input.Value;
+    if (input[_Val] != null) {
+        entries[_Val] = input[_Val];
     }
     return entries;
 };
@@ -12935,46 +12935,46 @@ const se_Tags = (input, context) => {
 };
 const se_TemplateSummaryConfig = (input, context) => {
     const entries = {};
-    if (input.TreatUnrecognizedResourceTypesAsWarnings != null) {
-        entries["TreatUnrecognizedResourceTypesAsWarnings"] = input.TreatUnrecognizedResourceTypesAsWarnings;
+    if (input[_TURTAW] != null) {
+        entries[_TURTAW] = input[_TURTAW];
     }
     return entries;
 };
 const se_TestTypeInput = (input, context) => {
     const entries = {};
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.VersionId != null) {
-        entries["VersionId"] = input.VersionId;
+    if (input[_VI] != null) {
+        entries[_VI] = input[_VI];
     }
-    if (input.LogDeliveryBucket != null) {
-        entries["LogDeliveryBucket"] = input.LogDeliveryBucket;
+    if (input[_LDB] != null) {
+        entries[_LDB] = input[_LDB];
     }
     return entries;
 };
 const se_TypeConfigurationIdentifier = (input, context) => {
     const entries = {};
-    if (input.TypeArn != null) {
-        entries["TypeArn"] = input.TypeArn;
+    if (input[_TA] != null) {
+        entries[_TA] = input[_TA];
     }
-    if (input.TypeConfigurationAlias != null) {
-        entries["TypeConfigurationAlias"] = input.TypeConfigurationAlias;
+    if (input[_TCA] != null) {
+        entries[_TCA] = input[_TCA];
     }
-    if (input.TypeConfigurationArn != null) {
-        entries["TypeConfigurationArn"] = input.TypeConfigurationArn;
+    if (input[_TCAy] != null) {
+        entries[_TCAy] = input[_TCAy];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
     return entries;
 };
@@ -12995,40 +12995,40 @@ const se_TypeConfigurationIdentifiers = (input, context) => {
 };
 const se_TypeFilters = (input, context) => {
     const entries = {};
-    if (input.Category != null) {
-        entries["Category"] = input.Category;
+    if (input[_Ca] != null) {
+        entries[_Ca] = input[_Ca];
     }
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
-    if (input.TypeNamePrefix != null) {
-        entries["TypeNamePrefix"] = input.TypeNamePrefix;
+    if (input[_TNP] != null) {
+        entries[_TNP] = input[_TNP];
     }
     return entries;
 };
 const se_UpdateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.UsePreviousTemplate != null) {
-        entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+    if (input[_UPT] != null) {
+        entries[_UPT] = input[_UPT];
     }
-    if (input.StackPolicyDuringUpdateBody != null) {
-        entries["StackPolicyDuringUpdateBody"] = input.StackPolicyDuringUpdateBody;
+    if (input[_SPDUB] != null) {
+        entries[_SPDUB] = input[_SPDUB];
     }
-    if (input.StackPolicyDuringUpdateURL != null) {
-        entries["StackPolicyDuringUpdateURL"] = input.StackPolicyDuringUpdateURL;
+    if (input[_SPDUURL] != null) {
+        entries[_SPDUURL] = input[_SPDUURL];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13036,9 +13036,9 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13046,9 +13046,9 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes != null) {
-        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-        if (input.ResourceTypes?.length === 0) {
+    if (input[_RTe] != null) {
+        const memberEntries = se_ResourceTypes(input[_RTe], context);
+        if (input[_RTe]?.length === 0) {
             entries.ResourceTypes = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13056,25 +13056,25 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.RollbackConfiguration != null) {
-        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+    if (input[_RC] != null) {
+        const memberEntries = se_RollbackConfiguration(input[_RC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.StackPolicyBody != null) {
-        entries["StackPolicyBody"] = input.StackPolicyBody;
+    if (input[_SPB] != null) {
+        entries[_SPB] = input[_SPB];
     }
-    if (input.StackPolicyURL != null) {
-        entries["StackPolicyURL"] = input.StackPolicyURL;
+    if (input[_SPURL] != null) {
+        entries[_SPURL] = input[_SPURL];
     }
-    if (input.NotificationARNs != null) {
-        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-        if (input.NotificationARNs?.length === 0) {
+    if (input[_NARN] != null) {
+        const memberEntries = se_NotificationARNs(input[_NARN], context);
+        if (input[_NARN]?.length === 0) {
             entries.NotificationARNs = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13082,9 +13082,9 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13092,25 +13092,25 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DisableRollback != null) {
-        entries["DisableRollback"] = input.DisableRollback;
+    if (input[_DR] != null) {
+        entries[_DR] = input[_DR];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.RetainExceptOnCreate != null) {
-        entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+    if (input[_REOC] != null) {
+        entries[_REOC] = input[_REOC];
     }
     return entries;
 };
 const se_UpdateStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13118,16 +13118,16 @@ const se_UpdateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets != null) {
-        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+    if (input[_DTep] != null) {
+        const memberEntries = se_DeploymentTargets(input[_DTep], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions != null) {
-        const memberEntries = se_RegionList(input.Regions, context);
-        if (input.Regions?.length === 0) {
+    if (input[_R] != null) {
+        const memberEntries = se_RegionList(input[_R], context);
+        if (input[_R]?.length === 0) {
             entries.Regions = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13135,9 +13135,9 @@ const se_UpdateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ParameterOverrides != null) {
-        const memberEntries = se_Parameters(input.ParameterOverrides, context);
-        if (input.ParameterOverrides?.length === 0) {
+    if (input[_PO] != null) {
+        const memberEntries = se_Parameters(input[_PO], context);
+        if (input[_PO]?.length === 0) {
             entries.ParameterOverrides = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13145,44 +13145,44 @@ const se_UpdateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_UpdateStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Description != null) {
-        entries["Description"] = input.Description;
+    if (input[_D] != null) {
+        entries[_D] = input[_D];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.UsePreviousTemplate != null) {
-        entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+    if (input[_UPT] != null) {
+        entries[_UPT] = input[_UPT];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13190,9 +13190,9 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13200,9 +13200,9 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13210,45 +13210,45 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.AdministrationRoleARN != null) {
-        entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
+    if (input[_ARARN] != null) {
+        entries[_ARARN] = input[_ARARN];
     }
-    if (input.ExecutionRoleName != null) {
-        entries["ExecutionRoleName"] = input.ExecutionRoleName;
+    if (input[_ERN] != null) {
+        entries[_ERN] = input[_ERN];
     }
-    if (input.DeploymentTargets != null) {
-        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+    if (input[_DTep] != null) {
+        const memberEntries = se_DeploymentTargets(input[_DTep], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.PermissionModel != null) {
-        entries["PermissionModel"] = input.PermissionModel;
+    if (input[_PM] != null) {
+        entries[_PM] = input[_PM];
     }
-    if (input.AutoDeployment != null) {
-        const memberEntries = se_AutoDeployment(input.AutoDeployment, context);
+    if (input[_AD] != null) {
+        const memberEntries = se_AutoDeployment(input[_AD], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `AutoDeployment.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13256,9 +13256,9 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Regions != null) {
-        const memberEntries = se_RegionList(input.Regions, context);
-        if (input.Regions?.length === 0) {
+    if (input[_R] != null) {
+        const memberEntries = se_RegionList(input[_R], context);
+        if (input[_R]?.length === 0) {
             entries.Regions = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13266,11 +13266,11 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
-    if (input.ManagedExecution != null) {
-        const memberEntries = se_ManagedExecution(input.ManagedExecution, context);
+    if (input[_ME] != null) {
+        const memberEntries = se_ManagedExecution(input[_ME], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ManagedExecution.${key}`;
             entries[loc] = value;
@@ -13280,41 +13280,41 @@ const se_UpdateStackSetInput = (input, context) => {
 };
 const se_UpdateTerminationProtectionInput = (input, context) => {
     const entries = {};
-    if (input.EnableTerminationProtection != null) {
-        entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
+    if (input[_ETP] != null) {
+        entries[_ETP] = input[_ETP];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
     return entries;
 };
 const se_ValidateTemplateInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
     return entries;
 };
 const de_AccountGateResult = (output, context) => {
     const contents = {};
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
     return contents;
 };
 const de_AccountLimit = (output, context) => {
     const contents = {};
-    if (output["Name"] !== undefined) {
-        contents.Name = (0, smithy_client_1.expectString)(output["Name"]);
+    if (output[_N] != null) {
+        contents[_N] = (0, smithy_client_1.expectString)(output[_N]);
     }
-    if (output["Value"] !== undefined) {
-        contents.Value = (0, smithy_client_1.strictParseInt32)(output["Value"]);
+    if (output[_Val] != null) {
+        contents[_Val] = (0, smithy_client_1.strictParseInt32)(output[_Val]);
     }
     return contents;
 };
@@ -13338,8 +13338,8 @@ const de_ActivateOrganizationsAccessOutput = (output, context) => {
 };
 const de_ActivateTypeOutput = (output, context) => {
     const contents = {};
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
     return contents;
 };
@@ -13352,31 +13352,31 @@ const de_AllowedValues = (output, context) => {
 };
 const de_AlreadyExistsException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_AutoDeployment = (output, context) => {
     const contents = {};
-    if (output["Enabled"] !== undefined) {
-        contents.Enabled = (0, smithy_client_1.parseBoolean)(output["Enabled"]);
+    if (output[_E] != null) {
+        contents[_E] = (0, smithy_client_1.parseBoolean)(output[_E]);
     }
-    if (output["RetainStacksOnAccountRemoval"] !== undefined) {
-        contents.RetainStacksOnAccountRemoval = (0, smithy_client_1.parseBoolean)(output["RetainStacksOnAccountRemoval"]);
+    if (output[_RSOAR] != null) {
+        contents[_RSOAR] = (0, smithy_client_1.parseBoolean)(output[_RSOAR]);
     }
     return contents;
 };
 const de_BatchDescribeTypeConfigurationsError = (output, context) => {
     const contents = {};
-    if (output["ErrorCode"] !== undefined) {
-        contents.ErrorCode = (0, smithy_client_1.expectString)(output["ErrorCode"]);
+    if (output[_EC] != null) {
+        contents[_EC] = (0, smithy_client_1.expectString)(output[_EC]);
     }
-    if (output["ErrorMessage"] !== undefined) {
-        contents.ErrorMessage = (0, smithy_client_1.expectString)(output["ErrorMessage"]);
+    if (output[_EM] != null) {
+        contents[_EM] = (0, smithy_client_1.expectString)(output[_EM]);
     }
-    if (output["TypeConfigurationIdentifier"] !== undefined) {
-        contents.TypeConfigurationIdentifier = de_TypeConfigurationIdentifier(output["TypeConfigurationIdentifier"], context);
+    if (output[_TCIy] != null) {
+        contents[_TCIy] = de_TypeConfigurationIdentifier(output[_TCIy], context);
     }
     return contents;
 };
@@ -13390,23 +13390,22 @@ const de_BatchDescribeTypeConfigurationsErrors = (output, context) => {
 const de_BatchDescribeTypeConfigurationsOutput = (output, context) => {
     const contents = {};
     if (output.Errors === "") {
-        contents.Errors = [];
+        contents[_Er] = [];
     }
-    else if (output["Errors"] !== undefined && output["Errors"]["member"] !== undefined) {
-        contents.Errors = de_BatchDescribeTypeConfigurationsErrors((0, smithy_client_1.getArrayIfSingleItem)(output["Errors"]["member"]), context);
+    else if (output[_Er] != null && output[_Er][_m] != null) {
+        contents[_Er] = de_BatchDescribeTypeConfigurationsErrors((0, smithy_client_1.getArrayIfSingleItem)(output[_Er][_m]), context);
     }
     if (output.UnprocessedTypeConfigurations === "") {
-        contents.UnprocessedTypeConfigurations = [];
+        contents[_UTC] = [];
     }
-    else if (output["UnprocessedTypeConfigurations"] !== undefined &&
-        output["UnprocessedTypeConfigurations"]["member"] !== undefined) {
-        contents.UnprocessedTypeConfigurations = de_UnprocessedTypeConfigurations((0, smithy_client_1.getArrayIfSingleItem)(output["UnprocessedTypeConfigurations"]["member"]), context);
+    else if (output[_UTC] != null && output[_UTC][_m] != null) {
+        contents[_UTC] = de_UnprocessedTypeConfigurations((0, smithy_client_1.getArrayIfSingleItem)(output[_UTC][_m]), context);
     }
     if (output.TypeConfigurations === "") {
-        contents.TypeConfigurations = [];
+        contents[_TC] = [];
     }
-    else if (output["TypeConfigurations"] !== undefined && output["TypeConfigurations"]["member"] !== undefined) {
-        contents.TypeConfigurations = de_TypeConfigurationDetailsList((0, smithy_client_1.getArrayIfSingleItem)(output["TypeConfigurations"]["member"]), context);
+    else if (output[_TC] != null && output[_TC][_m] != null) {
+        contents[_TC] = de_TypeConfigurationDetailsList((0, smithy_client_1.getArrayIfSingleItem)(output[_TC][_m]), context);
     }
     return contents;
 };
@@ -13419,21 +13418,21 @@ const de_Capabilities = (output, context) => {
 };
 const de_CFNRegistryException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_Change = (output, context) => {
     const contents = {};
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["HookInvocationCount"] !== undefined) {
-        contents.HookInvocationCount = (0, smithy_client_1.strictParseInt32)(output["HookInvocationCount"]);
+    if (output[_HIC] != null) {
+        contents[_HIC] = (0, smithy_client_1.strictParseInt32)(output[_HIC]);
     }
-    if (output["ResourceChange"] !== undefined) {
-        contents.ResourceChange = de_ResourceChange(output["ResourceChange"], context);
+    if (output[_RCe] != null) {
+        contents[_RCe] = de_ResourceChange(output[_RCe], context);
     }
     return contents;
 };
@@ -13446,36 +13445,36 @@ const de_Changes = (output, context) => {
 };
 const de_ChangeSetHook = (output, context) => {
     const contents = {};
-    if (output["InvocationPoint"] !== undefined) {
-        contents.InvocationPoint = (0, smithy_client_1.expectString)(output["InvocationPoint"]);
+    if (output[_IP] != null) {
+        contents[_IP] = (0, smithy_client_1.expectString)(output[_IP]);
     }
-    if (output["FailureMode"] !== undefined) {
-        contents.FailureMode = (0, smithy_client_1.expectString)(output["FailureMode"]);
+    if (output[_FM] != null) {
+        contents[_FM] = (0, smithy_client_1.expectString)(output[_FM]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["TypeVersionId"] !== undefined) {
-        contents.TypeVersionId = (0, smithy_client_1.expectString)(output["TypeVersionId"]);
+    if (output[_TVI] != null) {
+        contents[_TVI] = (0, smithy_client_1.expectString)(output[_TVI]);
     }
-    if (output["TypeConfigurationVersionId"] !== undefined) {
-        contents.TypeConfigurationVersionId = (0, smithy_client_1.expectString)(output["TypeConfigurationVersionId"]);
+    if (output[_TCVI] != null) {
+        contents[_TCVI] = (0, smithy_client_1.expectString)(output[_TCVI]);
     }
-    if (output["TargetDetails"] !== undefined) {
-        contents.TargetDetails = de_ChangeSetHookTargetDetails(output["TargetDetails"], context);
+    if (output[_TD] != null) {
+        contents[_TD] = de_ChangeSetHookTargetDetails(output[_TD], context);
     }
     return contents;
 };
 const de_ChangeSetHookResourceTargetDetails = (output, context) => {
     const contents = {};
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["ResourceAction"] !== undefined) {
-        contents.ResourceAction = (0, smithy_client_1.expectString)(output["ResourceAction"]);
+    if (output[_RA] != null) {
+        contents[_RA] = (0, smithy_client_1.expectString)(output[_RA]);
     }
     return contents;
 };
@@ -13488,18 +13487,18 @@ const de_ChangeSetHooks = (output, context) => {
 };
 const de_ChangeSetHookTargetDetails = (output, context) => {
     const contents = {};
-    if (output["TargetType"] !== undefined) {
-        contents.TargetType = (0, smithy_client_1.expectString)(output["TargetType"]);
+    if (output[_TTa] != null) {
+        contents[_TTa] = (0, smithy_client_1.expectString)(output[_TTa]);
     }
-    if (output["ResourceTargetDetails"] !== undefined) {
-        contents.ResourceTargetDetails = de_ChangeSetHookResourceTargetDetails(output["ResourceTargetDetails"], context);
+    if (output[_RTD] != null) {
+        contents[_RTD] = de_ChangeSetHookResourceTargetDetails(output[_RTD], context);
     }
     return contents;
 };
 const de_ChangeSetNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -13512,44 +13511,44 @@ const de_ChangeSetSummaries = (output, context) => {
 };
 const de_ChangeSetSummary = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["ChangeSetName"] !== undefined) {
-        contents.ChangeSetName = (0, smithy_client_1.expectString)(output["ChangeSetName"]);
+    if (output[_CSN] != null) {
+        contents[_CSN] = (0, smithy_client_1.expectString)(output[_CSN]);
     }
-    if (output["ExecutionStatus"] !== undefined) {
-        contents.ExecutionStatus = (0, smithy_client_1.expectString)(output["ExecutionStatus"]);
+    if (output[_ES] != null) {
+        contents[_ES] = (0, smithy_client_1.expectString)(output[_ES]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
+    if (output[_CTr] != null) {
+        contents[_CTr] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTr]));
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["IncludeNestedStacks"] !== undefined) {
-        contents.IncludeNestedStacks = (0, smithy_client_1.parseBoolean)(output["IncludeNestedStacks"]);
+    if (output[_INS] != null) {
+        contents[_INS] = (0, smithy_client_1.parseBoolean)(output[_INS]);
     }
-    if (output["ParentChangeSetId"] !== undefined) {
-        contents.ParentChangeSetId = (0, smithy_client_1.expectString)(output["ParentChangeSetId"]);
+    if (output[_PCSI] != null) {
+        contents[_PCSI] = (0, smithy_client_1.expectString)(output[_PCSI]);
     }
-    if (output["RootChangeSetId"] !== undefined) {
-        contents.RootChangeSetId = (0, smithy_client_1.expectString)(output["RootChangeSetId"]);
+    if (output[_RCSI] != null) {
+        contents[_RCSI] = (0, smithy_client_1.expectString)(output[_RCSI]);
     }
-    if (output["ImportExistingResources"] !== undefined) {
-        contents.ImportExistingResources = (0, smithy_client_1.parseBoolean)(output["ImportExistingResources"]);
+    if (output[_IER] != null) {
+        contents[_IER] = (0, smithy_client_1.parseBoolean)(output[_IER]);
     }
     return contents;
 };
@@ -13559,39 +13558,39 @@ const de_ContinueUpdateRollbackOutput = (output, context) => {
 };
 const de_CreateChangeSetOutput = (output, context) => {
     const contents = {};
-    if (output["Id"] !== undefined) {
-        contents.Id = (0, smithy_client_1.expectString)(output["Id"]);
+    if (output[_I] != null) {
+        contents[_I] = (0, smithy_client_1.expectString)(output[_I]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_CreatedButModifiedException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_CreateStackInstancesOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_CreateStackOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_CreateStackSetOutput = (output, context) => {
     const contents = {};
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
     return contents;
 };
@@ -13609,8 +13608,8 @@ const de_DeleteChangeSetOutput = (output, context) => {
 };
 const de_DeleteStackInstancesOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
@@ -13621,22 +13620,22 @@ const de_DeleteStackSetOutput = (output, context) => {
 const de_DeploymentTargets = (output, context) => {
     const contents = {};
     if (output.Accounts === "") {
-        contents.Accounts = [];
+        contents[_Ac] = [];
     }
-    else if (output["Accounts"] !== undefined && output["Accounts"]["member"] !== undefined) {
-        contents.Accounts = de_AccountList((0, smithy_client_1.getArrayIfSingleItem)(output["Accounts"]["member"]), context);
+    else if (output[_Ac] != null && output[_Ac][_m] != null) {
+        contents[_Ac] = de_AccountList((0, smithy_client_1.getArrayIfSingleItem)(output[_Ac][_m]), context);
     }
-    if (output["AccountsUrl"] !== undefined) {
-        contents.AccountsUrl = (0, smithy_client_1.expectString)(output["AccountsUrl"]);
+    if (output[_AUc] != null) {
+        contents[_AUc] = (0, smithy_client_1.expectString)(output[_AUc]);
     }
     if (output.OrganizationalUnitIds === "") {
-        contents.OrganizationalUnitIds = [];
+        contents[_OUI] = [];
     }
-    else if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
-        contents.OrganizationalUnitIds = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output["OrganizationalUnitIds"]["member"]), context);
+    else if (output[_OUI] != null && output[_OUI][_m] != null) {
+        contents[_OUI] = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output[_OUI][_m]), context);
     }
-    if (output["AccountFilterType"] !== undefined) {
-        contents.AccountFilterType = (0, smithy_client_1.expectString)(output["AccountFilterType"]);
+    if (output[_AFT] != null) {
+        contents[_AFT] = (0, smithy_client_1.expectString)(output[_AFT]);
     }
     return contents;
 };
@@ -13647,381 +13646,380 @@ const de_DeregisterTypeOutput = (output, context) => {
 const de_DescribeAccountLimitsOutput = (output, context) => {
     const contents = {};
     if (output.AccountLimits === "") {
-        contents.AccountLimits = [];
+        contents[_AL] = [];
     }
-    else if (output["AccountLimits"] !== undefined && output["AccountLimits"]["member"] !== undefined) {
-        contents.AccountLimits = de_AccountLimitList((0, smithy_client_1.getArrayIfSingleItem)(output["AccountLimits"]["member"]), context);
+    else if (output[_AL] != null && output[_AL][_m] != null) {
+        contents[_AL] = de_AccountLimitList((0, smithy_client_1.getArrayIfSingleItem)(output[_AL][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_DescribeChangeSetHooksOutput = (output, context) => {
     const contents = {};
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["ChangeSetName"] !== undefined) {
-        contents.ChangeSetName = (0, smithy_client_1.expectString)(output["ChangeSetName"]);
+    if (output[_CSN] != null) {
+        contents[_CSN] = (0, smithy_client_1.expectString)(output[_CSN]);
     }
     if (output.Hooks === "") {
-        contents.Hooks = [];
+        contents[_H] = [];
     }
-    else if (output["Hooks"] !== undefined && output["Hooks"]["member"] !== undefined) {
-        contents.Hooks = de_ChangeSetHooks((0, smithy_client_1.getArrayIfSingleItem)(output["Hooks"]["member"]), context);
+    else if (output[_H] != null && output[_H][_m] != null) {
+        contents[_H] = de_ChangeSetHooks((0, smithy_client_1.getArrayIfSingleItem)(output[_H][_m]), context);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
     return contents;
 };
 const de_DescribeChangeSetOutput = (output, context) => {
     const contents = {};
-    if (output["ChangeSetName"] !== undefined) {
-        contents.ChangeSetName = (0, smithy_client_1.expectString)(output["ChangeSetName"]);
+    if (output[_CSN] != null) {
+        contents[_CSN] = (0, smithy_client_1.expectString)(output[_CSN]);
     }
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
-    if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
+    if (output[_CTr] != null) {
+        contents[_CTr] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTr]));
     }
-    if (output["ExecutionStatus"] !== undefined) {
-        contents.ExecutionStatus = (0, smithy_client_1.expectString)(output["ExecutionStatus"]);
+    if (output[_ES] != null) {
+        contents[_ES] = (0, smithy_client_1.expectString)(output[_ES]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
     if (output.NotificationARNs === "") {
-        contents.NotificationARNs = [];
+        contents[_NARN] = [];
     }
-    else if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-        contents.NotificationARNs = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output["NotificationARNs"]["member"]), context);
+    else if (output[_NARN] != null && output[_NARN][_m] != null) {
+        contents[_NARN] = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output[_NARN][_m]), context);
     }
-    if (output["RollbackConfiguration"] !== undefined) {
-        contents.RollbackConfiguration = de_RollbackConfiguration(output["RollbackConfiguration"], context);
+    if (output[_RC] != null) {
+        contents[_RC] = de_RollbackConfiguration(output[_RC], context);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
     if (output.Tags === "") {
-        contents.Tags = [];
+        contents[_Ta] = [];
     }
-    else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+    else if (output[_Ta] != null && output[_Ta][_m] != null) {
+        contents[_Ta] = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output[_Ta][_m]), context);
     }
     if (output.Changes === "") {
-        contents.Changes = [];
+        contents[_Ch] = [];
     }
-    else if (output["Changes"] !== undefined && output["Changes"]["member"] !== undefined) {
-        contents.Changes = de_Changes((0, smithy_client_1.getArrayIfSingleItem)(output["Changes"]["member"]), context);
+    else if (output[_Ch] != null && output[_Ch][_m] != null) {
+        contents[_Ch] = de_Changes((0, smithy_client_1.getArrayIfSingleItem)(output[_Ch][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
-    if (output["IncludeNestedStacks"] !== undefined) {
-        contents.IncludeNestedStacks = (0, smithy_client_1.parseBoolean)(output["IncludeNestedStacks"]);
+    if (output[_INS] != null) {
+        contents[_INS] = (0, smithy_client_1.parseBoolean)(output[_INS]);
     }
-    if (output["ParentChangeSetId"] !== undefined) {
-        contents.ParentChangeSetId = (0, smithy_client_1.expectString)(output["ParentChangeSetId"]);
+    if (output[_PCSI] != null) {
+        contents[_PCSI] = (0, smithy_client_1.expectString)(output[_PCSI]);
     }
-    if (output["RootChangeSetId"] !== undefined) {
-        contents.RootChangeSetId = (0, smithy_client_1.expectString)(output["RootChangeSetId"]);
+    if (output[_RCSI] != null) {
+        contents[_RCSI] = (0, smithy_client_1.expectString)(output[_RCSI]);
     }
-    if (output["OnStackFailure"] !== undefined) {
-        contents.OnStackFailure = (0, smithy_client_1.expectString)(output["OnStackFailure"]);
+    if (output[_OSF] != null) {
+        contents[_OSF] = (0, smithy_client_1.expectString)(output[_OSF]);
     }
-    if (output["ImportExistingResources"] !== undefined) {
-        contents.ImportExistingResources = (0, smithy_client_1.parseBoolean)(output["ImportExistingResources"]);
+    if (output[_IER] != null) {
+        contents[_IER] = (0, smithy_client_1.parseBoolean)(output[_IER]);
     }
     return contents;
 };
 const de_DescribeOrganizationsAccessOutput = (output, context) => {
     const contents = {};
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
     return contents;
 };
 const de_DescribePublisherOutput = (output, context) => {
     const contents = {};
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
-    if (output["PublisherStatus"] !== undefined) {
-        contents.PublisherStatus = (0, smithy_client_1.expectString)(output["PublisherStatus"]);
+    if (output[_PS] != null) {
+        contents[_PS] = (0, smithy_client_1.expectString)(output[_PS]);
     }
-    if (output["IdentityProvider"] !== undefined) {
-        contents.IdentityProvider = (0, smithy_client_1.expectString)(output["IdentityProvider"]);
+    if (output[_IPd] != null) {
+        contents[_IPd] = (0, smithy_client_1.expectString)(output[_IPd]);
     }
-    if (output["PublisherProfile"] !== undefined) {
-        contents.PublisherProfile = (0, smithy_client_1.expectString)(output["PublisherProfile"]);
+    if (output[_PP] != null) {
+        contents[_PP] = (0, smithy_client_1.expectString)(output[_PP]);
     }
     return contents;
 };
 const de_DescribeStackDriftDetectionStatusOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackDriftDetectionId"] !== undefined) {
-        contents.StackDriftDetectionId = (0, smithy_client_1.expectString)(output["StackDriftDetectionId"]);
+    if (output[_SDDI] != null) {
+        contents[_SDDI] = (0, smithy_client_1.expectString)(output[_SDDI]);
     }
-    if (output["StackDriftStatus"] !== undefined) {
-        contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
+    if (output[_SDS] != null) {
+        contents[_SDS] = (0, smithy_client_1.expectString)(output[_SDS]);
     }
-    if (output["DetectionStatus"] !== undefined) {
-        contents.DetectionStatus = (0, smithy_client_1.expectString)(output["DetectionStatus"]);
+    if (output[_DSet] != null) {
+        contents[_DSet] = (0, smithy_client_1.expectString)(output[_DSet]);
     }
-    if (output["DetectionStatusReason"] !== undefined) {
-        contents.DetectionStatusReason = (0, smithy_client_1.expectString)(output["DetectionStatusReason"]);
+    if (output[_DSRet] != null) {
+        contents[_DSRet] = (0, smithy_client_1.expectString)(output[_DSRet]);
     }
-    if (output["DriftedStackResourceCount"] !== undefined) {
-        contents.DriftedStackResourceCount = (0, smithy_client_1.strictParseInt32)(output["DriftedStackResourceCount"]);
+    if (output[_DSRC] != null) {
+        contents[_DSRC] = (0, smithy_client_1.strictParseInt32)(output[_DSRC]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
     return contents;
 };
 const de_DescribeStackEventsOutput = (output, context) => {
     const contents = {};
     if (output.StackEvents === "") {
-        contents.StackEvents = [];
+        contents[_SE] = [];
     }
-    else if (output["StackEvents"] !== undefined && output["StackEvents"]["member"] !== undefined) {
-        contents.StackEvents = de_StackEvents((0, smithy_client_1.getArrayIfSingleItem)(output["StackEvents"]["member"]), context);
+    else if (output[_SE] != null && output[_SE][_m] != null) {
+        contents[_SE] = de_StackEvents((0, smithy_client_1.getArrayIfSingleItem)(output[_SE][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_DescribeStackInstanceOutput = (output, context) => {
     const contents = {};
-    if (output["StackInstance"] !== undefined) {
-        contents.StackInstance = de_StackInstance(output["StackInstance"], context);
+    if (output[_SIta] != null) {
+        contents[_SIta] = de_StackInstance(output[_SIta], context);
     }
     return contents;
 };
 const de_DescribeStackResourceDriftsOutput = (output, context) => {
     const contents = {};
     if (output.StackResourceDrifts === "") {
-        contents.StackResourceDrifts = [];
+        contents[_SRD] = [];
     }
-    else if (output["StackResourceDrifts"] !== undefined && output["StackResourceDrifts"]["member"] !== undefined) {
-        contents.StackResourceDrifts = de_StackResourceDrifts((0, smithy_client_1.getArrayIfSingleItem)(output["StackResourceDrifts"]["member"]), context);
+    else if (output[_SRD] != null && output[_SRD][_m] != null) {
+        contents[_SRD] = de_StackResourceDrifts((0, smithy_client_1.getArrayIfSingleItem)(output[_SRD][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_DescribeStackResourceOutput = (output, context) => {
     const contents = {};
-    if (output["StackResourceDetail"] !== undefined) {
-        contents.StackResourceDetail = de_StackResourceDetail(output["StackResourceDetail"], context);
+    if (output[_SRDt] != null) {
+        contents[_SRDt] = de_StackResourceDetail(output[_SRDt], context);
     }
     return contents;
 };
 const de_DescribeStackResourcesOutput = (output, context) => {
     const contents = {};
     if (output.StackResources === "") {
-        contents.StackResources = [];
+        contents[_SRta] = [];
     }
-    else if (output["StackResources"] !== undefined && output["StackResources"]["member"] !== undefined) {
-        contents.StackResources = de_StackResources((0, smithy_client_1.getArrayIfSingleItem)(output["StackResources"]["member"]), context);
+    else if (output[_SRta] != null && output[_SRta][_m] != null) {
+        contents[_SRta] = de_StackResources((0, smithy_client_1.getArrayIfSingleItem)(output[_SRta][_m]), context);
     }
     return contents;
 };
 const de_DescribeStackSetOperationOutput = (output, context) => {
     const contents = {};
-    if (output["StackSetOperation"] !== undefined) {
-        contents.StackSetOperation = de_StackSetOperation(output["StackSetOperation"], context);
+    if (output[_SSO] != null) {
+        contents[_SSO] = de_StackSetOperation(output[_SSO], context);
     }
     return contents;
 };
 const de_DescribeStackSetOutput = (output, context) => {
     const contents = {};
-    if (output["StackSet"] !== undefined) {
-        contents.StackSet = de_StackSet(output["StackSet"], context);
+    if (output[_SS] != null) {
+        contents[_SS] = de_StackSet(output[_SS], context);
     }
     return contents;
 };
 const de_DescribeStacksOutput = (output, context) => {
     const contents = {};
     if (output.Stacks === "") {
-        contents.Stacks = [];
+        contents[_St] = [];
     }
-    else if (output["Stacks"] !== undefined && output["Stacks"]["member"] !== undefined) {
-        contents.Stacks = de_Stacks((0, smithy_client_1.getArrayIfSingleItem)(output["Stacks"]["member"]), context);
+    else if (output[_St] != null && output[_St][_m] != null) {
+        contents[_St] = de_Stacks((0, smithy_client_1.getArrayIfSingleItem)(output[_St][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_DescribeTypeOutput = (output, context) => {
     const contents = {};
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["DefaultVersionId"] !== undefined) {
-        contents.DefaultVersionId = (0, smithy_client_1.expectString)(output["DefaultVersionId"]);
+    if (output[_DVI] != null) {
+        contents[_DVI] = (0, smithy_client_1.expectString)(output[_DVI]);
     }
-    if (output["IsDefaultVersion"] !== undefined) {
-        contents.IsDefaultVersion = (0, smithy_client_1.parseBoolean)(output["IsDefaultVersion"]);
+    if (output[_IDV] != null) {
+        contents[_IDV] = (0, smithy_client_1.parseBoolean)(output[_IDV]);
     }
-    if (output["TypeTestsStatus"] !== undefined) {
-        contents.TypeTestsStatus = (0, smithy_client_1.expectString)(output["TypeTestsStatus"]);
+    if (output[_TTS] != null) {
+        contents[_TTS] = (0, smithy_client_1.expectString)(output[_TTS]);
     }
-    if (output["TypeTestsStatusDescription"] !== undefined) {
-        contents.TypeTestsStatusDescription = (0, smithy_client_1.expectString)(output["TypeTestsStatusDescription"]);
+    if (output[_TTSD] != null) {
+        contents[_TTSD] = (0, smithy_client_1.expectString)(output[_TTSD]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["Schema"] !== undefined) {
-        contents.Schema = (0, smithy_client_1.expectString)(output["Schema"]);
+    if (output[_Sc] != null) {
+        contents[_Sc] = (0, smithy_client_1.expectString)(output[_Sc]);
     }
-    if (output["ProvisioningType"] !== undefined) {
-        contents.ProvisioningType = (0, smithy_client_1.expectString)(output["ProvisioningType"]);
+    if (output[_PTr] != null) {
+        contents[_PTr] = (0, smithy_client_1.expectString)(output[_PTr]);
     }
-    if (output["DeprecatedStatus"] !== undefined) {
-        contents.DeprecatedStatus = (0, smithy_client_1.expectString)(output["DeprecatedStatus"]);
+    if (output[_DSep] != null) {
+        contents[_DSep] = (0, smithy_client_1.expectString)(output[_DSep]);
     }
-    if (output["LoggingConfig"] !== undefined) {
-        contents.LoggingConfig = de_LoggingConfig(output["LoggingConfig"], context);
+    if (output[_LC] != null) {
+        contents[_LC] = de_LoggingConfig(output[_LC], context);
     }
     if (output.RequiredActivatedTypes === "") {
-        contents.RequiredActivatedTypes = [];
+        contents[_RAT] = [];
     }
-    else if (output["RequiredActivatedTypes"] !== undefined &&
-        output["RequiredActivatedTypes"]["member"] !== undefined) {
-        contents.RequiredActivatedTypes = de_RequiredActivatedTypes((0, smithy_client_1.getArrayIfSingleItem)(output["RequiredActivatedTypes"]["member"]), context);
+    else if (output[_RAT] != null && output[_RAT][_m] != null) {
+        contents[_RAT] = de_RequiredActivatedTypes((0, smithy_client_1.getArrayIfSingleItem)(output[_RAT][_m]), context);
     }
-    if (output["ExecutionRoleArn"] !== undefined) {
-        contents.ExecutionRoleArn = (0, smithy_client_1.expectString)(output["ExecutionRoleArn"]);
+    if (output[_ERA] != null) {
+        contents[_ERA] = (0, smithy_client_1.expectString)(output[_ERA]);
     }
-    if (output["Visibility"] !== undefined) {
-        contents.Visibility = (0, smithy_client_1.expectString)(output["Visibility"]);
+    if (output[_Vi] != null) {
+        contents[_Vi] = (0, smithy_client_1.expectString)(output[_Vi]);
     }
-    if (output["SourceUrl"] !== undefined) {
-        contents.SourceUrl = (0, smithy_client_1.expectString)(output["SourceUrl"]);
+    if (output[_SU] != null) {
+        contents[_SU] = (0, smithy_client_1.expectString)(output[_SU]);
     }
-    if (output["DocumentationUrl"] !== undefined) {
-        contents.DocumentationUrl = (0, smithy_client_1.expectString)(output["DocumentationUrl"]);
+    if (output[_DU] != null) {
+        contents[_DU] = (0, smithy_client_1.expectString)(output[_DU]);
     }
-    if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
+    if (output[_LU] != null) {
+        contents[_LU] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LU]));
     }
-    if (output["TimeCreated"] !== undefined) {
-        contents.TimeCreated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["TimeCreated"]));
+    if (output[_TCi] != null) {
+        contents[_TCi] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_TCi]));
     }
-    if (output["ConfigurationSchema"] !== undefined) {
-        contents.ConfigurationSchema = (0, smithy_client_1.expectString)(output["ConfigurationSchema"]);
+    if (output[_CSo] != null) {
+        contents[_CSo] = (0, smithy_client_1.expectString)(output[_CSo]);
     }
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
-    if (output["OriginalTypeName"] !== undefined) {
-        contents.OriginalTypeName = (0, smithy_client_1.expectString)(output["OriginalTypeName"]);
+    if (output[_OTN] != null) {
+        contents[_OTN] = (0, smithy_client_1.expectString)(output[_OTN]);
     }
-    if (output["OriginalTypeArn"] !== undefined) {
-        contents.OriginalTypeArn = (0, smithy_client_1.expectString)(output["OriginalTypeArn"]);
+    if (output[_OTA] != null) {
+        contents[_OTA] = (0, smithy_client_1.expectString)(output[_OTA]);
     }
-    if (output["PublicVersionNumber"] !== undefined) {
-        contents.PublicVersionNumber = (0, smithy_client_1.expectString)(output["PublicVersionNumber"]);
+    if (output[_PVN] != null) {
+        contents[_PVN] = (0, smithy_client_1.expectString)(output[_PVN]);
     }
-    if (output["LatestPublicVersion"] !== undefined) {
-        contents.LatestPublicVersion = (0, smithy_client_1.expectString)(output["LatestPublicVersion"]);
+    if (output[_LPV] != null) {
+        contents[_LPV] = (0, smithy_client_1.expectString)(output[_LPV]);
     }
-    if (output["IsActivated"] !== undefined) {
-        contents.IsActivated = (0, smithy_client_1.parseBoolean)(output["IsActivated"]);
+    if (output[_IA] != null) {
+        contents[_IA] = (0, smithy_client_1.parseBoolean)(output[_IA]);
     }
-    if (output["AutoUpdate"] !== undefined) {
-        contents.AutoUpdate = (0, smithy_client_1.parseBoolean)(output["AutoUpdate"]);
+    if (output[_AU] != null) {
+        contents[_AU] = (0, smithy_client_1.parseBoolean)(output[_AU]);
     }
     return contents;
 };
 const de_DescribeTypeRegistrationOutput = (output, context) => {
     const contents = {};
-    if (output["ProgressStatus"] !== undefined) {
-        contents.ProgressStatus = (0, smithy_client_1.expectString)(output["ProgressStatus"]);
+    if (output[_PSr] != null) {
+        contents[_PSr] = (0, smithy_client_1.expectString)(output[_PSr]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["TypeArn"] !== undefined) {
-        contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
+    if (output[_TA] != null) {
+        contents[_TA] = (0, smithy_client_1.expectString)(output[_TA]);
     }
-    if (output["TypeVersionArn"] !== undefined) {
-        contents.TypeVersionArn = (0, smithy_client_1.expectString)(output["TypeVersionArn"]);
+    if (output[_TVA] != null) {
+        contents[_TVA] = (0, smithy_client_1.expectString)(output[_TVA]);
     }
     return contents;
 };
 const de_DetectStackDriftOutput = (output, context) => {
     const contents = {};
-    if (output["StackDriftDetectionId"] !== undefined) {
-        contents.StackDriftDetectionId = (0, smithy_client_1.expectString)(output["StackDriftDetectionId"]);
+    if (output[_SDDI] != null) {
+        contents[_SDDI] = (0, smithy_client_1.expectString)(output[_SDDI]);
     }
     return contents;
 };
 const de_DetectStackResourceDriftOutput = (output, context) => {
     const contents = {};
-    if (output["StackResourceDrift"] !== undefined) {
-        contents.StackResourceDrift = de_StackResourceDrift(output["StackResourceDrift"], context);
+    if (output[_SRDta] != null) {
+        contents[_SRDta] = de_StackResourceDrift(output[_SRDta], context);
     }
     return contents;
 };
 const de_DetectStackSetDriftOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_EstimateTemplateCostOutput = (output, context) => {
     const contents = {};
-    if (output["Url"] !== undefined) {
-        contents.Url = (0, smithy_client_1.expectString)(output["Url"]);
+    if (output[_U] != null) {
+        contents[_U] = (0, smithy_client_1.expectString)(output[_U]);
     }
     return contents;
 };
@@ -14031,14 +14029,14 @@ const de_ExecuteChangeSetOutput = (output, context) => {
 };
 const de_Export = (output, context) => {
     const contents = {};
-    if (output["ExportingStackId"] !== undefined) {
-        contents.ExportingStackId = (0, smithy_client_1.expectString)(output["ExportingStackId"]);
+    if (output[_ESI] != null) {
+        contents[_ESI] = (0, smithy_client_1.expectString)(output[_ESI]);
     }
-    if (output["Name"] !== undefined) {
-        contents.Name = (0, smithy_client_1.expectString)(output["Name"]);
+    if (output[_N] != null) {
+        contents[_N] = (0, smithy_client_1.expectString)(output[_N]);
     }
-    if (output["Value"] !== undefined) {
-        contents.Value = (0, smithy_client_1.expectString)(output["Value"]);
+    if (output[_Val] != null) {
+        contents[_Val] = (0, smithy_client_1.expectString)(output[_Val]);
     }
     return contents;
 };
@@ -14051,71 +14049,70 @@ const de_Exports = (output, context) => {
 };
 const de_GetStackPolicyOutput = (output, context) => {
     const contents = {};
-    if (output["StackPolicyBody"] !== undefined) {
-        contents.StackPolicyBody = (0, smithy_client_1.expectString)(output["StackPolicyBody"]);
+    if (output[_SPB] != null) {
+        contents[_SPB] = (0, smithy_client_1.expectString)(output[_SPB]);
     }
     return contents;
 };
 const de_GetTemplateOutput = (output, context) => {
     const contents = {};
-    if (output["TemplateBody"] !== undefined) {
-        contents.TemplateBody = (0, smithy_client_1.expectString)(output["TemplateBody"]);
+    if (output[_TB] != null) {
+        contents[_TB] = (0, smithy_client_1.expectString)(output[_TB]);
     }
     if (output.StagesAvailable === "") {
-        contents.StagesAvailable = [];
+        contents[_SA] = [];
     }
-    else if (output["StagesAvailable"] !== undefined && output["StagesAvailable"]["member"] !== undefined) {
-        contents.StagesAvailable = de_StageList((0, smithy_client_1.getArrayIfSingleItem)(output["StagesAvailable"]["member"]), context);
+    else if (output[_SA] != null && output[_SA][_m] != null) {
+        contents[_SA] = de_StageList((0, smithy_client_1.getArrayIfSingleItem)(output[_SA][_m]), context);
     }
     return contents;
 };
 const de_GetTemplateSummaryOutput = (output, context) => {
     const contents = {};
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_ParameterDeclarations((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_ParameterDeclarations((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
-    if (output["CapabilitiesReason"] !== undefined) {
-        contents.CapabilitiesReason = (0, smithy_client_1.expectString)(output["CapabilitiesReason"]);
+    if (output[_CR] != null) {
+        contents[_CR] = (0, smithy_client_1.expectString)(output[_CR]);
     }
     if (output.ResourceTypes === "") {
-        contents.ResourceTypes = [];
+        contents[_RTe] = [];
     }
-    else if (output["ResourceTypes"] !== undefined && output["ResourceTypes"]["member"] !== undefined) {
-        contents.ResourceTypes = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceTypes"]["member"]), context);
+    else if (output[_RTe] != null && output[_RTe][_m] != null) {
+        contents[_RTe] = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output[_RTe][_m]), context);
     }
-    if (output["Version"] !== undefined) {
-        contents.Version = (0, smithy_client_1.expectString)(output["Version"]);
+    if (output[_V] != null) {
+        contents[_V] = (0, smithy_client_1.expectString)(output[_V]);
     }
-    if (output["Metadata"] !== undefined) {
-        contents.Metadata = (0, smithy_client_1.expectString)(output["Metadata"]);
+    if (output[_Me] != null) {
+        contents[_Me] = (0, smithy_client_1.expectString)(output[_Me]);
     }
     if (output.DeclaredTransforms === "") {
-        contents.DeclaredTransforms = [];
+        contents[_DTec] = [];
     }
-    else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-        contents.DeclaredTransforms = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output["DeclaredTransforms"]["member"]), context);
+    else if (output[_DTec] != null && output[_DTec][_m] != null) {
+        contents[_DTec] = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output[_DTec][_m]), context);
     }
     if (output.ResourceIdentifierSummaries === "") {
-        contents.ResourceIdentifierSummaries = [];
+        contents[_RIS] = [];
     }
-    else if (output["ResourceIdentifierSummaries"] !== undefined &&
-        output["ResourceIdentifierSummaries"]["member"] !== undefined) {
-        contents.ResourceIdentifierSummaries = de_ResourceIdentifierSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceIdentifierSummaries"]["member"]), context);
+    else if (output[_RIS] != null && output[_RIS][_m] != null) {
+        contents[_RIS] = de_ResourceIdentifierSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_RIS][_m]), context);
     }
-    if (output["Warnings"] !== undefined) {
-        contents.Warnings = de_Warnings(output["Warnings"], context);
+    if (output[_W] != null) {
+        contents[_W] = de_Warnings(output[_W], context);
     }
     return contents;
 };
@@ -14128,223 +14125,222 @@ const de_Imports = (output, context) => {
 };
 const de_ImportStacksToStackSetOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_InsufficientCapabilitiesException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_InvalidChangeSetStatusException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_InvalidOperationException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_InvalidStateTransitionException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_LimitExceededException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_ListChangeSetsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_ChangeSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_ChangeSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListExportsOutput = (output, context) => {
     const contents = {};
     if (output.Exports === "") {
-        contents.Exports = [];
+        contents[_Ex] = [];
     }
-    else if (output["Exports"] !== undefined && output["Exports"]["member"] !== undefined) {
-        contents.Exports = de_Exports((0, smithy_client_1.getArrayIfSingleItem)(output["Exports"]["member"]), context);
+    else if (output[_Ex] != null && output[_Ex][_m] != null) {
+        contents[_Ex] = de_Exports((0, smithy_client_1.getArrayIfSingleItem)(output[_Ex][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListImportsOutput = (output, context) => {
     const contents = {};
     if (output.Imports === "") {
-        contents.Imports = [];
+        contents[_Im] = [];
     }
-    else if (output["Imports"] !== undefined && output["Imports"]["member"] !== undefined) {
-        contents.Imports = de_Imports((0, smithy_client_1.getArrayIfSingleItem)(output["Imports"]["member"]), context);
+    else if (output[_Im] != null && output[_Im][_m] != null) {
+        contents[_Im] = de_Imports((0, smithy_client_1.getArrayIfSingleItem)(output[_Im][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackInstanceResourceDriftsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackInstanceResourceDriftsSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackInstanceResourceDriftsSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackInstancesOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackInstanceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackInstanceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackResourcesOutput = (output, context) => {
     const contents = {};
     if (output.StackResourceSummaries === "") {
-        contents.StackResourceSummaries = [];
+        contents[_SRS] = [];
     }
-    else if (output["StackResourceSummaries"] !== undefined &&
-        output["StackResourceSummaries"]["member"] !== undefined) {
-        contents.StackResourceSummaries = de_StackResourceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["StackResourceSummaries"]["member"]), context);
+    else if (output[_SRS] != null && output[_SRS][_m] != null) {
+        contents[_SRS] = de_StackResourceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_SRS][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackSetOperationResultsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackSetOperationResultSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackSetOperationResultSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackSetOperationsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackSetOperationSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackSetOperationSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackSetsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStacksOutput = (output, context) => {
     const contents = {};
     if (output.StackSummaries === "") {
-        contents.StackSummaries = [];
+        contents[_SSt] = [];
     }
-    else if (output["StackSummaries"] !== undefined && output["StackSummaries"]["member"] !== undefined) {
-        contents.StackSummaries = de_StackSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["StackSummaries"]["member"]), context);
+    else if (output[_SSt] != null && output[_SSt][_m] != null) {
+        contents[_SSt] = de_StackSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_SSt][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListTypeRegistrationsOutput = (output, context) => {
     const contents = {};
     if (output.RegistrationTokenList === "") {
-        contents.RegistrationTokenList = [];
+        contents[_RTL] = [];
     }
-    else if (output["RegistrationTokenList"] !== undefined && output["RegistrationTokenList"]["member"] !== undefined) {
-        contents.RegistrationTokenList = de_RegistrationTokenList((0, smithy_client_1.getArrayIfSingleItem)(output["RegistrationTokenList"]["member"]), context);
+    else if (output[_RTL] != null && output[_RTL][_m] != null) {
+        contents[_RTL] = de_RegistrationTokenList((0, smithy_client_1.getArrayIfSingleItem)(output[_RTL][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListTypesOutput = (output, context) => {
     const contents = {};
     if (output.TypeSummaries === "") {
-        contents.TypeSummaries = [];
+        contents[_TSy] = [];
     }
-    else if (output["TypeSummaries"] !== undefined && output["TypeSummaries"]["member"] !== undefined) {
-        contents.TypeSummaries = de_TypeSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["TypeSummaries"]["member"]), context);
+    else if (output[_TSy] != null && output[_TSy][_m] != null) {
+        contents[_TSy] = de_TypeSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_TSy][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListTypeVersionsOutput = (output, context) => {
     const contents = {};
     if (output.TypeVersionSummaries === "") {
-        contents.TypeVersionSummaries = [];
+        contents[_TVS] = [];
     }
-    else if (output["TypeVersionSummaries"] !== undefined && output["TypeVersionSummaries"]["member"] !== undefined) {
-        contents.TypeVersionSummaries = de_TypeVersionSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["TypeVersionSummaries"]["member"]), context);
+    else if (output[_TVS] != null && output[_TVS][_m] != null) {
+        contents[_TVS] = de_TypeVersionSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_TVS][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_LoggingConfig = (output, context) => {
     const contents = {};
-    if (output["LogRoleArn"] !== undefined) {
-        contents.LogRoleArn = (0, smithy_client_1.expectString)(output["LogRoleArn"]);
+    if (output[_LRA] != null) {
+        contents[_LRA] = (0, smithy_client_1.expectString)(output[_LRA]);
     }
-    if (output["LogGroupName"] !== undefined) {
-        contents.LogGroupName = (0, smithy_client_1.expectString)(output["LogGroupName"]);
+    if (output[_LGN] != null) {
+        contents[_LGN] = (0, smithy_client_1.expectString)(output[_LGN]);
     }
     return contents;
 };
@@ -14357,25 +14353,25 @@ const de_LogicalResourceIds = (output, context) => {
 };
 const de_ManagedExecution = (output, context) => {
     const contents = {};
-    if (output["Active"] !== undefined) {
-        contents.Active = (0, smithy_client_1.parseBoolean)(output["Active"]);
+    if (output[_Act] != null) {
+        contents[_Act] = (0, smithy_client_1.parseBoolean)(output[_Act]);
     }
     return contents;
 };
 const de_ModuleInfo = (output, context) => {
     const contents = {};
-    if (output["TypeHierarchy"] !== undefined) {
-        contents.TypeHierarchy = (0, smithy_client_1.expectString)(output["TypeHierarchy"]);
+    if (output[_TH] != null) {
+        contents[_TH] = (0, smithy_client_1.expectString)(output[_TH]);
     }
-    if (output["LogicalIdHierarchy"] !== undefined) {
-        contents.LogicalIdHierarchy = (0, smithy_client_1.expectString)(output["LogicalIdHierarchy"]);
+    if (output[_LIH] != null) {
+        contents[_LIH] = (0, smithy_client_1.expectString)(output[_LIH]);
     }
     return contents;
 };
 const de_NameAlreadyExistsException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -14388,29 +14384,29 @@ const de_NotificationARNs = (output, context) => {
 };
 const de_OperationIdAlreadyExistsException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_OperationInProgressException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_OperationNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_OperationStatusCheckFailedException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -14423,17 +14419,17 @@ const de_OrganizationalUnitIdList = (output, context) => {
 };
 const de_Output = (output, context) => {
     const contents = {};
-    if (output["OutputKey"] !== undefined) {
-        contents.OutputKey = (0, smithy_client_1.expectString)(output["OutputKey"]);
+    if (output[_OK] != null) {
+        contents[_OK] = (0, smithy_client_1.expectString)(output[_OK]);
     }
-    if (output["OutputValue"] !== undefined) {
-        contents.OutputValue = (0, smithy_client_1.expectString)(output["OutputValue"]);
+    if (output[_OV] != null) {
+        contents[_OV] = (0, smithy_client_1.expectString)(output[_OV]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["ExportName"] !== undefined) {
-        contents.ExportName = (0, smithy_client_1.expectString)(output["ExportName"]);
+    if (output[_EN] != null) {
+        contents[_EN] = (0, smithy_client_1.expectString)(output[_EN]);
     }
     return contents;
 };
@@ -14446,49 +14442,49 @@ const de_Outputs = (output, context) => {
 };
 const de_Parameter = (output, context) => {
     const contents = {};
-    if (output["ParameterKey"] !== undefined) {
-        contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
+    if (output[_PK] != null) {
+        contents[_PK] = (0, smithy_client_1.expectString)(output[_PK]);
     }
-    if (output["ParameterValue"] !== undefined) {
-        contents.ParameterValue = (0, smithy_client_1.expectString)(output["ParameterValue"]);
+    if (output[_PV] != null) {
+        contents[_PV] = (0, smithy_client_1.expectString)(output[_PV]);
     }
-    if (output["UsePreviousValue"] !== undefined) {
-        contents.UsePreviousValue = (0, smithy_client_1.parseBoolean)(output["UsePreviousValue"]);
+    if (output[_UPV] != null) {
+        contents[_UPV] = (0, smithy_client_1.parseBoolean)(output[_UPV]);
     }
-    if (output["ResolvedValue"] !== undefined) {
-        contents.ResolvedValue = (0, smithy_client_1.expectString)(output["ResolvedValue"]);
+    if (output[_RV] != null) {
+        contents[_RV] = (0, smithy_client_1.expectString)(output[_RV]);
     }
     return contents;
 };
 const de_ParameterConstraints = (output, context) => {
     const contents = {};
     if (output.AllowedValues === "") {
-        contents.AllowedValues = [];
+        contents[_AV] = [];
     }
-    else if (output["AllowedValues"] !== undefined && output["AllowedValues"]["member"] !== undefined) {
-        contents.AllowedValues = de_AllowedValues((0, smithy_client_1.getArrayIfSingleItem)(output["AllowedValues"]["member"]), context);
+    else if (output[_AV] != null && output[_AV][_m] != null) {
+        contents[_AV] = de_AllowedValues((0, smithy_client_1.getArrayIfSingleItem)(output[_AV][_m]), context);
     }
     return contents;
 };
 const de_ParameterDeclaration = (output, context) => {
     const contents = {};
-    if (output["ParameterKey"] !== undefined) {
-        contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
+    if (output[_PK] != null) {
+        contents[_PK] = (0, smithy_client_1.expectString)(output[_PK]);
     }
-    if (output["DefaultValue"] !== undefined) {
-        contents.DefaultValue = (0, smithy_client_1.expectString)(output["DefaultValue"]);
+    if (output[_DV] != null) {
+        contents[_DV] = (0, smithy_client_1.expectString)(output[_DV]);
     }
-    if (output["ParameterType"] !== undefined) {
-        contents.ParameterType = (0, smithy_client_1.expectString)(output["ParameterType"]);
+    if (output[_PTa] != null) {
+        contents[_PTa] = (0, smithy_client_1.expectString)(output[_PTa]);
     }
-    if (output["NoEcho"] !== undefined) {
-        contents.NoEcho = (0, smithy_client_1.parseBoolean)(output["NoEcho"]);
+    if (output[_NE] != null) {
+        contents[_NE] = (0, smithy_client_1.parseBoolean)(output[_NE]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["ParameterConstraints"] !== undefined) {
-        contents.ParameterConstraints = de_ParameterConstraints(output["ParameterConstraints"], context);
+    if (output[_PC] != null) {
+        contents[_PC] = de_ParameterConstraints(output[_PC], context);
     }
     return contents;
 };
@@ -14515,27 +14511,27 @@ const de_PhysicalResourceIdContext = (output, context) => {
 };
 const de_PhysicalResourceIdContextKeyValuePair = (output, context) => {
     const contents = {};
-    if (output["Key"] !== undefined) {
-        contents.Key = (0, smithy_client_1.expectString)(output["Key"]);
+    if (output[_K] != null) {
+        contents[_K] = (0, smithy_client_1.expectString)(output[_K]);
     }
-    if (output["Value"] !== undefined) {
-        contents.Value = (0, smithy_client_1.expectString)(output["Value"]);
+    if (output[_Val] != null) {
+        contents[_Val] = (0, smithy_client_1.expectString)(output[_Val]);
     }
     return contents;
 };
 const de_PropertyDifference = (output, context) => {
     const contents = {};
-    if (output["PropertyPath"] !== undefined) {
-        contents.PropertyPath = (0, smithy_client_1.expectString)(output["PropertyPath"]);
+    if (output[_PPr] != null) {
+        contents[_PPr] = (0, smithy_client_1.expectString)(output[_PPr]);
     }
-    if (output["ExpectedValue"] !== undefined) {
-        contents.ExpectedValue = (0, smithy_client_1.expectString)(output["ExpectedValue"]);
+    if (output[_EV] != null) {
+        contents[_EV] = (0, smithy_client_1.expectString)(output[_EV]);
     }
-    if (output["ActualValue"] !== undefined) {
-        contents.ActualValue = (0, smithy_client_1.expectString)(output["ActualValue"]);
+    if (output[_AVc] != null) {
+        contents[_AVc] = (0, smithy_client_1.expectString)(output[_AVc]);
     }
-    if (output["DifferenceType"] !== undefined) {
-        contents.DifferenceType = (0, smithy_client_1.expectString)(output["DifferenceType"]);
+    if (output[_DTi] != null) {
+        contents[_DTi] = (0, smithy_client_1.expectString)(output[_DTi]);
     }
     return contents;
 };
@@ -14548,8 +14544,8 @@ const de_PropertyDifferences = (output, context) => {
 };
 const de_PublishTypeOutput = (output, context) => {
     const contents = {};
-    if (output["PublicTypeArn"] !== undefined) {
-        contents.PublicTypeArn = (0, smithy_client_1.expectString)(output["PublicTypeArn"]);
+    if (output[_PTA] != null) {
+        contents[_PTA] = (0, smithy_client_1.expectString)(output[_PTA]);
     }
     return contents;
 };
@@ -14566,15 +14562,15 @@ const de_RegionList = (output, context) => {
 };
 const de_RegisterPublisherOutput = (output, context) => {
     const contents = {};
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
     return contents;
 };
 const de_RegisterTypeOutput = (output, context) => {
     const contents = {};
-    if (output["RegistrationToken"] !== undefined) {
-        contents.RegistrationToken = (0, smithy_client_1.expectString)(output["RegistrationToken"]);
+    if (output[_RTeg] != null) {
+        contents[_RTeg] = (0, smithy_client_1.expectString)(output[_RTeg]);
     }
     return contents;
 };
@@ -14587,21 +14583,20 @@ const de_RegistrationTokenList = (output, context) => {
 };
 const de_RequiredActivatedType = (output, context) => {
     const contents = {};
-    if (output["TypeNameAlias"] !== undefined) {
-        contents.TypeNameAlias = (0, smithy_client_1.expectString)(output["TypeNameAlias"]);
+    if (output[_TNA] != null) {
+        contents[_TNA] = (0, smithy_client_1.expectString)(output[_TNA]);
     }
-    if (output["OriginalTypeName"] !== undefined) {
-        contents.OriginalTypeName = (0, smithy_client_1.expectString)(output["OriginalTypeName"]);
+    if (output[_OTN] != null) {
+        contents[_OTN] = (0, smithy_client_1.expectString)(output[_OTN]);
     }
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
     if (output.SupportedMajorVersions === "") {
-        contents.SupportedMajorVersions = [];
+        contents[_SMV] = [];
     }
-    else if (output["SupportedMajorVersions"] !== undefined &&
-        output["SupportedMajorVersions"]["member"] !== undefined) {
-        contents.SupportedMajorVersions = de_SupportedMajorVersions((0, smithy_client_1.getArrayIfSingleItem)(output["SupportedMajorVersions"]["member"]), context);
+    else if (output[_SMV] != null && output[_SMV][_m] != null) {
+        contents[_SMV] = de_SupportedMajorVersions((0, smithy_client_1.getArrayIfSingleItem)(output[_SMV][_m]), context);
     }
     return contents;
 };
@@ -14614,54 +14609,54 @@ const de_RequiredActivatedTypes = (output, context) => {
 };
 const de_ResourceChange = (output, context) => {
     const contents = {};
-    if (output["Action"] !== undefined) {
-        contents.Action = (0, smithy_client_1.expectString)(output["Action"]);
+    if (output[_A] != null) {
+        contents[_A] = (0, smithy_client_1.expectString)(output[_A]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["Replacement"] !== undefined) {
-        contents.Replacement = (0, smithy_client_1.expectString)(output["Replacement"]);
+    if (output[_Re] != null) {
+        contents[_Re] = (0, smithy_client_1.expectString)(output[_Re]);
     }
     if (output.Scope === "") {
-        contents.Scope = [];
+        contents[_Sco] = [];
     }
-    else if (output["Scope"] !== undefined && output["Scope"]["member"] !== undefined) {
-        contents.Scope = de_Scope((0, smithy_client_1.getArrayIfSingleItem)(output["Scope"]["member"]), context);
+    else if (output[_Sco] != null && output[_Sco][_m] != null) {
+        contents[_Sco] = de_Scope((0, smithy_client_1.getArrayIfSingleItem)(output[_Sco][_m]), context);
     }
     if (output.Details === "") {
-        contents.Details = [];
+        contents[_De] = [];
     }
-    else if (output["Details"] !== undefined && output["Details"]["member"] !== undefined) {
-        contents.Details = de_ResourceChangeDetails((0, smithy_client_1.getArrayIfSingleItem)(output["Details"]["member"]), context);
+    else if (output[_De] != null && output[_De][_m] != null) {
+        contents[_De] = de_ResourceChangeDetails((0, smithy_client_1.getArrayIfSingleItem)(output[_De][_m]), context);
     }
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
 const de_ResourceChangeDetail = (output, context) => {
     const contents = {};
-    if (output["Target"] !== undefined) {
-        contents.Target = de_ResourceTargetDefinition(output["Target"], context);
+    if (output[_Tar] != null) {
+        contents[_Tar] = de_ResourceTargetDefinition(output[_Tar], context);
     }
-    if (output["Evaluation"] !== undefined) {
-        contents.Evaluation = (0, smithy_client_1.expectString)(output["Evaluation"]);
+    if (output[_Ev] != null) {
+        contents[_Ev] = (0, smithy_client_1.expectString)(output[_Ev]);
     }
-    if (output["ChangeSource"] !== undefined) {
-        contents.ChangeSource = (0, smithy_client_1.expectString)(output["ChangeSource"]);
+    if (output[_CSh] != null) {
+        contents[_CSh] = (0, smithy_client_1.expectString)(output[_CSh]);
     }
-    if (output["CausingEntity"] !== undefined) {
-        contents.CausingEntity = (0, smithy_client_1.expectString)(output["CausingEntity"]);
+    if (output[_CE] != null) {
+        contents[_CE] = (0, smithy_client_1.expectString)(output[_CE]);
     }
     return contents;
 };
@@ -14688,33 +14683,33 @@ const de_ResourceIdentifierSummaries = (output, context) => {
 };
 const de_ResourceIdentifierSummary = (output, context) => {
     const contents = {};
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
     if (output.LogicalResourceIds === "") {
-        contents.LogicalResourceIds = [];
+        contents[_LRIo] = [];
     }
-    else if (output["LogicalResourceIds"] !== undefined && output["LogicalResourceIds"]["member"] !== undefined) {
-        contents.LogicalResourceIds = de_LogicalResourceIds((0, smithy_client_1.getArrayIfSingleItem)(output["LogicalResourceIds"]["member"]), context);
+    else if (output[_LRIo] != null && output[_LRIo][_m] != null) {
+        contents[_LRIo] = de_LogicalResourceIds((0, smithy_client_1.getArrayIfSingleItem)(output[_LRIo][_m]), context);
     }
     if (output.ResourceIdentifiers === "") {
-        contents.ResourceIdentifiers = [];
+        contents[_RIe] = [];
     }
-    else if (output["ResourceIdentifiers"] !== undefined && output["ResourceIdentifiers"]["member"] !== undefined) {
-        contents.ResourceIdentifiers = de_ResourceIdentifiers((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceIdentifiers"]["member"]), context);
+    else if (output[_RIe] != null && output[_RIe][_m] != null) {
+        contents[_RIe] = de_ResourceIdentifiers((0, smithy_client_1.getArrayIfSingleItem)(output[_RIe][_m]), context);
     }
     return contents;
 };
 const de_ResourceTargetDefinition = (output, context) => {
     const contents = {};
-    if (output["Attribute"] !== undefined) {
-        contents.Attribute = (0, smithy_client_1.expectString)(output["Attribute"]);
+    if (output[_At] != null) {
+        contents[_At] = (0, smithy_client_1.expectString)(output[_At]);
     }
-    if (output["Name"] !== undefined) {
-        contents.Name = (0, smithy_client_1.expectString)(output["Name"]);
+    if (output[_N] != null) {
+        contents[_N] = (0, smithy_client_1.expectString)(output[_N]);
     }
-    if (output["RequiresRecreation"] !== undefined) {
-        contents.RequiresRecreation = (0, smithy_client_1.expectString)(output["RequiresRecreation"]);
+    if (output[_RRe] != null) {
+        contents[_RRe] = (0, smithy_client_1.expectString)(output[_RRe]);
     }
     return contents;
 };
@@ -14728,30 +14723,30 @@ const de_ResourceTypes = (output, context) => {
 const de_RollbackConfiguration = (output, context) => {
     const contents = {};
     if (output.RollbackTriggers === "") {
-        contents.RollbackTriggers = [];
+        contents[_RTo] = [];
     }
-    else if (output["RollbackTriggers"] !== undefined && output["RollbackTriggers"]["member"] !== undefined) {
-        contents.RollbackTriggers = de_RollbackTriggers((0, smithy_client_1.getArrayIfSingleItem)(output["RollbackTriggers"]["member"]), context);
+    else if (output[_RTo] != null && output[_RTo][_m] != null) {
+        contents[_RTo] = de_RollbackTriggers((0, smithy_client_1.getArrayIfSingleItem)(output[_RTo][_m]), context);
     }
-    if (output["MonitoringTimeInMinutes"] !== undefined) {
-        contents.MonitoringTimeInMinutes = (0, smithy_client_1.strictParseInt32)(output["MonitoringTimeInMinutes"]);
+    if (output[_MTIM] != null) {
+        contents[_MTIM] = (0, smithy_client_1.strictParseInt32)(output[_MTIM]);
     }
     return contents;
 };
 const de_RollbackStackOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_RollbackTrigger = (output, context) => {
     const contents = {};
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
     return contents;
 };
@@ -14771,8 +14766,8 @@ const de_Scope = (output, context) => {
 };
 const de_SetTypeConfigurationOutput = (output, context) => {
     const contents = {};
-    if (output["ConfigurationArn"] !== undefined) {
-        contents.ConfigurationArn = (0, smithy_client_1.expectString)(output["ConfigurationArn"]);
+    if (output[_CAonf] != null) {
+        contents[_CAonf] = (0, smithy_client_1.expectString)(output[_CAonf]);
     }
     return contents;
 };
@@ -14782,161 +14777,161 @@ const de_SetTypeDefaultVersionOutput = (output, context) => {
 };
 const de_Stack = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
-    if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
+    if (output[_CTr] != null) {
+        contents[_CTr] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTr]));
     }
-    if (output["DeletionTime"] !== undefined) {
-        contents.DeletionTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["DeletionTime"]));
+    if (output[_DTel] != null) {
+        contents[_DTel] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_DTel]));
     }
-    if (output["LastUpdatedTime"] !== undefined) {
-        contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTime"]));
+    if (output[_LUT] != null) {
+        contents[_LUT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LUT]));
     }
-    if (output["RollbackConfiguration"] !== undefined) {
-        contents.RollbackConfiguration = de_RollbackConfiguration(output["RollbackConfiguration"], context);
+    if (output[_RC] != null) {
+        contents[_RC] = de_RollbackConfiguration(output[_RC], context);
     }
-    if (output["StackStatus"] !== undefined) {
-        contents.StackStatus = (0, smithy_client_1.expectString)(output["StackStatus"]);
+    if (output[_SSta] != null) {
+        contents[_SSta] = (0, smithy_client_1.expectString)(output[_SSta]);
     }
-    if (output["StackStatusReason"] !== undefined) {
-        contents.StackStatusReason = (0, smithy_client_1.expectString)(output["StackStatusReason"]);
+    if (output[_SSR] != null) {
+        contents[_SSR] = (0, smithy_client_1.expectString)(output[_SSR]);
     }
-    if (output["DisableRollback"] !== undefined) {
-        contents.DisableRollback = (0, smithy_client_1.parseBoolean)(output["DisableRollback"]);
+    if (output[_DR] != null) {
+        contents[_DR] = (0, smithy_client_1.parseBoolean)(output[_DR]);
     }
     if (output.NotificationARNs === "") {
-        contents.NotificationARNs = [];
+        contents[_NARN] = [];
     }
-    else if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-        contents.NotificationARNs = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output["NotificationARNs"]["member"]), context);
+    else if (output[_NARN] != null && output[_NARN][_m] != null) {
+        contents[_NARN] = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output[_NARN][_m]), context);
     }
-    if (output["TimeoutInMinutes"] !== undefined) {
-        contents.TimeoutInMinutes = (0, smithy_client_1.strictParseInt32)(output["TimeoutInMinutes"]);
+    if (output[_TIM] != null) {
+        contents[_TIM] = (0, smithy_client_1.strictParseInt32)(output[_TIM]);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
     if (output.Outputs === "") {
-        contents.Outputs = [];
+        contents[_O] = [];
     }
-    else if (output["Outputs"] !== undefined && output["Outputs"]["member"] !== undefined) {
-        contents.Outputs = de_Outputs((0, smithy_client_1.getArrayIfSingleItem)(output["Outputs"]["member"]), context);
+    else if (output[_O] != null && output[_O][_m] != null) {
+        contents[_O] = de_Outputs((0, smithy_client_1.getArrayIfSingleItem)(output[_O][_m]), context);
     }
-    if (output["RoleARN"] !== undefined) {
-        contents.RoleARN = (0, smithy_client_1.expectString)(output["RoleARN"]);
+    if (output[_RARN] != null) {
+        contents[_RARN] = (0, smithy_client_1.expectString)(output[_RARN]);
     }
     if (output.Tags === "") {
-        contents.Tags = [];
+        contents[_Ta] = [];
     }
-    else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+    else if (output[_Ta] != null && output[_Ta][_m] != null) {
+        contents[_Ta] = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output[_Ta][_m]), context);
     }
-    if (output["EnableTerminationProtection"] !== undefined) {
-        contents.EnableTerminationProtection = (0, smithy_client_1.parseBoolean)(output["EnableTerminationProtection"]);
+    if (output[_ETP] != null) {
+        contents[_ETP] = (0, smithy_client_1.parseBoolean)(output[_ETP]);
     }
-    if (output["ParentId"] !== undefined) {
-        contents.ParentId = (0, smithy_client_1.expectString)(output["ParentId"]);
+    if (output[_PIa] != null) {
+        contents[_PIa] = (0, smithy_client_1.expectString)(output[_PIa]);
     }
-    if (output["RootId"] !== undefined) {
-        contents.RootId = (0, smithy_client_1.expectString)(output["RootId"]);
+    if (output[_RIo] != null) {
+        contents[_RIo] = (0, smithy_client_1.expectString)(output[_RIo]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackDriftInformation(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackDriftInformation(output[_DI], context);
     }
-    if (output["RetainExceptOnCreate"] !== undefined) {
-        contents.RetainExceptOnCreate = (0, smithy_client_1.parseBoolean)(output["RetainExceptOnCreate"]);
+    if (output[_REOC] != null) {
+        contents[_REOC] = (0, smithy_client_1.parseBoolean)(output[_REOC]);
     }
     return contents;
 };
 const de_StackDriftInformation = (output, context) => {
     const contents = {};
-    if (output["StackDriftStatus"] !== undefined) {
-        contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
+    if (output[_SDS] != null) {
+        contents[_SDS] = (0, smithy_client_1.expectString)(output[_SDS]);
     }
-    if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
+    if (output[_LCT] != null) {
+        contents[_LCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LCT]));
     }
     return contents;
 };
 const de_StackDriftInformationSummary = (output, context) => {
     const contents = {};
-    if (output["StackDriftStatus"] !== undefined) {
-        contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
+    if (output[_SDS] != null) {
+        contents[_SDS] = (0, smithy_client_1.expectString)(output[_SDS]);
     }
-    if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
+    if (output[_LCT] != null) {
+        contents[_LCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LCT]));
     }
     return contents;
 };
 const de_StackEvent = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["EventId"] !== undefined) {
-        contents.EventId = (0, smithy_client_1.expectString)(output["EventId"]);
+    if (output[_EI] != null) {
+        contents[_EI] = (0, smithy_client_1.expectString)(output[_EI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
-    if (output["ResourceStatus"] !== undefined) {
-        contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
+    if (output[_RSes] != null) {
+        contents[_RSes] = (0, smithy_client_1.expectString)(output[_RSes]);
     }
-    if (output["ResourceStatusReason"] !== undefined) {
-        contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
+    if (output[_RSR] != null) {
+        contents[_RSR] = (0, smithy_client_1.expectString)(output[_RSR]);
     }
-    if (output["ResourceProperties"] !== undefined) {
-        contents.ResourceProperties = (0, smithy_client_1.expectString)(output["ResourceProperties"]);
+    if (output[_RPe] != null) {
+        contents[_RPe] = (0, smithy_client_1.expectString)(output[_RPe]);
     }
-    if (output["ClientRequestToken"] !== undefined) {
-        contents.ClientRequestToken = (0, smithy_client_1.expectString)(output["ClientRequestToken"]);
+    if (output[_CRT] != null) {
+        contents[_CRT] = (0, smithy_client_1.expectString)(output[_CRT]);
     }
-    if (output["HookType"] !== undefined) {
-        contents.HookType = (0, smithy_client_1.expectString)(output["HookType"]);
+    if (output[_HT] != null) {
+        contents[_HT] = (0, smithy_client_1.expectString)(output[_HT]);
     }
-    if (output["HookStatus"] !== undefined) {
-        contents.HookStatus = (0, smithy_client_1.expectString)(output["HookStatus"]);
+    if (output[_HS] != null) {
+        contents[_HS] = (0, smithy_client_1.expectString)(output[_HS]);
     }
-    if (output["HookStatusReason"] !== undefined) {
-        contents.HookStatusReason = (0, smithy_client_1.expectString)(output["HookStatusReason"]);
+    if (output[_HSR] != null) {
+        contents[_HSR] = (0, smithy_client_1.expectString)(output[_HSR]);
     }
-    if (output["HookInvocationPoint"] !== undefined) {
-        contents.HookInvocationPoint = (0, smithy_client_1.expectString)(output["HookInvocationPoint"]);
+    if (output[_HIP] != null) {
+        contents[_HIP] = (0, smithy_client_1.expectString)(output[_HIP]);
     }
-    if (output["HookFailureMode"] !== undefined) {
-        contents.HookFailureMode = (0, smithy_client_1.expectString)(output["HookFailureMode"]);
+    if (output[_HFM] != null) {
+        contents[_HFM] = (0, smithy_client_1.expectString)(output[_HFM]);
     }
     return contents;
 };
@@ -14949,58 +14944,58 @@ const de_StackEvents = (output, context) => {
 };
 const de_StackInstance = (output, context) => {
     const contents = {};
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Region"] !== undefined) {
-        contents.Region = (0, smithy_client_1.expectString)(output["Region"]);
+    if (output[_Reg] != null) {
+        contents[_Reg] = (0, smithy_client_1.expectString)(output[_Reg]);
     }
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Acc] != null) {
+        contents[_Acc] = (0, smithy_client_1.expectString)(output[_Acc]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     if (output.ParameterOverrides === "") {
-        contents.ParameterOverrides = [];
+        contents[_PO] = [];
     }
-    else if (output["ParameterOverrides"] !== undefined && output["ParameterOverrides"]["member"] !== undefined) {
-        contents.ParameterOverrides = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["ParameterOverrides"]["member"]), context);
+    else if (output[_PO] != null && output[_PO][_m] != null) {
+        contents[_PO] = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output[_PO][_m]), context);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StackInstanceStatus"] !== undefined) {
-        contents.StackInstanceStatus = de_StackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
+    if (output[_SIS] != null) {
+        contents[_SIS] = de_StackInstanceComprehensiveStatus(output[_SIS], context);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["OrganizationalUnitId"] !== undefined) {
-        contents.OrganizationalUnitId = (0, smithy_client_1.expectString)(output["OrganizationalUnitId"]);
+    if (output[_OUIr] != null) {
+        contents[_OUIr] = (0, smithy_client_1.expectString)(output[_OUIr]);
     }
-    if (output["DriftStatus"] !== undefined) {
-        contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
+    if (output[_DSr] != null) {
+        contents[_DSr] = (0, smithy_client_1.expectString)(output[_DSr]);
     }
-    if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
+    if (output[_LDCT] != null) {
+        contents[_LDCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LDCT]));
     }
-    if (output["LastOperationId"] !== undefined) {
-        contents.LastOperationId = (0, smithy_client_1.expectString)(output["LastOperationId"]);
+    if (output[_LOI] != null) {
+        contents[_LOI] = (0, smithy_client_1.expectString)(output[_LOI]);
     }
     return contents;
 };
 const de_StackInstanceComprehensiveStatus = (output, context) => {
     const contents = {};
-    if (output["DetailedStatus"] !== undefined) {
-        contents.DetailedStatus = (0, smithy_client_1.expectString)(output["DetailedStatus"]);
+    if (output[_DSeta] != null) {
+        contents[_DSeta] = (0, smithy_client_1.expectString)(output[_DSeta]);
     }
     return contents;
 };
 const de_StackInstanceNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -15013,36 +15008,35 @@ const de_StackInstanceResourceDriftsSummaries = (output, context) => {
 };
 const de_StackInstanceResourceDriftsSummary = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
     if (output.PhysicalResourceIdContext === "") {
-        contents.PhysicalResourceIdContext = [];
+        contents[_PRIC] = [];
     }
-    else if (output["PhysicalResourceIdContext"] !== undefined &&
-        output["PhysicalResourceIdContext"]["member"] !== undefined) {
-        contents.PhysicalResourceIdContext = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output["PhysicalResourceIdContext"]["member"]), context);
+    else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
+        contents[_PRIC] = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output[_PRIC][_m]), context);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
     if (output.PropertyDifferences === "") {
-        contents.PropertyDifferences = [];
+        contents[_PD] = [];
     }
-    else if (output["PropertyDifferences"] !== undefined && output["PropertyDifferences"]["member"] !== undefined) {
-        contents.PropertyDifferences = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output["PropertyDifferences"]["member"]), context);
+    else if (output[_PD] != null && output[_PD][_m] != null) {
+        contents[_PD] = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output[_PD][_m]), context);
     }
-    if (output["StackResourceDriftStatus"] !== undefined) {
-        contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
+    if (output[_SRDS] != null) {
+        contents[_SRDS] = (0, smithy_client_1.expectString)(output[_SRDS]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
     return contents;
 };
@@ -15055,186 +15049,185 @@ const de_StackInstanceSummaries = (output, context) => {
 };
 const de_StackInstanceSummary = (output, context) => {
     const contents = {};
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Region"] !== undefined) {
-        contents.Region = (0, smithy_client_1.expectString)(output["Region"]);
+    if (output[_Reg] != null) {
+        contents[_Reg] = (0, smithy_client_1.expectString)(output[_Reg]);
     }
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Acc] != null) {
+        contents[_Acc] = (0, smithy_client_1.expectString)(output[_Acc]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["StackInstanceStatus"] !== undefined) {
-        contents.StackInstanceStatus = de_StackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
+    if (output[_SIS] != null) {
+        contents[_SIS] = de_StackInstanceComprehensiveStatus(output[_SIS], context);
     }
-    if (output["OrganizationalUnitId"] !== undefined) {
-        contents.OrganizationalUnitId = (0, smithy_client_1.expectString)(output["OrganizationalUnitId"]);
+    if (output[_OUIr] != null) {
+        contents[_OUIr] = (0, smithy_client_1.expectString)(output[_OUIr]);
     }
-    if (output["DriftStatus"] !== undefined) {
-        contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
+    if (output[_DSr] != null) {
+        contents[_DSr] = (0, smithy_client_1.expectString)(output[_DSr]);
     }
-    if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
+    if (output[_LDCT] != null) {
+        contents[_LDCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LDCT]));
     }
-    if (output["LastOperationId"] !== undefined) {
-        contents.LastOperationId = (0, smithy_client_1.expectString)(output["LastOperationId"]);
+    if (output[_LOI] != null) {
+        contents[_LOI] = (0, smithy_client_1.expectString)(output[_LOI]);
     }
     return contents;
 };
 const de_StackNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_StackResource = (output, context) => {
     const contents = {};
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
-    if (output["ResourceStatus"] !== undefined) {
-        contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
+    if (output[_RSes] != null) {
+        contents[_RSes] = (0, smithy_client_1.expectString)(output[_RSes]);
     }
-    if (output["ResourceStatusReason"] !== undefined) {
-        contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
+    if (output[_RSR] != null) {
+        contents[_RSR] = (0, smithy_client_1.expectString)(output[_RSR]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackResourceDriftInformation(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackResourceDriftInformation(output[_DI], context);
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
 const de_StackResourceDetail = (output, context) => {
     const contents = {};
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["LastUpdatedTimestamp"] !== undefined) {
-        contents.LastUpdatedTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTimestamp"]));
+    if (output[_LUTa] != null) {
+        contents[_LUTa] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LUTa]));
     }
-    if (output["ResourceStatus"] !== undefined) {
-        contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
+    if (output[_RSes] != null) {
+        contents[_RSes] = (0, smithy_client_1.expectString)(output[_RSes]);
     }
-    if (output["ResourceStatusReason"] !== undefined) {
-        contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
+    if (output[_RSR] != null) {
+        contents[_RSR] = (0, smithy_client_1.expectString)(output[_RSR]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["Metadata"] !== undefined) {
-        contents.Metadata = (0, smithy_client_1.expectString)(output["Metadata"]);
+    if (output[_Me] != null) {
+        contents[_Me] = (0, smithy_client_1.expectString)(output[_Me]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackResourceDriftInformation(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackResourceDriftInformation(output[_DI], context);
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
 const de_StackResourceDrift = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
     if (output.PhysicalResourceIdContext === "") {
-        contents.PhysicalResourceIdContext = [];
+        contents[_PRIC] = [];
     }
-    else if (output["PhysicalResourceIdContext"] !== undefined &&
-        output["PhysicalResourceIdContext"]["member"] !== undefined) {
-        contents.PhysicalResourceIdContext = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output["PhysicalResourceIdContext"]["member"]), context);
+    else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
+        contents[_PRIC] = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output[_PRIC][_m]), context);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["ExpectedProperties"] !== undefined) {
-        contents.ExpectedProperties = (0, smithy_client_1.expectString)(output["ExpectedProperties"]);
+    if (output[_EP] != null) {
+        contents[_EP] = (0, smithy_client_1.expectString)(output[_EP]);
     }
-    if (output["ActualProperties"] !== undefined) {
-        contents.ActualProperties = (0, smithy_client_1.expectString)(output["ActualProperties"]);
+    if (output[_AP] != null) {
+        contents[_AP] = (0, smithy_client_1.expectString)(output[_AP]);
     }
     if (output.PropertyDifferences === "") {
-        contents.PropertyDifferences = [];
+        contents[_PD] = [];
     }
-    else if (output["PropertyDifferences"] !== undefined && output["PropertyDifferences"]["member"] !== undefined) {
-        contents.PropertyDifferences = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output["PropertyDifferences"]["member"]), context);
+    else if (output[_PD] != null && output[_PD][_m] != null) {
+        contents[_PD] = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output[_PD][_m]), context);
     }
-    if (output["StackResourceDriftStatus"] !== undefined) {
-        contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
+    if (output[_SRDS] != null) {
+        contents[_SRDS] = (0, smithy_client_1.expectString)(output[_SRDS]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
 const de_StackResourceDriftInformation = (output, context) => {
     const contents = {};
-    if (output["StackResourceDriftStatus"] !== undefined) {
-        contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
+    if (output[_SRDS] != null) {
+        contents[_SRDS] = (0, smithy_client_1.expectString)(output[_SRDS]);
     }
-    if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
+    if (output[_LCT] != null) {
+        contents[_LCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LCT]));
     }
     return contents;
 };
 const de_StackResourceDriftInformationSummary = (output, context) => {
     const contents = {};
-    if (output["StackResourceDriftStatus"] !== undefined) {
-        contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
+    if (output[_SRDS] != null) {
+        contents[_SRDS] = (0, smithy_client_1.expectString)(output[_SRDS]);
     }
-    if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
+    if (output[_LCT] != null) {
+        contents[_LCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LCT]));
     }
     return contents;
 };
@@ -15261,29 +15254,29 @@ const de_StackResourceSummaries = (output, context) => {
 };
 const de_StackResourceSummary = (output, context) => {
     const contents = {};
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["LastUpdatedTimestamp"] !== undefined) {
-        contents.LastUpdatedTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTimestamp"]));
+    if (output[_LUTa] != null) {
+        contents[_LUTa] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LUTa]));
     }
-    if (output["ResourceStatus"] !== undefined) {
-        contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
+    if (output[_RSes] != null) {
+        contents[_RSes] = (0, smithy_client_1.expectString)(output[_RSes]);
     }
-    if (output["ResourceStatusReason"] !== undefined) {
-        contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
+    if (output[_RSR] != null) {
+        contents[_RSR] = (0, smithy_client_1.expectString)(output[_RSR]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackResourceDriftInformationSummary(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackResourceDriftInformationSummary(output[_DI], context);
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
@@ -15296,187 +15289,187 @@ const de_Stacks = (output, context) => {
 };
 const de_StackSet = (output, context) => {
     const contents = {};
-    if (output["StackSetName"] !== undefined) {
-        contents.StackSetName = (0, smithy_client_1.expectString)(output["StackSetName"]);
+    if (output[_SSN] != null) {
+        contents[_SSN] = (0, smithy_client_1.expectString)(output[_SSN]);
     }
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["TemplateBody"] !== undefined) {
-        contents.TemplateBody = (0, smithy_client_1.expectString)(output["TemplateBody"]);
+    if (output[_TB] != null) {
+        contents[_TB] = (0, smithy_client_1.expectString)(output[_TB]);
     }
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
     if (output.Tags === "") {
-        contents.Tags = [];
+        contents[_Ta] = [];
     }
-    else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+    else if (output[_Ta] != null && output[_Ta][_m] != null) {
+        contents[_Ta] = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output[_Ta][_m]), context);
     }
-    if (output["StackSetARN"] !== undefined) {
-        contents.StackSetARN = (0, smithy_client_1.expectString)(output["StackSetARN"]);
+    if (output[_SSARN] != null) {
+        contents[_SSARN] = (0, smithy_client_1.expectString)(output[_SSARN]);
     }
-    if (output["AdministrationRoleARN"] !== undefined) {
-        contents.AdministrationRoleARN = (0, smithy_client_1.expectString)(output["AdministrationRoleARN"]);
+    if (output[_ARARN] != null) {
+        contents[_ARARN] = (0, smithy_client_1.expectString)(output[_ARARN]);
     }
-    if (output["ExecutionRoleName"] !== undefined) {
-        contents.ExecutionRoleName = (0, smithy_client_1.expectString)(output["ExecutionRoleName"]);
+    if (output[_ERN] != null) {
+        contents[_ERN] = (0, smithy_client_1.expectString)(output[_ERN]);
     }
-    if (output["StackSetDriftDetectionDetails"] !== undefined) {
-        contents.StackSetDriftDetectionDetails = de_StackSetDriftDetectionDetails(output["StackSetDriftDetectionDetails"], context);
+    if (output[_SSDDD] != null) {
+        contents[_SSDDD] = de_StackSetDriftDetectionDetails(output[_SSDDD], context);
     }
-    if (output["AutoDeployment"] !== undefined) {
-        contents.AutoDeployment = de_AutoDeployment(output["AutoDeployment"], context);
+    if (output[_AD] != null) {
+        contents[_AD] = de_AutoDeployment(output[_AD], context);
     }
-    if (output["PermissionModel"] !== undefined) {
-        contents.PermissionModel = (0, smithy_client_1.expectString)(output["PermissionModel"]);
+    if (output[_PM] != null) {
+        contents[_PM] = (0, smithy_client_1.expectString)(output[_PM]);
     }
     if (output.OrganizationalUnitIds === "") {
-        contents.OrganizationalUnitIds = [];
+        contents[_OUI] = [];
     }
-    else if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
-        contents.OrganizationalUnitIds = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output["OrganizationalUnitIds"]["member"]), context);
+    else if (output[_OUI] != null && output[_OUI][_m] != null) {
+        contents[_OUI] = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output[_OUI][_m]), context);
     }
-    if (output["ManagedExecution"] !== undefined) {
-        contents.ManagedExecution = de_ManagedExecution(output["ManagedExecution"], context);
+    if (output[_ME] != null) {
+        contents[_ME] = de_ManagedExecution(output[_ME], context);
     }
     if (output.Regions === "") {
-        contents.Regions = [];
+        contents[_R] = [];
     }
-    else if (output["Regions"] !== undefined && output["Regions"]["member"] !== undefined) {
-        contents.Regions = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output["Regions"]["member"]), context);
+    else if (output[_R] != null && output[_R][_m] != null) {
+        contents[_R] = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output[_R][_m]), context);
     }
     return contents;
 };
 const de_StackSetDriftDetectionDetails = (output, context) => {
     const contents = {};
-    if (output["DriftStatus"] !== undefined) {
-        contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
+    if (output[_DSr] != null) {
+        contents[_DSr] = (0, smithy_client_1.expectString)(output[_DSr]);
     }
-    if (output["DriftDetectionStatus"] !== undefined) {
-        contents.DriftDetectionStatus = (0, smithy_client_1.expectString)(output["DriftDetectionStatus"]);
+    if (output[_DDS] != null) {
+        contents[_DDS] = (0, smithy_client_1.expectString)(output[_DDS]);
     }
-    if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
+    if (output[_LDCT] != null) {
+        contents[_LDCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LDCT]));
     }
-    if (output["TotalStackInstancesCount"] !== undefined) {
-        contents.TotalStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["TotalStackInstancesCount"]);
+    if (output[_TSIC] != null) {
+        contents[_TSIC] = (0, smithy_client_1.strictParseInt32)(output[_TSIC]);
     }
-    if (output["DriftedStackInstancesCount"] !== undefined) {
-        contents.DriftedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["DriftedStackInstancesCount"]);
+    if (output[_DSIC] != null) {
+        contents[_DSIC] = (0, smithy_client_1.strictParseInt32)(output[_DSIC]);
     }
-    if (output["InSyncStackInstancesCount"] !== undefined) {
-        contents.InSyncStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["InSyncStackInstancesCount"]);
+    if (output[_ISSIC] != null) {
+        contents[_ISSIC] = (0, smithy_client_1.strictParseInt32)(output[_ISSIC]);
     }
-    if (output["InProgressStackInstancesCount"] !== undefined) {
-        contents.InProgressStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["InProgressStackInstancesCount"]);
+    if (output[_IPSIC] != null) {
+        contents[_IPSIC] = (0, smithy_client_1.strictParseInt32)(output[_IPSIC]);
     }
-    if (output["FailedStackInstancesCount"] !== undefined) {
-        contents.FailedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["FailedStackInstancesCount"]);
+    if (output[_FSIC] != null) {
+        contents[_FSIC] = (0, smithy_client_1.strictParseInt32)(output[_FSIC]);
     }
     return contents;
 };
 const de_StackSetNotEmptyException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_StackSetNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_StackSetOperation = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Action"] !== undefined) {
-        contents.Action = (0, smithy_client_1.expectString)(output["Action"]);
+    if (output[_A] != null) {
+        contents[_A] = (0, smithy_client_1.expectString)(output[_A]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["OperationPreferences"] !== undefined) {
-        contents.OperationPreferences = de_StackSetOperationPreferences(output["OperationPreferences"], context);
+    if (output[_OP] != null) {
+        contents[_OP] = de_StackSetOperationPreferences(output[_OP], context);
     }
-    if (output["RetainStacks"] !== undefined) {
-        contents.RetainStacks = (0, smithy_client_1.parseBoolean)(output["RetainStacks"]);
+    if (output[_RSe] != null) {
+        contents[_RSe] = (0, smithy_client_1.parseBoolean)(output[_RSe]);
     }
-    if (output["AdministrationRoleARN"] !== undefined) {
-        contents.AdministrationRoleARN = (0, smithy_client_1.expectString)(output["AdministrationRoleARN"]);
+    if (output[_ARARN] != null) {
+        contents[_ARARN] = (0, smithy_client_1.expectString)(output[_ARARN]);
     }
-    if (output["ExecutionRoleName"] !== undefined) {
-        contents.ExecutionRoleName = (0, smithy_client_1.expectString)(output["ExecutionRoleName"]);
+    if (output[_ERN] != null) {
+        contents[_ERN] = (0, smithy_client_1.expectString)(output[_ERN]);
     }
-    if (output["CreationTimestamp"] !== undefined) {
-        contents.CreationTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTimestamp"]));
+    if (output[_CTre] != null) {
+        contents[_CTre] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTre]));
     }
-    if (output["EndTimestamp"] !== undefined) {
-        contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["EndTimestamp"]));
+    if (output[_ET] != null) {
+        contents[_ET] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_ET]));
     }
-    if (output["DeploymentTargets"] !== undefined) {
-        contents.DeploymentTargets = de_DeploymentTargets(output["DeploymentTargets"], context);
+    if (output[_DTep] != null) {
+        contents[_DTep] = de_DeploymentTargets(output[_DTep], context);
     }
-    if (output["StackSetDriftDetectionDetails"] !== undefined) {
-        contents.StackSetDriftDetectionDetails = de_StackSetDriftDetectionDetails(output["StackSetDriftDetectionDetails"], context);
+    if (output[_SSDDD] != null) {
+        contents[_SSDDD] = de_StackSetDriftDetectionDetails(output[_SSDDD], context);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["StatusDetails"] !== undefined) {
-        contents.StatusDetails = de_StackSetOperationStatusDetails(output["StatusDetails"], context);
+    if (output[_SD] != null) {
+        contents[_SD] = de_StackSetOperationStatusDetails(output[_SD], context);
     }
     return contents;
 };
 const de_StackSetOperationPreferences = (output, context) => {
     const contents = {};
-    if (output["RegionConcurrencyType"] !== undefined) {
-        contents.RegionConcurrencyType = (0, smithy_client_1.expectString)(output["RegionConcurrencyType"]);
+    if (output[_RCT] != null) {
+        contents[_RCT] = (0, smithy_client_1.expectString)(output[_RCT]);
     }
     if (output.RegionOrder === "") {
-        contents.RegionOrder = [];
+        contents[_RO] = [];
     }
-    else if (output["RegionOrder"] !== undefined && output["RegionOrder"]["member"] !== undefined) {
-        contents.RegionOrder = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output["RegionOrder"]["member"]), context);
+    else if (output[_RO] != null && output[_RO][_m] != null) {
+        contents[_RO] = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output[_RO][_m]), context);
     }
-    if (output["FailureToleranceCount"] !== undefined) {
-        contents.FailureToleranceCount = (0, smithy_client_1.strictParseInt32)(output["FailureToleranceCount"]);
+    if (output[_FTC] != null) {
+        contents[_FTC] = (0, smithy_client_1.strictParseInt32)(output[_FTC]);
     }
-    if (output["FailureTolerancePercentage"] !== undefined) {
-        contents.FailureTolerancePercentage = (0, smithy_client_1.strictParseInt32)(output["FailureTolerancePercentage"]);
+    if (output[_FTP] != null) {
+        contents[_FTP] = (0, smithy_client_1.strictParseInt32)(output[_FTP]);
     }
-    if (output["MaxConcurrentCount"] !== undefined) {
-        contents.MaxConcurrentCount = (0, smithy_client_1.strictParseInt32)(output["MaxConcurrentCount"]);
+    if (output[_MCC] != null) {
+        contents[_MCC] = (0, smithy_client_1.strictParseInt32)(output[_MCC]);
     }
-    if (output["MaxConcurrentPercentage"] !== undefined) {
-        contents.MaxConcurrentPercentage = (0, smithy_client_1.strictParseInt32)(output["MaxConcurrentPercentage"]);
+    if (output[_MCP] != null) {
+        contents[_MCP] = (0, smithy_client_1.strictParseInt32)(output[_MCP]);
     }
-    if (output["ConcurrencyMode"] !== undefined) {
-        contents.ConcurrencyMode = (0, smithy_client_1.expectString)(output["ConcurrencyMode"]);
+    if (output[_CM] != null) {
+        contents[_CM] = (0, smithy_client_1.expectString)(output[_CM]);
     }
     return contents;
 };
@@ -15489,30 +15482,30 @@ const de_StackSetOperationResultSummaries = (output, context) => {
 };
 const de_StackSetOperationResultSummary = (output, context) => {
     const contents = {};
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Acc] != null) {
+        contents[_Acc] = (0, smithy_client_1.expectString)(output[_Acc]);
     }
-    if (output["Region"] !== undefined) {
-        contents.Region = (0, smithy_client_1.expectString)(output["Region"]);
+    if (output[_Reg] != null) {
+        contents[_Reg] = (0, smithy_client_1.expectString)(output[_Reg]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["AccountGateResult"] !== undefined) {
-        contents.AccountGateResult = de_AccountGateResult(output["AccountGateResult"], context);
+    if (output[_AGR] != null) {
+        contents[_AGR] = de_AccountGateResult(output[_AGR], context);
     }
-    if (output["OrganizationalUnitId"] !== undefined) {
-        contents.OrganizationalUnitId = (0, smithy_client_1.expectString)(output["OrganizationalUnitId"]);
+    if (output[_OUIr] != null) {
+        contents[_OUIr] = (0, smithy_client_1.expectString)(output[_OUIr]);
     }
     return contents;
 };
 const de_StackSetOperationStatusDetails = (output, context) => {
     const contents = {};
-    if (output["FailedStackInstancesCount"] !== undefined) {
-        contents.FailedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["FailedStackInstancesCount"]);
+    if (output[_FSIC] != null) {
+        contents[_FSIC] = (0, smithy_client_1.strictParseInt32)(output[_FSIC]);
     }
     return contents;
 };
@@ -15525,29 +15518,29 @@ const de_StackSetOperationSummaries = (output, context) => {
 };
 const de_StackSetOperationSummary = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
-    if (output["Action"] !== undefined) {
-        contents.Action = (0, smithy_client_1.expectString)(output["Action"]);
+    if (output[_A] != null) {
+        contents[_A] = (0, smithy_client_1.expectString)(output[_A]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["CreationTimestamp"] !== undefined) {
-        contents.CreationTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTimestamp"]));
+    if (output[_CTre] != null) {
+        contents[_CTre] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTre]));
     }
-    if (output["EndTimestamp"] !== undefined) {
-        contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["EndTimestamp"]));
+    if (output[_ET] != null) {
+        contents[_ET] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_ET]));
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["StatusDetails"] !== undefined) {
-        contents.StatusDetails = de_StackSetOperationStatusDetails(output["StatusDetails"], context);
+    if (output[_SD] != null) {
+        contents[_SD] = de_StackSetOperationStatusDetails(output[_SD], context);
     }
-    if (output["OperationPreferences"] !== undefined) {
-        contents.OperationPreferences = de_StackSetOperationPreferences(output["OperationPreferences"], context);
+    if (output[_OP] != null) {
+        contents[_OP] = de_StackSetOperationPreferences(output[_OP], context);
     }
     return contents;
 };
@@ -15560,32 +15553,32 @@ const de_StackSetSummaries = (output, context) => {
 };
 const de_StackSetSummary = (output, context) => {
     const contents = {};
-    if (output["StackSetName"] !== undefined) {
-        contents.StackSetName = (0, smithy_client_1.expectString)(output["StackSetName"]);
+    if (output[_SSN] != null) {
+        contents[_SSN] = (0, smithy_client_1.expectString)(output[_SSN]);
     }
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["AutoDeployment"] !== undefined) {
-        contents.AutoDeployment = de_AutoDeployment(output["AutoDeployment"], context);
+    if (output[_AD] != null) {
+        contents[_AD] = de_AutoDeployment(output[_AD], context);
     }
-    if (output["PermissionModel"] !== undefined) {
-        contents.PermissionModel = (0, smithy_client_1.expectString)(output["PermissionModel"]);
+    if (output[_PM] != null) {
+        contents[_PM] = (0, smithy_client_1.expectString)(output[_PM]);
     }
-    if (output["DriftStatus"] !== undefined) {
-        contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
+    if (output[_DSr] != null) {
+        contents[_DSr] = (0, smithy_client_1.expectString)(output[_DSr]);
     }
-    if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
+    if (output[_LDCT] != null) {
+        contents[_LDCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LDCT]));
     }
-    if (output["ManagedExecution"] !== undefined) {
-        contents.ManagedExecution = de_ManagedExecution(output["ManagedExecution"], context);
+    if (output[_ME] != null) {
+        contents[_ME] = de_ManagedExecution(output[_ME], context);
     }
     return contents;
 };
@@ -15598,38 +15591,38 @@ const de_StackSummaries = (output, context) => {
 };
 const de_StackSummary = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["TemplateDescription"] !== undefined) {
-        contents.TemplateDescription = (0, smithy_client_1.expectString)(output["TemplateDescription"]);
+    if (output[_TDe] != null) {
+        contents[_TDe] = (0, smithy_client_1.expectString)(output[_TDe]);
     }
-    if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
+    if (output[_CTr] != null) {
+        contents[_CTr] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTr]));
     }
-    if (output["LastUpdatedTime"] !== undefined) {
-        contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTime"]));
+    if (output[_LUT] != null) {
+        contents[_LUT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LUT]));
     }
-    if (output["DeletionTime"] !== undefined) {
-        contents.DeletionTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["DeletionTime"]));
+    if (output[_DTel] != null) {
+        contents[_DTel] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_DTel]));
     }
-    if (output["StackStatus"] !== undefined) {
-        contents.StackStatus = (0, smithy_client_1.expectString)(output["StackStatus"]);
+    if (output[_SSta] != null) {
+        contents[_SSta] = (0, smithy_client_1.expectString)(output[_SSta]);
     }
-    if (output["StackStatusReason"] !== undefined) {
-        contents.StackStatusReason = (0, smithy_client_1.expectString)(output["StackStatusReason"]);
+    if (output[_SSR] != null) {
+        contents[_SSR] = (0, smithy_client_1.expectString)(output[_SSR]);
     }
-    if (output["ParentId"] !== undefined) {
-        contents.ParentId = (0, smithy_client_1.expectString)(output["ParentId"]);
+    if (output[_PIa] != null) {
+        contents[_PIa] = (0, smithy_client_1.expectString)(output[_PIa]);
     }
-    if (output["RootId"] !== undefined) {
-        contents.RootId = (0, smithy_client_1.expectString)(output["RootId"]);
+    if (output[_RIo] != null) {
+        contents[_RIo] = (0, smithy_client_1.expectString)(output[_RIo]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackDriftInformationSummary(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackDriftInformationSummary(output[_DI], context);
     }
     return contents;
 };
@@ -15642,8 +15635,8 @@ const de_StageList = (output, context) => {
 };
 const de_StaleRequestException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -15660,11 +15653,11 @@ const de_SupportedMajorVersions = (output, context) => {
 };
 const de_Tag = (output, context) => {
     const contents = {};
-    if (output["Key"] !== undefined) {
-        contents.Key = (0, smithy_client_1.expectString)(output["Key"]);
+    if (output[_K] != null) {
+        contents[_K] = (0, smithy_client_1.expectString)(output[_K]);
     }
-    if (output["Value"] !== undefined) {
-        contents.Value = (0, smithy_client_1.expectString)(output["Value"]);
+    if (output[_Val] != null) {
+        contents[_Val] = (0, smithy_client_1.expectString)(output[_Val]);
     }
     return contents;
 };
@@ -15677,17 +15670,17 @@ const de_Tags = (output, context) => {
 };
 const de_TemplateParameter = (output, context) => {
     const contents = {};
-    if (output["ParameterKey"] !== undefined) {
-        contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
+    if (output[_PK] != null) {
+        contents[_PK] = (0, smithy_client_1.expectString)(output[_PK]);
     }
-    if (output["DefaultValue"] !== undefined) {
-        contents.DefaultValue = (0, smithy_client_1.expectString)(output["DefaultValue"]);
+    if (output[_DV] != null) {
+        contents[_DV] = (0, smithy_client_1.expectString)(output[_DV]);
     }
-    if (output["NoEcho"] !== undefined) {
-        contents.NoEcho = (0, smithy_client_1.parseBoolean)(output["NoEcho"]);
+    if (output[_NE] != null) {
+        contents[_NE] = (0, smithy_client_1.parseBoolean)(output[_NE]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     return contents;
 };
@@ -15700,15 +15693,15 @@ const de_TemplateParameters = (output, context) => {
 };
 const de_TestTypeOutput = (output, context) => {
     const contents = {};
-    if (output["TypeVersionArn"] !== undefined) {
-        contents.TypeVersionArn = (0, smithy_client_1.expectString)(output["TypeVersionArn"]);
+    if (output[_TVA] != null) {
+        contents[_TVA] = (0, smithy_client_1.expectString)(output[_TVA]);
     }
     return contents;
 };
 const de_TokenAlreadyExistsException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -15721,26 +15714,26 @@ const de_TransformsList = (output, context) => {
 };
 const de_TypeConfigurationDetails = (output, context) => {
     const contents = {};
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
-    if (output["Alias"] !== undefined) {
-        contents.Alias = (0, smithy_client_1.expectString)(output["Alias"]);
+    if (output[_Al] != null) {
+        contents[_Al] = (0, smithy_client_1.expectString)(output[_Al]);
     }
-    if (output["Configuration"] !== undefined) {
-        contents.Configuration = (0, smithy_client_1.expectString)(output["Configuration"]);
+    if (output[_Co] != null) {
+        contents[_Co] = (0, smithy_client_1.expectString)(output[_Co]);
     }
-    if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
+    if (output[_LU] != null) {
+        contents[_LU] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LU]));
     }
-    if (output["TypeArn"] !== undefined) {
-        contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
+    if (output[_TA] != null) {
+        contents[_TA] = (0, smithy_client_1.expectString)(output[_TA]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["IsDefaultConfiguration"] !== undefined) {
-        contents.IsDefaultConfiguration = (0, smithy_client_1.parseBoolean)(output["IsDefaultConfiguration"]);
+    if (output[_IDC] != null) {
+        contents[_IDC] = (0, smithy_client_1.parseBoolean)(output[_IDC]);
     }
     return contents;
 };
@@ -15753,34 +15746,34 @@ const de_TypeConfigurationDetailsList = (output, context) => {
 };
 const de_TypeConfigurationIdentifier = (output, context) => {
     const contents = {};
-    if (output["TypeArn"] !== undefined) {
-        contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
+    if (output[_TA] != null) {
+        contents[_TA] = (0, smithy_client_1.expectString)(output[_TA]);
     }
-    if (output["TypeConfigurationAlias"] !== undefined) {
-        contents.TypeConfigurationAlias = (0, smithy_client_1.expectString)(output["TypeConfigurationAlias"]);
+    if (output[_TCA] != null) {
+        contents[_TCA] = (0, smithy_client_1.expectString)(output[_TCA]);
     }
-    if (output["TypeConfigurationArn"] !== undefined) {
-        contents.TypeConfigurationArn = (0, smithy_client_1.expectString)(output["TypeConfigurationArn"]);
+    if (output[_TCAy] != null) {
+        contents[_TCAy] = (0, smithy_client_1.expectString)(output[_TCAy]);
     }
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
     return contents;
 };
 const de_TypeConfigurationNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_TypeNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -15793,44 +15786,44 @@ const de_TypeSummaries = (output, context) => {
 };
 const de_TypeSummary = (output, context) => {
     const contents = {};
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["DefaultVersionId"] !== undefined) {
-        contents.DefaultVersionId = (0, smithy_client_1.expectString)(output["DefaultVersionId"]);
+    if (output[_DVI] != null) {
+        contents[_DVI] = (0, smithy_client_1.expectString)(output[_DVI]);
     }
-    if (output["TypeArn"] !== undefined) {
-        contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
+    if (output[_TA] != null) {
+        contents[_TA] = (0, smithy_client_1.expectString)(output[_TA]);
     }
-    if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
+    if (output[_LU] != null) {
+        contents[_LU] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LU]));
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
-    if (output["OriginalTypeName"] !== undefined) {
-        contents.OriginalTypeName = (0, smithy_client_1.expectString)(output["OriginalTypeName"]);
+    if (output[_OTN] != null) {
+        contents[_OTN] = (0, smithy_client_1.expectString)(output[_OTN]);
     }
-    if (output["PublicVersionNumber"] !== undefined) {
-        contents.PublicVersionNumber = (0, smithy_client_1.expectString)(output["PublicVersionNumber"]);
+    if (output[_PVN] != null) {
+        contents[_PVN] = (0, smithy_client_1.expectString)(output[_PVN]);
     }
-    if (output["LatestPublicVersion"] !== undefined) {
-        contents.LatestPublicVersion = (0, smithy_client_1.expectString)(output["LatestPublicVersion"]);
+    if (output[_LPV] != null) {
+        contents[_LPV] = (0, smithy_client_1.expectString)(output[_LPV]);
     }
-    if (output["PublisherIdentity"] !== undefined) {
-        contents.PublisherIdentity = (0, smithy_client_1.expectString)(output["PublisherIdentity"]);
+    if (output[_PIu] != null) {
+        contents[_PIu] = (0, smithy_client_1.expectString)(output[_PIu]);
     }
-    if (output["PublisherName"] !== undefined) {
-        contents.PublisherName = (0, smithy_client_1.expectString)(output["PublisherName"]);
+    if (output[_PN] != null) {
+        contents[_PN] = (0, smithy_client_1.expectString)(output[_PN]);
     }
-    if (output["IsActivated"] !== undefined) {
-        contents.IsActivated = (0, smithy_client_1.parseBoolean)(output["IsActivated"]);
+    if (output[_IA] != null) {
+        contents[_IA] = (0, smithy_client_1.parseBoolean)(output[_IA]);
     }
     return contents;
 };
@@ -15843,29 +15836,29 @@ const de_TypeVersionSummaries = (output, context) => {
 };
 const de_TypeVersionSummary = (output, context) => {
     const contents = {};
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["VersionId"] !== undefined) {
-        contents.VersionId = (0, smithy_client_1.expectString)(output["VersionId"]);
+    if (output[_VI] != null) {
+        contents[_VI] = (0, smithy_client_1.expectString)(output[_VI]);
     }
-    if (output["IsDefaultVersion"] !== undefined) {
-        contents.IsDefaultVersion = (0, smithy_client_1.parseBoolean)(output["IsDefaultVersion"]);
+    if (output[_IDV] != null) {
+        contents[_IDV] = (0, smithy_client_1.parseBoolean)(output[_IDV]);
     }
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
-    if (output["TimeCreated"] !== undefined) {
-        contents.TimeCreated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["TimeCreated"]));
+    if (output[_TCi] != null) {
+        contents[_TCi] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_TCi]));
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["PublicVersionNumber"] !== undefined) {
-        contents.PublicVersionNumber = (0, smithy_client_1.expectString)(output["PublicVersionNumber"]);
+    if (output[_PVN] != null) {
+        contents[_PVN] = (0, smithy_client_1.expectString)(output[_PVN]);
     }
     return contents;
 };
@@ -15878,68 +15871,67 @@ const de_UnprocessedTypeConfigurations = (output, context) => {
 };
 const de_UpdateStackInstancesOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_UpdateStackOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_UpdateStackSetOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_UpdateTerminationProtectionOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_ValidateTemplateOutput = (output, context) => {
     const contents = {};
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_TemplateParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_TemplateParameters((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
-    if (output["CapabilitiesReason"] !== undefined) {
-        contents.CapabilitiesReason = (0, smithy_client_1.expectString)(output["CapabilitiesReason"]);
+    if (output[_CR] != null) {
+        contents[_CR] = (0, smithy_client_1.expectString)(output[_CR]);
     }
     if (output.DeclaredTransforms === "") {
-        contents.DeclaredTransforms = [];
+        contents[_DTec] = [];
     }
-    else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-        contents.DeclaredTransforms = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output["DeclaredTransforms"]["member"]), context);
+    else if (output[_DTec] != null && output[_DTec][_m] != null) {
+        contents[_DTec] = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output[_DTec][_m]), context);
     }
     return contents;
 };
 const de_Warnings = (output, context) => {
     const contents = {};
     if (output.UnrecognizedResourceTypes === "") {
-        contents.UnrecognizedResourceTypes = [];
+        contents[_URT] = [];
     }
-    else if (output["UnrecognizedResourceTypes"] !== undefined &&
-        output["UnrecognizedResourceTypes"]["member"] !== undefined) {
-        contents.UnrecognizedResourceTypes = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output["UnrecognizedResourceTypes"]["member"]), context);
+    else if (output[_URT] != null && output[_URT][_m] != null) {
+        contents[_URT] = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output[_URT][_m]), context);
     }
     return contents;
 };
@@ -15972,6 +15964,362 @@ const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, bod
 const SHARED_HEADERS = {
     "content-type": "application/x-www-form-urlencoded",
 };
+const _ = "2010-05-15";
+const _A = "Action";
+const _AD = "AutoDeployment";
+const _AFT = "AccountFilterType";
+const _AGR = "AccountGateResult";
+const _AL = "AccountLimits";
+const _AOA = "ActivateOrganizationsAccess";
+const _AP = "ActualProperties";
+const _ARARN = "AdministrationRoleARN";
+const _AT = "ActivateType";
+const _ATAC = "AcceptTermsAndConditions";
+const _AU = "AutoUpdate";
+const _AUc = "AccountsUrl";
+const _AV = "AllowedValues";
+const _AVc = "ActualValue";
+const _Ac = "Accounts";
+const _Acc = "Account";
+const _Act = "Active";
+const _Al = "Alias";
+const _Ar = "Arn";
+const _At = "Attribute";
+const _BDTC = "BatchDescribeTypeConfigurations";
+const _BT = "BearerToken";
+const _C = "Capabilities";
+const _CA = "CallAs";
+const _CAo = "ConnectionArn";
+const _CAon = "ConfigurationAlias";
+const _CAonf = "ConfigurationArn";
+const _CCS = "CreateChangeSet";
+const _CE = "CausingEntity";
+const _CM = "ConcurrencyMode";
+const _COS = "CurrentOperationStatus";
+const _CR = "CapabilitiesReason";
+const _CRT = "ClientRequestToken";
+const _CS = "CreateStack";
+const _CSI = "CreateStackInstances";
+const _CSIh = "ChangeSetId";
+const _CSN = "ChangeSetName";
+const _CSS = "CreateStackSet";
+const _CST = "ChangeSetType";
+const _CSh = "ChangeSource";
+const _CSo = "ConfigurationSchema";
+const _CT = "ClientToken";
+const _CTr = "CreationTime";
+const _CTre = "CreationTimestamp";
+const _CUR = "ContinueUpdateRollback";
+const _CUS = "CancelUpdateStack";
+const _Ca = "Category";
+const _Ch = "Changes";
+const _Co = "Configuration";
+const _D = "Description";
+const _DAL = "DescribeAccountLimits";
+const _DCS = "DeleteChangeSet";
+const _DCSH = "DescribeChangeSetHooks";
+const _DCSe = "DescribeChangeSet";
+const _DDS = "DriftDetectionStatus";
+const _DI = "DriftInformation";
+const _DOA = "DeactivateOrganizationsAccess";
+const _DOAe = "DescribeOrganizationsAccess";
+const _DP = "DescribePublisher";
+const _DR = "DisableRollback";
+const _DS = "DeleteStack";
+const _DSD = "DetectStackDrift";
+const _DSDDS = "DescribeStackDriftDetectionStatus";
+const _DSE = "DescribeStackEvents";
+const _DSI = "DeleteStackInstances";
+const _DSIC = "DriftedStackInstancesCount";
+const _DSIe = "DescribeStackInstance";
+const _DSR = "DescribeStackResource";
+const _DSRC = "DriftedStackResourceCount";
+const _DSRD = "DescribeStackResourceDrifts";
+const _DSRDe = "DetectStackResourceDrift";
+const _DSRe = "DescribeStackResources";
+const _DSRet = "DetectionStatusReason";
+const _DSS = "DeleteStackSet";
+const _DSSD = "DetectStackSetDrift";
+const _DSSO = "DescribeStackSetOperation";
+const _DSSe = "DescribeStackSet";
+const _DSe = "DescribeStacks";
+const _DSep = "DeprecatedStatus";
+const _DSet = "DetectionStatus";
+const _DSeta = "DetailedStatus";
+const _DSr = "DriftStatus";
+const _DT = "DeactivateType";
+const _DTR = "DescribeTypeRegistration";
+const _DTe = "DeregisterType";
+const _DTec = "DeclaredTransforms";
+const _DTel = "DeletionTime";
+const _DTep = "DeploymentTargets";
+const _DTes = "DescribeType";
+const _DTi = "DifferenceType";
+const _DU = "DocumentationUrl";
+const _DV = "DefaultValue";
+const _DVI = "DefaultVersionId";
+const _De = "Details";
+const _E = "Enabled";
+const _EC = "ErrorCode";
+const _ECS = "ExecuteChangeSet";
+const _EI = "EventId";
+const _EM = "ErrorMessage";
+const _EN = "ExportName";
+const _EP = "ExpectedProperties";
+const _ERA = "ExecutionRoleArn";
+const _ERN = "ExecutionRoleName";
+const _ES = "ExecutionStatus";
+const _ESI = "ExportingStackId";
+const _ET = "EndTimestamp";
+const _ETC = "EstimateTemplateCost";
+const _ETP = "EnableTerminationProtection";
+const _EV = "ExpectedValue";
+const _Er = "Errors";
+const _Ev = "Evaluation";
+const _Ex = "Exports";
+const _F = "Filters";
+const _FM = "FailureMode";
+const _FSIC = "FailedStackInstancesCount";
+const _FTC = "FailureToleranceCount";
+const _FTP = "FailureTolerancePercentage";
+const _GSP = "GetStackPolicy";
+const _GT = "GetTemplate";
+const _GTS = "GetTemplateSummary";
+const _H = "Hooks";
+const _HFM = "HookFailureMode";
+const _HIC = "HookInvocationCount";
+const _HIP = "HookInvocationPoint";
+const _HS = "HookStatus";
+const _HSR = "HookStatusReason";
+const _HT = "HookType";
+const _I = "Id";
+const _IA = "IsActivated";
+const _IDC = "IsDefaultConfiguration";
+const _IDV = "IsDefaultVersion";
+const _IER = "ImportExistingResources";
+const _INS = "IncludeNestedStacks";
+const _IP = "InvocationPoint";
+const _IPSIC = "InProgressStackInstancesCount";
+const _IPd = "IdentityProvider";
+const _ISSIC = "InSyncStackInstancesCount";
+const _ISTSS = "ImportStacksToStackSet";
+const _Im = "Imports";
+const _K = "Key";
+const _LC = "LoggingConfig";
+const _LCS = "ListChangeSets";
+const _LCT = "LastCheckTimestamp";
+const _LDB = "LogDeliveryBucket";
+const _LDCT = "LastDriftCheckTimestamp";
+const _LE = "ListExports";
+const _LGN = "LogGroupName";
+const _LI = "ListImports";
+const _LIH = "LogicalIdHierarchy";
+const _LOI = "LastOperationId";
+const _LPV = "LatestPublicVersion";
+const _LRA = "LogRoleArn";
+const _LRI = "LogicalResourceId";
+const _LRIo = "LogicalResourceIds";
+const _LS = "ListStacks";
+const _LSI = "ListStackInstances";
+const _LSIRD = "ListStackInstanceResourceDrifts";
+const _LSR = "ListStackResources";
+const _LSS = "ListStackSets";
+const _LSSO = "ListStackSetOperations";
+const _LSSOR = "ListStackSetOperationResults";
+const _LT = "ListTypes";
+const _LTR = "ListTypeRegistrations";
+const _LTV = "ListTypeVersions";
+const _LU = "LastUpdated";
+const _LUT = "LastUpdatedTime";
+const _LUTa = "LastUpdatedTimestamp";
+const _M = "Message";
+const _MCC = "MaxConcurrentCount";
+const _MCP = "MaxConcurrentPercentage";
+const _ME = "ManagedExecution";
+const _MI = "ModuleInfo";
+const _MR = "MaxResults";
+const _MTIM = "MonitoringTimeInMinutes";
+const _MV = "MajorVersion";
+const _Me = "Metadata";
+const _N = "Name";
+const _NARN = "NotificationARNs";
+const _NE = "NoEcho";
+const _NT = "NextToken";
+const _O = "Outputs";
+const _OF = "OnFailure";
+const _OI = "OperationId";
+const _OK = "OutputKey";
+const _OP = "OperationPreferences";
+const _OS = "OperationStatus";
+const _OSF = "OnStackFailure";
+const _OTA = "OriginalTypeArn";
+const _OTN = "OriginalTypeName";
+const _OUI = "OrganizationalUnitIds";
+const _OUIr = "OrganizationalUnitId";
+const _OV = "OutputValue";
+const _P = "Parameters";
+const _PC = "ParameterConstraints";
+const _PCSI = "ParentChangeSetId";
+const _PD = "PropertyDifferences";
+const _PI = "PublisherId";
+const _PIa = "ParentId";
+const _PIu = "PublisherIdentity";
+const _PK = "ParameterKey";
+const _PM = "PermissionModel";
+const _PN = "PublisherName";
+const _PO = "ParameterOverrides";
+const _PP = "PublisherProfile";
+const _PPr = "PropertyPath";
+const _PRI = "PhysicalResourceId";
+const _PRIC = "PhysicalResourceIdContext";
+const _PS = "PublisherStatus";
+const _PSr = "ProgressStatus";
+const _PT = "PublishType";
+const _PTA = "PublicTypeArn";
+const _PTa = "ParameterType";
+const _PTr = "ProvisioningType";
+const _PV = "ParameterValue";
+const _PVN = "PublicVersionNumber";
+const _R = "Regions";
+const _RA = "ResourceAction";
+const _RARN = "RoleARN";
+const _RAT = "RequiredActivatedTypes";
+const _RC = "RollbackConfiguration";
+const _RCSI = "RootChangeSetId";
+const _RCT = "RegionConcurrencyType";
+const _RCe = "ResourceChange";
+const _REOC = "RetainExceptOnCreate";
+const _RHP = "RecordHandlerProgress";
+const _RI = "ResourceIdentifier";
+const _RIS = "ResourceIdentifierSummaries";
+const _RIe = "ResourceIdentifiers";
+const _RIo = "RootId";
+const _RM = "ResourceModel";
+const _RO = "RegionOrder";
+const _RP = "RegisterPublisher";
+const _RPe = "ResourceProperties";
+const _RR = "RetainResources";
+const _RRe = "RequiresRecreation";
+const _RS = "RollbackStack";
+const _RSF = "RegistrationStatusFilter";
+const _RSOAR = "RetainStacksOnAccountRemoval";
+const _RSR = "ResourceStatusReason";
+const _RSe = "RetainStacks";
+const _RSes = "ResourceStatus";
+const _RT = "RegisterType";
+const _RTD = "ResourceTargetDetails";
+const _RTI = "ResourcesToImport";
+const _RTL = "RegistrationTokenList";
+const _RTS = "ResourcesToSkip";
+const _RTe = "ResourceTypes";
+const _RTeg = "RegistrationToken";
+const _RTes = "ResourceType";
+const _RTo = "RollbackTriggers";
+const _RV = "ResolvedValue";
+const _Re = "Replacement";
+const _Reg = "Region";
+const _S = "Status";
+const _SA = "StagesAvailable";
+const _SD = "StatusDetails";
+const _SDDI = "StackDriftDetectionId";
+const _SDS = "StackDriftStatus";
+const _SE = "StackEvents";
+const _SHP = "SchemaHandlerPackage";
+const _SI = "StackId";
+const _SIA = "StackInstanceAccount";
+const _SIR = "StackInstanceRegion";
+const _SIRDS = "StackInstanceResourceDriftStatuses";
+const _SIS = "StackInstanceStatus";
+const _SIU = "StackIdsUrl";
+const _SIt = "StackIds";
+const _SIta = "StackInstance";
+const _SM = "StatusMessage";
+const _SMV = "SupportedMajorVersions";
+const _SN = "StackName";
+const _SPB = "StackPolicyBody";
+const _SPDUB = "StackPolicyDuringUpdateBody";
+const _SPDUURL = "StackPolicyDuringUpdateURL";
+const _SPURL = "StackPolicyURL";
+const _SR = "SignalResource";
+const _SRD = "StackResourceDrifts";
+const _SRDS = "StackResourceDriftStatus";
+const _SRDSF = "StackResourceDriftStatusFilters";
+const _SRDt = "StackResourceDetail";
+const _SRDta = "StackResourceDrift";
+const _SRS = "StackResourceSummaries";
+const _SRt = "StatusReason";
+const _SRta = "StackResources";
+const _SS = "StackSet";
+const _SSARN = "StackSetARN";
+const _SSDDD = "StackSetDriftDetectionDetails";
+const _SSF = "StackStatusFilter";
+const _SSI = "StackSetId";
+const _SSN = "StackSetName";
+const _SSO = "StackSetOperation";
+const _SSP = "SetStackPolicy";
+const _SSR = "StackStatusReason";
+const _SSSO = "StopStackSetOperation";
+const _SSt = "StackSummaries";
+const _SSta = "StackStatus";
+const _STC = "SetTypeConfiguration";
+const _STDV = "SetTypeDefaultVersion";
+const _SU = "SourceUrl";
+const _Sc = "Schema";
+const _Sco = "Scope";
+const _St = "Stacks";
+const _Su = "Summaries";
+const _T = "Type";
+const _TA = "TypeArn";
+const _TB = "TemplateBody";
+const _TC = "TypeConfigurations";
+const _TCA = "TypeConfigurationAlias";
+const _TCAy = "TypeConfigurationArn";
+const _TCI = "TypeConfigurationIdentifiers";
+const _TCIy = "TypeConfigurationIdentifier";
+const _TCVI = "TypeConfigurationVersionId";
+const _TCi = "TimeCreated";
+const _TD = "TargetDetails";
+const _TDe = "TemplateDescription";
+const _TH = "TypeHierarchy";
+const _TIM = "TimeoutInMinutes";
+const _TN = "TypeName";
+const _TNA = "TypeNameAlias";
+const _TNP = "TypeNamePrefix";
+const _TS = "TemplateStage";
+const _TSC = "TemplateSummaryConfig";
+const _TSIC = "TotalStackInstancesCount";
+const _TSy = "TypeSummaries";
+const _TT = "TestType";
+const _TTS = "TypeTestsStatus";
+const _TTSD = "TypeTestsStatusDescription";
+const _TTa = "TargetType";
+const _TURL = "TemplateURL";
+const _TURTAW = "TreatUnrecognizedResourceTypesAsWarnings";
+const _TVA = "TypeVersionArn";
+const _TVI = "TypeVersionId";
+const _TVS = "TypeVersionSummaries";
+const _Ta = "Tags";
+const _Tar = "Target";
+const _Ti = "Timestamp";
+const _U = "Url";
+const _UI = "UniqueId";
+const _UPT = "UsePreviousTemplate";
+const _UPV = "UsePreviousValue";
+const _URT = "UnrecognizedResourceTypes";
+const _US = "UpdateStack";
+const _USI = "UpdateStackInstances";
+const _USS = "UpdateStackSet";
+const _UTC = "UnprocessedTypeConfigurations";
+const _UTP = "UpdateTerminationProtection";
+const _V = "Version";
+const _VB = "VersionBump";
+const _VI = "VersionId";
+const _VT = "ValidateTemplate";
+const _Va = "Values";
+const _Val = "Value";
+const _Vi = "Visibility";
+const _W = "Warnings";
+const _m = "member";
 const parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
         const parser = new fast_xml_parser_1.XMLParser({
@@ -16019,17 +16367,17 @@ const loadQueryErrorCode = (output, data) => {
 
 /***/ }),
 
-/***/ 46928:
+/***/ 91547:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(3988));
-const client_sts_1 = __nccwpck_require__(31741);
-const core_1 = __nccwpck_require__(90195);
-const credential_provider_node_1 = __nccwpck_require__(4319);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(45286));
+const client_sts_1 = __nccwpck_require__(24237);
+const core_1 = __nccwpck_require__(36932);
+const credential_provider_node_1 = __nccwpck_require__(38140);
 const util_user_agent_node_1 = __nccwpck_require__(81873);
 const config_resolver_1 = __nccwpck_require__(52908);
 const hash_node_1 = __nccwpck_require__(98299);
@@ -16038,7 +16386,7 @@ const node_config_provider_1 = __nccwpck_require__(27404);
 const node_http_handler_1 = __nccwpck_require__(1636);
 const util_body_length_node_1 = __nccwpck_require__(38668);
 const util_retry_1 = __nccwpck_require__(10358);
-const runtimeConfig_shared_1 = __nccwpck_require__(76542);
+const runtimeConfig_shared_1 = __nccwpck_require__(21183);
 const smithy_client_1 = __nccwpck_require__(96899);
 const util_defaults_mode_node_1 = __nccwpck_require__(94044);
 const smithy_client_2 = __nccwpck_require__(96899);
@@ -16076,7 +16424,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 76542:
+/***/ 21183:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16086,7 +16434,7 @@ const smithy_client_1 = __nccwpck_require__(96899);
 const url_parser_1 = __nccwpck_require__(40623);
 const util_base64_1 = __nccwpck_require__(63274);
 const util_utf8_1 = __nccwpck_require__(94099);
-const endpointResolver_1 = __nccwpck_require__(30385);
+const endpointResolver_1 = __nccwpck_require__(44559);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -16107,7 +16455,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 64185:
+/***/ 49207:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16136,32 +16484,32 @@ exports.resolveRuntimeExtensions = resolveRuntimeExtensions;
 
 /***/ }),
 
-/***/ 76963:
+/***/ 74055:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(41705), exports);
-tslib_1.__exportStar(__nccwpck_require__(96753), exports);
-tslib_1.__exportStar(__nccwpck_require__(84218), exports);
-tslib_1.__exportStar(__nccwpck_require__(37440), exports);
-tslib_1.__exportStar(__nccwpck_require__(20250), exports);
-tslib_1.__exportStar(__nccwpck_require__(32188), exports);
-tslib_1.__exportStar(__nccwpck_require__(8557), exports);
-tslib_1.__exportStar(__nccwpck_require__(69117), exports);
+tslib_1.__exportStar(__nccwpck_require__(2891), exports);
+tslib_1.__exportStar(__nccwpck_require__(55782), exports);
+tslib_1.__exportStar(__nccwpck_require__(73906), exports);
+tslib_1.__exportStar(__nccwpck_require__(22786), exports);
+tslib_1.__exportStar(__nccwpck_require__(60038), exports);
+tslib_1.__exportStar(__nccwpck_require__(30523), exports);
+tslib_1.__exportStar(__nccwpck_require__(56333), exports);
+tslib_1.__exportStar(__nccwpck_require__(96752), exports);
 
 
 /***/ }),
 
-/***/ 41705:
+/***/ 2891:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilChangeSetCreateComplete = exports.waitForChangeSetCreateComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeChangeSetCommand_1 = __nccwpck_require__(87580);
+const DescribeChangeSetCommand_1 = __nccwpck_require__(96086);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -16209,14 +16557,14 @@ exports.waitUntilChangeSetCreateComplete = waitUntilChangeSetCreateComplete;
 
 /***/ }),
 
-/***/ 96753:
+/***/ 55782:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackCreateComplete = exports.waitForStackCreateComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(19361);
+const DescribeStacksCommand_1 = __nccwpck_require__(44962);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -16474,14 +16822,14 @@ exports.waitUntilStackCreateComplete = waitUntilStackCreateComplete;
 
 /***/ }),
 
-/***/ 84218:
+/***/ 73906:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackDeleteComplete = exports.waitForStackDeleteComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(19361);
+const DescribeStacksCommand_1 = __nccwpck_require__(44962);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -16633,14 +16981,14 @@ exports.waitUntilStackDeleteComplete = waitUntilStackDeleteComplete;
 
 /***/ }),
 
-/***/ 37440:
+/***/ 22786:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackExists = exports.waitForStackExists = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(19361);
+const DescribeStacksCommand_1 = __nccwpck_require__(44962);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -16671,14 +17019,14 @@ exports.waitUntilStackExists = waitUntilStackExists;
 
 /***/ }),
 
-/***/ 20250:
+/***/ 60038:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackImportComplete = exports.waitForStackImportComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(19361);
+const DescribeStacksCommand_1 = __nccwpck_require__(44962);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -16800,14 +17148,14 @@ exports.waitUntilStackImportComplete = waitUntilStackImportComplete;
 
 /***/ }),
 
-/***/ 32188:
+/***/ 30523:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackRollbackComplete = exports.waitForStackRollbackComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(19361);
+const DescribeStacksCommand_1 = __nccwpck_require__(44962);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -16899,14 +17247,14 @@ exports.waitUntilStackRollbackComplete = waitUntilStackRollbackComplete;
 
 /***/ }),
 
-/***/ 8557:
+/***/ 56333:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackUpdateComplete = exports.waitForStackUpdateComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(19361);
+const DescribeStacksCommand_1 = __nccwpck_require__(44962);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -16998,14 +17346,14 @@ exports.waitUntilStackUpdateComplete = waitUntilStackUpdateComplete;
 
 /***/ }),
 
-/***/ 69117:
+/***/ 96752:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilTypeRegistrationComplete = exports.waitForTypeRegistrationComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeTypeRegistrationCommand_1 = __nccwpck_require__(93836);
+const DescribeTypeRegistrationCommand_1 = __nccwpck_require__(5691);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -17050,18 +17398,18 @@ exports.waitUntilTypeRegistrationComplete = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 43309:
+/***/ 87393:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SSO = void 0;
 const smithy_client_1 = __nccwpck_require__(96899);
-const GetRoleCredentialsCommand_1 = __nccwpck_require__(70270);
-const ListAccountRolesCommand_1 = __nccwpck_require__(58687);
-const ListAccountsCommand_1 = __nccwpck_require__(45949);
-const LogoutCommand_1 = __nccwpck_require__(46833);
-const SSOClient_1 = __nccwpck_require__(85319);
+const GetRoleCredentialsCommand_1 = __nccwpck_require__(3075);
+const ListAccountRolesCommand_1 = __nccwpck_require__(8504);
+const ListAccountsCommand_1 = __nccwpck_require__(58854);
+const LogoutCommand_1 = __nccwpck_require__(31421);
+const SSOClient_1 = __nccwpck_require__(37990);
 const commands = {
     GetRoleCredentialsCommand: GetRoleCredentialsCommand_1.GetRoleCredentialsCommand,
     ListAccountRolesCommand: ListAccountRolesCommand_1.ListAccountRolesCommand,
@@ -17076,7 +17424,7 @@ exports.SSO = SSO;
 
 /***/ }),
 
-/***/ 85319:
+/***/ 37990:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17092,9 +17440,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_retry_1 = __nccwpck_require__(29699);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const EndpointParameters_1 = __nccwpck_require__(45459);
-const runtimeConfig_1 = __nccwpck_require__(45695);
-const runtimeExtensions_1 = __nccwpck_require__(62436);
+const EndpointParameters_1 = __nccwpck_require__(29754);
+const runtimeConfig_1 = __nccwpck_require__(27200);
+const runtimeExtensions_1 = __nccwpck_require__(80611);
 class SSOClient extends smithy_client_1.Client {
     constructor(...[configuration]) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration || {});
@@ -17123,7 +17471,7 @@ exports.SSOClient = SSOClient;
 
 /***/ }),
 
-/***/ 70270:
+/***/ 3075:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17134,8 +17482,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(7759);
-const Aws_restJson1_1 = __nccwpck_require__(56314);
+const models_0_1 = __nccwpck_require__(47751);
+const Aws_restJson1_1 = __nccwpck_require__(31145);
 class GetRoleCredentialsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -17182,7 +17530,7 @@ exports.GetRoleCredentialsCommand = GetRoleCredentialsCommand;
 
 /***/ }),
 
-/***/ 58687:
+/***/ 8504:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17193,8 +17541,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(7759);
-const Aws_restJson1_1 = __nccwpck_require__(56314);
+const models_0_1 = __nccwpck_require__(47751);
+const Aws_restJson1_1 = __nccwpck_require__(31145);
 class ListAccountRolesCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -17241,7 +17589,7 @@ exports.ListAccountRolesCommand = ListAccountRolesCommand;
 
 /***/ }),
 
-/***/ 45949:
+/***/ 58854:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17252,8 +17600,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(7759);
-const Aws_restJson1_1 = __nccwpck_require__(56314);
+const models_0_1 = __nccwpck_require__(47751);
+const Aws_restJson1_1 = __nccwpck_require__(31145);
 class ListAccountsCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -17300,7 +17648,7 @@ exports.ListAccountsCommand = ListAccountsCommand;
 
 /***/ }),
 
-/***/ 46833:
+/***/ 31421:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17311,8 +17659,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(7759);
-const Aws_restJson1_1 = __nccwpck_require__(56314);
+const models_0_1 = __nccwpck_require__(47751);
+const Aws_restJson1_1 = __nccwpck_require__(31145);
 class LogoutCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -17359,21 +17707,21 @@ exports.LogoutCommand = LogoutCommand;
 
 /***/ }),
 
-/***/ 37147:
+/***/ 62696:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(70270), exports);
-tslib_1.__exportStar(__nccwpck_require__(58687), exports);
-tslib_1.__exportStar(__nccwpck_require__(45949), exports);
-tslib_1.__exportStar(__nccwpck_require__(46833), exports);
+tslib_1.__exportStar(__nccwpck_require__(3075), exports);
+tslib_1.__exportStar(__nccwpck_require__(8504), exports);
+tslib_1.__exportStar(__nccwpck_require__(58854), exports);
+tslib_1.__exportStar(__nccwpck_require__(31421), exports);
 
 
 /***/ }),
 
-/***/ 45459:
+/***/ 29754:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17392,14 +17740,14 @@ exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
 
 /***/ }),
 
-/***/ 34332:
+/***/ 89366:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(91686);
-const ruleset_1 = __nccwpck_require__(30054);
+const ruleset_1 = __nccwpck_require__(68579);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -17411,7 +17759,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 30054:
+/***/ 68579:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17425,26 +17773,26 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 82737:
+/***/ 28754:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SSOServiceException = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(85319), exports);
-tslib_1.__exportStar(__nccwpck_require__(43309), exports);
-tslib_1.__exportStar(__nccwpck_require__(37147), exports);
-tslib_1.__exportStar(__nccwpck_require__(14802), exports);
-tslib_1.__exportStar(__nccwpck_require__(43186), exports);
+tslib_1.__exportStar(__nccwpck_require__(37990), exports);
+tslib_1.__exportStar(__nccwpck_require__(87393), exports);
+tslib_1.__exportStar(__nccwpck_require__(62696), exports);
+tslib_1.__exportStar(__nccwpck_require__(95413), exports);
+tslib_1.__exportStar(__nccwpck_require__(57455), exports);
 __nccwpck_require__(75934);
-var SSOServiceException_1 = __nccwpck_require__(60332);
+var SSOServiceException_1 = __nccwpck_require__(262);
 Object.defineProperty(exports, "SSOServiceException", ({ enumerable: true, get: function () { return SSOServiceException_1.SSOServiceException; } }));
 
 
 /***/ }),
 
-/***/ 60332:
+/***/ 262:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17463,25 +17811,25 @@ exports.SSOServiceException = SSOServiceException;
 
 /***/ }),
 
-/***/ 43186:
+/***/ 57455:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(7759), exports);
+tslib_1.__exportStar(__nccwpck_require__(47751), exports);
 
 
 /***/ }),
 
-/***/ 7759:
+/***/ 47751:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LogoutRequestFilterSensitiveLog = exports.ListAccountsRequestFilterSensitiveLog = exports.ListAccountRolesRequestFilterSensitiveLog = exports.GetRoleCredentialsResponseFilterSensitiveLog = exports.RoleCredentialsFilterSensitiveLog = exports.GetRoleCredentialsRequestFilterSensitiveLog = exports.UnauthorizedException = exports.TooManyRequestsException = exports.ResourceNotFoundException = exports.InvalidRequestException = void 0;
 const smithy_client_1 = __nccwpck_require__(96899);
-const SSOServiceException_1 = __nccwpck_require__(60332);
+const SSOServiceException_1 = __nccwpck_require__(262);
 class InvalidRequestException extends SSOServiceException_1.SSOServiceException {
     constructor(opts) {
         super({
@@ -17569,7 +17917,7 @@ exports.LogoutRequestFilterSensitiveLog = LogoutRequestFilterSensitiveLog;
 
 /***/ }),
 
-/***/ 57364:
+/***/ 62434:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17578,14 +17926,14 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
-/***/ 83667:
+/***/ 16101:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListAccountRoles = void 0;
-const ListAccountRolesCommand_1 = __nccwpck_require__(58687);
-const SSOClient_1 = __nccwpck_require__(85319);
+const ListAccountRolesCommand_1 = __nccwpck_require__(8504);
+const SSOClient_1 = __nccwpck_require__(37990);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListAccountRolesCommand_1.ListAccountRolesCommand(input), ...args);
 };
@@ -17614,14 +17962,14 @@ exports.paginateListAccountRoles = paginateListAccountRoles;
 
 /***/ }),
 
-/***/ 5277:
+/***/ 27322:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListAccounts = void 0;
-const ListAccountsCommand_1 = __nccwpck_require__(45949);
-const SSOClient_1 = __nccwpck_require__(85319);
+const ListAccountsCommand_1 = __nccwpck_require__(58854);
+const SSOClient_1 = __nccwpck_require__(37990);
 const makePagedClientRequest = async (client, input, ...args) => {
     return await client.send(new ListAccountsCommand_1.ListAccountsCommand(input), ...args);
 };
@@ -17650,115 +17998,84 @@ exports.paginateListAccounts = paginateListAccounts;
 
 /***/ }),
 
-/***/ 14802:
+/***/ 95413:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(57364), exports);
-tslib_1.__exportStar(__nccwpck_require__(83667), exports);
-tslib_1.__exportStar(__nccwpck_require__(5277), exports);
+tslib_1.__exportStar(__nccwpck_require__(62434), exports);
+tslib_1.__exportStar(__nccwpck_require__(16101), exports);
+tslib_1.__exportStar(__nccwpck_require__(27322), exports);
 
 
 /***/ }),
 
-/***/ 56314:
+/***/ 31145:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.de_LogoutCommand = exports.de_ListAccountsCommand = exports.de_ListAccountRolesCommand = exports.de_GetRoleCredentialsCommand = exports.se_LogoutCommand = exports.se_ListAccountsCommand = exports.se_ListAccountRolesCommand = exports.se_GetRoleCredentialsCommand = void 0;
-const protocol_http_1 = __nccwpck_require__(91658);
+const core_1 = __nccwpck_require__(53899);
 const smithy_client_1 = __nccwpck_require__(96899);
-const models_0_1 = __nccwpck_require__(7759);
-const SSOServiceException_1 = __nccwpck_require__(60332);
+const models_0_1 = __nccwpck_require__(47751);
+const SSOServiceException_1 = __nccwpck_require__(262);
 const se_GetRoleCredentialsCommand = async (input, context) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+    const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
-        "x-amz-sso_bearer_token": input.accessToken,
+        [_xasbt]: input[_aT],
     });
-    const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/federation/credentials";
+    b.bp("/federation/credentials");
     const query = (0, smithy_client_1.map)({
-        role_name: [, (0, smithy_client_1.expectNonNull)(input.roleName, `roleName`)],
-        account_id: [, (0, smithy_client_1.expectNonNull)(input.accountId, `accountId`)],
+        [_rn]: [, (0, smithy_client_1.expectNonNull)(input[_rN], `roleName`)],
+        [_ai]: [, (0, smithy_client_1.expectNonNull)(input[_aI], `accountId`)],
     });
     let body;
-    return new protocol_http_1.HttpRequest({
-        protocol,
-        hostname,
-        port,
-        method: "GET",
-        headers,
-        path: resolvedPath,
-        query,
-        body,
-    });
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
 };
 exports.se_GetRoleCredentialsCommand = se_GetRoleCredentialsCommand;
 const se_ListAccountRolesCommand = async (input, context) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+    const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
-        "x-amz-sso_bearer_token": input.accessToken,
+        [_xasbt]: input[_aT],
     });
-    const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/roles";
+    b.bp("/assignment/roles");
     const query = (0, smithy_client_1.map)({
-        next_token: [, input.nextToken],
-        max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
-        account_id: [, (0, smithy_client_1.expectNonNull)(input.accountId, `accountId`)],
+        [_nt]: [, input[_nT]],
+        [_mr]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
+        [_ai]: [, (0, smithy_client_1.expectNonNull)(input[_aI], `accountId`)],
     });
     let body;
-    return new protocol_http_1.HttpRequest({
-        protocol,
-        hostname,
-        port,
-        method: "GET",
-        headers,
-        path: resolvedPath,
-        query,
-        body,
-    });
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
 };
 exports.se_ListAccountRolesCommand = se_ListAccountRolesCommand;
 const se_ListAccountsCommand = async (input, context) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+    const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
-        "x-amz-sso_bearer_token": input.accessToken,
+        [_xasbt]: input[_aT],
     });
-    const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/accounts";
+    b.bp("/assignment/accounts");
     const query = (0, smithy_client_1.map)({
-        next_token: [, input.nextToken],
-        max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
+        [_nt]: [, input[_nT]],
+        [_mr]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
     });
     let body;
-    return new protocol_http_1.HttpRequest({
-        protocol,
-        hostname,
-        port,
-        method: "GET",
-        headers,
-        path: resolvedPath,
-        query,
-        body,
-    });
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
 };
 exports.se_ListAccountsCommand = se_ListAccountsCommand;
 const se_LogoutCommand = async (input, context) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+    const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
-        "x-amz-sso_bearer_token": input.accessToken,
+        [_xasbt]: input[_aT],
     });
-    const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logout";
+    b.bp("/logout");
     let body;
-    return new protocol_http_1.HttpRequest({
-        protocol,
-        hostname,
-        port,
-        method: "POST",
-        headers,
-        path: resolvedPath,
-        body,
-    });
+    b.m("POST").h(headers).b(body);
+    return b.build();
 };
 exports.se_LogoutCommand = se_LogoutCommand;
 const de_GetRoleCredentialsCommand = async (output, context) => {
@@ -17993,6 +18310,16 @@ const isSerializableHeaderValue = (value) => value !== undefined &&
     value !== "" &&
     (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
     (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+const _aI = "accountId";
+const _aT = "accessToken";
+const _ai = "account_id";
+const _mR = "maxResults";
+const _mr = "max_result";
+const _nT = "nextToken";
+const _nt = "next_token";
+const _rN = "roleName";
+const _rn = "role_name";
+const _xasbt = "x-amz-sso_bearer_token";
 const parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
         return JSON.parse(encoded);
@@ -18037,15 +18364,15 @@ const loadRestJsonErrorCode = (output, data) => {
 
 /***/ }),
 
-/***/ 45695:
+/***/ 27200:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(44135));
-const core_1 = __nccwpck_require__(90195);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(77573));
+const core_1 = __nccwpck_require__(36932);
 const util_user_agent_node_1 = __nccwpck_require__(81873);
 const config_resolver_1 = __nccwpck_require__(52908);
 const hash_node_1 = __nccwpck_require__(98299);
@@ -18054,7 +18381,7 @@ const node_config_provider_1 = __nccwpck_require__(27404);
 const node_http_handler_1 = __nccwpck_require__(1636);
 const util_body_length_node_1 = __nccwpck_require__(38668);
 const util_retry_1 = __nccwpck_require__(10358);
-const runtimeConfig_shared_1 = __nccwpck_require__(34540);
+const runtimeConfig_shared_1 = __nccwpck_require__(75546);
 const smithy_client_1 = __nccwpck_require__(96899);
 const util_defaults_mode_node_1 = __nccwpck_require__(94044);
 const smithy_client_2 = __nccwpck_require__(96899);
@@ -18091,7 +18418,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 34540:
+/***/ 75546:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18101,7 +18428,7 @@ const smithy_client_1 = __nccwpck_require__(96899);
 const url_parser_1 = __nccwpck_require__(40623);
 const util_base64_1 = __nccwpck_require__(63274);
 const util_utf8_1 = __nccwpck_require__(94099);
-const endpointResolver_1 = __nccwpck_require__(34332);
+const endpointResolver_1 = __nccwpck_require__(89366);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2019-06-10",
@@ -18122,7 +18449,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 62436:
+/***/ 80611:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18151,22 +18478,22 @@ exports.resolveRuntimeExtensions = resolveRuntimeExtensions;
 
 /***/ }),
 
-/***/ 72557:
+/***/ 12901:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.STS = void 0;
 const smithy_client_1 = __nccwpck_require__(96899);
-const AssumeRoleCommand_1 = __nccwpck_require__(33331);
-const AssumeRoleWithSAMLCommand_1 = __nccwpck_require__(41867);
-const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(37896);
-const DecodeAuthorizationMessageCommand_1 = __nccwpck_require__(47097);
-const GetAccessKeyInfoCommand_1 = __nccwpck_require__(17228);
-const GetCallerIdentityCommand_1 = __nccwpck_require__(42598);
-const GetFederationTokenCommand_1 = __nccwpck_require__(55369);
-const GetSessionTokenCommand_1 = __nccwpck_require__(39103);
-const STSClient_1 = __nccwpck_require__(82060);
+const AssumeRoleCommand_1 = __nccwpck_require__(36898);
+const AssumeRoleWithSAMLCommand_1 = __nccwpck_require__(97884);
+const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(81601);
+const DecodeAuthorizationMessageCommand_1 = __nccwpck_require__(79412);
+const GetAccessKeyInfoCommand_1 = __nccwpck_require__(39069);
+const GetCallerIdentityCommand_1 = __nccwpck_require__(70647);
+const GetFederationTokenCommand_1 = __nccwpck_require__(15524);
+const GetSessionTokenCommand_1 = __nccwpck_require__(48111);
+const STSClient_1 = __nccwpck_require__(45751);
 const commands = {
     AssumeRoleCommand: AssumeRoleCommand_1.AssumeRoleCommand,
     AssumeRoleWithSAMLCommand: AssumeRoleWithSAMLCommand_1.AssumeRoleWithSAMLCommand,
@@ -18185,7 +18512,7 @@ exports.STS = STS;
 
 /***/ }),
 
-/***/ 82060:
+/***/ 45751:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18202,10 +18529,10 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_retry_1 = __nccwpck_require__(29699);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const httpAuthSchemeProvider_1 = __nccwpck_require__(85353);
-const EndpointParameters_1 = __nccwpck_require__(49676);
-const runtimeConfig_1 = __nccwpck_require__(24636);
-const runtimeExtensions_1 = __nccwpck_require__(5850);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(77907);
+const EndpointParameters_1 = __nccwpck_require__(19328);
+const runtimeConfig_1 = __nccwpck_require__(98888);
+const runtimeExtensions_1 = __nccwpck_require__(75245);
 class STSClient extends smithy_client_1.Client {
     getDefaultHttpAuthSchemeParametersProvider() {
         return httpAuthSchemeProvider_1.defaultSTSHttpAuthSchemeParametersProvider;
@@ -18248,7 +18575,7 @@ exports.STSClient = STSClient;
 
 /***/ }),
 
-/***/ 80114:
+/***/ 58194:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -18298,15 +18625,15 @@ exports.resolveHttpAuthRuntimeConfig = resolveHttpAuthRuntimeConfig;
 
 /***/ }),
 
-/***/ 85353:
+/***/ 77907:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.resolveStsAuthConfig = exports.defaultSTSHttpAuthSchemeProvider = exports.defaultSTSHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(90195);
+const core_1 = __nccwpck_require__(36932);
 const util_middleware_1 = __nccwpck_require__(47194);
-const STSClient_1 = __nccwpck_require__(82060);
+const STSClient_1 = __nccwpck_require__(45751);
 const defaultSTSHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -18372,7 +18699,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 33331:
+/***/ 36898:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18383,8 +18710,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(4507);
-const Aws_query_1 = __nccwpck_require__(90023);
+const models_0_1 = __nccwpck_require__(31746);
+const Aws_query_1 = __nccwpck_require__(11585);
 class AssumeRoleCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -18432,7 +18759,7 @@ exports.AssumeRoleCommand = AssumeRoleCommand;
 
 /***/ }),
 
-/***/ 41867:
+/***/ 97884:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18443,8 +18770,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(4507);
-const Aws_query_1 = __nccwpck_require__(90023);
+const models_0_1 = __nccwpck_require__(31746);
+const Aws_query_1 = __nccwpck_require__(11585);
 class AssumeRoleWithSAMLCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -18492,7 +18819,7 @@ exports.AssumeRoleWithSAMLCommand = AssumeRoleWithSAMLCommand;
 
 /***/ }),
 
-/***/ 37896:
+/***/ 81601:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18503,8 +18830,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(4507);
-const Aws_query_1 = __nccwpck_require__(90023);
+const models_0_1 = __nccwpck_require__(31746);
+const Aws_query_1 = __nccwpck_require__(11585);
 class AssumeRoleWithWebIdentityCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -18552,7 +18879,7 @@ exports.AssumeRoleWithWebIdentityCommand = AssumeRoleWithWebIdentityCommand;
 
 /***/ }),
 
-/***/ 47097:
+/***/ 79412:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18563,7 +18890,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(90023);
+const Aws_query_1 = __nccwpck_require__(11585);
 class DecodeAuthorizationMessageCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -18611,7 +18938,7 @@ exports.DecodeAuthorizationMessageCommand = DecodeAuthorizationMessageCommand;
 
 /***/ }),
 
-/***/ 17228:
+/***/ 39069:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18622,7 +18949,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(90023);
+const Aws_query_1 = __nccwpck_require__(11585);
 class GetAccessKeyInfoCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -18670,7 +18997,7 @@ exports.GetAccessKeyInfoCommand = GetAccessKeyInfoCommand;
 
 /***/ }),
 
-/***/ 42598:
+/***/ 70647:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18681,7 +19008,7 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const Aws_query_1 = __nccwpck_require__(90023);
+const Aws_query_1 = __nccwpck_require__(11585);
 class GetCallerIdentityCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -18729,7 +19056,7 @@ exports.GetCallerIdentityCommand = GetCallerIdentityCommand;
 
 /***/ }),
 
-/***/ 55369:
+/***/ 15524:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18740,8 +19067,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(4507);
-const Aws_query_1 = __nccwpck_require__(90023);
+const models_0_1 = __nccwpck_require__(31746);
+const Aws_query_1 = __nccwpck_require__(11585);
 class GetFederationTokenCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -18789,7 +19116,7 @@ exports.GetFederationTokenCommand = GetFederationTokenCommand;
 
 /***/ }),
 
-/***/ 39103:
+/***/ 48111:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18800,8 +19127,8 @@ const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(96899);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
 const types_1 = __nccwpck_require__(36374);
-const models_0_1 = __nccwpck_require__(4507);
-const Aws_query_1 = __nccwpck_require__(90023);
+const models_0_1 = __nccwpck_require__(31746);
+const Aws_query_1 = __nccwpck_require__(11585);
 class GetSessionTokenCommand extends smithy_client_1.Command {
     static getEndpointParameterInstructions() {
         return {
@@ -18849,32 +19176,32 @@ exports.GetSessionTokenCommand = GetSessionTokenCommand;
 
 /***/ }),
 
-/***/ 13180:
+/***/ 51115:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(33331), exports);
-tslib_1.__exportStar(__nccwpck_require__(41867), exports);
-tslib_1.__exportStar(__nccwpck_require__(37896), exports);
-tslib_1.__exportStar(__nccwpck_require__(47097), exports);
-tslib_1.__exportStar(__nccwpck_require__(17228), exports);
-tslib_1.__exportStar(__nccwpck_require__(42598), exports);
-tslib_1.__exportStar(__nccwpck_require__(55369), exports);
-tslib_1.__exportStar(__nccwpck_require__(39103), exports);
+tslib_1.__exportStar(__nccwpck_require__(36898), exports);
+tslib_1.__exportStar(__nccwpck_require__(97884), exports);
+tslib_1.__exportStar(__nccwpck_require__(81601), exports);
+tslib_1.__exportStar(__nccwpck_require__(79412), exports);
+tslib_1.__exportStar(__nccwpck_require__(39069), exports);
+tslib_1.__exportStar(__nccwpck_require__(70647), exports);
+tslib_1.__exportStar(__nccwpck_require__(15524), exports);
+tslib_1.__exportStar(__nccwpck_require__(48111), exports);
 
 
 /***/ }),
 
-/***/ 59316:
+/***/ 60142:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.decorateDefaultCredentialProvider = exports.getDefaultRoleAssumerWithWebIdentity = exports.getDefaultRoleAssumer = void 0;
-const defaultStsRoleAssumers_1 = __nccwpck_require__(24089);
-const STSClient_1 = __nccwpck_require__(82060);
+const defaultStsRoleAssumers_1 = __nccwpck_require__(68166);
+const STSClient_1 = __nccwpck_require__(45751);
 const getCustomizableStsClientCtor = (baseCtor, customizations) => {
     if (!customizations)
         return baseCtor;
@@ -18902,14 +19229,14 @@ exports.decorateDefaultCredentialProvider = decorateDefaultCredentialProvider;
 
 /***/ }),
 
-/***/ 24089:
+/***/ 68166:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.decorateDefaultCredentialProvider = exports.getDefaultRoleAssumerWithWebIdentity = exports.getDefaultRoleAssumer = void 0;
-const AssumeRoleCommand_1 = __nccwpck_require__(33331);
-const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(37896);
+const AssumeRoleCommand_1 = __nccwpck_require__(36898);
+const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(81601);
 const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 const decorateDefaultRegion = (region) => {
     if (typeof region !== "function") {
@@ -18985,7 +19312,7 @@ exports.decorateDefaultCredentialProvider = decorateDefaultCredentialProvider;
 
 /***/ }),
 
-/***/ 49676:
+/***/ 19328:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -19005,14 +19332,14 @@ exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
 
 /***/ }),
 
-/***/ 59996:
+/***/ 82346:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(91686);
-const ruleset_1 = __nccwpck_require__(3809);
+const ruleset_1 = __nccwpck_require__(12818);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -19024,7 +19351,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 3809:
+/***/ 12818:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -19038,26 +19365,26 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 31741:
+/***/ 24237:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.STSServiceException = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(82060), exports);
-tslib_1.__exportStar(__nccwpck_require__(72557), exports);
-tslib_1.__exportStar(__nccwpck_require__(13180), exports);
-tslib_1.__exportStar(__nccwpck_require__(22535), exports);
+tslib_1.__exportStar(__nccwpck_require__(45751), exports);
+tslib_1.__exportStar(__nccwpck_require__(12901), exports);
+tslib_1.__exportStar(__nccwpck_require__(51115), exports);
+tslib_1.__exportStar(__nccwpck_require__(33548), exports);
 __nccwpck_require__(75934);
-tslib_1.__exportStar(__nccwpck_require__(59316), exports);
-var STSServiceException_1 = __nccwpck_require__(78946);
+tslib_1.__exportStar(__nccwpck_require__(60142), exports);
+var STSServiceException_1 = __nccwpck_require__(73149);
 Object.defineProperty(exports, "STSServiceException", ({ enumerable: true, get: function () { return STSServiceException_1.STSServiceException; } }));
 
 
 /***/ }),
 
-/***/ 78946:
+/***/ 73149:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19076,25 +19403,25 @@ exports.STSServiceException = STSServiceException;
 
 /***/ }),
 
-/***/ 22535:
+/***/ 33548:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(4507), exports);
+tslib_1.__exportStar(__nccwpck_require__(31746), exports);
 
 
 /***/ }),
 
-/***/ 4507:
+/***/ 31746:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetSessionTokenResponseFilterSensitiveLog = exports.GetFederationTokenResponseFilterSensitiveLog = exports.AssumeRoleWithWebIdentityResponseFilterSensitiveLog = exports.AssumeRoleWithWebIdentityRequestFilterSensitiveLog = exports.AssumeRoleWithSAMLResponseFilterSensitiveLog = exports.AssumeRoleWithSAMLRequestFilterSensitiveLog = exports.AssumeRoleResponseFilterSensitiveLog = exports.CredentialsFilterSensitiveLog = exports.InvalidAuthorizationMessageException = exports.IDPCommunicationErrorException = exports.InvalidIdentityTokenException = exports.IDPRejectedClaimException = exports.RegionDisabledException = exports.PackedPolicyTooLargeException = exports.MalformedPolicyDocumentException = exports.ExpiredTokenException = void 0;
 const smithy_client_1 = __nccwpck_require__(96899);
-const STSServiceException_1 = __nccwpck_require__(78946);
+const STSServiceException_1 = __nccwpck_require__(73149);
 class ExpiredTokenException extends STSServiceException_1.STSServiceException {
     constructor(opts) {
         super({
@@ -19243,7 +19570,7 @@ exports.GetSessionTokenResponseFilterSensitiveLog = GetSessionTokenResponseFilte
 
 /***/ }),
 
-/***/ 90023:
+/***/ 11585:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19252,15 +19579,15 @@ exports.de_GetSessionTokenCommand = exports.de_GetFederationTokenCommand = expor
 const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_1 = __nccwpck_require__(96899);
 const fast_xml_parser_1 = __nccwpck_require__(64751);
-const models_0_1 = __nccwpck_require__(4507);
-const STSServiceException_1 = __nccwpck_require__(78946);
+const models_0_1 = __nccwpck_require__(31746);
+const STSServiceException_1 = __nccwpck_require__(73149);
 const se_AssumeRoleCommand = async (input, context) => {
     const headers = SHARED_HEADERS;
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleRequest(input, context),
-        Action: "AssumeRole",
-        Version: "2011-06-15",
+        [_A]: _AR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19270,8 +19597,8 @@ const se_AssumeRoleWithSAMLCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleWithSAMLRequest(input, context),
-        Action: "AssumeRoleWithSAML",
-        Version: "2011-06-15",
+        [_A]: _ARWSAML,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19281,8 +19608,8 @@ const se_AssumeRoleWithWebIdentityCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleWithWebIdentityRequest(input, context),
-        Action: "AssumeRoleWithWebIdentity",
-        Version: "2011-06-15",
+        [_A]: _ARWWI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19292,8 +19619,8 @@ const se_DecodeAuthorizationMessageCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DecodeAuthorizationMessageRequest(input, context),
-        Action: "DecodeAuthorizationMessage",
-        Version: "2011-06-15",
+        [_A]: _DAM,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19303,8 +19630,8 @@ const se_GetAccessKeyInfoCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetAccessKeyInfoRequest(input, context),
-        Action: "GetAccessKeyInfo",
-        Version: "2011-06-15",
+        [_A]: _GAKI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19314,8 +19641,8 @@ const se_GetCallerIdentityCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetCallerIdentityRequest(input, context),
-        Action: "GetCallerIdentity",
-        Version: "2011-06-15",
+        [_A]: _GCI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19325,8 +19652,8 @@ const se_GetFederationTokenCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetFederationTokenRequest(input, context),
-        Action: "GetFederationToken",
-        Version: "2011-06-15",
+        [_A]: _GFT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19336,8 +19663,8 @@ const se_GetSessionTokenCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetSessionTokenRequest(input, context),
-        Action: "GetSessionToken",
-        Version: "2011-06-15",
+        [_A]: _GST,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19716,15 +20043,15 @@ const de_RegionDisabledExceptionRes = async (parsedOutput, context) => {
 };
 const se_AssumeRoleRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn != null) {
-        entries["RoleArn"] = input.RoleArn;
+    if (input[_RA] != null) {
+        entries[_RA] = input[_RA];
     }
-    if (input.RoleSessionName != null) {
-        entries["RoleSessionName"] = input.RoleSessionName;
+    if (input[_RSN] != null) {
+        entries[_RSN] = input[_RSN];
     }
-    if (input.PolicyArns != null) {
-        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-        if (input.PolicyArns?.length === 0) {
+    if (input[_PA] != null) {
+        const memberEntries = se_policyDescriptorListType(input[_PA], context);
+        if (input[_PA]?.length === 0) {
             entries.PolicyArns = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19732,15 +20059,15 @@ const se_AssumeRoleRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Policy != null) {
-        entries["Policy"] = input.Policy;
+    if (input[_P] != null) {
+        entries[_P] = input[_P];
     }
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
-    if (input.Tags != null) {
-        const memberEntries = se_tagListType(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_T] != null) {
+        const memberEntries = se_tagListType(input[_T], context);
+        if (input[_T]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19748,9 +20075,9 @@ const se_AssumeRoleRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.TransitiveTagKeys != null) {
-        const memberEntries = se_tagKeyListType(input.TransitiveTagKeys, context);
-        if (input.TransitiveTagKeys?.length === 0) {
+    if (input[_TTK] != null) {
+        const memberEntries = se_tagKeyListType(input[_TTK], context);
+        if (input[_TTK]?.length === 0) {
             entries.TransitiveTagKeys = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19758,21 +20085,21 @@ const se_AssumeRoleRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ExternalId != null) {
-        entries["ExternalId"] = input.ExternalId;
+    if (input[_EI] != null) {
+        entries[_EI] = input[_EI];
     }
-    if (input.SerialNumber != null) {
-        entries["SerialNumber"] = input.SerialNumber;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TokenCode != null) {
-        entries["TokenCode"] = input.TokenCode;
+    if (input[_TC] != null) {
+        entries[_TC] = input[_TC];
     }
-    if (input.SourceIdentity != null) {
-        entries["SourceIdentity"] = input.SourceIdentity;
+    if (input[_SI] != null) {
+        entries[_SI] = input[_SI];
     }
-    if (input.ProvidedContexts != null) {
-        const memberEntries = se_ProvidedContextsListType(input.ProvidedContexts, context);
-        if (input.ProvidedContexts?.length === 0) {
+    if (input[_PC] != null) {
+        const memberEntries = se_ProvidedContextsListType(input[_PC], context);
+        if (input[_PC]?.length === 0) {
             entries.ProvidedContexts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19784,18 +20111,18 @@ const se_AssumeRoleRequest = (input, context) => {
 };
 const se_AssumeRoleWithSAMLRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn != null) {
-        entries["RoleArn"] = input.RoleArn;
+    if (input[_RA] != null) {
+        entries[_RA] = input[_RA];
     }
-    if (input.PrincipalArn != null) {
-        entries["PrincipalArn"] = input.PrincipalArn;
+    if (input[_PAr] != null) {
+        entries[_PAr] = input[_PAr];
     }
-    if (input.SAMLAssertion != null) {
-        entries["SAMLAssertion"] = input.SAMLAssertion;
+    if (input[_SAMLA] != null) {
+        entries[_SAMLA] = input[_SAMLA];
     }
-    if (input.PolicyArns != null) {
-        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-        if (input.PolicyArns?.length === 0) {
+    if (input[_PA] != null) {
+        const memberEntries = se_policyDescriptorListType(input[_PA], context);
+        if (input[_PA]?.length === 0) {
             entries.PolicyArns = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19803,31 +20130,31 @@ const se_AssumeRoleWithSAMLRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Policy != null) {
-        entries["Policy"] = input.Policy;
+    if (input[_P] != null) {
+        entries[_P] = input[_P];
     }
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
     return entries;
 };
 const se_AssumeRoleWithWebIdentityRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn != null) {
-        entries["RoleArn"] = input.RoleArn;
+    if (input[_RA] != null) {
+        entries[_RA] = input[_RA];
     }
-    if (input.RoleSessionName != null) {
-        entries["RoleSessionName"] = input.RoleSessionName;
+    if (input[_RSN] != null) {
+        entries[_RSN] = input[_RSN];
     }
-    if (input.WebIdentityToken != null) {
-        entries["WebIdentityToken"] = input.WebIdentityToken;
+    if (input[_WIT] != null) {
+        entries[_WIT] = input[_WIT];
     }
-    if (input.ProviderId != null) {
-        entries["ProviderId"] = input.ProviderId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
-    if (input.PolicyArns != null) {
-        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-        if (input.PolicyArns?.length === 0) {
+    if (input[_PA] != null) {
+        const memberEntries = se_policyDescriptorListType(input[_PA], context);
+        if (input[_PA]?.length === 0) {
             entries.PolicyArns = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19835,25 +20162,25 @@ const se_AssumeRoleWithWebIdentityRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Policy != null) {
-        entries["Policy"] = input.Policy;
+    if (input[_P] != null) {
+        entries[_P] = input[_P];
     }
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
     return entries;
 };
 const se_DecodeAuthorizationMessageRequest = (input, context) => {
     const entries = {};
-    if (input.EncodedMessage != null) {
-        entries["EncodedMessage"] = input.EncodedMessage;
+    if (input[_EM] != null) {
+        entries[_EM] = input[_EM];
     }
     return entries;
 };
 const se_GetAccessKeyInfoRequest = (input, context) => {
     const entries = {};
-    if (input.AccessKeyId != null) {
-        entries["AccessKeyId"] = input.AccessKeyId;
+    if (input[_AKI] != null) {
+        entries[_AKI] = input[_AKI];
     }
     return entries;
 };
@@ -19863,15 +20190,15 @@ const se_GetCallerIdentityRequest = (input, context) => {
 };
 const se_GetFederationTokenRequest = (input, context) => {
     const entries = {};
-    if (input.Name != null) {
-        entries["Name"] = input.Name;
+    if (input[_N] != null) {
+        entries[_N] = input[_N];
     }
-    if (input.Policy != null) {
-        entries["Policy"] = input.Policy;
+    if (input[_P] != null) {
+        entries[_P] = input[_P];
     }
-    if (input.PolicyArns != null) {
-        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-        if (input.PolicyArns?.length === 0) {
+    if (input[_PA] != null) {
+        const memberEntries = se_policyDescriptorListType(input[_PA], context);
+        if (input[_PA]?.length === 0) {
             entries.PolicyArns = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19879,12 +20206,12 @@ const se_GetFederationTokenRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
-    if (input.Tags != null) {
-        const memberEntries = se_tagListType(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_T] != null) {
+        const memberEntries = se_tagListType(input[_T], context);
+        if (input[_T]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19896,14 +20223,14 @@ const se_GetFederationTokenRequest = (input, context) => {
 };
 const se_GetSessionTokenRequest = (input, context) => {
     const entries = {};
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
-    if (input.SerialNumber != null) {
-        entries["SerialNumber"] = input.SerialNumber;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TokenCode != null) {
-        entries["TokenCode"] = input.TokenCode;
+    if (input[_TC] != null) {
+        entries[_TC] = input[_TC];
     }
     return entries;
 };
@@ -19924,18 +20251,18 @@ const se_policyDescriptorListType = (input, context) => {
 };
 const se_PolicyDescriptorType = (input, context) => {
     const entries = {};
-    if (input.arn != null) {
-        entries["arn"] = input.arn;
+    if (input[_a] != null) {
+        entries[_a] = input[_a];
     }
     return entries;
 };
 const se_ProvidedContext = (input, context) => {
     const entries = {};
-    if (input.ProviderArn != null) {
-        entries["ProviderArn"] = input.ProviderArn;
+    if (input[_PAro] != null) {
+        entries[_PAro] = input[_PAro];
     }
-    if (input.ContextAssertion != null) {
-        entries["ContextAssertion"] = input.ContextAssertion;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
@@ -19956,11 +20283,11 @@ const se_ProvidedContextsListType = (input, context) => {
 };
 const se_Tag = (input, context) => {
     const entries = {};
-    if (input.Key != null) {
-        entries["Key"] = input.Key;
+    if (input[_K] != null) {
+        entries[_K] = input[_K];
     }
-    if (input.Value != null) {
-        entries["Value"] = input.Value;
+    if (input[_Va] != null) {
+        entries[_Va] = input[_Va];
     }
     return entries;
 };
@@ -19993,212 +20320,212 @@ const se_tagListType = (input, context) => {
 };
 const de_AssumedRoleUser = (output, context) => {
     const contents = {};
-    if (output["AssumedRoleId"] !== undefined) {
-        contents.AssumedRoleId = (0, smithy_client_1.expectString)(output["AssumedRoleId"]);
+    if (output[_ARI] != null) {
+        contents[_ARI] = (0, smithy_client_1.expectString)(output[_ARI]);
     }
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
     return contents;
 };
 const de_AssumeRoleResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
-    if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+    if (output[_ARU] != null) {
+        contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
     }
-    if (output["PackedPolicySize"] !== undefined) {
-        contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
+    if (output[_PPS] != null) {
+        contents[_PPS] = (0, smithy_client_1.strictParseInt32)(output[_PPS]);
     }
-    if (output["SourceIdentity"] !== undefined) {
-        contents.SourceIdentity = (0, smithy_client_1.expectString)(output["SourceIdentity"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_AssumeRoleWithSAMLResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
-    if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+    if (output[_ARU] != null) {
+        contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
     }
-    if (output["PackedPolicySize"] !== undefined) {
-        contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
+    if (output[_PPS] != null) {
+        contents[_PPS] = (0, smithy_client_1.strictParseInt32)(output[_PPS]);
     }
-    if (output["Subject"] !== undefined) {
-        contents.Subject = (0, smithy_client_1.expectString)(output["Subject"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["SubjectType"] !== undefined) {
-        contents.SubjectType = (0, smithy_client_1.expectString)(output["SubjectType"]);
+    if (output[_ST] != null) {
+        contents[_ST] = (0, smithy_client_1.expectString)(output[_ST]);
     }
-    if (output["Issuer"] !== undefined) {
-        contents.Issuer = (0, smithy_client_1.expectString)(output["Issuer"]);
+    if (output[_I] != null) {
+        contents[_I] = (0, smithy_client_1.expectString)(output[_I]);
     }
-    if (output["Audience"] !== undefined) {
-        contents.Audience = (0, smithy_client_1.expectString)(output["Audience"]);
+    if (output[_Au] != null) {
+        contents[_Au] = (0, smithy_client_1.expectString)(output[_Au]);
     }
-    if (output["NameQualifier"] !== undefined) {
-        contents.NameQualifier = (0, smithy_client_1.expectString)(output["NameQualifier"]);
+    if (output[_NQ] != null) {
+        contents[_NQ] = (0, smithy_client_1.expectString)(output[_NQ]);
     }
-    if (output["SourceIdentity"] !== undefined) {
-        contents.SourceIdentity = (0, smithy_client_1.expectString)(output["SourceIdentity"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_AssumeRoleWithWebIdentityResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
-    if (output["SubjectFromWebIdentityToken"] !== undefined) {
-        contents.SubjectFromWebIdentityToken = (0, smithy_client_1.expectString)(output["SubjectFromWebIdentityToken"]);
+    if (output[_SFWIT] != null) {
+        contents[_SFWIT] = (0, smithy_client_1.expectString)(output[_SFWIT]);
     }
-    if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+    if (output[_ARU] != null) {
+        contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
     }
-    if (output["PackedPolicySize"] !== undefined) {
-        contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
+    if (output[_PPS] != null) {
+        contents[_PPS] = (0, smithy_client_1.strictParseInt32)(output[_PPS]);
     }
-    if (output["Provider"] !== undefined) {
-        contents.Provider = (0, smithy_client_1.expectString)(output["Provider"]);
+    if (output[_Pr] != null) {
+        contents[_Pr] = (0, smithy_client_1.expectString)(output[_Pr]);
     }
-    if (output["Audience"] !== undefined) {
-        contents.Audience = (0, smithy_client_1.expectString)(output["Audience"]);
+    if (output[_Au] != null) {
+        contents[_Au] = (0, smithy_client_1.expectString)(output[_Au]);
     }
-    if (output["SourceIdentity"] !== undefined) {
-        contents.SourceIdentity = (0, smithy_client_1.expectString)(output["SourceIdentity"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_Credentials = (output, context) => {
     const contents = {};
-    if (output["AccessKeyId"] !== undefined) {
-        contents.AccessKeyId = (0, smithy_client_1.expectString)(output["AccessKeyId"]);
+    if (output[_AKI] != null) {
+        contents[_AKI] = (0, smithy_client_1.expectString)(output[_AKI]);
     }
-    if (output["SecretAccessKey"] !== undefined) {
-        contents.SecretAccessKey = (0, smithy_client_1.expectString)(output["SecretAccessKey"]);
+    if (output[_SAK] != null) {
+        contents[_SAK] = (0, smithy_client_1.expectString)(output[_SAK]);
     }
-    if (output["SessionToken"] !== undefined) {
-        contents.SessionToken = (0, smithy_client_1.expectString)(output["SessionToken"]);
+    if (output[_STe] != null) {
+        contents[_STe] = (0, smithy_client_1.expectString)(output[_STe]);
     }
-    if (output["Expiration"] !== undefined) {
-        contents.Expiration = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Expiration"]));
+    if (output[_E] != null) {
+        contents[_E] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_E]));
     }
     return contents;
 };
 const de_DecodeAuthorizationMessageResponse = (output, context) => {
     const contents = {};
-    if (output["DecodedMessage"] !== undefined) {
-        contents.DecodedMessage = (0, smithy_client_1.expectString)(output["DecodedMessage"]);
+    if (output[_DM] != null) {
+        contents[_DM] = (0, smithy_client_1.expectString)(output[_DM]);
     }
     return contents;
 };
 const de_ExpiredTokenException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_FederatedUser = (output, context) => {
     const contents = {};
-    if (output["FederatedUserId"] !== undefined) {
-        contents.FederatedUserId = (0, smithy_client_1.expectString)(output["FederatedUserId"]);
+    if (output[_FUI] != null) {
+        contents[_FUI] = (0, smithy_client_1.expectString)(output[_FUI]);
     }
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
     return contents;
 };
 const de_GetAccessKeyInfoResponse = (output, context) => {
     const contents = {};
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Ac] != null) {
+        contents[_Ac] = (0, smithy_client_1.expectString)(output[_Ac]);
     }
     return contents;
 };
 const de_GetCallerIdentityResponse = (output, context) => {
     const contents = {};
-    if (output["UserId"] !== undefined) {
-        contents.UserId = (0, smithy_client_1.expectString)(output["UserId"]);
+    if (output[_UI] != null) {
+        contents[_UI] = (0, smithy_client_1.expectString)(output[_UI]);
     }
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Ac] != null) {
+        contents[_Ac] = (0, smithy_client_1.expectString)(output[_Ac]);
     }
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
     return contents;
 };
 const de_GetFederationTokenResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
-    if (output["FederatedUser"] !== undefined) {
-        contents.FederatedUser = de_FederatedUser(output["FederatedUser"], context);
+    if (output[_FU] != null) {
+        contents[_FU] = de_FederatedUser(output[_FU], context);
     }
-    if (output["PackedPolicySize"] !== undefined) {
-        contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
+    if (output[_PPS] != null) {
+        contents[_PPS] = (0, smithy_client_1.strictParseInt32)(output[_PPS]);
     }
     return contents;
 };
 const de_GetSessionTokenResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
     return contents;
 };
 const de_IDPCommunicationErrorException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_IDPRejectedClaimException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_InvalidAuthorizationMessageException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_InvalidIdentityTokenException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_MalformedPolicyDocumentException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_PackedPolicyTooLargeException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_RegionDisabledException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
@@ -20231,6 +20558,62 @@ const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, bod
 const SHARED_HEADERS = {
     "content-type": "application/x-www-form-urlencoded",
 };
+const _ = "2011-06-15";
+const _A = "Action";
+const _AKI = "AccessKeyId";
+const _AR = "AssumeRole";
+const _ARI = "AssumedRoleId";
+const _ARU = "AssumedRoleUser";
+const _ARWSAML = "AssumeRoleWithSAML";
+const _ARWWI = "AssumeRoleWithWebIdentity";
+const _Ac = "Account";
+const _Ar = "Arn";
+const _Au = "Audience";
+const _C = "Credentials";
+const _CA = "ContextAssertion";
+const _DAM = "DecodeAuthorizationMessage";
+const _DM = "DecodedMessage";
+const _DS = "DurationSeconds";
+const _E = "Expiration";
+const _EI = "ExternalId";
+const _EM = "EncodedMessage";
+const _FU = "FederatedUser";
+const _FUI = "FederatedUserId";
+const _GAKI = "GetAccessKeyInfo";
+const _GCI = "GetCallerIdentity";
+const _GFT = "GetFederationToken";
+const _GST = "GetSessionToken";
+const _I = "Issuer";
+const _K = "Key";
+const _N = "Name";
+const _NQ = "NameQualifier";
+const _P = "Policy";
+const _PA = "PolicyArns";
+const _PAr = "PrincipalArn";
+const _PAro = "ProviderArn";
+const _PC = "ProvidedContexts";
+const _PI = "ProviderId";
+const _PPS = "PackedPolicySize";
+const _Pr = "Provider";
+const _RA = "RoleArn";
+const _RSN = "RoleSessionName";
+const _S = "Subject";
+const _SAK = "SecretAccessKey";
+const _SAMLA = "SAMLAssertion";
+const _SFWIT = "SubjectFromWebIdentityToken";
+const _SI = "SourceIdentity";
+const _SN = "SerialNumber";
+const _ST = "SubjectType";
+const _STe = "SessionToken";
+const _T = "Tags";
+const _TC = "TokenCode";
+const _TTK = "TransitiveTagKeys";
+const _UI = "UserId";
+const _V = "Version";
+const _Va = "Value";
+const _WIT = "WebIdentityToken";
+const _a = "arn";
+const _m = "message";
 const parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
         const parser = new fast_xml_parser_1.XMLParser({
@@ -20278,17 +20661,17 @@ const loadQueryErrorCode = (output, data) => {
 
 /***/ }),
 
-/***/ 24636:
+/***/ 98888:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(66963));
-const defaultStsRoleAssumers_1 = __nccwpck_require__(24089);
-const core_1 = __nccwpck_require__(90195);
-const credential_provider_node_1 = __nccwpck_require__(4319);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(38410));
+const defaultStsRoleAssumers_1 = __nccwpck_require__(68166);
+const core_1 = __nccwpck_require__(36932);
+const credential_provider_node_1 = __nccwpck_require__(38140);
 const util_user_agent_node_1 = __nccwpck_require__(81873);
 const config_resolver_1 = __nccwpck_require__(52908);
 const core_2 = __nccwpck_require__(53899);
@@ -20298,7 +20681,7 @@ const node_config_provider_1 = __nccwpck_require__(27404);
 const node_http_handler_1 = __nccwpck_require__(1636);
 const util_body_length_node_1 = __nccwpck_require__(38668);
 const util_retry_1 = __nccwpck_require__(10358);
-const runtimeConfig_shared_1 = __nccwpck_require__(69543);
+const runtimeConfig_shared_1 = __nccwpck_require__(4613);
 const smithy_client_1 = __nccwpck_require__(96899);
 const util_defaults_mode_node_1 = __nccwpck_require__(94044);
 const smithy_client_2 = __nccwpck_require__(96899);
@@ -20349,20 +20732,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 69543:
+/***/ 4613:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(90195);
+const core_1 = __nccwpck_require__(36932);
 const core_2 = __nccwpck_require__(53899);
 const smithy_client_1 = __nccwpck_require__(96899);
 const url_parser_1 = __nccwpck_require__(40623);
 const util_base64_1 = __nccwpck_require__(63274);
 const util_utf8_1 = __nccwpck_require__(94099);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(85353);
-const endpointResolver_1 = __nccwpck_require__(59996);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(77907);
+const endpointResolver_1 = __nccwpck_require__(82346);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2011-06-15",
@@ -20396,7 +20779,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 5850:
+/***/ 75245:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20405,7 +20788,7 @@ exports.resolveRuntimeExtensions = void 0;
 const region_config_resolver_1 = __nccwpck_require__(74857);
 const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_1 = __nccwpck_require__(96899);
-const httpAuthExtensionConfiguration_1 = __nccwpck_require__(80114);
+const httpAuthExtensionConfiguration_1 = __nccwpck_require__(58194);
 const asPartial = (t) => t;
 const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
     const extensionConfiguration = {
@@ -20428,7 +20811,7 @@ exports.resolveRuntimeExtensions = resolveRuntimeExtensions;
 
 /***/ }),
 
-/***/ 45659:
+/***/ 99669:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -20452,26 +20835,26 @@ exports.emitWarningIfUnsupportedVersion = emitWarningIfUnsupportedVersion;
 
 /***/ }),
 
-/***/ 59677:
+/***/ 88752:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(45659), exports);
+tslib_1.__exportStar(__nccwpck_require__(99669), exports);
 
 
 /***/ }),
 
-/***/ 44217:
+/***/ 8980:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AWSSDKSigV4Signer = void 0;
 const protocol_http_1 = __nccwpck_require__(91658);
-const utils_1 = __nccwpck_require__(54485);
-const throwAWSSDKSigningPropertyError_1 = __nccwpck_require__(16283);
+const utils_1 = __nccwpck_require__(83496);
+const throwAWSSDKSigningPropertyError_1 = __nccwpck_require__(5160);
 const validateSigningProperties = async (signingProperties) => {
     var _a, _b, _c;
     const context = (0, throwAWSSDKSigningPropertyError_1.throwAWSSDKSigningPropertyError)("context", signingProperties.context);
@@ -20525,19 +20908,19 @@ exports.AWSSDKSigV4Signer = AWSSDKSigV4Signer;
 
 /***/ }),
 
-/***/ 60220:
+/***/ 92645:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(44217), exports);
-tslib_1.__exportStar(__nccwpck_require__(26369), exports);
+tslib_1.__exportStar(__nccwpck_require__(8980), exports);
+tslib_1.__exportStar(__nccwpck_require__(41870), exports);
 
 
 /***/ }),
 
-/***/ 26369:
+/***/ 41870:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20625,7 +21008,7 @@ exports.resolveAWSSDKSigV4Config = resolveAWSSDKSigV4Config;
 
 /***/ }),
 
-/***/ 16283:
+/***/ 5160:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -20642,18 +21025,18 @@ exports.throwAWSSDKSigningPropertyError = throwAWSSDKSigningPropertyError;
 
 /***/ }),
 
-/***/ 48610:
+/***/ 50581:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(60220), exports);
+tslib_1.__exportStar(__nccwpck_require__(92645), exports);
 
 
 /***/ }),
 
-/***/ 36745:
+/***/ 23593:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20666,7 +21049,7 @@ exports.getDateHeader = getDateHeader;
 
 /***/ }),
 
-/***/ 38716:
+/***/ 47501:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -20678,13 +21061,13 @@ exports.getSkewCorrectedDate = getSkewCorrectedDate;
 
 /***/ }),
 
-/***/ 11631:
+/***/ 99847:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getUpdatedSystemClockOffset = void 0;
-const isClockSkewed_1 = __nccwpck_require__(17081);
+const isClockSkewed_1 = __nccwpck_require__(63412);
 const getUpdatedSystemClockOffset = (clockTime, currentSystemClockOffset) => {
     const clockTimeInMs = Date.parse(clockTime);
     if ((0, isClockSkewed_1.isClockSkewed)(clockTimeInMs, currentSystemClockOffset)) {
@@ -20697,46 +21080,46 @@ exports.getUpdatedSystemClockOffset = getUpdatedSystemClockOffset;
 
 /***/ }),
 
-/***/ 54485:
+/***/ 83496:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(36745), exports);
-tslib_1.__exportStar(__nccwpck_require__(38716), exports);
-tslib_1.__exportStar(__nccwpck_require__(11631), exports);
+tslib_1.__exportStar(__nccwpck_require__(23593), exports);
+tslib_1.__exportStar(__nccwpck_require__(47501), exports);
+tslib_1.__exportStar(__nccwpck_require__(99847), exports);
 
 
 /***/ }),
 
-/***/ 17081:
+/***/ 63412:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.isClockSkewed = void 0;
-const getSkewCorrectedDate_1 = __nccwpck_require__(38716);
+const getSkewCorrectedDate_1 = __nccwpck_require__(47501);
 const isClockSkewed = (clockTime, systemClockOffset) => Math.abs((0, getSkewCorrectedDate_1.getSkewCorrectedDate)(systemClockOffset).getTime() - clockTime) >= 300000;
 exports.isClockSkewed = isClockSkewed;
 
 
 /***/ }),
 
-/***/ 90195:
+/***/ 36932:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(59677), exports);
-tslib_1.__exportStar(__nccwpck_require__(48610), exports);
-tslib_1.__exportStar(__nccwpck_require__(53134), exports);
+tslib_1.__exportStar(__nccwpck_require__(88752), exports);
+tslib_1.__exportStar(__nccwpck_require__(50581), exports);
+tslib_1.__exportStar(__nccwpck_require__(64594), exports);
 
 
 /***/ }),
 
-/***/ 46215:
+/***/ 1649:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -20802,19 +21185,19 @@ exports._toNum = _toNum;
 
 /***/ }),
 
-/***/ 53134:
+/***/ 64594:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(46215), exports);
-tslib_1.__exportStar(__nccwpck_require__(9474), exports);
+tslib_1.__exportStar(__nccwpck_require__(1649), exports);
+tslib_1.__exportStar(__nccwpck_require__(64862), exports);
 
 
 /***/ }),
 
-/***/ 9474:
+/***/ 64862:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20877,14 +21260,14 @@ tslib_1.__exportStar(__nccwpck_require__(40297), exports);
 
 /***/ }),
 
-/***/ 18432:
+/***/ 70158:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromIni = void 0;
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const resolveProfileData_1 = __nccwpck_require__(40315);
+const resolveProfileData_1 = __nccwpck_require__(37678);
 const fromIni = (init = {}) => async () => {
     const profiles = await (0, shared_ini_file_loader_1.parseKnownFiles)(init);
     return (0, resolveProfileData_1.resolveProfileData)((0, shared_ini_file_loader_1.getProfileName)(init), profiles, init);
@@ -20894,18 +21277,18 @@ exports.fromIni = fromIni;
 
 /***/ }),
 
-/***/ 48404:
+/***/ 3106:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(18432), exports);
+tslib_1.__exportStar(__nccwpck_require__(70158), exports);
 
 
 /***/ }),
 
-/***/ 70352:
+/***/ 44119:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20913,8 +21296,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveAssumeRoleCredentials = exports.isAssumeRoleProfile = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const resolveCredentialSource_1 = __nccwpck_require__(58369);
-const resolveProfileData_1 = __nccwpck_require__(40315);
+const resolveCredentialSource_1 = __nccwpck_require__(27320);
+const resolveProfileData_1 = __nccwpck_require__(37678);
 const isAssumeRoleProfile = (arg) => Boolean(arg) &&
     typeof arg === "object" &&
     typeof arg.role_arn === "string" &&
@@ -20964,7 +21347,7 @@ exports.resolveAssumeRoleCredentials = resolveAssumeRoleCredentials;
 
 /***/ }),
 
-/***/ 58369:
+/***/ 27320:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20992,7 +21375,7 @@ exports.resolveCredentialSource = resolveCredentialSource;
 
 /***/ }),
 
-/***/ 34245:
+/***/ 33603:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -21010,18 +21393,18 @@ exports.resolveProcessCredentials = resolveProcessCredentials;
 
 /***/ }),
 
-/***/ 40315:
+/***/ 37678:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveProfileData = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
-const resolveAssumeRoleCredentials_1 = __nccwpck_require__(70352);
-const resolveProcessCredentials_1 = __nccwpck_require__(34245);
-const resolveSsoCredentials_1 = __nccwpck_require__(65681);
-const resolveStaticCredentials_1 = __nccwpck_require__(52118);
-const resolveWebIdentityCredentials_1 = __nccwpck_require__(78133);
+const resolveAssumeRoleCredentials_1 = __nccwpck_require__(44119);
+const resolveProcessCredentials_1 = __nccwpck_require__(33603);
+const resolveSsoCredentials_1 = __nccwpck_require__(8873);
+const resolveStaticCredentials_1 = __nccwpck_require__(98605);
+const resolveWebIdentityCredentials_1 = __nccwpck_require__(61541);
 const resolveProfileData = async (profileName, profiles, options, visitedProfiles = {}) => {
     const data = profiles[profileName];
     if (Object.keys(visitedProfiles).length > 0 && (0, resolveStaticCredentials_1.isStaticCredsProfile)(data)) {
@@ -21049,14 +21432,14 @@ exports.resolveProfileData = resolveProfileData;
 
 /***/ }),
 
-/***/ 65681:
+/***/ 8873:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveSsoCredentials = exports.isSsoProfile = void 0;
-const credential_provider_sso_1 = __nccwpck_require__(54638);
-var credential_provider_sso_2 = __nccwpck_require__(54638);
+const credential_provider_sso_1 = __nccwpck_require__(5897);
+var credential_provider_sso_2 = __nccwpck_require__(5897);
 Object.defineProperty(exports, "isSsoProfile", ({ enumerable: true, get: function () { return credential_provider_sso_2.isSsoProfile; } }));
 const resolveSsoCredentials = (data) => {
     const { sso_start_url, sso_account_id, sso_session, sso_region, sso_role_name } = (0, credential_provider_sso_1.validateSsoProfile)(data);
@@ -21073,7 +21456,7 @@ exports.resolveSsoCredentials = resolveSsoCredentials;
 
 /***/ }),
 
-/***/ 52118:
+/***/ 98605:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -21095,7 +21478,7 @@ exports.resolveStaticCredentials = resolveStaticCredentials;
 
 /***/ }),
 
-/***/ 78133:
+/***/ 61541:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -21119,20 +21502,20 @@ exports.resolveWebIdentityCredentials = resolveWebIdentityCredentials;
 
 /***/ }),
 
-/***/ 75114:
+/***/ 1610:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultProvider = void 0;
 const credential_provider_env_1 = __nccwpck_require__(69574);
-const credential_provider_ini_1 = __nccwpck_require__(48404);
+const credential_provider_ini_1 = __nccwpck_require__(3106);
 const credential_provider_process_1 = __nccwpck_require__(92045);
-const credential_provider_sso_1 = __nccwpck_require__(54638);
+const credential_provider_sso_1 = __nccwpck_require__(5897);
 const credential_provider_web_identity_1 = __nccwpck_require__(14904);
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const remoteProvider_1 = __nccwpck_require__(381);
+const remoteProvider_1 = __nccwpck_require__(33935);
 const defaultProvider = (init = {}) => (0, property_provider_1.memoize)((0, property_provider_1.chain)(...(init.profile || process.env[shared_ini_file_loader_1.ENV_PROFILE] ? [] : [(0, credential_provider_env_1.fromEnv)()]), (0, credential_provider_sso_1.fromSSO)(init), (0, credential_provider_ini_1.fromIni)(init), (0, credential_provider_process_1.fromProcess)(init), (0, credential_provider_web_identity_1.fromTokenFile)(init), (0, remoteProvider_1.remoteProvider)(init), async () => {
     throw new property_provider_1.CredentialsProviderError("Could not load credentials from any providers", false);
 }), (credentials) => credentials.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000, (credentials) => credentials.expiration !== undefined);
@@ -21141,18 +21524,18 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 4319:
+/***/ 38140:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(75114), exports);
+tslib_1.__exportStar(__nccwpck_require__(1610), exports);
 
 
 /***/ }),
 
-/***/ 381:
+/***/ 33935:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -21281,7 +21664,7 @@ exports.resolveProcessCredentials = resolveProcessCredentials;
 
 /***/ }),
 
-/***/ 77591:
+/***/ 95911:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -21289,9 +21672,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromSSO = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const isSsoProfile_1 = __nccwpck_require__(15544);
-const resolveSSOCredentials_1 = __nccwpck_require__(63286);
-const validateSsoProfile_1 = __nccwpck_require__(53655);
+const isSsoProfile_1 = __nccwpck_require__(74875);
+const resolveSSOCredentials_1 = __nccwpck_require__(38754);
+const validateSsoProfile_1 = __nccwpck_require__(43831);
 const fromSSO = (init = {}) => async () => {
     const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient, ssoSession } = init;
     const profileName = (0, shared_ini_file_loader_1.getProfileName)(init);
@@ -21349,21 +21732,21 @@ exports.fromSSO = fromSSO;
 
 /***/ }),
 
-/***/ 54638:
+/***/ 5897:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(77591), exports);
-tslib_1.__exportStar(__nccwpck_require__(15544), exports);
-tslib_1.__exportStar(__nccwpck_require__(65289), exports);
-tslib_1.__exportStar(__nccwpck_require__(53655), exports);
+tslib_1.__exportStar(__nccwpck_require__(95911), exports);
+tslib_1.__exportStar(__nccwpck_require__(74875), exports);
+tslib_1.__exportStar(__nccwpck_require__(11361), exports);
+tslib_1.__exportStar(__nccwpck_require__(43831), exports);
 
 
 /***/ }),
 
-/***/ 15544:
+/***/ 74875:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -21380,13 +21763,13 @@ exports.isSsoProfile = isSsoProfile;
 
 /***/ }),
 
-/***/ 63286:
+/***/ 38754:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveSSOCredentials = void 0;
-const client_sso_1 = __nccwpck_require__(82737);
+const client_sso_1 = __nccwpck_require__(28754);
 const token_providers_1 = __nccwpck_require__(30804);
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
@@ -21441,7 +21824,7 @@ exports.resolveSSOCredentials = resolveSSOCredentials;
 
 /***/ }),
 
-/***/ 65289:
+/***/ 11361:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -21450,7 +21833,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
-/***/ 53655:
+/***/ 43831:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -60910,24 +61293,24 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 3988:
+/***/ 45286:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.476.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.476.0","@aws-sdk/core":"3.476.0","@aws-sdk/credential-provider-node":"3.476.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-signing":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","@smithy/util-waiter":"^2.0.15","fast-xml-parser":"4.2.5","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.477.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.477.0","@aws-sdk/core":"3.477.0","@aws-sdk/credential-provider-node":"3.477.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-signing":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","@smithy/util-waiter":"^2.0.15","fast-xml-parser":"4.2.5","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
-/***/ 44135:
+/***/ 77573:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.476.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.476.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.477.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.477.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/core":"^1.2.0","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
-/***/ 66963:
+/***/ 38410:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.476.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.476.0","@aws-sdk/credential-provider-node":"3.476.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/core":"^1.1.0","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-middleware":"^2.0.8","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","fast-xml-parser":"4.2.5","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.477.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.477.0","@aws-sdk/credential-provider-node":"3.477.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/core":"^1.2.0","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-middleware":"^2.0.8","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","fast-xml-parser":"4.2.5","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
@@ -60980,7 +61363,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(96733);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(17655);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(35574);
 
 
 async function run() {
