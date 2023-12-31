@@ -2091,84 +2091,84 @@ exports.uint32ArrayFrom = uint32ArrayFrom;
 
 /***/ }),
 
-/***/ 33597:
+/***/ 27605:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CloudFormation = void 0;
 const smithy_client_1 = __nccwpck_require__(42724);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ActivateOrganizationsAccessCommand_1 = __nccwpck_require__(69423);
-const ActivateTypeCommand_1 = __nccwpck_require__(8409);
-const BatchDescribeTypeConfigurationsCommand_1 = __nccwpck_require__(2951);
-const CancelUpdateStackCommand_1 = __nccwpck_require__(6615);
-const ContinueUpdateRollbackCommand_1 = __nccwpck_require__(12374);
-const CreateChangeSetCommand_1 = __nccwpck_require__(74126);
-const CreateStackCommand_1 = __nccwpck_require__(48508);
-const CreateStackInstancesCommand_1 = __nccwpck_require__(87774);
-const CreateStackSetCommand_1 = __nccwpck_require__(29456);
-const DeactivateOrganizationsAccessCommand_1 = __nccwpck_require__(73524);
-const DeactivateTypeCommand_1 = __nccwpck_require__(96867);
-const DeleteChangeSetCommand_1 = __nccwpck_require__(34310);
-const DeleteStackCommand_1 = __nccwpck_require__(22694);
-const DeleteStackInstancesCommand_1 = __nccwpck_require__(5719);
-const DeleteStackSetCommand_1 = __nccwpck_require__(66214);
-const DeregisterTypeCommand_1 = __nccwpck_require__(63588);
-const DescribeAccountLimitsCommand_1 = __nccwpck_require__(63965);
-const DescribeChangeSetCommand_1 = __nccwpck_require__(64128);
-const DescribeChangeSetHooksCommand_1 = __nccwpck_require__(90922);
-const DescribeOrganizationsAccessCommand_1 = __nccwpck_require__(92740);
-const DescribePublisherCommand_1 = __nccwpck_require__(88172);
-const DescribeStackDriftDetectionStatusCommand_1 = __nccwpck_require__(17457);
-const DescribeStackEventsCommand_1 = __nccwpck_require__(24672);
-const DescribeStackInstanceCommand_1 = __nccwpck_require__(40087);
-const DescribeStackResourceCommand_1 = __nccwpck_require__(68576);
-const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(6057);
-const DescribeStackResourcesCommand_1 = __nccwpck_require__(10759);
-const DescribeStacksCommand_1 = __nccwpck_require__(47595);
-const DescribeStackSetCommand_1 = __nccwpck_require__(83730);
-const DescribeStackSetOperationCommand_1 = __nccwpck_require__(36318);
-const DescribeTypeCommand_1 = __nccwpck_require__(81682);
-const DescribeTypeRegistrationCommand_1 = __nccwpck_require__(15973);
-const DetectStackDriftCommand_1 = __nccwpck_require__(16368);
-const DetectStackResourceDriftCommand_1 = __nccwpck_require__(30466);
-const DetectStackSetDriftCommand_1 = __nccwpck_require__(14688);
-const EstimateTemplateCostCommand_1 = __nccwpck_require__(32989);
-const ExecuteChangeSetCommand_1 = __nccwpck_require__(90792);
-const GetStackPolicyCommand_1 = __nccwpck_require__(45770);
-const GetTemplateCommand_1 = __nccwpck_require__(22499);
-const GetTemplateSummaryCommand_1 = __nccwpck_require__(96207);
-const ImportStacksToStackSetCommand_1 = __nccwpck_require__(27836);
-const ListChangeSetsCommand_1 = __nccwpck_require__(80991);
-const ListExportsCommand_1 = __nccwpck_require__(10239);
-const ListImportsCommand_1 = __nccwpck_require__(64849);
-const ListStackInstanceResourceDriftsCommand_1 = __nccwpck_require__(51770);
-const ListStackInstancesCommand_1 = __nccwpck_require__(73469);
-const ListStackResourcesCommand_1 = __nccwpck_require__(17800);
-const ListStacksCommand_1 = __nccwpck_require__(11112);
-const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(5569);
-const ListStackSetOperationsCommand_1 = __nccwpck_require__(11954);
-const ListStackSetsCommand_1 = __nccwpck_require__(87382);
-const ListTypeRegistrationsCommand_1 = __nccwpck_require__(42629);
-const ListTypesCommand_1 = __nccwpck_require__(8510);
-const ListTypeVersionsCommand_1 = __nccwpck_require__(48066);
-const PublishTypeCommand_1 = __nccwpck_require__(57555);
-const RecordHandlerProgressCommand_1 = __nccwpck_require__(44331);
-const RegisterPublisherCommand_1 = __nccwpck_require__(65000);
-const RegisterTypeCommand_1 = __nccwpck_require__(9352);
-const RollbackStackCommand_1 = __nccwpck_require__(66270);
-const SetStackPolicyCommand_1 = __nccwpck_require__(67405);
-const SetTypeConfigurationCommand_1 = __nccwpck_require__(61418);
-const SetTypeDefaultVersionCommand_1 = __nccwpck_require__(37617);
-const SignalResourceCommand_1 = __nccwpck_require__(59081);
-const StopStackSetOperationCommand_1 = __nccwpck_require__(33987);
-const TestTypeCommand_1 = __nccwpck_require__(47233);
-const UpdateStackCommand_1 = __nccwpck_require__(10341);
-const UpdateStackInstancesCommand_1 = __nccwpck_require__(32747);
-const UpdateStackSetCommand_1 = __nccwpck_require__(95521);
-const UpdateTerminationProtectionCommand_1 = __nccwpck_require__(17298);
-const ValidateTemplateCommand_1 = __nccwpck_require__(24982);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ActivateOrganizationsAccessCommand_1 = __nccwpck_require__(73543);
+const ActivateTypeCommand_1 = __nccwpck_require__(12399);
+const BatchDescribeTypeConfigurationsCommand_1 = __nccwpck_require__(58491);
+const CancelUpdateStackCommand_1 = __nccwpck_require__(98323);
+const ContinueUpdateRollbackCommand_1 = __nccwpck_require__(69432);
+const CreateChangeSetCommand_1 = __nccwpck_require__(34161);
+const CreateStackCommand_1 = __nccwpck_require__(94769);
+const CreateStackInstancesCommand_1 = __nccwpck_require__(42194);
+const CreateStackSetCommand_1 = __nccwpck_require__(84847);
+const DeactivateOrganizationsAccessCommand_1 = __nccwpck_require__(9600);
+const DeactivateTypeCommand_1 = __nccwpck_require__(14848);
+const DeleteChangeSetCommand_1 = __nccwpck_require__(41511);
+const DeleteStackCommand_1 = __nccwpck_require__(85704);
+const DeleteStackInstancesCommand_1 = __nccwpck_require__(63035);
+const DeleteStackSetCommand_1 = __nccwpck_require__(18884);
+const DeregisterTypeCommand_1 = __nccwpck_require__(28147);
+const DescribeAccountLimitsCommand_1 = __nccwpck_require__(1047);
+const DescribeChangeSetCommand_1 = __nccwpck_require__(3722);
+const DescribeChangeSetHooksCommand_1 = __nccwpck_require__(10824);
+const DescribeOrganizationsAccessCommand_1 = __nccwpck_require__(80116);
+const DescribePublisherCommand_1 = __nccwpck_require__(90115);
+const DescribeStackDriftDetectionStatusCommand_1 = __nccwpck_require__(43285);
+const DescribeStackEventsCommand_1 = __nccwpck_require__(31720);
+const DescribeStackInstanceCommand_1 = __nccwpck_require__(64205);
+const DescribeStackResourceCommand_1 = __nccwpck_require__(96339);
+const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(53167);
+const DescribeStackResourcesCommand_1 = __nccwpck_require__(16496);
+const DescribeStacksCommand_1 = __nccwpck_require__(99034);
+const DescribeStackSetCommand_1 = __nccwpck_require__(74100);
+const DescribeStackSetOperationCommand_1 = __nccwpck_require__(18430);
+const DescribeTypeCommand_1 = __nccwpck_require__(71286);
+const DescribeTypeRegistrationCommand_1 = __nccwpck_require__(94360);
+const DetectStackDriftCommand_1 = __nccwpck_require__(63845);
+const DetectStackResourceDriftCommand_1 = __nccwpck_require__(34860);
+const DetectStackSetDriftCommand_1 = __nccwpck_require__(76557);
+const EstimateTemplateCostCommand_1 = __nccwpck_require__(25414);
+const ExecuteChangeSetCommand_1 = __nccwpck_require__(28259);
+const GetStackPolicyCommand_1 = __nccwpck_require__(32794);
+const GetTemplateCommand_1 = __nccwpck_require__(13022);
+const GetTemplateSummaryCommand_1 = __nccwpck_require__(90882);
+const ImportStacksToStackSetCommand_1 = __nccwpck_require__(63011);
+const ListChangeSetsCommand_1 = __nccwpck_require__(47674);
+const ListExportsCommand_1 = __nccwpck_require__(38065);
+const ListImportsCommand_1 = __nccwpck_require__(89634);
+const ListStackInstanceResourceDriftsCommand_1 = __nccwpck_require__(19829);
+const ListStackInstancesCommand_1 = __nccwpck_require__(17165);
+const ListStackResourcesCommand_1 = __nccwpck_require__(18653);
+const ListStacksCommand_1 = __nccwpck_require__(90000);
+const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(86903);
+const ListStackSetOperationsCommand_1 = __nccwpck_require__(59503);
+const ListStackSetsCommand_1 = __nccwpck_require__(78697);
+const ListTypeRegistrationsCommand_1 = __nccwpck_require__(63858);
+const ListTypesCommand_1 = __nccwpck_require__(4538);
+const ListTypeVersionsCommand_1 = __nccwpck_require__(78109);
+const PublishTypeCommand_1 = __nccwpck_require__(69687);
+const RecordHandlerProgressCommand_1 = __nccwpck_require__(69489);
+const RegisterPublisherCommand_1 = __nccwpck_require__(16196);
+const RegisterTypeCommand_1 = __nccwpck_require__(52594);
+const RollbackStackCommand_1 = __nccwpck_require__(96570);
+const SetStackPolicyCommand_1 = __nccwpck_require__(1496);
+const SetTypeConfigurationCommand_1 = __nccwpck_require__(84421);
+const SetTypeDefaultVersionCommand_1 = __nccwpck_require__(57336);
+const SignalResourceCommand_1 = __nccwpck_require__(60188);
+const StopStackSetOperationCommand_1 = __nccwpck_require__(50326);
+const TestTypeCommand_1 = __nccwpck_require__(37054);
+const UpdateStackCommand_1 = __nccwpck_require__(71291);
+const UpdateStackInstancesCommand_1 = __nccwpck_require__(27737);
+const UpdateStackSetCommand_1 = __nccwpck_require__(33148);
+const UpdateTerminationProtectionCommand_1 = __nccwpck_require__(10141);
+const ValidateTemplateCommand_1 = __nccwpck_require__(33618);
 const commands = {
     ActivateOrganizationsAccessCommand: ActivateOrganizationsAccessCommand_1.ActivateOrganizationsAccessCommand,
     ActivateTypeCommand: ActivateTypeCommand_1.ActivateTypeCommand,
@@ -2249,7 +2249,7 @@ exports.CloudFormation = CloudFormation;
 
 /***/ }),
 
-/***/ 59307:
+/***/ 80495:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2266,9 +2266,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_retry_1 = __nccwpck_require__(90061);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const runtimeConfig_1 = __nccwpck_require__(90908);
-const runtimeExtensions_1 = __nccwpck_require__(57427);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const runtimeConfig_1 = __nccwpck_require__(39243);
+const runtimeExtensions_1 = __nccwpck_require__(28613);
 class CloudFormationClient extends smithy_client_1.Client {
     constructor(...[configuration]) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration || {});
@@ -2299,7 +2299,7 @@ exports.CloudFormationClient = CloudFormationClient;
 
 /***/ }),
 
-/***/ 69423:
+/***/ 73543:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2309,8 +2309,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ActivateOrganizationsAccessCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2334,7 +2334,7 @@ exports.ActivateOrganizationsAccessCommand = ActivateOrganizationsAccessCommand;
 
 /***/ }),
 
-/***/ 8409:
+/***/ 12399:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2344,8 +2344,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ActivateTypeCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2369,7 +2369,7 @@ exports.ActivateTypeCommand = ActivateTypeCommand;
 
 /***/ }),
 
-/***/ 2951:
+/***/ 58491:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2379,8 +2379,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class BatchDescribeTypeConfigurationsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2404,7 +2404,7 @@ exports.BatchDescribeTypeConfigurationsCommand = BatchDescribeTypeConfigurations
 
 /***/ }),
 
-/***/ 6615:
+/***/ 98323:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2414,8 +2414,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class CancelUpdateStackCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2439,7 +2439,7 @@ exports.CancelUpdateStackCommand = CancelUpdateStackCommand;
 
 /***/ }),
 
-/***/ 12374:
+/***/ 69432:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2449,8 +2449,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ContinueUpdateRollbackCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2474,7 +2474,7 @@ exports.ContinueUpdateRollbackCommand = ContinueUpdateRollbackCommand;
 
 /***/ }),
 
-/***/ 74126:
+/***/ 34161:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2484,8 +2484,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class CreateChangeSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2509,7 +2509,7 @@ exports.CreateChangeSetCommand = CreateChangeSetCommand;
 
 /***/ }),
 
-/***/ 48508:
+/***/ 94769:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2519,8 +2519,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class CreateStackCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2544,7 +2544,7 @@ exports.CreateStackCommand = CreateStackCommand;
 
 /***/ }),
 
-/***/ 87774:
+/***/ 42194:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2554,8 +2554,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class CreateStackInstancesCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2579,7 +2579,7 @@ exports.CreateStackInstancesCommand = CreateStackInstancesCommand;
 
 /***/ }),
 
-/***/ 29456:
+/***/ 84847:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2589,8 +2589,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class CreateStackSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2614,7 +2614,7 @@ exports.CreateStackSetCommand = CreateStackSetCommand;
 
 /***/ }),
 
-/***/ 73524:
+/***/ 9600:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2624,8 +2624,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DeactivateOrganizationsAccessCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2649,7 +2649,7 @@ exports.DeactivateOrganizationsAccessCommand = DeactivateOrganizationsAccessComm
 
 /***/ }),
 
-/***/ 96867:
+/***/ 14848:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2659,8 +2659,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DeactivateTypeCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2684,7 +2684,7 @@ exports.DeactivateTypeCommand = DeactivateTypeCommand;
 
 /***/ }),
 
-/***/ 34310:
+/***/ 41511:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2694,8 +2694,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DeleteChangeSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2719,7 +2719,7 @@ exports.DeleteChangeSetCommand = DeleteChangeSetCommand;
 
 /***/ }),
 
-/***/ 22694:
+/***/ 85704:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2729,8 +2729,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DeleteStackCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2754,7 +2754,7 @@ exports.DeleteStackCommand = DeleteStackCommand;
 
 /***/ }),
 
-/***/ 5719:
+/***/ 63035:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2764,8 +2764,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DeleteStackInstancesCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2789,7 +2789,7 @@ exports.DeleteStackInstancesCommand = DeleteStackInstancesCommand;
 
 /***/ }),
 
-/***/ 66214:
+/***/ 18884:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2799,8 +2799,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DeleteStackSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2824,7 +2824,7 @@ exports.DeleteStackSetCommand = DeleteStackSetCommand;
 
 /***/ }),
 
-/***/ 63588:
+/***/ 28147:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2834,8 +2834,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DeregisterTypeCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2859,7 +2859,7 @@ exports.DeregisterTypeCommand = DeregisterTypeCommand;
 
 /***/ }),
 
-/***/ 63965:
+/***/ 1047:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2869,8 +2869,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeAccountLimitsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2894,7 +2894,7 @@ exports.DescribeAccountLimitsCommand = DescribeAccountLimitsCommand;
 
 /***/ }),
 
-/***/ 64128:
+/***/ 3722:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2904,8 +2904,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeChangeSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2929,7 +2929,7 @@ exports.DescribeChangeSetCommand = DescribeChangeSetCommand;
 
 /***/ }),
 
-/***/ 90922:
+/***/ 10824:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2939,8 +2939,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeChangeSetHooksCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2964,7 +2964,7 @@ exports.DescribeChangeSetHooksCommand = DescribeChangeSetHooksCommand;
 
 /***/ }),
 
-/***/ 92740:
+/***/ 80116:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -2974,8 +2974,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeOrganizationsAccessCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -2999,7 +2999,7 @@ exports.DescribeOrganizationsAccessCommand = DescribeOrganizationsAccessCommand;
 
 /***/ }),
 
-/***/ 88172:
+/***/ 90115:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3009,8 +3009,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribePublisherCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3034,7 +3034,7 @@ exports.DescribePublisherCommand = DescribePublisherCommand;
 
 /***/ }),
 
-/***/ 17457:
+/***/ 43285:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3044,8 +3044,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStackDriftDetectionStatusCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3069,7 +3069,7 @@ exports.DescribeStackDriftDetectionStatusCommand = DescribeStackDriftDetectionSt
 
 /***/ }),
 
-/***/ 24672:
+/***/ 31720:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3079,8 +3079,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStackEventsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3104,7 +3104,7 @@ exports.DescribeStackEventsCommand = DescribeStackEventsCommand;
 
 /***/ }),
 
-/***/ 40087:
+/***/ 64205:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3114,8 +3114,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStackInstanceCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3139,7 +3139,7 @@ exports.DescribeStackInstanceCommand = DescribeStackInstanceCommand;
 
 /***/ }),
 
-/***/ 68576:
+/***/ 96339:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3149,8 +3149,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStackResourceCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3174,7 +3174,7 @@ exports.DescribeStackResourceCommand = DescribeStackResourceCommand;
 
 /***/ }),
 
-/***/ 6057:
+/***/ 53167:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3184,8 +3184,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStackResourceDriftsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3209,7 +3209,7 @@ exports.DescribeStackResourceDriftsCommand = DescribeStackResourceDriftsCommand;
 
 /***/ }),
 
-/***/ 10759:
+/***/ 16496:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3219,8 +3219,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStackResourcesCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3244,7 +3244,7 @@ exports.DescribeStackResourcesCommand = DescribeStackResourcesCommand;
 
 /***/ }),
 
-/***/ 83730:
+/***/ 74100:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3254,8 +3254,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStackSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3279,7 +3279,7 @@ exports.DescribeStackSetCommand = DescribeStackSetCommand;
 
 /***/ }),
 
-/***/ 36318:
+/***/ 18430:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3289,8 +3289,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStackSetOperationCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3314,7 +3314,7 @@ exports.DescribeStackSetOperationCommand = DescribeStackSetOperationCommand;
 
 /***/ }),
 
-/***/ 47595:
+/***/ 99034:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3324,8 +3324,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeStacksCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3349,7 +3349,7 @@ exports.DescribeStacksCommand = DescribeStacksCommand;
 
 /***/ }),
 
-/***/ 81682:
+/***/ 71286:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3359,8 +3359,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeTypeCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3384,7 +3384,7 @@ exports.DescribeTypeCommand = DescribeTypeCommand;
 
 /***/ }),
 
-/***/ 15973:
+/***/ 94360:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3394,8 +3394,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DescribeTypeRegistrationCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3419,7 +3419,7 @@ exports.DescribeTypeRegistrationCommand = DescribeTypeRegistrationCommand;
 
 /***/ }),
 
-/***/ 16368:
+/***/ 63845:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3429,8 +3429,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DetectStackDriftCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3454,7 +3454,7 @@ exports.DetectStackDriftCommand = DetectStackDriftCommand;
 
 /***/ }),
 
-/***/ 30466:
+/***/ 34860:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3464,8 +3464,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DetectStackResourceDriftCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3489,7 +3489,7 @@ exports.DetectStackResourceDriftCommand = DetectStackResourceDriftCommand;
 
 /***/ }),
 
-/***/ 14688:
+/***/ 76557:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3499,8 +3499,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class DetectStackSetDriftCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3524,7 +3524,7 @@ exports.DetectStackSetDriftCommand = DetectStackSetDriftCommand;
 
 /***/ }),
 
-/***/ 32989:
+/***/ 25414:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3534,8 +3534,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class EstimateTemplateCostCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3559,7 +3559,7 @@ exports.EstimateTemplateCostCommand = EstimateTemplateCostCommand;
 
 /***/ }),
 
-/***/ 90792:
+/***/ 28259:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3569,8 +3569,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ExecuteChangeSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3594,7 +3594,7 @@ exports.ExecuteChangeSetCommand = ExecuteChangeSetCommand;
 
 /***/ }),
 
-/***/ 45770:
+/***/ 32794:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3604,8 +3604,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class GetStackPolicyCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3629,7 +3629,7 @@ exports.GetStackPolicyCommand = GetStackPolicyCommand;
 
 /***/ }),
 
-/***/ 22499:
+/***/ 13022:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3639,8 +3639,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class GetTemplateCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3664,7 +3664,7 @@ exports.GetTemplateCommand = GetTemplateCommand;
 
 /***/ }),
 
-/***/ 96207:
+/***/ 90882:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3674,8 +3674,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class GetTemplateSummaryCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3699,7 +3699,7 @@ exports.GetTemplateSummaryCommand = GetTemplateSummaryCommand;
 
 /***/ }),
 
-/***/ 27836:
+/***/ 63011:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3709,8 +3709,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ImportStacksToStackSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3734,7 +3734,7 @@ exports.ImportStacksToStackSetCommand = ImportStacksToStackSetCommand;
 
 /***/ }),
 
-/***/ 80991:
+/***/ 47674:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3744,8 +3744,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListChangeSetsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3769,7 +3769,7 @@ exports.ListChangeSetsCommand = ListChangeSetsCommand;
 
 /***/ }),
 
-/***/ 10239:
+/***/ 38065:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3779,8 +3779,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListExportsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3804,7 +3804,7 @@ exports.ListExportsCommand = ListExportsCommand;
 
 /***/ }),
 
-/***/ 64849:
+/***/ 89634:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3814,8 +3814,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListImportsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3839,7 +3839,7 @@ exports.ListImportsCommand = ListImportsCommand;
 
 /***/ }),
 
-/***/ 51770:
+/***/ 19829:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3849,8 +3849,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListStackInstanceResourceDriftsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3874,7 +3874,7 @@ exports.ListStackInstanceResourceDriftsCommand = ListStackInstanceResourceDrifts
 
 /***/ }),
 
-/***/ 73469:
+/***/ 17165:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3884,8 +3884,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListStackInstancesCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3909,7 +3909,7 @@ exports.ListStackInstancesCommand = ListStackInstancesCommand;
 
 /***/ }),
 
-/***/ 17800:
+/***/ 18653:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3919,8 +3919,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListStackResourcesCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3944,7 +3944,7 @@ exports.ListStackResourcesCommand = ListStackResourcesCommand;
 
 /***/ }),
 
-/***/ 5569:
+/***/ 86903:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3954,8 +3954,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListStackSetOperationResultsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -3979,7 +3979,7 @@ exports.ListStackSetOperationResultsCommand = ListStackSetOperationResultsComman
 
 /***/ }),
 
-/***/ 11954:
+/***/ 59503:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3989,8 +3989,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListStackSetOperationsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4014,7 +4014,7 @@ exports.ListStackSetOperationsCommand = ListStackSetOperationsCommand;
 
 /***/ }),
 
-/***/ 87382:
+/***/ 78697:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4024,8 +4024,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListStackSetsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4049,7 +4049,7 @@ exports.ListStackSetsCommand = ListStackSetsCommand;
 
 /***/ }),
 
-/***/ 11112:
+/***/ 90000:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4059,8 +4059,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListStacksCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4084,7 +4084,7 @@ exports.ListStacksCommand = ListStacksCommand;
 
 /***/ }),
 
-/***/ 42629:
+/***/ 63858:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4094,8 +4094,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListTypeRegistrationsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4119,7 +4119,7 @@ exports.ListTypeRegistrationsCommand = ListTypeRegistrationsCommand;
 
 /***/ }),
 
-/***/ 48066:
+/***/ 78109:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4129,8 +4129,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListTypeVersionsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4154,7 +4154,7 @@ exports.ListTypeVersionsCommand = ListTypeVersionsCommand;
 
 /***/ }),
 
-/***/ 8510:
+/***/ 4538:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4164,8 +4164,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ListTypesCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4189,7 +4189,7 @@ exports.ListTypesCommand = ListTypesCommand;
 
 /***/ }),
 
-/***/ 57555:
+/***/ 69687:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4199,8 +4199,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class PublishTypeCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4224,7 +4224,7 @@ exports.PublishTypeCommand = PublishTypeCommand;
 
 /***/ }),
 
-/***/ 44331:
+/***/ 69489:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4234,8 +4234,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class RecordHandlerProgressCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4259,7 +4259,7 @@ exports.RecordHandlerProgressCommand = RecordHandlerProgressCommand;
 
 /***/ }),
 
-/***/ 65000:
+/***/ 16196:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4269,8 +4269,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class RegisterPublisherCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4294,7 +4294,7 @@ exports.RegisterPublisherCommand = RegisterPublisherCommand;
 
 /***/ }),
 
-/***/ 9352:
+/***/ 52594:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4304,8 +4304,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class RegisterTypeCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4329,7 +4329,7 @@ exports.RegisterTypeCommand = RegisterTypeCommand;
 
 /***/ }),
 
-/***/ 66270:
+/***/ 96570:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4339,8 +4339,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class RollbackStackCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4364,7 +4364,7 @@ exports.RollbackStackCommand = RollbackStackCommand;
 
 /***/ }),
 
-/***/ 67405:
+/***/ 1496:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4374,8 +4374,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class SetStackPolicyCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4399,7 +4399,7 @@ exports.SetStackPolicyCommand = SetStackPolicyCommand;
 
 /***/ }),
 
-/***/ 61418:
+/***/ 84421:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4409,8 +4409,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class SetTypeConfigurationCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4434,7 +4434,7 @@ exports.SetTypeConfigurationCommand = SetTypeConfigurationCommand;
 
 /***/ }),
 
-/***/ 37617:
+/***/ 57336:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4444,8 +4444,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class SetTypeDefaultVersionCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4469,7 +4469,7 @@ exports.SetTypeDefaultVersionCommand = SetTypeDefaultVersionCommand;
 
 /***/ }),
 
-/***/ 59081:
+/***/ 60188:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4479,8 +4479,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class SignalResourceCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4504,7 +4504,7 @@ exports.SignalResourceCommand = SignalResourceCommand;
 
 /***/ }),
 
-/***/ 33987:
+/***/ 50326:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4514,8 +4514,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class StopStackSetOperationCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4539,7 +4539,7 @@ exports.StopStackSetOperationCommand = StopStackSetOperationCommand;
 
 /***/ }),
 
-/***/ 47233:
+/***/ 37054:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4549,8 +4549,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class TestTypeCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4574,7 +4574,7 @@ exports.TestTypeCommand = TestTypeCommand;
 
 /***/ }),
 
-/***/ 10341:
+/***/ 71291:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4584,8 +4584,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class UpdateStackCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4609,7 +4609,7 @@ exports.UpdateStackCommand = UpdateStackCommand;
 
 /***/ }),
 
-/***/ 32747:
+/***/ 27737:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4619,8 +4619,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class UpdateStackInstancesCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4644,7 +4644,7 @@ exports.UpdateStackInstancesCommand = UpdateStackInstancesCommand;
 
 /***/ }),
 
-/***/ 95521:
+/***/ 33148:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4654,8 +4654,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class UpdateStackSetCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4679,7 +4679,7 @@ exports.UpdateStackSetCommand = UpdateStackSetCommand;
 
 /***/ }),
 
-/***/ 17298:
+/***/ 10141:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4689,8 +4689,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class UpdateTerminationProtectionCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4714,7 +4714,7 @@ exports.UpdateTerminationProtectionCommand = UpdateTerminationProtectionCommand;
 
 /***/ }),
 
-/***/ 24982:
+/***/ 33618:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4724,8 +4724,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(83244);
-const Aws_query_1 = __nccwpck_require__(79422);
+const EndpointParameters_1 = __nccwpck_require__(72309);
+const Aws_query_1 = __nccwpck_require__(43110);
 class ValidateTemplateCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -4749,87 +4749,87 @@ exports.ValidateTemplateCommand = ValidateTemplateCommand;
 
 /***/ }),
 
-/***/ 36070:
+/***/ 22727:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(69423), exports);
-tslib_1.__exportStar(__nccwpck_require__(8409), exports);
-tslib_1.__exportStar(__nccwpck_require__(2951), exports);
-tslib_1.__exportStar(__nccwpck_require__(6615), exports);
-tslib_1.__exportStar(__nccwpck_require__(12374), exports);
-tslib_1.__exportStar(__nccwpck_require__(74126), exports);
-tslib_1.__exportStar(__nccwpck_require__(48508), exports);
-tslib_1.__exportStar(__nccwpck_require__(87774), exports);
-tslib_1.__exportStar(__nccwpck_require__(29456), exports);
-tslib_1.__exportStar(__nccwpck_require__(73524), exports);
-tslib_1.__exportStar(__nccwpck_require__(96867), exports);
-tslib_1.__exportStar(__nccwpck_require__(34310), exports);
-tslib_1.__exportStar(__nccwpck_require__(22694), exports);
-tslib_1.__exportStar(__nccwpck_require__(5719), exports);
-tslib_1.__exportStar(__nccwpck_require__(66214), exports);
-tslib_1.__exportStar(__nccwpck_require__(63588), exports);
-tslib_1.__exportStar(__nccwpck_require__(63965), exports);
-tslib_1.__exportStar(__nccwpck_require__(64128), exports);
-tslib_1.__exportStar(__nccwpck_require__(90922), exports);
-tslib_1.__exportStar(__nccwpck_require__(92740), exports);
-tslib_1.__exportStar(__nccwpck_require__(88172), exports);
-tslib_1.__exportStar(__nccwpck_require__(17457), exports);
-tslib_1.__exportStar(__nccwpck_require__(24672), exports);
-tslib_1.__exportStar(__nccwpck_require__(40087), exports);
-tslib_1.__exportStar(__nccwpck_require__(68576), exports);
-tslib_1.__exportStar(__nccwpck_require__(6057), exports);
-tslib_1.__exportStar(__nccwpck_require__(10759), exports);
-tslib_1.__exportStar(__nccwpck_require__(83730), exports);
-tslib_1.__exportStar(__nccwpck_require__(36318), exports);
-tslib_1.__exportStar(__nccwpck_require__(47595), exports);
-tslib_1.__exportStar(__nccwpck_require__(81682), exports);
-tslib_1.__exportStar(__nccwpck_require__(15973), exports);
-tslib_1.__exportStar(__nccwpck_require__(16368), exports);
-tslib_1.__exportStar(__nccwpck_require__(30466), exports);
-tslib_1.__exportStar(__nccwpck_require__(14688), exports);
-tslib_1.__exportStar(__nccwpck_require__(32989), exports);
-tslib_1.__exportStar(__nccwpck_require__(90792), exports);
-tslib_1.__exportStar(__nccwpck_require__(45770), exports);
-tslib_1.__exportStar(__nccwpck_require__(22499), exports);
-tslib_1.__exportStar(__nccwpck_require__(96207), exports);
-tslib_1.__exportStar(__nccwpck_require__(27836), exports);
-tslib_1.__exportStar(__nccwpck_require__(80991), exports);
-tslib_1.__exportStar(__nccwpck_require__(10239), exports);
-tslib_1.__exportStar(__nccwpck_require__(64849), exports);
-tslib_1.__exportStar(__nccwpck_require__(51770), exports);
-tslib_1.__exportStar(__nccwpck_require__(73469), exports);
-tslib_1.__exportStar(__nccwpck_require__(17800), exports);
-tslib_1.__exportStar(__nccwpck_require__(5569), exports);
-tslib_1.__exportStar(__nccwpck_require__(11954), exports);
-tslib_1.__exportStar(__nccwpck_require__(87382), exports);
-tslib_1.__exportStar(__nccwpck_require__(11112), exports);
-tslib_1.__exportStar(__nccwpck_require__(42629), exports);
-tslib_1.__exportStar(__nccwpck_require__(48066), exports);
-tslib_1.__exportStar(__nccwpck_require__(8510), exports);
-tslib_1.__exportStar(__nccwpck_require__(57555), exports);
-tslib_1.__exportStar(__nccwpck_require__(44331), exports);
-tslib_1.__exportStar(__nccwpck_require__(65000), exports);
-tslib_1.__exportStar(__nccwpck_require__(9352), exports);
-tslib_1.__exportStar(__nccwpck_require__(66270), exports);
-tslib_1.__exportStar(__nccwpck_require__(67405), exports);
-tslib_1.__exportStar(__nccwpck_require__(61418), exports);
-tslib_1.__exportStar(__nccwpck_require__(37617), exports);
-tslib_1.__exportStar(__nccwpck_require__(59081), exports);
-tslib_1.__exportStar(__nccwpck_require__(33987), exports);
-tslib_1.__exportStar(__nccwpck_require__(47233), exports);
-tslib_1.__exportStar(__nccwpck_require__(10341), exports);
-tslib_1.__exportStar(__nccwpck_require__(32747), exports);
-tslib_1.__exportStar(__nccwpck_require__(95521), exports);
-tslib_1.__exportStar(__nccwpck_require__(17298), exports);
-tslib_1.__exportStar(__nccwpck_require__(24982), exports);
+tslib_1.__exportStar(__nccwpck_require__(73543), exports);
+tslib_1.__exportStar(__nccwpck_require__(12399), exports);
+tslib_1.__exportStar(__nccwpck_require__(58491), exports);
+tslib_1.__exportStar(__nccwpck_require__(98323), exports);
+tslib_1.__exportStar(__nccwpck_require__(69432), exports);
+tslib_1.__exportStar(__nccwpck_require__(34161), exports);
+tslib_1.__exportStar(__nccwpck_require__(94769), exports);
+tslib_1.__exportStar(__nccwpck_require__(42194), exports);
+tslib_1.__exportStar(__nccwpck_require__(84847), exports);
+tslib_1.__exportStar(__nccwpck_require__(9600), exports);
+tslib_1.__exportStar(__nccwpck_require__(14848), exports);
+tslib_1.__exportStar(__nccwpck_require__(41511), exports);
+tslib_1.__exportStar(__nccwpck_require__(85704), exports);
+tslib_1.__exportStar(__nccwpck_require__(63035), exports);
+tslib_1.__exportStar(__nccwpck_require__(18884), exports);
+tslib_1.__exportStar(__nccwpck_require__(28147), exports);
+tslib_1.__exportStar(__nccwpck_require__(1047), exports);
+tslib_1.__exportStar(__nccwpck_require__(3722), exports);
+tslib_1.__exportStar(__nccwpck_require__(10824), exports);
+tslib_1.__exportStar(__nccwpck_require__(80116), exports);
+tslib_1.__exportStar(__nccwpck_require__(90115), exports);
+tslib_1.__exportStar(__nccwpck_require__(43285), exports);
+tslib_1.__exportStar(__nccwpck_require__(31720), exports);
+tslib_1.__exportStar(__nccwpck_require__(64205), exports);
+tslib_1.__exportStar(__nccwpck_require__(96339), exports);
+tslib_1.__exportStar(__nccwpck_require__(53167), exports);
+tslib_1.__exportStar(__nccwpck_require__(16496), exports);
+tslib_1.__exportStar(__nccwpck_require__(74100), exports);
+tslib_1.__exportStar(__nccwpck_require__(18430), exports);
+tslib_1.__exportStar(__nccwpck_require__(99034), exports);
+tslib_1.__exportStar(__nccwpck_require__(71286), exports);
+tslib_1.__exportStar(__nccwpck_require__(94360), exports);
+tslib_1.__exportStar(__nccwpck_require__(63845), exports);
+tslib_1.__exportStar(__nccwpck_require__(34860), exports);
+tslib_1.__exportStar(__nccwpck_require__(76557), exports);
+tslib_1.__exportStar(__nccwpck_require__(25414), exports);
+tslib_1.__exportStar(__nccwpck_require__(28259), exports);
+tslib_1.__exportStar(__nccwpck_require__(32794), exports);
+tslib_1.__exportStar(__nccwpck_require__(13022), exports);
+tslib_1.__exportStar(__nccwpck_require__(90882), exports);
+tslib_1.__exportStar(__nccwpck_require__(63011), exports);
+tslib_1.__exportStar(__nccwpck_require__(47674), exports);
+tslib_1.__exportStar(__nccwpck_require__(38065), exports);
+tslib_1.__exportStar(__nccwpck_require__(89634), exports);
+tslib_1.__exportStar(__nccwpck_require__(19829), exports);
+tslib_1.__exportStar(__nccwpck_require__(17165), exports);
+tslib_1.__exportStar(__nccwpck_require__(18653), exports);
+tslib_1.__exportStar(__nccwpck_require__(86903), exports);
+tslib_1.__exportStar(__nccwpck_require__(59503), exports);
+tslib_1.__exportStar(__nccwpck_require__(78697), exports);
+tslib_1.__exportStar(__nccwpck_require__(90000), exports);
+tslib_1.__exportStar(__nccwpck_require__(63858), exports);
+tslib_1.__exportStar(__nccwpck_require__(78109), exports);
+tslib_1.__exportStar(__nccwpck_require__(4538), exports);
+tslib_1.__exportStar(__nccwpck_require__(69687), exports);
+tslib_1.__exportStar(__nccwpck_require__(69489), exports);
+tslib_1.__exportStar(__nccwpck_require__(16196), exports);
+tslib_1.__exportStar(__nccwpck_require__(52594), exports);
+tslib_1.__exportStar(__nccwpck_require__(96570), exports);
+tslib_1.__exportStar(__nccwpck_require__(1496), exports);
+tslib_1.__exportStar(__nccwpck_require__(84421), exports);
+tslib_1.__exportStar(__nccwpck_require__(57336), exports);
+tslib_1.__exportStar(__nccwpck_require__(60188), exports);
+tslib_1.__exportStar(__nccwpck_require__(50326), exports);
+tslib_1.__exportStar(__nccwpck_require__(37054), exports);
+tslib_1.__exportStar(__nccwpck_require__(71291), exports);
+tslib_1.__exportStar(__nccwpck_require__(27737), exports);
+tslib_1.__exportStar(__nccwpck_require__(33148), exports);
+tslib_1.__exportStar(__nccwpck_require__(10141), exports);
+tslib_1.__exportStar(__nccwpck_require__(33618), exports);
 
 
 /***/ }),
 
-/***/ 83244:
+/***/ 72309:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -4854,14 +4854,14 @@ exports.commonParams = {
 
 /***/ }),
 
-/***/ 77047:
+/***/ 70007:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(91686);
-const ruleset_1 = __nccwpck_require__(57307);
+const ruleset_1 = __nccwpck_require__(9714);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -4873,7 +4873,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 57307:
+/***/ 9714:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -4887,27 +4887,27 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 52379:
+/***/ 93785:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CloudFormationServiceException = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(59307), exports);
-tslib_1.__exportStar(__nccwpck_require__(33597), exports);
-tslib_1.__exportStar(__nccwpck_require__(36070), exports);
-tslib_1.__exportStar(__nccwpck_require__(56045), exports);
-tslib_1.__exportStar(__nccwpck_require__(14635), exports);
-tslib_1.__exportStar(__nccwpck_require__(56644), exports);
+tslib_1.__exportStar(__nccwpck_require__(80495), exports);
+tslib_1.__exportStar(__nccwpck_require__(27605), exports);
+tslib_1.__exportStar(__nccwpck_require__(22727), exports);
+tslib_1.__exportStar(__nccwpck_require__(82628), exports);
+tslib_1.__exportStar(__nccwpck_require__(71938), exports);
+tslib_1.__exportStar(__nccwpck_require__(17212), exports);
 __nccwpck_require__(67025);
-var CloudFormationServiceException_1 = __nccwpck_require__(35738);
+var CloudFormationServiceException_1 = __nccwpck_require__(62965);
 Object.defineProperty(exports, "CloudFormationServiceException", ({ enumerable: true, get: function () { return CloudFormationServiceException_1.CloudFormationServiceException; } }));
 
 
 /***/ }),
 
-/***/ 35738:
+/***/ 62965:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4926,25 +4926,25 @@ exports.CloudFormationServiceException = CloudFormationServiceException;
 
 /***/ }),
 
-/***/ 56644:
+/***/ 17212:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(17969), exports);
+tslib_1.__exportStar(__nccwpck_require__(59373), exports);
 
 
 /***/ }),
 
-/***/ 17969:
+/***/ 59373:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.StackDriftStatus = exports.StackDriftDetectionStatus = exports.PublisherStatus = exports.IdentityProvider = exports.OrganizationStatus = exports.RegistryType = exports.StackSetNotEmptyException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.PermissionModels = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.RegionConcurrencyType = exports.ConcurrencyMode = exports.OnFailure = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.OnStackFailure = exports.ChangeSetType = exports.ExecutionStatus = exports.ChangeSetStatus = exports.ChangeSetNotFoundException = exports.ChangeSetHooksStatus = exports.HookTargetType = exports.HookInvocationPoint = exports.HookFailureMode = exports.ChangeType = exports.Replacement = exports.RequiresRecreation = exports.ResourceAttribute = exports.EvaluationType = exports.ChangeSource = exports.ChangeAction = exports.Category = exports.Capability = exports.TokenAlreadyExistsException = exports.CallAs = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.VersionBump = exports.ThirdPartyType = exports.OperationNotFoundException = exports.InvalidOperationException = exports.AccountGateStatus = exports.AccountFilterType = void 0;
 exports.ResourceSignalStatus = exports.HandlerErrorCode = exports.OperationStatus = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.StackSetOperationResultStatus = exports.OperationResultFilterName = exports.StackInstanceFilterName = exports.StackNotFoundException = exports.TemplateStage = exports.RegistrationStatus = exports.Visibility = exports.TypeTestsStatus = exports.ProvisioningType = exports.DeprecatedStatus = exports.StackSetOperationStatus = exports.StackSetOperationAction = exports.StackSetStatus = exports.StackSetDriftStatus = exports.StackSetDriftDetectionStatus = exports.StackStatus = exports.DifferenceType = exports.StackResourceDriftStatus = exports.StackInstanceNotFoundException = exports.StackInstanceStatus = exports.StackInstanceDetailedStatus = exports.ResourceStatus = exports.HookStatus = void 0;
-const CloudFormationServiceException_1 = __nccwpck_require__(35738);
+const CloudFormationServiceException_1 = __nccwpck_require__(62965);
 exports.AccountFilterType = {
     DIFFERENCE: "DIFFERENCE",
     INTERSECTION: "INTERSECTION",
@@ -5606,63 +5606,63 @@ exports.ResourceSignalStatus = {
 
 /***/ }),
 
-/***/ 93492:
+/***/ 20306:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeAccountLimits = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const DescribeAccountLimitsCommand_1 = __nccwpck_require__(63965);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const DescribeAccountLimitsCommand_1 = __nccwpck_require__(1047);
 exports.paginateDescribeAccountLimits = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, DescribeAccountLimitsCommand_1.DescribeAccountLimitsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
 
-/***/ 15882:
+/***/ 62969:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStackEvents = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const DescribeStackEventsCommand_1 = __nccwpck_require__(24672);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const DescribeStackEventsCommand_1 = __nccwpck_require__(31720);
 exports.paginateDescribeStackEvents = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, DescribeStackEventsCommand_1.DescribeStackEventsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
 
-/***/ 47686:
+/***/ 37859:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStackResourceDrifts = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(6057);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(53167);
 exports.paginateDescribeStackResourceDrifts = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, DescribeStackResourceDriftsCommand_1.DescribeStackResourceDriftsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
 
-/***/ 94369:
+/***/ 59231:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStacks = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const DescribeStacksCommand_1 = __nccwpck_require__(47595);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const DescribeStacksCommand_1 = __nccwpck_require__(99034);
 exports.paginateDescribeStacks = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, DescribeStacksCommand_1.DescribeStacksCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
 
-/***/ 6542:
+/***/ 53659:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -5671,202 +5671,202 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
-/***/ 11682:
+/***/ 57857:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListChangeSets = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListChangeSetsCommand_1 = __nccwpck_require__(80991);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListChangeSetsCommand_1 = __nccwpck_require__(47674);
 exports.paginateListChangeSets = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListChangeSetsCommand_1.ListChangeSetsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
 
-/***/ 91173:
+/***/ 77175:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListExports = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListExportsCommand_1 = __nccwpck_require__(10239);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListExportsCommand_1 = __nccwpck_require__(38065);
 exports.paginateListExports = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListExportsCommand_1.ListExportsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
 
-/***/ 67972:
+/***/ 65067:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListImports = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListImportsCommand_1 = __nccwpck_require__(64849);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListImportsCommand_1 = __nccwpck_require__(89634);
 exports.paginateListImports = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListImportsCommand_1.ListImportsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
 
-/***/ 61256:
+/***/ 48449:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackInstances = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListStackInstancesCommand_1 = __nccwpck_require__(73469);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListStackInstancesCommand_1 = __nccwpck_require__(17165);
 exports.paginateListStackInstances = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackInstancesCommand_1.ListStackInstancesCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
 
-/***/ 41031:
+/***/ 75797:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackResources = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListStackResourcesCommand_1 = __nccwpck_require__(17800);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListStackResourcesCommand_1 = __nccwpck_require__(18653);
 exports.paginateListStackResources = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackResourcesCommand_1.ListStackResourcesCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
 
-/***/ 52145:
+/***/ 10121:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSetOperationResults = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(5569);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(86903);
 exports.paginateListStackSetOperationResults = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackSetOperationResultsCommand_1.ListStackSetOperationResultsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
 
-/***/ 34628:
+/***/ 66624:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSetOperations = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListStackSetOperationsCommand_1 = __nccwpck_require__(11954);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListStackSetOperationsCommand_1 = __nccwpck_require__(59503);
 exports.paginateListStackSetOperations = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackSetOperationsCommand_1.ListStackSetOperationsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
 
-/***/ 20155:
+/***/ 84439:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSets = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListStackSetsCommand_1 = __nccwpck_require__(87382);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListStackSetsCommand_1 = __nccwpck_require__(78697);
 exports.paginateListStackSets = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackSetsCommand_1.ListStackSetsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
 
-/***/ 32701:
+/***/ 19786:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStacks = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListStacksCommand_1 = __nccwpck_require__(11112);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListStacksCommand_1 = __nccwpck_require__(90000);
 exports.paginateListStacks = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStacksCommand_1.ListStacksCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
 
-/***/ 15675:
+/***/ 85315:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypeRegistrations = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListTypeRegistrationsCommand_1 = __nccwpck_require__(42629);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListTypeRegistrationsCommand_1 = __nccwpck_require__(63858);
 exports.paginateListTypeRegistrations = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListTypeRegistrationsCommand_1.ListTypeRegistrationsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
 
-/***/ 13493:
+/***/ 88203:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypeVersions = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListTypeVersionsCommand_1 = __nccwpck_require__(48066);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListTypeVersionsCommand_1 = __nccwpck_require__(78109);
 exports.paginateListTypeVersions = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListTypeVersionsCommand_1.ListTypeVersionsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
 
-/***/ 57530:
+/***/ 93596:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypes = void 0;
 const core_1 = __nccwpck_require__(33167);
-const CloudFormationClient_1 = __nccwpck_require__(59307);
-const ListTypesCommand_1 = __nccwpck_require__(8510);
+const CloudFormationClient_1 = __nccwpck_require__(80495);
+const ListTypesCommand_1 = __nccwpck_require__(4538);
 exports.paginateListTypes = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListTypesCommand_1.ListTypesCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
 
-/***/ 56045:
+/***/ 82628:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(93492), exports);
-tslib_1.__exportStar(__nccwpck_require__(15882), exports);
-tslib_1.__exportStar(__nccwpck_require__(47686), exports);
-tslib_1.__exportStar(__nccwpck_require__(94369), exports);
-tslib_1.__exportStar(__nccwpck_require__(6542), exports);
-tslib_1.__exportStar(__nccwpck_require__(11682), exports);
-tslib_1.__exportStar(__nccwpck_require__(91173), exports);
-tslib_1.__exportStar(__nccwpck_require__(67972), exports);
-tslib_1.__exportStar(__nccwpck_require__(61256), exports);
-tslib_1.__exportStar(__nccwpck_require__(41031), exports);
-tslib_1.__exportStar(__nccwpck_require__(52145), exports);
-tslib_1.__exportStar(__nccwpck_require__(34628), exports);
-tslib_1.__exportStar(__nccwpck_require__(20155), exports);
-tslib_1.__exportStar(__nccwpck_require__(32701), exports);
-tslib_1.__exportStar(__nccwpck_require__(15675), exports);
-tslib_1.__exportStar(__nccwpck_require__(13493), exports);
-tslib_1.__exportStar(__nccwpck_require__(57530), exports);
+tslib_1.__exportStar(__nccwpck_require__(20306), exports);
+tslib_1.__exportStar(__nccwpck_require__(62969), exports);
+tslib_1.__exportStar(__nccwpck_require__(37859), exports);
+tslib_1.__exportStar(__nccwpck_require__(59231), exports);
+tslib_1.__exportStar(__nccwpck_require__(53659), exports);
+tslib_1.__exportStar(__nccwpck_require__(57857), exports);
+tslib_1.__exportStar(__nccwpck_require__(77175), exports);
+tslib_1.__exportStar(__nccwpck_require__(65067), exports);
+tslib_1.__exportStar(__nccwpck_require__(48449), exports);
+tslib_1.__exportStar(__nccwpck_require__(75797), exports);
+tslib_1.__exportStar(__nccwpck_require__(10121), exports);
+tslib_1.__exportStar(__nccwpck_require__(66624), exports);
+tslib_1.__exportStar(__nccwpck_require__(84439), exports);
+tslib_1.__exportStar(__nccwpck_require__(19786), exports);
+tslib_1.__exportStar(__nccwpck_require__(85315), exports);
+tslib_1.__exportStar(__nccwpck_require__(88203), exports);
+tslib_1.__exportStar(__nccwpck_require__(93596), exports);
 
 
 /***/ }),
 
-/***/ 79422:
+/***/ 43110:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -5878,8 +5878,8 @@ const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_1 = __nccwpck_require__(42724);
 const fast_xml_parser_1 = __nccwpck_require__(64751);
 const uuid_1 = __nccwpck_require__(42033);
-const CloudFormationServiceException_1 = __nccwpck_require__(35738);
-const models_0_1 = __nccwpck_require__(17969);
+const CloudFormationServiceException_1 = __nccwpck_require__(62965);
+const models_0_1 = __nccwpck_require__(59373);
 const se_ActivateOrganizationsAccessCommand = async (input, context) => {
     const headers = SHARED_HEADERS;
     let body;
@@ -14419,17 +14419,17 @@ const loadQueryErrorCode = (output, data) => {
 
 /***/ }),
 
-/***/ 90908:
+/***/ 39243:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(93894));
-const client_sts_1 = __nccwpck_require__(95300);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(42393));
+const client_sts_1 = __nccwpck_require__(36999);
 const core_1 = __nccwpck_require__(51949);
-const credential_provider_node_1 = __nccwpck_require__(9172);
+const credential_provider_node_1 = __nccwpck_require__(43232);
 const util_user_agent_node_1 = __nccwpck_require__(81873);
 const config_resolver_1 = __nccwpck_require__(90608);
 const hash_node_1 = __nccwpck_require__(98299);
@@ -14438,7 +14438,7 @@ const node_config_provider_1 = __nccwpck_require__(27404);
 const node_http_handler_1 = __nccwpck_require__(1636);
 const util_body_length_node_1 = __nccwpck_require__(38668);
 const util_retry_1 = __nccwpck_require__(10358);
-const runtimeConfig_shared_1 = __nccwpck_require__(23270);
+const runtimeConfig_shared_1 = __nccwpck_require__(8268);
 const smithy_client_1 = __nccwpck_require__(42724);
 const util_defaults_mode_node_1 = __nccwpck_require__(42549);
 const smithy_client_2 = __nccwpck_require__(42724);
@@ -14476,7 +14476,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 23270:
+/***/ 8268:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14486,7 +14486,7 @@ const smithy_client_1 = __nccwpck_require__(42724);
 const url_parser_1 = __nccwpck_require__(40623);
 const util_base64_1 = __nccwpck_require__(63274);
 const util_utf8_1 = __nccwpck_require__(94099);
-const endpointResolver_1 = __nccwpck_require__(77047);
+const endpointResolver_1 = __nccwpck_require__(70007);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -14507,13 +14507,13 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 57427:
+/***/ 28613:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveRuntimeExtensions = void 0;
-const region_config_resolver_1 = __nccwpck_require__(74857);
+const region_config_resolver_1 = __nccwpck_require__(23788);
 const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_1 = __nccwpck_require__(42724);
 const asPartial = (t) => t;
@@ -14536,32 +14536,32 @@ exports.resolveRuntimeExtensions = resolveRuntimeExtensions;
 
 /***/ }),
 
-/***/ 14635:
+/***/ 71938:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(96374), exports);
-tslib_1.__exportStar(__nccwpck_require__(2219), exports);
-tslib_1.__exportStar(__nccwpck_require__(28828), exports);
-tslib_1.__exportStar(__nccwpck_require__(44999), exports);
-tslib_1.__exportStar(__nccwpck_require__(28961), exports);
-tslib_1.__exportStar(__nccwpck_require__(65259), exports);
-tslib_1.__exportStar(__nccwpck_require__(96426), exports);
-tslib_1.__exportStar(__nccwpck_require__(34403), exports);
+tslib_1.__exportStar(__nccwpck_require__(53241), exports);
+tslib_1.__exportStar(__nccwpck_require__(99559), exports);
+tslib_1.__exportStar(__nccwpck_require__(47341), exports);
+tslib_1.__exportStar(__nccwpck_require__(74596), exports);
+tslib_1.__exportStar(__nccwpck_require__(93126), exports);
+tslib_1.__exportStar(__nccwpck_require__(28281), exports);
+tslib_1.__exportStar(__nccwpck_require__(12786), exports);
+tslib_1.__exportStar(__nccwpck_require__(78823), exports);
 
 
 /***/ }),
 
-/***/ 96374:
+/***/ 53241:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilChangeSetCreateComplete = exports.waitForChangeSetCreateComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeChangeSetCommand_1 = __nccwpck_require__(64128);
+const DescribeChangeSetCommand_1 = __nccwpck_require__(3722);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -14609,14 +14609,14 @@ exports.waitUntilChangeSetCreateComplete = waitUntilChangeSetCreateComplete;
 
 /***/ }),
 
-/***/ 2219:
+/***/ 99559:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackCreateComplete = exports.waitForStackCreateComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(47595);
+const DescribeStacksCommand_1 = __nccwpck_require__(99034);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -14874,14 +14874,14 @@ exports.waitUntilStackCreateComplete = waitUntilStackCreateComplete;
 
 /***/ }),
 
-/***/ 28828:
+/***/ 47341:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackDeleteComplete = exports.waitForStackDeleteComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(47595);
+const DescribeStacksCommand_1 = __nccwpck_require__(99034);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -15033,14 +15033,14 @@ exports.waitUntilStackDeleteComplete = waitUntilStackDeleteComplete;
 
 /***/ }),
 
-/***/ 44999:
+/***/ 74596:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackExists = exports.waitForStackExists = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(47595);
+const DescribeStacksCommand_1 = __nccwpck_require__(99034);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -15071,14 +15071,14 @@ exports.waitUntilStackExists = waitUntilStackExists;
 
 /***/ }),
 
-/***/ 28961:
+/***/ 93126:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackImportComplete = exports.waitForStackImportComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(47595);
+const DescribeStacksCommand_1 = __nccwpck_require__(99034);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -15200,14 +15200,14 @@ exports.waitUntilStackImportComplete = waitUntilStackImportComplete;
 
 /***/ }),
 
-/***/ 65259:
+/***/ 28281:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackRollbackComplete = exports.waitForStackRollbackComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(47595);
+const DescribeStacksCommand_1 = __nccwpck_require__(99034);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -15299,14 +15299,14 @@ exports.waitUntilStackRollbackComplete = waitUntilStackRollbackComplete;
 
 /***/ }),
 
-/***/ 96426:
+/***/ 12786:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilStackUpdateComplete = exports.waitForStackUpdateComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeStacksCommand_1 = __nccwpck_require__(47595);
+const DescribeStacksCommand_1 = __nccwpck_require__(99034);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -15398,14 +15398,14 @@ exports.waitUntilStackUpdateComplete = waitUntilStackUpdateComplete;
 
 /***/ }),
 
-/***/ 34403:
+/***/ 78823:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.waitUntilTypeRegistrationComplete = exports.waitForTypeRegistrationComplete = void 0;
 const util_waiter_1 = __nccwpck_require__(70372);
-const DescribeTypeRegistrationCommand_1 = __nccwpck_require__(15973);
+const DescribeTypeRegistrationCommand_1 = __nccwpck_require__(94360);
 const checkState = async (client, input) => {
     let reason;
     try {
@@ -15450,18 +15450,18 @@ exports.waitUntilTypeRegistrationComplete = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 72278:
+/***/ 52533:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SSO = void 0;
 const smithy_client_1 = __nccwpck_require__(42724);
-const GetRoleCredentialsCommand_1 = __nccwpck_require__(74833);
-const ListAccountRolesCommand_1 = __nccwpck_require__(71589);
-const ListAccountsCommand_1 = __nccwpck_require__(42818);
-const LogoutCommand_1 = __nccwpck_require__(11015);
-const SSOClient_1 = __nccwpck_require__(14111);
+const GetRoleCredentialsCommand_1 = __nccwpck_require__(5385);
+const ListAccountRolesCommand_1 = __nccwpck_require__(70220);
+const ListAccountsCommand_1 = __nccwpck_require__(31383);
+const LogoutCommand_1 = __nccwpck_require__(26863);
+const SSOClient_1 = __nccwpck_require__(53286);
 const commands = {
     GetRoleCredentialsCommand: GetRoleCredentialsCommand_1.GetRoleCredentialsCommand,
     ListAccountRolesCommand: ListAccountRolesCommand_1.ListAccountRolesCommand,
@@ -15476,7 +15476,7 @@ exports.SSO = SSO;
 
 /***/ }),
 
-/***/ 14111:
+/***/ 53286:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15492,9 +15492,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_retry_1 = __nccwpck_require__(90061);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const EndpointParameters_1 = __nccwpck_require__(2262);
-const runtimeConfig_1 = __nccwpck_require__(71635);
-const runtimeExtensions_1 = __nccwpck_require__(46019);
+const EndpointParameters_1 = __nccwpck_require__(20781);
+const runtimeConfig_1 = __nccwpck_require__(7031);
+const runtimeExtensions_1 = __nccwpck_require__(43794);
 class SSOClient extends smithy_client_1.Client {
     constructor(...[configuration]) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration || {});
@@ -15523,7 +15523,7 @@ exports.SSOClient = SSOClient;
 
 /***/ }),
 
-/***/ 74833:
+/***/ 5385:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15533,9 +15533,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(2262);
-const models_0_1 = __nccwpck_require__(27047);
-const Aws_restJson1_1 = __nccwpck_require__(74524);
+const EndpointParameters_1 = __nccwpck_require__(20781);
+const models_0_1 = __nccwpck_require__(97427);
+const Aws_restJson1_1 = __nccwpck_require__(3034);
 class GetRoleCredentialsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -15559,7 +15559,7 @@ exports.GetRoleCredentialsCommand = GetRoleCredentialsCommand;
 
 /***/ }),
 
-/***/ 71589:
+/***/ 70220:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15569,9 +15569,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(2262);
-const models_0_1 = __nccwpck_require__(27047);
-const Aws_restJson1_1 = __nccwpck_require__(74524);
+const EndpointParameters_1 = __nccwpck_require__(20781);
+const models_0_1 = __nccwpck_require__(97427);
+const Aws_restJson1_1 = __nccwpck_require__(3034);
 class ListAccountRolesCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -15595,7 +15595,7 @@ exports.ListAccountRolesCommand = ListAccountRolesCommand;
 
 /***/ }),
 
-/***/ 42818:
+/***/ 31383:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15605,9 +15605,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(2262);
-const models_0_1 = __nccwpck_require__(27047);
-const Aws_restJson1_1 = __nccwpck_require__(74524);
+const EndpointParameters_1 = __nccwpck_require__(20781);
+const models_0_1 = __nccwpck_require__(97427);
+const Aws_restJson1_1 = __nccwpck_require__(3034);
 class ListAccountsCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -15631,7 +15631,7 @@ exports.ListAccountsCommand = ListAccountsCommand;
 
 /***/ }),
 
-/***/ 11015:
+/***/ 26863:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15641,9 +15641,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(2262);
-const models_0_1 = __nccwpck_require__(27047);
-const Aws_restJson1_1 = __nccwpck_require__(74524);
+const EndpointParameters_1 = __nccwpck_require__(20781);
+const models_0_1 = __nccwpck_require__(97427);
+const Aws_restJson1_1 = __nccwpck_require__(3034);
 class LogoutCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -15667,21 +15667,21 @@ exports.LogoutCommand = LogoutCommand;
 
 /***/ }),
 
-/***/ 33366:
+/***/ 49348:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(74833), exports);
-tslib_1.__exportStar(__nccwpck_require__(71589), exports);
-tslib_1.__exportStar(__nccwpck_require__(42818), exports);
-tslib_1.__exportStar(__nccwpck_require__(11015), exports);
+tslib_1.__exportStar(__nccwpck_require__(5385), exports);
+tslib_1.__exportStar(__nccwpck_require__(70220), exports);
+tslib_1.__exportStar(__nccwpck_require__(31383), exports);
+tslib_1.__exportStar(__nccwpck_require__(26863), exports);
 
 
 /***/ }),
 
-/***/ 2262:
+/***/ 20781:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15706,14 +15706,14 @@ exports.commonParams = {
 
 /***/ }),
 
-/***/ 35519:
+/***/ 76499:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(91686);
-const ruleset_1 = __nccwpck_require__(1321);
+const ruleset_1 = __nccwpck_require__(99075);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -15725,7 +15725,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 1321:
+/***/ 99075:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15739,26 +15739,26 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 37718:
+/***/ 65187:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SSOServiceException = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(14111), exports);
-tslib_1.__exportStar(__nccwpck_require__(72278), exports);
-tslib_1.__exportStar(__nccwpck_require__(33366), exports);
-tslib_1.__exportStar(__nccwpck_require__(59007), exports);
-tslib_1.__exportStar(__nccwpck_require__(83354), exports);
+tslib_1.__exportStar(__nccwpck_require__(53286), exports);
+tslib_1.__exportStar(__nccwpck_require__(52533), exports);
+tslib_1.__exportStar(__nccwpck_require__(49348), exports);
+tslib_1.__exportStar(__nccwpck_require__(2184), exports);
+tslib_1.__exportStar(__nccwpck_require__(72145), exports);
 __nccwpck_require__(67025);
-var SSOServiceException_1 = __nccwpck_require__(33345);
+var SSOServiceException_1 = __nccwpck_require__(29397);
 Object.defineProperty(exports, "SSOServiceException", ({ enumerable: true, get: function () { return SSOServiceException_1.SSOServiceException; } }));
 
 
 /***/ }),
 
-/***/ 33345:
+/***/ 29397:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15777,25 +15777,25 @@ exports.SSOServiceException = SSOServiceException;
 
 /***/ }),
 
-/***/ 83354:
+/***/ 72145:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(27047), exports);
+tslib_1.__exportStar(__nccwpck_require__(97427), exports);
 
 
 /***/ }),
 
-/***/ 27047:
+/***/ 97427:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LogoutRequestFilterSensitiveLog = exports.ListAccountsRequestFilterSensitiveLog = exports.ListAccountRolesRequestFilterSensitiveLog = exports.GetRoleCredentialsResponseFilterSensitiveLog = exports.RoleCredentialsFilterSensitiveLog = exports.GetRoleCredentialsRequestFilterSensitiveLog = exports.UnauthorizedException = exports.TooManyRequestsException = exports.ResourceNotFoundException = exports.InvalidRequestException = void 0;
 const smithy_client_1 = __nccwpck_require__(42724);
-const SSOServiceException_1 = __nccwpck_require__(33345);
+const SSOServiceException_1 = __nccwpck_require__(29397);
 class InvalidRequestException extends SSOServiceException_1.SSOServiceException {
     constructor(opts) {
         super({
@@ -15883,7 +15883,7 @@ exports.LogoutRequestFilterSensitiveLog = LogoutRequestFilterSensitiveLog;
 
 /***/ }),
 
-/***/ 92758:
+/***/ 74934:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15892,48 +15892,48 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
-/***/ 13314:
+/***/ 31535:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListAccountRoles = void 0;
 const core_1 = __nccwpck_require__(33167);
-const ListAccountRolesCommand_1 = __nccwpck_require__(71589);
-const SSOClient_1 = __nccwpck_require__(14111);
+const ListAccountRolesCommand_1 = __nccwpck_require__(70220);
+const SSOClient_1 = __nccwpck_require__(53286);
 exports.paginateListAccountRoles = (0, core_1.createPaginator)(SSOClient_1.SSOClient, ListAccountRolesCommand_1.ListAccountRolesCommand, "nextToken", "nextToken", "maxResults");
 
 
 /***/ }),
 
-/***/ 83970:
+/***/ 52263:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListAccounts = void 0;
 const core_1 = __nccwpck_require__(33167);
-const ListAccountsCommand_1 = __nccwpck_require__(42818);
-const SSOClient_1 = __nccwpck_require__(14111);
+const ListAccountsCommand_1 = __nccwpck_require__(31383);
+const SSOClient_1 = __nccwpck_require__(53286);
 exports.paginateListAccounts = (0, core_1.createPaginator)(SSOClient_1.SSOClient, ListAccountsCommand_1.ListAccountsCommand, "nextToken", "nextToken", "maxResults");
 
 
 /***/ }),
 
-/***/ 59007:
+/***/ 2184:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(92758), exports);
-tslib_1.__exportStar(__nccwpck_require__(13314), exports);
-tslib_1.__exportStar(__nccwpck_require__(83970), exports);
+tslib_1.__exportStar(__nccwpck_require__(74934), exports);
+tslib_1.__exportStar(__nccwpck_require__(31535), exports);
+tslib_1.__exportStar(__nccwpck_require__(52263), exports);
 
 
 /***/ }),
 
-/***/ 74524:
+/***/ 3034:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15941,8 +15941,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.de_LogoutCommand = exports.de_ListAccountsCommand = exports.de_ListAccountRolesCommand = exports.de_GetRoleCredentialsCommand = exports.se_LogoutCommand = exports.se_ListAccountsCommand = exports.se_ListAccountRolesCommand = exports.se_GetRoleCredentialsCommand = void 0;
 const core_1 = __nccwpck_require__(33167);
 const smithy_client_1 = __nccwpck_require__(42724);
-const models_0_1 = __nccwpck_require__(27047);
-const SSOServiceException_1 = __nccwpck_require__(33345);
+const models_0_1 = __nccwpck_require__(97427);
+const SSOServiceException_1 = __nccwpck_require__(29397);
 const se_GetRoleCredentialsCommand = async (input, context) => {
     const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
@@ -16286,14 +16286,14 @@ const loadRestJsonErrorCode = (output, data) => {
 
 /***/ }),
 
-/***/ 71635:
+/***/ 7031:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(55663));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(16252));
 const core_1 = __nccwpck_require__(51949);
 const util_user_agent_node_1 = __nccwpck_require__(81873);
 const config_resolver_1 = __nccwpck_require__(90608);
@@ -16303,7 +16303,7 @@ const node_config_provider_1 = __nccwpck_require__(27404);
 const node_http_handler_1 = __nccwpck_require__(1636);
 const util_body_length_node_1 = __nccwpck_require__(38668);
 const util_retry_1 = __nccwpck_require__(10358);
-const runtimeConfig_shared_1 = __nccwpck_require__(70471);
+const runtimeConfig_shared_1 = __nccwpck_require__(84212);
 const smithy_client_1 = __nccwpck_require__(42724);
 const util_defaults_mode_node_1 = __nccwpck_require__(42549);
 const smithy_client_2 = __nccwpck_require__(42724);
@@ -16340,7 +16340,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 70471:
+/***/ 84212:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16350,7 +16350,7 @@ const smithy_client_1 = __nccwpck_require__(42724);
 const url_parser_1 = __nccwpck_require__(40623);
 const util_base64_1 = __nccwpck_require__(63274);
 const util_utf8_1 = __nccwpck_require__(94099);
-const endpointResolver_1 = __nccwpck_require__(35519);
+const endpointResolver_1 = __nccwpck_require__(76499);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2019-06-10",
@@ -16371,13 +16371,13 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 46019:
+/***/ 43794:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveRuntimeExtensions = void 0;
-const region_config_resolver_1 = __nccwpck_require__(74857);
+const region_config_resolver_1 = __nccwpck_require__(23788);
 const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_1 = __nccwpck_require__(42724);
 const asPartial = (t) => t;
@@ -16400,22 +16400,22 @@ exports.resolveRuntimeExtensions = resolveRuntimeExtensions;
 
 /***/ }),
 
-/***/ 53305:
+/***/ 50889:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.STS = void 0;
 const smithy_client_1 = __nccwpck_require__(42724);
-const AssumeRoleCommand_1 = __nccwpck_require__(17508);
-const AssumeRoleWithSAMLCommand_1 = __nccwpck_require__(18112);
-const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(6627);
-const DecodeAuthorizationMessageCommand_1 = __nccwpck_require__(72688);
-const GetAccessKeyInfoCommand_1 = __nccwpck_require__(67147);
-const GetCallerIdentityCommand_1 = __nccwpck_require__(97988);
-const GetFederationTokenCommand_1 = __nccwpck_require__(4754);
-const GetSessionTokenCommand_1 = __nccwpck_require__(35717);
-const STSClient_1 = __nccwpck_require__(64594);
+const AssumeRoleCommand_1 = __nccwpck_require__(60684);
+const AssumeRoleWithSAMLCommand_1 = __nccwpck_require__(55693);
+const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(33682);
+const DecodeAuthorizationMessageCommand_1 = __nccwpck_require__(82171);
+const GetAccessKeyInfoCommand_1 = __nccwpck_require__(63196);
+const GetCallerIdentityCommand_1 = __nccwpck_require__(46640);
+const GetFederationTokenCommand_1 = __nccwpck_require__(26693);
+const GetSessionTokenCommand_1 = __nccwpck_require__(29108);
+const STSClient_1 = __nccwpck_require__(37138);
 const commands = {
     AssumeRoleCommand: AssumeRoleCommand_1.AssumeRoleCommand,
     AssumeRoleWithSAMLCommand: AssumeRoleWithSAMLCommand_1.AssumeRoleWithSAMLCommand,
@@ -16434,7 +16434,7 @@ exports.STS = STS;
 
 /***/ }),
 
-/***/ 64594:
+/***/ 37138:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16451,10 +16451,10 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_retry_1 = __nccwpck_require__(90061);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const httpAuthSchemeProvider_1 = __nccwpck_require__(82465);
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const runtimeConfig_1 = __nccwpck_require__(85060);
-const runtimeExtensions_1 = __nccwpck_require__(44986);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(71517);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const runtimeConfig_1 = __nccwpck_require__(39826);
+const runtimeExtensions_1 = __nccwpck_require__(60735);
 class STSClient extends smithy_client_1.Client {
     getDefaultHttpAuthSchemeParametersProvider() {
         return httpAuthSchemeProvider_1.defaultSTSHttpAuthSchemeParametersProvider;
@@ -16497,7 +16497,7 @@ exports.STSClient = STSClient;
 
 /***/ }),
 
-/***/ 75611:
+/***/ 90552:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -16547,7 +16547,7 @@ exports.resolveHttpAuthRuntimeConfig = resolveHttpAuthRuntimeConfig;
 
 /***/ }),
 
-/***/ 82465:
+/***/ 71517:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16555,7 +16555,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.resolveStsAuthConfig = exports.defaultSTSHttpAuthSchemeProvider = exports.defaultSTSHttpAuthSchemeParametersProvider = void 0;
 const core_1 = __nccwpck_require__(51949);
 const util_middleware_1 = __nccwpck_require__(47194);
-const STSClient_1 = __nccwpck_require__(64594);
+const STSClient_1 = __nccwpck_require__(37138);
 const defaultSTSHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -16621,7 +16621,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 17508:
+/***/ 60684:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16631,9 +16631,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const models_0_1 = __nccwpck_require__(12260);
-const Aws_query_1 = __nccwpck_require__(96788);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const models_0_1 = __nccwpck_require__(32479);
+const Aws_query_1 = __nccwpck_require__(91166);
 class AssumeRoleCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -16657,7 +16657,7 @@ exports.AssumeRoleCommand = AssumeRoleCommand;
 
 /***/ }),
 
-/***/ 18112:
+/***/ 55693:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16667,9 +16667,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const models_0_1 = __nccwpck_require__(12260);
-const Aws_query_1 = __nccwpck_require__(96788);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const models_0_1 = __nccwpck_require__(32479);
+const Aws_query_1 = __nccwpck_require__(91166);
 class AssumeRoleWithSAMLCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -16693,7 +16693,7 @@ exports.AssumeRoleWithSAMLCommand = AssumeRoleWithSAMLCommand;
 
 /***/ }),
 
-/***/ 6627:
+/***/ 33682:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16703,9 +16703,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const models_0_1 = __nccwpck_require__(12260);
-const Aws_query_1 = __nccwpck_require__(96788);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const models_0_1 = __nccwpck_require__(32479);
+const Aws_query_1 = __nccwpck_require__(91166);
 class AssumeRoleWithWebIdentityCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -16729,7 +16729,7 @@ exports.AssumeRoleWithWebIdentityCommand = AssumeRoleWithWebIdentityCommand;
 
 /***/ }),
 
-/***/ 72688:
+/***/ 82171:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16739,8 +16739,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const Aws_query_1 = __nccwpck_require__(96788);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const Aws_query_1 = __nccwpck_require__(91166);
 class DecodeAuthorizationMessageCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -16764,7 +16764,7 @@ exports.DecodeAuthorizationMessageCommand = DecodeAuthorizationMessageCommand;
 
 /***/ }),
 
-/***/ 67147:
+/***/ 63196:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16774,8 +16774,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const Aws_query_1 = __nccwpck_require__(96788);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const Aws_query_1 = __nccwpck_require__(91166);
 class GetAccessKeyInfoCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -16799,7 +16799,7 @@ exports.GetAccessKeyInfoCommand = GetAccessKeyInfoCommand;
 
 /***/ }),
 
-/***/ 97988:
+/***/ 46640:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16809,8 +16809,8 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const Aws_query_1 = __nccwpck_require__(96788);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const Aws_query_1 = __nccwpck_require__(91166);
 class GetCallerIdentityCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -16834,7 +16834,7 @@ exports.GetCallerIdentityCommand = GetCallerIdentityCommand;
 
 /***/ }),
 
-/***/ 4754:
+/***/ 26693:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16844,9 +16844,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const models_0_1 = __nccwpck_require__(12260);
-const Aws_query_1 = __nccwpck_require__(96788);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const models_0_1 = __nccwpck_require__(32479);
+const Aws_query_1 = __nccwpck_require__(91166);
 class GetFederationTokenCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -16870,7 +16870,7 @@ exports.GetFederationTokenCommand = GetFederationTokenCommand;
 
 /***/ }),
 
-/***/ 35717:
+/***/ 29108:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -16880,9 +16880,9 @@ const middleware_endpoint_1 = __nccwpck_require__(25792);
 const middleware_serde_1 = __nccwpck_require__(66596);
 const smithy_client_1 = __nccwpck_require__(42724);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const EndpointParameters_1 = __nccwpck_require__(25997);
-const models_0_1 = __nccwpck_require__(12260);
-const Aws_query_1 = __nccwpck_require__(96788);
+const EndpointParameters_1 = __nccwpck_require__(71712);
+const models_0_1 = __nccwpck_require__(32479);
+const Aws_query_1 = __nccwpck_require__(91166);
 class GetSessionTokenCommand extends smithy_client_1.Command
     .classBuilder()
     .ep({
@@ -16906,32 +16906,32 @@ exports.GetSessionTokenCommand = GetSessionTokenCommand;
 
 /***/ }),
 
-/***/ 40244:
+/***/ 75989:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(17508), exports);
-tslib_1.__exportStar(__nccwpck_require__(18112), exports);
-tslib_1.__exportStar(__nccwpck_require__(6627), exports);
-tslib_1.__exportStar(__nccwpck_require__(72688), exports);
-tslib_1.__exportStar(__nccwpck_require__(67147), exports);
-tslib_1.__exportStar(__nccwpck_require__(97988), exports);
-tslib_1.__exportStar(__nccwpck_require__(4754), exports);
-tslib_1.__exportStar(__nccwpck_require__(35717), exports);
+tslib_1.__exportStar(__nccwpck_require__(60684), exports);
+tslib_1.__exportStar(__nccwpck_require__(55693), exports);
+tslib_1.__exportStar(__nccwpck_require__(33682), exports);
+tslib_1.__exportStar(__nccwpck_require__(82171), exports);
+tslib_1.__exportStar(__nccwpck_require__(63196), exports);
+tslib_1.__exportStar(__nccwpck_require__(46640), exports);
+tslib_1.__exportStar(__nccwpck_require__(26693), exports);
+tslib_1.__exportStar(__nccwpck_require__(29108), exports);
 
 
 /***/ }),
 
-/***/ 29348:
+/***/ 92007:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.decorateDefaultCredentialProvider = exports.getDefaultRoleAssumerWithWebIdentity = exports.getDefaultRoleAssumer = void 0;
-const defaultStsRoleAssumers_1 = __nccwpck_require__(13955);
-const STSClient_1 = __nccwpck_require__(64594);
+const defaultStsRoleAssumers_1 = __nccwpck_require__(65477);
+const STSClient_1 = __nccwpck_require__(37138);
 const getCustomizableStsClientCtor = (baseCtor, customizations) => {
     if (!customizations)
         return baseCtor;
@@ -16959,14 +16959,14 @@ exports.decorateDefaultCredentialProvider = decorateDefaultCredentialProvider;
 
 /***/ }),
 
-/***/ 13955:
+/***/ 65477:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.decorateDefaultCredentialProvider = exports.getDefaultRoleAssumerWithWebIdentity = exports.getDefaultRoleAssumer = void 0;
-const AssumeRoleCommand_1 = __nccwpck_require__(17508);
-const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(6627);
+const AssumeRoleCommand_1 = __nccwpck_require__(60684);
+const AssumeRoleWithWebIdentityCommand_1 = __nccwpck_require__(33682);
 const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 const decorateDefaultRegion = (region) => {
     if (typeof region !== "function") {
@@ -17042,7 +17042,7 @@ exports.decorateDefaultCredentialProvider = decorateDefaultCredentialProvider;
 
 /***/ }),
 
-/***/ 25997:
+/***/ 71712:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17069,14 +17069,14 @@ exports.commonParams = {
 
 /***/ }),
 
-/***/ 53449:
+/***/ 24730:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(91686);
-const ruleset_1 = __nccwpck_require__(84406);
+const ruleset_1 = __nccwpck_require__(47430);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -17088,7 +17088,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 84406:
+/***/ 47430:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17102,26 +17102,26 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 95300:
+/***/ 36999:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.STSServiceException = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(64594), exports);
-tslib_1.__exportStar(__nccwpck_require__(53305), exports);
-tslib_1.__exportStar(__nccwpck_require__(40244), exports);
-tslib_1.__exportStar(__nccwpck_require__(28992), exports);
+tslib_1.__exportStar(__nccwpck_require__(37138), exports);
+tslib_1.__exportStar(__nccwpck_require__(50889), exports);
+tslib_1.__exportStar(__nccwpck_require__(75989), exports);
+tslib_1.__exportStar(__nccwpck_require__(26529), exports);
 __nccwpck_require__(67025);
-tslib_1.__exportStar(__nccwpck_require__(29348), exports);
-var STSServiceException_1 = __nccwpck_require__(75769);
+tslib_1.__exportStar(__nccwpck_require__(92007), exports);
+var STSServiceException_1 = __nccwpck_require__(66224);
 Object.defineProperty(exports, "STSServiceException", ({ enumerable: true, get: function () { return STSServiceException_1.STSServiceException; } }));
 
 
 /***/ }),
 
-/***/ 75769:
+/***/ 66224:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17140,25 +17140,25 @@ exports.STSServiceException = STSServiceException;
 
 /***/ }),
 
-/***/ 28992:
+/***/ 26529:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(12260), exports);
+tslib_1.__exportStar(__nccwpck_require__(32479), exports);
 
 
 /***/ }),
 
-/***/ 12260:
+/***/ 32479:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetSessionTokenResponseFilterSensitiveLog = exports.GetFederationTokenResponseFilterSensitiveLog = exports.AssumeRoleWithWebIdentityResponseFilterSensitiveLog = exports.AssumeRoleWithWebIdentityRequestFilterSensitiveLog = exports.AssumeRoleWithSAMLResponseFilterSensitiveLog = exports.AssumeRoleWithSAMLRequestFilterSensitiveLog = exports.AssumeRoleResponseFilterSensitiveLog = exports.CredentialsFilterSensitiveLog = exports.InvalidAuthorizationMessageException = exports.IDPCommunicationErrorException = exports.InvalidIdentityTokenException = exports.IDPRejectedClaimException = exports.RegionDisabledException = exports.PackedPolicyTooLargeException = exports.MalformedPolicyDocumentException = exports.ExpiredTokenException = void 0;
 const smithy_client_1 = __nccwpck_require__(42724);
-const STSServiceException_1 = __nccwpck_require__(75769);
+const STSServiceException_1 = __nccwpck_require__(66224);
 class ExpiredTokenException extends STSServiceException_1.STSServiceException {
     constructor(opts) {
         super({
@@ -17307,7 +17307,7 @@ exports.GetSessionTokenResponseFilterSensitiveLog = GetSessionTokenResponseFilte
 
 /***/ }),
 
-/***/ 96788:
+/***/ 91166:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17316,8 +17316,8 @@ exports.de_GetSessionTokenCommand = exports.de_GetFederationTokenCommand = expor
 const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_1 = __nccwpck_require__(42724);
 const fast_xml_parser_1 = __nccwpck_require__(64751);
-const models_0_1 = __nccwpck_require__(12260);
-const STSServiceException_1 = __nccwpck_require__(75769);
+const models_0_1 = __nccwpck_require__(32479);
+const STSServiceException_1 = __nccwpck_require__(66224);
 const se_AssumeRoleCommand = async (input, context) => {
     const headers = SHARED_HEADERS;
     let body;
@@ -18398,17 +18398,17 @@ const loadQueryErrorCode = (output, data) => {
 
 /***/ }),
 
-/***/ 85060:
+/***/ 39826:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(37315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(81639));
-const defaultStsRoleAssumers_1 = __nccwpck_require__(13955);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(99328));
+const defaultStsRoleAssumers_1 = __nccwpck_require__(65477);
 const core_1 = __nccwpck_require__(51949);
-const credential_provider_node_1 = __nccwpck_require__(9172);
+const credential_provider_node_1 = __nccwpck_require__(43232);
 const util_user_agent_node_1 = __nccwpck_require__(81873);
 const config_resolver_1 = __nccwpck_require__(90608);
 const core_2 = __nccwpck_require__(33167);
@@ -18418,7 +18418,7 @@ const node_config_provider_1 = __nccwpck_require__(27404);
 const node_http_handler_1 = __nccwpck_require__(1636);
 const util_body_length_node_1 = __nccwpck_require__(38668);
 const util_retry_1 = __nccwpck_require__(10358);
-const runtimeConfig_shared_1 = __nccwpck_require__(11345);
+const runtimeConfig_shared_1 = __nccwpck_require__(27174);
 const smithy_client_1 = __nccwpck_require__(42724);
 const util_defaults_mode_node_1 = __nccwpck_require__(42549);
 const smithy_client_2 = __nccwpck_require__(42724);
@@ -18469,7 +18469,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 11345:
+/***/ 27174:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18481,8 +18481,8 @@ const smithy_client_1 = __nccwpck_require__(42724);
 const url_parser_1 = __nccwpck_require__(40623);
 const util_base64_1 = __nccwpck_require__(63274);
 const util_utf8_1 = __nccwpck_require__(94099);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(82465);
-const endpointResolver_1 = __nccwpck_require__(53449);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(71517);
+const endpointResolver_1 = __nccwpck_require__(24730);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2011-06-15",
@@ -18516,16 +18516,16 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 44986:
+/***/ 60735:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveRuntimeExtensions = void 0;
-const region_config_resolver_1 = __nccwpck_require__(74857);
+const region_config_resolver_1 = __nccwpck_require__(23788);
 const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_1 = __nccwpck_require__(42724);
-const httpAuthExtensionConfiguration_1 = __nccwpck_require__(75611);
+const httpAuthExtensionConfiguration_1 = __nccwpck_require__(90552);
 const asPartial = (t) => t;
 const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
     const extensionConfiguration = {
@@ -18997,14 +18997,14 @@ tslib_1.__exportStar(__nccwpck_require__(40297), exports);
 
 /***/ }),
 
-/***/ 69170:
+/***/ 45618:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromIni = void 0;
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const resolveProfileData_1 = __nccwpck_require__(44605);
+const resolveProfileData_1 = __nccwpck_require__(39885);
 const fromIni = (init = {}) => async () => {
     const profiles = await (0, shared_ini_file_loader_1.parseKnownFiles)(init);
     return (0, resolveProfileData_1.resolveProfileData)((0, shared_ini_file_loader_1.getProfileName)(init), profiles, init);
@@ -19014,18 +19014,18 @@ exports.fromIni = fromIni;
 
 /***/ }),
 
-/***/ 33972:
+/***/ 15720:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(69170), exports);
+tslib_1.__exportStar(__nccwpck_require__(45618), exports);
 
 
 /***/ }),
 
-/***/ 1603:
+/***/ 36533:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19033,8 +19033,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveAssumeRoleCredentials = exports.isAssumeRoleProfile = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const resolveCredentialSource_1 = __nccwpck_require__(93510);
-const resolveProfileData_1 = __nccwpck_require__(44605);
+const resolveCredentialSource_1 = __nccwpck_require__(55699);
+const resolveProfileData_1 = __nccwpck_require__(39885);
 const isAssumeRoleProfile = (arg) => Boolean(arg) &&
     typeof arg === "object" &&
     typeof arg.role_arn === "string" &&
@@ -19084,7 +19084,7 @@ exports.resolveAssumeRoleCredentials = resolveAssumeRoleCredentials;
 
 /***/ }),
 
-/***/ 93510:
+/***/ 55699:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19112,7 +19112,7 @@ exports.resolveCredentialSource = resolveCredentialSource;
 
 /***/ }),
 
-/***/ 61918:
+/***/ 45692:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19130,18 +19130,18 @@ exports.resolveProcessCredentials = resolveProcessCredentials;
 
 /***/ }),
 
-/***/ 44605:
+/***/ 39885:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveProfileData = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
-const resolveAssumeRoleCredentials_1 = __nccwpck_require__(1603);
-const resolveProcessCredentials_1 = __nccwpck_require__(61918);
-const resolveSsoCredentials_1 = __nccwpck_require__(18355);
-const resolveStaticCredentials_1 = __nccwpck_require__(79985);
-const resolveWebIdentityCredentials_1 = __nccwpck_require__(41005);
+const resolveAssumeRoleCredentials_1 = __nccwpck_require__(36533);
+const resolveProcessCredentials_1 = __nccwpck_require__(45692);
+const resolveSsoCredentials_1 = __nccwpck_require__(54525);
+const resolveStaticCredentials_1 = __nccwpck_require__(49813);
+const resolveWebIdentityCredentials_1 = __nccwpck_require__(37688);
 const resolveProfileData = async (profileName, profiles, options, visitedProfiles = {}) => {
     const data = profiles[profileName];
     if (Object.keys(visitedProfiles).length > 0 && (0, resolveStaticCredentials_1.isStaticCredsProfile)(data)) {
@@ -19169,14 +19169,14 @@ exports.resolveProfileData = resolveProfileData;
 
 /***/ }),
 
-/***/ 18355:
+/***/ 54525:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveSsoCredentials = exports.isSsoProfile = void 0;
-const credential_provider_sso_1 = __nccwpck_require__(35261);
-var credential_provider_sso_2 = __nccwpck_require__(35261);
+const credential_provider_sso_1 = __nccwpck_require__(35052);
+var credential_provider_sso_2 = __nccwpck_require__(35052);
 Object.defineProperty(exports, "isSsoProfile", ({ enumerable: true, get: function () { return credential_provider_sso_2.isSsoProfile; } }));
 const resolveSsoCredentials = (data) => {
     const { sso_start_url, sso_account_id, sso_session, sso_region, sso_role_name } = (0, credential_provider_sso_1.validateSsoProfile)(data);
@@ -19193,7 +19193,7 @@ exports.resolveSsoCredentials = resolveSsoCredentials;
 
 /***/ }),
 
-/***/ 79985:
+/***/ 49813:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -19215,7 +19215,7 @@ exports.resolveStaticCredentials = resolveStaticCredentials;
 
 /***/ }),
 
-/***/ 41005:
+/***/ 37688:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19239,20 +19239,20 @@ exports.resolveWebIdentityCredentials = resolveWebIdentityCredentials;
 
 /***/ }),
 
-/***/ 98335:
+/***/ 13238:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultProvider = void 0;
 const credential_provider_env_1 = __nccwpck_require__(69574);
-const credential_provider_ini_1 = __nccwpck_require__(33972);
+const credential_provider_ini_1 = __nccwpck_require__(15720);
 const credential_provider_process_1 = __nccwpck_require__(92045);
-const credential_provider_sso_1 = __nccwpck_require__(35261);
+const credential_provider_sso_1 = __nccwpck_require__(35052);
 const credential_provider_web_identity_1 = __nccwpck_require__(14904);
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const remoteProvider_1 = __nccwpck_require__(12180);
+const remoteProvider_1 = __nccwpck_require__(73846);
 const defaultProvider = (init = {}) => (0, property_provider_1.memoize)((0, property_provider_1.chain)(...(init.profile || process.env[shared_ini_file_loader_1.ENV_PROFILE] ? [] : [(0, credential_provider_env_1.fromEnv)()]), (0, credential_provider_sso_1.fromSSO)(init), (0, credential_provider_ini_1.fromIni)(init), (0, credential_provider_process_1.fromProcess)(init), (0, credential_provider_web_identity_1.fromTokenFile)(init), (0, remoteProvider_1.remoteProvider)(init), async () => {
     throw new property_provider_1.CredentialsProviderError("Could not load credentials from any providers", false);
 }), (credentials) => credentials.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000, (credentials) => credentials.expiration !== undefined);
@@ -19261,18 +19261,18 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 9172:
+/***/ 43232:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(98335), exports);
+tslib_1.__exportStar(__nccwpck_require__(13238), exports);
 
 
 /***/ }),
 
-/***/ 12180:
+/***/ 73846:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19401,7 +19401,7 @@ exports.resolveProcessCredentials = resolveProcessCredentials;
 
 /***/ }),
 
-/***/ 28497:
+/***/ 82507:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19409,9 +19409,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromSSO = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const isSsoProfile_1 = __nccwpck_require__(49561);
-const resolveSSOCredentials_1 = __nccwpck_require__(52290);
-const validateSsoProfile_1 = __nccwpck_require__(72898);
+const isSsoProfile_1 = __nccwpck_require__(49778);
+const resolveSSOCredentials_1 = __nccwpck_require__(73484);
+const validateSsoProfile_1 = __nccwpck_require__(68328);
 const fromSSO = (init = {}) => async () => {
     const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient, ssoSession } = init;
     const profileName = (0, shared_ini_file_loader_1.getProfileName)(init);
@@ -19469,21 +19469,21 @@ exports.fromSSO = fromSSO;
 
 /***/ }),
 
-/***/ 35261:
+/***/ 35052:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(28497), exports);
-tslib_1.__exportStar(__nccwpck_require__(49561), exports);
-tslib_1.__exportStar(__nccwpck_require__(36332), exports);
-tslib_1.__exportStar(__nccwpck_require__(72898), exports);
+tslib_1.__exportStar(__nccwpck_require__(82507), exports);
+tslib_1.__exportStar(__nccwpck_require__(49778), exports);
+tslib_1.__exportStar(__nccwpck_require__(58616), exports);
+tslib_1.__exportStar(__nccwpck_require__(68328), exports);
 
 
 /***/ }),
 
-/***/ 49561:
+/***/ 49778:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -19500,14 +19500,14 @@ exports.isSsoProfile = isSsoProfile;
 
 /***/ }),
 
-/***/ 52290:
+/***/ 73484:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveSSOCredentials = void 0;
-const client_sso_1 = __nccwpck_require__(37718);
-const token_providers_1 = __nccwpck_require__(2799);
+const client_sso_1 = __nccwpck_require__(65187);
+const token_providers_1 = __nccwpck_require__(83673);
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
 const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
@@ -19561,7 +19561,7 @@ exports.resolveSSOCredentials = resolveSSOCredentials;
 
 /***/ }),
 
-/***/ 36332:
+/***/ 58616:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -19570,7 +19570,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
-/***/ 72898:
+/***/ 68328:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20192,7 +20192,7 @@ exports.getUserAgentPlugin = getUserAgentPlugin;
 
 /***/ }),
 
-/***/ 52596:
+/***/ 22489:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -20229,19 +20229,19 @@ exports.resolveAwsRegionExtensionConfiguration = resolveAwsRegionExtensionConfig
 
 /***/ }),
 
-/***/ 74857:
+/***/ 23788:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(52596), exports);
-tslib_1.__exportStar(__nccwpck_require__(58078), exports);
+tslib_1.__exportStar(__nccwpck_require__(22489), exports);
+tslib_1.__exportStar(__nccwpck_require__(19935), exports);
 
 
 /***/ }),
 
-/***/ 60344:
+/***/ 68394:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -20263,13 +20263,13 @@ exports.NODE_REGION_CONFIG_FILE_OPTIONS = {
 
 /***/ }),
 
-/***/ 43642:
+/***/ 34445:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRealRegion = void 0;
-const isFipsRegion_1 = __nccwpck_require__(39815);
+const isFipsRegion_1 = __nccwpck_require__(92015);
 const getRealRegion = (region) => (0, isFipsRegion_1.isFipsRegion)(region)
     ? ["fips-aws-global", "aws-fips"].includes(region)
         ? "us-east-1"
@@ -20280,19 +20280,19 @@ exports.getRealRegion = getRealRegion;
 
 /***/ }),
 
-/***/ 58078:
+/***/ 19935:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(60344), exports);
-tslib_1.__exportStar(__nccwpck_require__(10113), exports);
+tslib_1.__exportStar(__nccwpck_require__(68394), exports);
+tslib_1.__exportStar(__nccwpck_require__(91665), exports);
 
 
 /***/ }),
 
-/***/ 39815:
+/***/ 92015:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -20304,14 +20304,14 @@ exports.isFipsRegion = isFipsRegion;
 
 /***/ }),
 
-/***/ 10113:
+/***/ 91665:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveRegionConfig = void 0;
-const getRealRegion_1 = __nccwpck_require__(43642);
-const isFipsRegion_1 = __nccwpck_require__(39815);
+const getRealRegion_1 = __nccwpck_require__(34445);
+const isFipsRegion_1 = __nccwpck_require__(92015);
 const resolveRegionConfig = (input) => {
     const { region, useFipsEndpoint } = input;
     if (!region) {
@@ -20340,7 +20340,7 @@ exports.resolveRegionConfig = resolveRegionConfig;
 
 /***/ }),
 
-/***/ 99850:
+/***/ 53003:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20552,7 +20552,7 @@ var getRuntimeConfig2 = (config) => {
         useFipsEndpoint: (_k = config === null || config === void 0 ? void 0 : config.useFipsEndpoint) !== null && _k !== void 0 ? _k : (0, node_config_provider_1.loadConfig)(config_resolver_2.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
     };
 };
-const region_config_resolver_1 = __nccwpck_require__(74857);
+const region_config_resolver_1 = __nccwpck_require__(23788);
 const protocol_http_1 = __nccwpck_require__(91658);
 const smithy_client_5 = __nccwpck_require__(42724);
 var asPartial = (t2) => t2;
@@ -21385,7 +21385,7 @@ var SSOOIDC = class extends SSOOIDCClient {
 
 /***/ }),
 
-/***/ 4550:
+/***/ 98711:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -21397,7 +21397,7 @@ exports.REFRESH_MESSAGE = `To refresh this SSO session run 'aws sso login' with 
 
 /***/ }),
 
-/***/ 76803:
+/***/ 84188:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -21405,11 +21405,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromSso = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
 const shared_ini_file_loader_1 = __nccwpck_require__(9260);
-const constants_1 = __nccwpck_require__(4550);
-const getNewSsoOidcToken_1 = __nccwpck_require__(90919);
-const validateTokenExpiry_1 = __nccwpck_require__(54900);
-const validateTokenKey_1 = __nccwpck_require__(54893);
-const writeSSOTokenToFile_1 = __nccwpck_require__(25227);
+const constants_1 = __nccwpck_require__(98711);
+const getNewSsoOidcToken_1 = __nccwpck_require__(54730);
+const validateTokenExpiry_1 = __nccwpck_require__(9536);
+const validateTokenKey_1 = __nccwpck_require__(82889);
+const writeSSOTokenToFile_1 = __nccwpck_require__(16726);
 const lastRefreshAttemptTime = new Date(0);
 const fromSso = (init = {}) => async () => {
     const profiles = await (0, shared_ini_file_loader_1.parseKnownFiles)(init);
@@ -21486,7 +21486,7 @@ exports.fromSso = fromSso;
 
 /***/ }),
 
-/***/ 11984:
+/***/ 13362:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -21504,14 +21504,14 @@ exports.fromStatic = fromStatic;
 
 /***/ }),
 
-/***/ 90919:
+/***/ 54730:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getNewSsoOidcToken = void 0;
-const client_sso_oidc_node_1 = __nccwpck_require__(99850);
-const getSsoOidcClient_1 = __nccwpck_require__(69656);
+const client_sso_oidc_node_1 = __nccwpck_require__(53003);
+const getSsoOidcClient_1 = __nccwpck_require__(13760);
 const getNewSsoOidcToken = (ssoToken, ssoRegion) => {
     const ssoOidcClient = (0, getSsoOidcClient_1.getSsoOidcClient)(ssoRegion);
     return ssoOidcClient.send(new client_sso_oidc_node_1.CreateTokenCommand({
@@ -21526,13 +21526,13 @@ exports.getNewSsoOidcToken = getNewSsoOidcToken;
 
 /***/ }),
 
-/***/ 69656:
+/***/ 13760:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getSsoOidcClient = void 0;
-const client_sso_oidc_node_1 = __nccwpck_require__(99850);
+const client_sso_oidc_node_1 = __nccwpck_require__(53003);
 const ssoOidcClientsHash = {};
 const getSsoOidcClient = (ssoRegion) => {
     if (ssoOidcClientsHash[ssoRegion]) {
@@ -21547,28 +21547,28 @@ exports.getSsoOidcClient = getSsoOidcClient;
 
 /***/ }),
 
-/***/ 2799:
+/***/ 83673:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(37315);
-tslib_1.__exportStar(__nccwpck_require__(99850), exports);
-tslib_1.__exportStar(__nccwpck_require__(76803), exports);
-tslib_1.__exportStar(__nccwpck_require__(11984), exports);
-tslib_1.__exportStar(__nccwpck_require__(93477), exports);
+tslib_1.__exportStar(__nccwpck_require__(53003), exports);
+tslib_1.__exportStar(__nccwpck_require__(84188), exports);
+tslib_1.__exportStar(__nccwpck_require__(13362), exports);
+tslib_1.__exportStar(__nccwpck_require__(40402), exports);
 
 
 /***/ }),
 
-/***/ 93477:
+/***/ 40402:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.nodeProvider = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
-const fromSso_1 = __nccwpck_require__(76803);
+const fromSso_1 = __nccwpck_require__(84188);
 const nodeProvider = (init = {}) => (0, property_provider_1.memoize)((0, property_provider_1.chain)((0, fromSso_1.fromSso)(init), async () => {
     throw new property_provider_1.TokenProviderError("Could not load token from any providers", false);
 }), (token) => token.expiration !== undefined && token.expiration.getTime() - Date.now() < 300000, (token) => token.expiration !== undefined);
@@ -21577,14 +21577,14 @@ exports.nodeProvider = nodeProvider;
 
 /***/ }),
 
-/***/ 54900:
+/***/ 9536:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.validateTokenExpiry = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
-const constants_1 = __nccwpck_require__(4550);
+const constants_1 = __nccwpck_require__(98711);
 const validateTokenExpiry = (token) => {
     if (token.expiration && token.expiration.getTime() < Date.now()) {
         throw new property_provider_1.TokenProviderError(`Token is expired. ${constants_1.REFRESH_MESSAGE}`, false);
@@ -21595,14 +21595,14 @@ exports.validateTokenExpiry = validateTokenExpiry;
 
 /***/ }),
 
-/***/ 54893:
+/***/ 82889:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.validateTokenKey = void 0;
 const property_provider_1 = __nccwpck_require__(32647);
-const constants_1 = __nccwpck_require__(4550);
+const constants_1 = __nccwpck_require__(98711);
 const validateTokenKey = (key, value, forRefresh = false) => {
     if (typeof value === "undefined") {
         throw new property_provider_1.TokenProviderError(`Value not present for '${key}' in SSO Token${forRefresh ? ". Cannot refresh" : ""}. ${constants_1.REFRESH_MESSAGE}`, false);
@@ -21613,7 +21613,7 @@ exports.validateTokenKey = validateTokenKey;
 
 /***/ }),
 
-/***/ 25227:
+/***/ 16726:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -59170,24 +59170,24 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 93894:
+/***/ 42393:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.481.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.481.0","@aws-sdk/core":"3.481.0","@aws-sdk/credential-provider-node":"3.481.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-signing":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.30","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","@smithy/util-waiter":"^2.0.15","fast-xml-parser":"4.2.5","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.484.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.484.0","@aws-sdk/core":"3.481.0","@aws-sdk/credential-provider-node":"3.484.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-signing":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.484.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.22","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.31","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","@smithy/util-waiter":"^2.0.15","fast-xml-parser":"4.2.5","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
-/***/ 55663:
+/***/ 16252:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.481.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.481.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.30","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.484.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.481.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.484.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.22","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.31","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
-/***/ 81639:
+/***/ 99328:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.481.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.481.0","@aws-sdk/credential-provider-node":"3.481.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.30","@smithy/util-endpoints":"^1.0.7","@smithy/util-middleware":"^2.0.8","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","fast-xml-parser":"4.2.5","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.484.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.481.0","@aws-sdk/credential-provider-node":"3.484.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.484.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.22","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.31","@smithy/util-endpoints":"^1.0.7","@smithy/util-middleware":"^2.0.8","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","fast-xml-parser":"4.2.5","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
@@ -59240,7 +59240,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(96733);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(52379);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(93785);
 
 
 async function run() {
