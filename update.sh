@@ -36,7 +36,7 @@ if [ $result -ne 0 ]; then
 fi
 echo ""
 pwd
-pnpm install && pnpm up && rm -rf dist && pnpm build && pnpm package && rm -rf node_modules && pnpm install --production && git add dist node_modules -f
+pnpm install && pnpm up && rm -rf dist && pnpm build && pnpm package && rm -rf node_modules
 result=$?
 if [ $result -ne 0 ]; then
   cd "${CUR}"
