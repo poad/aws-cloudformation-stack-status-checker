@@ -2091,14 +2091,14 @@ exports.uint32ArrayFrom = uint32ArrayFrom;
 
 /***/ }),
 
-/***/ 362:
+/***/ 8250:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(7187);
-const ruleset_1 = __nccwpck_require__(7959);
+const ruleset_1 = __nccwpck_require__(8333);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -2110,7 +2110,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 7959:
+/***/ 8333:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -2124,7 +2124,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 5966:
+/***/ 4697:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -2393,12 +2393,12 @@ var commonParams = {
 };
 
 // src/CloudFormationClient.ts
-var import_runtimeConfig = __nccwpck_require__(1717);
+var import_runtimeConfig = __nccwpck_require__(2704);
 
 // src/runtimeExtensions.ts
 var import_region_config_resolver = __nccwpck_require__(3564);
 var import_protocol_http = __nccwpck_require__(5649);
-var import_smithy_client = __nccwpck_require__(3734);
+var import_smithy_client = __nccwpck_require__(5966);
 var asPartial = /* @__PURE__ */ __name((t) => t, "asPartial");
 var resolveRuntimeExtensions = /* @__PURE__ */ __name((runtimeConfig, extensions) => {
   const extensionConfiguration = {
@@ -4167,7 +4167,7 @@ var se_ValidateTemplateCommand = /* @__PURE__ */ __name(async (input, context) =
 }, "se_ValidateTemplateCommand");
 var de_ActivateOrganizationsAccessCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ActivateOrganizationsAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4178,31 +4178,9 @@ var de_ActivateOrganizationsAccessCommand = /* @__PURE__ */ __name(async (output
   };
   return response;
 }, "de_ActivateOrganizationsAccessCommand");
-var de_ActivateOrganizationsAccessCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ActivateOrganizationsAccessCommandError");
 var de_ActivateTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ActivateTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4213,31 +4191,9 @@ var de_ActivateTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_ActivateTypeCommand");
-var de_ActivateTypeCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ActivateTypeCommandError");
 var de_BatchDescribeTypeConfigurationsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_BatchDescribeTypeConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4248,31 +4204,9 @@ var de_BatchDescribeTypeConfigurationsCommand = /* @__PURE__ */ __name(async (ou
   };
   return response;
 }, "de_BatchDescribeTypeConfigurationsCommand");
-var de_BatchDescribeTypeConfigurationsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeConfigurationNotFoundException":
-    case "com.amazonaws.cloudformation#TypeConfigurationNotFoundException":
-      throw await de_TypeConfigurationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_BatchDescribeTypeConfigurationsCommandError");
 var de_CancelUpdateStackCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_CancelUpdateStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await (0, import_smithy_client.collectBody)(output.body, context);
   const response = {
@@ -4280,28 +4214,9 @@ var de_CancelUpdateStackCommand = /* @__PURE__ */ __name(async (output, context)
   };
   return response;
 }, "de_CancelUpdateStackCommand");
-var de_CancelUpdateStackCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_CancelUpdateStackCommandError");
 var de_ContinueUpdateRollbackCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ContinueUpdateRollbackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4312,28 +4227,9 @@ var de_ContinueUpdateRollbackCommand = /* @__PURE__ */ __name(async (output, con
   };
   return response;
 }, "de_ContinueUpdateRollbackCommand");
-var de_ContinueUpdateRollbackCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ContinueUpdateRollbackCommandError");
 var de_CreateChangeSetCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_CreateChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4344,34 +4240,9 @@ var de_CreateChangeSetCommand = /* @__PURE__ */ __name(async (output, context) =
   };
   return response;
 }, "de_CreateChangeSetCommand");
-var de_CreateChangeSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InsufficientCapabilitiesException":
-    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_CreateChangeSetCommandError");
 var de_CreateGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_CreateGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4382,34 +4253,9 @@ var de_CreateGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, co
   };
   return response;
 }, "de_CreateGeneratedTemplateCommand");
-var de_CreateGeneratedTemplateCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentResourcesLimitExceeded":
-    case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
-      throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_CreateGeneratedTemplateCommandError");
 var de_CreateStackCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_CreateStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4420,37 +4266,9 @@ var de_CreateStackCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_CreateStackCommand");
-var de_CreateStackCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InsufficientCapabilitiesException":
-    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_CreateStackCommandError");
 var de_CreateStackInstancesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_CreateStackInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4461,43 +4279,9 @@ var de_CreateStackInstancesCommand = /* @__PURE__ */ __name(async (output, conte
   };
   return response;
 }, "de_CreateStackInstancesCommand");
-var de_CreateStackInstancesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_CreateStackInstancesCommandError");
 var de_CreateStackSetCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_CreateStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4508,34 +4292,9 @@ var de_CreateStackSetCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_CreateStackSetCommand");
-var de_CreateStackSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CreatedButModifiedException":
-    case "com.amazonaws.cloudformation#CreatedButModifiedException":
-      throw await de_CreatedButModifiedExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NameAlreadyExistsException":
-    case "com.amazonaws.cloudformation#NameAlreadyExistsException":
-      throw await de_NameAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_CreateStackSetCommandError");
 var de_DeactivateOrganizationsAccessCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DeactivateOrganizationsAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4546,31 +4305,9 @@ var de_DeactivateOrganizationsAccessCommand = /* @__PURE__ */ __name(async (outp
   };
   return response;
 }, "de_DeactivateOrganizationsAccessCommand");
-var de_DeactivateOrganizationsAccessCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DeactivateOrganizationsAccessCommandError");
 var de_DeactivateTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DeactivateTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4581,31 +4318,9 @@ var de_DeactivateTypeCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_DeactivateTypeCommand");
-var de_DeactivateTypeCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DeactivateTypeCommandError");
 var de_DeleteChangeSetCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DeleteChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4616,28 +4331,9 @@ var de_DeleteChangeSetCommand = /* @__PURE__ */ __name(async (output, context) =
   };
   return response;
 }, "de_DeleteChangeSetCommand");
-var de_DeleteChangeSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidChangeSetStatus":
-    case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
-      throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DeleteChangeSetCommandError");
 var de_DeleteGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DeleteGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await (0, import_smithy_client.collectBody)(output.body, context);
   const response = {
@@ -4645,31 +4341,9 @@ var de_DeleteGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, co
   };
   return response;
 }, "de_DeleteGeneratedTemplateCommand");
-var de_DeleteGeneratedTemplateCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentResourcesLimitExceeded":
-    case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
-      throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput, context);
-    case "GeneratedTemplateNotFound":
-    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DeleteGeneratedTemplateCommandError");
 var de_DeleteStackCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DeleteStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await (0, import_smithy_client.collectBody)(output.body, context);
   const response = {
@@ -4677,28 +4351,9 @@ var de_DeleteStackCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_DeleteStackCommand");
-var de_DeleteStackCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DeleteStackCommandError");
 var de_DeleteStackInstancesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DeleteStackInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4709,40 +4364,9 @@ var de_DeleteStackInstancesCommand = /* @__PURE__ */ __name(async (output, conte
   };
   return response;
 }, "de_DeleteStackInstancesCommand");
-var de_DeleteStackInstancesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DeleteStackInstancesCommandError");
 var de_DeleteStackSetCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DeleteStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4753,31 +4377,9 @@ var de_DeleteStackSetCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_DeleteStackSetCommand");
-var de_DeleteStackSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackSetNotEmptyException":
-    case "com.amazonaws.cloudformation#StackSetNotEmptyException":
-      throw await de_StackSetNotEmptyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DeleteStackSetCommandError");
 var de_DeregisterTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DeregisterTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4788,31 +4390,9 @@ var de_DeregisterTypeCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_DeregisterTypeCommand");
-var de_DeregisterTypeCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DeregisterTypeCommandError");
 var de_DescribeAccountLimitsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4823,22 +4403,9 @@ var de_DescribeAccountLimitsCommand = /* @__PURE__ */ __name(async (output, cont
   };
   return response;
 }, "de_DescribeAccountLimitsCommand");
-var de_DescribeAccountLimitsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DescribeAccountLimitsCommandError");
 var de_DescribeChangeSetCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4849,28 +4416,9 @@ var de_DescribeChangeSetCommand = /* @__PURE__ */ __name(async (output, context)
   };
   return response;
 }, "de_DescribeChangeSetCommand");
-var de_DescribeChangeSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChangeSetNotFound":
-    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeChangeSetCommandError");
 var de_DescribeChangeSetHooksCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeChangeSetHooksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4881,28 +4429,9 @@ var de_DescribeChangeSetHooksCommand = /* @__PURE__ */ __name(async (output, con
   };
   return response;
 }, "de_DescribeChangeSetHooksCommand");
-var de_DescribeChangeSetHooksCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChangeSetNotFound":
-    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeChangeSetHooksCommandError");
 var de_DescribeGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4913,28 +4442,9 @@ var de_DescribeGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, 
   };
   return response;
 }, "de_DescribeGeneratedTemplateCommand");
-var de_DescribeGeneratedTemplateCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GeneratedTemplateNotFound":
-    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeGeneratedTemplateCommandError");
 var de_DescribeOrganizationsAccessCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeOrganizationsAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4945,31 +4455,9 @@ var de_DescribeOrganizationsAccessCommand = /* @__PURE__ */ __name(async (output
   };
   return response;
 }, "de_DescribeOrganizationsAccessCommand");
-var de_DescribeOrganizationsAccessCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeOrganizationsAccessCommandError");
 var de_DescribePublisherCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribePublisherCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -4980,28 +4468,9 @@ var de_DescribePublisherCommand = /* @__PURE__ */ __name(async (output, context)
   };
   return response;
 }, "de_DescribePublisherCommand");
-var de_DescribePublisherCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribePublisherCommandError");
 var de_DescribeResourceScanCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeResourceScanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5012,28 +4481,9 @@ var de_DescribeResourceScanCommand = /* @__PURE__ */ __name(async (output, conte
   };
   return response;
 }, "de_DescribeResourceScanCommand");
-var de_DescribeResourceScanCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceScanNotFound":
-    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
-      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeResourceScanCommandError");
 var de_DescribeStackDriftDetectionStatusCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackDriftDetectionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5044,22 +4494,9 @@ var de_DescribeStackDriftDetectionStatusCommand = /* @__PURE__ */ __name(async (
   };
   return response;
 }, "de_DescribeStackDriftDetectionStatusCommand");
-var de_DescribeStackDriftDetectionStatusCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DescribeStackDriftDetectionStatusCommandError");
 var de_DescribeStackEventsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5070,22 +4507,9 @@ var de_DescribeStackEventsCommand = /* @__PURE__ */ __name(async (output, contex
   };
   return response;
 }, "de_DescribeStackEventsCommand");
-var de_DescribeStackEventsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DescribeStackEventsCommandError");
 var de_DescribeStackInstanceCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5096,31 +4520,9 @@ var de_DescribeStackInstanceCommand = /* @__PURE__ */ __name(async (output, cont
   };
   return response;
 }, "de_DescribeStackInstanceCommand");
-var de_DescribeStackInstanceCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackInstanceNotFoundException":
-    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeStackInstanceCommandError");
 var de_DescribeStackResourceCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5131,22 +4533,9 @@ var de_DescribeStackResourceCommand = /* @__PURE__ */ __name(async (output, cont
   };
   return response;
 }, "de_DescribeStackResourceCommand");
-var de_DescribeStackResourceCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DescribeStackResourceCommandError");
 var de_DescribeStackResourceDriftsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackResourceDriftsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5157,22 +4546,9 @@ var de_DescribeStackResourceDriftsCommand = /* @__PURE__ */ __name(async (output
   };
   return response;
 }, "de_DescribeStackResourceDriftsCommand");
-var de_DescribeStackResourceDriftsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DescribeStackResourceDriftsCommandError");
 var de_DescribeStackResourcesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5183,22 +4559,9 @@ var de_DescribeStackResourcesCommand = /* @__PURE__ */ __name(async (output, con
   };
   return response;
 }, "de_DescribeStackResourcesCommand");
-var de_DescribeStackResourcesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DescribeStackResourcesCommandError");
 var de_DescribeStacksCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5209,22 +4572,9 @@ var de_DescribeStacksCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_DescribeStacksCommand");
-var de_DescribeStacksCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DescribeStacksCommandError");
 var de_DescribeStackSetCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5235,28 +4585,9 @@ var de_DescribeStackSetCommand = /* @__PURE__ */ __name(async (output, context) 
   };
   return response;
 }, "de_DescribeStackSetCommand");
-var de_DescribeStackSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeStackSetCommandError");
 var de_DescribeStackSetOperationCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackSetOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5267,31 +4598,9 @@ var de_DescribeStackSetOperationCommand = /* @__PURE__ */ __name(async (output, 
   };
   return response;
 }, "de_DescribeStackSetOperationCommand");
-var de_DescribeStackSetOperationCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeStackSetOperationCommandError");
 var de_DescribeTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5302,31 +4611,9 @@ var de_DescribeTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_DescribeTypeCommand");
-var de_DescribeTypeCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeTypeCommandError");
 var de_DescribeTypeRegistrationCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DescribeTypeRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5337,28 +4624,9 @@ var de_DescribeTypeRegistrationCommand = /* @__PURE__ */ __name(async (output, c
   };
   return response;
 }, "de_DescribeTypeRegistrationCommand");
-var de_DescribeTypeRegistrationCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DescribeTypeRegistrationCommandError");
 var de_DetectStackDriftCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DetectStackDriftCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5369,22 +4637,9 @@ var de_DetectStackDriftCommand = /* @__PURE__ */ __name(async (output, context) 
   };
   return response;
 }, "de_DetectStackDriftCommand");
-var de_DetectStackDriftCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DetectStackDriftCommandError");
 var de_DetectStackResourceDriftCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DetectStackResourceDriftCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5395,22 +4650,9 @@ var de_DetectStackResourceDriftCommand = /* @__PURE__ */ __name(async (output, c
   };
   return response;
 }, "de_DetectStackResourceDriftCommand");
-var de_DetectStackResourceDriftCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_DetectStackResourceDriftCommandError");
 var de_DetectStackSetDriftCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DetectStackSetDriftCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5421,34 +4663,9 @@ var de_DetectStackSetDriftCommand = /* @__PURE__ */ __name(async (output, contex
   };
   return response;
 }, "de_DetectStackSetDriftCommand");
-var de_DetectStackSetDriftCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_DetectStackSetDriftCommandError");
 var de_EstimateTemplateCostCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_EstimateTemplateCostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5459,22 +4676,9 @@ var de_EstimateTemplateCostCommand = /* @__PURE__ */ __name(async (output, conte
   };
   return response;
 }, "de_EstimateTemplateCostCommand");
-var de_EstimateTemplateCostCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_EstimateTemplateCostCommandError");
 var de_ExecuteChangeSetCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ExecuteChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5485,37 +4689,9 @@ var de_ExecuteChangeSetCommand = /* @__PURE__ */ __name(async (output, context) 
   };
   return response;
 }, "de_ExecuteChangeSetCommand");
-var de_ExecuteChangeSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChangeSetNotFound":
-    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
-    case "InsufficientCapabilitiesException":
-    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
-    case "InvalidChangeSetStatus":
-    case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
-      throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ExecuteChangeSetCommandError");
 var de_GetGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_GetGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5526,28 +4702,9 @@ var de_GetGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, conte
   };
   return response;
 }, "de_GetGeneratedTemplateCommand");
-var de_GetGeneratedTemplateCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GeneratedTemplateNotFound":
-    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_GetGeneratedTemplateCommandError");
 var de_GetStackPolicyCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_GetStackPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5558,22 +4715,9 @@ var de_GetStackPolicyCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_GetStackPolicyCommand");
-var de_GetStackPolicyCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_GetStackPolicyCommandError");
 var de_GetTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_GetTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5584,28 +4728,9 @@ var de_GetTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_GetTemplateCommand");
-var de_GetTemplateCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChangeSetNotFound":
-    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_GetTemplateCommandError");
 var de_GetTemplateSummaryCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_GetTemplateSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5616,28 +4741,9 @@ var de_GetTemplateSummaryCommand = /* @__PURE__ */ __name(async (output, context
   };
   return response;
 }, "de_GetTemplateSummaryCommand");
-var de_GetTemplateSummaryCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_GetTemplateSummaryCommandError");
 var de_ImportStacksToStackSetCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ImportStacksToStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5648,46 +4754,9 @@ var de_ImportStacksToStackSetCommand = /* @__PURE__ */ __name(async (output, con
   };
   return response;
 }, "de_ImportStacksToStackSetCommand");
-var de_ImportStacksToStackSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackNotFoundException":
-    case "com.amazonaws.cloudformation#StackNotFoundException":
-      throw await de_StackNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ImportStacksToStackSetCommandError");
 var de_ListChangeSetsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListChangeSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5698,22 +4767,9 @@ var de_ListChangeSetsCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_ListChangeSetsCommand");
-var de_ListChangeSetsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ListChangeSetsCommandError");
 var de_ListExportsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListExportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5724,22 +4780,9 @@ var de_ListExportsCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_ListExportsCommand");
-var de_ListExportsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ListExportsCommandError");
 var de_ListGeneratedTemplatesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListGeneratedTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5750,22 +4793,9 @@ var de_ListGeneratedTemplatesCommand = /* @__PURE__ */ __name(async (output, con
   };
   return response;
 }, "de_ListGeneratedTemplatesCommand");
-var de_ListGeneratedTemplatesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ListGeneratedTemplatesCommandError");
 var de_ListImportsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListImportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5776,22 +4806,9 @@ var de_ListImportsCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_ListImportsCommand");
-var de_ListImportsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ListImportsCommandError");
 var de_ListResourceScanRelatedResourcesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListResourceScanRelatedResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5802,31 +4819,9 @@ var de_ListResourceScanRelatedResourcesCommand = /* @__PURE__ */ __name(async (o
   };
   return response;
 }, "de_ListResourceScanRelatedResourcesCommand");
-var de_ListResourceScanRelatedResourcesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceScanInProgress":
-    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
-      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
-    case "ResourceScanNotFound":
-    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
-      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListResourceScanRelatedResourcesCommandError");
 var de_ListResourceScanResourcesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListResourceScanResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5837,31 +4832,9 @@ var de_ListResourceScanResourcesCommand = /* @__PURE__ */ __name(async (output, 
   };
   return response;
 }, "de_ListResourceScanResourcesCommand");
-var de_ListResourceScanResourcesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceScanInProgress":
-    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
-      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
-    case "ResourceScanNotFound":
-    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
-      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListResourceScanResourcesCommandError");
 var de_ListResourceScansCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListResourceScansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5872,22 +4845,9 @@ var de_ListResourceScansCommand = /* @__PURE__ */ __name(async (output, context)
   };
   return response;
 }, "de_ListResourceScansCommand");
-var de_ListResourceScansCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ListResourceScansCommandError");
 var de_ListStackInstanceResourceDriftsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListStackInstanceResourceDriftsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5898,34 +4858,9 @@ var de_ListStackInstanceResourceDriftsCommand = /* @__PURE__ */ __name(async (ou
   };
   return response;
 }, "de_ListStackInstanceResourceDriftsCommand");
-var de_ListStackInstanceResourceDriftsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    case "StackInstanceNotFoundException":
-    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListStackInstanceResourceDriftsCommandError");
 var de_ListStackInstancesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListStackInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5936,28 +4871,9 @@ var de_ListStackInstancesCommand = /* @__PURE__ */ __name(async (output, context
   };
   return response;
 }, "de_ListStackInstancesCommand");
-var de_ListStackInstancesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListStackInstancesCommandError");
 var de_ListStackResourcesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListStackResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5968,22 +4884,9 @@ var de_ListStackResourcesCommand = /* @__PURE__ */ __name(async (output, context
   };
   return response;
 }, "de_ListStackResourcesCommand");
-var de_ListStackResourcesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ListStackResourcesCommandError");
 var de_ListStacksCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListStacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -5994,22 +4897,9 @@ var de_ListStacksCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_ListStacksCommand");
-var de_ListStacksCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ListStacksCommandError");
 var de_ListStackSetOperationResultsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListStackSetOperationResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6020,31 +4910,9 @@ var de_ListStackSetOperationResultsCommand = /* @__PURE__ */ __name(async (outpu
   };
   return response;
 }, "de_ListStackSetOperationResultsCommand");
-var de_ListStackSetOperationResultsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListStackSetOperationResultsCommandError");
 var de_ListStackSetOperationsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListStackSetOperationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6055,28 +4923,9 @@ var de_ListStackSetOperationsCommand = /* @__PURE__ */ __name(async (output, con
   };
   return response;
 }, "de_ListStackSetOperationsCommand");
-var de_ListStackSetOperationsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListStackSetOperationsCommandError");
 var de_ListStackSetsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListStackSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6087,22 +4936,9 @@ var de_ListStackSetsCommand = /* @__PURE__ */ __name(async (output, context) => 
   };
   return response;
 }, "de_ListStackSetsCommand");
-var de_ListStackSetsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ListStackSetsCommandError");
 var de_ListTypeRegistrationsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListTypeRegistrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6113,28 +4949,9 @@ var de_ListTypeRegistrationsCommand = /* @__PURE__ */ __name(async (output, cont
   };
   return response;
 }, "de_ListTypeRegistrationsCommand");
-var de_ListTypeRegistrationsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListTypeRegistrationsCommandError");
 var de_ListTypesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6145,28 +4962,9 @@ var de_ListTypesCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_ListTypesCommand");
-var de_ListTypesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListTypesCommandError");
 var de_ListTypeVersionsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_ListTypeVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6177,28 +4975,9 @@ var de_ListTypeVersionsCommand = /* @__PURE__ */ __name(async (output, context) 
   };
   return response;
 }, "de_ListTypeVersionsCommand");
-var de_ListTypeVersionsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_ListTypeVersionsCommandError");
 var de_PublishTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_PublishTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6209,31 +4988,9 @@ var de_PublishTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_PublishTypeCommand");
-var de_PublishTypeCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_PublishTypeCommandError");
 var de_RecordHandlerProgressCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_RecordHandlerProgressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6244,31 +5001,9 @@ var de_RecordHandlerProgressCommand = /* @__PURE__ */ __name(async (output, cont
   };
   return response;
 }, "de_RecordHandlerProgressCommand");
-var de_RecordHandlerProgressCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConditionalCheckFailed":
-    case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
-      throw await de_OperationStatusCheckFailedExceptionRes(parsedOutput, context);
-    case "InvalidStateTransition":
-    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
-      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_RecordHandlerProgressCommandError");
 var de_RegisterPublisherCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_RegisterPublisherCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6279,28 +5014,9 @@ var de_RegisterPublisherCommand = /* @__PURE__ */ __name(async (output, context)
   };
   return response;
 }, "de_RegisterPublisherCommand");
-var de_RegisterPublisherCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_RegisterPublisherCommandError");
 var de_RegisterTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_RegisterTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6311,28 +5027,9 @@ var de_RegisterTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_RegisterTypeCommand");
-var de_RegisterTypeCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_RegisterTypeCommandError");
 var de_RollbackStackCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_RollbackStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6343,28 +5040,9 @@ var de_RollbackStackCommand = /* @__PURE__ */ __name(async (output, context) => 
   };
   return response;
 }, "de_RollbackStackCommand");
-var de_RollbackStackCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_RollbackStackCommandError");
 var de_SetStackPolicyCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_SetStackPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await (0, import_smithy_client.collectBody)(output.body, context);
   const response = {
@@ -6372,22 +5050,9 @@ var de_SetStackPolicyCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_SetStackPolicyCommand");
-var de_SetStackPolicyCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_SetStackPolicyCommandError");
 var de_SetTypeConfigurationCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_SetTypeConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6398,31 +5063,9 @@ var de_SetTypeConfigurationCommand = /* @__PURE__ */ __name(async (output, conte
   };
   return response;
 }, "de_SetTypeConfigurationCommand");
-var de_SetTypeConfigurationCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_SetTypeConfigurationCommandError");
 var de_SetTypeDefaultVersionCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_SetTypeDefaultVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6433,31 +5076,9 @@ var de_SetTypeDefaultVersionCommand = /* @__PURE__ */ __name(async (output, cont
   };
   return response;
 }, "de_SetTypeDefaultVersionCommand");
-var de_SetTypeDefaultVersionCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_SetTypeDefaultVersionCommandError");
 var de_SignalResourceCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_SignalResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await (0, import_smithy_client.collectBody)(output.body, context);
   const response = {
@@ -6465,22 +5086,9 @@ var de_SignalResourceCommand = /* @__PURE__ */ __name(async (output, context) =>
   };
   return response;
 }, "de_SignalResourceCommand");
-var de_SignalResourceCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_SignalResourceCommandError");
 var de_StartResourceScanCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_StartResourceScanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -6491,16 +5099,195 @@ var de_StartResourceScanCommand = /* @__PURE__ */ __name(async (output, context)
   };
   return response;
 }, "de_StartResourceScanCommand");
-var de_StartResourceScanCommandError = /* @__PURE__ */ __name(async (output, context) => {
+var de_StopStackSetOperationCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_StopStackSetOperationOutput(data.StopStackSetOperationResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_StopStackSetOperationCommand");
+var de_TestTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_TestTypeOutput(data.TestTypeResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_TestTypeCommand");
+var de_UpdateGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_UpdateGeneratedTemplateOutput(data.UpdateGeneratedTemplateResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_UpdateGeneratedTemplateCommand");
+var de_UpdateStackCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_UpdateStackOutput(data.UpdateStackResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_UpdateStackCommand");
+var de_UpdateStackInstancesCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_UpdateStackInstancesOutput(data.UpdateStackInstancesResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_UpdateStackInstancesCommand");
+var de_UpdateStackSetCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_UpdateStackSetOutput(data.UpdateStackSetResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_UpdateStackSetCommand");
+var de_UpdateTerminationProtectionCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_UpdateTerminationProtectionOutput(data.UpdateTerminationProtectionResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_UpdateTerminationProtectionCommand");
+var de_ValidateTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_ValidateTemplateOutput(data.ValidateTemplateResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_ValidateTemplateCommand");
+var de_CommandError = /* @__PURE__ */ __name(async (output, context) => {
   const parsedOutput = {
     ...output,
     body: await parseErrorBody(output.body, context)
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidOperationException":
+    case "com.amazonaws.cloudformation#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "OperationNotFoundException":
+    case "com.amazonaws.cloudformation#OperationNotFoundException":
+      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
+    case "TypeNotFoundException":
+    case "com.amazonaws.cloudformation#TypeNotFoundException":
+      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
+    case "TypeConfigurationNotFoundException":
+    case "com.amazonaws.cloudformation#TypeConfigurationNotFoundException":
+      throw await de_TypeConfigurationNotFoundExceptionRes(parsedOutput, context);
+    case "TokenAlreadyExistsException":
+    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
+      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.cloudformation#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "InsufficientCapabilitiesException":
+    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
+      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudformation#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ConcurrentResourcesLimitExceeded":
+    case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
+      throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput, context);
+    case "OperationIdAlreadyExistsException":
+    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
+      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
+    case "OperationInProgressException":
+    case "com.amazonaws.cloudformation#OperationInProgressException":
+      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
+    case "StackSetNotFoundException":
+    case "com.amazonaws.cloudformation#StackSetNotFoundException":
+      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
+    case "StaleRequestException":
+    case "com.amazonaws.cloudformation#StaleRequestException":
+      throw await de_StaleRequestExceptionRes(parsedOutput, context);
+    case "CreatedButModifiedException":
+    case "com.amazonaws.cloudformation#CreatedButModifiedException":
+      throw await de_CreatedButModifiedExceptionRes(parsedOutput, context);
+    case "NameAlreadyExistsException":
+    case "com.amazonaws.cloudformation#NameAlreadyExistsException":
+      throw await de_NameAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidChangeSetStatus":
+    case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
+      throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
+    case "GeneratedTemplateNotFound":
+    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
+      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
+    case "StackSetNotEmptyException":
+    case "com.amazonaws.cloudformation#StackSetNotEmptyException":
+      throw await de_StackSetNotEmptyExceptionRes(parsedOutput, context);
+    case "ChangeSetNotFound":
+    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
+      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceScanNotFound":
+    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
+      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
+    case "StackInstanceNotFoundException":
+    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
+      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
+    case "StackNotFoundException":
+    case "com.amazonaws.cloudformation#StackNotFoundException":
+      throw await de_StackNotFoundExceptionRes(parsedOutput, context);
     case "ResourceScanInProgress":
     case "com.amazonaws.cloudformation#ResourceScanInProgressException":
       throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
+    case "ConditionalCheckFailed":
+    case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
+      throw await de_OperationStatusCheckFailedExceptionRes(parsedOutput, context);
+    case "InvalidStateTransition":
+    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
+      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
     case "ResourceScanLimitExceeded":
     case "com.amazonaws.cloudformation#ResourceScanLimitExceededException":
       throw await de_ResourceScanLimitExceededExceptionRes(parsedOutput, context);
@@ -6512,299 +5299,7 @@ var de_StartResourceScanCommandError = /* @__PURE__ */ __name(async (output, con
         errorCode
       });
   }
-}, "de_StartResourceScanCommandError");
-var de_StopStackSetOperationCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_StopStackSetOperationCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_StopStackSetOperationOutput(data.StopStackSetOperationResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_StopStackSetOperationCommand");
-var de_StopStackSetOperationCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_StopStackSetOperationCommandError");
-var de_TestTypeCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_TestTypeCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_TestTypeOutput(data.TestTypeResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_TestTypeCommand");
-var de_TestTypeCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_TestTypeCommandError");
-var de_UpdateGeneratedTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_UpdateGeneratedTemplateCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_UpdateGeneratedTemplateOutput(data.UpdateGeneratedTemplateResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_UpdateGeneratedTemplateCommand");
-var de_UpdateGeneratedTemplateCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "GeneratedTemplateNotFound":
-    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_UpdateGeneratedTemplateCommandError");
-var de_UpdateStackCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStackCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_UpdateStackOutput(data.UpdateStackResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_UpdateStackCommand");
-var de_UpdateStackCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientCapabilitiesException":
-    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_UpdateStackCommandError");
-var de_UpdateStackInstancesCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStackInstancesCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_UpdateStackInstancesOutput(data.UpdateStackInstancesResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_UpdateStackInstancesCommand");
-var de_UpdateStackInstancesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackInstanceNotFoundException":
-    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_UpdateStackInstancesCommandError");
-var de_UpdateStackSetCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStackSetCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_UpdateStackSetOutput(data.UpdateStackSetResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_UpdateStackSetCommand");
-var de_UpdateStackSetCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackInstanceNotFoundException":
-    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_UpdateStackSetCommandError");
-var de_UpdateTerminationProtectionCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_UpdateTerminationProtectionCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_UpdateTerminationProtectionOutput(data.UpdateTerminationProtectionResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_UpdateTerminationProtectionCommand");
-var de_UpdateTerminationProtectionCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_UpdateTerminationProtectionCommandError");
-var de_ValidateTemplateCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_ValidateTemplateCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_ValidateTemplateOutput(data.ValidateTemplateResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_ValidateTemplateCommand");
-var de_ValidateTemplateCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_ValidateTemplateCommandError");
+}, "de_CommandError");
 var de_AlreadyExistsExceptionRes = /* @__PURE__ */ __name(async (parsedOutput, context) => {
   const body = parsedOutput.body;
   const deserialized = de_AlreadyExistsException(body.Error, context);
@@ -15173,16 +13668,16 @@ var import_util_endpoints = __nccwpck_require__(4474);
 
 /***/ }),
 
-/***/ 1717:
+/***/ 2704:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(7109));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(5898));
 const core_1 = __nccwpck_require__(3580);
-const credential_provider_node_1 = __nccwpck_require__(7558);
+const credential_provider_node_1 = __nccwpck_require__(5005);
 const util_user_agent_node_1 = __nccwpck_require__(9145);
 const config_resolver_1 = __nccwpck_require__(4731);
 const hash_node_1 = __nccwpck_require__(356);
@@ -15191,10 +13686,10 @@ const node_config_provider_1 = __nccwpck_require__(3531);
 const node_http_handler_1 = __nccwpck_require__(8788);
 const util_body_length_node_1 = __nccwpck_require__(5593);
 const util_retry_1 = __nccwpck_require__(4348);
-const runtimeConfig_shared_1 = __nccwpck_require__(9141);
-const smithy_client_1 = __nccwpck_require__(3734);
-const util_defaults_mode_node_1 = __nccwpck_require__(482);
-const smithy_client_2 = __nccwpck_require__(3734);
+const runtimeConfig_shared_1 = __nccwpck_require__(1721);
+const smithy_client_1 = __nccwpck_require__(5966);
+const util_defaults_mode_node_1 = __nccwpck_require__(8621);
+const smithy_client_2 = __nccwpck_require__(5966);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -15229,17 +13724,17 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 9141:
+/***/ 1721:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const smithy_client_1 = __nccwpck_require__(3734);
+const smithy_client_1 = __nccwpck_require__(5966);
 const url_parser_1 = __nccwpck_require__(9902);
 const util_base64_1 = __nccwpck_require__(1697);
 const util_utf8_1 = __nccwpck_require__(2176);
-const endpointResolver_1 = __nccwpck_require__(362);
+const endpointResolver_1 = __nccwpck_require__(8250);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -15260,7 +13755,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 8068:
+/***/ 7193:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -15290,20 +13785,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultProvider = void 0;
 exports.defaultProvider = ((input) => {
-    return () => Promise.resolve().then(() => __importStar(__nccwpck_require__(7558))).then(({ defaultProvider }) => defaultProvider(input)());
+    return () => Promise.resolve().then(() => __importStar(__nccwpck_require__(5005))).then(({ defaultProvider }) => defaultProvider(input)());
 });
 
 
 /***/ }),
 
-/***/ 7290:
+/***/ 9363:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(7187);
-const ruleset_1 = __nccwpck_require__(3487);
+const ruleset_1 = __nccwpck_require__(167);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -15315,7 +13810,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 3487:
+/***/ 167:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15329,7 +13824,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 3327:
+/***/ 9654:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -15414,12 +13909,12 @@ var commonParams = {
 };
 
 // src/SSOOIDCClient.ts
-var import_runtimeConfig = __nccwpck_require__(2664);
+var import_runtimeConfig = __nccwpck_require__(7007);
 
 // src/runtimeExtensions.ts
 var import_region_config_resolver = __nccwpck_require__(3564);
 var import_protocol_http = __nccwpck_require__(5649);
-var import_smithy_client = __nccwpck_require__(3734);
+var import_smithy_client = __nccwpck_require__(5966);
 var asPartial = /* @__PURE__ */ __name((t) => t, "asPartial");
 var resolveRuntimeExtensions = /* @__PURE__ */ __name((runtimeConfig, extensions) => {
   const extensionConfiguration = {
@@ -15865,7 +14360,7 @@ var se_StartDeviceAuthorizationCommand = /* @__PURE__ */ __name(async (input, co
 }, "se_StartDeviceAuthorizationCommand");
 var de_CreateTokenCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents = (0, import_smithy_client.map)({
     $metadata: deserializeMetadata(output)
@@ -15881,58 +14376,9 @@ var de_CreateTokenCommand = /* @__PURE__ */ __name(async (output, context) => {
   Object.assign(contents, doc);
   return contents;
 }, "de_CreateTokenCommand");
-var de_CreateTokenCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssooidc#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AuthorizationPendingException":
-    case "com.amazonaws.ssooidc#AuthorizationPendingException":
-      throw await de_AuthorizationPendingExceptionRes(parsedOutput, context);
-    case "ExpiredTokenException":
-    case "com.amazonaws.ssooidc#ExpiredTokenException":
-      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssooidc#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidClientException":
-    case "com.amazonaws.ssooidc#InvalidClientException":
-      throw await de_InvalidClientExceptionRes(parsedOutput, context);
-    case "InvalidGrantException":
-    case "com.amazonaws.ssooidc#InvalidGrantException":
-      throw await de_InvalidGrantExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ssooidc#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidScopeException":
-    case "com.amazonaws.ssooidc#InvalidScopeException":
-      throw await de_InvalidScopeExceptionRes(parsedOutput, context);
-    case "SlowDownException":
-    case "com.amazonaws.ssooidc#SlowDownException":
-      throw await de_SlowDownExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.ssooidc#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    case "UnsupportedGrantTypeException":
-    case "com.amazonaws.ssooidc#UnsupportedGrantTypeException":
-      throw await de_UnsupportedGrantTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode
-      });
-  }
-}, "de_CreateTokenCommandError");
 var de_CreateTokenWithIAMCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTokenWithIAMCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents = (0, import_smithy_client.map)({
     $metadata: deserializeMetadata(output)
@@ -15950,7 +14396,45 @@ var de_CreateTokenWithIAMCommand = /* @__PURE__ */ __name(async (output, context
   Object.assign(contents, doc);
   return contents;
 }, "de_CreateTokenWithIAMCommand");
-var de_CreateTokenWithIAMCommandError = /* @__PURE__ */ __name(async (output, context) => {
+var de_RegisterClientCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents = (0, import_smithy_client.map)({
+    $metadata: deserializeMetadata(output)
+  });
+  const data = (0, import_smithy_client.expectNonNull)((0, import_smithy_client.expectObject)(await parseBody(output.body, context)), "body");
+  const doc = (0, import_smithy_client.take)(data, {
+    authorizationEndpoint: import_smithy_client.expectString,
+    clientId: import_smithy_client.expectString,
+    clientIdIssuedAt: import_smithy_client.expectLong,
+    clientSecret: import_smithy_client.expectString,
+    clientSecretExpiresAt: import_smithy_client.expectLong,
+    tokenEndpoint: import_smithy_client.expectString
+  });
+  Object.assign(contents, doc);
+  return contents;
+}, "de_RegisterClientCommand");
+var de_StartDeviceAuthorizationCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents = (0, import_smithy_client.map)({
+    $metadata: deserializeMetadata(output)
+  });
+  const data = (0, import_smithy_client.expectNonNull)((0, import_smithy_client.expectObject)(await parseBody(output.body, context)), "body");
+  const doc = (0, import_smithy_client.take)(data, {
+    deviceCode: import_smithy_client.expectString,
+    expiresIn: import_smithy_client.expectInt32,
+    interval: import_smithy_client.expectInt32,
+    userCode: import_smithy_client.expectString,
+    verificationUri: import_smithy_client.expectString,
+    verificationUriComplete: import_smithy_client.expectString
+  });
+  Object.assign(contents, doc);
+  return contents;
+}, "de_StartDeviceAuthorizationCommand");
+var de_CommandError = /* @__PURE__ */ __name(async (output, context) => {
   const parsedOutput = {
     ...output,
     body: await parseErrorBody(output.body, context)
@@ -15978,9 +14462,6 @@ var de_CreateTokenWithIAMCommandError = /* @__PURE__ */ __name(async (output, co
     case "InvalidRequestException":
     case "com.amazonaws.ssooidc#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidRequestRegionException":
-    case "com.amazonaws.ssooidc#InvalidRequestRegionException":
-      throw await de_InvalidRequestRegionExceptionRes(parsedOutput, context);
     case "InvalidScopeException":
     case "com.amazonaws.ssooidc#InvalidScopeException":
       throw await de_InvalidScopeExceptionRes(parsedOutput, context);
@@ -15993,53 +14474,12 @@ var de_CreateTokenWithIAMCommandError = /* @__PURE__ */ __name(async (output, co
     case "UnsupportedGrantTypeException":
     case "com.amazonaws.ssooidc#UnsupportedGrantTypeException":
       throw await de_UnsupportedGrantTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode
-      });
-  }
-}, "de_CreateTokenWithIAMCommandError");
-var de_RegisterClientCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterClientCommandError(output, context);
-  }
-  const contents = (0, import_smithy_client.map)({
-    $metadata: deserializeMetadata(output)
-  });
-  const data = (0, import_smithy_client.expectNonNull)((0, import_smithy_client.expectObject)(await parseBody(output.body, context)), "body");
-  const doc = (0, import_smithy_client.take)(data, {
-    authorizationEndpoint: import_smithy_client.expectString,
-    clientId: import_smithy_client.expectString,
-    clientIdIssuedAt: import_smithy_client.expectLong,
-    clientSecret: import_smithy_client.expectString,
-    clientSecretExpiresAt: import_smithy_client.expectLong,
-    tokenEndpoint: import_smithy_client.expectString
-  });
-  Object.assign(contents, doc);
-  return contents;
-}, "de_RegisterClientCommand");
-var de_RegisterClientCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssooidc#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestRegionException":
+    case "com.amazonaws.ssooidc#InvalidRequestRegionException":
+      throw await de_InvalidRequestRegionExceptionRes(parsedOutput, context);
     case "InvalidClientMetadataException":
     case "com.amazonaws.ssooidc#InvalidClientMetadataException":
       throw await de_InvalidClientMetadataExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ssooidc#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidScopeException":
-    case "com.amazonaws.ssooidc#InvalidScopeException":
-      throw await de_InvalidScopeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -16048,57 +14488,7 @@ var de_RegisterClientCommandError = /* @__PURE__ */ __name(async (output, contex
         errorCode
       });
   }
-}, "de_RegisterClientCommandError");
-var de_StartDeviceAuthorizationCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartDeviceAuthorizationCommandError(output, context);
-  }
-  const contents = (0, import_smithy_client.map)({
-    $metadata: deserializeMetadata(output)
-  });
-  const data = (0, import_smithy_client.expectNonNull)((0, import_smithy_client.expectObject)(await parseBody(output.body, context)), "body");
-  const doc = (0, import_smithy_client.take)(data, {
-    deviceCode: import_smithy_client.expectString,
-    expiresIn: import_smithy_client.expectInt32,
-    interval: import_smithy_client.expectInt32,
-    userCode: import_smithy_client.expectString,
-    verificationUri: import_smithy_client.expectString,
-    verificationUriComplete: import_smithy_client.expectString
-  });
-  Object.assign(contents, doc);
-  return contents;
-}, "de_StartDeviceAuthorizationCommand");
-var de_StartDeviceAuthorizationCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssooidc#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidClientException":
-    case "com.amazonaws.ssooidc#InvalidClientException":
-      throw await de_InvalidClientExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ssooidc#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "SlowDownException":
-    case "com.amazonaws.ssooidc#SlowDownException":
-      throw await de_SlowDownExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.ssooidc#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode
-      });
-  }
-}, "de_StartDeviceAuthorizationCommandError");
+}, "de_CommandError");
 var throwDefaultError = (0, import_smithy_client.withBaseException)(SSOOIDCServiceException);
 var de_AccessDeniedExceptionRes = /* @__PURE__ */ __name(async (parsedOutput, context) => {
   const contents = (0, import_smithy_client.map)({});
@@ -16422,15 +14812,15 @@ var import_util_endpoints = __nccwpck_require__(4474);
 
 /***/ }),
 
-/***/ 2664:
+/***/ 7007:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(4410));
-const credentialDefaultProvider_1 = __nccwpck_require__(8068);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(1590));
+const credentialDefaultProvider_1 = __nccwpck_require__(7193);
 const core_1 = __nccwpck_require__(3580);
 const util_user_agent_node_1 = __nccwpck_require__(9145);
 const config_resolver_1 = __nccwpck_require__(4731);
@@ -16440,10 +14830,10 @@ const node_config_provider_1 = __nccwpck_require__(3531);
 const node_http_handler_1 = __nccwpck_require__(8788);
 const util_body_length_node_1 = __nccwpck_require__(5593);
 const util_retry_1 = __nccwpck_require__(4348);
-const runtimeConfig_shared_1 = __nccwpck_require__(9562);
-const smithy_client_1 = __nccwpck_require__(3734);
-const util_defaults_mode_node_1 = __nccwpck_require__(482);
-const smithy_client_2 = __nccwpck_require__(3734);
+const runtimeConfig_shared_1 = __nccwpck_require__(8408);
+const smithy_client_1 = __nccwpck_require__(5966);
+const util_defaults_mode_node_1 = __nccwpck_require__(8621);
+const smithy_client_2 = __nccwpck_require__(5966);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -16478,17 +14868,17 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 9562:
+/***/ 8408:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const smithy_client_1 = __nccwpck_require__(3734);
+const smithy_client_1 = __nccwpck_require__(5966);
 const url_parser_1 = __nccwpck_require__(9902);
 const util_base64_1 = __nccwpck_require__(1697);
 const util_utf8_1 = __nccwpck_require__(2176);
-const endpointResolver_1 = __nccwpck_require__(7290);
+const endpointResolver_1 = __nccwpck_require__(9363);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2019-06-10",
@@ -16509,14 +14899,14 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3482:
+/***/ 2443:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(7187);
-const ruleset_1 = __nccwpck_require__(1618);
+const ruleset_1 = __nccwpck_require__(1707);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -16528,7 +14918,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 1618:
+/***/ 1707:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -16542,7 +14932,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 2003:
+/***/ 1794:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -16619,12 +15009,12 @@ var commonParams = {
 };
 
 // src/SSOClient.ts
-var import_runtimeConfig = __nccwpck_require__(5298);
+var import_runtimeConfig = __nccwpck_require__(4218);
 
 // src/runtimeExtensions.ts
 var import_region_config_resolver = __nccwpck_require__(3564);
 var import_protocol_http = __nccwpck_require__(5649);
-var import_smithy_client = __nccwpck_require__(3734);
+var import_smithy_client = __nccwpck_require__(5966);
 var asPartial = /* @__PURE__ */ __name((t) => t, "asPartial");
 var resolveRuntimeExtensions = /* @__PURE__ */ __name((runtimeConfig, extensions) => {
   const extensionConfiguration = {
@@ -16852,7 +15242,7 @@ var se_LogoutCommand = /* @__PURE__ */ __name(async (input, context) => {
 }, "se_LogoutCommand");
 var de_GetRoleCredentialsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRoleCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents = (0, import_smithy_client.map)({
     $metadata: deserializeMetadata(output)
@@ -16864,37 +15254,9 @@ var de_GetRoleCredentialsCommand = /* @__PURE__ */ __name(async (output, context
   Object.assign(contents, doc);
   return contents;
 }, "de_GetRoleCredentialsCommand");
-var de_GetRoleCredentialsCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.sso#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sso#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sso#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.sso#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode
-      });
-  }
-}, "de_GetRoleCredentialsCommandError");
 var de_ListAccountRolesCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccountRolesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents = (0, import_smithy_client.map)({
     $metadata: deserializeMetadata(output)
@@ -16907,37 +15269,9 @@ var de_ListAccountRolesCommand = /* @__PURE__ */ __name(async (output, context) 
   Object.assign(contents, doc);
   return contents;
 }, "de_ListAccountRolesCommand");
-var de_ListAccountRolesCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.sso#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sso#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sso#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.sso#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode
-      });
-  }
-}, "de_ListAccountRolesCommandError");
 var de_ListAccountsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents = (0, import_smithy_client.map)({
     $metadata: deserializeMetadata(output)
@@ -16950,7 +15284,17 @@ var de_ListAccountsCommand = /* @__PURE__ */ __name(async (output, context) => {
   Object.assign(contents, doc);
   return contents;
 }, "de_ListAccountsCommand");
-var de_ListAccountsCommandError = /* @__PURE__ */ __name(async (output, context) => {
+var de_LogoutCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents = (0, import_smithy_client.map)({
+    $metadata: deserializeMetadata(output)
+  });
+  await (0, import_smithy_client.collectBody)(output.body, context);
+  return contents;
+}, "de_LogoutCommand");
+var de_CommandError = /* @__PURE__ */ __name(async (output, context) => {
   const parsedOutput = {
     ...output,
     body: await parseErrorBody(output.body, context)
@@ -16977,42 +15321,7 @@ var de_ListAccountsCommandError = /* @__PURE__ */ __name(async (output, context)
         errorCode
       });
   }
-}, "de_ListAccountsCommandError");
-var de_LogoutCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_LogoutCommandError(output, context);
-  }
-  const contents = (0, import_smithy_client.map)({
-    $metadata: deserializeMetadata(output)
-  });
-  await (0, import_smithy_client.collectBody)(output.body, context);
-  return contents;
-}, "de_LogoutCommand");
-var de_LogoutCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.sso#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sso#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.sso#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode
-      });
-  }
-}, "de_LogoutCommandError");
+}, "de_CommandError");
 var throwDefaultError = (0, import_smithy_client.withBaseException)(SSOServiceException);
 var de_InvalidRequestExceptionRes = /* @__PURE__ */ __name(async (parsedOutput, context) => {
   const contents = (0, import_smithy_client.map)({});
@@ -17220,14 +15529,14 @@ var import_util_endpoints = __nccwpck_require__(4474);
 
 /***/ }),
 
-/***/ 5298:
+/***/ 4218:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(3427));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(9881));
 const core_1 = __nccwpck_require__(3580);
 const util_user_agent_node_1 = __nccwpck_require__(9145);
 const config_resolver_1 = __nccwpck_require__(4731);
@@ -17237,10 +15546,10 @@ const node_config_provider_1 = __nccwpck_require__(3531);
 const node_http_handler_1 = __nccwpck_require__(8788);
 const util_body_length_node_1 = __nccwpck_require__(5593);
 const util_retry_1 = __nccwpck_require__(4348);
-const runtimeConfig_shared_1 = __nccwpck_require__(7563);
-const smithy_client_1 = __nccwpck_require__(3734);
-const util_defaults_mode_node_1 = __nccwpck_require__(482);
-const smithy_client_2 = __nccwpck_require__(3734);
+const runtimeConfig_shared_1 = __nccwpck_require__(9128);
+const smithy_client_1 = __nccwpck_require__(5966);
+const util_defaults_mode_node_1 = __nccwpck_require__(8621);
+const smithy_client_2 = __nccwpck_require__(5966);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -17274,17 +15583,17 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 7563:
+/***/ 9128:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const smithy_client_1 = __nccwpck_require__(3734);
+const smithy_client_1 = __nccwpck_require__(5966);
 const url_parser_1 = __nccwpck_require__(9902);
 const util_base64_1 = __nccwpck_require__(1697);
 const util_utf8_1 = __nccwpck_require__(2176);
-const endpointResolver_1 = __nccwpck_require__(3482);
+const endpointResolver_1 = __nccwpck_require__(2443);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2019-06-10",
@@ -17305,7 +15614,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 9814:
+/***/ 907:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17320,12 +15629,12 @@ const core_1 = __nccwpck_require__(300);
 const middleware_content_length_1 = __nccwpck_require__(3731);
 const middleware_endpoint_1 = __nccwpck_require__(1598);
 const middleware_retry_1 = __nccwpck_require__(5228);
-const smithy_client_1 = __nccwpck_require__(3734);
+const smithy_client_1 = __nccwpck_require__(5966);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const httpAuthSchemeProvider_1 = __nccwpck_require__(6007);
-const EndpointParameters_1 = __nccwpck_require__(710);
-const runtimeConfig_1 = __nccwpck_require__(3599);
-const runtimeExtensions_1 = __nccwpck_require__(5248);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(3563);
+const EndpointParameters_1 = __nccwpck_require__(5848);
+const runtimeConfig_1 = __nccwpck_require__(2402);
+const runtimeExtensions_1 = __nccwpck_require__(8058);
 class STSClient extends smithy_client_1.Client {
     constructor(...[configuration]) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration || {});
@@ -17368,7 +15677,7 @@ exports.STSClient = STSClient;
 
 /***/ }),
 
-/***/ 6520:
+/***/ 7356:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17418,7 +15727,7 @@ exports.resolveHttpAuthRuntimeConfig = resolveHttpAuthRuntimeConfig;
 
 /***/ }),
 
-/***/ 6007:
+/***/ 3563:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17426,7 +15735,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.resolveStsAuthConfig = exports.defaultSTSHttpAuthSchemeProvider = exports.defaultSTSHttpAuthSchemeParametersProvider = void 0;
 const core_1 = __nccwpck_require__(3580);
 const util_middleware_1 = __nccwpck_require__(8373);
-const STSClient_1 = __nccwpck_require__(9814);
+const STSClient_1 = __nccwpck_require__(907);
 const defaultSTSHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -17492,7 +15801,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 5474:
+/***/ 8206:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -17522,13 +15831,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultProvider = void 0;
 exports.defaultProvider = ((input) => {
-    return () => Promise.resolve().then(() => __importStar(__nccwpck_require__(7558))).then(({ defaultProvider }) => defaultProvider(input)());
+    return () => Promise.resolve().then(() => __importStar(__nccwpck_require__(5005))).then(({ defaultProvider }) => defaultProvider(input)());
 });
 
 
 /***/ }),
 
-/***/ 710:
+/***/ 5848:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17555,14 +15864,14 @@ exports.commonParams = {
 
 /***/ }),
 
-/***/ 2170:
+/***/ 6917:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(7187);
-const ruleset_1 = __nccwpck_require__(395);
+const ruleset_1 = __nccwpck_require__(3811);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_1.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -17574,7 +15883,7 @@ exports.defaultEndpointResolver = defaultEndpointResolver;
 
 /***/ }),
 
-/***/ 395:
+/***/ 3811:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -17588,7 +15897,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 5492:
+/***/ 3716:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -17648,7 +15957,7 @@ __export(src_exports, {
   getDefaultRoleAssumerWithWebIdentity: () => getDefaultRoleAssumerWithWebIdentity2
 });
 module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, __nccwpck_require__(9814), module.exports);
+__reExport(src_exports, __nccwpck_require__(907), module.exports);
 
 // src/STS.ts
 
@@ -17658,13 +15967,13 @@ var import_middleware_endpoint = __nccwpck_require__(1598);
 var import_middleware_serde = __nccwpck_require__(128);
 
 var import_types = __nccwpck_require__(396);
-var import_EndpointParameters = __nccwpck_require__(710);
+var import_EndpointParameters = __nccwpck_require__(5848);
 
 // src/models/models_0.ts
 
 
 // src/models/STSServiceException.ts
-var import_smithy_client = __nccwpck_require__(3734);
+var import_smithy_client = __nccwpck_require__(5966);
 var _STSServiceException = class _STSServiceException extends import_smithy_client.ServiceException {
   /**
    * @internal
@@ -17933,7 +16242,7 @@ var se_GetSessionTokenCommand = /* @__PURE__ */ __name(async (input, context) =>
 }, "se_GetSessionTokenCommand");
 var de_AssumeRoleCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_AssumeRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -17944,37 +16253,9 @@ var de_AssumeRoleCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_AssumeRoleCommand");
-var de_AssumeRoleCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredTokenException":
-    case "com.amazonaws.sts#ExpiredTokenException":
-      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PackedPolicyTooLarge":
-    case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_AssumeRoleCommandError");
 var de_AssumeRoleWithSAMLCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_AssumeRoleWithSAMLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -17985,43 +16266,9 @@ var de_AssumeRoleWithSAMLCommand = /* @__PURE__ */ __name(async (output, context
   };
   return response;
 }, "de_AssumeRoleWithSAMLCommand");
-var de_AssumeRoleWithSAMLCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredTokenException":
-    case "com.amazonaws.sts#ExpiredTokenException":
-      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "IDPRejectedClaim":
-    case "com.amazonaws.sts#IDPRejectedClaimException":
-      throw await de_IDPRejectedClaimExceptionRes(parsedOutput, context);
-    case "InvalidIdentityToken":
-    case "com.amazonaws.sts#InvalidIdentityTokenException":
-      throw await de_InvalidIdentityTokenExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PackedPolicyTooLarge":
-    case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_AssumeRoleWithSAMLCommandError");
 var de_AssumeRoleWithWebIdentityCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_AssumeRoleWithWebIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -18032,46 +16279,9 @@ var de_AssumeRoleWithWebIdentityCommand = /* @__PURE__ */ __name(async (output, 
   };
   return response;
 }, "de_AssumeRoleWithWebIdentityCommand");
-var de_AssumeRoleWithWebIdentityCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredTokenException":
-    case "com.amazonaws.sts#ExpiredTokenException":
-      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "IDPCommunicationError":
-    case "com.amazonaws.sts#IDPCommunicationErrorException":
-      throw await de_IDPCommunicationErrorExceptionRes(parsedOutput, context);
-    case "IDPRejectedClaim":
-    case "com.amazonaws.sts#IDPRejectedClaimException":
-      throw await de_IDPRejectedClaimExceptionRes(parsedOutput, context);
-    case "InvalidIdentityToken":
-    case "com.amazonaws.sts#InvalidIdentityTokenException":
-      throw await de_InvalidIdentityTokenExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PackedPolicyTooLarge":
-    case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_AssumeRoleWithWebIdentityCommandError");
 var de_DecodeAuthorizationMessageCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
-    return de_DecodeAuthorizationMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data = await parseBody(output.body, context);
   let contents = {};
@@ -18082,13 +16292,86 @@ var de_DecodeAuthorizationMessageCommand = /* @__PURE__ */ __name(async (output,
   };
   return response;
 }, "de_DecodeAuthorizationMessageCommand");
-var de_DecodeAuthorizationMessageCommandError = /* @__PURE__ */ __name(async (output, context) => {
+var de_GetAccessKeyInfoCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_GetAccessKeyInfoResponse(data.GetAccessKeyInfoResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_GetAccessKeyInfoCommand");
+var de_GetCallerIdentityCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_GetCallerIdentityResponse(data.GetCallerIdentityResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_GetCallerIdentityCommand");
+var de_GetFederationTokenCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_GetFederationTokenResponse(data.GetFederationTokenResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_GetFederationTokenCommand");
+var de_GetSessionTokenCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await parseBody(output.body, context);
+  let contents = {};
+  contents = de_GetSessionTokenResponse(data.GetSessionTokenResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_GetSessionTokenCommand");
+var de_CommandError = /* @__PURE__ */ __name(async (output, context) => {
   const parsedOutput = {
     ...output,
     body: await parseErrorBody(output.body, context)
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ExpiredTokenException":
+    case "com.amazonaws.sts#ExpiredTokenException":
+      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
+    case "MalformedPolicyDocument":
+    case "com.amazonaws.sts#MalformedPolicyDocumentException":
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
+    case "PackedPolicyTooLarge":
+    case "com.amazonaws.sts#PackedPolicyTooLargeException":
+      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
+    case "RegionDisabledException":
+    case "com.amazonaws.sts#RegionDisabledException":
+      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
+    case "IDPRejectedClaim":
+    case "com.amazonaws.sts#IDPRejectedClaimException":
+      throw await de_IDPRejectedClaimExceptionRes(parsedOutput, context);
+    case "InvalidIdentityToken":
+    case "com.amazonaws.sts#InvalidIdentityTokenException":
+      throw await de_InvalidIdentityTokenExceptionRes(parsedOutput, context);
+    case "IDPCommunicationError":
+    case "com.amazonaws.sts#IDPCommunicationErrorException":
+      throw await de_IDPCommunicationErrorExceptionRes(parsedOutput, context);
     case "InvalidAuthorizationMessageException":
     case "com.amazonaws.sts#InvalidAuthorizationMessageException":
       throw await de_InvalidAuthorizationMessageExceptionRes(parsedOutput, context);
@@ -18100,129 +16383,7 @@ var de_DecodeAuthorizationMessageCommandError = /* @__PURE__ */ __name(async (ou
         errorCode
       });
   }
-}, "de_DecodeAuthorizationMessageCommandError");
-var de_GetAccessKeyInfoCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_GetAccessKeyInfoCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_GetAccessKeyInfoResponse(data.GetAccessKeyInfoResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_GetAccessKeyInfoCommand");
-var de_GetAccessKeyInfoCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_GetAccessKeyInfoCommandError");
-var de_GetCallerIdentityCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_GetCallerIdentityCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_GetCallerIdentityResponse(data.GetCallerIdentityResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_GetCallerIdentityCommand");
-var de_GetCallerIdentityCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode
-  });
-}, "de_GetCallerIdentityCommandError");
-var de_GetFederationTokenCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_GetFederationTokenCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_GetFederationTokenResponse(data.GetFederationTokenResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_GetFederationTokenCommand");
-var de_GetFederationTokenCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PackedPolicyTooLarge":
-    case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_GetFederationTokenCommandError");
-var de_GetSessionTokenCommand = /* @__PURE__ */ __name(async (output, context) => {
-  if (output.statusCode >= 300) {
-    return de_GetSessionTokenCommandError(output, context);
-  }
-  const data = await parseBody(output.body, context);
-  let contents = {};
-  contents = de_GetSessionTokenResponse(data.GetSessionTokenResult, context);
-  const response = {
-    $metadata: deserializeMetadata(output),
-    ...contents
-  };
-  return response;
-}, "de_GetSessionTokenCommand");
-var de_GetSessionTokenCommandError = /* @__PURE__ */ __name(async (output, context) => {
-  const parsedOutput = {
-    ...output,
-    body: await parseErrorBody(output.body, context)
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode
-      });
-  }
-}, "de_GetSessionTokenCommandError");
+}, "de_CommandError");
 var de_ExpiredTokenExceptionRes = /* @__PURE__ */ __name(async (parsedOutput, context) => {
   const body = parsedOutput.body;
   const deserialized = de_ExpiredTokenException(body.Error, context);
@@ -18933,7 +17094,7 @@ var AssumeRoleCommand = _AssumeRoleCommand;
 
 
 
-var import_EndpointParameters2 = __nccwpck_require__(710);
+var import_EndpointParameters2 = __nccwpck_require__(5848);
 var _AssumeRoleWithSAMLCommand = class _AssumeRoleWithSAMLCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters2.commonParams
 }).m(function(Command, cs, config, o) {
@@ -18951,7 +17112,7 @@ var AssumeRoleWithSAMLCommand = _AssumeRoleWithSAMLCommand;
 
 
 
-var import_EndpointParameters3 = __nccwpck_require__(710);
+var import_EndpointParameters3 = __nccwpck_require__(5848);
 var _AssumeRoleWithWebIdentityCommand = class _AssumeRoleWithWebIdentityCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters3.commonParams
 }).m(function(Command, cs, config, o) {
@@ -18969,7 +17130,7 @@ var AssumeRoleWithWebIdentityCommand = _AssumeRoleWithWebIdentityCommand;
 
 
 
-var import_EndpointParameters4 = __nccwpck_require__(710);
+var import_EndpointParameters4 = __nccwpck_require__(5848);
 var _DecodeAuthorizationMessageCommand = class _DecodeAuthorizationMessageCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters4.commonParams
 }).m(function(Command, cs, config, o) {
@@ -18987,7 +17148,7 @@ var DecodeAuthorizationMessageCommand = _DecodeAuthorizationMessageCommand;
 
 
 
-var import_EndpointParameters5 = __nccwpck_require__(710);
+var import_EndpointParameters5 = __nccwpck_require__(5848);
 var _GetAccessKeyInfoCommand = class _GetAccessKeyInfoCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters5.commonParams
 }).m(function(Command, cs, config, o) {
@@ -19005,7 +17166,7 @@ var GetAccessKeyInfoCommand = _GetAccessKeyInfoCommand;
 
 
 
-var import_EndpointParameters6 = __nccwpck_require__(710);
+var import_EndpointParameters6 = __nccwpck_require__(5848);
 var _GetCallerIdentityCommand = class _GetCallerIdentityCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters6.commonParams
 }).m(function(Command, cs, config, o) {
@@ -19023,7 +17184,7 @@ var GetCallerIdentityCommand = _GetCallerIdentityCommand;
 
 
 
-var import_EndpointParameters7 = __nccwpck_require__(710);
+var import_EndpointParameters7 = __nccwpck_require__(5848);
 var _GetFederationTokenCommand = class _GetFederationTokenCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters7.commonParams
 }).m(function(Command, cs, config, o) {
@@ -19041,7 +17202,7 @@ var GetFederationTokenCommand = _GetFederationTokenCommand;
 
 
 
-var import_EndpointParameters8 = __nccwpck_require__(710);
+var import_EndpointParameters8 = __nccwpck_require__(5848);
 var _GetSessionTokenCommand = class _GetSessionTokenCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters8.commonParams
 }).m(function(Command, cs, config, o) {
@@ -19055,7 +17216,7 @@ __name(_GetSessionTokenCommand, "GetSessionTokenCommand");
 var GetSessionTokenCommand = _GetSessionTokenCommand;
 
 // src/STS.ts
-var import_STSClient = __nccwpck_require__(9814);
+var import_STSClient = __nccwpck_require__(907);
 var commands = {
   AssumeRoleCommand,
   AssumeRoleWithSAMLCommand,
@@ -19073,8 +17234,8 @@ var STS = _STS;
 (0, import_smithy_client.createAggregatedClient)(commands, STS);
 
 // src/index.ts
-var import_EndpointParameters9 = __nccwpck_require__(710);
-var import_runtimeExtensions = __nccwpck_require__(5248);
+var import_EndpointParameters9 = __nccwpck_require__(5848);
+var import_runtimeExtensions = __nccwpck_require__(8058);
 var import_util_endpoints = __nccwpck_require__(4474);
 
 // src/defaultStsRoleAssumers.ts
@@ -19147,7 +17308,7 @@ var getDefaultRoleAssumerWithWebIdentity = /* @__PURE__ */ __name((stsOptions, s
 }, "getDefaultRoleAssumerWithWebIdentity");
 
 // src/defaultRoleAssumers.ts
-var import_STSClient2 = __nccwpck_require__(9814);
+var import_STSClient2 = __nccwpck_require__(907);
 var getCustomizableStsClientCtor = /* @__PURE__ */ __name((baseCtor, customizations) => {
   var _a2;
   if (!customizations)
@@ -19177,15 +17338,15 @@ var decorateDefaultCredentialProvider = /* @__PURE__ */ __name((provider) => (in
 
 /***/ }),
 
-/***/ 3599:
+/***/ 2402:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7315);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(1635));
-const credentialDefaultProvider_1 = __nccwpck_require__(5474);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(7681));
+const credentialDefaultProvider_1 = __nccwpck_require__(8206);
 const core_1 = __nccwpck_require__(3580);
 const util_user_agent_node_1 = __nccwpck_require__(9145);
 const config_resolver_1 = __nccwpck_require__(4731);
@@ -19196,10 +17357,10 @@ const node_config_provider_1 = __nccwpck_require__(3531);
 const node_http_handler_1 = __nccwpck_require__(8788);
 const util_body_length_node_1 = __nccwpck_require__(5593);
 const util_retry_1 = __nccwpck_require__(4348);
-const runtimeConfig_shared_1 = __nccwpck_require__(1515);
-const smithy_client_1 = __nccwpck_require__(3734);
-const util_defaults_mode_node_1 = __nccwpck_require__(482);
-const smithy_client_2 = __nccwpck_require__(3734);
+const runtimeConfig_shared_1 = __nccwpck_require__(6762);
+const smithy_client_1 = __nccwpck_require__(5966);
+const util_defaults_mode_node_1 = __nccwpck_require__(8621);
+const smithy_client_2 = __nccwpck_require__(5966);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -19247,7 +17408,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 1515:
+/***/ 6762:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19255,12 +17416,12 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const core_1 = __nccwpck_require__(3580);
 const core_2 = __nccwpck_require__(300);
-const smithy_client_1 = __nccwpck_require__(3734);
+const smithy_client_1 = __nccwpck_require__(5966);
 const url_parser_1 = __nccwpck_require__(9902);
 const util_base64_1 = __nccwpck_require__(1697);
 const util_utf8_1 = __nccwpck_require__(2176);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(6007);
-const endpointResolver_1 = __nccwpck_require__(2170);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(3563);
+const endpointResolver_1 = __nccwpck_require__(6917);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2011-06-15",
@@ -19294,7 +17455,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 5248:
+/***/ 8058:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19302,8 +17463,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveRuntimeExtensions = void 0;
 const region_config_resolver_1 = __nccwpck_require__(3564);
 const protocol_http_1 = __nccwpck_require__(5649);
-const smithy_client_1 = __nccwpck_require__(3734);
-const httpAuthExtensionConfiguration_1 = __nccwpck_require__(6520);
+const smithy_client_1 = __nccwpck_require__(5966);
+const httpAuthExtensionConfiguration_1 = __nccwpck_require__(7356);
 const asPartial = (t) => t;
 const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
     const extensionConfiguration = {
@@ -19621,7 +17782,7 @@ var _toNum = /* @__PURE__ */ __name((val) => {
 }, "_toNum");
 
 // src/protocols/json/awsExpectUnion.ts
-var import_smithy_client = __nccwpck_require__(3734);
+var import_smithy_client = __nccwpck_require__(5966);
 var awsExpectUnion = /* @__PURE__ */ __name((value) => {
   if (value == null) {
     return void 0;
@@ -19840,7 +18001,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getCredentials = exports.createGetRequest = void 0;
 const property_provider_1 = __nccwpck_require__(6349);
 const protocol_http_1 = __nccwpck_require__(5649);
-const smithy_client_1 = __nccwpck_require__(3734);
+const smithy_client_1 = __nccwpck_require__(5966);
 const util_stream_1 = __nccwpck_require__(9889);
 function createGetRequest(url) {
     return new protocol_http_1.HttpRequest({
@@ -19934,7 +18095,7 @@ Object.defineProperty(exports, "fromHttp", ({ enumerable: true, get: function ()
 
 /***/ }),
 
-/***/ 2348:
+/***/ 4386:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __create = Object.create;
@@ -19977,7 +18138,7 @@ __export(loadSts_exports, {
 var import_client_sts;
 var init_loadSts = __esm({
   "src/loadSts.ts"() {
-    import_client_sts = __nccwpck_require__(5492);
+    import_client_sts = __nccwpck_require__(3716);
   }
 });
 
@@ -20070,7 +18231,7 @@ var resolveProcessCredentials = /* @__PURE__ */ __name(async (options, profile) 
 
 // src/resolveSsoCredentials.ts
 var resolveSsoCredentials = /* @__PURE__ */ __name(async (profile, options = {}) => {
-  const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(1058)));
+  const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(9018)));
   return fromSSO({
     profile,
     logger: options.logger
@@ -20093,7 +18254,7 @@ var resolveStaticCredentials = /* @__PURE__ */ __name((profile, options) => {
 
 // src/resolveWebIdentityCredentials.ts
 var isWebIdentityProfile = /* @__PURE__ */ __name((arg) => Boolean(arg) && typeof arg === "object" && typeof arg.web_identity_token_file === "string" && typeof arg.role_arn === "string" && ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1, "isWebIdentityProfile");
-var resolveWebIdentityCredentials = /* @__PURE__ */ __name(async (profile, options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(5344))).then(
+var resolveWebIdentityCredentials = /* @__PURE__ */ __name(async (profile, options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(9119))).then(
   ({ fromTokenFile }) => fromTokenFile({
     webIdentityTokenFile: profile.web_identity_token_file,
     roleArn: profile.role_arn,
@@ -20142,7 +18303,7 @@ var fromIni = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 7558:
+/***/ 5005:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __create = Object.create;
@@ -20227,13 +18388,13 @@ var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_
           "Skipping SSO provider in default chain (inputs do not include SSO fields)."
         );
       }
-      const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(1058)));
+      const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(9018)));
       return fromSSO(init)();
     },
     async () => {
       var _a;
       (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromIni");
-      const { fromIni } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(2348)));
+      const { fromIni } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(4386)));
       return fromIni(init)();
     },
     async () => {
@@ -20245,7 +18406,7 @@ var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_
     async () => {
       var _a;
       (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromTokenFile");
-      const { fromTokenFile } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(5344)));
+      const { fromTokenFile } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(9119)));
       return fromTokenFile(init)();
     },
     async () => {
@@ -20373,7 +18534,7 @@ var fromProcess = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 1058:
+/***/ 9018:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -20407,7 +18568,7 @@ __export(loadSso_exports, {
 var import_client_sso;
 var init_loadSso = __esm({
   "src/loadSso.ts"() {
-    import_client_sso = __nccwpck_require__(2003);
+    import_client_sso = __nccwpck_require__(1794);
   }
 });
 
@@ -20428,7 +18589,7 @@ module.exports = __toCommonJS(src_exports);
 var isSsoProfile = /* @__PURE__ */ __name((arg) => arg && (typeof arg.sso_start_url === "string" || typeof arg.sso_account_id === "string" || typeof arg.sso_session === "string" || typeof arg.sso_region === "string" || typeof arg.sso_role_name === "string"), "isSsoProfile");
 
 // src/resolveSSOCredentials.ts
-var import_token_providers = __nccwpck_require__(6071);
+var import_token_providers = __nccwpck_require__(672);
 var import_property_provider = __nccwpck_require__(6349);
 var import_shared_ini_file_loader = __nccwpck_require__(6053);
 var SHOULD_FAIL_CREDENTIAL_CHAIN = false;
@@ -20577,7 +18738,7 @@ var fromSSO = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 7992:
+/***/ 4135:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20585,7 +18746,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromTokenFile = void 0;
 const property_provider_1 = __nccwpck_require__(6349);
 const fs_1 = __nccwpck_require__(7147);
-const fromWebToken_1 = __nccwpck_require__(2616);
+const fromWebToken_1 = __nccwpck_require__(3799);
 const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
@@ -20610,10 +18771,33 @@ exports.fromTokenFile = fromTokenFile;
 
 /***/ }),
 
-/***/ 2616:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+/***/ 3799:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromWebToken = void 0;
 const fromWebToken = (init) => async () => {
@@ -20622,7 +18806,7 @@ const fromWebToken = (init) => async () => {
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
     let { roleAssumerWithWebIdentity } = init;
     if (!roleAssumerWithWebIdentity) {
-        const { getDefaultRoleAssumerWithWebIdentity } = await Promise.resolve().then(() => __importStar(__nccwpck_require__(1564)));
+        const { getDefaultRoleAssumerWithWebIdentity } = await Promise.resolve().then(() => __importStar(__nccwpck_require__(178)));
         roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins);
     }
     return roleAssumerWithWebIdentity({
@@ -20640,7 +18824,7 @@ exports.fromWebToken = fromWebToken;
 
 /***/ }),
 
-/***/ 5344:
+/***/ 9119:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -20661,8 +18845,8 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, __nccwpck_require__(7992), module.exports);
-__reExport(src_exports, __nccwpck_require__(2616), module.exports);
+__reExport(src_exports, __nccwpck_require__(4135), module.exports);
+__reExport(src_exports, __nccwpck_require__(3799), module.exports);
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -20671,13 +18855,13 @@ __reExport(src_exports, __nccwpck_require__(2616), module.exports);
 
 /***/ }),
 
-/***/ 1564:
+/***/ 178:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getDefaultRoleAssumerWithWebIdentity = void 0;
-const client_sts_1 = __nccwpck_require__(5492);
+const client_sts_1 = __nccwpck_require__(3716);
 Object.defineProperty(exports, "getDefaultRoleAssumerWithWebIdentity", ({ enumerable: true, get: function () { return client_sts_1.getDefaultRoleAssumerWithWebIdentity; } }));
 
 
@@ -21372,7 +19556,7 @@ var resolveRegionConfig = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 6071:
+/***/ 672:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -21406,7 +19590,7 @@ __export(loadSsoOidc_exports, {
 var import_client_sso_oidc;
 var init_loadSsoOidc = __esm({
   "src/loadSsoOidc.ts"() {
-    import_client_sso_oidc = __nccwpck_require__(3327);
+    import_client_sso_oidc = __nccwpck_require__(9654);
   }
 });
 
@@ -22740,7 +20924,7 @@ var normalizeProvider = /* @__PURE__ */ __name((input) => {
 
 // src/protocols/requestBuilder.ts
 
-var import_smithy_client = __nccwpck_require__(3734);
+var import_smithy_client = __nccwpck_require__(5966);
 function requestBuilder(input, context) {
   return new RequestBuilder(input, context);
 }
@@ -24546,7 +22730,7 @@ var getOmitRetryHeadersPlugin = /* @__PURE__ */ __name((options) => ({
 // src/retryMiddleware.ts
 
 
-var import_smithy_client = __nccwpck_require__(3734);
+var import_smithy_client = __nccwpck_require__(5966);
 
 
 var import_isStreamingPayload = __nccwpck_require__(6668);
@@ -27150,7 +25334,7 @@ var getCanonicalHeaderList = /* @__PURE__ */ __name((headers) => Object.keys(hea
 
 /***/ }),
 
-/***/ 3734:
+/***/ 5966:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -28796,12 +26980,14 @@ var SelectorType = /* @__PURE__ */ ((SelectorType2) => {
 
 /***/ }),
 
-/***/ 482:
+/***/ 8621:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 var __export = (target, all) => {
@@ -28816,6 +27002,14 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.ts
@@ -28827,7 +27021,6 @@ module.exports = __toCommonJS(src_exports);
 
 // src/resolveDefaultsModeConfig.ts
 var import_config_resolver = __nccwpck_require__(4731);
-var import_credential_provider_imds = __nccwpck_require__(10);
 var import_node_config_provider = __nccwpck_require__(3531);
 var import_property_provider = __nccwpck_require__(6349);
 
@@ -28896,8 +27089,9 @@ var inferPhysicalRegion = /* @__PURE__ */ __name(async () => {
   }
   if (!process.env[ENV_IMDS_DISABLED]) {
     try {
-      const endpoint = await (0, import_credential_provider_imds.getInstanceMetadataEndpoint)();
-      return (await (0, import_credential_provider_imds.httpRequest)({ ...endpoint, path: IMDS_REGION_PATH })).toString();
+      const { getInstanceMetadataEndpoint, httpRequest } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(10)));
+      const endpoint = await getInstanceMetadataEndpoint();
+      return (await httpRequest({ ...endpoint, path: IMDS_REGION_PATH })).toString();
     } catch (e) {
     }
   }
@@ -57713,31 +55907,31 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 7109:
+/***/ 5898:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.504.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.504.0","@aws-sdk/core":"3.496.0","@aws-sdk/credential-provider-node":"3.504.0","@aws-sdk/middleware-host-header":"3.502.0","@aws-sdk/middleware-logger":"3.502.0","@aws-sdk/middleware-recursion-detection":"3.502.0","@aws-sdk/middleware-signing":"3.502.0","@aws-sdk/middleware-user-agent":"3.502.0","@aws-sdk/region-config-resolver":"3.502.0","@aws-sdk/types":"3.502.0","@aws-sdk/util-endpoints":"3.502.0","@aws-sdk/util-user-agent-browser":"3.502.0","@aws-sdk/util-user-agent-node":"3.502.0","@smithy/config-resolver":"^2.1.1","@smithy/core":"^1.3.1","@smithy/fetch-http-handler":"^2.4.1","@smithy/hash-node":"^2.1.1","@smithy/invalid-dependency":"^2.1.1","@smithy/middleware-content-length":"^2.1.1","@smithy/middleware-endpoint":"^2.4.1","@smithy/middleware-retry":"^2.1.1","@smithy/middleware-serde":"^2.1.1","@smithy/middleware-stack":"^2.1.1","@smithy/node-config-provider":"^2.2.1","@smithy/node-http-handler":"^2.3.1","@smithy/protocol-http":"^3.1.1","@smithy/smithy-client":"^2.3.1","@smithy/types":"^2.9.1","@smithy/url-parser":"^2.1.1","@smithy/util-base64":"^2.1.1","@smithy/util-body-length-browser":"^2.1.1","@smithy/util-body-length-node":"^2.2.1","@smithy/util-defaults-mode-browser":"^2.1.1","@smithy/util-defaults-mode-node":"^2.1.1","@smithy/util-endpoints":"^1.1.1","@smithy/util-retry":"^2.1.1","@smithy/util-utf8":"^2.1.1","@smithy/util-waiter":"^2.1.1","fast-xml-parser":"4.2.5","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.1.1","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.507.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.507.0","@aws-sdk/core":"3.496.0","@aws-sdk/credential-provider-node":"3.507.0","@aws-sdk/middleware-host-header":"3.502.0","@aws-sdk/middleware-logger":"3.502.0","@aws-sdk/middleware-recursion-detection":"3.502.0","@aws-sdk/middleware-signing":"3.502.0","@aws-sdk/middleware-user-agent":"3.502.0","@aws-sdk/region-config-resolver":"3.502.0","@aws-sdk/types":"3.502.0","@aws-sdk/util-endpoints":"3.502.0","@aws-sdk/util-user-agent-browser":"3.502.0","@aws-sdk/util-user-agent-node":"3.502.0","@smithy/config-resolver":"^2.1.1","@smithy/core":"^1.3.1","@smithy/fetch-http-handler":"^2.4.1","@smithy/hash-node":"^2.1.1","@smithy/invalid-dependency":"^2.1.1","@smithy/middleware-content-length":"^2.1.1","@smithy/middleware-endpoint":"^2.4.1","@smithy/middleware-retry":"^2.1.1","@smithy/middleware-serde":"^2.1.1","@smithy/middleware-stack":"^2.1.1","@smithy/node-config-provider":"^2.2.1","@smithy/node-http-handler":"^2.3.1","@smithy/protocol-http":"^3.1.1","@smithy/smithy-client":"^2.3.1","@smithy/types":"^2.9.1","@smithy/url-parser":"^2.1.1","@smithy/util-base64":"^2.1.1","@smithy/util-body-length-browser":"^2.1.1","@smithy/util-body-length-node":"^2.2.1","@smithy/util-defaults-mode-browser":"^2.1.1","@smithy/util-defaults-mode-node":"^2.1.1","@smithy/util-endpoints":"^1.1.1","@smithy/util-retry":"^2.1.1","@smithy/util-utf8":"^2.1.1","@smithy/util-waiter":"^2.1.1","fast-xml-parser":"4.2.5","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.1.1","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
-/***/ 4410:
+/***/ 1590:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.504.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.504.0","@aws-sdk/core":"3.496.0","@aws-sdk/middleware-host-header":"3.502.0","@aws-sdk/middleware-logger":"3.502.0","@aws-sdk/middleware-recursion-detection":"3.502.0","@aws-sdk/middleware-signing":"3.502.0","@aws-sdk/middleware-user-agent":"3.502.0","@aws-sdk/region-config-resolver":"3.502.0","@aws-sdk/types":"3.502.0","@aws-sdk/util-endpoints":"3.502.0","@aws-sdk/util-user-agent-browser":"3.502.0","@aws-sdk/util-user-agent-node":"3.502.0","@smithy/config-resolver":"^2.1.1","@smithy/core":"^1.3.1","@smithy/fetch-http-handler":"^2.4.1","@smithy/hash-node":"^2.1.1","@smithy/invalid-dependency":"^2.1.1","@smithy/middleware-content-length":"^2.1.1","@smithy/middleware-endpoint":"^2.4.1","@smithy/middleware-retry":"^2.1.1","@smithy/middleware-serde":"^2.1.1","@smithy/middleware-stack":"^2.1.1","@smithy/node-config-provider":"^2.2.1","@smithy/node-http-handler":"^2.3.1","@smithy/protocol-http":"^3.1.1","@smithy/smithy-client":"^2.3.1","@smithy/types":"^2.9.1","@smithy/url-parser":"^2.1.1","@smithy/util-base64":"^2.1.1","@smithy/util-body-length-browser":"^2.1.1","@smithy/util-body-length-node":"^2.2.1","@smithy/util-defaults-mode-browser":"^2.1.1","@smithy/util-defaults-mode-node":"^2.1.1","@smithy/util-endpoints":"^1.1.1","@smithy/util-retry":"^2.1.1","@smithy/util-utf8":"^2.1.1","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.1.1","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/credential-provider-node":"^3.504.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.507.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.507.0","@aws-sdk/core":"3.496.0","@aws-sdk/middleware-host-header":"3.502.0","@aws-sdk/middleware-logger":"3.502.0","@aws-sdk/middleware-recursion-detection":"3.502.0","@aws-sdk/middleware-signing":"3.502.0","@aws-sdk/middleware-user-agent":"3.502.0","@aws-sdk/region-config-resolver":"3.502.0","@aws-sdk/types":"3.502.0","@aws-sdk/util-endpoints":"3.502.0","@aws-sdk/util-user-agent-browser":"3.502.0","@aws-sdk/util-user-agent-node":"3.502.0","@smithy/config-resolver":"^2.1.1","@smithy/core":"^1.3.1","@smithy/fetch-http-handler":"^2.4.1","@smithy/hash-node":"^2.1.1","@smithy/invalid-dependency":"^2.1.1","@smithy/middleware-content-length":"^2.1.1","@smithy/middleware-endpoint":"^2.4.1","@smithy/middleware-retry":"^2.1.1","@smithy/middleware-serde":"^2.1.1","@smithy/middleware-stack":"^2.1.1","@smithy/node-config-provider":"^2.2.1","@smithy/node-http-handler":"^2.3.1","@smithy/protocol-http":"^3.1.1","@smithy/smithy-client":"^2.3.1","@smithy/types":"^2.9.1","@smithy/url-parser":"^2.1.1","@smithy/util-base64":"^2.1.1","@smithy/util-body-length-browser":"^2.1.1","@smithy/util-body-length-node":"^2.2.1","@smithy/util-defaults-mode-browser":"^2.1.1","@smithy/util-defaults-mode-node":"^2.1.1","@smithy/util-endpoints":"^1.1.1","@smithy/util-retry":"^2.1.1","@smithy/util-utf8":"^2.1.1","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.1.1","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/credential-provider-node":"^3.507.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
-/***/ 3427:
+/***/ 9881:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.502.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.496.0","@aws-sdk/middleware-host-header":"3.502.0","@aws-sdk/middleware-logger":"3.502.0","@aws-sdk/middleware-recursion-detection":"3.502.0","@aws-sdk/middleware-user-agent":"3.502.0","@aws-sdk/region-config-resolver":"3.502.0","@aws-sdk/types":"3.502.0","@aws-sdk/util-endpoints":"3.502.0","@aws-sdk/util-user-agent-browser":"3.502.0","@aws-sdk/util-user-agent-node":"3.502.0","@smithy/config-resolver":"^2.1.1","@smithy/core":"^1.3.1","@smithy/fetch-http-handler":"^2.4.1","@smithy/hash-node":"^2.1.1","@smithy/invalid-dependency":"^2.1.1","@smithy/middleware-content-length":"^2.1.1","@smithy/middleware-endpoint":"^2.4.1","@smithy/middleware-retry":"^2.1.1","@smithy/middleware-serde":"^2.1.1","@smithy/middleware-stack":"^2.1.1","@smithy/node-config-provider":"^2.2.1","@smithy/node-http-handler":"^2.3.1","@smithy/protocol-http":"^3.1.1","@smithy/smithy-client":"^2.3.1","@smithy/types":"^2.9.1","@smithy/url-parser":"^2.1.1","@smithy/util-base64":"^2.1.1","@smithy/util-body-length-browser":"^2.1.1","@smithy/util-body-length-node":"^2.2.1","@smithy/util-defaults-mode-browser":"^2.1.1","@smithy/util-defaults-mode-node":"^2.1.1","@smithy/util-endpoints":"^1.1.1","@smithy/util-retry":"^2.1.1","@smithy/util-utf8":"^2.1.1","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.1.1","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.507.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.496.0","@aws-sdk/middleware-host-header":"3.502.0","@aws-sdk/middleware-logger":"3.502.0","@aws-sdk/middleware-recursion-detection":"3.502.0","@aws-sdk/middleware-user-agent":"3.502.0","@aws-sdk/region-config-resolver":"3.502.0","@aws-sdk/types":"3.502.0","@aws-sdk/util-endpoints":"3.502.0","@aws-sdk/util-user-agent-browser":"3.502.0","@aws-sdk/util-user-agent-node":"3.502.0","@smithy/config-resolver":"^2.1.1","@smithy/core":"^1.3.1","@smithy/fetch-http-handler":"^2.4.1","@smithy/hash-node":"^2.1.1","@smithy/invalid-dependency":"^2.1.1","@smithy/middleware-content-length":"^2.1.1","@smithy/middleware-endpoint":"^2.4.1","@smithy/middleware-retry":"^2.1.1","@smithy/middleware-serde":"^2.1.1","@smithy/middleware-stack":"^2.1.1","@smithy/node-config-provider":"^2.2.1","@smithy/node-http-handler":"^2.3.1","@smithy/protocol-http":"^3.1.1","@smithy/smithy-client":"^2.3.1","@smithy/types":"^2.9.1","@smithy/url-parser":"^2.1.1","@smithy/util-base64":"^2.1.1","@smithy/util-body-length-browser":"^2.1.1","@smithy/util-body-length-node":"^2.2.1","@smithy/util-defaults-mode-browser":"^2.1.1","@smithy/util-defaults-mode-node":"^2.1.1","@smithy/util-endpoints":"^1.1.1","@smithy/util-retry":"^2.1.1","@smithy/util-utf8":"^2.1.1","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.1.1","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
-/***/ 1635:
+/***/ 7681:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.504.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.496.0","@aws-sdk/middleware-host-header":"3.502.0","@aws-sdk/middleware-logger":"3.502.0","@aws-sdk/middleware-recursion-detection":"3.502.0","@aws-sdk/middleware-user-agent":"3.502.0","@aws-sdk/region-config-resolver":"3.502.0","@aws-sdk/types":"3.502.0","@aws-sdk/util-endpoints":"3.502.0","@aws-sdk/util-user-agent-browser":"3.502.0","@aws-sdk/util-user-agent-node":"3.502.0","@smithy/config-resolver":"^2.1.1","@smithy/core":"^1.3.1","@smithy/fetch-http-handler":"^2.4.1","@smithy/hash-node":"^2.1.1","@smithy/invalid-dependency":"^2.1.1","@smithy/middleware-content-length":"^2.1.1","@smithy/middleware-endpoint":"^2.4.1","@smithy/middleware-retry":"^2.1.1","@smithy/middleware-serde":"^2.1.1","@smithy/middleware-stack":"^2.1.1","@smithy/node-config-provider":"^2.2.1","@smithy/node-http-handler":"^2.3.1","@smithy/protocol-http":"^3.1.1","@smithy/smithy-client":"^2.3.1","@smithy/types":"^2.9.1","@smithy/url-parser":"^2.1.1","@smithy/util-base64":"^2.1.1","@smithy/util-body-length-browser":"^2.1.1","@smithy/util-body-length-node":"^2.2.1","@smithy/util-defaults-mode-browser":"^2.1.1","@smithy/util-defaults-mode-node":"^2.1.1","@smithy/util-endpoints":"^1.1.1","@smithy/util-middleware":"^2.1.1","@smithy/util-retry":"^2.1.1","@smithy/util-utf8":"^2.1.1","fast-xml-parser":"4.2.5","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.1.1","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/credential-provider-node":"^3.504.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.507.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.496.0","@aws-sdk/middleware-host-header":"3.502.0","@aws-sdk/middleware-logger":"3.502.0","@aws-sdk/middleware-recursion-detection":"3.502.0","@aws-sdk/middleware-user-agent":"3.502.0","@aws-sdk/region-config-resolver":"3.502.0","@aws-sdk/types":"3.502.0","@aws-sdk/util-endpoints":"3.502.0","@aws-sdk/util-user-agent-browser":"3.502.0","@aws-sdk/util-user-agent-node":"3.502.0","@smithy/config-resolver":"^2.1.1","@smithy/core":"^1.3.1","@smithy/fetch-http-handler":"^2.4.1","@smithy/hash-node":"^2.1.1","@smithy/invalid-dependency":"^2.1.1","@smithy/middleware-content-length":"^2.1.1","@smithy/middleware-endpoint":"^2.4.1","@smithy/middleware-retry":"^2.1.1","@smithy/middleware-serde":"^2.1.1","@smithy/middleware-stack":"^2.1.1","@smithy/node-config-provider":"^2.2.1","@smithy/node-http-handler":"^2.3.1","@smithy/protocol-http":"^3.1.1","@smithy/smithy-client":"^2.3.1","@smithy/types":"^2.9.1","@smithy/url-parser":"^2.1.1","@smithy/util-base64":"^2.1.1","@smithy/util-body-length-browser":"^2.1.1","@smithy/util-body-length-node":"^2.2.1","@smithy/util-defaults-mode-browser":"^2.1.1","@smithy/util-defaults-mode-node":"^2.1.1","@smithy/util-endpoints":"^1.1.1","@smithy/util-middleware":"^2.1.1","@smithy/util-retry":"^2.1.1","@smithy/util-utf8":"^2.1.1","fast-xml-parser":"4.2.5","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.1.1","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/credential-provider-node":"^3.507.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ })
 
@@ -57783,7 +55977,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(6733);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5966);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(4697);
 
 
 async function run() {
