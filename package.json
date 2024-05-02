@@ -30,10 +30,10 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.1",
-    "@aws-sdk/client-cloudformation": "^3.565.0"
+    "@aws-sdk/client-cloudformation": "^3.567.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.12.8",
     "@vercel/ncc": "^0.38.1",
     "eslint": "^9.1.1",
     "eslint-config-prettier": "^9.1.0",
@@ -69,5 +69,6 @@
   "engines": {
     "npm": "use pnpm please!",
     "pnpm": ">=8.7.1"
-  }
+  },
+  "packageManager": "pnpm@9.0.6+sha512.f6d863130973207cb7a336d6b439a242a26ac8068077df530d6a86069419853dc1ffe64029ec594a9c505a3a410d19643c870aba6776330f5cfddcf10a9c1617"
 }
