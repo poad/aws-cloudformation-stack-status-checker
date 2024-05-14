@@ -1820,14 +1820,14 @@ function isLoopbackAddress(host) {
 
 /***/ }),
 
-/***/ 7134:
+/***/ 7875:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(4799);
-const util_middleware_1 = __nccwpck_require__(3530);
+const core_1 = __nccwpck_require__(1093);
+const util_middleware_1 = __nccwpck_require__(1274);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -1874,15 +1874,15 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 5969:
+/***/ 4034:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(7722);
-const util_endpoints_2 = __nccwpck_require__(9993);
-const ruleset_1 = __nccwpck_require__(3196);
+const util_endpoints_1 = __nccwpck_require__(6702);
+const util_endpoints_2 = __nccwpck_require__(7732);
+const ruleset_1 = __nccwpck_require__(1331);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_2.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -1895,7 +1895,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 3196:
+/***/ 1331:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -1909,7 +1909,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 9672:
+/***/ 5887:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -2154,17 +2154,17 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/CloudFormationClient.ts
-var import_middleware_host_header = __nccwpck_require__(5773);
-var import_middleware_logger = __nccwpck_require__(3860);
-var import_middleware_recursion_detection = __nccwpck_require__(6699);
-var import_middleware_user_agent = __nccwpck_require__(9805);
-var import_config_resolver = __nccwpck_require__(4102);
-var import_core = __nccwpck_require__(8432);
-var import_middleware_content_length = __nccwpck_require__(3668);
-var import_middleware_endpoint = __nccwpck_require__(5796);
-var import_middleware_retry = __nccwpck_require__(2508);
+var import_middleware_host_header = __nccwpck_require__(547);
+var import_middleware_logger = __nccwpck_require__(8331);
+var import_middleware_recursion_detection = __nccwpck_require__(3152);
+var import_middleware_user_agent = __nccwpck_require__(6032);
+var import_config_resolver = __nccwpck_require__(8979);
+var import_core = __nccwpck_require__(7525);
+var import_middleware_content_length = __nccwpck_require__(4654);
+var import_middleware_endpoint = __nccwpck_require__(9656);
+var import_middleware_retry = __nccwpck_require__(5128);
 
-var import_httpAuthSchemeProvider = __nccwpck_require__(7134);
+var import_httpAuthSchemeProvider = __nccwpck_require__(7875);
 
 // src/endpoint/EndpointParameters.ts
 var resolveClientEndpointParameters = /* @__PURE__ */ __name((options) => {
@@ -2183,12 +2183,12 @@ var commonParams = {
 };
 
 // src/CloudFormationClient.ts
-var import_runtimeConfig = __nccwpck_require__(6006);
+var import_runtimeConfig = __nccwpck_require__(4880);
 
 // src/runtimeExtensions.ts
-var import_region_config_resolver = __nccwpck_require__(2182);
-var import_protocol_http = __nccwpck_require__(9559);
-var import_smithy_client = __nccwpck_require__(5937);
+var import_region_config_resolver = __nccwpck_require__(6262);
+var import_protocol_http = __nccwpck_require__(199);
+var import_smithy_client = __nccwpck_require__(4037);
 
 // src/auth/httpAuthExtensionConfiguration.ts
 var getHttpAuthExtensionConfiguration = /* @__PURE__ */ __name((runtimeConfig) => {
@@ -2301,12 +2301,12 @@ var CloudFormationClient = _CloudFormationClient;
 
 // src/commands/ActivateOrganizationsAccessCommand.ts
 
-var import_middleware_serde = __nccwpck_require__(4243);
+var import_middleware_serde = __nccwpck_require__(6971);
 
-var import_types = __nccwpck_require__(558);
+var import_types = __nccwpck_require__(9676);
 
 // src/protocols/Aws_query.ts
-var import_core2 = __nccwpck_require__(4799);
+var import_core2 = __nccwpck_require__(1093);
 
 
 var import_uuid = __nccwpck_require__(711);
@@ -12818,7 +12818,7 @@ var paginateListTypeVersions = (0, import_core.createPaginator)(CloudFormationCl
 var paginateListTypes = (0, import_core.createPaginator)(CloudFormationClient, ListTypesCommand, "NextToken", "NextToken", "MaxResults");
 
 // src/waiters/waitForChangeSetCreateComplete.ts
-var import_util_waiter = __nccwpck_require__(8289);
+var import_util_waiter = __nccwpck_require__(3627);
 var checkState = /* @__PURE__ */ __name(async (client, input) => {
   let reason;
   try {
@@ -13624,28 +13624,28 @@ var waitUntilTypeRegistrationComplete = /* @__PURE__ */ __name(async (params, in
 
 /***/ }),
 
-/***/ 6006:
+/***/ 4880:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(3134);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(831));
-const core_1 = __nccwpck_require__(4799);
-const credential_provider_node_1 = __nccwpck_require__(2917);
-const util_user_agent_node_1 = __nccwpck_require__(5433);
-const config_resolver_1 = __nccwpck_require__(4102);
-const hash_node_1 = __nccwpck_require__(3611);
-const middleware_retry_1 = __nccwpck_require__(2508);
-const node_config_provider_1 = __nccwpck_require__(4542);
-const node_http_handler_1 = __nccwpck_require__(105);
-const util_body_length_node_1 = __nccwpck_require__(5565);
-const util_retry_1 = __nccwpck_require__(147);
-const runtimeConfig_shared_1 = __nccwpck_require__(2582);
-const smithy_client_1 = __nccwpck_require__(5937);
-const util_defaults_mode_node_1 = __nccwpck_require__(6262);
-const smithy_client_2 = __nccwpck_require__(5937);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(2300));
+const core_1 = __nccwpck_require__(1093);
+const credential_provider_node_1 = __nccwpck_require__(9660);
+const util_user_agent_node_1 = __nccwpck_require__(5452);
+const config_resolver_1 = __nccwpck_require__(8979);
+const hash_node_1 = __nccwpck_require__(7546);
+const middleware_retry_1 = __nccwpck_require__(5128);
+const node_config_provider_1 = __nccwpck_require__(2879);
+const node_http_handler_1 = __nccwpck_require__(9716);
+const util_body_length_node_1 = __nccwpck_require__(7340);
+const util_retry_1 = __nccwpck_require__(5491);
+const runtimeConfig_shared_1 = __nccwpck_require__(3909);
+const smithy_client_1 = __nccwpck_require__(4037);
+const util_defaults_mode_node_1 = __nccwpck_require__(5596);
+const smithy_client_2 = __nccwpck_require__(4037);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -13680,19 +13680,19 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 2582:
+/***/ 3909:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(4799);
-const smithy_client_1 = __nccwpck_require__(5937);
-const url_parser_1 = __nccwpck_require__(2224);
-const util_base64_1 = __nccwpck_require__(9841);
-const util_utf8_1 = __nccwpck_require__(4922);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(7134);
-const endpointResolver_1 = __nccwpck_require__(5969);
+const core_1 = __nccwpck_require__(1093);
+const smithy_client_1 = __nccwpck_require__(4037);
+const url_parser_1 = __nccwpck_require__(2758);
+const util_base64_1 = __nccwpck_require__(2199);
+const util_utf8_1 = __nccwpck_require__(141);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(7875);
+const endpointResolver_1 = __nccwpck_require__(4034);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -13721,14 +13721,14 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 6612:
+/***/ 970:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultSSOOIDCHttpAuthSchemeProvider = exports.defaultSSOOIDCHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(4799);
-const util_middleware_1 = __nccwpck_require__(3530);
+const core_1 = __nccwpck_require__(1093);
+const util_middleware_1 = __nccwpck_require__(1274);
 const defaultSSOOIDCHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -13792,15 +13792,15 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 6666:
+/***/ 9156:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(7722);
-const util_endpoints_2 = __nccwpck_require__(9993);
-const ruleset_1 = __nccwpck_require__(7694);
+const util_endpoints_1 = __nccwpck_require__(6702);
+const util_endpoints_2 = __nccwpck_require__(7732);
+const ruleset_1 = __nccwpck_require__(8465);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_2.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -13813,7 +13813,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 7694:
+/***/ 8465:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -13827,7 +13827,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 6228:
+/***/ 9318:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -13885,17 +13885,17 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/SSOOIDCClient.ts
-var import_middleware_host_header = __nccwpck_require__(5773);
-var import_middleware_logger = __nccwpck_require__(3860);
-var import_middleware_recursion_detection = __nccwpck_require__(6699);
-var import_middleware_user_agent = __nccwpck_require__(9805);
-var import_config_resolver = __nccwpck_require__(4102);
-var import_core = __nccwpck_require__(8432);
-var import_middleware_content_length = __nccwpck_require__(3668);
-var import_middleware_endpoint = __nccwpck_require__(5796);
-var import_middleware_retry = __nccwpck_require__(2508);
+var import_middleware_host_header = __nccwpck_require__(547);
+var import_middleware_logger = __nccwpck_require__(8331);
+var import_middleware_recursion_detection = __nccwpck_require__(3152);
+var import_middleware_user_agent = __nccwpck_require__(6032);
+var import_config_resolver = __nccwpck_require__(8979);
+var import_core = __nccwpck_require__(7525);
+var import_middleware_content_length = __nccwpck_require__(4654);
+var import_middleware_endpoint = __nccwpck_require__(9656);
+var import_middleware_retry = __nccwpck_require__(5128);
 
-var import_httpAuthSchemeProvider = __nccwpck_require__(6612);
+var import_httpAuthSchemeProvider = __nccwpck_require__(970);
 
 // src/endpoint/EndpointParameters.ts
 var resolveClientEndpointParameters = /* @__PURE__ */ __name((options) => {
@@ -13914,12 +13914,12 @@ var commonParams = {
 };
 
 // src/SSOOIDCClient.ts
-var import_runtimeConfig = __nccwpck_require__(5862);
+var import_runtimeConfig = __nccwpck_require__(5451);
 
 // src/runtimeExtensions.ts
-var import_region_config_resolver = __nccwpck_require__(2182);
-var import_protocol_http = __nccwpck_require__(9559);
-var import_smithy_client = __nccwpck_require__(5937);
+var import_region_config_resolver = __nccwpck_require__(6262);
+var import_protocol_http = __nccwpck_require__(199);
+var import_smithy_client = __nccwpck_require__(4037);
 
 // src/auth/httpAuthExtensionConfiguration.ts
 var getHttpAuthExtensionConfiguration = /* @__PURE__ */ __name((runtimeConfig) => {
@@ -14032,9 +14032,9 @@ var SSOOIDCClient = _SSOOIDCClient;
 
 // src/commands/CreateTokenCommand.ts
 
-var import_middleware_serde = __nccwpck_require__(4243);
+var import_middleware_serde = __nccwpck_require__(6971);
 
-var import_types = __nccwpck_require__(558);
+var import_types = __nccwpck_require__(9676);
 
 // src/models/models_0.ts
 
@@ -14357,7 +14357,7 @@ var StartDeviceAuthorizationRequestFilterSensitiveLog = /* @__PURE__ */ __name((
 }), "StartDeviceAuthorizationRequestFilterSensitiveLog");
 
 // src/protocols/Aws_restJson1.ts
-var import_core2 = __nccwpck_require__(4799);
+var import_core2 = __nccwpck_require__(1093);
 
 
 var se_CreateTokenCommand = /* @__PURE__ */ __name(async (input, context) => {
@@ -14874,28 +14874,28 @@ var SSOOIDC = _SSOOIDC;
 
 /***/ }),
 
-/***/ 5862:
+/***/ 5451:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(3134);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(1868));
-const core_1 = __nccwpck_require__(4799);
-const credential_provider_node_1 = __nccwpck_require__(2917);
-const util_user_agent_node_1 = __nccwpck_require__(5433);
-const config_resolver_1 = __nccwpck_require__(4102);
-const hash_node_1 = __nccwpck_require__(3611);
-const middleware_retry_1 = __nccwpck_require__(2508);
-const node_config_provider_1 = __nccwpck_require__(4542);
-const node_http_handler_1 = __nccwpck_require__(105);
-const util_body_length_node_1 = __nccwpck_require__(5565);
-const util_retry_1 = __nccwpck_require__(147);
-const runtimeConfig_shared_1 = __nccwpck_require__(8103);
-const smithy_client_1 = __nccwpck_require__(5937);
-const util_defaults_mode_node_1 = __nccwpck_require__(6262);
-const smithy_client_2 = __nccwpck_require__(5937);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(6497));
+const core_1 = __nccwpck_require__(1093);
+const credential_provider_node_1 = __nccwpck_require__(9660);
+const util_user_agent_node_1 = __nccwpck_require__(5452);
+const config_resolver_1 = __nccwpck_require__(8979);
+const hash_node_1 = __nccwpck_require__(7546);
+const middleware_retry_1 = __nccwpck_require__(5128);
+const node_config_provider_1 = __nccwpck_require__(2879);
+const node_http_handler_1 = __nccwpck_require__(9716);
+const util_body_length_node_1 = __nccwpck_require__(7340);
+const util_retry_1 = __nccwpck_require__(5491);
+const runtimeConfig_shared_1 = __nccwpck_require__(8133);
+const smithy_client_1 = __nccwpck_require__(4037);
+const util_defaults_mode_node_1 = __nccwpck_require__(5596);
+const smithy_client_2 = __nccwpck_require__(4037);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -14930,20 +14930,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 8103:
+/***/ 8133:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(4799);
-const core_2 = __nccwpck_require__(8432);
-const smithy_client_1 = __nccwpck_require__(5937);
-const url_parser_1 = __nccwpck_require__(2224);
-const util_base64_1 = __nccwpck_require__(9841);
-const util_utf8_1 = __nccwpck_require__(4922);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(6612);
-const endpointResolver_1 = __nccwpck_require__(6666);
+const core_1 = __nccwpck_require__(1093);
+const core_2 = __nccwpck_require__(7525);
+const smithy_client_1 = __nccwpck_require__(4037);
+const url_parser_1 = __nccwpck_require__(2758);
+const util_base64_1 = __nccwpck_require__(2199);
+const util_utf8_1 = __nccwpck_require__(141);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(970);
+const endpointResolver_1 = __nccwpck_require__(9156);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2019-06-10",
@@ -14977,14 +14977,14 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 7410:
+/***/ 3332:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultSSOHttpAuthSchemeProvider = exports.defaultSSOHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(4799);
-const util_middleware_1 = __nccwpck_require__(3530);
+const core_1 = __nccwpck_require__(1093);
+const util_middleware_1 = __nccwpck_require__(1274);
 const defaultSSOHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -15052,15 +15052,15 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 5086:
+/***/ 6494:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(7722);
-const util_endpoints_2 = __nccwpck_require__(9993);
-const ruleset_1 = __nccwpck_require__(3542);
+const util_endpoints_1 = __nccwpck_require__(6702);
+const util_endpoints_2 = __nccwpck_require__(7732);
+const ruleset_1 = __nccwpck_require__(9169);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_2.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -15073,7 +15073,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 3542:
+/***/ 9169:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15087,7 +15087,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 9973:
+/***/ 8957:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -15137,17 +15137,17 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/SSOClient.ts
-var import_middleware_host_header = __nccwpck_require__(5773);
-var import_middleware_logger = __nccwpck_require__(3860);
-var import_middleware_recursion_detection = __nccwpck_require__(6699);
-var import_middleware_user_agent = __nccwpck_require__(9805);
-var import_config_resolver = __nccwpck_require__(4102);
-var import_core = __nccwpck_require__(8432);
-var import_middleware_content_length = __nccwpck_require__(3668);
-var import_middleware_endpoint = __nccwpck_require__(5796);
-var import_middleware_retry = __nccwpck_require__(2508);
+var import_middleware_host_header = __nccwpck_require__(547);
+var import_middleware_logger = __nccwpck_require__(8331);
+var import_middleware_recursion_detection = __nccwpck_require__(3152);
+var import_middleware_user_agent = __nccwpck_require__(6032);
+var import_config_resolver = __nccwpck_require__(8979);
+var import_core = __nccwpck_require__(7525);
+var import_middleware_content_length = __nccwpck_require__(4654);
+var import_middleware_endpoint = __nccwpck_require__(9656);
+var import_middleware_retry = __nccwpck_require__(5128);
 
-var import_httpAuthSchemeProvider = __nccwpck_require__(7410);
+var import_httpAuthSchemeProvider = __nccwpck_require__(3332);
 
 // src/endpoint/EndpointParameters.ts
 var resolveClientEndpointParameters = /* @__PURE__ */ __name((options) => {
@@ -15166,12 +15166,12 @@ var commonParams = {
 };
 
 // src/SSOClient.ts
-var import_runtimeConfig = __nccwpck_require__(6075);
+var import_runtimeConfig = __nccwpck_require__(4480);
 
 // src/runtimeExtensions.ts
-var import_region_config_resolver = __nccwpck_require__(2182);
-var import_protocol_http = __nccwpck_require__(9559);
-var import_smithy_client = __nccwpck_require__(5937);
+var import_region_config_resolver = __nccwpck_require__(6262);
+var import_protocol_http = __nccwpck_require__(199);
+var import_smithy_client = __nccwpck_require__(4037);
 
 // src/auth/httpAuthExtensionConfiguration.ts
 var getHttpAuthExtensionConfiguration = /* @__PURE__ */ __name((runtimeConfig) => {
@@ -15284,9 +15284,9 @@ var SSOClient = _SSOClient;
 
 // src/commands/GetRoleCredentialsCommand.ts
 
-var import_middleware_serde = __nccwpck_require__(4243);
+var import_middleware_serde = __nccwpck_require__(6971);
 
-var import_types = __nccwpck_require__(558);
+var import_types = __nccwpck_require__(9676);
 
 // src/models/models_0.ts
 
@@ -15401,7 +15401,7 @@ var LogoutRequestFilterSensitiveLog = /* @__PURE__ */ __name((obj) => ({
 }), "LogoutRequestFilterSensitiveLog");
 
 // src/protocols/Aws_restJson1.ts
-var import_core2 = __nccwpck_require__(4799);
+var import_core2 = __nccwpck_require__(1093);
 
 
 var se_GetRoleCredentialsCommand = /* @__PURE__ */ __name(async (input, context) => {
@@ -15702,27 +15702,27 @@ var paginateListAccounts = (0, import_core.createPaginator)(SSOClient, ListAccou
 
 /***/ }),
 
-/***/ 6075:
+/***/ 4480:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(3134);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(2043));
-const core_1 = __nccwpck_require__(4799);
-const util_user_agent_node_1 = __nccwpck_require__(5433);
-const config_resolver_1 = __nccwpck_require__(4102);
-const hash_node_1 = __nccwpck_require__(3611);
-const middleware_retry_1 = __nccwpck_require__(2508);
-const node_config_provider_1 = __nccwpck_require__(4542);
-const node_http_handler_1 = __nccwpck_require__(105);
-const util_body_length_node_1 = __nccwpck_require__(5565);
-const util_retry_1 = __nccwpck_require__(147);
-const runtimeConfig_shared_1 = __nccwpck_require__(9667);
-const smithy_client_1 = __nccwpck_require__(5937);
-const util_defaults_mode_node_1 = __nccwpck_require__(6262);
-const smithy_client_2 = __nccwpck_require__(5937);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(6674));
+const core_1 = __nccwpck_require__(1093);
+const util_user_agent_node_1 = __nccwpck_require__(5452);
+const config_resolver_1 = __nccwpck_require__(8979);
+const hash_node_1 = __nccwpck_require__(7546);
+const middleware_retry_1 = __nccwpck_require__(5128);
+const node_config_provider_1 = __nccwpck_require__(2879);
+const node_http_handler_1 = __nccwpck_require__(9716);
+const util_body_length_node_1 = __nccwpck_require__(7340);
+const util_retry_1 = __nccwpck_require__(5491);
+const runtimeConfig_shared_1 = __nccwpck_require__(8493);
+const smithy_client_1 = __nccwpck_require__(4037);
+const util_defaults_mode_node_1 = __nccwpck_require__(5596);
+const smithy_client_2 = __nccwpck_require__(4037);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -15756,20 +15756,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 9667:
+/***/ 8493:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(4799);
-const core_2 = __nccwpck_require__(8432);
-const smithy_client_1 = __nccwpck_require__(5937);
-const url_parser_1 = __nccwpck_require__(2224);
-const util_base64_1 = __nccwpck_require__(9841);
-const util_utf8_1 = __nccwpck_require__(4922);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(7410);
-const endpointResolver_1 = __nccwpck_require__(5086);
+const core_1 = __nccwpck_require__(1093);
+const core_2 = __nccwpck_require__(7525);
+const smithy_client_1 = __nccwpck_require__(4037);
+const url_parser_1 = __nccwpck_require__(2758);
+const util_base64_1 = __nccwpck_require__(2199);
+const util_utf8_1 = __nccwpck_require__(141);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(3332);
+const endpointResolver_1 = __nccwpck_require__(6494);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2019-06-10",
@@ -15803,27 +15803,27 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 6487:
+/***/ 1785:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.STSClient = exports.__Client = void 0;
-const middleware_host_header_1 = __nccwpck_require__(5773);
-const middleware_logger_1 = __nccwpck_require__(3860);
-const middleware_recursion_detection_1 = __nccwpck_require__(6699);
-const middleware_user_agent_1 = __nccwpck_require__(9805);
-const config_resolver_1 = __nccwpck_require__(4102);
-const core_1 = __nccwpck_require__(8432);
-const middleware_content_length_1 = __nccwpck_require__(3668);
-const middleware_endpoint_1 = __nccwpck_require__(5796);
-const middleware_retry_1 = __nccwpck_require__(2508);
-const smithy_client_1 = __nccwpck_require__(5937);
+const middleware_host_header_1 = __nccwpck_require__(547);
+const middleware_logger_1 = __nccwpck_require__(8331);
+const middleware_recursion_detection_1 = __nccwpck_require__(3152);
+const middleware_user_agent_1 = __nccwpck_require__(6032);
+const config_resolver_1 = __nccwpck_require__(8979);
+const core_1 = __nccwpck_require__(7525);
+const middleware_content_length_1 = __nccwpck_require__(4654);
+const middleware_endpoint_1 = __nccwpck_require__(9656);
+const middleware_retry_1 = __nccwpck_require__(5128);
+const smithy_client_1 = __nccwpck_require__(4037);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const httpAuthSchemeProvider_1 = __nccwpck_require__(7300);
-const EndpointParameters_1 = __nccwpck_require__(1097);
-const runtimeConfig_1 = __nccwpck_require__(2273);
-const runtimeExtensions_1 = __nccwpck_require__(1848);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(2234);
+const EndpointParameters_1 = __nccwpck_require__(5295);
+const runtimeConfig_1 = __nccwpck_require__(4867);
+const runtimeExtensions_1 = __nccwpck_require__(3383);
 class STSClient extends smithy_client_1.Client {
     constructor(...[configuration]) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration || {});
@@ -15866,7 +15866,7 @@ exports.STSClient = STSClient;
 
 /***/ }),
 
-/***/ 4570:
+/***/ 5211:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15916,15 +15916,15 @@ exports.resolveHttpAuthRuntimeConfig = resolveHttpAuthRuntimeConfig;
 
 /***/ }),
 
-/***/ 7300:
+/***/ 2234:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.resolveStsAuthConfig = exports.defaultSTSHttpAuthSchemeProvider = exports.defaultSTSHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(4799);
-const util_middleware_1 = __nccwpck_require__(3530);
-const STSClient_1 = __nccwpck_require__(6487);
+const core_1 = __nccwpck_require__(1093);
+const util_middleware_1 = __nccwpck_require__(1274);
+const STSClient_1 = __nccwpck_require__(1785);
 const defaultSTSHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -15990,7 +15990,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 1097:
+/***/ 5295:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -16017,15 +16017,15 @@ exports.commonParams = {
 
 /***/ }),
 
-/***/ 6826:
+/***/ 2482:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(7722);
-const util_endpoints_2 = __nccwpck_require__(9993);
-const ruleset_1 = __nccwpck_require__(7214);
+const util_endpoints_1 = __nccwpck_require__(6702);
+const util_endpoints_2 = __nccwpck_require__(7732);
+const ruleset_1 = __nccwpck_require__(9940);
 const defaultEndpointResolver = (endpointParams, context = {}) => {
     return (0, util_endpoints_2.resolveEndpoint)(ruleset_1.ruleSet, {
         endpointParams: endpointParams,
@@ -16038,7 +16038,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 7214:
+/***/ 9940:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -16052,7 +16052,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 8342:
+/***/ 7881:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -16112,23 +16112,23 @@ __export(src_exports, {
   getDefaultRoleAssumerWithWebIdentity: () => getDefaultRoleAssumerWithWebIdentity2
 });
 module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, __nccwpck_require__(6487), module.exports);
+__reExport(src_exports, __nccwpck_require__(1785), module.exports);
 
 // src/STS.ts
 
 
 // src/commands/AssumeRoleCommand.ts
-var import_middleware_endpoint = __nccwpck_require__(5796);
-var import_middleware_serde = __nccwpck_require__(4243);
+var import_middleware_endpoint = __nccwpck_require__(9656);
+var import_middleware_serde = __nccwpck_require__(6971);
 
-var import_types = __nccwpck_require__(558);
-var import_EndpointParameters = __nccwpck_require__(1097);
+var import_types = __nccwpck_require__(9676);
+var import_EndpointParameters = __nccwpck_require__(5295);
 
 // src/models/models_0.ts
 
 
 // src/models/STSServiceException.ts
-var import_smithy_client = __nccwpck_require__(5937);
+var import_smithy_client = __nccwpck_require__(4037);
 var _STSServiceException = class _STSServiceException extends import_smithy_client.ServiceException {
   /**
    * @internal
@@ -16312,8 +16312,8 @@ var GetSessionTokenResponseFilterSensitiveLog = /* @__PURE__ */ __name((obj) => 
 }), "GetSessionTokenResponseFilterSensitiveLog");
 
 // src/protocols/Aws_query.ts
-var import_core = __nccwpck_require__(4799);
-var import_protocol_http = __nccwpck_require__(9559);
+var import_core = __nccwpck_require__(1093);
+var import_protocol_http = __nccwpck_require__(199);
 
 var se_AssumeRoleCommand = /* @__PURE__ */ __name(async (input, context) => {
   const headers = SHARED_HEADERS;
@@ -17216,7 +17216,7 @@ var AssumeRoleCommand = _AssumeRoleCommand;
 
 
 
-var import_EndpointParameters2 = __nccwpck_require__(1097);
+var import_EndpointParameters2 = __nccwpck_require__(5295);
 var _AssumeRoleWithSAMLCommand = class _AssumeRoleWithSAMLCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters2.commonParams
 }).m(function(Command, cs, config, o) {
@@ -17234,7 +17234,7 @@ var AssumeRoleWithSAMLCommand = _AssumeRoleWithSAMLCommand;
 
 
 
-var import_EndpointParameters3 = __nccwpck_require__(1097);
+var import_EndpointParameters3 = __nccwpck_require__(5295);
 var _AssumeRoleWithWebIdentityCommand = class _AssumeRoleWithWebIdentityCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters3.commonParams
 }).m(function(Command, cs, config, o) {
@@ -17252,7 +17252,7 @@ var AssumeRoleWithWebIdentityCommand = _AssumeRoleWithWebIdentityCommand;
 
 
 
-var import_EndpointParameters4 = __nccwpck_require__(1097);
+var import_EndpointParameters4 = __nccwpck_require__(5295);
 var _DecodeAuthorizationMessageCommand = class _DecodeAuthorizationMessageCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters4.commonParams
 }).m(function(Command, cs, config, o) {
@@ -17270,7 +17270,7 @@ var DecodeAuthorizationMessageCommand = _DecodeAuthorizationMessageCommand;
 
 
 
-var import_EndpointParameters5 = __nccwpck_require__(1097);
+var import_EndpointParameters5 = __nccwpck_require__(5295);
 var _GetAccessKeyInfoCommand = class _GetAccessKeyInfoCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters5.commonParams
 }).m(function(Command, cs, config, o) {
@@ -17288,7 +17288,7 @@ var GetAccessKeyInfoCommand = _GetAccessKeyInfoCommand;
 
 
 
-var import_EndpointParameters6 = __nccwpck_require__(1097);
+var import_EndpointParameters6 = __nccwpck_require__(5295);
 var _GetCallerIdentityCommand = class _GetCallerIdentityCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters6.commonParams
 }).m(function(Command, cs, config, o) {
@@ -17306,7 +17306,7 @@ var GetCallerIdentityCommand = _GetCallerIdentityCommand;
 
 
 
-var import_EndpointParameters7 = __nccwpck_require__(1097);
+var import_EndpointParameters7 = __nccwpck_require__(5295);
 var _GetFederationTokenCommand = class _GetFederationTokenCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters7.commonParams
 }).m(function(Command, cs, config, o) {
@@ -17324,7 +17324,7 @@ var GetFederationTokenCommand = _GetFederationTokenCommand;
 
 
 
-var import_EndpointParameters8 = __nccwpck_require__(1097);
+var import_EndpointParameters8 = __nccwpck_require__(5295);
 var _GetSessionTokenCommand = class _GetSessionTokenCommand extends import_smithy_client.Command.classBuilder().ep({
   ...import_EndpointParameters8.commonParams
 }).m(function(Command, cs, config, o) {
@@ -17338,7 +17338,7 @@ __name(_GetSessionTokenCommand, "GetSessionTokenCommand");
 var GetSessionTokenCommand = _GetSessionTokenCommand;
 
 // src/STS.ts
-var import_STSClient = __nccwpck_require__(6487);
+var import_STSClient = __nccwpck_require__(1785);
 var commands = {
   AssumeRoleCommand,
   AssumeRoleWithSAMLCommand,
@@ -17356,8 +17356,8 @@ var STS = _STS;
 (0, import_smithy_client.createAggregatedClient)(commands, STS);
 
 // src/index.ts
-var import_EndpointParameters9 = __nccwpck_require__(1097);
-var import_runtimeExtensions = __nccwpck_require__(1848);
+var import_EndpointParameters9 = __nccwpck_require__(5295);
+var import_runtimeExtensions = __nccwpck_require__(3383);
 
 // src/defaultStsRoleAssumers.ts
 var ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
@@ -17453,7 +17453,7 @@ var getDefaultRoleAssumerWithWebIdentity = /* @__PURE__ */ __name((stsOptions, s
 }, "getDefaultRoleAssumerWithWebIdentity");
 
 // src/defaultRoleAssumers.ts
-var import_STSClient2 = __nccwpck_require__(6487);
+var import_STSClient2 = __nccwpck_require__(1785);
 var getCustomizableStsClientCtor = /* @__PURE__ */ __name((baseCtor, customizations) => {
   var _a2;
   if (!customizations)
@@ -17483,29 +17483,29 @@ var decorateDefaultCredentialProvider = /* @__PURE__ */ __name((provider) => (in
 
 /***/ }),
 
-/***/ 2273:
+/***/ 4867:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(3134);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(6825));
-const core_1 = __nccwpck_require__(4799);
-const credential_provider_node_1 = __nccwpck_require__(2917);
-const util_user_agent_node_1 = __nccwpck_require__(5433);
-const config_resolver_1 = __nccwpck_require__(4102);
-const core_2 = __nccwpck_require__(8432);
-const hash_node_1 = __nccwpck_require__(3611);
-const middleware_retry_1 = __nccwpck_require__(2508);
-const node_config_provider_1 = __nccwpck_require__(4542);
-const node_http_handler_1 = __nccwpck_require__(105);
-const util_body_length_node_1 = __nccwpck_require__(5565);
-const util_retry_1 = __nccwpck_require__(147);
-const runtimeConfig_shared_1 = __nccwpck_require__(972);
-const smithy_client_1 = __nccwpck_require__(5937);
-const util_defaults_mode_node_1 = __nccwpck_require__(6262);
-const smithy_client_2 = __nccwpck_require__(5937);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(2757));
+const core_1 = __nccwpck_require__(1093);
+const credential_provider_node_1 = __nccwpck_require__(9660);
+const util_user_agent_node_1 = __nccwpck_require__(5452);
+const config_resolver_1 = __nccwpck_require__(8979);
+const core_2 = __nccwpck_require__(7525);
+const hash_node_1 = __nccwpck_require__(7546);
+const middleware_retry_1 = __nccwpck_require__(5128);
+const node_config_provider_1 = __nccwpck_require__(2879);
+const node_http_handler_1 = __nccwpck_require__(9716);
+const util_body_length_node_1 = __nccwpck_require__(7340);
+const util_retry_1 = __nccwpck_require__(5491);
+const runtimeConfig_shared_1 = __nccwpck_require__(780);
+const smithy_client_1 = __nccwpck_require__(4037);
+const util_defaults_mode_node_1 = __nccwpck_require__(5596);
+const smithy_client_2 = __nccwpck_require__(4037);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -17553,20 +17553,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 972:
+/***/ 780:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(4799);
-const core_2 = __nccwpck_require__(8432);
-const smithy_client_1 = __nccwpck_require__(5937);
-const url_parser_1 = __nccwpck_require__(2224);
-const util_base64_1 = __nccwpck_require__(9841);
-const util_utf8_1 = __nccwpck_require__(4922);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(7300);
-const endpointResolver_1 = __nccwpck_require__(6826);
+const core_1 = __nccwpck_require__(1093);
+const core_2 = __nccwpck_require__(7525);
+const smithy_client_1 = __nccwpck_require__(4037);
+const url_parser_1 = __nccwpck_require__(2758);
+const util_base64_1 = __nccwpck_require__(2199);
+const util_utf8_1 = __nccwpck_require__(141);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(2234);
+const endpointResolver_1 = __nccwpck_require__(2482);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2011-06-15",
@@ -17600,16 +17600,16 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 1848:
+/***/ 3383:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveRuntimeExtensions = void 0;
-const region_config_resolver_1 = __nccwpck_require__(2182);
-const protocol_http_1 = __nccwpck_require__(9559);
-const smithy_client_1 = __nccwpck_require__(5937);
-const httpAuthExtensionConfiguration_1 = __nccwpck_require__(4570);
+const region_config_resolver_1 = __nccwpck_require__(6262);
+const protocol_http_1 = __nccwpck_require__(199);
+const smithy_client_1 = __nccwpck_require__(4037);
+const httpAuthExtensionConfiguration_1 = __nccwpck_require__(5211);
 const asPartial = (t) => t;
 const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
     const extensionConfiguration = {
@@ -17632,7 +17632,7 @@ exports.resolveRuntimeExtensions = resolveRuntimeExtensions;
 
 /***/ }),
 
-/***/ 4799:
+/***/ 1093:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -17688,7 +17688,7 @@ var emitWarningIfUnsupportedVersion = /* @__PURE__ */ __name((version) => {
 
 
 // src/httpAuthSchemes/utils/getDateHeader.ts
-var import_protocol_http = __nccwpck_require__(9559);
+var import_protocol_http = __nccwpck_require__(199);
 var getDateHeader = /* @__PURE__ */ __name((response) => {
   var _a, _b;
   return import_protocol_http.HttpResponse.isInstance(response) ? ((_a = response.headers) == null ? void 0 : _a.date) ?? ((_b = response.headers) == null ? void 0 : _b.Date) : void 0;
@@ -17779,8 +17779,8 @@ var AwsSdkSigV4Signer = _AwsSdkSigV4Signer;
 var AWSSDKSigV4Signer = AwsSdkSigV4Signer;
 
 // src/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4Config.ts
-var import_core = __nccwpck_require__(8432);
-var import_signature_v4 = __nccwpck_require__(9494);
+var import_core = __nccwpck_require__(7525);
+var import_signature_v4 = __nccwpck_require__(5688);
 var resolveAwsSdkSigV4Config = /* @__PURE__ */ __name((config) => {
   let normalizedCreds;
   if (config.credentials) {
@@ -17930,7 +17930,7 @@ var _toNum = /* @__PURE__ */ __name((val) => {
 }, "_toNum");
 
 // src/protocols/json/awsExpectUnion.ts
-var import_smithy_client = __nccwpck_require__(5937);
+var import_smithy_client = __nccwpck_require__(4037);
 var awsExpectUnion = /* @__PURE__ */ __name((value) => {
   if (value == null) {
     return void 0;
@@ -18061,8 +18061,9 @@ var loadRestXmlErrorCode = /* @__PURE__ */ __name((output, data) => {
 
 /***/ }),
 
-/***/ 6701:
+/***/ 6792:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
 
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -18096,7 +18097,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/fromEnv.ts
-var import_property_provider = __nccwpck_require__(9476);
+var import_property_provider = __nccwpck_require__(5597);
 var ENV_KEY = "AWS_ACCESS_KEY_ID";
 var ENV_SECRET = "AWS_SECRET_ACCESS_KEY";
 var ENV_SESSION = "AWS_SESSION_TOKEN";
@@ -18129,13 +18130,13 @@ var fromEnv = /* @__PURE__ */ __name((init) => async () => {
 
 /***/ }),
 
-/***/ 3981:
+/***/ 4107:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.checkUrl = void 0;
-const property_provider_1 = __nccwpck_require__(9476);
+const property_provider_1 = __nccwpck_require__(5597);
 const LOOPBACK_CIDR_IPv4 = "127.0.0.0/8";
 const LOOPBACK_CIDR_IPv6 = "::1/128";
 const ECS_CONTAINER_HOST = "169.254.170.2";
@@ -18182,32 +18183,31 @@ exports.checkUrl = checkUrl;
 
 /***/ }),
 
-/***/ 3961:
+/***/ 9317:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromHttp = void 0;
 const tslib_1 = __nccwpck_require__(3134);
-const node_http_handler_1 = __nccwpck_require__(105);
-const property_provider_1 = __nccwpck_require__(9476);
+const node_http_handler_1 = __nccwpck_require__(9716);
+const property_provider_1 = __nccwpck_require__(5597);
 const promises_1 = tslib_1.__importDefault(__nccwpck_require__(3292));
-const checkUrl_1 = __nccwpck_require__(3981);
-const requestHelpers_1 = __nccwpck_require__(8243);
-const retry_wrapper_1 = __nccwpck_require__(6134);
+const checkUrl_1 = __nccwpck_require__(4107);
+const requestHelpers_1 = __nccwpck_require__(9829);
+const retry_wrapper_1 = __nccwpck_require__(807);
 const AWS_CONTAINER_CREDENTIALS_RELATIVE_URI = "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI";
 const DEFAULT_LINK_LOCAL_HOST = "http://169.254.170.2";
 const AWS_CONTAINER_CREDENTIALS_FULL_URI = "AWS_CONTAINER_CREDENTIALS_FULL_URI";
 const AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE = "AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE";
 const AWS_CONTAINER_AUTHORIZATION_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
 const fromHttp = (options) => {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
-    (_a = options.logger) === null || _a === void 0 ? void 0 : _a.debug("@aws-sdk/credential-provider-http", "fromHttp");
+    options.logger?.debug("@aws-sdk/credential-provider-http", "fromHttp");
     let host;
-    const relative = (_b = options.awsContainerCredentialsRelativeUri) !== null && _b !== void 0 ? _b : process.env[AWS_CONTAINER_CREDENTIALS_RELATIVE_URI];
-    const full = (_c = options.awsContainerCredentialsFullUri) !== null && _c !== void 0 ? _c : process.env[AWS_CONTAINER_CREDENTIALS_FULL_URI];
-    const token = (_d = options.awsContainerAuthorizationToken) !== null && _d !== void 0 ? _d : process.env[AWS_CONTAINER_AUTHORIZATION_TOKEN];
-    const tokenFile = (_e = options.awsContainerAuthorizationTokenFile) !== null && _e !== void 0 ? _e : process.env[AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE];
+    const relative = options.awsContainerCredentialsRelativeUri ?? process.env[AWS_CONTAINER_CREDENTIALS_RELATIVE_URI];
+    const full = options.awsContainerCredentialsFullUri ?? process.env[AWS_CONTAINER_CREDENTIALS_FULL_URI];
+    const token = options.awsContainerAuthorizationToken ?? process.env[AWS_CONTAINER_AUTHORIZATION_TOKEN];
+    const tokenFile = options.awsContainerAuthorizationTokenFile ?? process.env[AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE];
     if (relative && full) {
         console.warn("AWS SDK HTTP credentials provider:", "you have set both awsContainerCredentialsRelativeUri and awsContainerCredentialsFullUri.");
         console.warn("awsContainerCredentialsFullUri will take precedence.");
@@ -18229,8 +18229,8 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
     const url = new URL(host);
     (0, checkUrl_1.checkUrl)(url);
     const requestHandler = new node_http_handler_1.NodeHttpHandler({
-        requestTimeout: (_f = options.timeout) !== null && _f !== void 0 ? _f : 1000,
-        connectionTimeout: (_g = options.timeout) !== null && _g !== void 0 ? _g : 1000,
+        requestTimeout: options.timeout ?? 1000,
+        connectionTimeout: options.timeout ?? 1000,
     });
     return (0, retry_wrapper_1.retryWrapper)(async () => {
         const request = (0, requestHelpers_1.createGetRequest)(url);
@@ -18247,23 +18247,23 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
         catch (e) {
             throw new property_provider_1.CredentialsProviderError(String(e));
         }
-    }, (_h = options.maxRetries) !== null && _h !== void 0 ? _h : 3, (_j = options.timeout) !== null && _j !== void 0 ? _j : 1000);
+    }, options.maxRetries ?? 3, options.timeout ?? 1000);
 };
 exports.fromHttp = fromHttp;
 
 
 /***/ }),
 
-/***/ 8243:
+/***/ 9829:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getCredentials = exports.createGetRequest = void 0;
-const property_provider_1 = __nccwpck_require__(9476);
-const protocol_http_1 = __nccwpck_require__(9559);
-const smithy_client_1 = __nccwpck_require__(5937);
-const util_stream_1 = __nccwpck_require__(2686);
+const property_provider_1 = __nccwpck_require__(5597);
+const protocol_http_1 = __nccwpck_require__(199);
+const smithy_client_1 = __nccwpck_require__(4037);
+const util_stream_1 = __nccwpck_require__(4703);
 function createGetRequest(url) {
     return new protocol_http_1.HttpRequest({
         protocol: url.protocol,
@@ -18279,8 +18279,7 @@ function createGetRequest(url) {
 }
 exports.createGetRequest = createGetRequest;
 async function getCredentials(response) {
-    var _a, _b;
-    const contentType = (_b = (_a = response === null || response === void 0 ? void 0 : response.headers["content-type"]) !== null && _a !== void 0 ? _a : response === null || response === void 0 ? void 0 : response.headers["Content-Type"]) !== null && _b !== void 0 ? _b : "";
+    const contentType = response?.headers["content-type"] ?? response?.headers["Content-Type"] ?? "";
     if (!contentType.includes("json")) {
         console.warn("HTTP credential provider response header content-type was not application/json. Observed: " + contentType + ".");
     }
@@ -18320,7 +18319,7 @@ exports.getCredentials = getCredentials;
 
 /***/ }),
 
-/***/ 6134:
+/***/ 807:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -18344,19 +18343,19 @@ exports.retryWrapper = retryWrapper;
 
 /***/ }),
 
-/***/ 3205:
+/***/ 3283:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromHttp = void 0;
-var fromHttp_1 = __nccwpck_require__(3961);
+var fromHttp_1 = __nccwpck_require__(9317);
 Object.defineProperty(exports, "fromHttp", ({ enumerable: true, get: function () { return fromHttp_1.fromHttp; } }));
 
 
 /***/ }),
 
-/***/ 2792:
+/***/ 2524:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -18404,15 +18403,15 @@ module.exports = __toCommonJS(src_exports);
 
 // src/resolveAssumeRoleCredentials.ts
 
-var import_shared_ini_file_loader = __nccwpck_require__(742);
+var import_shared_ini_file_loader = __nccwpck_require__(2298);
 
 // src/resolveCredentialSource.ts
-var import_property_provider = __nccwpck_require__(9476);
+var import_property_provider = __nccwpck_require__(5597);
 var resolveCredentialSource = /* @__PURE__ */ __name((credentialSource, profileName) => {
   const sourceProvidersMap = {
-    EcsContainer: (options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(4556))).then(({ fromContainerMetadata }) => fromContainerMetadata(options)),
-    Ec2InstanceMetadata: (options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(4556))).then(({ fromInstanceMetadata }) => fromInstanceMetadata(options)),
-    Environment: (options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(6701))).then(({ fromEnv }) => fromEnv(options))
+    EcsContainer: (options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(6743))).then(({ fromContainerMetadata }) => fromContainerMetadata(options)),
+    Ec2InstanceMetadata: (options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(6743))).then(({ fromInstanceMetadata }) => fromInstanceMetadata(options)),
+    Environment: (options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(6792))).then(({ fromEnv }) => fromEnv(options))
   };
   if (credentialSource in sourceProvidersMap) {
     return sourceProvidersMap[credentialSource];
@@ -18432,7 +18431,7 @@ var resolveAssumeRoleCredentials = /* @__PURE__ */ __name(async (profileName, pr
   (_a = options.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-ini", "resolveAssumeRoleCredentials (STS)");
   const data = profiles[profileName];
   if (!options.roleAssumer) {
-    const { getDefaultRoleAssumer } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(8342)));
+    const { getDefaultRoleAssumer } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(7881)));
     options.roleAssumer = getDefaultRoleAssumer(
       {
         ...options.clientConfig,
@@ -18476,7 +18475,7 @@ var resolveAssumeRoleCredentials = /* @__PURE__ */ __name(async (profileName, pr
 
 // src/resolveProcessCredentials.ts
 var isProcessProfile = /* @__PURE__ */ __name((arg) => Boolean(arg) && typeof arg === "object" && typeof arg.credential_process === "string", "isProcessProfile");
-var resolveProcessCredentials = /* @__PURE__ */ __name(async (options, profile) => Promise.resolve().then(() => __toESM(__nccwpck_require__(7826))).then(
+var resolveProcessCredentials = /* @__PURE__ */ __name(async (options, profile) => Promise.resolve().then(() => __toESM(__nccwpck_require__(4265))).then(
   ({ fromProcess }) => fromProcess({
     ...options,
     profile
@@ -18485,7 +18484,7 @@ var resolveProcessCredentials = /* @__PURE__ */ __name(async (options, profile) 
 
 // src/resolveSsoCredentials.ts
 var resolveSsoCredentials = /* @__PURE__ */ __name(async (profile, options = {}) => {
-  const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(8732)));
+  const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(538)));
   return fromSSO({
     profile,
     logger: options.logger
@@ -18508,7 +18507,7 @@ var resolveStaticCredentials = /* @__PURE__ */ __name((profile, options) => {
 
 // src/resolveWebIdentityCredentials.ts
 var isWebIdentityProfile = /* @__PURE__ */ __name((arg) => Boolean(arg) && typeof arg === "object" && typeof arg.web_identity_token_file === "string" && typeof arg.role_arn === "string" && ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1, "isWebIdentityProfile");
-var resolveWebIdentityCredentials = /* @__PURE__ */ __name(async (profile, options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(5498))).then(
+var resolveWebIdentityCredentials = /* @__PURE__ */ __name(async (profile, options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(9425))).then(
   ({ fromTokenFile }) => fromTokenFile({
     webIdentityTokenFile: profile.web_identity_token_file,
     roleArn: profile.role_arn,
@@ -18558,7 +18557,7 @@ var fromIni = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 2917:
+/***/ 9660:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -18601,19 +18600,19 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/defaultProvider.ts
-var import_credential_provider_env = __nccwpck_require__(6701);
+var import_credential_provider_env = __nccwpck_require__(6792);
 
-var import_shared_ini_file_loader = __nccwpck_require__(742);
+var import_shared_ini_file_loader = __nccwpck_require__(2298);
 
 // src/remoteProvider.ts
-var import_property_provider = __nccwpck_require__(9476);
+var import_property_provider = __nccwpck_require__(5597);
 var ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 var remoteProvider = /* @__PURE__ */ __name(async (init) => {
   var _a, _b;
-  const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(4556)));
+  const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6743)));
   if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
     (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node", "remoteProvider::fromHttp/fromContainerMetadata");
-    const { fromHttp } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(3205)));
+    const { fromHttp } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(3283)));
     return (0, import_property_provider.chain)(fromHttp(init), fromContainerMetadata(init));
   }
   if (process.env[ENV_IMDS_DISABLED]) {
@@ -18644,25 +18643,25 @@ var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_
           "Skipping SSO provider in default chain (inputs do not include SSO fields)."
         );
       }
-      const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(8732)));
+      const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(538)));
       return fromSSO(init)();
     },
     async () => {
       var _a;
       (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromIni");
-      const { fromIni } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(2792)));
+      const { fromIni } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(2524)));
       return fromIni(init)();
     },
     async () => {
       var _a;
       (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromProcess");
-      const { fromProcess } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(7826)));
+      const { fromProcess } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(4265)));
       return fromProcess(init)();
     },
     async () => {
       var _a;
       (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromTokenFile");
-      const { fromTokenFile } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(5498)));
+      const { fromTokenFile } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(9425)));
       return fromTokenFile(init)();
     },
     async () => {
@@ -18687,7 +18686,7 @@ var credentialsTreatedAsExpired = /* @__PURE__ */ __name((credentials) => (crede
 
 /***/ }),
 
-/***/ 7826:
+/***/ 4265:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -18718,10 +18717,10 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/fromProcess.ts
-var import_shared_ini_file_loader = __nccwpck_require__(742);
+var import_shared_ini_file_loader = __nccwpck_require__(2298);
 
 // src/resolveProcessCredentials.ts
-var import_property_provider = __nccwpck_require__(9476);
+var import_property_provider = __nccwpck_require__(5597);
 var import_child_process = __nccwpck_require__(2081);
 var import_util = __nccwpck_require__(3837);
 
@@ -18791,7 +18790,7 @@ var fromProcess = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 8732:
+/***/ 538:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -18827,7 +18826,7 @@ var import_client_sso;
 var init_loadSso = __esm({
   "src/loadSso.ts"() {
     "use strict";
-    import_client_sso = __nccwpck_require__(9973);
+    import_client_sso = __nccwpck_require__(8957);
   }
 });
 
@@ -18848,9 +18847,9 @@ module.exports = __toCommonJS(src_exports);
 var isSsoProfile = /* @__PURE__ */ __name((arg) => arg && (typeof arg.sso_start_url === "string" || typeof arg.sso_account_id === "string" || typeof arg.sso_session === "string" || typeof arg.sso_region === "string" || typeof arg.sso_role_name === "string"), "isSsoProfile");
 
 // src/resolveSSOCredentials.ts
-var import_token_providers = __nccwpck_require__(1815);
-var import_property_provider = __nccwpck_require__(9476);
-var import_shared_ini_file_loader = __nccwpck_require__(742);
+var import_token_providers = __nccwpck_require__(1450);
+var import_property_provider = __nccwpck_require__(5597);
+var import_shared_ini_file_loader = __nccwpck_require__(2298);
 var SHOULD_FAIL_CREDENTIAL_CHAIN = false;
 var resolveSSOCredentials = /* @__PURE__ */ __name(async ({
   ssoStartUrl,
@@ -18997,24 +18996,23 @@ var fromSSO = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 9153:
+/***/ 4436:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromTokenFile = void 0;
-const property_provider_1 = __nccwpck_require__(9476);
+const property_provider_1 = __nccwpck_require__(5597);
 const fs_1 = __nccwpck_require__(7147);
-const fromWebToken_1 = __nccwpck_require__(6156);
+const fromWebToken_1 = __nccwpck_require__(2866);
 const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 const fromTokenFile = (init = {}) => async () => {
-    var _a, _b, _c, _d;
-    (_a = init.logger) === null || _a === void 0 ? void 0 : _a.debug("@aws-sdk/credential-provider-web-identity", "fromTokenFile");
-    const webIdentityTokenFile = (_b = init === null || init === void 0 ? void 0 : init.webIdentityTokenFile) !== null && _b !== void 0 ? _b : process.env[ENV_TOKEN_FILE];
-    const roleArn = (_c = init === null || init === void 0 ? void 0 : init.roleArn) !== null && _c !== void 0 ? _c : process.env[ENV_ROLE_ARN];
-    const roleSessionName = (_d = init === null || init === void 0 ? void 0 : init.roleSessionName) !== null && _d !== void 0 ? _d : process.env[ENV_ROLE_SESSION_NAME];
+    init.logger?.debug("@aws-sdk/credential-provider-web-identity", "fromTokenFile");
+    const webIdentityTokenFile = init?.webIdentityTokenFile ?? process.env[ENV_TOKEN_FILE];
+    const roleArn = init?.roleArn ?? process.env[ENV_ROLE_ARN];
+    const roleSessionName = init?.roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME];
     if (!webIdentityTokenFile || !roleArn) {
         throw new property_provider_1.CredentialsProviderError("Web identity configuration not specified");
     }
@@ -19030,7 +19028,7 @@ exports.fromTokenFile = fromTokenFile;
 
 /***/ }),
 
-/***/ 6156:
+/***/ 2866:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -19060,12 +19058,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromWebToken = void 0;
 const fromWebToken = (init) => async () => {
-    var _a;
-    (_a = init.logger) === null || _a === void 0 ? void 0 : _a.debug("@aws-sdk/credential-provider-web-identity", "fromWebToken");
+    init.logger?.debug("@aws-sdk/credential-provider-web-identity", "fromWebToken");
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
     let { roleAssumerWithWebIdentity } = init;
     if (!roleAssumerWithWebIdentity) {
-        const { getDefaultRoleAssumerWithWebIdentity } = await Promise.resolve().then(() => __importStar(__nccwpck_require__(8342)));
+        const { getDefaultRoleAssumerWithWebIdentity } = await Promise.resolve().then(() => __importStar(__nccwpck_require__(7881)));
         roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({
             ...init.clientConfig,
             credentialProviderLogger: init.logger,
@@ -19074,7 +19071,7 @@ const fromWebToken = (init) => async () => {
     }
     return roleAssumerWithWebIdentity({
         RoleArn: roleArn,
-        RoleSessionName: roleSessionName !== null && roleSessionName !== void 0 ? roleSessionName : `aws-sdk-js-session-${Date.now()}`,
+        RoleSessionName: roleSessionName ?? `aws-sdk-js-session-${Date.now()}`,
         WebIdentityToken: webIdentityToken,
         ProviderId: providerId,
         PolicyArns: policyArns,
@@ -19087,8 +19084,9 @@ exports.fromWebToken = fromWebToken;
 
 /***/ }),
 
-/***/ 5498:
+/***/ 9425:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
 
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -19108,8 +19106,8 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, __nccwpck_require__(9153), module.exports);
-__reExport(src_exports, __nccwpck_require__(6156), module.exports);
+__reExport(src_exports, __nccwpck_require__(4436), module.exports);
+__reExport(src_exports, __nccwpck_require__(2866), module.exports);
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -19118,8 +19116,9 @@ __reExport(src_exports, __nccwpck_require__(6156), module.exports);
 
 /***/ }),
 
-/***/ 5773:
+/***/ 547:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
 
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -19149,7 +19148,7 @@ __export(src_exports, {
   resolveHostHeaderConfig: () => resolveHostHeaderConfig
 });
 module.exports = __toCommonJS(src_exports);
-var import_protocol_http = __nccwpck_require__(9559);
+var import_protocol_http = __nccwpck_require__(199);
 function resolveHostHeaderConfig(input) {
   return input;
 }
@@ -19190,8 +19189,9 @@ var getHostHeaderPlugin = /* @__PURE__ */ __name((options) => ({
 
 /***/ }),
 
-/***/ 3860:
+/***/ 8331:
 /***/ ((module) => {
+
 
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -19272,8 +19272,9 @@ var getLoggerPlugin = /* @__PURE__ */ __name((options) => ({
 
 /***/ }),
 
-/***/ 6699:
+/***/ 3152:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
 
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -19302,7 +19303,7 @@ __export(src_exports, {
   recursionDetectionMiddleware: () => recursionDetectionMiddleware
 });
 module.exports = __toCommonJS(src_exports);
-var import_protocol_http = __nccwpck_require__(9559);
+var import_protocol_http = __nccwpck_require__(199);
 var TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
 var ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
 var ENV_TRACE_ID = "_X_AMZN_TRACE_ID";
@@ -19342,7 +19343,7 @@ var getRecursionDetectionPlugin = /* @__PURE__ */ __name((options) => ({
 
 /***/ }),
 
-/***/ 9805:
+/***/ 6032:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -19385,8 +19386,8 @@ function resolveUserAgentConfig(input) {
 __name(resolveUserAgentConfig, "resolveUserAgentConfig");
 
 // src/user-agent-middleware.ts
-var import_util_endpoints = __nccwpck_require__(7722);
-var import_protocol_http = __nccwpck_require__(9559);
+var import_util_endpoints = __nccwpck_require__(6702);
+var import_protocol_http = __nccwpck_require__(199);
 
 // src/constants.ts
 var USER_AGENT = "user-agent";
@@ -19467,7 +19468,7 @@ var getUserAgentPlugin = /* @__PURE__ */ __name((config) => ({
 
 /***/ }),
 
-/***/ 2182:
+/***/ 6262:
 /***/ ((module) => {
 
 
@@ -19582,7 +19583,7 @@ var resolveRegionConfig = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 1815:
+/***/ 1450:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -19635,7 +19636,7 @@ var REFRESH_MESSAGE = `To refresh this SSO session run 'aws sso login' with the 
 // src/getSsoOidcClient.ts
 var ssoOidcClientsHash = {};
 var getSsoOidcClient = /* @__PURE__ */ __name(async (ssoRegion) => {
-  const { SSOOIDCClient } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6228)));
+  const { SSOOIDCClient } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(9318)));
   if (ssoOidcClientsHash[ssoRegion]) {
     return ssoOidcClientsHash[ssoRegion];
   }
@@ -19646,7 +19647,7 @@ var getSsoOidcClient = /* @__PURE__ */ __name(async (ssoRegion) => {
 
 // src/getNewSsoOidcToken.ts
 var getNewSsoOidcToken = /* @__PURE__ */ __name(async (ssoToken, ssoRegion) => {
-  const { CreateTokenCommand } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6228)));
+  const { CreateTokenCommand } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(9318)));
   const ssoOidcClient = await getSsoOidcClient(ssoRegion);
   return ssoOidcClient.send(
     new CreateTokenCommand({
@@ -19659,7 +19660,7 @@ var getNewSsoOidcToken = /* @__PURE__ */ __name(async (ssoToken, ssoRegion) => {
 }, "getNewSsoOidcToken");
 
 // src/validateTokenExpiry.ts
-var import_property_provider = __nccwpck_require__(9476);
+var import_property_provider = __nccwpck_require__(5597);
 var validateTokenExpiry = /* @__PURE__ */ __name((token) => {
   if (token.expiration && token.expiration.getTime() < Date.now()) {
     throw new import_property_provider.TokenProviderError(`Token is expired. ${REFRESH_MESSAGE}`, false);
@@ -19678,7 +19679,7 @@ var validateTokenKey = /* @__PURE__ */ __name((key, value, forRefresh = false) =
 }, "validateTokenKey");
 
 // src/writeSSOTokenToFile.ts
-var import_shared_ini_file_loader = __nccwpck_require__(742);
+var import_shared_ini_file_loader = __nccwpck_require__(2298);
 var import_fs = __nccwpck_require__(7147);
 var { writeFile } = import_fs.promises;
 var writeSSOTokenToFile = /* @__PURE__ */ __name((id, ssoToken) => {
@@ -19794,7 +19795,7 @@ var nodeProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_pro
 
 /***/ }),
 
-/***/ 7722:
+/***/ 6702:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -19858,7 +19859,7 @@ module.exports = __toCommonJS(src_exports);
 
 
 // src/lib/isIpAddress.ts
-var import_util_endpoints = __nccwpck_require__(9993);
+var import_util_endpoints = __nccwpck_require__(7732);
 
 // src/lib/aws/isVirtualHostableS3Bucket.ts
 var isVirtualHostableS3Bucket = /* @__PURE__ */ __name((value, allowSubDomains = false) => {
@@ -20199,8 +20200,9 @@ import_util_endpoints.customEndpointFunctions.aws = awsEndpointFunctions;
 
 /***/ }),
 
-/***/ 5433:
+/***/ 5452:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
 
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -20230,7 +20232,7 @@ __export(src_exports, {
   defaultUserAgent: () => defaultUserAgent
 });
 module.exports = __toCommonJS(src_exports);
-var import_node_config_provider = __nccwpck_require__(4542);
+var import_node_config_provider = __nccwpck_require__(2879);
 var import_os = __nccwpck_require__(2037);
 var import_process = __nccwpck_require__(7282);
 
@@ -20295,7 +20297,7 @@ var defaultUserAgent = /* @__PURE__ */ __name(({ serviceId, clientVersion }) => 
 
 /***/ }),
 
-/***/ 4102:
+/***/ 8979:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -20340,7 +20342,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/endpointsConfig/NodeUseDualstackEndpointConfigOptions.ts
-var import_util_config_provider = __nccwpck_require__(3889);
+var import_util_config_provider = __nccwpck_require__(3369);
 var ENV_USE_DUALSTACK_ENDPOINT = "AWS_USE_DUALSTACK_ENDPOINT";
 var CONFIG_USE_DUALSTACK_ENDPOINT = "use_dualstack_endpoint";
 var DEFAULT_USE_DUALSTACK_ENDPOINT = false;
@@ -20362,7 +20364,7 @@ var NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS = {
 };
 
 // src/endpointsConfig/resolveCustomEndpointsConfig.ts
-var import_util_middleware = __nccwpck_require__(3530);
+var import_util_middleware = __nccwpck_require__(1274);
 var resolveCustomEndpointsConfig = /* @__PURE__ */ __name((input) => {
   const { endpoint, urlParser } = input;
   return {
@@ -20520,7 +20522,7 @@ var getRegionInfo = /* @__PURE__ */ __name((region, {
 
 /***/ }),
 
-/***/ 8432:
+/***/ 7525:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -20571,7 +20573,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/middleware-http-auth-scheme/httpAuthSchemeMiddleware.ts
-var import_util_middleware = __nccwpck_require__(3530);
+var import_util_middleware = __nccwpck_require__(1274);
 function convertHttpAuthSchemesToMap(httpAuthSchemes) {
   const map = /* @__PURE__ */ new Map();
   for (const scheme of httpAuthSchemes) {
@@ -20616,7 +20618,7 @@ var httpAuthSchemeMiddleware = /* @__PURE__ */ __name((config, mwOptions) => (ne
 }, "httpAuthSchemeMiddleware");
 
 // src/middleware-http-auth-scheme/getHttpAuthSchemeEndpointRuleSetPlugin.ts
-var import_middleware_endpoint = __nccwpck_require__(5796);
+var import_middleware_endpoint = __nccwpck_require__(9656);
 var httpAuthSchemeEndpointRuleSetMiddlewareOptions = {
   step: "serialize",
   tags: ["HTTP_AUTH_SCHEME"],
@@ -20641,7 +20643,7 @@ var getHttpAuthSchemeEndpointRuleSetPlugin = /* @__PURE__ */ __name((config, {
 }), "getHttpAuthSchemeEndpointRuleSetPlugin");
 
 // src/middleware-http-auth-scheme/getHttpAuthSchemePlugin.ts
-var import_middleware_serde = __nccwpck_require__(4243);
+var import_middleware_serde = __nccwpck_require__(6971);
 var httpAuthSchemeMiddlewareOptions = {
   step: "serialize",
   tags: ["HTTP_AUTH_SCHEME"],
@@ -20666,7 +20668,7 @@ var getHttpAuthSchemePlugin = /* @__PURE__ */ __name((config, {
 }), "getHttpAuthSchemePlugin");
 
 // src/middleware-http-signing/httpSigningMiddleware.ts
-var import_protocol_http = __nccwpck_require__(9559);
+var import_protocol_http = __nccwpck_require__(199);
 
 var defaultErrorHandler = /* @__PURE__ */ __name((signingProperties) => (error) => {
   throw error;
@@ -20696,7 +20698,7 @@ var httpSigningMiddleware = /* @__PURE__ */ __name((config) => (next, context) =
 }, "httpSigningMiddleware");
 
 // src/middleware-http-signing/getHttpSigningMiddleware.ts
-var import_middleware_retry = __nccwpck_require__(2508);
+var import_middleware_retry = __nccwpck_require__(5128);
 var httpSigningMiddlewareOptions = {
   step: "finalizeRequest",
   tags: ["HTTP_SIGNING"],
@@ -20735,7 +20737,7 @@ __name(_DefaultIdentityProviderConfig, "DefaultIdentityProviderConfig");
 var DefaultIdentityProviderConfig = _DefaultIdentityProviderConfig;
 
 // src/util-identity-and-auth/httpAuthSchemes/httpApiKeyAuth.ts
-var import_types = __nccwpck_require__(558);
+var import_types = __nccwpck_require__(9676);
 var _HttpApiKeyAuthSigner = class _HttpApiKeyAuthSigner {
   async sign(httpRequest, identity, signingProperties) {
     if (!signingProperties) {
@@ -20859,7 +20861,7 @@ var normalizeProvider = /* @__PURE__ */ __name((input) => {
 
 // src/protocols/requestBuilder.ts
 
-var import_smithy_client = __nccwpck_require__(5937);
+var import_smithy_client = __nccwpck_require__(4037);
 function requestBuilder(input, context) {
   return new RequestBuilder(input, context);
 }
@@ -20997,7 +20999,7 @@ var get = /* @__PURE__ */ __name((fromObject, path) => {
 
 /***/ }),
 
-/***/ 4556:
+/***/ 6743:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -21041,7 +21043,7 @@ module.exports = __toCommonJS(src_exports);
 var import_url = __nccwpck_require__(7310);
 
 // src/remoteProvider/httpRequest.ts
-var import_property_provider = __nccwpck_require__(9476);
+var import_property_provider = __nccwpck_require__(5597);
 var import_buffer = __nccwpck_require__(4300);
 var import_http = __nccwpck_require__(3685);
 function httpRequest(options) {
@@ -21197,8 +21199,8 @@ __name(_InstanceMetadataV1FallbackError, "InstanceMetadataV1FallbackError");
 var InstanceMetadataV1FallbackError = _InstanceMetadataV1FallbackError;
 
 // src/utils/getInstanceMetadataEndpoint.ts
-var import_node_config_provider = __nccwpck_require__(4542);
-var import_url_parser = __nccwpck_require__(2224);
+var import_node_config_provider = __nccwpck_require__(2879);
+var import_url_parser = __nccwpck_require__(2758);
 
 // src/config/Endpoint.ts
 var Endpoint = /* @__PURE__ */ ((Endpoint2) => {
@@ -21429,7 +21431,235 @@ var getCredentialsFromProfile = /* @__PURE__ */ __name(async (profile, options) 
 
 /***/ }),
 
-/***/ 3611:
+/***/ 2187:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/index.ts
+var src_exports = {};
+__export(src_exports, {
+  FetchHttpHandler: () => FetchHttpHandler,
+  keepAliveSupport: () => keepAliveSupport,
+  streamCollector: () => streamCollector
+});
+module.exports = __toCommonJS(src_exports);
+
+// src/fetch-http-handler.ts
+var import_protocol_http = __nccwpck_require__(199);
+var import_querystring_builder = __nccwpck_require__(9405);
+
+// src/request-timeout.ts
+function requestTimeout(timeoutInMs = 0) {
+  return new Promise((resolve, reject) => {
+    if (timeoutInMs) {
+      setTimeout(() => {
+        const timeoutError = new Error(`Request did not complete within ${timeoutInMs} ms`);
+        timeoutError.name = "TimeoutError";
+        reject(timeoutError);
+      }, timeoutInMs);
+    }
+  });
+}
+__name(requestTimeout, "requestTimeout");
+
+// src/fetch-http-handler.ts
+var keepAliveSupport = {
+  supported: Boolean(typeof Request !== "undefined" && "keepalive" in new Request("https://[::1]"))
+};
+var _FetchHttpHandler = class _FetchHttpHandler {
+  /**
+   * @returns the input if it is an HttpHandler of any class,
+   * or instantiates a new instance of this handler.
+   */
+  static create(instanceOrOptions) {
+    if (typeof (instanceOrOptions == null ? void 0 : instanceOrOptions.handle) === "function") {
+      return instanceOrOptions;
+    }
+    return new _FetchHttpHandler(instanceOrOptions);
+  }
+  constructor(options) {
+    if (typeof options === "function") {
+      this.configProvider = options().then((opts) => opts || {});
+    } else {
+      this.config = options ?? {};
+      this.configProvider = Promise.resolve(this.config);
+    }
+  }
+  destroy() {
+  }
+  async handle(request, { abortSignal } = {}) {
+    if (!this.config) {
+      this.config = await this.configProvider;
+    }
+    const requestTimeoutInMs = this.config.requestTimeout;
+    const keepAlive = this.config.keepAlive === true;
+    if (abortSignal == null ? void 0 : abortSignal.aborted) {
+      const abortError = new Error("Request aborted");
+      abortError.name = "AbortError";
+      return Promise.reject(abortError);
+    }
+    let path = request.path;
+    const queryString = (0, import_querystring_builder.buildQueryString)(request.query || {});
+    if (queryString) {
+      path += `?${queryString}`;
+    }
+    if (request.fragment) {
+      path += `#${request.fragment}`;
+    }
+    let auth = "";
+    if (request.username != null || request.password != null) {
+      const username = request.username ?? "";
+      const password = request.password ?? "";
+      auth = `${username}:${password}@`;
+    }
+    const { port, method } = request;
+    const url = `${request.protocol}//${auth}${request.hostname}${port ? `:${port}` : ""}${path}`;
+    const body = method === "GET" || method === "HEAD" ? void 0 : request.body;
+    const requestOptions = { body, headers: new Headers(request.headers), method };
+    if (typeof AbortController !== "undefined") {
+      requestOptions["signal"] = abortSignal;
+    }
+    if (keepAliveSupport.supported) {
+      requestOptions["keepalive"] = keepAlive;
+    }
+    const fetchRequest = new Request(url, requestOptions);
+    const raceOfPromises = [
+      fetch(fetchRequest).then((response) => {
+        const fetchHeaders = response.headers;
+        const transformedHeaders = {};
+        for (const pair of fetchHeaders.entries()) {
+          transformedHeaders[pair[0]] = pair[1];
+        }
+        const hasReadableStream = response.body != void 0;
+        if (!hasReadableStream) {
+          return response.blob().then((body2) => ({
+            response: new import_protocol_http.HttpResponse({
+              headers: transformedHeaders,
+              reason: response.statusText,
+              statusCode: response.status,
+              body: body2
+            })
+          }));
+        }
+        return {
+          response: new import_protocol_http.HttpResponse({
+            headers: transformedHeaders,
+            reason: response.statusText,
+            statusCode: response.status,
+            body: response.body
+          })
+        };
+      }),
+      requestTimeout(requestTimeoutInMs)
+    ];
+    if (abortSignal) {
+      raceOfPromises.push(
+        new Promise((resolve, reject) => {
+          abortSignal.onabort = () => {
+            const abortError = new Error("Request aborted");
+            abortError.name = "AbortError";
+            reject(abortError);
+          };
+        })
+      );
+    }
+    return Promise.race(raceOfPromises);
+  }
+  updateHttpClientConfig(key, value) {
+    this.config = void 0;
+    this.configProvider = this.configProvider.then((config) => {
+      config[key] = value;
+      return config;
+    });
+  }
+  httpHandlerConfigs() {
+    return this.config ?? {};
+  }
+};
+__name(_FetchHttpHandler, "FetchHttpHandler");
+var FetchHttpHandler = _FetchHttpHandler;
+
+// src/stream-collector.ts
+var import_util_base64 = __nccwpck_require__(2199);
+var streamCollector = /* @__PURE__ */ __name((stream) => {
+  if (typeof Blob === "function" && stream instanceof Blob) {
+    return collectBlob(stream);
+  }
+  return collectStream(stream);
+}, "streamCollector");
+async function collectBlob(blob) {
+  const base64 = await readToBase64(blob);
+  const arrayBuffer = (0, import_util_base64.fromBase64)(base64);
+  return new Uint8Array(arrayBuffer);
+}
+__name(collectBlob, "collectBlob");
+async function collectStream(stream) {
+  const chunks = [];
+  const reader = stream.getReader();
+  let isDone = false;
+  let length = 0;
+  while (!isDone) {
+    const { done, value } = await reader.read();
+    if (value) {
+      chunks.push(value);
+      length += value.length;
+    }
+    isDone = done;
+  }
+  const collected = new Uint8Array(length);
+  let offset = 0;
+  for (const chunk of chunks) {
+    collected.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return collected;
+}
+__name(collectStream, "collectStream");
+function readToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      if (reader.readyState !== 2) {
+        return reject(new Error("Reader aborted too early"));
+      }
+      const result = reader.result ?? "";
+      const commaIndex = result.indexOf(",");
+      const dataOffset = commaIndex > -1 ? commaIndex + 1 : result.length;
+      resolve(result.substring(dataOffset));
+    };
+    reader.onabort = () => reject(new Error("Read aborted"));
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+}
+__name(readToBase64, "readToBase64");
+// Annotate the CommonJS export names for ESM import in node:
+
+0 && (0);
+
+
+
+/***/ }),
+
+/***/ 7546:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -21457,8 +21687,8 @@ __export(src_exports, {
   Hash: () => Hash
 });
 module.exports = __toCommonJS(src_exports);
-var import_util_buffer_from = __nccwpck_require__(8548);
-var import_util_utf8 = __nccwpck_require__(4922);
+var import_util_buffer_from = __nccwpck_require__(5234);
+var import_util_utf8 = __nccwpck_require__(141);
 var import_buffer = __nccwpck_require__(4300);
 var import_crypto = __nccwpck_require__(6113);
 var _Hash = class _Hash {
@@ -21500,7 +21730,7 @@ __name(castSourceData, "castSourceData");
 
 /***/ }),
 
-/***/ 8630:
+/***/ 9354:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -21537,7 +21767,7 @@ var isArrayBuffer = /* @__PURE__ */ __name((arg) => typeof ArrayBuffer === "func
 
 /***/ }),
 
-/***/ 3668:
+/***/ 4654:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -21567,7 +21797,7 @@ __export(src_exports, {
   getContentLengthPlugin: () => getContentLengthPlugin
 });
 module.exports = __toCommonJS(src_exports);
-var import_protocol_http = __nccwpck_require__(9559);
+var import_protocol_http = __nccwpck_require__(199);
 var CONTENT_LENGTH_HEADER = "content-length";
 function contentLengthMiddleware(bodyLengthChecker) {
   return (next) => async (args) => {
@@ -21611,27 +21841,27 @@ var getContentLengthPlugin = /* @__PURE__ */ __name((options) => ({
 
 /***/ }),
 
-/***/ 7934:
+/***/ 3630:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getEndpointFromConfig = void 0;
-const node_config_provider_1 = __nccwpck_require__(4542);
-const getEndpointUrlConfig_1 = __nccwpck_require__(8895);
+const node_config_provider_1 = __nccwpck_require__(2879);
+const getEndpointUrlConfig_1 = __nccwpck_require__(8097);
 const getEndpointFromConfig = async (serviceId) => (0, node_config_provider_1.loadConfig)((0, getEndpointUrlConfig_1.getEndpointUrlConfig)(serviceId))();
 exports.getEndpointFromConfig = getEndpointFromConfig;
 
 
 /***/ }),
 
-/***/ 8895:
+/***/ 8097:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getEndpointUrlConfig = void 0;
-const shared_ini_file_loader_1 = __nccwpck_require__(742);
+const shared_ini_file_loader_1 = __nccwpck_require__(2298);
 const ENV_ENDPOINT_URL = "AWS_ENDPOINT_URL";
 const CONFIG_ENDPOINT_URL = "endpoint_url";
 const getEndpointUrlConfig = (serviceId) => ({
@@ -21667,7 +21897,7 @@ exports.getEndpointUrlConfig = getEndpointUrlConfig;
 
 /***/ }),
 
-/***/ 5796:
+/***/ 9656:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -21770,10 +22000,10 @@ var createConfigValueProvider = /* @__PURE__ */ __name((configKey, canonicalEndp
 }, "createConfigValueProvider");
 
 // src/adaptors/getEndpointFromInstructions.ts
-var import_getEndpointFromConfig = __nccwpck_require__(7934);
+var import_getEndpointFromConfig = __nccwpck_require__(3630);
 
 // src/adaptors/toEndpointV1.ts
-var import_url_parser = __nccwpck_require__(2224);
+var import_url_parser = __nccwpck_require__(2758);
 var toEndpointV1 = /* @__PURE__ */ __name((endpoint) => {
   if (typeof endpoint === "object") {
     if ("url" in endpoint) {
@@ -21829,7 +22059,7 @@ var resolveParams = /* @__PURE__ */ __name(async (commandInput, instructionsSupp
 }, "resolveParams");
 
 // src/endpointMiddleware.ts
-var import_util_middleware = __nccwpck_require__(3530);
+var import_util_middleware = __nccwpck_require__(1274);
 var endpointMiddleware = /* @__PURE__ */ __name(({
   config,
   instructions
@@ -21875,7 +22105,7 @@ var endpointMiddleware = /* @__PURE__ */ __name(({
 }, "endpointMiddleware");
 
 // src/getEndpointPlugin.ts
-var import_middleware_serde = __nccwpck_require__(4243);
+var import_middleware_serde = __nccwpck_require__(6971);
 var endpointMiddlewareOptions = {
   step: "serialize",
   tags: ["ENDPOINT_PARAMETERS", "ENDPOINT_V2", "ENDPOINT"],
@@ -21920,7 +22150,7 @@ var resolveEndpointConfig = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 2508:
+/***/ 5128:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -21970,13 +22200,13 @@ module.exports = __toCommonJS(src_exports);
 
 
 // src/StandardRetryStrategy.ts
-var import_protocol_http = __nccwpck_require__(9559);
+var import_protocol_http = __nccwpck_require__(199);
 
 
 var import_uuid = __nccwpck_require__(711);
 
 // src/defaultRetryQuota.ts
-var import_util_retry = __nccwpck_require__(147);
+var import_util_retry = __nccwpck_require__(5491);
 var getDefaultRetryQuota = /* @__PURE__ */ __name((initialRetryTokens, options) => {
   const MAX_CAPACITY = initialRetryTokens;
   const noRetryIncrement = (options == null ? void 0 : options.noRetryIncrement) ?? import_util_retry.NO_RETRY_INCREMENT;
@@ -22009,7 +22239,7 @@ var getDefaultRetryQuota = /* @__PURE__ */ __name((initialRetryTokens, options) 
 var defaultDelayDecider = /* @__PURE__ */ __name((delayBase, attempts) => Math.floor(Math.min(import_util_retry.MAXIMUM_RETRY_DELAY, Math.random() * 2 ** attempts * delayBase)), "defaultDelayDecider");
 
 // src/retryDecider.ts
-var import_service_error_classification = __nccwpck_require__(7013);
+var import_service_error_classification = __nccwpck_require__(7802);
 var defaultRetryDecider = /* @__PURE__ */ __name((error) => {
   if (!error) {
     return false;
@@ -22138,7 +22368,7 @@ __name(_AdaptiveRetryStrategy, "AdaptiveRetryStrategy");
 var AdaptiveRetryStrategy = _AdaptiveRetryStrategy;
 
 // src/configurations.ts
-var import_util_middleware = __nccwpck_require__(3530);
+var import_util_middleware = __nccwpck_require__(1274);
 
 var ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";
 var CONFIG_MAX_ATTEMPTS = "max_attempts";
@@ -22218,10 +22448,10 @@ var getOmitRetryHeadersPlugin = /* @__PURE__ */ __name((options) => ({
 // src/retryMiddleware.ts
 
 
-var import_smithy_client = __nccwpck_require__(5937);
+var import_smithy_client = __nccwpck_require__(4037);
 
 
-var import_isStreamingPayload = __nccwpck_require__(9610);
+var import_isStreamingPayload = __nccwpck_require__(563);
 var retryMiddleware = /* @__PURE__ */ __name((options) => (next, context) => async (args) => {
   var _a;
   let retryStrategy = await options.retryStrategy();
@@ -22333,7 +22563,7 @@ var getRetryAfterHint = /* @__PURE__ */ __name((response) => {
 
 /***/ }),
 
-/***/ 9610:
+/***/ 563:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -22347,7 +22577,7 @@ exports.isStreamingPayload = isStreamingPayload;
 
 /***/ }),
 
-/***/ 4243:
+/***/ 6971:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -22381,7 +22611,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/deserializerMiddleware.ts
-var deserializerMiddleware = /* @__PURE__ */ __name((options, deserializer) => (next, context) => async (args) => {
+var deserializerMiddleware = /* @__PURE__ */ __name((options, deserializer) => (next) => async (args) => {
   const { response } = await next(args);
   try {
     const parsed = await deserializer(response, options);
@@ -22450,7 +22680,7 @@ __name(getSerdePlugin, "getSerdePlugin");
 
 /***/ }),
 
-/***/ 6730:
+/***/ 9634:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -22611,10 +22841,13 @@ var constructStack = /* @__PURE__ */ __name(() => {
         }
       }
     });
-    const mainChain = sort(normalizedAbsoluteEntries).map(expandRelativeMiddlewareList).reduce((wholeList, expandedMiddlewareList) => {
-      wholeList.push(...expandedMiddlewareList);
-      return wholeList;
-    }, []);
+    const mainChain = sort(normalizedAbsoluteEntries).map(expandRelativeMiddlewareList).reduce(
+      (wholeList, expandedMiddlewareList) => {
+        wholeList.push(...expandedMiddlewareList);
+        return wholeList;
+      },
+      []
+    );
     return mainChain;
   }, "getMiddlewareList");
   const stack = {
@@ -22773,7 +23006,7 @@ var priorityWeights = {
 
 /***/ }),
 
-/***/ 4542:
+/***/ 2879:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -22806,7 +23039,7 @@ module.exports = __toCommonJS(src_exports);
 
 
 // src/fromEnv.ts
-var import_property_provider = __nccwpck_require__(9476);
+var import_property_provider = __nccwpck_require__(5597);
 var fromEnv = /* @__PURE__ */ __name((envVarSelector) => async () => {
   try {
     const config = envVarSelector(process.env);
@@ -22823,7 +23056,7 @@ var fromEnv = /* @__PURE__ */ __name((envVarSelector) => async () => {
 
 // src/fromSharedConfigFiles.ts
 
-var import_shared_ini_file_loader = __nccwpck_require__(742);
+var import_shared_ini_file_loader = __nccwpck_require__(2298);
 var fromSharedConfigFiles = /* @__PURE__ */ __name((configSelector, { preferredFile = "config", ...init } = {}) => async () => {
   const profile = (0, import_shared_ini_file_loader.getProfileName)(init);
   const { configFile, credentialsFile } = await (0, import_shared_ini_file_loader.loadSharedConfigFiles)(init);
@@ -22865,7 +23098,7 @@ var loadConfig = /* @__PURE__ */ __name(({ environmentVariableSelector, configFi
 
 /***/ }),
 
-/***/ 105:
+/***/ 9716:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __create = Object.create;
@@ -22908,8 +23141,8 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/node-http-handler.ts
-var import_protocol_http = __nccwpck_require__(9559);
-var import_querystring_builder = __nccwpck_require__(4761);
+var import_protocol_http = __nccwpck_require__(199);
+var import_querystring_builder = __nccwpck_require__(9405);
 var import_http = __nccwpck_require__(3685);
 var import_https = __nccwpck_require__(5687);
 
@@ -23134,9 +23367,12 @@ var _NodeHttpHandler = class _NodeHttpHandler {
       }
       const isSSL = request.protocol === "https:";
       const agent = isSSL ? this.config.httpsAgent : this.config.httpAgent;
-      socketCheckTimeoutId = setTimeout(() => {
-        this.socketWarningTimestamp = _NodeHttpHandler.checkSocketUsage(agent, this.socketWarningTimestamp);
-      }, this.config.socketAcquisitionWarningTimeout ?? (this.config.requestTimeout ?? 2e3) + (this.config.connectionTimeout ?? 1e3));
+      socketCheckTimeoutId = setTimeout(
+        () => {
+          this.socketWarningTimestamp = _NodeHttpHandler.checkSocketUsage(agent, this.socketWarningTimestamp);
+        },
+        this.config.socketAcquisitionWarningTimeout ?? (this.config.requestTimeout ?? 2e3) + (this.config.connectionTimeout ?? 1e3)
+      );
       const queryString = (0, import_querystring_builder.buildQueryString)(request.query || {});
       let auth = void 0;
       if (request.username != null || request.password != null) {
@@ -23533,19 +23769,47 @@ __name(_Collector, "Collector");
 var Collector = _Collector;
 
 // src/stream-collector/index.ts
-var streamCollector = /* @__PURE__ */ __name((stream) => new Promise((resolve, reject) => {
-  const collector = new Collector();
-  stream.pipe(collector);
-  stream.on("error", (err) => {
-    collector.end();
-    reject(err);
+var streamCollector = /* @__PURE__ */ __name((stream) => {
+  if (isReadableStreamInstance(stream)) {
+    return collectReadableStream(stream);
+  }
+  return new Promise((resolve, reject) => {
+    const collector = new Collector();
+    stream.pipe(collector);
+    stream.on("error", (err) => {
+      collector.end();
+      reject(err);
+    });
+    collector.on("error", reject);
+    collector.on("finish", function() {
+      const bytes = new Uint8Array(Buffer.concat(this.bufferedBytes));
+      resolve(bytes);
+    });
   });
-  collector.on("error", reject);
-  collector.on("finish", function() {
-    const bytes = new Uint8Array(Buffer.concat(this.bufferedBytes));
-    resolve(bytes);
-  });
-}), "streamCollector");
+}, "streamCollector");
+var isReadableStreamInstance = /* @__PURE__ */ __name((stream) => typeof ReadableStream === "function" && stream instanceof ReadableStream, "isReadableStreamInstance");
+async function collectReadableStream(stream) {
+  const chunks = [];
+  const reader = stream.getReader();
+  let isDone = false;
+  let length = 0;
+  while (!isDone) {
+    const { done, value } = await reader.read();
+    if (value) {
+      chunks.push(value);
+      length += value.length;
+    }
+    isDone = done;
+  }
+  const collected = new Uint8Array(length);
+  let offset = 0;
+  for (const chunk of chunks) {
+    collected.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return collected;
+}
+__name(collectReadableStream, "collectReadableStream");
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -23554,7 +23818,7 @@ var streamCollector = /* @__PURE__ */ __name((stream) => new Promise((resolve, r
 
 /***/ }),
 
-/***/ 9476:
+/***/ 5597:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -23704,7 +23968,7 @@ var memoize = /* @__PURE__ */ __name((provider, isExpired, requiresRefresh) => {
 
 /***/ }),
 
-/***/ 9559:
+/***/ 199:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -23764,7 +24028,7 @@ var resolveHttpHandlerRuntimeConfig = /* @__PURE__ */ __name((httpHandlerExtensi
 }, "resolveHttpHandlerRuntimeConfig");
 
 // src/Field.ts
-var import_types = __nccwpck_require__(558);
+var import_types = __nccwpck_require__(9676);
 var _Field = class _Field {
   constructor({ name, kind = import_types.FieldPosition.HEADER, values = [] }) {
     this.name = name;
@@ -23940,7 +24204,7 @@ __name(isValidHostname, "isValidHostname");
 
 /***/ }),
 
-/***/ 4761:
+/***/ 9405:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -23968,7 +24232,7 @@ __export(src_exports, {
   buildQueryString: () => buildQueryString
 });
 module.exports = __toCommonJS(src_exports);
-var import_util_uri_escape = __nccwpck_require__(1668);
+var import_util_uri_escape = __nccwpck_require__(2627);
 function buildQueryString(query) {
   const parts = [];
   for (let key of Object.keys(query).sort()) {
@@ -23997,7 +24261,7 @@ __name(buildQueryString, "buildQueryString");
 
 /***/ }),
 
-/***/ 1135:
+/***/ 9606:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -24055,7 +24319,7 @@ __name(parseQueryString, "parseQueryString");
 
 /***/ }),
 
-/***/ 7013:
+/***/ 7802:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -24153,7 +24417,7 @@ var isServerError = /* @__PURE__ */ __name((error) => {
 
 /***/ }),
 
-/***/ 9257:
+/***/ 6613:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -24186,7 +24450,7 @@ exports.getHomeDir = getHomeDir;
 
 /***/ }),
 
-/***/ 6080:
+/***/ 9503:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -24194,7 +24458,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getSSOTokenFilepath = void 0;
 const crypto_1 = __nccwpck_require__(6113);
 const path_1 = __nccwpck_require__(1017);
-const getHomeDir_1 = __nccwpck_require__(9257);
+const getHomeDir_1 = __nccwpck_require__(6613);
 const getSSOTokenFilepath = (id) => {
     const hasher = (0, crypto_1.createHash)("sha1");
     const cacheName = hasher.update(id).digest("hex");
@@ -24205,14 +24469,14 @@ exports.getSSOTokenFilepath = getSSOTokenFilepath;
 
 /***/ }),
 
-/***/ 6063:
+/***/ 3599:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getSSOTokenFromFile = void 0;
 const fs_1 = __nccwpck_require__(7147);
-const getSSOTokenFilepath_1 = __nccwpck_require__(6080);
+const getSSOTokenFilepath_1 = __nccwpck_require__(9503);
 const { readFile } = fs_1.promises;
 const getSSOTokenFromFile = async (id) => {
     const ssoTokenFilepath = (0, getSSOTokenFilepath_1.getSSOTokenFilepath)(id);
@@ -24224,7 +24488,7 @@ exports.getSSOTokenFromFile = getSSOTokenFromFile;
 
 /***/ }),
 
-/***/ 742:
+/***/ 2298:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -24259,7 +24523,7 @@ __export(src_exports, {
   parseKnownFiles: () => parseKnownFiles
 });
 module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, __nccwpck_require__(9257), module.exports);
+__reExport(src_exports, __nccwpck_require__(6613), module.exports);
 
 // src/getProfileName.ts
 var ENV_PROFILE = "AWS_PROFILE";
@@ -24267,11 +24531,11 @@ var DEFAULT_PROFILE = "default";
 var getProfileName = /* @__PURE__ */ __name((init) => init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE, "getProfileName");
 
 // src/index.ts
-__reExport(src_exports, __nccwpck_require__(6080), module.exports);
-__reExport(src_exports, __nccwpck_require__(6063), module.exports);
+__reExport(src_exports, __nccwpck_require__(9503), module.exports);
+__reExport(src_exports, __nccwpck_require__(3599), module.exports);
 
 // src/getConfigData.ts
-var import_types = __nccwpck_require__(558);
+var import_types = __nccwpck_require__(9676);
 var getConfigData = /* @__PURE__ */ __name((data) => Object.entries(data).filter(([key]) => {
   const indexOfSeparator = key.indexOf(CONFIG_PREFIX_SEPARATOR);
   if (indexOfSeparator === -1) {
@@ -24293,13 +24557,13 @@ var getConfigData = /* @__PURE__ */ __name((data) => Object.entries(data).filter
 
 // src/getConfigFilepath.ts
 var import_path = __nccwpck_require__(1017);
-var import_getHomeDir = __nccwpck_require__(9257);
+var import_getHomeDir = __nccwpck_require__(6613);
 var ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
 var getConfigFilepath = /* @__PURE__ */ __name(() => process.env[ENV_CONFIG_PATH] || (0, import_path.join)((0, import_getHomeDir.getHomeDir)(), ".aws", "config"), "getConfigFilepath");
 
 // src/getCredentialsFilepath.ts
 
-var import_getHomeDir2 = __nccwpck_require__(9257);
+var import_getHomeDir2 = __nccwpck_require__(6613);
 var ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
 var getCredentialsFilepath = /* @__PURE__ */ __name(() => process.env[ENV_CREDENTIALS_PATH] || (0, import_path.join)((0, import_getHomeDir2.getHomeDir)(), ".aws", "credentials"), "getCredentialsFilepath");
 
@@ -24354,7 +24618,7 @@ var parseIni = /* @__PURE__ */ __name((iniData) => {
 }, "parseIni");
 
 // src/loadSharedConfigFiles.ts
-var import_slurpFile = __nccwpck_require__(6052);
+var import_slurpFile = __nccwpck_require__(2054);
 var swallowError = /* @__PURE__ */ __name(() => ({}), "swallowError");
 var CONFIG_PREFIX_SEPARATOR = ".";
 var loadSharedConfigFiles = /* @__PURE__ */ __name(async (init = {}) => {
@@ -24378,7 +24642,7 @@ var loadSharedConfigFiles = /* @__PURE__ */ __name(async (init = {}) => {
 var getSsoSessionData = /* @__PURE__ */ __name((data) => Object.entries(data).filter(([key]) => key.startsWith(import_types.IniSectionType.SSO_SESSION + CONFIG_PREFIX_SEPARATOR)).reduce((acc, [key, value]) => ({ ...acc, [key.substring(key.indexOf(CONFIG_PREFIX_SEPARATOR) + 1)]: value }), {}), "getSsoSessionData");
 
 // src/loadSsoSessionData.ts
-var import_slurpFile2 = __nccwpck_require__(6052);
+var import_slurpFile2 = __nccwpck_require__(2054);
 var swallowError2 = /* @__PURE__ */ __name(() => ({}), "swallowError");
 var loadSsoSessionData = /* @__PURE__ */ __name(async (init = {}) => (0, import_slurpFile2.slurpFile)(init.configFilepath ?? getConfigFilepath()).then(parseIni).then(getSsoSessionData).catch(swallowError2), "loadSsoSessionData");
 
@@ -24410,7 +24674,7 @@ var parseKnownFiles = /* @__PURE__ */ __name(async (init) => {
 
 /***/ }),
 
-/***/ 6052:
+/***/ 2054:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -24430,7 +24694,7 @@ exports.slurpFile = slurpFile;
 
 /***/ }),
 
-/***/ 9494:
+/***/ 5688:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -24469,9 +24733,9 @@ module.exports = __toCommonJS(src_exports);
 
 // src/SignatureV4.ts
 
-var import_util_middleware = __nccwpck_require__(3530);
+var import_util_middleware = __nccwpck_require__(1274);
 
-var import_util_utf84 = __nccwpck_require__(4922);
+var import_util_utf84 = __nccwpck_require__(141);
 
 // src/constants.ts
 var ALGORITHM_QUERY_PARAM = "X-Amz-Algorithm";
@@ -24515,8 +24779,8 @@ var KEY_TYPE_IDENTIFIER = "aws4_request";
 var MAX_PRESIGNED_TTL = 60 * 60 * 24 * 7;
 
 // src/credentialDerivation.ts
-var import_util_hex_encoding = __nccwpck_require__(7928);
-var import_util_utf8 = __nccwpck_require__(4922);
+var import_util_hex_encoding = __nccwpck_require__(7337);
+var import_util_utf8 = __nccwpck_require__(141);
 var signingKeyCache = {};
 var cacheQueue = [];
 var createScope = /* @__PURE__ */ __name((shortDate, region, service) => `${shortDate}/${region}/${service}/${KEY_TYPE_IDENTIFIER}`, "createScope");
@@ -24567,7 +24831,7 @@ var getCanonicalHeaders = /* @__PURE__ */ __name(({ headers }, unsignableHeaders
 }, "getCanonicalHeaders");
 
 // src/getCanonicalQuery.ts
-var import_util_uri_escape = __nccwpck_require__(1668);
+var import_util_uri_escape = __nccwpck_require__(2627);
 var getCanonicalQuery = /* @__PURE__ */ __name(({ query = {} }) => {
   const keys = [];
   const serialized = {};
@@ -24590,9 +24854,9 @@ var getCanonicalQuery = /* @__PURE__ */ __name(({ query = {} }) => {
 }, "getCanonicalQuery");
 
 // src/getPayloadHash.ts
-var import_is_array_buffer = __nccwpck_require__(8630);
+var import_is_array_buffer = __nccwpck_require__(9354);
 
-var import_util_utf82 = __nccwpck_require__(4922);
+var import_util_utf82 = __nccwpck_require__(141);
 var getPayloadHash = /* @__PURE__ */ __name(async ({ headers, body }, hashConstructor) => {
   for (const headerName of Object.keys(headers)) {
     if (headerName.toLowerCase() === SHA256_HEADER) {
@@ -24611,7 +24875,7 @@ var getPayloadHash = /* @__PURE__ */ __name(async ({ headers, body }, hashConstr
 
 // src/HeaderFormatter.ts
 
-var import_util_utf83 = __nccwpck_require__(4922);
+var import_util_utf83 = __nccwpck_require__(141);
 var _HeaderFormatter = class _HeaderFormatter {
   format(headers) {
     const chunks = [];
@@ -25016,7 +25280,7 @@ var getCanonicalHeaderList = /* @__PURE__ */ __name((headers) => Object.keys(hea
 
 /***/ }),
 
-/***/ 5937:
+/***/ 4037:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -25119,7 +25383,7 @@ __name(_NoOpLogger, "NoOpLogger");
 var NoOpLogger = _NoOpLogger;
 
 // src/client.ts
-var import_middleware_stack = __nccwpck_require__(6730);
+var import_middleware_stack = __nccwpck_require__(9634);
 var _Client = class _Client {
   constructor(config) {
     this.middlewareStack = (0, import_middleware_stack.constructStack)();
@@ -25152,7 +25416,7 @@ __name(_Client, "Client");
 var Client = _Client;
 
 // src/collect-stream-body.ts
-var import_util_stream = __nccwpck_require__(2686);
+var import_util_stream = __nccwpck_require__(4703);
 var collectBody = /* @__PURE__ */ __name(async (streamBody = new Uint8Array(), context) => {
   if (streamBody instanceof Uint8Array) {
     return import_util_stream.Uint8ArrayBlobAdapter.mutate(streamBody);
@@ -25166,7 +25430,7 @@ var collectBody = /* @__PURE__ */ __name(async (streamBody = new Uint8Array(), c
 
 // src/command.ts
 
-var import_types = __nccwpck_require__(558);
+var import_types = __nccwpck_require__(9676);
 var _Command = class _Command {
   constructor() {
     this.middlewareStack = (0, import_middleware_stack.constructStack)();
@@ -25906,7 +26170,7 @@ var loadConfigsForDefaultMode = /* @__PURE__ */ __name((mode) => {
 // src/emitWarningIfUnsupportedVersion.ts
 var warningEmitted = false;
 var emitWarningIfUnsupportedVersion = /* @__PURE__ */ __name((version) => {
-  if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 14) {
+  if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 16) {
     warningEmitted = true;
   }
 }, "emitWarningIfUnsupportedVersion");
@@ -26220,7 +26484,7 @@ __name(splitEvery, "splitEvery");
 
 /***/ }),
 
-/***/ 558:
+/***/ 9676:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -26365,7 +26629,7 @@ var RequestHandlerProtocol = /* @__PURE__ */ ((RequestHandlerProtocol2) => {
 
 /***/ }),
 
-/***/ 2224:
+/***/ 2758:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -26393,7 +26657,7 @@ __export(src_exports, {
   parseUrl: () => parseUrl
 });
 module.exports = __toCommonJS(src_exports);
-var import_querystring_parser = __nccwpck_require__(1135);
+var import_querystring_parser = __nccwpck_require__(9606);
 var parseUrl = /* @__PURE__ */ __name((url) => {
   if (typeof url === "string") {
     return parseUrl(new URL(url));
@@ -26419,13 +26683,13 @@ var parseUrl = /* @__PURE__ */ __name((url) => {
 
 /***/ }),
 
-/***/ 8527:
+/***/ 7038:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromBase64 = void 0;
-const util_buffer_from_1 = __nccwpck_require__(8548);
+const util_buffer_from_1 = __nccwpck_require__(5234);
 const BASE64_REGEX = /^[A-Za-z0-9+/]*={0,2}$/;
 const fromBase64 = (input) => {
     if ((input.length * 3) % 4 !== 0) {
@@ -26442,7 +26706,7 @@ exports.fromBase64 = fromBase64;
 
 /***/ }),
 
-/***/ 9841:
+/***/ 2199:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -26463,8 +26727,8 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, __nccwpck_require__(8527), module.exports);
-__reExport(src_exports, __nccwpck_require__(4883), module.exports);
+__reExport(src_exports, __nccwpck_require__(7038), module.exports);
+__reExport(src_exports, __nccwpck_require__(9089), module.exports);
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -26473,14 +26737,14 @@ __reExport(src_exports, __nccwpck_require__(4883), module.exports);
 
 /***/ }),
 
-/***/ 4883:
+/***/ 9089:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.toBase64 = void 0;
-const util_buffer_from_1 = __nccwpck_require__(8548);
-const util_utf8_1 = __nccwpck_require__(4922);
+const util_buffer_from_1 = __nccwpck_require__(5234);
+const util_utf8_1 = __nccwpck_require__(141);
 const toBase64 = (_input) => {
     let input;
     if (typeof _input === "string") {
@@ -26499,7 +26763,7 @@ exports.toBase64 = toBase64;
 
 /***/ }),
 
-/***/ 5565:
+/***/ 7340:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -26557,7 +26821,7 @@ var calculateBodyLength = /* @__PURE__ */ __name((body) => {
 
 /***/ }),
 
-/***/ 8548:
+/***/ 5234:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -26586,7 +26850,7 @@ __export(src_exports, {
   fromString: () => fromString
 });
 module.exports = __toCommonJS(src_exports);
-var import_is_array_buffer = __nccwpck_require__(8630);
+var import_is_array_buffer = __nccwpck_require__(9354);
 var import_buffer = __nccwpck_require__(4300);
 var fromArrayBuffer = /* @__PURE__ */ __name((input, offset = 0, length = input.byteLength - offset) => {
   if (!(0, import_is_array_buffer.isArrayBuffer)(input)) {
@@ -26608,7 +26872,7 @@ var fromString = /* @__PURE__ */ __name((input, encoding) => {
 
 /***/ }),
 
-/***/ 3889:
+/***/ 3369:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -26675,7 +26939,7 @@ var SelectorType = /* @__PURE__ */ ((SelectorType2) => {
 
 /***/ }),
 
-/***/ 6262:
+/***/ 5596:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __create = Object.create;
@@ -26715,9 +26979,9 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/resolveDefaultsModeConfig.ts
-var import_config_resolver = __nccwpck_require__(4102);
-var import_node_config_provider = __nccwpck_require__(4542);
-var import_property_provider = __nccwpck_require__(9476);
+var import_config_resolver = __nccwpck_require__(8979);
+var import_node_config_provider = __nccwpck_require__(2879);
+var import_property_provider = __nccwpck_require__(5597);
 
 // src/constants.ts
 var AWS_EXECUTION_ENV = "AWS_EXECUTION_ENV";
@@ -26784,7 +27048,7 @@ var inferPhysicalRegion = /* @__PURE__ */ __name(async () => {
   }
   if (!process.env[ENV_IMDS_DISABLED]) {
     try {
-      const { getInstanceMetadataEndpoint, httpRequest } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(4556)));
+      const { getInstanceMetadataEndpoint, httpRequest } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6743)));
       const endpoint = await getInstanceMetadataEndpoint();
       return (await httpRequest({ ...endpoint, path: IMDS_REGION_PATH })).toString();
     } catch (e) {
@@ -26799,7 +27063,7 @@ var inferPhysicalRegion = /* @__PURE__ */ __name(async () => {
 
 /***/ }),
 
-/***/ 9993:
+/***/ 7732:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -26929,7 +27193,7 @@ var isSet = /* @__PURE__ */ __name((value) => value != null, "isSet");
 var not = /* @__PURE__ */ __name((value) => !value, "not");
 
 // src/lib/parseURL.ts
-var import_types3 = __nccwpck_require__(558);
+var import_types3 = __nccwpck_require__(9676);
 var DEFAULT_PORTS = {
   [import_types3.EndpointURLScheme.HTTP]: 80,
   [import_types3.EndpointURLScheme.HTTPS]: 443
@@ -27082,7 +27346,7 @@ var evaluateCondition = /* @__PURE__ */ __name(({ assign, ...fnArgs }, options) 
     throw new EndpointError(`'${assign}' is already defined in Reference Record.`);
   }
   const value = callFunction(fnArgs, options);
-  (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, debugId, `evaluateCondition: ${toDebugString(fnArgs)} = ${toDebugString(value)}`);
+  (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, `${debugId} evaluateCondition: ${toDebugString(fnArgs)} = ${toDebugString(value)}`);
   return {
     result: value === "" ? true : !!value,
     ...assign != null && { toAssign: { name: assign, value } }
@@ -27106,7 +27370,7 @@ var evaluateConditions = /* @__PURE__ */ __name((conditions = [], options) => {
     }
     if (toAssign) {
       conditionsReferenceRecord[toAssign.name] = toAssign.value;
-      (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, debugId, `assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`);
+      (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, `${debugId} assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`);
     }
   }
   return { result: true, referenceRecord: conditionsReferenceRecord };
@@ -27183,7 +27447,7 @@ var evaluateEndpointRule = /* @__PURE__ */ __name((endpointRule, options) => {
     referenceRecord: { ...options.referenceRecord, ...referenceRecord }
   };
   const { url, properties, headers } = endpoint;
-  (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, debugId, `Resolving endpoint from template: ${toDebugString(endpoint)}`);
+  (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, `${debugId} Resolving endpoint from template: ${toDebugString(endpoint)}`);
   return {
     ...headers != void 0 && {
       headers: getEndpointHeaders(headers, endpointRuleOptions)
@@ -27284,7 +27548,7 @@ var resolveEndpoint = /* @__PURE__ */ __name((ruleSetObject, options) => {
 
 /***/ }),
 
-/***/ 7928:
+/***/ 7337:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -27355,7 +27619,7 @@ __name(toHex, "toHex");
 
 /***/ }),
 
-/***/ 3530:
+/***/ 1274:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -27386,7 +27650,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/getSmithyContext.ts
-var import_types = __nccwpck_require__(558);
+var import_types = __nccwpck_require__(9676);
 var getSmithyContext = /* @__PURE__ */ __name((context) => context[import_types.SMITHY_CONTEXT_KEY] || (context[import_types.SMITHY_CONTEXT_KEY] = {}), "getSmithyContext");
 
 // src/normalizeProvider.ts
@@ -27404,7 +27668,7 @@ var normalizeProvider = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 147:
+/***/ 5491:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -27458,7 +27722,7 @@ var DEFAULT_MAX_ATTEMPTS = 3;
 var DEFAULT_RETRY_MODE = "standard" /* STANDARD */;
 
 // src/DefaultRateLimiter.ts
-var import_service_error_classification = __nccwpck_require__(7013);
+var import_service_error_classification = __nccwpck_require__(7802);
 var _DefaultRateLimiter = class _DefaultRateLimiter {
   constructor(options) {
     // Pre-set state variables
@@ -27613,6 +27877,7 @@ var _StandardRetryStrategy = class _StandardRetryStrategy {
     this.retryBackoffStrategy = getDefaultRetryBackoffStrategy();
     this.maxAttemptsProvider = typeof maxAttempts === "function" ? maxAttempts : async () => maxAttempts;
   }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async acquireInitialRetryToken(retryTokenScope) {
     return createDefaultRetryToken({
       retryDelay: DEFAULT_RETRY_DELAY_BASE,
@@ -27741,7 +28006,7 @@ var ConfiguredRetryStrategy = _ConfiguredRetryStrategy;
 
 /***/ }),
 
-/***/ 2337:
+/***/ 6389:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -27778,7 +28043,7 @@ exports.getAwsChunkedEncodingStream = getAwsChunkedEncodingStream;
 
 /***/ }),
 
-/***/ 2686:
+/***/ 4703:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -27809,8 +28074,8 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/blob/transforms.ts
-var import_util_base64 = __nccwpck_require__(9841);
-var import_util_utf8 = __nccwpck_require__(4922);
+var import_util_base64 = __nccwpck_require__(2199);
+var import_util_utf8 = __nccwpck_require__(141);
 function transformToString(payload, encoding = "utf-8") {
   if (encoding === "base64") {
     return (0, import_util_base64.toBase64)(payload);
@@ -27860,8 +28125,8 @@ __name(_Uint8ArrayBlobAdapter, "Uint8ArrayBlobAdapter");
 var Uint8ArrayBlobAdapter = _Uint8ArrayBlobAdapter;
 
 // src/index.ts
-__reExport(src_exports, __nccwpck_require__(2337), module.exports);
-__reExport(src_exports, __nccwpck_require__(6162), module.exports);
+__reExport(src_exports, __nccwpck_require__(6389), module.exports);
+__reExport(src_exports, __nccwpck_require__(6379), module.exports);
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -27870,22 +28135,104 @@ __reExport(src_exports, __nccwpck_require__(6162), module.exports);
 
 /***/ }),
 
-/***/ 6162:
+/***/ 3378:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.sdkStreamMixin = void 0;
-const node_http_handler_1 = __nccwpck_require__(105);
-const util_buffer_from_1 = __nccwpck_require__(8548);
+const fetch_http_handler_1 = __nccwpck_require__(2187);
+const util_base64_1 = __nccwpck_require__(2199);
+const util_hex_encoding_1 = __nccwpck_require__(7337);
+const util_utf8_1 = __nccwpck_require__(141);
+const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
+const sdkStreamMixin = (stream) => {
+    var _a, _b;
+    if (!isBlobInstance(stream) && !isReadableStreamInstance(stream)) {
+        const name = ((_b = (_a = stream === null || stream === void 0 ? void 0 : stream.__proto__) === null || _a === void 0 ? void 0 : _a.constructor) === null || _b === void 0 ? void 0 : _b.name) || stream;
+        throw new Error(`Unexpected stream implementation, expect Blob or ReadableStream, got ${name}`);
+    }
+    let transformed = false;
+    const transformToByteArray = async () => {
+        if (transformed) {
+            throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
+        }
+        transformed = true;
+        return await (0, fetch_http_handler_1.streamCollector)(stream);
+    };
+    const blobToWebStream = (blob) => {
+        if (typeof blob.stream !== "function") {
+            throw new Error("Cannot transform payload Blob to web stream. Please make sure the Blob.stream() is polyfilled.\n" +
+                "If you are using React Native, this API is not yet supported, see: https://react-native.canny.io/feature-requests/p/fetch-streaming-body");
+        }
+        return blob.stream();
+    };
+    return Object.assign(stream, {
+        transformToByteArray: transformToByteArray,
+        transformToString: async (encoding) => {
+            const buf = await transformToByteArray();
+            if (encoding === "base64") {
+                return (0, util_base64_1.toBase64)(buf);
+            }
+            else if (encoding === "hex") {
+                return (0, util_hex_encoding_1.toHex)(buf);
+            }
+            else if (encoding === undefined || encoding === "utf8" || encoding === "utf-8") {
+                return (0, util_utf8_1.toUtf8)(buf);
+            }
+            else if (typeof TextDecoder === "function") {
+                return new TextDecoder(encoding).decode(buf);
+            }
+            else {
+                throw new Error("TextDecoder is not available, please make sure polyfill is provided.");
+            }
+        },
+        transformToWebStream: () => {
+            if (transformed) {
+                throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
+            }
+            transformed = true;
+            if (isBlobInstance(stream)) {
+                return blobToWebStream(stream);
+            }
+            else if (isReadableStreamInstance(stream)) {
+                return stream;
+            }
+            else {
+                throw new Error(`Cannot transform payload to web stream, got ${stream}`);
+            }
+        },
+    });
+};
+exports.sdkStreamMixin = sdkStreamMixin;
+const isBlobInstance = (stream) => typeof Blob === "function" && stream instanceof Blob;
+const isReadableStreamInstance = (stream) => typeof ReadableStream === "function" && stream instanceof ReadableStream;
+
+
+/***/ }),
+
+/***/ 6379:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.sdkStreamMixin = void 0;
+const node_http_handler_1 = __nccwpck_require__(9716);
+const util_buffer_from_1 = __nccwpck_require__(5234);
 const stream_1 = __nccwpck_require__(2781);
 const util_1 = __nccwpck_require__(3837);
+const sdk_stream_mixin_browser_1 = __nccwpck_require__(3378);
 const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
 const sdkStreamMixin = (stream) => {
     var _a, _b;
     if (!(stream instanceof stream_1.Readable)) {
-        const name = ((_b = (_a = stream === null || stream === void 0 ? void 0 : stream.__proto__) === null || _a === void 0 ? void 0 : _a.constructor) === null || _b === void 0 ? void 0 : _b.name) || stream;
-        throw new Error(`Unexpected stream implementation, expect Stream.Readable instance, got ${name}`);
+        try {
+            return (0, sdk_stream_mixin_browser_1.sdkStreamMixin)(stream);
+        }
+        catch (e) {
+            const name = ((_b = (_a = stream === null || stream === void 0 ? void 0 : stream.__proto__) === null || _a === void 0 ? void 0 : _a.constructor) === null || _b === void 0 ? void 0 : _b.name) || stream;
+            throw new Error(`Unexpected stream implementation, expect Stream.Readable instance, got ${name}`);
+        }
     }
     let transformed = false;
     const transformToByteArray = async () => {
@@ -27927,7 +28274,7 @@ exports.sdkStreamMixin = sdkStreamMixin;
 
 /***/ }),
 
-/***/ 1668:
+/***/ 2627:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -27974,7 +28321,7 @@ var escapeUriPath = /* @__PURE__ */ __name((uri) => uri.split("/").map(escapeUri
 
 /***/ }),
 
-/***/ 4922:
+/***/ 141:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -28006,7 +28353,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/fromUtf8.ts
-var import_util_buffer_from = __nccwpck_require__(8548);
+var import_util_buffer_from = __nccwpck_require__(5234);
 var fromUtf8 = /* @__PURE__ */ __name((input) => {
   const buf = (0, import_util_buffer_from.fromString)(input, "utf8");
   return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength / Uint8Array.BYTES_PER_ELEMENT);
@@ -28042,7 +28389,7 @@ var toUtf8 = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 8289:
+/***/ 3627:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -56204,31 +56551,31 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 831:
+/***/ 2300:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.574.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sso-oidc":"3.574.0","@aws-sdk/client-sts":"3.574.0","@aws-sdk/core":"3.572.0","@aws-sdk/credential-provider-node":"3.572.0","@aws-sdk/middleware-host-header":"3.567.0","@aws-sdk/middleware-logger":"3.568.0","@aws-sdk/middleware-recursion-detection":"3.567.0","@aws-sdk/middleware-user-agent":"3.572.0","@aws-sdk/region-config-resolver":"3.572.0","@aws-sdk/types":"3.567.0","@aws-sdk/util-endpoints":"3.572.0","@aws-sdk/util-user-agent-browser":"3.567.0","@aws-sdk/util-user-agent-node":"3.568.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","@smithy/util-waiter":"^2.2.0","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.575.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sso-oidc":"3.575.0","@aws-sdk/client-sts":"3.575.0","@aws-sdk/core":"3.575.0","@aws-sdk/credential-provider-node":"3.575.0","@aws-sdk/middleware-host-header":"3.575.0","@aws-sdk/middleware-logger":"3.575.0","@aws-sdk/middleware-recursion-detection":"3.575.0","@aws-sdk/middleware-user-agent":"3.575.0","@aws-sdk/region-config-resolver":"3.575.0","@aws-sdk/types":"3.575.0","@aws-sdk/util-endpoints":"3.575.0","@aws-sdk/util-user-agent-browser":"3.575.0","@aws-sdk/util-user-agent-node":"3.575.0","@smithy/config-resolver":"^3.0.0","@smithy/core":"^2.0.0","@smithy/fetch-http-handler":"^3.0.0","@smithy/hash-node":"^3.0.0","@smithy/invalid-dependency":"^3.0.0","@smithy/middleware-content-length":"^3.0.0","@smithy/middleware-endpoint":"^3.0.0","@smithy/middleware-retry":"^3.0.0","@smithy/middleware-serde":"^3.0.0","@smithy/middleware-stack":"^3.0.0","@smithy/node-config-provider":"^3.0.0","@smithy/node-http-handler":"^3.0.0","@smithy/protocol-http":"^4.0.0","@smithy/smithy-client":"^3.0.0","@smithy/types":"^3.0.0","@smithy/url-parser":"^3.0.0","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.0","@smithy/util-defaults-mode-node":"^3.0.0","@smithy/util-endpoints":"^2.0.0","@smithy/util-middleware":"^3.0.0","@smithy/util-retry":"^3.0.0","@smithy/util-utf8":"^3.0.0","@smithy/util-waiter":"^3.0.0","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
-/***/ 1868:
+/***/ 6497:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.574.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.574.0","@aws-sdk/core":"3.572.0","@aws-sdk/credential-provider-node":"3.572.0","@aws-sdk/middleware-host-header":"3.567.0","@aws-sdk/middleware-logger":"3.568.0","@aws-sdk/middleware-recursion-detection":"3.567.0","@aws-sdk/middleware-user-agent":"3.572.0","@aws-sdk/region-config-resolver":"3.572.0","@aws-sdk/types":"3.567.0","@aws-sdk/util-endpoints":"3.572.0","@aws-sdk/util-user-agent-browser":"3.567.0","@aws-sdk/util-user-agent-node":"3.568.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.575.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.575.0","@aws-sdk/core":"3.575.0","@aws-sdk/credential-provider-node":"3.575.0","@aws-sdk/middleware-host-header":"3.575.0","@aws-sdk/middleware-logger":"3.575.0","@aws-sdk/middleware-recursion-detection":"3.575.0","@aws-sdk/middleware-user-agent":"3.575.0","@aws-sdk/region-config-resolver":"3.575.0","@aws-sdk/types":"3.575.0","@aws-sdk/util-endpoints":"3.575.0","@aws-sdk/util-user-agent-browser":"3.575.0","@aws-sdk/util-user-agent-node":"3.575.0","@smithy/config-resolver":"^3.0.0","@smithy/core":"^2.0.0","@smithy/fetch-http-handler":"^3.0.0","@smithy/hash-node":"^3.0.0","@smithy/invalid-dependency":"^3.0.0","@smithy/middleware-content-length":"^3.0.0","@smithy/middleware-endpoint":"^3.0.0","@smithy/middleware-retry":"^3.0.0","@smithy/middleware-serde":"^3.0.0","@smithy/middleware-stack":"^3.0.0","@smithy/node-config-provider":"^3.0.0","@smithy/node-http-handler":"^3.0.0","@smithy/protocol-http":"^4.0.0","@smithy/smithy-client":"^3.0.0","@smithy/types":"^3.0.0","@smithy/url-parser":"^3.0.0","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.0","@smithy/util-defaults-mode-node":"^3.0.0","@smithy/util-endpoints":"^2.0.0","@smithy/util-middleware":"^3.0.0","@smithy/util-retry":"^3.0.0","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
-/***/ 2043:
+/***/ 6674:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.572.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.572.0","@aws-sdk/middleware-host-header":"3.567.0","@aws-sdk/middleware-logger":"3.568.0","@aws-sdk/middleware-recursion-detection":"3.567.0","@aws-sdk/middleware-user-agent":"3.572.0","@aws-sdk/region-config-resolver":"3.572.0","@aws-sdk/types":"3.567.0","@aws-sdk/util-endpoints":"3.572.0","@aws-sdk/util-user-agent-browser":"3.567.0","@aws-sdk/util-user-agent-node":"3.568.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.575.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.575.0","@aws-sdk/middleware-host-header":"3.575.0","@aws-sdk/middleware-logger":"3.575.0","@aws-sdk/middleware-recursion-detection":"3.575.0","@aws-sdk/middleware-user-agent":"3.575.0","@aws-sdk/region-config-resolver":"3.575.0","@aws-sdk/types":"3.575.0","@aws-sdk/util-endpoints":"3.575.0","@aws-sdk/util-user-agent-browser":"3.575.0","@aws-sdk/util-user-agent-node":"3.575.0","@smithy/config-resolver":"^3.0.0","@smithy/core":"^2.0.0","@smithy/fetch-http-handler":"^3.0.0","@smithy/hash-node":"^3.0.0","@smithy/invalid-dependency":"^3.0.0","@smithy/middleware-content-length":"^3.0.0","@smithy/middleware-endpoint":"^3.0.0","@smithy/middleware-retry":"^3.0.0","@smithy/middleware-serde":"^3.0.0","@smithy/middleware-stack":"^3.0.0","@smithy/node-config-provider":"^3.0.0","@smithy/node-http-handler":"^3.0.0","@smithy/protocol-http":"^4.0.0","@smithy/smithy-client":"^3.0.0","@smithy/types":"^3.0.0","@smithy/url-parser":"^3.0.0","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.0","@smithy/util-defaults-mode-node":"^3.0.0","@smithy/util-endpoints":"^2.0.0","@smithy/util-middleware":"^3.0.0","@smithy/util-retry":"^3.0.0","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
-/***/ 6825:
+/***/ 2757:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.574.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sso-oidc":"3.574.0","@aws-sdk/core":"3.572.0","@aws-sdk/credential-provider-node":"3.572.0","@aws-sdk/middleware-host-header":"3.567.0","@aws-sdk/middleware-logger":"3.568.0","@aws-sdk/middleware-recursion-detection":"3.567.0","@aws-sdk/middleware-user-agent":"3.572.0","@aws-sdk/region-config-resolver":"3.572.0","@aws-sdk/types":"3.567.0","@aws-sdk/util-endpoints":"3.572.0","@aws-sdk/util-user-agent-browser":"3.567.0","@aws-sdk/util-user-agent-node":"3.568.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.575.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sso-oidc":"3.575.0","@aws-sdk/core":"3.575.0","@aws-sdk/credential-provider-node":"3.575.0","@aws-sdk/middleware-host-header":"3.575.0","@aws-sdk/middleware-logger":"3.575.0","@aws-sdk/middleware-recursion-detection":"3.575.0","@aws-sdk/middleware-user-agent":"3.575.0","@aws-sdk/region-config-resolver":"3.575.0","@aws-sdk/types":"3.575.0","@aws-sdk/util-endpoints":"3.575.0","@aws-sdk/util-user-agent-browser":"3.575.0","@aws-sdk/util-user-agent-node":"3.575.0","@smithy/config-resolver":"^3.0.0","@smithy/core":"^2.0.0","@smithy/fetch-http-handler":"^3.0.0","@smithy/hash-node":"^3.0.0","@smithy/invalid-dependency":"^3.0.0","@smithy/middleware-content-length":"^3.0.0","@smithy/middleware-endpoint":"^3.0.0","@smithy/middleware-retry":"^3.0.0","@smithy/middleware-serde":"^3.0.0","@smithy/middleware-stack":"^3.0.0","@smithy/node-config-provider":"^3.0.0","@smithy/node-http-handler":"^3.0.0","@smithy/protocol-http":"^4.0.0","@smithy/smithy-client":"^3.0.0","@smithy/types":"^3.0.0","@smithy/url-parser":"^3.0.0","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.0","@smithy/util-defaults-mode-node":"^3.0.0","@smithy/util-endpoints":"^2.0.0","@smithy/util-middleware":"^3.0.0","@smithy/util-retry":"^3.0.0","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ })
 
@@ -56274,7 +56621,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(9093);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(9672);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5887);
 
 
 async function run() {
