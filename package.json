@@ -33,7 +33,7 @@
     "@aws-sdk/client-cloudformation": "^3.616.0"
   },
   "devDependencies": {
-    "@types/node": "^20.14.11",
+    "@types/node": "^20.14.12",
     "@vercel/ncc": "^0.38.1",
     "eslint": "^9.7.0",
     "eslint-config-prettier": "^9.1.0",
@@ -44,8 +44,8 @@
     "js-yaml": "^4.1.0",
     "prettier": "^3.3.3",
     "ts-jest": "^29.2.3",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^7.16.1"
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.17.0"
   },
   "jest": {
     "preset": "ts-jest",
