@@ -1833,7 +1833,7 @@ class DecodedURL extends URL {
 
 /***/ }),
 
-/***/ 8108:
+/***/ 5864:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -1887,7 +1887,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 9729:
+/***/ 7921:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -1895,7 +1895,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(7211);
 const util_endpoints_2 = __nccwpck_require__(4868);
-const ruleset_1 = __nccwpck_require__(7851);
+const ruleset_1 = __nccwpck_require__(8268);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -1912,7 +1912,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 7851:
+/***/ 8268:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -1926,7 +1926,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 8476:
+/***/ 507:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -2182,7 +2182,7 @@ var import_middleware_content_length = __nccwpck_require__(176);
 var import_middleware_endpoint = __nccwpck_require__(9592);
 var import_middleware_retry = __nccwpck_require__(7606);
 
-var import_httpAuthSchemeProvider = __nccwpck_require__(8108);
+var import_httpAuthSchemeProvider = __nccwpck_require__(5864);
 
 // src/endpoint/EndpointParameters.ts
 var resolveClientEndpointParameters = /* @__PURE__ */ __name((options) => {
@@ -2201,7 +2201,7 @@ var commonParams = {
 };
 
 // src/CloudFormationClient.ts
-var import_runtimeConfig = __nccwpck_require__(1731);
+var import_runtimeConfig = __nccwpck_require__(5398);
 
 // src/runtimeExtensions.ts
 var import_region_config_resolver = __nccwpck_require__(4136);
@@ -11279,9 +11279,7 @@ var loadQueryErrorCode = /* @__PURE__ */ __name((output, data) => {
 }, "loadQueryErrorCode");
 
 // src/commands/ActivateOrganizationsAccessCommand.ts
-var _ActivateOrganizationsAccessCommand = class _ActivateOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ActivateOrganizationsAccessCommand = class _ActivateOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11295,9 +11293,7 @@ var ActivateOrganizationsAccessCommand = _ActivateOrganizationsAccessCommand;
 
 
 
-var _ActivateTypeCommand = class _ActivateTypeCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ActivateTypeCommand = class _ActivateTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11311,9 +11307,7 @@ var ActivateTypeCommand = _ActivateTypeCommand;
 
 
 
-var _BatchDescribeTypeConfigurationsCommand = class _BatchDescribeTypeConfigurationsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _BatchDescribeTypeConfigurationsCommand = class _BatchDescribeTypeConfigurationsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11327,9 +11321,7 @@ var BatchDescribeTypeConfigurationsCommand = _BatchDescribeTypeConfigurationsCom
 
 
 
-var _CancelUpdateStackCommand = class _CancelUpdateStackCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _CancelUpdateStackCommand = class _CancelUpdateStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11343,9 +11335,7 @@ var CancelUpdateStackCommand = _CancelUpdateStackCommand;
 
 
 
-var _ContinueUpdateRollbackCommand = class _ContinueUpdateRollbackCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ContinueUpdateRollbackCommand = class _ContinueUpdateRollbackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11359,9 +11349,7 @@ var ContinueUpdateRollbackCommand = _ContinueUpdateRollbackCommand;
 
 
 
-var _CreateChangeSetCommand = class _CreateChangeSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _CreateChangeSetCommand = class _CreateChangeSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11375,9 +11363,7 @@ var CreateChangeSetCommand = _CreateChangeSetCommand;
 
 
 
-var _CreateGeneratedTemplateCommand = class _CreateGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _CreateGeneratedTemplateCommand = class _CreateGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11391,9 +11377,7 @@ var CreateGeneratedTemplateCommand = _CreateGeneratedTemplateCommand;
 
 
 
-var _CreateStackCommand = class _CreateStackCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _CreateStackCommand = class _CreateStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11407,9 +11391,7 @@ var CreateStackCommand = _CreateStackCommand;
 
 
 
-var _CreateStackInstancesCommand = class _CreateStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _CreateStackInstancesCommand = class _CreateStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11423,9 +11405,7 @@ var CreateStackInstancesCommand = _CreateStackInstancesCommand;
 
 
 
-var _CreateStackSetCommand = class _CreateStackSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _CreateStackSetCommand = class _CreateStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11439,9 +11419,7 @@ var CreateStackSetCommand = _CreateStackSetCommand;
 
 
 
-var _DeactivateOrganizationsAccessCommand = class _DeactivateOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DeactivateOrganizationsAccessCommand = class _DeactivateOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11455,9 +11433,7 @@ var DeactivateOrganizationsAccessCommand = _DeactivateOrganizationsAccessCommand
 
 
 
-var _DeactivateTypeCommand = class _DeactivateTypeCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DeactivateTypeCommand = class _DeactivateTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11471,9 +11447,7 @@ var DeactivateTypeCommand = _DeactivateTypeCommand;
 
 
 
-var _DeleteChangeSetCommand = class _DeleteChangeSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DeleteChangeSetCommand = class _DeleteChangeSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11487,9 +11461,7 @@ var DeleteChangeSetCommand = _DeleteChangeSetCommand;
 
 
 
-var _DeleteGeneratedTemplateCommand = class _DeleteGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DeleteGeneratedTemplateCommand = class _DeleteGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11503,9 +11475,7 @@ var DeleteGeneratedTemplateCommand = _DeleteGeneratedTemplateCommand;
 
 
 
-var _DeleteStackCommand = class _DeleteStackCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DeleteStackCommand = class _DeleteStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11519,9 +11489,7 @@ var DeleteStackCommand = _DeleteStackCommand;
 
 
 
-var _DeleteStackInstancesCommand = class _DeleteStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DeleteStackInstancesCommand = class _DeleteStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11535,9 +11503,7 @@ var DeleteStackInstancesCommand = _DeleteStackInstancesCommand;
 
 
 
-var _DeleteStackSetCommand = class _DeleteStackSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DeleteStackSetCommand = class _DeleteStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11551,9 +11517,7 @@ var DeleteStackSetCommand = _DeleteStackSetCommand;
 
 
 
-var _DeregisterTypeCommand = class _DeregisterTypeCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DeregisterTypeCommand = class _DeregisterTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11567,9 +11531,7 @@ var DeregisterTypeCommand = _DeregisterTypeCommand;
 
 
 
-var _DescribeAccountLimitsCommand = class _DescribeAccountLimitsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeAccountLimitsCommand = class _DescribeAccountLimitsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11583,9 +11545,7 @@ var DescribeAccountLimitsCommand = _DescribeAccountLimitsCommand;
 
 
 
-var _DescribeChangeSetCommand = class _DescribeChangeSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeChangeSetCommand = class _DescribeChangeSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11599,9 +11559,7 @@ var DescribeChangeSetCommand = _DescribeChangeSetCommand;
 
 
 
-var _DescribeChangeSetHooksCommand = class _DescribeChangeSetHooksCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeChangeSetHooksCommand = class _DescribeChangeSetHooksCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11615,9 +11573,7 @@ var DescribeChangeSetHooksCommand = _DescribeChangeSetHooksCommand;
 
 
 
-var _DescribeGeneratedTemplateCommand = class _DescribeGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeGeneratedTemplateCommand = class _DescribeGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11631,9 +11587,7 @@ var DescribeGeneratedTemplateCommand = _DescribeGeneratedTemplateCommand;
 
 
 
-var _DescribeOrganizationsAccessCommand = class _DescribeOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeOrganizationsAccessCommand = class _DescribeOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11647,9 +11601,7 @@ var DescribeOrganizationsAccessCommand = _DescribeOrganizationsAccessCommand;
 
 
 
-var _DescribePublisherCommand = class _DescribePublisherCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribePublisherCommand = class _DescribePublisherCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11663,9 +11615,7 @@ var DescribePublisherCommand = _DescribePublisherCommand;
 
 
 
-var _DescribeResourceScanCommand = class _DescribeResourceScanCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeResourceScanCommand = class _DescribeResourceScanCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11679,9 +11629,7 @@ var DescribeResourceScanCommand = _DescribeResourceScanCommand;
 
 
 
-var _DescribeStackDriftDetectionStatusCommand = class _DescribeStackDriftDetectionStatusCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStackDriftDetectionStatusCommand = class _DescribeStackDriftDetectionStatusCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11695,9 +11643,7 @@ var DescribeStackDriftDetectionStatusCommand = _DescribeStackDriftDetectionStatu
 
 
 
-var _DescribeStackEventsCommand = class _DescribeStackEventsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStackEventsCommand = class _DescribeStackEventsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11711,9 +11657,7 @@ var DescribeStackEventsCommand = _DescribeStackEventsCommand;
 
 
 
-var _DescribeStackInstanceCommand = class _DescribeStackInstanceCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStackInstanceCommand = class _DescribeStackInstanceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11727,9 +11671,7 @@ var DescribeStackInstanceCommand = _DescribeStackInstanceCommand;
 
 
 
-var _DescribeStackResourceCommand = class _DescribeStackResourceCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStackResourceCommand = class _DescribeStackResourceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11743,9 +11685,7 @@ var DescribeStackResourceCommand = _DescribeStackResourceCommand;
 
 
 
-var _DescribeStackResourceDriftsCommand = class _DescribeStackResourceDriftsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStackResourceDriftsCommand = class _DescribeStackResourceDriftsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11759,9 +11699,7 @@ var DescribeStackResourceDriftsCommand = _DescribeStackResourceDriftsCommand;
 
 
 
-var _DescribeStackResourcesCommand = class _DescribeStackResourcesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStackResourcesCommand = class _DescribeStackResourcesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11775,9 +11713,7 @@ var DescribeStackResourcesCommand = _DescribeStackResourcesCommand;
 
 
 
-var _DescribeStacksCommand = class _DescribeStacksCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStacksCommand = class _DescribeStacksCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11791,9 +11727,7 @@ var DescribeStacksCommand = _DescribeStacksCommand;
 
 
 
-var _DescribeStackSetCommand = class _DescribeStackSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStackSetCommand = class _DescribeStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11807,9 +11741,7 @@ var DescribeStackSetCommand = _DescribeStackSetCommand;
 
 
 
-var _DescribeStackSetOperationCommand = class _DescribeStackSetOperationCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeStackSetOperationCommand = class _DescribeStackSetOperationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11823,9 +11755,7 @@ var DescribeStackSetOperationCommand = _DescribeStackSetOperationCommand;
 
 
 
-var _DescribeTypeCommand = class _DescribeTypeCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeTypeCommand = class _DescribeTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11839,9 +11769,7 @@ var DescribeTypeCommand = _DescribeTypeCommand;
 
 
 
-var _DescribeTypeRegistrationCommand = class _DescribeTypeRegistrationCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DescribeTypeRegistrationCommand = class _DescribeTypeRegistrationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11855,9 +11783,7 @@ var DescribeTypeRegistrationCommand = _DescribeTypeRegistrationCommand;
 
 
 
-var _DetectStackDriftCommand = class _DetectStackDriftCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DetectStackDriftCommand = class _DetectStackDriftCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11871,9 +11797,7 @@ var DetectStackDriftCommand = _DetectStackDriftCommand;
 
 
 
-var _DetectStackResourceDriftCommand = class _DetectStackResourceDriftCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DetectStackResourceDriftCommand = class _DetectStackResourceDriftCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11887,9 +11811,7 @@ var DetectStackResourceDriftCommand = _DetectStackResourceDriftCommand;
 
 
 
-var _DetectStackSetDriftCommand = class _DetectStackSetDriftCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _DetectStackSetDriftCommand = class _DetectStackSetDriftCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11903,9 +11825,7 @@ var DetectStackSetDriftCommand = _DetectStackSetDriftCommand;
 
 
 
-var _EstimateTemplateCostCommand = class _EstimateTemplateCostCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _EstimateTemplateCostCommand = class _EstimateTemplateCostCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11919,9 +11839,7 @@ var EstimateTemplateCostCommand = _EstimateTemplateCostCommand;
 
 
 
-var _ExecuteChangeSetCommand = class _ExecuteChangeSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ExecuteChangeSetCommand = class _ExecuteChangeSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11935,9 +11853,7 @@ var ExecuteChangeSetCommand = _ExecuteChangeSetCommand;
 
 
 
-var _GetGeneratedTemplateCommand = class _GetGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _GetGeneratedTemplateCommand = class _GetGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11951,9 +11867,7 @@ var GetGeneratedTemplateCommand = _GetGeneratedTemplateCommand;
 
 
 
-var _GetStackPolicyCommand = class _GetStackPolicyCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _GetStackPolicyCommand = class _GetStackPolicyCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11967,9 +11881,7 @@ var GetStackPolicyCommand = _GetStackPolicyCommand;
 
 
 
-var _GetTemplateCommand = class _GetTemplateCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _GetTemplateCommand = class _GetTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11983,9 +11895,7 @@ var GetTemplateCommand = _GetTemplateCommand;
 
 
 
-var _GetTemplateSummaryCommand = class _GetTemplateSummaryCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _GetTemplateSummaryCommand = class _GetTemplateSummaryCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -11999,9 +11909,7 @@ var GetTemplateSummaryCommand = _GetTemplateSummaryCommand;
 
 
 
-var _ImportStacksToStackSetCommand = class _ImportStacksToStackSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ImportStacksToStackSetCommand = class _ImportStacksToStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12015,9 +11923,7 @@ var ImportStacksToStackSetCommand = _ImportStacksToStackSetCommand;
 
 
 
-var _ListChangeSetsCommand = class _ListChangeSetsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListChangeSetsCommand = class _ListChangeSetsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12031,9 +11937,7 @@ var ListChangeSetsCommand = _ListChangeSetsCommand;
 
 
 
-var _ListExportsCommand = class _ListExportsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListExportsCommand = class _ListExportsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12047,9 +11951,7 @@ var ListExportsCommand = _ListExportsCommand;
 
 
 
-var _ListGeneratedTemplatesCommand = class _ListGeneratedTemplatesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListGeneratedTemplatesCommand = class _ListGeneratedTemplatesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12063,9 +11965,7 @@ var ListGeneratedTemplatesCommand = _ListGeneratedTemplatesCommand;
 
 
 
-var _ListImportsCommand = class _ListImportsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListImportsCommand = class _ListImportsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12079,9 +11979,7 @@ var ListImportsCommand = _ListImportsCommand;
 
 
 
-var _ListResourceScanRelatedResourcesCommand = class _ListResourceScanRelatedResourcesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListResourceScanRelatedResourcesCommand = class _ListResourceScanRelatedResourcesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12095,9 +11993,7 @@ var ListResourceScanRelatedResourcesCommand = _ListResourceScanRelatedResourcesC
 
 
 
-var _ListResourceScanResourcesCommand = class _ListResourceScanResourcesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListResourceScanResourcesCommand = class _ListResourceScanResourcesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12111,9 +12007,7 @@ var ListResourceScanResourcesCommand = _ListResourceScanResourcesCommand;
 
 
 
-var _ListResourceScansCommand = class _ListResourceScansCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListResourceScansCommand = class _ListResourceScansCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12127,9 +12021,7 @@ var ListResourceScansCommand = _ListResourceScansCommand;
 
 
 
-var _ListStackInstanceResourceDriftsCommand = class _ListStackInstanceResourceDriftsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListStackInstanceResourceDriftsCommand = class _ListStackInstanceResourceDriftsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12143,9 +12035,7 @@ var ListStackInstanceResourceDriftsCommand = _ListStackInstanceResourceDriftsCom
 
 
 
-var _ListStackInstancesCommand = class _ListStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListStackInstancesCommand = class _ListStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12159,9 +12049,7 @@ var ListStackInstancesCommand = _ListStackInstancesCommand;
 
 
 
-var _ListStackResourcesCommand = class _ListStackResourcesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListStackResourcesCommand = class _ListStackResourcesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12175,9 +12063,7 @@ var ListStackResourcesCommand = _ListStackResourcesCommand;
 
 
 
-var _ListStacksCommand = class _ListStacksCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListStacksCommand = class _ListStacksCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12191,9 +12077,7 @@ var ListStacksCommand = _ListStacksCommand;
 
 
 
-var _ListStackSetAutoDeploymentTargetsCommand = class _ListStackSetAutoDeploymentTargetsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListStackSetAutoDeploymentTargetsCommand = class _ListStackSetAutoDeploymentTargetsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12207,9 +12091,7 @@ var ListStackSetAutoDeploymentTargetsCommand = _ListStackSetAutoDeploymentTarget
 
 
 
-var _ListStackSetOperationResultsCommand = class _ListStackSetOperationResultsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListStackSetOperationResultsCommand = class _ListStackSetOperationResultsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12223,9 +12105,7 @@ var ListStackSetOperationResultsCommand = _ListStackSetOperationResultsCommand;
 
 
 
-var _ListStackSetOperationsCommand = class _ListStackSetOperationsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListStackSetOperationsCommand = class _ListStackSetOperationsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12239,9 +12119,7 @@ var ListStackSetOperationsCommand = _ListStackSetOperationsCommand;
 
 
 
-var _ListStackSetsCommand = class _ListStackSetsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListStackSetsCommand = class _ListStackSetsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12255,9 +12133,7 @@ var ListStackSetsCommand = _ListStackSetsCommand;
 
 
 
-var _ListTypeRegistrationsCommand = class _ListTypeRegistrationsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListTypeRegistrationsCommand = class _ListTypeRegistrationsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12271,9 +12147,7 @@ var ListTypeRegistrationsCommand = _ListTypeRegistrationsCommand;
 
 
 
-var _ListTypesCommand = class _ListTypesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListTypesCommand = class _ListTypesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12287,9 +12161,7 @@ var ListTypesCommand = _ListTypesCommand;
 
 
 
-var _ListTypeVersionsCommand = class _ListTypeVersionsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListTypeVersionsCommand = class _ListTypeVersionsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12303,9 +12175,7 @@ var ListTypeVersionsCommand = _ListTypeVersionsCommand;
 
 
 
-var _PublishTypeCommand = class _PublishTypeCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _PublishTypeCommand = class _PublishTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12319,9 +12189,7 @@ var PublishTypeCommand = _PublishTypeCommand;
 
 
 
-var _RecordHandlerProgressCommand = class _RecordHandlerProgressCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _RecordHandlerProgressCommand = class _RecordHandlerProgressCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12335,9 +12203,7 @@ var RecordHandlerProgressCommand = _RecordHandlerProgressCommand;
 
 
 
-var _RegisterPublisherCommand = class _RegisterPublisherCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _RegisterPublisherCommand = class _RegisterPublisherCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12351,9 +12217,7 @@ var RegisterPublisherCommand = _RegisterPublisherCommand;
 
 
 
-var _RegisterTypeCommand = class _RegisterTypeCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _RegisterTypeCommand = class _RegisterTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12367,9 +12231,7 @@ var RegisterTypeCommand = _RegisterTypeCommand;
 
 
 
-var _RollbackStackCommand = class _RollbackStackCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _RollbackStackCommand = class _RollbackStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12383,9 +12245,7 @@ var RollbackStackCommand = _RollbackStackCommand;
 
 
 
-var _SetStackPolicyCommand = class _SetStackPolicyCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _SetStackPolicyCommand = class _SetStackPolicyCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12399,9 +12259,7 @@ var SetStackPolicyCommand = _SetStackPolicyCommand;
 
 
 
-var _SetTypeConfigurationCommand = class _SetTypeConfigurationCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _SetTypeConfigurationCommand = class _SetTypeConfigurationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12415,9 +12273,7 @@ var SetTypeConfigurationCommand = _SetTypeConfigurationCommand;
 
 
 
-var _SetTypeDefaultVersionCommand = class _SetTypeDefaultVersionCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _SetTypeDefaultVersionCommand = class _SetTypeDefaultVersionCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12431,9 +12287,7 @@ var SetTypeDefaultVersionCommand = _SetTypeDefaultVersionCommand;
 
 
 
-var _SignalResourceCommand = class _SignalResourceCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _SignalResourceCommand = class _SignalResourceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12447,9 +12301,7 @@ var SignalResourceCommand = _SignalResourceCommand;
 
 
 
-var _StartResourceScanCommand = class _StartResourceScanCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _StartResourceScanCommand = class _StartResourceScanCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12463,9 +12315,7 @@ var StartResourceScanCommand = _StartResourceScanCommand;
 
 
 
-var _StopStackSetOperationCommand = class _StopStackSetOperationCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _StopStackSetOperationCommand = class _StopStackSetOperationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12479,9 +12329,7 @@ var StopStackSetOperationCommand = _StopStackSetOperationCommand;
 
 
 
-var _TestTypeCommand = class _TestTypeCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _TestTypeCommand = class _TestTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12495,9 +12343,7 @@ var TestTypeCommand = _TestTypeCommand;
 
 
 
-var _UpdateGeneratedTemplateCommand = class _UpdateGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _UpdateGeneratedTemplateCommand = class _UpdateGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12511,9 +12357,7 @@ var UpdateGeneratedTemplateCommand = _UpdateGeneratedTemplateCommand;
 
 
 
-var _UpdateStackCommand = class _UpdateStackCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _UpdateStackCommand = class _UpdateStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12527,9 +12371,7 @@ var UpdateStackCommand = _UpdateStackCommand;
 
 
 
-var _UpdateStackInstancesCommand = class _UpdateStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _UpdateStackInstancesCommand = class _UpdateStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12543,9 +12385,7 @@ var UpdateStackInstancesCommand = _UpdateStackInstancesCommand;
 
 
 
-var _UpdateStackSetCommand = class _UpdateStackSetCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _UpdateStackSetCommand = class _UpdateStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12559,9 +12399,7 @@ var UpdateStackSetCommand = _UpdateStackSetCommand;
 
 
 
-var _UpdateTerminationProtectionCommand = class _UpdateTerminationProtectionCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _UpdateTerminationProtectionCommand = class _UpdateTerminationProtectionCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -12575,9 +12413,7 @@ var UpdateTerminationProtectionCommand = _UpdateTerminationProtectionCommand;
 
 
 
-var _ValidateTemplateCommand = class _ValidateTemplateCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ValidateTemplateCommand = class _ValidateTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -13565,16 +13401,16 @@ var waitUntilTypeRegistrationComplete = /* @__PURE__ */ __name(async (params, in
 
 /***/ }),
 
-/***/ 1731:
+/***/ 5398:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(9236);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(8494));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(9924));
 const core_1 = __nccwpck_require__(9408);
-const credential_provider_node_1 = __nccwpck_require__(2863);
+const credential_provider_node_1 = __nccwpck_require__(4168);
 const util_user_agent_node_1 = __nccwpck_require__(759);
 const config_resolver_1 = __nccwpck_require__(1027);
 const hash_node_1 = __nccwpck_require__(411);
@@ -13583,7 +13419,7 @@ const node_config_provider_1 = __nccwpck_require__(9327);
 const node_http_handler_1 = __nccwpck_require__(5814);
 const util_body_length_node_1 = __nccwpck_require__(7340);
 const util_retry_1 = __nccwpck_require__(2704);
-const runtimeConfig_shared_1 = __nccwpck_require__(4652);
+const runtimeConfig_shared_1 = __nccwpck_require__(6034);
 const smithy_client_1 = __nccwpck_require__(7657);
 const util_defaults_mode_node_1 = __nccwpck_require__(5159);
 const smithy_client_2 = __nccwpck_require__(7657);
@@ -13621,7 +13457,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 4652:
+/***/ 6034:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -13632,8 +13468,8 @@ const smithy_client_1 = __nccwpck_require__(7657);
 const url_parser_1 = __nccwpck_require__(7578);
 const util_base64_1 = __nccwpck_require__(2199);
 const util_utf8_1 = __nccwpck_require__(141);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(8108);
-const endpointResolver_1 = __nccwpck_require__(9729);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(5864);
+const endpointResolver_1 = __nccwpck_require__(7921);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -13662,7 +13498,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 511:
+/***/ 4827:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -13733,7 +13569,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 1440:
+/***/ 1083:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -13741,7 +13577,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(7211);
 const util_endpoints_2 = __nccwpck_require__(4868);
-const ruleset_1 = __nccwpck_require__(305);
+const ruleset_1 = __nccwpck_require__(1688);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -13758,7 +13594,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 305:
+/***/ 1688:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -13772,7 +13608,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 2728:
+/***/ 6309:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -13840,7 +13676,7 @@ var import_middleware_content_length = __nccwpck_require__(176);
 var import_middleware_endpoint = __nccwpck_require__(9592);
 var import_middleware_retry = __nccwpck_require__(7606);
 
-var import_httpAuthSchemeProvider = __nccwpck_require__(511);
+var import_httpAuthSchemeProvider = __nccwpck_require__(4827);
 
 // src/endpoint/EndpointParameters.ts
 var resolveClientEndpointParameters = /* @__PURE__ */ __name((options) => {
@@ -13859,7 +13695,7 @@ var commonParams = {
 };
 
 // src/SSOOIDCClient.ts
-var import_runtimeConfig = __nccwpck_require__(9287);
+var import_runtimeConfig = __nccwpck_require__(5193);
 
 // src/runtimeExtensions.ts
 var import_region_config_resolver = __nccwpck_require__(4136);
@@ -14729,9 +14565,7 @@ var deserializeMetadata = /* @__PURE__ */ __name((output) => ({
 var _ai = "aws_iam";
 
 // src/commands/CreateTokenCommand.ts
-var _CreateTokenCommand = class _CreateTokenCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _CreateTokenCommand = class _CreateTokenCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -14745,9 +14579,7 @@ var CreateTokenCommand = _CreateTokenCommand;
 
 
 
-var _CreateTokenWithIAMCommand = class _CreateTokenWithIAMCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _CreateTokenWithIAMCommand = class _CreateTokenWithIAMCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -14761,9 +14593,7 @@ var CreateTokenWithIAMCommand = _CreateTokenWithIAMCommand;
 
 
 
-var _RegisterClientCommand = class _RegisterClientCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _RegisterClientCommand = class _RegisterClientCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -14777,9 +14607,7 @@ var RegisterClientCommand = _RegisterClientCommand;
 
 
 
-var _StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -14809,16 +14637,16 @@ var SSOOIDC = _SSOOIDC;
 
 /***/ }),
 
-/***/ 9287:
+/***/ 5193:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(9236);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(7726));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(5023));
 const core_1 = __nccwpck_require__(9408);
-const credential_provider_node_1 = __nccwpck_require__(2863);
+const credential_provider_node_1 = __nccwpck_require__(4168);
 const util_user_agent_node_1 = __nccwpck_require__(759);
 const config_resolver_1 = __nccwpck_require__(1027);
 const hash_node_1 = __nccwpck_require__(411);
@@ -14827,7 +14655,7 @@ const node_config_provider_1 = __nccwpck_require__(9327);
 const node_http_handler_1 = __nccwpck_require__(5814);
 const util_body_length_node_1 = __nccwpck_require__(7340);
 const util_retry_1 = __nccwpck_require__(2704);
-const runtimeConfig_shared_1 = __nccwpck_require__(2683);
+const runtimeConfig_shared_1 = __nccwpck_require__(892);
 const smithy_client_1 = __nccwpck_require__(7657);
 const util_defaults_mode_node_1 = __nccwpck_require__(5159);
 const smithy_client_2 = __nccwpck_require__(7657);
@@ -14865,7 +14693,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 2683:
+/***/ 892:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14877,8 +14705,8 @@ const smithy_client_1 = __nccwpck_require__(7657);
 const url_parser_1 = __nccwpck_require__(7578);
 const util_base64_1 = __nccwpck_require__(2199);
 const util_utf8_1 = __nccwpck_require__(141);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(511);
-const endpointResolver_1 = __nccwpck_require__(1440);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(4827);
+const endpointResolver_1 = __nccwpck_require__(1083);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2019-06-10",
@@ -14912,7 +14740,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 1856:
+/***/ 8670:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14987,7 +14815,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 9347:
+/***/ 4425:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14995,7 +14823,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(7211);
 const util_endpoints_2 = __nccwpck_require__(4868);
-const ruleset_1 = __nccwpck_require__(7268);
+const ruleset_1 = __nccwpck_require__(1299);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -15012,7 +14840,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 7268:
+/***/ 1299:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15026,7 +14854,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 5591:
+/***/ 270:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -15086,7 +14914,7 @@ var import_middleware_content_length = __nccwpck_require__(176);
 var import_middleware_endpoint = __nccwpck_require__(9592);
 var import_middleware_retry = __nccwpck_require__(7606);
 
-var import_httpAuthSchemeProvider = __nccwpck_require__(1856);
+var import_httpAuthSchemeProvider = __nccwpck_require__(8670);
 
 // src/endpoint/EndpointParameters.ts
 var resolveClientEndpointParameters = /* @__PURE__ */ __name((options) => {
@@ -15105,7 +14933,7 @@ var commonParams = {
 };
 
 // src/SSOClient.ts
-var import_runtimeConfig = __nccwpck_require__(4475);
+var import_runtimeConfig = __nccwpck_require__(713);
 
 // src/runtimeExtensions.ts
 var import_region_config_resolver = __nccwpck_require__(4136);
@@ -15543,9 +15371,7 @@ var _rn = "role_name";
 var _xasbt = "x-amz-sso_bearer_token";
 
 // src/commands/GetRoleCredentialsCommand.ts
-var _GetRoleCredentialsCommand = class _GetRoleCredentialsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _GetRoleCredentialsCommand = class _GetRoleCredentialsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -15559,9 +15385,7 @@ var GetRoleCredentialsCommand = _GetRoleCredentialsCommand;
 
 
 
-var _ListAccountRolesCommand = class _ListAccountRolesCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListAccountRolesCommand = class _ListAccountRolesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -15575,9 +15399,7 @@ var ListAccountRolesCommand = _ListAccountRolesCommand;
 
 
 
-var _ListAccountsCommand = class _ListAccountsCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _ListAccountsCommand = class _ListAccountsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -15591,9 +15413,7 @@ var ListAccountsCommand = _ListAccountsCommand;
 
 
 
-var _LogoutCommand = class _LogoutCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...commonParams
-}).m(function(Command, cs, config, o) {
+var _LogoutCommand = class _LogoutCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -15631,14 +15451,14 @@ var paginateListAccounts = (0, import_core.createPaginator)(SSOClient, ListAccou
 
 /***/ }),
 
-/***/ 4475:
+/***/ 713:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(9236);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(1868));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(5826));
 const core_1 = __nccwpck_require__(9408);
 const util_user_agent_node_1 = __nccwpck_require__(759);
 const config_resolver_1 = __nccwpck_require__(1027);
@@ -15648,7 +15468,7 @@ const node_config_provider_1 = __nccwpck_require__(9327);
 const node_http_handler_1 = __nccwpck_require__(5814);
 const util_body_length_node_1 = __nccwpck_require__(7340);
 const util_retry_1 = __nccwpck_require__(2704);
-const runtimeConfig_shared_1 = __nccwpck_require__(7493);
+const runtimeConfig_shared_1 = __nccwpck_require__(4767);
 const smithy_client_1 = __nccwpck_require__(7657);
 const util_defaults_mode_node_1 = __nccwpck_require__(5159);
 const smithy_client_2 = __nccwpck_require__(7657);
@@ -15685,7 +15505,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 7493:
+/***/ 4767:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15697,8 +15517,8 @@ const smithy_client_1 = __nccwpck_require__(7657);
 const url_parser_1 = __nccwpck_require__(7578);
 const util_base64_1 = __nccwpck_require__(2199);
 const util_utf8_1 = __nccwpck_require__(141);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(1856);
-const endpointResolver_1 = __nccwpck_require__(9347);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(8670);
+const endpointResolver_1 = __nccwpck_require__(4425);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2019-06-10",
@@ -15732,7 +15552,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 6591:
+/***/ 693:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15749,10 +15569,10 @@ const middleware_endpoint_1 = __nccwpck_require__(9592);
 const middleware_retry_1 = __nccwpck_require__(7606);
 const smithy_client_1 = __nccwpck_require__(7657);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
-const httpAuthSchemeProvider_1 = __nccwpck_require__(9259);
-const EndpointParameters_1 = __nccwpck_require__(3814);
-const runtimeConfig_1 = __nccwpck_require__(3002);
-const runtimeExtensions_1 = __nccwpck_require__(3459);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(7625);
+const EndpointParameters_1 = __nccwpck_require__(9146);
+const runtimeConfig_1 = __nccwpck_require__(8650);
+const runtimeExtensions_1 = __nccwpck_require__(7774);
 class STSClient extends smithy_client_1.Client {
     constructor(...[configuration]) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration || {});
@@ -15789,7 +15609,7 @@ exports.STSClient = STSClient;
 
 /***/ }),
 
-/***/ 701:
+/***/ 9485:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15839,7 +15659,7 @@ exports.resolveHttpAuthRuntimeConfig = resolveHttpAuthRuntimeConfig;
 
 /***/ }),
 
-/***/ 9259:
+/***/ 7625:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15847,7 +15667,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.resolveStsAuthConfig = exports.defaultSTSHttpAuthSchemeProvider = exports.defaultSTSHttpAuthSchemeParametersProvider = void 0;
 const core_1 = __nccwpck_require__(9408);
 const util_middleware_1 = __nccwpck_require__(7156);
-const STSClient_1 = __nccwpck_require__(6591);
+const STSClient_1 = __nccwpck_require__(693);
 const defaultSTSHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -15913,7 +15733,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 3814:
+/***/ 9146:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15940,7 +15760,7 @@ exports.commonParams = {
 
 /***/ }),
 
-/***/ 1443:
+/***/ 5552:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15948,7 +15768,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(7211);
 const util_endpoints_2 = __nccwpck_require__(4868);
-const ruleset_1 = __nccwpck_require__(7639);
+const ruleset_1 = __nccwpck_require__(2587);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS", "UseGlobalEndpoint"],
@@ -15965,7 +15785,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 7639:
+/***/ 2587:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -15979,7 +15799,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 8389:
+/***/ 9983:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -16038,7 +15858,7 @@ __export(src_exports, {
   getDefaultRoleAssumerWithWebIdentity: () => getDefaultRoleAssumerWithWebIdentity2
 });
 module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, __nccwpck_require__(6591), module.exports);
+__reExport(src_exports, __nccwpck_require__(693), module.exports);
 
 // src/STS.ts
 
@@ -16047,7 +15867,7 @@ __reExport(src_exports, __nccwpck_require__(6591), module.exports);
 var import_middleware_endpoint = __nccwpck_require__(9592);
 var import_middleware_serde = __nccwpck_require__(3892);
 
-var import_EndpointParameters = __nccwpck_require__(3814);
+var import_EndpointParameters = __nccwpck_require__(9146);
 
 // src/models/models_0.ts
 
@@ -17124,9 +16944,7 @@ var loadQueryErrorCode = /* @__PURE__ */ __name((output, data) => {
 }, "loadQueryErrorCode");
 
 // src/commands/AssumeRoleCommand.ts
-var _AssumeRoleCommand = class _AssumeRoleCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...import_EndpointParameters.commonParams
-}).m(function(Command, cs, config, o) {
+var _AssumeRoleCommand = class _AssumeRoleCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -17140,10 +16958,8 @@ var AssumeRoleCommand = _AssumeRoleCommand;
 
 
 
-var import_EndpointParameters2 = __nccwpck_require__(3814);
-var _AssumeRoleWithSAMLCommand = class _AssumeRoleWithSAMLCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...import_EndpointParameters2.commonParams
-}).m(function(Command, cs, config, o) {
+var import_EndpointParameters2 = __nccwpck_require__(9146);
+var _AssumeRoleWithSAMLCommand = class _AssumeRoleWithSAMLCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters2.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -17157,10 +16973,8 @@ var AssumeRoleWithSAMLCommand = _AssumeRoleWithSAMLCommand;
 
 
 
-var import_EndpointParameters3 = __nccwpck_require__(3814);
-var _AssumeRoleWithWebIdentityCommand = class _AssumeRoleWithWebIdentityCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...import_EndpointParameters3.commonParams
-}).m(function(Command, cs, config, o) {
+var import_EndpointParameters3 = __nccwpck_require__(9146);
+var _AssumeRoleWithWebIdentityCommand = class _AssumeRoleWithWebIdentityCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters3.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -17174,10 +16988,8 @@ var AssumeRoleWithWebIdentityCommand = _AssumeRoleWithWebIdentityCommand;
 
 
 
-var import_EndpointParameters4 = __nccwpck_require__(3814);
-var _DecodeAuthorizationMessageCommand = class _DecodeAuthorizationMessageCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...import_EndpointParameters4.commonParams
-}).m(function(Command, cs, config, o) {
+var import_EndpointParameters4 = __nccwpck_require__(9146);
+var _DecodeAuthorizationMessageCommand = class _DecodeAuthorizationMessageCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters4.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -17191,10 +17003,8 @@ var DecodeAuthorizationMessageCommand = _DecodeAuthorizationMessageCommand;
 
 
 
-var import_EndpointParameters5 = __nccwpck_require__(3814);
-var _GetAccessKeyInfoCommand = class _GetAccessKeyInfoCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...import_EndpointParameters5.commonParams
-}).m(function(Command, cs, config, o) {
+var import_EndpointParameters5 = __nccwpck_require__(9146);
+var _GetAccessKeyInfoCommand = class _GetAccessKeyInfoCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters5.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -17208,10 +17018,8 @@ var GetAccessKeyInfoCommand = _GetAccessKeyInfoCommand;
 
 
 
-var import_EndpointParameters6 = __nccwpck_require__(3814);
-var _GetCallerIdentityCommand = class _GetCallerIdentityCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...import_EndpointParameters6.commonParams
-}).m(function(Command, cs, config, o) {
+var import_EndpointParameters6 = __nccwpck_require__(9146);
+var _GetCallerIdentityCommand = class _GetCallerIdentityCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters6.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -17225,10 +17033,8 @@ var GetCallerIdentityCommand = _GetCallerIdentityCommand;
 
 
 
-var import_EndpointParameters7 = __nccwpck_require__(3814);
-var _GetFederationTokenCommand = class _GetFederationTokenCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...import_EndpointParameters7.commonParams
-}).m(function(Command, cs, config, o) {
+var import_EndpointParameters7 = __nccwpck_require__(9146);
+var _GetFederationTokenCommand = class _GetFederationTokenCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters7.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -17242,10 +17048,8 @@ var GetFederationTokenCommand = _GetFederationTokenCommand;
 
 
 
-var import_EndpointParameters8 = __nccwpck_require__(3814);
-var _GetSessionTokenCommand = class _GetSessionTokenCommand extends import_smithy_client.Command.classBuilder().ep({
-  ...import_EndpointParameters8.commonParams
-}).m(function(Command, cs, config, o) {
+var import_EndpointParameters8 = __nccwpck_require__(9146);
+var _GetSessionTokenCommand = class _GetSessionTokenCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters8.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -17256,7 +17060,7 @@ __name(_GetSessionTokenCommand, "GetSessionTokenCommand");
 var GetSessionTokenCommand = _GetSessionTokenCommand;
 
 // src/STS.ts
-var import_STSClient = __nccwpck_require__(6591);
+var import_STSClient = __nccwpck_require__(693);
 var commands = {
   AssumeRoleCommand,
   AssumeRoleWithSAMLCommand,
@@ -17274,7 +17078,7 @@ var STS = _STS;
 (0, import_smithy_client.createAggregatedClient)(commands, STS);
 
 // src/index.ts
-var import_EndpointParameters9 = __nccwpck_require__(3814);
+var import_EndpointParameters9 = __nccwpck_require__(9146);
 
 // src/defaultStsRoleAssumers.ts
 var ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
@@ -17389,7 +17193,7 @@ var isH2 = /* @__PURE__ */ __name((requestHandler) => {
 }, "isH2");
 
 // src/defaultRoleAssumers.ts
-var import_STSClient2 = __nccwpck_require__(6591);
+var import_STSClient2 = __nccwpck_require__(693);
 var getCustomizableStsClientCtor = /* @__PURE__ */ __name((baseCtor, customizations) => {
   var _a2;
   if (!customizations)
@@ -17419,16 +17223,16 @@ var decorateDefaultCredentialProvider = /* @__PURE__ */ __name((provider) => (in
 
 /***/ }),
 
-/***/ 3002:
+/***/ 8650:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(9236);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(5816));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(998));
 const core_1 = __nccwpck_require__(9408);
-const credential_provider_node_1 = __nccwpck_require__(2863);
+const credential_provider_node_1 = __nccwpck_require__(4168);
 const util_user_agent_node_1 = __nccwpck_require__(759);
 const config_resolver_1 = __nccwpck_require__(1027);
 const core_2 = __nccwpck_require__(6178);
@@ -17438,7 +17242,7 @@ const node_config_provider_1 = __nccwpck_require__(9327);
 const node_http_handler_1 = __nccwpck_require__(5814);
 const util_body_length_node_1 = __nccwpck_require__(7340);
 const util_retry_1 = __nccwpck_require__(2704);
-const runtimeConfig_shared_1 = __nccwpck_require__(7395);
+const runtimeConfig_shared_1 = __nccwpck_require__(2784);
 const smithy_client_1 = __nccwpck_require__(7657);
 const util_defaults_mode_node_1 = __nccwpck_require__(5159);
 const smithy_client_2 = __nccwpck_require__(7657);
@@ -17489,7 +17293,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 7395:
+/***/ 2784:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17501,8 +17305,8 @@ const smithy_client_1 = __nccwpck_require__(7657);
 const url_parser_1 = __nccwpck_require__(7578);
 const util_base64_1 = __nccwpck_require__(2199);
 const util_utf8_1 = __nccwpck_require__(141);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(9259);
-const endpointResolver_1 = __nccwpck_require__(1443);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(7625);
+const endpointResolver_1 = __nccwpck_require__(5552);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2011-06-15",
@@ -17536,7 +17340,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3459:
+/***/ 7774:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17545,7 +17349,7 @@ exports.resolveRuntimeExtensions = void 0;
 const region_config_resolver_1 = __nccwpck_require__(4136);
 const protocol_http_1 = __nccwpck_require__(1504);
 const smithy_client_1 = __nccwpck_require__(7657);
-const httpAuthExtensionConfiguration_1 = __nccwpck_require__(701);
+const httpAuthExtensionConfiguration_1 = __nccwpck_require__(9485);
 const asPartial = (t) => t;
 const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
     const extensionConfiguration = {
@@ -18450,7 +18254,7 @@ Object.defineProperty(exports, "fromHttp", ({ enumerable: true, get: function ()
 
 /***/ }),
 
-/***/ 2488:
+/***/ 2041:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -18556,7 +18360,7 @@ var resolveAssumeRoleCredentials = /* @__PURE__ */ __name(async (profileName, pr
   (_a = options.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-ini - resolveAssumeRoleCredentials (STS)");
   const data = profiles[profileName];
   if (!options.roleAssumer) {
-    const { getDefaultRoleAssumer } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(8389)));
+    const { getDefaultRoleAssumer } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(9983)));
     options.roleAssumer = getDefaultRoleAssumer(
       {
         ...options.clientConfig,
@@ -18626,7 +18430,7 @@ var resolveProcessCredentials = /* @__PURE__ */ __name(async (options, profile) 
 
 // src/resolveSsoCredentials.ts
 var resolveSsoCredentials = /* @__PURE__ */ __name(async (profile, options = {}) => {
-  const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6165)));
+  const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6991)));
   return fromSSO({
     profile,
     logger: options.logger
@@ -18650,7 +18454,7 @@ var resolveStaticCredentials = /* @__PURE__ */ __name((profile, options) => {
 
 // src/resolveWebIdentityCredentials.ts
 var isWebIdentityProfile = /* @__PURE__ */ __name((arg) => Boolean(arg) && typeof arg === "object" && typeof arg.web_identity_token_file === "string" && typeof arg.role_arn === "string" && ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1, "isWebIdentityProfile");
-var resolveWebIdentityCredentials = /* @__PURE__ */ __name(async (profile, options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(5173))).then(
+var resolveWebIdentityCredentials = /* @__PURE__ */ __name(async (profile, options) => Promise.resolve().then(() => __toESM(__nccwpck_require__(1391))).then(
   ({ fromTokenFile }) => fromTokenFile({
     webIdentityTokenFile: profile.web_identity_token_file,
     roleArn: profile.role_arn,
@@ -18703,7 +18507,7 @@ var fromIni = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 2863:
+/***/ 4168:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -18814,13 +18618,13 @@ var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_
           { logger: init.logger }
         );
       }
-      const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6165)));
+      const { fromSSO } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6991)));
       return fromSSO(init)();
     },
     async () => {
       var _a;
       (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-      const { fromIni } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(2488)));
+      const { fromIni } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(2041)));
       return fromIni(init)();
     },
     async () => {
@@ -18832,7 +18636,7 @@ var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_
     async () => {
       var _a;
       (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-      const { fromTokenFile } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(5173)));
+      const { fromTokenFile } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(1391)));
       return fromTokenFile(init)();
     },
     async () => {
@@ -18972,7 +18776,7 @@ var fromProcess = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 6165:
+/***/ 6991:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -19008,7 +18812,7 @@ var import_client_sso;
 var init_loadSso = __esm({
   "src/loadSso.ts"() {
     "use strict";
-    import_client_sso = __nccwpck_require__(5591);
+    import_client_sso = __nccwpck_require__(270);
   }
 });
 
@@ -19029,7 +18833,7 @@ module.exports = __toCommonJS(src_exports);
 var isSsoProfile = /* @__PURE__ */ __name((arg) => arg && (typeof arg.sso_start_url === "string" || typeof arg.sso_account_id === "string" || typeof arg.sso_session === "string" || typeof arg.sso_region === "string" || typeof arg.sso_role_name === "string"), "isSsoProfile");
 
 // src/resolveSSOCredentials.ts
-var import_token_providers = __nccwpck_require__(9567);
+var import_token_providers = __nccwpck_require__(3435);
 var import_property_provider = __nccwpck_require__(5983);
 var import_shared_ini_file_loader = __nccwpck_require__(4802);
 var SHOULD_FAIL_CREDENTIAL_CHAIN = false;
@@ -19209,7 +19013,7 @@ var fromSSO = /* @__PURE__ */ __name((init = {}) => async () => {
 
 /***/ }),
 
-/***/ 8411:
+/***/ 741:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19217,7 +19021,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromTokenFile = void 0;
 const property_provider_1 = __nccwpck_require__(5983);
 const fs_1 = __nccwpck_require__(7147);
-const fromWebToken_1 = __nccwpck_require__(9262);
+const fromWebToken_1 = __nccwpck_require__(2891);
 const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
@@ -19243,7 +19047,7 @@ exports.fromTokenFile = fromTokenFile;
 
 /***/ }),
 
-/***/ 9262:
+/***/ 2891:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -19277,7 +19081,7 @@ const fromWebToken = (init) => async () => {
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
     let { roleAssumerWithWebIdentity } = init;
     if (!roleAssumerWithWebIdentity) {
-        const { getDefaultRoleAssumerWithWebIdentity } = await Promise.resolve().then(() => __importStar(__nccwpck_require__(8389)));
+        const { getDefaultRoleAssumerWithWebIdentity } = await Promise.resolve().then(() => __importStar(__nccwpck_require__(9983)));
         roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({
             ...init.clientConfig,
             credentialProviderLogger: init.logger,
@@ -19299,7 +19103,7 @@ exports.fromWebToken = fromWebToken;
 
 /***/ }),
 
-/***/ 5173:
+/***/ 1391:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -19321,8 +19125,8 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 module.exports = __toCommonJS(src_exports);
-__reExport(src_exports, __nccwpck_require__(8411), module.exports);
-__reExport(src_exports, __nccwpck_require__(9262), module.exports);
+__reExport(src_exports, __nccwpck_require__(741), module.exports);
+__reExport(src_exports, __nccwpck_require__(2891), module.exports);
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -19798,7 +19602,7 @@ var resolveRegionConfig = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 9567:
+/***/ 3435:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -19851,7 +19655,7 @@ var REFRESH_MESSAGE = `To refresh this SSO session run 'aws sso login' with the 
 // src/getSsoOidcClient.ts
 var ssoOidcClientsHash = {};
 var getSsoOidcClient = /* @__PURE__ */ __name(async (ssoRegion) => {
-  const { SSOOIDCClient } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(2728)));
+  const { SSOOIDCClient } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6309)));
   if (ssoOidcClientsHash[ssoRegion]) {
     return ssoOidcClientsHash[ssoRegion];
   }
@@ -19862,7 +19666,7 @@ var getSsoOidcClient = /* @__PURE__ */ __name(async (ssoRegion) => {
 
 // src/getNewSsoOidcToken.ts
 var getNewSsoOidcToken = /* @__PURE__ */ __name(async (ssoToken, ssoRegion) => {
-  const { CreateTokenCommand } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(2728)));
+  const { CreateTokenCommand } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6309)));
   const ssoOidcClient = await getSsoOidcClient(ssoRegion);
   return ssoOidcClient.send(
     new CreateTokenCommand({
@@ -57252,31 +57056,31 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 8494:
+/***/ 9924:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.649.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.649.0","@aws-sdk/client-sts":"3.649.0","@aws-sdk/core":"3.649.0","@aws-sdk/credential-provider-node":"3.649.0","@aws-sdk/middleware-host-header":"3.649.0","@aws-sdk/middleware-logger":"3.649.0","@aws-sdk/middleware-recursion-detection":"3.649.0","@aws-sdk/middleware-user-agent":"3.649.0","@aws-sdk/region-config-resolver":"3.649.0","@aws-sdk/types":"3.649.0","@aws-sdk/util-endpoints":"3.649.0","@aws-sdk/util-user-agent-browser":"3.649.0","@aws-sdk/util-user-agent-node":"3.649.0","@smithy/config-resolver":"^3.0.6","@smithy/core":"^2.4.1","@smithy/fetch-http-handler":"^3.2.5","@smithy/hash-node":"^3.0.4","@smithy/invalid-dependency":"^3.0.4","@smithy/middleware-content-length":"^3.0.6","@smithy/middleware-endpoint":"^3.1.1","@smithy/middleware-retry":"^3.0.16","@smithy/middleware-serde":"^3.0.4","@smithy/middleware-stack":"^3.0.4","@smithy/node-config-provider":"^3.1.5","@smithy/node-http-handler":"^3.2.0","@smithy/protocol-http":"^4.1.1","@smithy/smithy-client":"^3.3.0","@smithy/types":"^3.4.0","@smithy/url-parser":"^3.0.4","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.16","@smithy/util-defaults-mode-node":"^3.0.16","@smithy/util-endpoints":"^2.1.0","@smithy/util-middleware":"^3.0.4","@smithy/util-retry":"^3.0.4","@smithy/util-utf8":"^3.0.0","@smithy/util-waiter":"^3.1.3","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.650.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.650.0","@aws-sdk/client-sts":"3.650.0","@aws-sdk/core":"3.649.0","@aws-sdk/credential-provider-node":"3.650.0","@aws-sdk/middleware-host-header":"3.649.0","@aws-sdk/middleware-logger":"3.649.0","@aws-sdk/middleware-recursion-detection":"3.649.0","@aws-sdk/middleware-user-agent":"3.649.0","@aws-sdk/region-config-resolver":"3.649.0","@aws-sdk/types":"3.649.0","@aws-sdk/util-endpoints":"3.649.0","@aws-sdk/util-user-agent-browser":"3.649.0","@aws-sdk/util-user-agent-node":"3.649.0","@smithy/config-resolver":"^3.0.6","@smithy/core":"^2.4.1","@smithy/fetch-http-handler":"^3.2.5","@smithy/hash-node":"^3.0.4","@smithy/invalid-dependency":"^3.0.4","@smithy/middleware-content-length":"^3.0.6","@smithy/middleware-endpoint":"^3.1.1","@smithy/middleware-retry":"^3.0.16","@smithy/middleware-serde":"^3.0.4","@smithy/middleware-stack":"^3.0.4","@smithy/node-config-provider":"^3.1.5","@smithy/node-http-handler":"^3.2.0","@smithy/protocol-http":"^4.1.1","@smithy/smithy-client":"^3.3.0","@smithy/types":"^3.4.0","@smithy/url-parser":"^3.0.4","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.16","@smithy/util-defaults-mode-node":"^3.0.16","@smithy/util-endpoints":"^2.1.0","@smithy/util-middleware":"^3.0.4","@smithy/util-retry":"^3.0.4","@smithy/util-utf8":"^3.0.0","@smithy/util-waiter":"^3.1.3","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
-/***/ 7726:
+/***/ 5023:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.649.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.649.0","@aws-sdk/credential-provider-node":"3.649.0","@aws-sdk/middleware-host-header":"3.649.0","@aws-sdk/middleware-logger":"3.649.0","@aws-sdk/middleware-recursion-detection":"3.649.0","@aws-sdk/middleware-user-agent":"3.649.0","@aws-sdk/region-config-resolver":"3.649.0","@aws-sdk/types":"3.649.0","@aws-sdk/util-endpoints":"3.649.0","@aws-sdk/util-user-agent-browser":"3.649.0","@aws-sdk/util-user-agent-node":"3.649.0","@smithy/config-resolver":"^3.0.6","@smithy/core":"^2.4.1","@smithy/fetch-http-handler":"^3.2.5","@smithy/hash-node":"^3.0.4","@smithy/invalid-dependency":"^3.0.4","@smithy/middleware-content-length":"^3.0.6","@smithy/middleware-endpoint":"^3.1.1","@smithy/middleware-retry":"^3.0.16","@smithy/middleware-serde":"^3.0.4","@smithy/middleware-stack":"^3.0.4","@smithy/node-config-provider":"^3.1.5","@smithy/node-http-handler":"^3.2.0","@smithy/protocol-http":"^4.1.1","@smithy/smithy-client":"^3.3.0","@smithy/types":"^3.4.0","@smithy/url-parser":"^3.0.4","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.16","@smithy/util-defaults-mode-node":"^3.0.16","@smithy/util-endpoints":"^2.1.0","@smithy/util-middleware":"^3.0.4","@smithy/util-retry":"^3.0.4","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/client-sts":"^3.649.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.650.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.649.0","@aws-sdk/credential-provider-node":"3.650.0","@aws-sdk/middleware-host-header":"3.649.0","@aws-sdk/middleware-logger":"3.649.0","@aws-sdk/middleware-recursion-detection":"3.649.0","@aws-sdk/middleware-user-agent":"3.649.0","@aws-sdk/region-config-resolver":"3.649.0","@aws-sdk/types":"3.649.0","@aws-sdk/util-endpoints":"3.649.0","@aws-sdk/util-user-agent-browser":"3.649.0","@aws-sdk/util-user-agent-node":"3.649.0","@smithy/config-resolver":"^3.0.6","@smithy/core":"^2.4.1","@smithy/fetch-http-handler":"^3.2.5","@smithy/hash-node":"^3.0.4","@smithy/invalid-dependency":"^3.0.4","@smithy/middleware-content-length":"^3.0.6","@smithy/middleware-endpoint":"^3.1.1","@smithy/middleware-retry":"^3.0.16","@smithy/middleware-serde":"^3.0.4","@smithy/middleware-stack":"^3.0.4","@smithy/node-config-provider":"^3.1.5","@smithy/node-http-handler":"^3.2.0","@smithy/protocol-http":"^4.1.1","@smithy/smithy-client":"^3.3.0","@smithy/types":"^3.4.0","@smithy/url-parser":"^3.0.4","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.16","@smithy/util-defaults-mode-node":"^3.0.16","@smithy/util-endpoints":"^2.1.0","@smithy/util-middleware":"^3.0.4","@smithy/util-retry":"^3.0.4","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/client-sts":"^3.650.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
-/***/ 1868:
+/***/ 5826:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.649.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.649.0","@aws-sdk/middleware-host-header":"3.649.0","@aws-sdk/middleware-logger":"3.649.0","@aws-sdk/middleware-recursion-detection":"3.649.0","@aws-sdk/middleware-user-agent":"3.649.0","@aws-sdk/region-config-resolver":"3.649.0","@aws-sdk/types":"3.649.0","@aws-sdk/util-endpoints":"3.649.0","@aws-sdk/util-user-agent-browser":"3.649.0","@aws-sdk/util-user-agent-node":"3.649.0","@smithy/config-resolver":"^3.0.6","@smithy/core":"^2.4.1","@smithy/fetch-http-handler":"^3.2.5","@smithy/hash-node":"^3.0.4","@smithy/invalid-dependency":"^3.0.4","@smithy/middleware-content-length":"^3.0.6","@smithy/middleware-endpoint":"^3.1.1","@smithy/middleware-retry":"^3.0.16","@smithy/middleware-serde":"^3.0.4","@smithy/middleware-stack":"^3.0.4","@smithy/node-config-provider":"^3.1.5","@smithy/node-http-handler":"^3.2.0","@smithy/protocol-http":"^4.1.1","@smithy/smithy-client":"^3.3.0","@smithy/types":"^3.4.0","@smithy/url-parser":"^3.0.4","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.16","@smithy/util-defaults-mode-node":"^3.0.16","@smithy/util-endpoints":"^2.1.0","@smithy/util-middleware":"^3.0.4","@smithy/util-retry":"^3.0.4","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.650.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.649.0","@aws-sdk/middleware-host-header":"3.649.0","@aws-sdk/middleware-logger":"3.649.0","@aws-sdk/middleware-recursion-detection":"3.649.0","@aws-sdk/middleware-user-agent":"3.649.0","@aws-sdk/region-config-resolver":"3.649.0","@aws-sdk/types":"3.649.0","@aws-sdk/util-endpoints":"3.649.0","@aws-sdk/util-user-agent-browser":"3.649.0","@aws-sdk/util-user-agent-node":"3.649.0","@smithy/config-resolver":"^3.0.6","@smithy/core":"^2.4.1","@smithy/fetch-http-handler":"^3.2.5","@smithy/hash-node":"^3.0.4","@smithy/invalid-dependency":"^3.0.4","@smithy/middleware-content-length":"^3.0.6","@smithy/middleware-endpoint":"^3.1.1","@smithy/middleware-retry":"^3.0.16","@smithy/middleware-serde":"^3.0.4","@smithy/middleware-stack":"^3.0.4","@smithy/node-config-provider":"^3.1.5","@smithy/node-http-handler":"^3.2.0","@smithy/protocol-http":"^4.1.1","@smithy/smithy-client":"^3.3.0","@smithy/types":"^3.4.0","@smithy/url-parser":"^3.0.4","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.16","@smithy/util-defaults-mode-node":"^3.0.16","@smithy/util-endpoints":"^2.1.0","@smithy/util-middleware":"^3.0.4","@smithy/util-retry":"^3.0.4","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
-/***/ 5816:
+/***/ 998:
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.649.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.649.0","@aws-sdk/core":"3.649.0","@aws-sdk/credential-provider-node":"3.649.0","@aws-sdk/middleware-host-header":"3.649.0","@aws-sdk/middleware-logger":"3.649.0","@aws-sdk/middleware-recursion-detection":"3.649.0","@aws-sdk/middleware-user-agent":"3.649.0","@aws-sdk/region-config-resolver":"3.649.0","@aws-sdk/types":"3.649.0","@aws-sdk/util-endpoints":"3.649.0","@aws-sdk/util-user-agent-browser":"3.649.0","@aws-sdk/util-user-agent-node":"3.649.0","@smithy/config-resolver":"^3.0.6","@smithy/core":"^2.4.1","@smithy/fetch-http-handler":"^3.2.5","@smithy/hash-node":"^3.0.4","@smithy/invalid-dependency":"^3.0.4","@smithy/middleware-content-length":"^3.0.6","@smithy/middleware-endpoint":"^3.1.1","@smithy/middleware-retry":"^3.0.16","@smithy/middleware-serde":"^3.0.4","@smithy/middleware-stack":"^3.0.4","@smithy/node-config-provider":"^3.1.5","@smithy/node-http-handler":"^3.2.0","@smithy/protocol-http":"^4.1.1","@smithy/smithy-client":"^3.3.0","@smithy/types":"^3.4.0","@smithy/url-parser":"^3.0.4","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.16","@smithy/util-defaults-mode-node":"^3.0.16","@smithy/util-endpoints":"^2.1.0","@smithy/util-middleware":"^3.0.4","@smithy/util-retry":"^3.0.4","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.650.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.650.0","@aws-sdk/core":"3.649.0","@aws-sdk/credential-provider-node":"3.650.0","@aws-sdk/middleware-host-header":"3.649.0","@aws-sdk/middleware-logger":"3.649.0","@aws-sdk/middleware-recursion-detection":"3.649.0","@aws-sdk/middleware-user-agent":"3.649.0","@aws-sdk/region-config-resolver":"3.649.0","@aws-sdk/types":"3.649.0","@aws-sdk/util-endpoints":"3.649.0","@aws-sdk/util-user-agent-browser":"3.649.0","@aws-sdk/util-user-agent-node":"3.649.0","@smithy/config-resolver":"^3.0.6","@smithy/core":"^2.4.1","@smithy/fetch-http-handler":"^3.2.5","@smithy/hash-node":"^3.0.4","@smithy/invalid-dependency":"^3.0.4","@smithy/middleware-content-length":"^3.0.6","@smithy/middleware-endpoint":"^3.1.1","@smithy/middleware-retry":"^3.0.16","@smithy/middleware-serde":"^3.0.4","@smithy/middleware-stack":"^3.0.4","@smithy/node-config-provider":"^3.1.5","@smithy/node-http-handler":"^3.2.0","@smithy/protocol-http":"^4.1.1","@smithy/smithy-client":"^3.3.0","@smithy/types":"^3.4.0","@smithy/url-parser":"^3.0.4","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.16","@smithy/util-defaults-mode-node":"^3.0.16","@smithy/util-endpoints":"^2.1.0","@smithy/util-middleware":"^3.0.4","@smithy/util-retry":"^3.0.4","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ })
 
@@ -57322,7 +57126,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(9093);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(8476);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(507);
 
 
 async function run() {
