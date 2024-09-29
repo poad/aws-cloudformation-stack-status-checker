@@ -33,7 +33,7 @@
     "@aws-sdk/client-cloudformation": "^3.658.1"
   },
   "devDependencies": {
-    "@types/node": "^20.16.9",
+    "@types/node": "^20.16.10",
     "@vercel/ncc": "^0.38.2",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
