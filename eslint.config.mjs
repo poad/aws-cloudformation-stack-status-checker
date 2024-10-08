@@ -1,43 +1,41 @@
 // @ts-check
 
 import eslint from '@eslint/js';
+import stylistic from '@stylistic/eslint-plugin';
+import stylisticTs from '@stylistic/eslint-plugin-ts';
 
-import prettier from 'eslint-config-prettier';
+import github from 'eslint-plugin-github';
+
 import tseslint from 'typescript-eslint';
-import { FlatCompat } from '@eslint/eslintrc';
-
-const compat = new FlatCompat();
 
 export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.strict,
+  ...tseslint.configs.stylistic,
   {
     ignores: [
       '**/*.d.ts',
       '*.{js,jsx}',
-      'app/tsconfig.json',
-      'app/stories',
-      '**/*.css',
       'node_modules/**/*',
-      './.next/*',
-      'out',
-      '.storybook',
+      'dist',
     ],
-  },
-  {
-    files: ['src/**/*.ts'],
-  },
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-    files: ['src/**/*.ts'],
+    files: ['src/**/*.ts', 'app/**/*.{js,jsx,ts,tsx}'],
     extends: [
       ...tseslint.configs.recommended,
     ],
-  },
-  {
-    files: ['app/**/*.{js,jsx,ts,tsx}'],
-    // @ts-ignore
+    plugins: {
+      '@stylistic': stylistic,
+      '@stylistic/ts': stylisticTs,
+      github,
+    },
     rules: {
-      ...prettier.rules,
+      '@stylistic/semi': 'error',
+      '@stylistic/ts/indent': ['error', 2],
+      '@stylistic/jsx/jsx-indent': ['error', 2],
+      'max-len': ['error', 80],
+      'comma-dangle': ['error', 'always-multiline'],
+      quotes: ['error', 'single'],
+      semi: ['error', 'always'],
     },
   },
 );

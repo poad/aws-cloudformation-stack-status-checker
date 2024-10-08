@@ -7,15 +7,10 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "style:fix": "prettier --write '**/*.mts'",
-    "style:check": "prettier --check '**/*.mts'",
-    "eslint:fix": "eslint src/**/*.mts --fix",
-    "eslint:check": "eslint src/**/*.mts",
+    "lint-fix": "eslint src/**/*.mts --fix",
+    "lint": "eslint src/**/*.mts",
     "package": "ncc build --source-map --license licenses.txt",
-    "test": "jest --passWithNoTests",
-    "lint": "pnpm run --parallel /^.*:check$/",
-    "lint-fix": "pnpm run /^.*:fix$/",
-    "all": "pnpm build && pnpm lint-fix && pnpm package && pnpm test"
+    "all": "pnpm build && pnpm lint-fix && pnpm package"
   },
   "repository": {
     "type": "git",
@@ -33,19 +28,18 @@
     "@aws-sdk/client-cloudformation": "^3.666.0"
   },
   "devDependencies": {
-    "@types/node": "^20.16.11",
+    "@stylistic/eslint-plugin": "^2.9.0",
+    "@stylistic/eslint-plugin-js": "^2.9.0",
+    "@stylistic/eslint-plugin-plus": "^2.9.0",
+    "@stylistic/eslint-plugin-ts": "^2.9.0",
+    "@types/node": "^22.7.5",
     "@vercel/ncc": "^0.38.2",
     "eslint": "^9.12.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-github": "^4.10.2",
-    "eslint-plugin-jest": "^28.8.3",
-    "eslint-plugin-prettier": "^5.2.1",
-    "jest": "^29.7.0",
+    "eslint-plugin-github": "^5.0.2",
     "js-yaml": "^4.1.0",
-    "prettier": "^3.3.3",
     "ts-jest": "^29.2.5",
     "typescript": "^5.6.2",
-    "typescript-eslint": "^7.18.0"
+    "typescript-eslint": "^8.8.1"
   },
   "jest": {
     "preset": "ts-jest",

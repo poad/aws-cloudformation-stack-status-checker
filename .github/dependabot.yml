@@ -10,7 +10,9 @@ updates:
           - '*'
 
   - package-ecosystem: npm
-    directory: /
+    directories:
+      - /
+      - /test/
     schedule:
       interval: daily
     groups:
