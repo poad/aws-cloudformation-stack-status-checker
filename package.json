@@ -41,25 +41,6 @@
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.8.1"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "clearMocks": true,
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "mjs",
-      "mts"
-    ],
-    "testMatch": [
-      "**/*.test.ts",
-      "**/*.test.mts"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "verbose": true
-  },
   "engines": {
     "npm": "use pnpm please!",
     "pnpm": ">=9.0.0"

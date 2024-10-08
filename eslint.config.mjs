@@ -19,7 +19,7 @@ export default tseslint.config(
       'node_modules/**/*',
       'dist',
     ],
-    files: ['src/**/*.ts', 'app/**/*.{js,jsx,ts,tsx}'],
+    files: ['src/**/*.{mts,ts}', 'test/**/*.{js,ts}'],
     extends: [
       ...tseslint.configs.recommended,
     ],
@@ -31,7 +31,6 @@ export default tseslint.config(
     rules: {
       '@stylistic/semi': 'error',
       '@stylistic/ts/indent': ['error', 2],
-      '@stylistic/jsx/jsx-indent': ['error', 2],
       'max-len': ['error', 80],
       'comma-dangle': ['error', 'always-multiline'],
       quotes: ['error', 'single'],
