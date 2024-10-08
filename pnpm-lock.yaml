@@ -67,9 +67,6 @@ importers:
       '@types/node':
         specifier: ^22.7.5
         version: 22.7.5
-      '@types/prettier':
-        specifier: ^2.7.3
-        version: 2.7.3
       aws-cdk:
         specifier: ^2.161.1
         version: 2.161.1
@@ -821,9 +818,6 @@ packages:
 
   '@types/node@22.7.5':
     resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
-
-  '@types/prettier@2.7.3':
-    resolution: {integrity: sha512-+68kP9yzs4LMp7VNh8gdzMSPZFL44MLGqiHWvttYJe+6qnuVr4Ek9wSBQoveqY/r+LwjCcU29kNVkidwim+kYA==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -3866,8 +3860,6 @@ snapshots:
   '@types/node@22.7.5':
     dependencies:
       undici-types: 6.19.8
-
-  '@types/prettier@2.7.3': {}
 
   '@types/stack-utils@2.0.3': {}
 
