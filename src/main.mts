@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import {
   CloudFormationClient,
-  DescribeStacksCommand
+  DescribeStacksCommand,
 } from '@aws-sdk/client-cloudformation';
 
 async function run(): Promise<void> {
@@ -9,12 +9,12 @@ async function run(): Promise<void> {
     const StackName: string = core.getInput('stack-name', {required: true});
     const region = core.getInput('region', {required: false});
     const client = new CloudFormationClient(
-      region && region.length > 0 ? {region} : {}
+      region && region.length > 0 ? {region} : {},
     );
     const resp = await client.send(
       new DescribeStacksCommand({
-        StackName
-      })
+        StackName,
+      }),
     );
 
     if (resp.Stacks === undefined) {

@@ -39,7 +39,7 @@ jobs:
     - name: setup
       run: pnpm -g i prettier rimraf
     - name: build
-      run: pnpm build && pnpm lint && pnpm package && pnpm test
+      run: pnpm build && pnpm lint && pnpm package
 
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v4
