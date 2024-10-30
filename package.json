@@ -25,21 +25,21 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@aws-sdk/client-cloudformation": "^3.679.0"
+    "@aws-sdk/client-cloudformation": "^3.682.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2.9.0",
     "@stylistic/eslint-plugin-js": "^2.9.0",
     "@stylistic/eslint-plugin-plus": "^2.9.0",
     "@stylistic/eslint-plugin-ts": "^2.9.0",
-    "@types/node": "^22.8.2",
+    "@types/node": "^22.8.4",
     "@vercel/ncc": "^0.38.2",
     "eslint": "^9.13.0",
     "eslint-plugin-github": "^5.0.2",
     "js-yaml": "^4.1.0",
     "ts-jest": "^29.2.5",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.12.1"
+    "typescript-eslint": "^8.12.2"
   },
   "engines": {
     "npm": "use pnpm please!",
