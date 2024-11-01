@@ -14754,7 +14754,7 @@ var waitUntilTypeRegistrationComplete = /* @__PURE__ */ __name(async (params, in
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const tslib_1 = __nccwpck_require__(527);
+const tslib_1 = __nccwpck_require__(5034);
 const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(9335));
 const core_1 = __nccwpck_require__(7402);
 const credential_provider_node_1 = __nccwpck_require__(7457);
@@ -15991,7 +15991,7 @@ var SSOOIDC = _SSOOIDC;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const tslib_1 = __nccwpck_require__(527);
+const tslib_1 = __nccwpck_require__(5034);
 const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(118));
 const core_1 = __nccwpck_require__(7402);
 const credential_provider_node_1 = __nccwpck_require__(7457);
@@ -16805,7 +16805,7 @@ var paginateListAccounts = (0, import_core.createPaginator)(SSOClient, ListAccou
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const tslib_1 = __nccwpck_require__(527);
+const tslib_1 = __nccwpck_require__(5034);
 const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(7981));
 const core_1 = __nccwpck_require__(7402);
 const util_user_agent_node_1 = __nccwpck_require__(1540);
@@ -18586,7 +18586,7 @@ var decorateDefaultCredentialProvider = /* @__PURE__ */ __name((provider) => (in
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const tslib_1 = __nccwpck_require__(527);
+const tslib_1 = __nccwpck_require__(5034);
 const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(6087));
 const core_1 = __nccwpck_require__(7402);
 const credential_provider_node_1 = __nccwpck_require__(7457);
@@ -18735,7 +18735,7 @@ exports.resolveRuntimeExtensions = resolveRuntimeExtensions;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const tslib_1 = __nccwpck_require__(527);
+const tslib_1 = __nccwpck_require__(5034);
 tslib_1.__exportStar(__nccwpck_require__(6538), exports);
 tslib_1.__exportStar(__nccwpck_require__(2325), exports);
 tslib_1.__exportStar(__nccwpck_require__(9798), exports);
@@ -19483,7 +19483,7 @@ exports.checkUrl = checkUrl;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.fromHttp = void 0;
-const tslib_1 = __nccwpck_require__(527);
+const tslib_1 = __nccwpck_require__(5034);
 const client_1 = __nccwpck_require__(6538);
 const node_http_handler_1 = __nccwpck_require__(1331);
 const property_provider_1 = __nccwpck_require__(8387);
@@ -32906,7 +32906,7 @@ module.exports = toNumber
 
 /***/ }),
 
-/***/ 527:
+/***/ 5034:
 /***/ ((module) => {
 
 /******************************************************************************
@@ -33223,10 +33223,19 @@ var __rewriteRelativeImportExtension;
         o["default"] = v;
     };
 
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+
     __importStar = function (mod) {
         if (mod && mod.__esModule) return mod;
         var result = {};
-        if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
         __setModuleDefault(result, mod);
         return result;
     };
