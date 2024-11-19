@@ -28,10 +28,10 @@
     "@aws-sdk/client-cloudformation": "^3.695.0"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^2.10.1",
-    "@stylistic/eslint-plugin-js": "^2.10.1",
-    "@stylistic/eslint-plugin-plus": "^2.10.1",
-    "@stylistic/eslint-plugin-ts": "^2.10.1",
+    "@stylistic/eslint-plugin": "^2.11.0",
+    "@stylistic/eslint-plugin-js": "^2.11.0",
+    "@stylistic/eslint-plugin-plus": "^2.11.0",
+    "@stylistic/eslint-plugin-ts": "^2.11.0",
     "@types/node": "^22.9.0",
     "@vercel/ncc": "^0.38.3",
     "eslint": "^9.15.0",
