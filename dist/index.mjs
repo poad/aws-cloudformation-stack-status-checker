@@ -3180,7 +3180,7 @@ function copyFile(srcFile, destFile, force) {
 
 /***/ }),
 
-/***/ 9298:
+/***/ 5468:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3234,7 +3234,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 6460:
+/***/ 8226:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3242,7 +3242,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(1827);
 const util_endpoints_2 = __nccwpck_require__(4629);
-const ruleset_1 = __nccwpck_require__(7137);
+const ruleset_1 = __nccwpck_require__(5547);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -3259,7 +3259,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 7137:
+/***/ 5547:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -3273,7 +3273,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 2761:
+/***/ 5491:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3379,6 +3379,7 @@ __export(src_exports, {
   HandlerErrorCode: () => HandlerErrorCode,
   HookFailureMode: () => HookFailureMode,
   HookInvocationPoint: () => HookInvocationPoint,
+  HookResultNotFoundException: () => HookResultNotFoundException,
   HookStatus: () => HookStatus,
   HookTargetType: () => HookTargetType,
   IdentityProvider: () => IdentityProvider,
@@ -3391,6 +3392,8 @@ __export(src_exports, {
   ListChangeSetsCommand: () => ListChangeSetsCommand,
   ListExportsCommand: () => ListExportsCommand,
   ListGeneratedTemplatesCommand: () => ListGeneratedTemplatesCommand,
+  ListHookResultsCommand: () => ListHookResultsCommand,
+  ListHookResultsTargetType: () => ListHookResultsTargetType,
   ListImportsCommand: () => ListImportsCommand,
   ListResourceScanRelatedResourcesCommand: () => ListResourceScanRelatedResourcesCommand,
   ListResourceScanResourcesCommand: () => ListResourceScanResourcesCommand,
@@ -3529,7 +3532,7 @@ var import_middleware_content_length = __nccwpck_require__(8748);
 var import_middleware_endpoint = __nccwpck_require__(4792);
 var import_middleware_retry = __nccwpck_require__(1600);
 
-var import_httpAuthSchemeProvider = __nccwpck_require__(9298);
+var import_httpAuthSchemeProvider = __nccwpck_require__(5468);
 
 // src/endpoint/EndpointParameters.ts
 var resolveClientEndpointParameters = /* @__PURE__ */ __name((options) => {
@@ -3548,7 +3551,7 @@ var commonParams = {
 };
 
 // src/CloudFormationClient.ts
-var import_runtimeConfig = __nccwpck_require__(7011);
+var import_runtimeConfig = __nccwpck_require__(965);
 
 // src/runtimeExtensions.ts
 var import_region_config_resolver = __nccwpck_require__(8661);
@@ -4462,6 +4465,30 @@ var _StackNotFoundException = class _StackNotFoundException extends CloudFormati
 };
 __name(_StackNotFoundException, "StackNotFoundException");
 var StackNotFoundException = _StackNotFoundException;
+var _HookResultNotFoundException = class _HookResultNotFoundException extends CloudFormationServiceException {
+  /**
+   * @internal
+   */
+  constructor(opts) {
+    super({
+      name: "HookResultNotFoundException",
+      $fault: "client",
+      ...opts
+    });
+    this.name = "HookResultNotFoundException";
+    this.$fault = "client";
+    Object.setPrototypeOf(this, _HookResultNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+};
+__name(_HookResultNotFoundException, "HookResultNotFoundException");
+var HookResultNotFoundException = _HookResultNotFoundException;
+var ListHookResultsTargetType = {
+  CHANGE_SET: "CHANGE_SET",
+  CLOUD_CONTROL: "CLOUD_CONTROL",
+  RESOURCE: "RESOURCE",
+  STACK: "STACK"
+};
 var _ResourceScanInProgressException = class _ResourceScanInProgressException extends CloudFormationServiceException {
   /**
    * @internal
@@ -5074,6 +5101,16 @@ var se_ListGeneratedTemplatesCommand = /* @__PURE__ */ __name(async (input, cont
   });
   return buildHttpRpcRequest(context, headers, "/", void 0, body);
 }, "se_ListGeneratedTemplatesCommand");
+var se_ListHookResultsCommand = /* @__PURE__ */ __name(async (input, context) => {
+  const headers = SHARED_HEADERS;
+  let body;
+  body = buildFormUrlencodedString({
+    ...se_ListHookResultsInput(input, context),
+    [_A]: _LHR,
+    [_V]: _
+  });
+  return buildHttpRpcRequest(context, headers, "/", void 0, body);
+}, "se_ListHookResultsCommand");
 var se_ListImportsCommand = /* @__PURE__ */ __name(async (input, context) => {
   const headers = SHARED_HEADERS;
   let body;
@@ -6032,6 +6069,19 @@ var de_ListGeneratedTemplatesCommand = /* @__PURE__ */ __name(async (output, con
   };
   return response;
 }, "de_ListGeneratedTemplatesCommand");
+var de_ListHookResultsCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await (0, import_core2.parseXmlBody)(output.body, context);
+  let contents = {};
+  contents = de_ListHookResultsOutput(data.ListHookResultsResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_ListHookResultsCommand");
 var de_ListImportsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
@@ -6531,6 +6581,9 @@ var de_CommandError = /* @__PURE__ */ __name(async (output, context) => {
     case "StackNotFoundException":
     case "com.amazonaws.cloudformation#StackNotFoundException":
       throw await de_StackNotFoundExceptionRes(parsedOutput, context);
+    case "HookResultNotFound":
+    case "com.amazonaws.cloudformation#HookResultNotFoundException":
+      throw await de_HookResultNotFoundExceptionRes(parsedOutput, context);
     case "ResourceScanInProgress":
     case "com.amazonaws.cloudformation#ResourceScanInProgressException":
       throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
@@ -6606,6 +6659,15 @@ var de_GeneratedTemplateNotFoundExceptionRes = /* @__PURE__ */ __name(async (par
   });
   return (0, import_smithy_client.decorateServiceException)(exception, body);
 }, "de_GeneratedTemplateNotFoundExceptionRes");
+var de_HookResultNotFoundExceptionRes = /* @__PURE__ */ __name(async (parsedOutput, context) => {
+  const body = parsedOutput.body;
+  const deserialized = de_HookResultNotFoundException(body.Error, context);
+  const exception = new HookResultNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized
+  });
+  return (0, import_smithy_client.decorateServiceException)(exception, body);
+}, "de_HookResultNotFoundExceptionRes");
 var de_InsufficientCapabilitiesExceptionRes = /* @__PURE__ */ __name(async (parsedOutput, context) => {
   const body = parsedOutput.body;
   const deserialized = de_InsufficientCapabilitiesException(body.Error, context);
@@ -7921,6 +7983,19 @@ var se_ListGeneratedTemplatesInput = /* @__PURE__ */ __name((input, context) => 
   }
   return entries;
 }, "se_ListGeneratedTemplatesInput");
+var se_ListHookResultsInput = /* @__PURE__ */ __name((input, context) => {
+  const entries = {};
+  if (input[_TTa] != null) {
+    entries[_TTa] = input[_TTa];
+  }
+  if (input[_TI] != null) {
+    entries[_TI] = input[_TI];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  return entries;
+}, "se_ListHookResultsInput");
 var se_ListImportsInput = /* @__PURE__ */ __name((input, context) => {
   const entries = {};
   if (input[_EN] != null) {
@@ -10139,6 +10214,43 @@ var de_GetTemplateSummaryOutput = /* @__PURE__ */ __name((output, context) => {
   }
   return contents;
 }, "de_GetTemplateSummaryOutput");
+var de_HookResultNotFoundException = /* @__PURE__ */ __name((output, context) => {
+  const contents = {};
+  if (output[_M] != null) {
+    contents[_M] = (0, import_smithy_client.expectString)(output[_M]);
+  }
+  return contents;
+}, "de_HookResultNotFoundException");
+var de_HookResultSummaries = /* @__PURE__ */ __name((output, context) => {
+  return (output || []).filter((e) => e != null).map((entry) => {
+    return de_HookResultSummary(entry, context);
+  });
+}, "de_HookResultSummaries");
+var de_HookResultSummary = /* @__PURE__ */ __name((output, context) => {
+  const contents = {};
+  if (output[_IP] != null) {
+    contents[_IP] = (0, import_smithy_client.expectString)(output[_IP]);
+  }
+  if (output[_FM] != null) {
+    contents[_FM] = (0, import_smithy_client.expectString)(output[_FM]);
+  }
+  if (output[_TN] != null) {
+    contents[_TN] = (0, import_smithy_client.expectString)(output[_TN]);
+  }
+  if (output[_TVI] != null) {
+    contents[_TVI] = (0, import_smithy_client.expectString)(output[_TVI]);
+  }
+  if (output[_TCVI] != null) {
+    contents[_TCVI] = (0, import_smithy_client.expectString)(output[_TCVI]);
+  }
+  if (output[_S] != null) {
+    contents[_S] = (0, import_smithy_client.expectString)(output[_S]);
+  }
+  if (output[_HSR] != null) {
+    contents[_HSR] = (0, import_smithy_client.expectString)(output[_HSR]);
+  }
+  return contents;
+}, "de_HookResultSummary");
 var de_Imports = /* @__PURE__ */ __name((output, context) => {
   return (output || []).filter((e) => e != null).map((entry) => {
     return (0, import_smithy_client.expectString)(entry);
@@ -10231,6 +10343,24 @@ var de_ListGeneratedTemplatesOutput = /* @__PURE__ */ __name((output, context) =
   }
   return contents;
 }, "de_ListGeneratedTemplatesOutput");
+var de_ListHookResultsOutput = /* @__PURE__ */ __name((output, context) => {
+  const contents = {};
+  if (output[_TTa] != null) {
+    contents[_TTa] = (0, import_smithy_client.expectString)(output[_TTa]);
+  }
+  if (output[_TI] != null) {
+    contents[_TI] = (0, import_smithy_client.expectString)(output[_TI]);
+  }
+  if (output.HookResults === "") {
+    contents[_HR] = [];
+  } else if (output[_HR] != null && output[_HR][_m] != null) {
+    contents[_HR] = de_HookResultSummaries((0, import_smithy_client.getArrayIfSingleItem)(output[_HR][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = (0, import_smithy_client.expectString)(output[_NT]);
+  }
+  return contents;
+}, "de_ListHookResultsOutput");
 var de_ListImportsOutput = /* @__PURE__ */ __name((output, context) => {
   const contents = {};
   if (output.Imports === "") {
@@ -12346,6 +12476,7 @@ var _H = "Hooks";
 var _HFM = "HookFailureMode";
 var _HIC = "HookInvocationCount";
 var _HIP = "HookInvocationPoint";
+var _HR = "HookResults";
 var _HS = "HookStatus";
 var _HSR = "HookStatusReason";
 var _HT = "HookType";
@@ -12371,6 +12502,7 @@ var _LDCT = "LastDriftCheckTimestamp";
 var _LE = "ListExports";
 var _LGN = "LogGroupName";
 var _LGT = "ListGeneratedTemplates";
+var _LHR = "ListHookResults";
 var _LI = "ListImports";
 var _LIH = "LogicalIdHierarchy";
 var _LOI = "LastOperationId";
@@ -12569,6 +12701,7 @@ var _TCy = "TypeConfigurations";
 var _TD = "TargetDetails";
 var _TDe = "TemplateDescription";
 var _TH = "TypeHierarchy";
+var _TI = "TargetId";
 var _TIM = "TimeoutInMinutes";
 var _TK = "TagKey";
 var _TN = "TypeName";
@@ -13308,6 +13441,20 @@ var _ListGeneratedTemplatesCommand = class _ListGeneratedTemplatesCommand extend
 __name(_ListGeneratedTemplatesCommand, "ListGeneratedTemplatesCommand");
 var ListGeneratedTemplatesCommand = _ListGeneratedTemplatesCommand;
 
+// src/commands/ListHookResultsCommand.ts
+
+
+
+var _ListHookResultsCommand = class _ListHookResultsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+  return [
+    (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
+    (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
+  ];
+}).s("CloudFormation", "ListHookResults", {}).n("CloudFormationClient", "ListHookResultsCommand").f(void 0, void 0).ser(se_ListHookResultsCommand).de(de_ListHookResultsCommand).build() {
+};
+__name(_ListHookResultsCommand, "ListHookResultsCommand");
+var ListHookResultsCommand = _ListHookResultsCommand;
+
 // src/commands/ListImportsCommand.ts
 
 
@@ -13821,6 +13968,7 @@ var commands = {
   ListChangeSetsCommand,
   ListExportsCommand,
   ListGeneratedTemplatesCommand,
+  ListHookResultsCommand,
   ListImportsCommand,
   ListResourceScanRelatedResourcesCommand,
   ListResourceScanResourcesCommand,
@@ -14748,14 +14896,14 @@ var waitUntilTypeRegistrationComplete = /* @__PURE__ */ __name(async (params, in
 
 /***/ }),
 
-/***/ 7011:
+/***/ 965:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(1577);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(873));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(8056));
 const core_1 = __nccwpck_require__(1755);
 const credential_provider_node_1 = __nccwpck_require__(7391);
 const util_user_agent_node_1 = __nccwpck_require__(4219);
@@ -14766,7 +14914,7 @@ const node_config_provider_1 = __nccwpck_require__(4940);
 const node_http_handler_1 = __nccwpck_require__(5765);
 const util_body_length_node_1 = __nccwpck_require__(7605);
 const util_retry_1 = __nccwpck_require__(5574);
-const runtimeConfig_shared_1 = __nccwpck_require__(5024);
+const runtimeConfig_shared_1 = __nccwpck_require__(858);
 const smithy_client_1 = __nccwpck_require__(5131);
 const util_defaults_mode_node_1 = __nccwpck_require__(6516);
 const smithy_client_2 = __nccwpck_require__(5131);
@@ -14805,7 +14953,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 5024:
+/***/ 858:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14816,8 +14964,8 @@ const smithy_client_1 = __nccwpck_require__(5131);
 const url_parser_1 = __nccwpck_require__(1222);
 const util_base64_1 = __nccwpck_require__(1903);
 const util_utf8_1 = __nccwpck_require__(3919);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(9298);
-const endpointResolver_1 = __nccwpck_require__(6460);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(5468);
+const endpointResolver_1 = __nccwpck_require__(8226);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -58330,10 +58478,10 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 873:
+/***/ 8056:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.693.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.693.0","@aws-sdk/client-sts":"3.693.0","@aws-sdk/core":"3.693.0","@aws-sdk/credential-provider-node":"3.693.0","@aws-sdk/middleware-host-header":"3.693.0","@aws-sdk/middleware-logger":"3.693.0","@aws-sdk/middleware-recursion-detection":"3.693.0","@aws-sdk/middleware-user-agent":"3.693.0","@aws-sdk/region-config-resolver":"3.693.0","@aws-sdk/types":"3.692.0","@aws-sdk/util-endpoints":"3.693.0","@aws-sdk/util-user-agent-browser":"3.693.0","@aws-sdk/util-user-agent-node":"3.693.0","@smithy/config-resolver":"^3.0.11","@smithy/core":"^2.5.2","@smithy/fetch-http-handler":"^4.1.0","@smithy/hash-node":"^3.0.9","@smithy/invalid-dependency":"^3.0.9","@smithy/middleware-content-length":"^3.0.11","@smithy/middleware-endpoint":"^3.2.2","@smithy/middleware-retry":"^3.0.26","@smithy/middleware-serde":"^3.0.9","@smithy/middleware-stack":"^3.0.9","@smithy/node-config-provider":"^3.1.10","@smithy/node-http-handler":"^3.3.0","@smithy/protocol-http":"^4.1.6","@smithy/smithy-client":"^3.4.3","@smithy/types":"^3.7.0","@smithy/url-parser":"^3.0.9","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.26","@smithy/util-defaults-mode-node":"^3.0.26","@smithy/util-endpoints":"^2.1.5","@smithy/util-middleware":"^3.0.9","@smithy/util-retry":"^3.0.9","@smithy/util-utf8":"^3.0.0","@smithy/util-waiter":"^3.1.8","@types/uuid":"^9.0.1","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.695.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.693.0","@aws-sdk/client-sts":"3.693.0","@aws-sdk/core":"3.693.0","@aws-sdk/credential-provider-node":"3.693.0","@aws-sdk/middleware-host-header":"3.693.0","@aws-sdk/middleware-logger":"3.693.0","@aws-sdk/middleware-recursion-detection":"3.693.0","@aws-sdk/middleware-user-agent":"3.693.0","@aws-sdk/region-config-resolver":"3.693.0","@aws-sdk/types":"3.692.0","@aws-sdk/util-endpoints":"3.693.0","@aws-sdk/util-user-agent-browser":"3.693.0","@aws-sdk/util-user-agent-node":"3.693.0","@smithy/config-resolver":"^3.0.11","@smithy/core":"^2.5.2","@smithy/fetch-http-handler":"^4.1.0","@smithy/hash-node":"^3.0.9","@smithy/invalid-dependency":"^3.0.9","@smithy/middleware-content-length":"^3.0.11","@smithy/middleware-endpoint":"^3.2.2","@smithy/middleware-retry":"^3.0.26","@smithy/middleware-serde":"^3.0.9","@smithy/middleware-stack":"^3.0.9","@smithy/node-config-provider":"^3.1.10","@smithy/node-http-handler":"^3.3.0","@smithy/protocol-http":"^4.1.6","@smithy/smithy-client":"^3.4.3","@smithy/types":"^3.7.0","@smithy/url-parser":"^3.0.9","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.26","@smithy/util-defaults-mode-node":"^3.0.26","@smithy/util-endpoints":"^2.1.5","@smithy/util-middleware":"^3.0.9","@smithy/util-retry":"^3.0.9","@smithy/util-utf8":"^3.0.0","@smithy/util-waiter":"^3.1.8","@types/uuid":"^9.0.1","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -58398,7 +58546,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","descrip
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(9999);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(2761);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5491);
 
 
 async function run() {
