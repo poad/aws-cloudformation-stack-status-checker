@@ -39,7 +39,7 @@
     "js-yaml": "^4.1.0",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.17.0"
+    "typescript-eslint": "^8.18.0"
   },
   "engines": {
     "npm": "use pnpm please!",
