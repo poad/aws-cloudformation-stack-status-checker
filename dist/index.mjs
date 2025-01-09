@@ -14222,7 +14222,7 @@ var paginateListTypeVersions = (0, import_core.createPaginator)(CloudFormationCl
 var paginateListTypes = (0, import_core.createPaginator)(CloudFormationClient, ListTypesCommand, "NextToken", "NextToken", "MaxResults");
 
 // src/waiters/waitForChangeSetCreateComplete.ts
-var import_util_waiter = __nccwpck_require__(7704);
+var import_util_waiter = __nccwpck_require__(9683);
 var checkState = /* @__PURE__ */ __name(async (client, input) => {
   let reason;
   try {
@@ -31284,7 +31284,7 @@ var toUtf8 = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 7704:
+/***/ 9683:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -31420,11 +31420,11 @@ var createMessageFromResponse = /* @__PURE__ */ __name((reason) => {
 
 // src/utils/validate.ts
 var validateWaiterOptions = /* @__PURE__ */ __name((options) => {
-  if (options.maxWaitTime < 1) {
+  if (options.maxWaitTime <= 0) {
     throw new Error(`WaiterConfiguration.maxWaitTime must be greater than 0`);
-  } else if (options.minDelay < 1) {
+  } else if (options.minDelay <= 0) {
     throw new Error(`WaiterConfiguration.minDelay must be greater than 0`);
-  } else if (options.maxDelay < 1) {
+  } else if (options.maxDelay <= 0) {
     throw new Error(`WaiterConfiguration.maxDelay must be greater than 0`);
   } else if (options.maxWaitTime <= options.minDelay) {
     throw new Error(
