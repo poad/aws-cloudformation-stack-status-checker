@@ -25,7 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@aws-sdk/client-cloudformation": "^3.738.0"
+    "@aws-sdk/client-cloudformation": "^3.741.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^3.0.1",
@@ -39,7 +39,7 @@
     "js-yaml": "^4.1.0",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.22.0"
+    "typescript-eslint": "^8.23.0"
   },
   "engines": {
     "npm": "use pnpm please!",
