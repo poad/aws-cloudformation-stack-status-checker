@@ -32690,7 +32690,7 @@ exports.defaultOptions = defaultOptions;
 const util = __nccwpck_require__(3612);
 const xmlNode = __nccwpck_require__(1330);
 const readDocType = __nccwpck_require__(2618);
-const toNumber = __nccwpck_require__(1264);
+const toNumber = __nccwpck_require__(8659);
 
 // const regx =
 //   '<((!\\[CDATA\\[([\\s\\S]*?)(]]>))|((NAME:)?(NAME))([^>]*)>|((\\/)(NAME)\\s*>))([^<]*)'
@@ -33504,7 +33504,7 @@ module.exports = XmlNode;
 
 /***/ }),
 
-/***/ 1264:
+/***/ 8659:
 /***/ ((module) => {
 
 const hexRegex = /^[-+]?0x[a-fA-F0-9]+$/;
@@ -33525,11 +33525,11 @@ const consider = {
 function toNumber(str, options = {}){
     options = Object.assign({}, consider, options );
     if(!str || typeof str !== "string" ) return str;
-    else if(str==="0") return 0;
-
+    
     let trimmedStr  = str.trim();
-
+    
     if(options.skipLike !== undefined && options.skipLike.test(trimmedStr)) return str;
+    else if(str==="0") return 0;
     else if (options.hex && hexRegex.test(trimmedStr)) {
         return parse_int(trimmedStr, 16);
     // }else if (options.oct && octRegex.test(str)) {
