@@ -32,7 +32,7 @@
     "@stylistic/eslint-plugin-js": "^4.2.0",
     "@stylistic/eslint-plugin-plus": "^4.2.0",
     "@stylistic/eslint-plugin-ts": "^4.2.0",
-    "@types/node": "^22.13.8",
+    "@types/node": "^22.13.9",
     "@vercel/ncc": "^0.38.3",
     "eslint": "^9.21.0",
     "eslint-plugin-github": "^5.1.8",
@@ -40,11 +40,7 @@
     "pnpm": "^10.5.2",
     "ts-jest": "^29.2.6",
     "typescript": "^5.8.2",
-    "typescript-eslint": "^8.25.0"
-  },
-  "engines": {
-    "npm": "use pnpm please!",
-    "pnpm": ">=9.0.0"
+    "typescript-eslint": "^8.26.0"
   },
   "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
 }
