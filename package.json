@@ -34,10 +34,10 @@
     "@stylistic/eslint-plugin-ts": "^4.2.0",
     "@types/node": "^22.13.9",
     "@vercel/ncc": "^0.38.3",
-    "eslint": "^9.21.0",
+    "eslint": "^9.22.0",
     "eslint-plugin-github": "^5.1.8",
     "js-yaml": "^4.1.0",
-    "pnpm": "^10.6.0",
+    "pnpm": "^10.6.1",
     "ts-jest": "^29.2.6",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.0"
