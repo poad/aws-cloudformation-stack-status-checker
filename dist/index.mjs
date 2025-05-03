@@ -3548,7 +3548,7 @@ var import_config_resolver = __nccwpck_require__(6551);
 var import_core = __nccwpck_require__(992);
 var import_middleware_content_length = __nccwpck_require__(7926);
 var import_middleware_endpoint = __nccwpck_require__(8022);
-var import_middleware_retry = __nccwpck_require__(828);
+var import_middleware_retry = __nccwpck_require__(7743);
 
 var import_httpAuthSchemeProvider = __nccwpck_require__(1857);
 
@@ -15862,11 +15862,11 @@ const credential_provider_node_1 = __nccwpck_require__(5608);
 const util_user_agent_node_1 = __nccwpck_require__(8502);
 const config_resolver_1 = __nccwpck_require__(6551);
 const hash_node_1 = __nccwpck_require__(9806);
-const middleware_retry_1 = __nccwpck_require__(828);
+const middleware_retry_1 = __nccwpck_require__(7743);
 const node_config_provider_1 = __nccwpck_require__(8734);
 const node_http_handler_1 = __nccwpck_require__(9722);
 const util_body_length_node_1 = __nccwpck_require__(9064);
-const util_retry_1 = __nccwpck_require__(2978);
+const util_retry_1 = __nccwpck_require__(6547);
 const runtimeConfig_shared_1 = __nccwpck_require__(3841);
 const smithy_client_1 = __nccwpck_require__(327);
 const util_defaults_mode_node_1 = __nccwpck_require__(237);
@@ -16122,7 +16122,7 @@ var import_config_resolver = __nccwpck_require__(6551);
 var import_core = __nccwpck_require__(992);
 var import_middleware_content_length = __nccwpck_require__(7926);
 var import_middleware_endpoint = __nccwpck_require__(8022);
-var import_middleware_retry = __nccwpck_require__(828);
+var import_middleware_retry = __nccwpck_require__(7743);
 
 var import_httpAuthSchemeProvider = __nccwpck_require__(3805);
 
@@ -16686,11 +16686,11 @@ const core_1 = __nccwpck_require__(6150);
 const util_user_agent_node_1 = __nccwpck_require__(8502);
 const config_resolver_1 = __nccwpck_require__(6551);
 const hash_node_1 = __nccwpck_require__(9806);
-const middleware_retry_1 = __nccwpck_require__(828);
+const middleware_retry_1 = __nccwpck_require__(7743);
 const node_config_provider_1 = __nccwpck_require__(8734);
 const node_http_handler_1 = __nccwpck_require__(9722);
 const util_body_length_node_1 = __nccwpck_require__(9064);
-const util_retry_1 = __nccwpck_require__(2978);
+const util_retry_1 = __nccwpck_require__(6547);
 const runtimeConfig_shared_1 = __nccwpck_require__(1813);
 const smithy_client_1 = __nccwpck_require__(327);
 const util_defaults_mode_node_1 = __nccwpck_require__(237);
@@ -19318,7 +19318,7 @@ var import_config_resolver = __nccwpck_require__(6551);
 var import_core = __nccwpck_require__(992);
 var import_middleware_content_length = __nccwpck_require__(7926);
 var import_middleware_endpoint = __nccwpck_require__(8022);
-var import_middleware_retry = __nccwpck_require__(828);
+var import_middleware_retry = __nccwpck_require__(7743);
 var import_smithy_client2 = __nccwpck_require__(327);
 var import_httpAuthSchemeProvider = __nccwpck_require__(6619);
 
@@ -20132,11 +20132,11 @@ const core_1 = __nccwpck_require__(6150);
 const util_user_agent_node_1 = __nccwpck_require__(8502);
 const config_resolver_1 = __nccwpck_require__(6551);
 const hash_node_1 = __nccwpck_require__(9806);
-const middleware_retry_1 = __nccwpck_require__(828);
+const middleware_retry_1 = __nccwpck_require__(7743);
 const node_config_provider_1 = __nccwpck_require__(8734);
 const node_http_handler_1 = __nccwpck_require__(9722);
 const util_body_length_node_1 = __nccwpck_require__(9064);
-const util_retry_1 = __nccwpck_require__(2978);
+const util_retry_1 = __nccwpck_require__(6547);
 const runtimeConfig_shared_1 = __nccwpck_require__(9611);
 const smithy_client_1 = __nccwpck_require__(327);
 const util_defaults_mode_node_1 = __nccwpck_require__(237);
@@ -20239,7 +20239,7 @@ const config_resolver_1 = __nccwpck_require__(6551);
 const core_1 = __nccwpck_require__(992);
 const middleware_content_length_1 = __nccwpck_require__(7926);
 const middleware_endpoint_1 = __nccwpck_require__(8022);
-const middleware_retry_1 = __nccwpck_require__(828);
+const middleware_retry_1 = __nccwpck_require__(7743);
 const smithy_client_1 = __nccwpck_require__(327);
 Object.defineProperty(exports, "__Client", ({ enumerable: true, get: function () { return smithy_client_1.Client; } }));
 const httpAuthSchemeProvider_1 = __nccwpck_require__(2926);
@@ -21418,11 +21418,11 @@ const util_user_agent_node_1 = __nccwpck_require__(8502);
 const config_resolver_1 = __nccwpck_require__(6551);
 const core_2 = __nccwpck_require__(992);
 const hash_node_1 = __nccwpck_require__(9806);
-const middleware_retry_1 = __nccwpck_require__(828);
+const middleware_retry_1 = __nccwpck_require__(7743);
 const node_config_provider_1 = __nccwpck_require__(8734);
 const node_http_handler_1 = __nccwpck_require__(9722);
 const util_body_length_node_1 = __nccwpck_require__(9064);
-const util_retry_1 = __nccwpck_require__(2978);
+const util_retry_1 = __nccwpck_require__(6547);
 const runtimeConfig_shared_1 = __nccwpck_require__(2404);
 const smithy_client_1 = __nccwpck_require__(327);
 const util_defaults_mode_node_1 = __nccwpck_require__(237);
@@ -24463,7 +24463,7 @@ var resolveEndpointConfig = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 828:
+/***/ 7743:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -24519,7 +24519,7 @@ var import_protocol_http = __nccwpck_require__(1828);
 var import_uuid = __nccwpck_require__(9935);
 
 // src/defaultRetryQuota.ts
-var import_util_retry = __nccwpck_require__(2978);
+var import_util_retry = __nccwpck_require__(6547);
 var getDefaultRetryQuota = /* @__PURE__ */ __name((initialRetryTokens, options) => {
   const MAX_CAPACITY = initialRetryTokens;
   const noRetryIncrement = options?.noRetryIncrement ?? import_util_retry.NO_RETRY_INCREMENT;
@@ -24552,7 +24552,7 @@ var getDefaultRetryQuota = /* @__PURE__ */ __name((initialRetryTokens, options) 
 var defaultDelayDecider = /* @__PURE__ */ __name((delayBase, attempts) => Math.floor(Math.min(import_util_retry.MAXIMUM_RETRY_DELAY, Math.random() * 2 ** attempts * delayBase)), "defaultDelayDecider");
 
 // src/retryDecider.ts
-var import_service_error_classification = __nccwpck_require__(4462);
+var import_service_error_classification = __nccwpck_require__(6371);
 var defaultRetryDecider = /* @__PURE__ */ __name((error) => {
   if (!error) {
     return false;
@@ -24765,7 +24765,7 @@ var getOmitRetryHeadersPlugin = /* @__PURE__ */ __name((options) => ({
 var import_smithy_client = __nccwpck_require__(327);
 
 
-var import_isStreamingPayload = __nccwpck_require__(1305);
+var import_isStreamingPayload = __nccwpck_require__(3030);
 var retryMiddleware = /* @__PURE__ */ __name((options) => (next, context) => async (args) => {
   let retryStrategy = await options.retryStrategy();
   const maxAttempts = await options.maxAttempts();
@@ -24876,7 +24876,7 @@ var getRetryAfterHint = /* @__PURE__ */ __name((response) => {
 
 /***/ }),
 
-/***/ 1305:
+/***/ 3030:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -26782,7 +26782,7 @@ __name(parseQueryString, "parseQueryString");
 
 /***/ }),
 
-/***/ 4462:
+/***/ 6371:
 /***/ ((module) => {
 
 var __defProp = Object.defineProperty;
@@ -26807,6 +26807,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  isBrowserNetworkError: () => isBrowserNetworkError,
   isClockSkewCorrectedError: () => isClockSkewCorrectedError,
   isClockSkewError: () => isClockSkewError,
   isRetryableByTrait: () => isRetryableByTrait,
@@ -26850,8 +26851,27 @@ var NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMED
 var isRetryableByTrait = /* @__PURE__ */ __name((error) => error.$retryable !== void 0, "isRetryableByTrait");
 var isClockSkewError = /* @__PURE__ */ __name((error) => CLOCK_SKEW_ERROR_CODES.includes(error.name), "isClockSkewError");
 var isClockSkewCorrectedError = /* @__PURE__ */ __name((error) => error.$metadata?.clockSkewCorrected, "isClockSkewCorrectedError");
+var isBrowserNetworkError = /* @__PURE__ */ __name((error) => {
+  const errorMessages = /* @__PURE__ */ new Set([
+    "Failed to fetch",
+    // Chrome
+    "NetworkError when attempting to fetch resource",
+    // Firefox
+    "The Internet connection appears to be offline",
+    // Safari 16
+    "Load failed",
+    // Safari 17+
+    "Network request failed"
+    // `cross-fetch`
+  ]);
+  const isValid = error && error instanceof TypeError;
+  if (!isValid) {
+    return false;
+  }
+  return errorMessages.has(error.message);
+}, "isBrowserNetworkError");
 var isThrottlingError = /* @__PURE__ */ __name((error) => error.$metadata?.httpStatusCode === 429 || THROTTLING_ERROR_CODES.includes(error.name) || error.$retryable?.throttling == true, "isThrottlingError");
-var isTransientError = /* @__PURE__ */ __name((error, depth = 0) => isClockSkewCorrectedError(error) || TRANSIENT_ERROR_CODES.includes(error.name) || NODEJS_TIMEOUT_ERROR_CODES.includes(error?.code || "") || TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0) || error.cause !== void 0 && depth <= 10 && isTransientError(error.cause, depth + 1), "isTransientError");
+var isTransientError = /* @__PURE__ */ __name((error, depth = 0) => isClockSkewCorrectedError(error) || TRANSIENT_ERROR_CODES.includes(error.name) || NODEJS_TIMEOUT_ERROR_CODES.includes(error?.code || "") || TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0) || isBrowserNetworkError(error) || error.cause !== void 0 && depth <= 10 && isTransientError(error.cause, depth + 1), "isTransientError");
 var isServerError = /* @__PURE__ */ __name((error) => {
   if (error.$metadata?.httpStatusCode !== void 0) {
     const statusCode = error.$metadata.httpStatusCode;
@@ -30316,7 +30336,7 @@ var normalizeProvider = /* @__PURE__ */ __name((input) => {
 
 /***/ }),
 
-/***/ 2978:
+/***/ 6547:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var __defProp = Object.defineProperty;
@@ -30370,7 +30390,7 @@ var DEFAULT_MAX_ATTEMPTS = 3;
 var DEFAULT_RETRY_MODE = "standard" /* STANDARD */;
 
 // src/DefaultRateLimiter.ts
-var import_service_error_classification = __nccwpck_require__(4462);
+var import_service_error_classification = __nccwpck_require__(6371);
 var DefaultRateLimiter = class _DefaultRateLimiter {
   constructor(options) {
     // Pre-set state variables
