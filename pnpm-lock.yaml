@@ -71,8 +71,8 @@ importers:
         specifier: ^24.0.3
         version: 24.0.3
       aws-cdk:
-        specifier: ^2.1018.1
-        version: 2.1018.1
+        specifier: ^2.1019.1
+        version: 2.1019.1
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@24.0.3)(typescript@5.8.3)
@@ -1078,8 +1078,8 @@ packages:
       - yaml
       - mime-types
 
-  aws-cdk@2.1018.1:
-    resolution: {integrity: sha512-kFPRox5kSm+ktJ451o0ng9rD+60p5Kt1CZIWw8kXnvqbsxN2xv6qbmyWSXw7sGVXVwqrRKVj+71/JeDr+LMAZw==}
+  aws-cdk@2.1019.1:
+    resolution: {integrity: sha512-G2jxKuTsYTrYZX80CDApCrKcZ+AuFxxd+b0dkb0KEkfUsela7RqrDGLm5wOzSCIc3iH6GocR8JDVZuJ+0nNuKg==}
     engines: {node: '>= 18.0.0'}
     hasBin: true
 
@@ -4256,7 +4256,7 @@ snapshots:
       '@aws-cdk/cloud-assembly-schema': 44.5.0
       constructs: 10.4.2
 
-  aws-cdk@2.1018.1:
+  aws-cdk@2.1019.1:
     optionalDependencies:
       fsevents: 2.3.2
 
