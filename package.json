@@ -25,7 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@aws-sdk/client-cloudformation": "^3.840.0"
+    "@aws-sdk/client-cloudformation": "^3.844.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^5.1.0",
