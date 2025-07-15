@@ -25,14 +25,14 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@aws-sdk/client-cloudformation": "^3.844.0"
+    "@aws-sdk/client-cloudformation": "^3.845.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^5.1.0",
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "@stylistic/eslint-plugin-plus": "^4.4.1",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
-    "@types/node": "^24.0.13",
+    "@types/node": "^24.0.14",
     "@vercel/ncc": "^0.38.3",
     "eslint": "^9.31.0",
     "eslint-plugin-github": "^6.0.0",
