@@ -1,3 +1,6 @@
 packages:
   - '.'
   - 'test'
+
+enablePrePostScripts: true
+strictPeerDependencies: false
