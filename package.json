@@ -28,6 +28,7 @@
     "@aws-sdk/client-cloudformation": "^3.864.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.33.0",
     "@stylistic/eslint-plugin": "^5.2.3",
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "@stylistic/eslint-plugin-plus": "^4.4.1",

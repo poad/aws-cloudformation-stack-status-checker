@@ -2,7 +2,6 @@
 
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
 
 import github from 'eslint-plugin-github';
 
@@ -25,16 +24,15 @@ export default tseslint.config(
     ],
     plugins: {
       '@stylistic': stylistic,
-      '@stylistic/ts': stylisticTs,
+      '@stylistic/ts': stylistic,
       github,
     },
     rules: {
-      '@stylistic/semi': 'error',
+      '@stylistic/semi': ['error', 'always'],
       '@stylistic/ts/indent': ['error', 2],
-      'max-len': ['error', 80],
-      'comma-dangle': ['error', 'always-multiline'],
-      quotes: ['error', 'single'],
-      semi: ['error', 'always'],
+      '@stylistic/max-len': ['error', 80],
+      '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      '@stylistic/quotes': ['error', 'single'],
     },
   },
 );
