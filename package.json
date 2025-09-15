@@ -33,15 +33,15 @@
     "@stylistic/eslint-plugin-js": "^4.4.1",
     "@stylistic/eslint-plugin-plus": "^4.4.1",
     "@stylistic/eslint-plugin-ts": "^4.4.1",
-    "@types/node": "^24.4.0",
+    "@types/node": "^24.5.0",
     "@vercel/ncc": "^0.38.3",
     "eslint": "^9.35.0",
     "eslint-plugin-github": "^6.0.0",
     "js-yaml": "^4.1.0",
     "pnpm": "^10.16.1",
-    "ts-jest": "^29.4.1",
+    "ts-jest": "^29.4.2",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.43.0"
+    "typescript-eslint": "^8.44.0"
   },
   "packageManager": "pnpm@10.16.1"
 }
