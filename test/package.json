@@ -11,8 +11,8 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@types/node": "^24.5.0",
-    "aws-cdk": "^2.1029.1",
+    "@types/node": "^24.5.1",
+    "aws-cdk": "^2.1029.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
