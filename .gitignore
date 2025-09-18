@@ -99,5 +99,3 @@ __tests__/runner/*
 # lib/**/*
 
 node_modules
-
-!eslint.config.js

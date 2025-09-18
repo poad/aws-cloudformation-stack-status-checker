@@ -15,12 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Use Node.js
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v5
         with:
-          node-version: 'lts/*'
+          node-version: 24.x
           check-latest: true
-          package-manager-cache: pnpm
+          package-manager-cache: false
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm

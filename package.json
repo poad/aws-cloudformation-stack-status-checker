@@ -2,15 +2,16 @@
   "name": "aws-cloudformation-stack-status-checker",
   "version": "2.0.0",
   "private": true,
-  "description": "TypeScript template action",
-  "main": "lib/main.mjs",
+  "description": "AWS CloudFormation Stack status checker for GitHub Action",
+  "main": "dist/main.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "lint-fix": "eslint src/**/*.mts --fix",
-    "lint": "eslint src/**/*.mts",
-    "package": "ncc build --source-map --license licenses.txt",
-    "all": "pnpm build && pnpm lint-fix && pnpm package"
+    "build": "tsc -p tsconfig-build.json",
+    "clean": "rimraf dist",
+    "lint-fix": "eslint src/**/*.ts --fix",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --license licenses.txt --target es2022",
+    "all": "pnpm clean && pnpm build && pnpm lint-fix && pnpm package"
   },
   "repository": {
     "type": "git",
@@ -25,20 +26,19 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@aws-sdk/client-cloudformation": "^3.891.0"
+    "@aws-sdk/client-cloudformation": "^3.890.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@stylistic/eslint-plugin": "^5.3.1",
-    "@stylistic/eslint-plugin-js": "^4.4.1",
-    "@stylistic/eslint-plugin-plus": "^4.4.1",
-    "@stylistic/eslint-plugin-ts": "^4.4.1",
     "@types/node": "^24.5.1",
     "@vercel/ncc": "^0.38.3",
     "eslint": "^9.35.0",
     "eslint-plugin-github": "^6.0.0",
+    "jiti": "^2.5.1",
     "js-yaml": "^4.1.0",
     "pnpm": "^10.17.0",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.4.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.0"
