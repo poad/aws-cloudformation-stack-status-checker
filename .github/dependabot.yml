@@ -4,6 +4,8 @@ updates:
     directory: /
     schedule:
       interval: daily
+    cooldown:
+      default-days: 1
     groups:
       actions:
         patterns:
@@ -15,6 +17,10 @@ updates:
       - /test/
     schedule:
       interval: daily
+    cooldown:
+      default-days: 1
+      exclude:
+        - 'pnpm'
     groups:
       npm:
         patterns:
