@@ -9,4 +9,3 @@ strictPeerDependencies: false
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
  - pnpm
- - appstore-connect-jwt-generator-core

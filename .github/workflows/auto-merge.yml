@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   pull-request-auto-merge:
+    if: ${{ !github.event.pull_request.draft }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5

@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "commonjs",
+    "module": "nodenext",
     "lib": [
       "esnext",
       "DOM"
     ],
     "strict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "outDir": "./dist",
-    "rootDir": "./src",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "declaration": false,
