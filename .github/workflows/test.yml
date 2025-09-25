@@ -21,35 +21,36 @@ jobs:
       AWS_REGION: us-west-2
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
     - name: Use Node.js
-      uses: actions/setup-node@v5
+      uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
       with:
         node-version: 'lts/*'
         check-latest: true
         package-manager-cache: pnpm
 
-    - uses: pnpm/action-setup@v4
+    - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       name: Install pnpm
       with:
         run_install: |
           - recursive: true
             args: [--no-frozen-lockfile, --strict-peer-dependencies]
 
-    - uses: oven-sh/setup-bun@v2
+    - uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
 
     - name: build
       run: bun run --bun build && bun run --bun lint && bun run --bun package
 
     - name: configure aws credentials
-      uses: aws-actions/configure-aws-credentials@v5
+      uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838  # v5.0.0
       with:
         role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
         role-session-name: GitHubActions
         aws-region: ${{ env.AWS_REGION }}
 
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
     - uses: ./
       id: stack-status
       with:
@@ -68,24 +69,24 @@ jobs:
       id: gen-timestamp
       run: echo "timestamp=$(date +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
 
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
     - name: configure aws credentials
-      uses: aws-actions/configure-aws-credentials@v5
+      uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838  # v5.0.0
       with:
         role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
         role-session-name: GitHubActions
         aws-region: ${{ env.AWS_REGION }}
 
-    - name: Use Node.js 24.x
-      uses: actions/setup-node@v5
+    - name: Use Node.js
+      uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
       with:
         node-version: 24.x
         check-latest: true
         package-manager-cache: false
 
-    - uses: pnpm/action-setup@v4
-      name: Install pnpm
+    - name: Install pnpm
+      uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       with:
         run_install: |
           - recursive: true
