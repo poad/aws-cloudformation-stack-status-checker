@@ -37,10 +37,8 @@ jobs:
           - recursive: true
             args: [--no-frozen-lockfile, --strict-peer-dependencies]
 
-    - uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
-
     - name: build
-      run: bun run --bun build && bun run --bun lint && bun run --bun package
+      run: pnpm build && pnpm lint && pnpm package
 
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@a03048d87541d1d9fcf2ecf528a4a65ba9bd7838  # v5.0.0

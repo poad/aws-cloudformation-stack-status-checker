@@ -32,13 +32,8 @@ jobs:
             - recursive: true
               args: [--no-frozen-lockfile, --strict-peer-dependencies]
 
-      - uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
-        name: Install Bun
-        with:
-          bun-version: latest
-
       - name: Rebuild the dist/ directory
-        run: rm -rf dist && bun run --bun build && bun run --bun package
+        run: rm -rf dist && pnpm build && pnpm package
 
       - name: Compare the expected and actual dist/ directories
         run: |
