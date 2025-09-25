@@ -45,6 +45,6 @@ To check the stack for a region other than the default region, specify `region` 
 
 Any contributions made under this project will be governed by the [MIT License](LICENSE)
 
-## セキュリティ・ポリシー
+## Security Policy
 
 [SECURITY.md](./SECURITY.md) をご覧ください。
