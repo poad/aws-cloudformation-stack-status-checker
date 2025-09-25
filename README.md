@@ -47,4 +47,4 @@ Any contributions made under this project will be governed by the [MIT License](
 
 ## セキュリティ・ポリシー
 
-[.github/SECURITY.md](.github/SECURITY.md) をご覧ください。
+[SECURITY.md](./SECURITY.md) をご覧ください。
