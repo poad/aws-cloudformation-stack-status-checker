@@ -8,12 +8,12 @@ on:
       - '**.md'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   check-dist:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
 
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -25,8 +25,8 @@ jobs:
           check-latest: true
           package-manager-cache: false
 
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-        name: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
         with:
           run_install: |
             - recursive: true
@@ -35,7 +35,7 @@ jobs:
       - uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
         name: Install Bun
         with:
-          bun-version: stable
+          bun-version: latest
 
       - name: Rebuild the dist/ directory
         run: rm -rf dist && bun run --bun build && bun run --bun package
