@@ -3253,13 +3253,13 @@ exports.InvokeStore = InvokeStore;
 
 /***/ }),
 
-/***/ 7933:
+/***/ 2591:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(583);
+const core_1 = __nccwpck_require__(4134);
 const util_middleware_1 = __nccwpck_require__(1202);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -3307,15 +3307,15 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 1267:
+/***/ 3513:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(2213);
+const util_endpoints_1 = __nccwpck_require__(9758);
 const util_endpoints_2 = __nccwpck_require__(4279);
-const ruleset_1 = __nccwpck_require__(6232);
+const ruleset_1 = __nccwpck_require__(4674);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -3332,7 +3332,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 6232:
+/***/ 4674:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -3346,29 +3346,27 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 8034:
+/***/ 8332:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
 
 
-var middlewareHostHeader = __nccwpck_require__(9497);
-var middlewareLogger = __nccwpck_require__(3529);
-var middlewareRecursionDetection = __nccwpck_require__(1993);
-var middlewareUserAgent = __nccwpck_require__(8727);
+var middlewareHostHeader = __nccwpck_require__(9058);
+var middlewareLogger = __nccwpck_require__(5808);
+var middlewareRecursionDetection = __nccwpck_require__(6482);
+var middlewareUserAgent = __nccwpck_require__(2512);
 var configResolver = __nccwpck_require__(7358);
-var core = __nccwpck_require__(2983);
+var core = __nccwpck_require__(6304);
+var schema = __nccwpck_require__(3392);
 var middlewareContentLength = __nccwpck_require__(5550);
-var middlewareEndpoint = __nccwpck_require__(7469);
-var middlewareRetry = __nccwpck_require__(2260);
-var smithyClient = __nccwpck_require__(1715);
-var httpAuthSchemeProvider = __nccwpck_require__(7933);
-var runtimeConfig = __nccwpck_require__(5348);
-var regionConfigResolver = __nccwpck_require__(9894);
+var middlewareEndpoint = __nccwpck_require__(1251);
+var middlewareRetry = __nccwpck_require__(2386);
+var smithyClient = __nccwpck_require__(3487);
+var httpAuthSchemeProvider = __nccwpck_require__(2591);
+var runtimeConfig = __nccwpck_require__(8062);
+var regionConfigResolver = __nccwpck_require__(8540);
 var protocolHttp = __nccwpck_require__(1034);
-var middlewareSerde = __nccwpck_require__(6140);
-var core$1 = __nccwpck_require__(583);
-var uuid = __nccwpck_require__(7919);
 var utilWaiter = __nccwpck_require__(8946);
 
 const resolveClientEndpointParameters = (options) => {
@@ -3445,6 +3443,7 @@ class CloudFormationClient extends smithyClient.Client {
         const _config_7 = httpAuthSchemeProvider.resolveHttpAuthSchemeConfig(_config_6);
         const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
         this.config = _config_8;
+        this.middlewareStack.use(schema.getSchemaSerdePlugin(this.config));
         this.middlewareStack.use(middlewareUserAgent.getUserAgentPlugin(this.config));
         this.middlewareStack.use(middlewareRetry.getRetryPlugin(this.config));
         this.middlewareStack.use(middlewareContentLength.getContentLengthPlugin(this.config));
@@ -3464,12 +3463,12 @@ class CloudFormationClient extends smithyClient.Client {
     }
 }
 
-class CloudFormationServiceException extends smithyClient.ServiceException {
+let CloudFormationServiceException$1 = class CloudFormationServiceException extends smithyClient.ServiceException {
     constructor(options) {
         super(options);
         Object.setPrototypeOf(this, CloudFormationServiceException.prototype);
     }
-}
+};
 
 const AccountFilterType = {
     DIFFERENCE: "DIFFERENCE",
@@ -3482,7 +3481,7 @@ const AccountGateStatus = {
     SKIPPED: "SKIPPED",
     SUCCEEDED: "SUCCEEDED",
 };
-class InvalidOperationException extends CloudFormationServiceException {
+let InvalidOperationException$1 = class InvalidOperationException extends CloudFormationServiceException$1 {
     name = "InvalidOperationException";
     $fault = "client";
     Message;
@@ -3495,8 +3494,8 @@ class InvalidOperationException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, InvalidOperationException.prototype);
         this.Message = opts.Message;
     }
-}
-class OperationNotFoundException extends CloudFormationServiceException {
+};
+let OperationNotFoundException$1 = class OperationNotFoundException extends CloudFormationServiceException$1 {
     name = "OperationNotFoundException";
     $fault = "client";
     Message;
@@ -3509,7 +3508,7 @@ class OperationNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, OperationNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const ThirdPartyType = {
     HOOK: "HOOK",
     MODULE: "MODULE",
@@ -3519,7 +3518,7 @@ const VersionBump = {
     MAJOR: "MAJOR",
     MINOR: "MINOR",
 };
-class CFNRegistryException extends CloudFormationServiceException {
+let CFNRegistryException$1 = class CFNRegistryException extends CloudFormationServiceException$1 {
     name = "CFNRegistryException";
     $fault = "client";
     Message;
@@ -3532,8 +3531,8 @@ class CFNRegistryException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, CFNRegistryException.prototype);
         this.Message = opts.Message;
     }
-}
-class TypeNotFoundException extends CloudFormationServiceException {
+};
+let TypeNotFoundException$1 = class TypeNotFoundException extends CloudFormationServiceException$1 {
     name = "TypeNotFoundException";
     $fault = "client";
     Message;
@@ -3546,8 +3545,8 @@ class TypeNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, TypeNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
-class AlreadyExistsException extends CloudFormationServiceException {
+};
+let AlreadyExistsException$1 = class AlreadyExistsException extends CloudFormationServiceException$1 {
     name = "AlreadyExistsException";
     $fault = "client";
     Message;
@@ -3560,13 +3559,13 @@ class AlreadyExistsException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, AlreadyExistsException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const AttributeChangeType = {
     Add: "Add",
     Modify: "Modify",
     Remove: "Remove",
 };
-class TypeConfigurationNotFoundException extends CloudFormationServiceException {
+let TypeConfigurationNotFoundException$1 = class TypeConfigurationNotFoundException extends CloudFormationServiceException$1 {
     name = "TypeConfigurationNotFoundException";
     $fault = "client";
     Message;
@@ -3579,12 +3578,12 @@ class TypeConfigurationNotFoundException extends CloudFormationServiceException 
         Object.setPrototypeOf(this, TypeConfigurationNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const CallAs = {
     DELEGATED_ADMIN: "DELEGATED_ADMIN",
     SELF: "SELF",
 };
-class TokenAlreadyExistsException extends CloudFormationServiceException {
+let TokenAlreadyExistsException$1 = class TokenAlreadyExistsException extends CloudFormationServiceException$1 {
     name = "TokenAlreadyExistsException";
     $fault = "client";
     Message;
@@ -3597,7 +3596,7 @@ class TokenAlreadyExistsException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, TokenAlreadyExistsException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const Capability = {
     CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
     CAPABILITY_IAM: "CAPABILITY_IAM",
@@ -3672,7 +3671,7 @@ const ChangeSetHooksStatus = {
     PLANNING: "PLANNING",
     UNAVAILABLE: "UNAVAILABLE",
 };
-class ChangeSetNotFoundException extends CloudFormationServiceException {
+let ChangeSetNotFoundException$1 = class ChangeSetNotFoundException extends CloudFormationServiceException$1 {
     name = "ChangeSetNotFoundException";
     $fault = "client";
     Message;
@@ -3685,7 +3684,7 @@ class ChangeSetNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, ChangeSetNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const ChangeSetStatus = {
     CREATE_COMPLETE: "CREATE_COMPLETE",
     CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
@@ -3714,7 +3713,7 @@ const OnStackFailure = {
     DO_NOTHING: "DO_NOTHING",
     ROLLBACK: "ROLLBACK",
 };
-class InsufficientCapabilitiesException extends CloudFormationServiceException {
+let InsufficientCapabilitiesException$1 = class InsufficientCapabilitiesException extends CloudFormationServiceException$1 {
     name = "InsufficientCapabilitiesException";
     $fault = "client";
     Message;
@@ -3727,8 +3726,8 @@ class InsufficientCapabilitiesException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, InsufficientCapabilitiesException.prototype);
         this.Message = opts.Message;
     }
-}
-class LimitExceededException extends CloudFormationServiceException {
+};
+let LimitExceededException$1 = class LimitExceededException extends CloudFormationServiceException$1 {
     name = "LimitExceededException";
     $fault = "client";
     Message;
@@ -3741,8 +3740,8 @@ class LimitExceededException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, LimitExceededException.prototype);
         this.Message = opts.Message;
     }
-}
-class ConcurrentResourcesLimitExceededException extends CloudFormationServiceException {
+};
+let ConcurrentResourcesLimitExceededException$1 = class ConcurrentResourcesLimitExceededException extends CloudFormationServiceException$1 {
     name = "ConcurrentResourcesLimitExceededException";
     $fault = "client";
     Message;
@@ -3755,7 +3754,7 @@ class ConcurrentResourcesLimitExceededException extends CloudFormationServiceExc
         Object.setPrototypeOf(this, ConcurrentResourcesLimitExceededException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const GeneratedTemplateDeletionPolicy = {
     DELETE: "DELETE",
     RETAIN: "RETAIN",
@@ -3777,7 +3776,7 @@ const RegionConcurrencyType = {
     PARALLEL: "PARALLEL",
     SEQUENTIAL: "SEQUENTIAL",
 };
-class OperationIdAlreadyExistsException extends CloudFormationServiceException {
+let OperationIdAlreadyExistsException$1 = class OperationIdAlreadyExistsException extends CloudFormationServiceException$1 {
     name = "OperationIdAlreadyExistsException";
     $fault = "client";
     Message;
@@ -3790,8 +3789,8 @@ class OperationIdAlreadyExistsException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, OperationIdAlreadyExistsException.prototype);
         this.Message = opts.Message;
     }
-}
-class OperationInProgressException extends CloudFormationServiceException {
+};
+let OperationInProgressException$1 = class OperationInProgressException extends CloudFormationServiceException$1 {
     name = "OperationInProgressException";
     $fault = "client";
     Message;
@@ -3804,8 +3803,8 @@ class OperationInProgressException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, OperationInProgressException.prototype);
         this.Message = opts.Message;
     }
-}
-class StackSetNotFoundException extends CloudFormationServiceException {
+};
+let StackSetNotFoundException$1 = class StackSetNotFoundException extends CloudFormationServiceException$1 {
     name = "StackSetNotFoundException";
     $fault = "client";
     Message;
@@ -3818,8 +3817,8 @@ class StackSetNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, StackSetNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
-class StaleRequestException extends CloudFormationServiceException {
+};
+let StaleRequestException$1 = class StaleRequestException extends CloudFormationServiceException$1 {
     name = "StaleRequestException";
     $fault = "client";
     Message;
@@ -3832,8 +3831,8 @@ class StaleRequestException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, StaleRequestException.prototype);
         this.Message = opts.Message;
     }
-}
-class CreatedButModifiedException extends CloudFormationServiceException {
+};
+let CreatedButModifiedException$1 = class CreatedButModifiedException extends CloudFormationServiceException$1 {
     name = "CreatedButModifiedException";
     $fault = "client";
     Message;
@@ -3846,12 +3845,12 @@ class CreatedButModifiedException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, CreatedButModifiedException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const PermissionModels = {
     SELF_MANAGED: "SELF_MANAGED",
     SERVICE_MANAGED: "SERVICE_MANAGED",
 };
-class NameAlreadyExistsException extends CloudFormationServiceException {
+let NameAlreadyExistsException$1 = class NameAlreadyExistsException extends CloudFormationServiceException$1 {
     name = "NameAlreadyExistsException";
     $fault = "client";
     Message;
@@ -3864,8 +3863,8 @@ class NameAlreadyExistsException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, NameAlreadyExistsException.prototype);
         this.Message = opts.Message;
     }
-}
-class InvalidChangeSetStatusException extends CloudFormationServiceException {
+};
+let InvalidChangeSetStatusException$1 = class InvalidChangeSetStatusException extends CloudFormationServiceException$1 {
     name = "InvalidChangeSetStatusException";
     $fault = "client";
     Message;
@@ -3878,8 +3877,8 @@ class InvalidChangeSetStatusException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, InvalidChangeSetStatusException.prototype);
         this.Message = opts.Message;
     }
-}
-class GeneratedTemplateNotFoundException extends CloudFormationServiceException {
+};
+let GeneratedTemplateNotFoundException$1 = class GeneratedTemplateNotFoundException extends CloudFormationServiceException$1 {
     name = "GeneratedTemplateNotFoundException";
     $fault = "client";
     Message;
@@ -3892,12 +3891,12 @@ class GeneratedTemplateNotFoundException extends CloudFormationServiceException 
         Object.setPrototypeOf(this, GeneratedTemplateNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const DeletionMode = {
     FORCE_DELETE_STACK: "FORCE_DELETE_STACK",
     STANDARD: "STANDARD",
 };
-class StackSetNotEmptyException extends CloudFormationServiceException {
+let StackSetNotEmptyException$1 = class StackSetNotEmptyException extends CloudFormationServiceException$1 {
     name = "StackSetNotEmptyException";
     $fault = "client";
     Message;
@@ -3910,7 +3909,7 @@ class StackSetNotEmptyException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, StackSetNotEmptyException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const RegistryType = {
     HOOK: "HOOK",
     MODULE: "MODULE",
@@ -3959,7 +3958,7 @@ const ResourceScanStatus = {
     FAILED: "FAILED",
     IN_PROGRESS: "IN_PROGRESS",
 };
-class ResourceScanNotFoundException extends CloudFormationServiceException {
+let ResourceScanNotFoundException$1 = class ResourceScanNotFoundException extends CloudFormationServiceException$1 {
     name = "ResourceScanNotFoundException";
     $fault = "client";
     Message;
@@ -3972,7 +3971,7 @@ class ResourceScanNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, ResourceScanNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const StackDriftDetectionStatus = {
     DETECTION_COMPLETE: "DETECTION_COMPLETE",
     DETECTION_FAILED: "DETECTION_FAILED",
@@ -4039,7 +4038,7 @@ const StackInstanceStatus = {
     INOPERABLE: "INOPERABLE",
     OUTDATED: "OUTDATED",
 };
-class StackInstanceNotFoundException extends CloudFormationServiceException {
+let StackInstanceNotFoundException$1 = class StackInstanceNotFoundException extends CloudFormationServiceException$1 {
     name = "StackInstanceNotFoundException";
     $fault = "client";
     Message;
@@ -4052,7 +4051,7 @@ class StackInstanceNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, StackInstanceNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const StackRefactorExecutionStatus = {
     AVAILABLE: "AVAILABLE",
     EXECUTE_COMPLETE: "EXECUTE_COMPLETE",
@@ -4072,7 +4071,7 @@ const StackRefactorStatus = {
     DELETE_FAILED: "DELETE_FAILED",
     DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
 };
-class StackRefactorNotFoundException extends CloudFormationServiceException {
+let StackRefactorNotFoundException$1 = class StackRefactorNotFoundException extends CloudFormationServiceException$1 {
     name = "StackRefactorNotFoundException";
     $fault = "client";
     Message;
@@ -4085,7 +4084,7 @@ class StackRefactorNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, StackRefactorNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const StackResourceDriftStatus = {
     DELETED: "DELETED",
     IN_SYNC: "IN_SYNC",
@@ -4185,7 +4184,7 @@ const TemplateStage = {
     Original: "Original",
     Processed: "Processed",
 };
-class StackNotFoundException extends CloudFormationServiceException {
+let StackNotFoundException$1 = class StackNotFoundException extends CloudFormationServiceException$1 {
     name = "StackNotFoundException";
     $fault = "client";
     Message;
@@ -4198,8 +4197,8 @@ class StackNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, StackNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
-class HookResultNotFoundException extends CloudFormationServiceException {
+};
+let HookResultNotFoundException$1 = class HookResultNotFoundException extends CloudFormationServiceException$1 {
     name = "HookResultNotFoundException";
     $fault = "client";
     Message;
@@ -4212,14 +4211,14 @@ class HookResultNotFoundException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, HookResultNotFoundException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const ListHookResultsTargetType = {
     CHANGE_SET: "CHANGE_SET",
     CLOUD_CONTROL: "CLOUD_CONTROL",
     RESOURCE: "RESOURCE",
     STACK: "STACK",
 };
-class ResourceScanInProgressException extends CloudFormationServiceException {
+let ResourceScanInProgressException$1 = class ResourceScanInProgressException extends CloudFormationServiceException$1 {
     name = "ResourceScanInProgressException";
     $fault = "client";
     Message;
@@ -4232,7 +4231,7 @@ class ResourceScanInProgressException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, ResourceScanInProgressException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const ScanType = {
     FULL: "FULL",
     PARTIAL: "PARTIAL",
@@ -4265,7 +4264,7 @@ const StackSetOperationResultStatus = {
     SUCCEEDED: "SUCCEEDED",
 };
 
-class InvalidStateTransitionException extends CloudFormationServiceException {
+let InvalidStateTransitionException$1 = class InvalidStateTransitionException extends CloudFormationServiceException$1 {
     name = "InvalidStateTransitionException";
     $fault = "client";
     Message;
@@ -4278,8 +4277,8 @@ class InvalidStateTransitionException extends CloudFormationServiceException {
         Object.setPrototypeOf(this, InvalidStateTransitionException.prototype);
         this.Message = opts.Message;
     }
-}
-class OperationStatusCheckFailedException extends CloudFormationServiceException {
+};
+let OperationStatusCheckFailedException$1 = class OperationStatusCheckFailedException extends CloudFormationServiceException$1 {
     name = "OperationStatusCheckFailedException";
     $fault = "client";
     Message;
@@ -4292,7 +4291,7 @@ class OperationStatusCheckFailedException extends CloudFormationServiceException
         Object.setPrototypeOf(this, OperationStatusCheckFailedException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 const OperationStatus = {
     FAILED: "FAILED",
     IN_PROGRESS: "IN_PROGRESS",
@@ -4324,7 +4323,7 @@ const ResourceSignalStatus = {
     FAILURE: "FAILURE",
     SUCCESS: "SUCCESS",
 };
-class ResourceScanLimitExceededException extends CloudFormationServiceException {
+let ResourceScanLimitExceededException$1 = class ResourceScanLimitExceededException extends CloudFormationServiceException$1 {
     name = "ResourceScanLimitExceededException";
     $fault = "client";
     Message;
@@ -4337,8495 +4336,28 @@ class ResourceScanLimitExceededException extends CloudFormationServiceException 
         Object.setPrototypeOf(this, ResourceScanLimitExceededException.prototype);
         this.Message = opts.Message;
     }
-}
+};
 
-const se_ActivateOrganizationsAccessCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ActivateOrganizationsAccessInput(),
-        [_A]: _AOA,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ActivateTypeCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ActivateTypeInput(input),
-        [_A]: _AT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_BatchDescribeTypeConfigurationsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_BatchDescribeTypeConfigurationsInput(input),
-        [_A]: _BDTC,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_CancelUpdateStackCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_CancelUpdateStackInput(input),
-        [_A]: _CUS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ContinueUpdateRollbackCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ContinueUpdateRollbackInput(input),
-        [_A]: _CUR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_CreateChangeSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_CreateChangeSetInput(input),
-        [_A]: _CCS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_CreateGeneratedTemplateCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_CreateGeneratedTemplateInput(input),
-        [_A]: _CGT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_CreateStackCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_CreateStackInput(input),
-        [_A]: _CS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_CreateStackInstancesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_CreateStackInstancesInput(input),
-        [_A]: _CSI,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_CreateStackRefactorCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_CreateStackRefactorInput(input),
-        [_A]: _CSR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_CreateStackSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_CreateStackSetInput(input),
-        [_A]: _CSS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DeactivateOrganizationsAccessCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DeactivateOrganizationsAccessInput(),
-        [_A]: _DOA,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DeactivateTypeCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DeactivateTypeInput(input),
-        [_A]: _DT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DeleteChangeSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DeleteChangeSetInput(input),
-        [_A]: _DCS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DeleteGeneratedTemplateCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DeleteGeneratedTemplateInput(input),
-        [_A]: _DGT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DeleteStackCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DeleteStackInput(input),
-        [_A]: _DS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DeleteStackInstancesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DeleteStackInstancesInput(input),
-        [_A]: _DSI,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DeleteStackSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DeleteStackSetInput(input),
-        [_A]: _DSS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DeregisterTypeCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DeregisterTypeInput(input),
-        [_A]: _DTe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeAccountLimitsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeAccountLimitsInput(input),
-        [_A]: _DAL,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeChangeSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeChangeSetInput(input),
-        [_A]: _DCSe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeChangeSetHooksCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeChangeSetHooksInput(input),
-        [_A]: _DCSH,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeGeneratedTemplateCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeGeneratedTemplateInput(input),
-        [_A]: _DGTe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeOrganizationsAccessCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeOrganizationsAccessInput(input),
-        [_A]: _DOAe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribePublisherCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribePublisherInput(input),
-        [_A]: _DP,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeResourceScanCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeResourceScanInput(input),
-        [_A]: _DRS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackDriftDetectionStatusCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackDriftDetectionStatusInput(input),
-        [_A]: _DSDDS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackEventsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackEventsInput(input),
-        [_A]: _DSE,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackInstanceCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackInstanceInput(input),
-        [_A]: _DSIe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackRefactorCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackRefactorInput(input),
-        [_A]: _DSR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackResourceCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackResourceInput(input),
-        [_A]: _DSRe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackResourceDriftsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackResourceDriftsInput(input),
-        [_A]: _DSRD,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackResourcesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackResourcesInput(input),
-        [_A]: _DSRes,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStacksCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStacksInput(input),
-        [_A]: _DSe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackSetInput(input),
-        [_A]: _DSSe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeStackSetOperationCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeStackSetOperationInput(input),
-        [_A]: _DSSO,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeTypeCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeTypeInput(input),
-        [_A]: _DTes,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DescribeTypeRegistrationCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DescribeTypeRegistrationInput(input),
-        [_A]: _DTR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DetectStackDriftCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DetectStackDriftInput(input),
-        [_A]: _DSD,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DetectStackResourceDriftCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DetectStackResourceDriftInput(input),
-        [_A]: _DSRDe,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_DetectStackSetDriftCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_DetectStackSetDriftInput(input),
-        [_A]: _DSSD,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_EstimateTemplateCostCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_EstimateTemplateCostInput(input),
-        [_A]: _ETC,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ExecuteChangeSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ExecuteChangeSetInput(input),
-        [_A]: _ECS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ExecuteStackRefactorCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ExecuteStackRefactorInput(input),
-        [_A]: _ESR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_GetGeneratedTemplateCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_GetGeneratedTemplateInput(input),
-        [_A]: _GGT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_GetStackPolicyCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_GetStackPolicyInput(input),
-        [_A]: _GSP,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_GetTemplateCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_GetTemplateInput(input),
-        [_A]: _GT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_GetTemplateSummaryCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_GetTemplateSummaryInput(input),
-        [_A]: _GTS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ImportStacksToStackSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ImportStacksToStackSetInput(input),
-        [_A]: _ISTSS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListChangeSetsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListChangeSetsInput(input),
-        [_A]: _LCS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListExportsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListExportsInput(input),
-        [_A]: _LE,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListGeneratedTemplatesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListGeneratedTemplatesInput(input),
-        [_A]: _LGT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListHookResultsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListHookResultsInput(input),
-        [_A]: _LHR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListImportsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListImportsInput(input),
-        [_A]: _LI,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListResourceScanRelatedResourcesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListResourceScanRelatedResourcesInput(input),
-        [_A]: _LRSRR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListResourceScanResourcesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListResourceScanResourcesInput(input),
-        [_A]: _LRSR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListResourceScansCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListResourceScansInput(input),
-        [_A]: _LRS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackInstanceResourceDriftsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackInstanceResourceDriftsInput(input),
-        [_A]: _LSIRD,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackInstancesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackInstancesInput(input),
-        [_A]: _LSI,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackRefactorActionsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackRefactorActionsInput(input),
-        [_A]: _LSRA,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackRefactorsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackRefactorsInput(input),
-        [_A]: _LSR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackResourcesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackResourcesInput(input),
-        [_A]: _LSRi,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStacksCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStacksInput(input),
-        [_A]: _LS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackSetAutoDeploymentTargetsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackSetAutoDeploymentTargetsInput(input),
-        [_A]: _LSSADT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackSetOperationResultsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackSetOperationResultsInput(input),
-        [_A]: _LSSOR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackSetOperationsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackSetOperationsInput(input),
-        [_A]: _LSSO,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListStackSetsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListStackSetsInput(input),
-        [_A]: _LSS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListTypeRegistrationsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListTypeRegistrationsInput(input),
-        [_A]: _LTR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListTypesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListTypesInput(input),
-        [_A]: _LT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ListTypeVersionsCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ListTypeVersionsInput(input),
-        [_A]: _LTV,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_PublishTypeCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_PublishTypeInput(input),
-        [_A]: _PT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_RecordHandlerProgressCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_RecordHandlerProgressInput(input),
-        [_A]: _RHP,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_RegisterPublisherCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_RegisterPublisherInput(input),
-        [_A]: _RP,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_RegisterTypeCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_RegisterTypeInput(input),
-        [_A]: _RT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_RollbackStackCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_RollbackStackInput(input),
-        [_A]: _RS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_SetStackPolicyCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_SetStackPolicyInput(input),
-        [_A]: _SSP,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_SetTypeConfigurationCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_SetTypeConfigurationInput(input),
-        [_A]: _STC,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_SetTypeDefaultVersionCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_SetTypeDefaultVersionInput(input),
-        [_A]: _STDV,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_SignalResourceCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_SignalResourceInput(input),
-        [_A]: _SR,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_StartResourceScanCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_StartResourceScanInput(input),
-        [_A]: _SRS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_StopStackSetOperationCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_StopStackSetOperationInput(input),
-        [_A]: _SSSO,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_TestTypeCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_TestTypeInput(input),
-        [_A]: _TT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_UpdateGeneratedTemplateCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_UpdateGeneratedTemplateInput(input),
-        [_A]: _UGT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_UpdateStackCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_UpdateStackInput(input),
-        [_A]: _US,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_UpdateStackInstancesCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_UpdateStackInstancesInput(input),
-        [_A]: _USI,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_UpdateStackSetCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_UpdateStackSetInput(input),
-        [_A]: _USS,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_UpdateTerminationProtectionCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_UpdateTerminationProtectionInput(input),
-        [_A]: _UTP,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const se_ValidateTemplateCommand = async (input, context) => {
-    const headers = SHARED_HEADERS;
-    let body;
-    body = buildFormUrlencodedString({
-        ...se_ValidateTemplateInput(input),
-        [_A]: _VT,
-        [_V]: _,
-    });
-    return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-const de_ActivateOrganizationsAccessCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ActivateOrganizationsAccessOutput(data.ActivateOrganizationsAccessResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ActivateTypeCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ActivateTypeOutput(data.ActivateTypeResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_BatchDescribeTypeConfigurationsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_BatchDescribeTypeConfigurationsOutput(data.BatchDescribeTypeConfigurationsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_CancelUpdateStackCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    await smithyClient.collectBody(output.body, context);
-    const response = {
-        $metadata: deserializeMetadata(output),
-    };
-    return response;
-};
-const de_ContinueUpdateRollbackCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ContinueUpdateRollbackOutput(data.ContinueUpdateRollbackResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_CreateChangeSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_CreateChangeSetOutput(data.CreateChangeSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_CreateGeneratedTemplateCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_CreateGeneratedTemplateOutput(data.CreateGeneratedTemplateResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_CreateStackCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_CreateStackOutput(data.CreateStackResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_CreateStackInstancesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_CreateStackInstancesOutput(data.CreateStackInstancesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_CreateStackRefactorCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_CreateStackRefactorOutput(data.CreateStackRefactorResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_CreateStackSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_CreateStackSetOutput(data.CreateStackSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DeactivateOrganizationsAccessCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DeactivateOrganizationsAccessOutput(data.DeactivateOrganizationsAccessResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DeactivateTypeCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DeactivateTypeOutput(data.DeactivateTypeResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DeleteChangeSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DeleteChangeSetOutput(data.DeleteChangeSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DeleteGeneratedTemplateCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    await smithyClient.collectBody(output.body, context);
-    const response = {
-        $metadata: deserializeMetadata(output),
-    };
-    return response;
-};
-const de_DeleteStackCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    await smithyClient.collectBody(output.body, context);
-    const response = {
-        $metadata: deserializeMetadata(output),
-    };
-    return response;
-};
-const de_DeleteStackInstancesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DeleteStackInstancesOutput(data.DeleteStackInstancesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DeleteStackSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DeleteStackSetOutput(data.DeleteStackSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DeregisterTypeCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DeregisterTypeOutput(data.DeregisterTypeResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeAccountLimitsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeAccountLimitsOutput(data.DescribeAccountLimitsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeChangeSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeChangeSetOutput(data.DescribeChangeSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeChangeSetHooksCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeChangeSetHooksOutput(data.DescribeChangeSetHooksResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeGeneratedTemplateCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeGeneratedTemplateOutput(data.DescribeGeneratedTemplateResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeOrganizationsAccessCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeOrganizationsAccessOutput(data.DescribeOrganizationsAccessResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribePublisherCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribePublisherOutput(data.DescribePublisherResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeResourceScanCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeResourceScanOutput(data.DescribeResourceScanResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackDriftDetectionStatusCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackDriftDetectionStatusOutput(data.DescribeStackDriftDetectionStatusResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackEventsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackEventsOutput(data.DescribeStackEventsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackInstanceCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackInstanceOutput(data.DescribeStackInstanceResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackRefactorCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackRefactorOutput(data.DescribeStackRefactorResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackResourceCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackResourceOutput(data.DescribeStackResourceResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackResourceDriftsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackResourceDriftsOutput(data.DescribeStackResourceDriftsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackResourcesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackResourcesOutput(data.DescribeStackResourcesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStacksCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStacksOutput(data.DescribeStacksResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackSetOutput(data.DescribeStackSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeStackSetOperationCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeStackSetOperationOutput(data.DescribeStackSetOperationResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeTypeCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeTypeOutput(data.DescribeTypeResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DescribeTypeRegistrationCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DescribeTypeRegistrationOutput(data.DescribeTypeRegistrationResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DetectStackDriftCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DetectStackDriftOutput(data.DetectStackDriftResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DetectStackResourceDriftCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DetectStackResourceDriftOutput(data.DetectStackResourceDriftResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_DetectStackSetDriftCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_DetectStackSetDriftOutput(data.DetectStackSetDriftResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_EstimateTemplateCostCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_EstimateTemplateCostOutput(data.EstimateTemplateCostResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ExecuteChangeSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ExecuteChangeSetOutput(data.ExecuteChangeSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ExecuteStackRefactorCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    await smithyClient.collectBody(output.body, context);
-    const response = {
-        $metadata: deserializeMetadata(output),
-    };
-    return response;
-};
-const de_GetGeneratedTemplateCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_GetGeneratedTemplateOutput(data.GetGeneratedTemplateResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_GetStackPolicyCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_GetStackPolicyOutput(data.GetStackPolicyResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_GetTemplateCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_GetTemplateOutput(data.GetTemplateResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_GetTemplateSummaryCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_GetTemplateSummaryOutput(data.GetTemplateSummaryResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ImportStacksToStackSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ImportStacksToStackSetOutput(data.ImportStacksToStackSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListChangeSetsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListChangeSetsOutput(data.ListChangeSetsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListExportsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListExportsOutput(data.ListExportsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListGeneratedTemplatesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListGeneratedTemplatesOutput(data.ListGeneratedTemplatesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListHookResultsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListHookResultsOutput(data.ListHookResultsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListImportsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListImportsOutput(data.ListImportsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListResourceScanRelatedResourcesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListResourceScanRelatedResourcesOutput(data.ListResourceScanRelatedResourcesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListResourceScanResourcesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListResourceScanResourcesOutput(data.ListResourceScanResourcesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListResourceScansCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListResourceScansOutput(data.ListResourceScansResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackInstanceResourceDriftsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackInstanceResourceDriftsOutput(data.ListStackInstanceResourceDriftsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackInstancesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackInstancesOutput(data.ListStackInstancesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackRefactorActionsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackRefactorActionsOutput(data.ListStackRefactorActionsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackRefactorsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackRefactorsOutput(data.ListStackRefactorsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackResourcesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackResourcesOutput(data.ListStackResourcesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStacksCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStacksOutput(data.ListStacksResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackSetAutoDeploymentTargetsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackSetAutoDeploymentTargetsOutput(data.ListStackSetAutoDeploymentTargetsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackSetOperationResultsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackSetOperationResultsOutput(data.ListStackSetOperationResultsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackSetOperationsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackSetOperationsOutput(data.ListStackSetOperationsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListStackSetsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListStackSetsOutput(data.ListStackSetsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListTypeRegistrationsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListTypeRegistrationsOutput(data.ListTypeRegistrationsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListTypesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListTypesOutput(data.ListTypesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ListTypeVersionsCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ListTypeVersionsOutput(data.ListTypeVersionsResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_PublishTypeCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_PublishTypeOutput(data.PublishTypeResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_RecordHandlerProgressCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_RecordHandlerProgressOutput(data.RecordHandlerProgressResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_RegisterPublisherCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_RegisterPublisherOutput(data.RegisterPublisherResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_RegisterTypeCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_RegisterTypeOutput(data.RegisterTypeResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_RollbackStackCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_RollbackStackOutput(data.RollbackStackResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_SetStackPolicyCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    await smithyClient.collectBody(output.body, context);
-    const response = {
-        $metadata: deserializeMetadata(output),
-    };
-    return response;
-};
-const de_SetTypeConfigurationCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_SetTypeConfigurationOutput(data.SetTypeConfigurationResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_SetTypeDefaultVersionCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_SetTypeDefaultVersionOutput(data.SetTypeDefaultVersionResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_SignalResourceCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    await smithyClient.collectBody(output.body, context);
-    const response = {
-        $metadata: deserializeMetadata(output),
-    };
-    return response;
-};
-const de_StartResourceScanCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_StartResourceScanOutput(data.StartResourceScanResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_StopStackSetOperationCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_StopStackSetOperationOutput(data.StopStackSetOperationResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_TestTypeCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_TestTypeOutput(data.TestTypeResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_UpdateGeneratedTemplateCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_UpdateGeneratedTemplateOutput(data.UpdateGeneratedTemplateResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_UpdateStackCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_UpdateStackOutput(data.UpdateStackResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_UpdateStackInstancesCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_UpdateStackInstancesOutput(data.UpdateStackInstancesResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_UpdateStackSetCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_UpdateStackSetOutput(data.UpdateStackSetResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_UpdateTerminationProtectionCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_UpdateTerminationProtectionOutput(data.UpdateTerminationProtectionResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_ValidateTemplateCommand = async (output, context) => {
-    if (output.statusCode >= 300) {
-        return de_CommandError(output, context);
-    }
-    const data = await core$1.parseXmlBody(output.body, context);
-    let contents = {};
-    contents = de_ValidateTemplateOutput(data.ValidateTemplateResult);
-    const response = {
-        $metadata: deserializeMetadata(output),
-        ...contents,
-    };
-    return response;
-};
-const de_CommandError = async (output, context) => {
-    const parsedOutput = {
-        ...output,
-        body: await core$1.parseXmlErrorBody(output.body, context),
-    };
-    const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-    switch (errorCode) {
-        case "InvalidOperationException":
-        case "com.amazonaws.cloudformation#InvalidOperationException":
-            throw await de_InvalidOperationExceptionRes(parsedOutput);
-        case "OperationNotFoundException":
-        case "com.amazonaws.cloudformation#OperationNotFoundException":
-            throw await de_OperationNotFoundExceptionRes(parsedOutput);
-        case "CFNRegistryException":
-        case "com.amazonaws.cloudformation#CFNRegistryException":
-            throw await de_CFNRegistryExceptionRes(parsedOutput);
-        case "TypeNotFoundException":
-        case "com.amazonaws.cloudformation#TypeNotFoundException":
-            throw await de_TypeNotFoundExceptionRes(parsedOutput);
-        case "TypeConfigurationNotFoundException":
-        case "com.amazonaws.cloudformation#TypeConfigurationNotFoundException":
-            throw await de_TypeConfigurationNotFoundExceptionRes(parsedOutput);
-        case "TokenAlreadyExistsException":
-        case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-            throw await de_TokenAlreadyExistsExceptionRes(parsedOutput);
-        case "AlreadyExistsException":
-        case "com.amazonaws.cloudformation#AlreadyExistsException":
-            throw await de_AlreadyExistsExceptionRes(parsedOutput);
-        case "InsufficientCapabilitiesException":
-        case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-            throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput);
-        case "LimitExceededException":
-        case "com.amazonaws.cloudformation#LimitExceededException":
-            throw await de_LimitExceededExceptionRes(parsedOutput);
-        case "ConcurrentResourcesLimitExceeded":
-        case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
-            throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput);
-        case "OperationIdAlreadyExistsException":
-        case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-            throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput);
-        case "OperationInProgressException":
-        case "com.amazonaws.cloudformation#OperationInProgressException":
-            throw await de_OperationInProgressExceptionRes(parsedOutput);
-        case "StackSetNotFoundException":
-        case "com.amazonaws.cloudformation#StackSetNotFoundException":
-            throw await de_StackSetNotFoundExceptionRes(parsedOutput);
-        case "StaleRequestException":
-        case "com.amazonaws.cloudformation#StaleRequestException":
-            throw await de_StaleRequestExceptionRes(parsedOutput);
-        case "CreatedButModifiedException":
-        case "com.amazonaws.cloudformation#CreatedButModifiedException":
-            throw await de_CreatedButModifiedExceptionRes(parsedOutput);
-        case "NameAlreadyExistsException":
-        case "com.amazonaws.cloudformation#NameAlreadyExistsException":
-            throw await de_NameAlreadyExistsExceptionRes(parsedOutput);
-        case "InvalidChangeSetStatus":
-        case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
-            throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput);
-        case "GeneratedTemplateNotFound":
-        case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-            throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput);
-        case "StackSetNotEmptyException":
-        case "com.amazonaws.cloudformation#StackSetNotEmptyException":
-            throw await de_StackSetNotEmptyExceptionRes(parsedOutput);
-        case "ChangeSetNotFound":
-        case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-            throw await de_ChangeSetNotFoundExceptionRes(parsedOutput);
-        case "ResourceScanNotFound":
-        case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
-            throw await de_ResourceScanNotFoundExceptionRes(parsedOutput);
-        case "StackInstanceNotFoundException":
-        case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-            throw await de_StackInstanceNotFoundExceptionRes(parsedOutput);
-        case "StackRefactorNotFoundException":
-        case "com.amazonaws.cloudformation#StackRefactorNotFoundException":
-            throw await de_StackRefactorNotFoundExceptionRes(parsedOutput);
-        case "StackNotFoundException":
-        case "com.amazonaws.cloudformation#StackNotFoundException":
-            throw await de_StackNotFoundExceptionRes(parsedOutput);
-        case "HookResultNotFound":
-        case "com.amazonaws.cloudformation#HookResultNotFoundException":
-            throw await de_HookResultNotFoundExceptionRes(parsedOutput);
-        case "ResourceScanInProgress":
-        case "com.amazonaws.cloudformation#ResourceScanInProgressException":
-            throw await de_ResourceScanInProgressExceptionRes(parsedOutput);
-        case "ConditionalCheckFailed":
-        case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
-            throw await de_OperationStatusCheckFailedExceptionRes(parsedOutput);
-        case "InvalidStateTransition":
-        case "com.amazonaws.cloudformation#InvalidStateTransitionException":
-            throw await de_InvalidStateTransitionExceptionRes(parsedOutput);
-        case "ResourceScanLimitExceeded":
-        case "com.amazonaws.cloudformation#ResourceScanLimitExceededException":
-            throw await de_ResourceScanLimitExceededExceptionRes(parsedOutput);
-        default:
-            const parsedBody = parsedOutput.body;
-            return throwDefaultError({
-                output,
-                parsedBody: parsedBody.Error,
-                errorCode,
-            });
-    }
-};
-const de_AlreadyExistsExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_AlreadyExistsException(body.Error);
-    const exception = new AlreadyExistsException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_CFNRegistryExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_CFNRegistryException(body.Error);
-    const exception = new CFNRegistryException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_ChangeSetNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_ChangeSetNotFoundException(body.Error);
-    const exception = new ChangeSetNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_ConcurrentResourcesLimitExceededExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_ConcurrentResourcesLimitExceededException(body.Error);
-    const exception = new ConcurrentResourcesLimitExceededException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_CreatedButModifiedExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_CreatedButModifiedException(body.Error);
-    const exception = new CreatedButModifiedException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_GeneratedTemplateNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_GeneratedTemplateNotFoundException(body.Error);
-    const exception = new GeneratedTemplateNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_HookResultNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_HookResultNotFoundException(body.Error);
-    const exception = new HookResultNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_InsufficientCapabilitiesExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_InsufficientCapabilitiesException(body.Error);
-    const exception = new InsufficientCapabilitiesException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_InvalidChangeSetStatusExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_InvalidChangeSetStatusException(body.Error);
-    const exception = new InvalidChangeSetStatusException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_InvalidOperationExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_InvalidOperationException(body.Error);
-    const exception = new InvalidOperationException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_InvalidStateTransitionExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_InvalidStateTransitionException(body.Error);
-    const exception = new InvalidStateTransitionException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_LimitExceededExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_LimitExceededException(body.Error);
-    const exception = new LimitExceededException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_NameAlreadyExistsExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_NameAlreadyExistsException(body.Error);
-    const exception = new NameAlreadyExistsException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_OperationIdAlreadyExistsExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_OperationIdAlreadyExistsException(body.Error);
-    const exception = new OperationIdAlreadyExistsException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_OperationInProgressExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_OperationInProgressException(body.Error);
-    const exception = new OperationInProgressException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_OperationNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_OperationNotFoundException(body.Error);
-    const exception = new OperationNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_OperationStatusCheckFailedExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_OperationStatusCheckFailedException(body.Error);
-    const exception = new OperationStatusCheckFailedException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_ResourceScanInProgressExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_ResourceScanInProgressException(body.Error);
-    const exception = new ResourceScanInProgressException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_ResourceScanLimitExceededExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_ResourceScanLimitExceededException(body.Error);
-    const exception = new ResourceScanLimitExceededException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_ResourceScanNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_ResourceScanNotFoundException(body.Error);
-    const exception = new ResourceScanNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_StackInstanceNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_StackInstanceNotFoundException(body.Error);
-    const exception = new StackInstanceNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_StackNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_StackNotFoundException(body.Error);
-    const exception = new StackNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_StackRefactorNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_StackRefactorNotFoundException(body.Error);
-    const exception = new StackRefactorNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_StackSetNotEmptyExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_StackSetNotEmptyException(body.Error);
-    const exception = new StackSetNotEmptyException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_StackSetNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_StackSetNotFoundException(body.Error);
-    const exception = new StackSetNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_StaleRequestExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_StaleRequestException(body.Error);
-    const exception = new StaleRequestException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_TokenAlreadyExistsExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_TokenAlreadyExistsException(body.Error);
-    const exception = new TokenAlreadyExistsException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_TypeConfigurationNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_TypeConfigurationNotFoundException(body.Error);
-    const exception = new TypeConfigurationNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const de_TypeNotFoundExceptionRes = async (parsedOutput, context) => {
-    const body = parsedOutput.body;
-    const deserialized = de_TypeNotFoundException(body.Error);
-    const exception = new TypeNotFoundException({
-        $metadata: deserializeMetadata(parsedOutput),
-        ...deserialized,
-    });
-    return smithyClient.decorateServiceException(exception, body);
-};
-const se_AccountList = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_ActivateOrganizationsAccessInput = (input, context) => {
-    const entries = {};
-    return entries;
-};
-const se_ActivateTypeInput = (input, context) => {
-    const entries = {};
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_PTA] != null) {
-        entries[_PTA] = input[_PTA];
-    }
-    if (input[_PI] != null) {
-        entries[_PI] = input[_PI];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_TNA] != null) {
-        entries[_TNA] = input[_TNA];
-    }
-    if (input[_AU] != null) {
-        entries[_AU] = input[_AU];
-    }
-    if (input[_LC] != null) {
-        const memberEntries = se_LoggingConfig(input[_LC]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `LoggingConfig.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_ERA] != null) {
-        entries[_ERA] = input[_ERA];
-    }
-    if (input[_VB] != null) {
-        entries[_VB] = input[_VB];
-    }
-    if (input[_MV] != null) {
-        entries[_MV] = input[_MV];
-    }
-    return entries;
-};
-const se_AutoDeployment = (input, context) => {
-    const entries = {};
-    if (input[_E] != null) {
-        entries[_E] = input[_E];
-    }
-    if (input[_RSOAR] != null) {
-        entries[_RSOAR] = input[_RSOAR];
-    }
-    return entries;
-};
-const se_BatchDescribeTypeConfigurationsInput = (input, context) => {
-    const entries = {};
-    if (input[_TCI] != null) {
-        const memberEntries = se_TypeConfigurationIdentifiers(input[_TCI]);
-        if (input[_TCI]?.length === 0) {
-            entries.TypeConfigurationIdentifiers = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `TypeConfigurationIdentifiers.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_CancelUpdateStackInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    return entries;
-};
-const se_Capabilities = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_ContinueUpdateRollbackInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_RARN] != null) {
-        entries[_RARN] = input[_RARN];
-    }
-    if (input[_RTS] != null) {
-        const memberEntries = se_ResourcesToSkip(input[_RTS]);
-        if (input[_RTS]?.length === 0) {
-            entries.ResourcesToSkip = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourcesToSkip.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    return entries;
-};
-const se_CreateChangeSetInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    if (input[_UPT] != null) {
-        entries[_UPT] = input[_UPT];
-    }
-    if (input[_P] != null) {
-        const memberEntries = se_Parameters(input[_P]);
-        if (input[_P]?.length === 0) {
-            entries.Parameters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Parameters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_C] != null) {
-        const memberEntries = se_Capabilities(input[_C]);
-        if (input[_C]?.length === 0) {
-            entries.Capabilities = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Capabilities.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RTe] != null) {
-        const memberEntries = se_ResourceTypes(input[_RTe]);
-        if (input[_RTe]?.length === 0) {
-            entries.ResourceTypes = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourceTypes.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RARN] != null) {
-        entries[_RARN] = input[_RARN];
-    }
-    if (input[_RC] != null) {
-        const memberEntries = se_RollbackConfiguration(input[_RC]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `RollbackConfiguration.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_NARN] != null) {
-        const memberEntries = se_NotificationARNs(input[_NARN]);
-        if (input[_NARN]?.length === 0) {
-            entries.NotificationARNs = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `NotificationARNs.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_Ta] != null) {
-        const memberEntries = se_Tags(input[_Ta]);
-        if (input[_Ta]?.length === 0) {
-            entries.Tags = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Tags.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_CSN] != null) {
-        entries[_CSN] = input[_CSN];
-    }
-    if (input[_CT] != null) {
-        entries[_CT] = input[_CT];
-    }
-    if (input[_D] != null) {
-        entries[_D] = input[_D];
-    }
-    if (input[_CST] != null) {
-        entries[_CST] = input[_CST];
-    }
-    if (input[_RTI] != null) {
-        const memberEntries = se_ResourcesToImport(input[_RTI]);
-        if (input[_RTI]?.length === 0) {
-            entries.ResourcesToImport = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourcesToImport.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_INS] != null) {
-        entries[_INS] = input[_INS];
-    }
-    if (input[_OSF] != null) {
-        entries[_OSF] = input[_OSF];
-    }
-    if (input[_IER] != null) {
-        entries[_IER] = input[_IER];
-    }
-    return entries;
-};
-const se_CreateGeneratedTemplateInput = (input, context) => {
-    const entries = {};
-    if (input[_R] != null) {
-        const memberEntries = se_ResourceDefinitions(input[_R]);
-        if (input[_R]?.length === 0) {
-            entries.Resources = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Resources.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_GTN] != null) {
-        entries[_GTN] = input[_GTN];
-    }
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_TC] != null) {
-        const memberEntries = se_TemplateConfiguration(input[_TC]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `TemplateConfiguration.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_CreateStackInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    if (input[_P] != null) {
-        const memberEntries = se_Parameters(input[_P]);
-        if (input[_P]?.length === 0) {
-            entries.Parameters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Parameters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_DR] != null) {
-        entries[_DR] = input[_DR];
-    }
-    if (input[_RC] != null) {
-        const memberEntries = se_RollbackConfiguration(input[_RC]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `RollbackConfiguration.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_TIM] != null) {
-        entries[_TIM] = input[_TIM];
-    }
-    if (input[_NARN] != null) {
-        const memberEntries = se_NotificationARNs(input[_NARN]);
-        if (input[_NARN]?.length === 0) {
-            entries.NotificationARNs = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `NotificationARNs.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_C] != null) {
-        const memberEntries = se_Capabilities(input[_C]);
-        if (input[_C]?.length === 0) {
-            entries.Capabilities = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Capabilities.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RTe] != null) {
-        const memberEntries = se_ResourceTypes(input[_RTe]);
-        if (input[_RTe]?.length === 0) {
-            entries.ResourceTypes = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourceTypes.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RARN] != null) {
-        entries[_RARN] = input[_RARN];
-    }
-    if (input[_OF] != null) {
-        entries[_OF] = input[_OF];
-    }
-    if (input[_SPB] != null) {
-        entries[_SPB] = input[_SPB];
-    }
-    if (input[_SPURL] != null) {
-        entries[_SPURL] = input[_SPURL];
-    }
-    if (input[_Ta] != null) {
-        const memberEntries = se_Tags(input[_Ta]);
-        if (input[_Ta]?.length === 0) {
-            entries.Tags = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Tags.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    if (input[_ETP] != null) {
-        entries[_ETP] = input[_ETP];
-    }
-    if (input[_REOC] != null) {
-        entries[_REOC] = input[_REOC];
-    }
-    return entries;
-};
-const se_CreateStackInstancesInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_Ac] != null) {
-        const memberEntries = se_AccountList(input[_Ac]);
-        if (input[_Ac]?.length === 0) {
-            entries.Accounts = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Accounts.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_DTep] != null) {
-        const memberEntries = se_DeploymentTargets(input[_DTep]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `DeploymentTargets.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_Re] != null) {
-        const memberEntries = se_RegionList(input[_Re]);
-        if (input[_Re]?.length === 0) {
-            entries.Regions = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Regions.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_PO] != null) {
-        const memberEntries = se_Parameters(input[_PO]);
-        if (input[_PO]?.length === 0) {
-            entries.ParameterOverrides = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ParameterOverrides.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OP] != null) {
-        const memberEntries = se_StackSetOperationPreferences(input[_OP]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `OperationPreferences.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OI] === undefined) {
-        input[_OI] = uuid.v4();
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_CreateStackRefactorInput = (input, context) => {
-    const entries = {};
-    if (input[_D] != null) {
-        entries[_D] = input[_D];
-    }
-    if (input[_ESC] != null) {
-        entries[_ESC] = input[_ESC];
-    }
-    if (input[_RM] != null) {
-        const memberEntries = se_ResourceMappings(input[_RM]);
-        if (input[_RM]?.length === 0) {
-            entries.ResourceMappings = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourceMappings.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_SD] != null) {
-        const memberEntries = se_StackDefinitions(input[_SD]);
-        if (input[_SD]?.length === 0) {
-            entries.StackDefinitions = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `StackDefinitions.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_CreateStackSetInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_D] != null) {
-        entries[_D] = input[_D];
-    }
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    if (input[_SI] != null) {
-        entries[_SI] = input[_SI];
-    }
-    if (input[_P] != null) {
-        const memberEntries = se_Parameters(input[_P]);
-        if (input[_P]?.length === 0) {
-            entries.Parameters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Parameters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_C] != null) {
-        const memberEntries = se_Capabilities(input[_C]);
-        if (input[_C]?.length === 0) {
-            entries.Capabilities = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Capabilities.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_Ta] != null) {
-        const memberEntries = se_Tags(input[_Ta]);
-        if (input[_Ta]?.length === 0) {
-            entries.Tags = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Tags.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_ARARN] != null) {
-        entries[_ARARN] = input[_ARARN];
-    }
-    if (input[_ERN] != null) {
-        entries[_ERN] = input[_ERN];
-    }
-    if (input[_PM] != null) {
-        entries[_PM] = input[_PM];
-    }
-    if (input[_AD] != null) {
-        const memberEntries = se_AutoDeployment(input[_AD]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `AutoDeployment.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    if (input[_CRT] === undefined) {
-        input[_CRT] = uuid.v4();
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    if (input[_ME] != null) {
-        const memberEntries = se_ManagedExecution(input[_ME]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ManagedExecution.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_DeactivateOrganizationsAccessInput = (input, context) => {
-    const entries = {};
-    return entries;
-};
-const se_DeactivateTypeInput = (input, context) => {
-    const entries = {};
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_Ar] != null) {
-        entries[_Ar] = input[_Ar];
-    }
-    return entries;
-};
-const se_DeleteChangeSetInput = (input, context) => {
-    const entries = {};
-    if (input[_CSN] != null) {
-        entries[_CSN] = input[_CSN];
-    }
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    return entries;
-};
-const se_DeleteGeneratedTemplateInput = (input, context) => {
-    const entries = {};
-    if (input[_GTN] != null) {
-        entries[_GTN] = input[_GTN];
-    }
-    return entries;
-};
-const se_DeleteStackInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_RR] != null) {
-        const memberEntries = se_RetainResources(input[_RR]);
-        if (input[_RR]?.length === 0) {
-            entries.RetainResources = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `RetainResources.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RARN] != null) {
-        entries[_RARN] = input[_RARN];
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    if (input[_DM] != null) {
-        entries[_DM] = input[_DM];
-    }
-    return entries;
-};
-const se_DeleteStackInstancesInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_Ac] != null) {
-        const memberEntries = se_AccountList(input[_Ac]);
-        if (input[_Ac]?.length === 0) {
-            entries.Accounts = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Accounts.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_DTep] != null) {
-        const memberEntries = se_DeploymentTargets(input[_DTep]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `DeploymentTargets.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_Re] != null) {
-        const memberEntries = se_RegionList(input[_Re]);
-        if (input[_Re]?.length === 0) {
-            entries.Regions = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Regions.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OP] != null) {
-        const memberEntries = se_StackSetOperationPreferences(input[_OP]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `OperationPreferences.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RSe] != null) {
-        entries[_RSe] = input[_RSe];
-    }
-    if (input[_OI] === undefined) {
-        input[_OI] = uuid.v4();
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_DeleteStackSetInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_DeploymentTargets = (input, context) => {
-    const entries = {};
-    if (input[_Ac] != null) {
-        const memberEntries = se_AccountList(input[_Ac]);
-        if (input[_Ac]?.length === 0) {
-            entries.Accounts = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Accounts.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_AUc] != null) {
-        entries[_AUc] = input[_AUc];
-    }
-    if (input[_OUI] != null) {
-        const memberEntries = se_OrganizationalUnitIdList(input[_OUI]);
-        if (input[_OUI]?.length === 0) {
-            entries.OrganizationalUnitIds = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `OrganizationalUnitIds.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_AFT] != null) {
-        entries[_AFT] = input[_AFT];
-    }
-    return entries;
-};
-const se_DeregisterTypeInput = (input, context) => {
-    const entries = {};
-    if (input[_Ar] != null) {
-        entries[_Ar] = input[_Ar];
-    }
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_VI] != null) {
-        entries[_VI] = input[_VI];
-    }
-    return entries;
-};
-const se_DescribeAccountLimitsInput = (input, context) => {
-    const entries = {};
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_DescribeChangeSetHooksInput = (input, context) => {
-    const entries = {};
-    if (input[_CSN] != null) {
-        entries[_CSN] = input[_CSN];
-    }
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_LRI] != null) {
-        entries[_LRI] = input[_LRI];
-    }
-    return entries;
-};
-const se_DescribeChangeSetInput = (input, context) => {
-    const entries = {};
-    if (input[_CSN] != null) {
-        entries[_CSN] = input[_CSN];
-    }
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_IPV] != null) {
-        entries[_IPV] = input[_IPV];
-    }
-    return entries;
-};
-const se_DescribeGeneratedTemplateInput = (input, context) => {
-    const entries = {};
-    if (input[_GTN] != null) {
-        entries[_GTN] = input[_GTN];
-    }
-    return entries;
-};
-const se_DescribeOrganizationsAccessInput = (input, context) => {
-    const entries = {};
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_DescribePublisherInput = (input, context) => {
-    const entries = {};
-    if (input[_PI] != null) {
-        entries[_PI] = input[_PI];
-    }
-    return entries;
-};
-const se_DescribeResourceScanInput = (input, context) => {
-    const entries = {};
-    if (input[_RSI] != null) {
-        entries[_RSI] = input[_RSI];
-    }
-    return entries;
-};
-const se_DescribeStackDriftDetectionStatusInput = (input, context) => {
-    const entries = {};
-    if (input[_SDDI] != null) {
-        entries[_SDDI] = input[_SDDI];
-    }
-    return entries;
-};
-const se_DescribeStackEventsInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_DescribeStackInstanceInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_SIA] != null) {
-        entries[_SIA] = input[_SIA];
-    }
-    if (input[_SIR] != null) {
-        entries[_SIR] = input[_SIR];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_DescribeStackRefactorInput = (input, context) => {
-    const entries = {};
-    if (input[_SRI] != null) {
-        entries[_SRI] = input[_SRI];
-    }
-    return entries;
-};
-const se_DescribeStackResourceDriftsInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_SRDSF] != null) {
-        const memberEntries = se_StackResourceDriftStatusFilters(input[_SRDSF]);
-        if (input[_SRDSF]?.length === 0) {
-            entries.StackResourceDriftStatusFilters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `StackResourceDriftStatusFilters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    return entries;
-};
-const se_DescribeStackResourceInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_LRI] != null) {
-        entries[_LRI] = input[_LRI];
-    }
-    return entries;
-};
-const se_DescribeStackResourcesInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_LRI] != null) {
-        entries[_LRI] = input[_LRI];
-    }
-    if (input[_PRI] != null) {
-        entries[_PRI] = input[_PRI];
-    }
-    return entries;
-};
-const se_DescribeStackSetInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_DescribeStackSetOperationInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_DescribeStacksInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_DescribeTypeInput = (input, context) => {
-    const entries = {};
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_Ar] != null) {
-        entries[_Ar] = input[_Ar];
-    }
-    if (input[_VI] != null) {
-        entries[_VI] = input[_VI];
-    }
-    if (input[_PI] != null) {
-        entries[_PI] = input[_PI];
-    }
-    if (input[_PVN] != null) {
-        entries[_PVN] = input[_PVN];
-    }
-    return entries;
-};
-const se_DescribeTypeRegistrationInput = (input, context) => {
-    const entries = {};
-    if (input[_RTeg] != null) {
-        entries[_RTeg] = input[_RTeg];
-    }
-    return entries;
-};
-const se_DetectStackDriftInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_LRIo] != null) {
-        const memberEntries = se_LogicalResourceIds(input[_LRIo]);
-        if (input[_LRIo]?.length === 0) {
-            entries.LogicalResourceIds = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `LogicalResourceIds.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_DetectStackResourceDriftInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_LRI] != null) {
-        entries[_LRI] = input[_LRI];
-    }
-    return entries;
-};
-const se_DetectStackSetDriftInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_OP] != null) {
-        const memberEntries = se_StackSetOperationPreferences(input[_OP]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `OperationPreferences.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OI] === undefined) {
-        input[_OI] = uuid.v4();
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_EstimateTemplateCostInput = (input, context) => {
-    const entries = {};
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    if (input[_P] != null) {
-        const memberEntries = se_Parameters(input[_P]);
-        if (input[_P]?.length === 0) {
-            entries.Parameters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Parameters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ExecuteChangeSetInput = (input, context) => {
-    const entries = {};
-    if (input[_CSN] != null) {
-        entries[_CSN] = input[_CSN];
-    }
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    if (input[_DR] != null) {
-        entries[_DR] = input[_DR];
-    }
-    if (input[_REOC] != null) {
-        entries[_REOC] = input[_REOC];
-    }
-    return entries;
-};
-const se_ExecuteStackRefactorInput = (input, context) => {
-    const entries = {};
-    if (input[_SRI] != null) {
-        entries[_SRI] = input[_SRI];
-    }
-    return entries;
-};
-const se_GetGeneratedTemplateInput = (input, context) => {
-    const entries = {};
-    if (input[_F] != null) {
-        entries[_F] = input[_F];
-    }
-    if (input[_GTN] != null) {
-        entries[_GTN] = input[_GTN];
-    }
-    return entries;
-};
-const se_GetStackPolicyInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    return entries;
-};
-const se_GetTemplateInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_CSN] != null) {
-        entries[_CSN] = input[_CSN];
-    }
-    if (input[_TS] != null) {
-        entries[_TS] = input[_TS];
-    }
-    return entries;
-};
-const se_GetTemplateSummaryInput = (input, context) => {
-    const entries = {};
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    if (input[_TSC] != null) {
-        const memberEntries = se_TemplateSummaryConfig(input[_TSC]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `TemplateSummaryConfig.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ImportStacksToStackSetInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_SIt] != null) {
-        const memberEntries = se_StackIdList(input[_SIt]);
-        if (input[_SIt]?.length === 0) {
-            entries.StackIds = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `StackIds.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_SIU] != null) {
-        entries[_SIU] = input[_SIU];
-    }
-    if (input[_OUI] != null) {
-        const memberEntries = se_OrganizationalUnitIdList(input[_OUI]);
-        if (input[_OUI]?.length === 0) {
-            entries.OrganizationalUnitIds = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `OrganizationalUnitIds.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OP] != null) {
-        const memberEntries = se_StackSetOperationPreferences(input[_OP]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `OperationPreferences.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OI] === undefined) {
-        input[_OI] = uuid.v4();
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_JazzLogicalResourceIds = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_JazzResourceIdentifierProperties = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    Object.keys(input)
-        .filter((key) => input[key] != null)
-        .forEach((key) => {
-        entries[`entry.${counter}.key`] = key;
-        entries[`entry.${counter}.value`] = input[key];
-        counter++;
-    });
-    return entries;
-};
-const se_ListChangeSetsInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_ListExportsInput = (input, context) => {
-    const entries = {};
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_ListGeneratedTemplatesInput = (input, context) => {
-    const entries = {};
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    return entries;
-};
-const se_ListHookResultsInput = (input, context) => {
-    const entries = {};
-    if (input[_TTa] != null) {
-        entries[_TTa] = input[_TTa];
-    }
-    if (input[_TI] != null) {
-        entries[_TI] = input[_TI];
-    }
-    if (input[_TA] != null) {
-        entries[_TA] = input[_TA];
-    }
-    if (input[_S] != null) {
-        entries[_S] = input[_S];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_ListImportsInput = (input, context) => {
-    const entries = {};
-    if (input[_EN] != null) {
-        entries[_EN] = input[_EN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_ListResourceScanRelatedResourcesInput = (input, context) => {
-    const entries = {};
-    if (input[_RSI] != null) {
-        entries[_RSI] = input[_RSI];
-    }
-    if (input[_R] != null) {
-        const memberEntries = se_ScannedResourceIdentifiers(input[_R]);
-        if (input[_R]?.length === 0) {
-            entries.Resources = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Resources.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    return entries;
-};
-const se_ListResourceScanResourcesInput = (input, context) => {
-    const entries = {};
-    if (input[_RSI] != null) {
-        entries[_RSI] = input[_RSI];
-    }
-    if (input[_RI] != null) {
-        entries[_RI] = input[_RI];
-    }
-    if (input[_RTP] != null) {
-        entries[_RTP] = input[_RTP];
-    }
-    if (input[_TK] != null) {
-        entries[_TK] = input[_TK];
-    }
-    if (input[_TV] != null) {
-        entries[_TV] = input[_TV];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    return entries;
-};
-const se_ListResourceScansInput = (input, context) => {
-    const entries = {};
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_STF] != null) {
-        entries[_STF] = input[_STF];
-    }
-    return entries;
-};
-const se_ListStackInstanceResourceDriftsInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_SIRDS] != null) {
-        const memberEntries = se_StackResourceDriftStatusFilters(input[_SIRDS]);
-        if (input[_SIRDS]?.length === 0) {
-            entries.StackInstanceResourceDriftStatuses = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `StackInstanceResourceDriftStatuses.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_SIA] != null) {
-        entries[_SIA] = input[_SIA];
-    }
-    if (input[_SIR] != null) {
-        entries[_SIR] = input[_SIR];
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_ListStackInstancesInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_Fi] != null) {
-        const memberEntries = se_StackInstanceFilters(input[_Fi]);
-        if (input[_Fi]?.length === 0) {
-            entries.Filters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Filters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_SIA] != null) {
-        entries[_SIA] = input[_SIA];
-    }
-    if (input[_SIR] != null) {
-        entries[_SIR] = input[_SIR];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_ListStackRefactorActionsInput = (input, context) => {
-    const entries = {};
-    if (input[_SRI] != null) {
-        entries[_SRI] = input[_SRI];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    return entries;
-};
-const se_ListStackRefactorsInput = (input, context) => {
-    const entries = {};
-    if (input[_ESF] != null) {
-        const memberEntries = se_StackRefactorExecutionStatusFilter(input[_ESF]);
-        if (input[_ESF]?.length === 0) {
-            entries.ExecutionStatusFilter = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ExecutionStatusFilter.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    return entries;
-};
-const se_ListStackResourcesInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_ListStackSetAutoDeploymentTargetsInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_ListStackSetOperationResultsInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    if (input[_Fi] != null) {
-        const memberEntries = se_OperationResultFilters(input[_Fi]);
-        if (input[_Fi]?.length === 0) {
-            entries.Filters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Filters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ListStackSetOperationsInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_ListStackSetsInput = (input, context) => {
-    const entries = {};
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_S] != null) {
-        entries[_S] = input[_S];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_ListStacksInput = (input, context) => {
-    const entries = {};
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_SSF] != null) {
-        const memberEntries = se_StackStatusFilter(input[_SSF]);
-        if (input[_SSF]?.length === 0) {
-            entries.StackStatusFilter = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `StackStatusFilter.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ListTypeRegistrationsInput = (input, context) => {
-    const entries = {};
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_TA] != null) {
-        entries[_TA] = input[_TA];
-    }
-    if (input[_RSF] != null) {
-        entries[_RSF] = input[_RSF];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_ListTypesInput = (input, context) => {
-    const entries = {};
-    if (input[_Vi] != null) {
-        entries[_Vi] = input[_Vi];
-    }
-    if (input[_PTr] != null) {
-        entries[_PTr] = input[_PTr];
-    }
-    if (input[_DSep] != null) {
-        entries[_DSep] = input[_DSep];
-    }
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_Fi] != null) {
-        const memberEntries = se_TypeFilters(input[_Fi]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Filters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    return entries;
-};
-const se_ListTypeVersionsInput = (input, context) => {
-    const entries = {};
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_Ar] != null) {
-        entries[_Ar] = input[_Ar];
-    }
-    if (input[_MR] != null) {
-        entries[_MR] = input[_MR];
-    }
-    if (input[_NT] != null) {
-        entries[_NT] = input[_NT];
-    }
-    if (input[_DSep] != null) {
-        entries[_DSep] = input[_DSep];
-    }
-    if (input[_PI] != null) {
-        entries[_PI] = input[_PI];
-    }
-    return entries;
-};
-const se_LoggingConfig = (input, context) => {
-    const entries = {};
-    if (input[_LRA] != null) {
-        entries[_LRA] = input[_LRA];
-    }
-    if (input[_LGN] != null) {
-        entries[_LGN] = input[_LGN];
-    }
-    return entries;
-};
-const se_LogicalResourceIds = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_ManagedExecution = (input, context) => {
-    const entries = {};
-    if (input[_Act] != null) {
-        entries[_Act] = input[_Act];
-    }
-    return entries;
-};
-const se_NotificationARNs = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_OperationResultFilter = (input, context) => {
-    const entries = {};
-    if (input[_N] != null) {
-        entries[_N] = input[_N];
-    }
-    if (input[_Va] != null) {
-        entries[_Va] = input[_Va];
-    }
-    return entries;
-};
-const se_OperationResultFilters = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_OperationResultFilter(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_OrganizationalUnitIdList = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_Parameter = (input, context) => {
-    const entries = {};
-    if (input[_PK] != null) {
-        entries[_PK] = input[_PK];
-    }
-    if (input[_PV] != null) {
-        entries[_PV] = input[_PV];
-    }
-    if (input[_UPV] != null) {
-        entries[_UPV] = input[_UPV];
-    }
-    if (input[_RV] != null) {
-        entries[_RV] = input[_RV];
-    }
-    return entries;
-};
-const se_Parameters = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_Parameter(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_PublishTypeInput = (input, context) => {
-    const entries = {};
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_Ar] != null) {
-        entries[_Ar] = input[_Ar];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_PVN] != null) {
-        entries[_PVN] = input[_PVN];
-    }
-    return entries;
-};
-const se_RecordHandlerProgressInput = (input, context) => {
-    const entries = {};
-    if (input[_BT] != null) {
-        entries[_BT] = input[_BT];
-    }
-    if (input[_OS] != null) {
-        entries[_OS] = input[_OS];
-    }
-    if (input[_COS] != null) {
-        entries[_COS] = input[_COS];
-    }
-    if (input[_SM] != null) {
-        entries[_SM] = input[_SM];
-    }
-    if (input[_EC] != null) {
-        entries[_EC] = input[_EC];
-    }
-    if (input[_RMe] != null) {
-        entries[_RMe] = input[_RMe];
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    return entries;
-};
-const se_RegionList = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_RegisterPublisherInput = (input, context) => {
-    const entries = {};
-    if (input[_ATAC] != null) {
-        entries[_ATAC] = input[_ATAC];
-    }
-    if (input[_CAo] != null) {
-        entries[_CAo] = input[_CAo];
-    }
-    return entries;
-};
-const se_RegisterTypeInput = (input, context) => {
-    const entries = {};
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_SHP] != null) {
-        entries[_SHP] = input[_SHP];
-    }
-    if (input[_LC] != null) {
-        const memberEntries = se_LoggingConfig(input[_LC]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `LoggingConfig.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_ERA] != null) {
-        entries[_ERA] = input[_ERA];
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    return entries;
-};
-const se_ResourceDefinition = (input, context) => {
-    const entries = {};
-    if (input[_RTes] != null) {
-        entries[_RTes] = input[_RTes];
-    }
-    if (input[_LRI] != null) {
-        entries[_LRI] = input[_LRI];
-    }
-    if (input[_RI] != null) {
-        const memberEntries = se_ResourceIdentifierProperties(input[_RI]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourceIdentifier.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ResourceDefinitions = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_ResourceDefinition(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_ResourceIdentifierProperties = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    Object.keys(input)
-        .filter((key) => input[key] != null)
-        .forEach((key) => {
-        entries[`entry.${counter}.key`] = key;
-        entries[`entry.${counter}.value`] = input[key];
-        counter++;
-    });
-    return entries;
-};
-const se_ResourceLocation = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_LRI] != null) {
-        entries[_LRI] = input[_LRI];
-    }
-    return entries;
-};
-const se_ResourceMapping = (input, context) => {
-    const entries = {};
-    if (input[_So] != null) {
-        const memberEntries = se_ResourceLocation(input[_So]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Source.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_De] != null) {
-        const memberEntries = se_ResourceLocation(input[_De]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Destination.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ResourceMappings = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_ResourceMapping(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_ResourcesToImport = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_ResourceToImport(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_ResourcesToSkip = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_ResourceToImport = (input, context) => {
-    const entries = {};
-    if (input[_RTes] != null) {
-        entries[_RTes] = input[_RTes];
-    }
-    if (input[_LRI] != null) {
-        entries[_LRI] = input[_LRI];
-    }
-    if (input[_RI] != null) {
-        const memberEntries = se_ResourceIdentifierProperties(input[_RI]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourceIdentifier.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ResourceTypeFilters = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_ResourceTypes = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_RetainResources = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_RollbackConfiguration = (input, context) => {
-    const entries = {};
-    if (input[_RTo] != null) {
-        const memberEntries = se_RollbackTriggers(input[_RTo]);
-        if (input[_RTo]?.length === 0) {
-            entries.RollbackTriggers = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `RollbackTriggers.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_MTIM] != null) {
-        entries[_MTIM] = input[_MTIM];
-    }
-    return entries;
-};
-const se_RollbackStackInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_RARN] != null) {
-        entries[_RARN] = input[_RARN];
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    if (input[_REOC] != null) {
-        entries[_REOC] = input[_REOC];
-    }
-    return entries;
-};
-const se_RollbackTrigger = (input, context) => {
-    const entries = {};
-    if (input[_Ar] != null) {
-        entries[_Ar] = input[_Ar];
-    }
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    return entries;
-};
-const se_RollbackTriggers = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_RollbackTrigger(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_ScanFilter = (input, context) => {
-    const entries = {};
-    if (input[_Ty] != null) {
-        const memberEntries = se_ResourceTypeFilters(input[_Ty]);
-        if (input[_Ty]?.length === 0) {
-            entries.Types = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Types.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ScanFilters = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_ScanFilter(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_ScannedResourceIdentifier = (input, context) => {
-    const entries = {};
-    if (input[_RTes] != null) {
-        entries[_RTes] = input[_RTes];
-    }
-    if (input[_RI] != null) {
-        const memberEntries = se_JazzResourceIdentifierProperties(input[_RI]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourceIdentifier.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_ScannedResourceIdentifiers = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_ScannedResourceIdentifier(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_SetStackPolicyInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_SPB] != null) {
-        entries[_SPB] = input[_SPB];
-    }
-    if (input[_SPURL] != null) {
-        entries[_SPURL] = input[_SPURL];
-    }
-    return entries;
-};
-const se_SetTypeConfigurationInput = (input, context) => {
-    const entries = {};
-    if (input[_TA] != null) {
-        entries[_TA] = input[_TA];
-    }
-    if (input[_Co] != null) {
-        entries[_Co] = input[_Co];
-    }
-    if (input[_CAon] != null) {
-        entries[_CAon] = input[_CAon];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    return entries;
-};
-const se_SetTypeDefaultVersionInput = (input, context) => {
-    const entries = {};
-    if (input[_Ar] != null) {
-        entries[_Ar] = input[_Ar];
-    }
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_VI] != null) {
-        entries[_VI] = input[_VI];
-    }
-    return entries;
-};
-const se_SignalResourceInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_LRI] != null) {
-        entries[_LRI] = input[_LRI];
-    }
-    if (input[_UI] != null) {
-        entries[_UI] = input[_UI];
-    }
-    if (input[_S] != null) {
-        entries[_S] = input[_S];
-    }
-    return entries;
-};
-const se_StackDefinition = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    return entries;
-};
-const se_StackDefinitions = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_StackDefinition(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_StackIdList = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_StackInstanceFilter = (input, context) => {
-    const entries = {};
-    if (input[_N] != null) {
-        entries[_N] = input[_N];
-    }
-    if (input[_Va] != null) {
-        entries[_Va] = input[_Va];
-    }
-    return entries;
-};
-const se_StackInstanceFilters = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_StackInstanceFilter(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_StackRefactorExecutionStatusFilter = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_StackResourceDriftStatusFilters = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_StackSetOperationPreferences = (input, context) => {
-    const entries = {};
-    if (input[_RCT] != null) {
-        entries[_RCT] = input[_RCT];
-    }
-    if (input[_RO] != null) {
-        const memberEntries = se_RegionList(input[_RO]);
-        if (input[_RO]?.length === 0) {
-            entries.RegionOrder = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `RegionOrder.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_FTC] != null) {
-        entries[_FTC] = input[_FTC];
-    }
-    if (input[_FTP] != null) {
-        entries[_FTP] = input[_FTP];
-    }
-    if (input[_MCC] != null) {
-        entries[_MCC] = input[_MCC];
-    }
-    if (input[_MCP] != null) {
-        entries[_MCP] = input[_MCP];
-    }
-    if (input[_CM] != null) {
-        entries[_CM] = input[_CM];
-    }
-    return entries;
-};
-const se_StackStatusFilter = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        entries[`member.${counter}`] = entry;
-        counter++;
-    }
-    return entries;
-};
-const se_StartResourceScanInput = (input, context) => {
-    const entries = {};
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    if (input[_SF] != null) {
-        const memberEntries = se_ScanFilters(input[_SF]);
-        if (input[_SF]?.length === 0) {
-            entries.ScanFilters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ScanFilters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_StopStackSetOperationInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_Tag = (input, context) => {
-    const entries = {};
-    if (input[_K] != null) {
-        entries[_K] = input[_K];
-    }
-    if (input[_Val] != null) {
-        entries[_Val] = input[_Val];
-    }
-    return entries;
-};
-const se_Tags = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_Tag(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_TemplateConfiguration = (input, context) => {
-    const entries = {};
-    if (input[_DPe] != null) {
-        entries[_DPe] = input[_DPe];
-    }
-    if (input[_URP] != null) {
-        entries[_URP] = input[_URP];
-    }
-    return entries;
-};
-const se_TemplateSummaryConfig = (input, context) => {
-    const entries = {};
-    if (input[_TURTAW] != null) {
-        entries[_TURTAW] = input[_TURTAW];
-    }
-    return entries;
-};
-const se_TestTypeInput = (input, context) => {
-    const entries = {};
-    if (input[_Ar] != null) {
-        entries[_Ar] = input[_Ar];
-    }
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    if (input[_VI] != null) {
-        entries[_VI] = input[_VI];
-    }
-    if (input[_LDB] != null) {
-        entries[_LDB] = input[_LDB];
-    }
-    return entries;
-};
-const se_TypeConfigurationIdentifier = (input, context) => {
-    const entries = {};
-    if (input[_TA] != null) {
-        entries[_TA] = input[_TA];
-    }
-    if (input[_TCA] != null) {
-        entries[_TCA] = input[_TCA];
-    }
-    if (input[_TCAy] != null) {
-        entries[_TCAy] = input[_TCAy];
-    }
-    if (input[_T] != null) {
-        entries[_T] = input[_T];
-    }
-    if (input[_TN] != null) {
-        entries[_TN] = input[_TN];
-    }
-    return entries;
-};
-const se_TypeConfigurationIdentifiers = (input, context) => {
-    const entries = {};
-    let counter = 1;
-    for (const entry of input) {
-        if (entry === null) {
-            continue;
-        }
-        const memberEntries = se_TypeConfigurationIdentifier(entry);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            entries[`member.${counter}.${key}`] = value;
-        });
-        counter++;
-    }
-    return entries;
-};
-const se_TypeFilters = (input, context) => {
-    const entries = {};
-    if (input[_Ca] != null) {
-        entries[_Ca] = input[_Ca];
-    }
-    if (input[_PI] != null) {
-        entries[_PI] = input[_PI];
-    }
-    if (input[_TNP] != null) {
-        entries[_TNP] = input[_TNP];
-    }
-    return entries;
-};
-const se_UpdateGeneratedTemplateInput = (input, context) => {
-    const entries = {};
-    if (input[_GTN] != null) {
-        entries[_GTN] = input[_GTN];
-    }
-    if (input[_NGTN] != null) {
-        entries[_NGTN] = input[_NGTN];
-    }
-    if (input[_AR] != null) {
-        const memberEntries = se_ResourceDefinitions(input[_AR]);
-        if (input[_AR]?.length === 0) {
-            entries.AddResources = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `AddResources.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RRe] != null) {
-        const memberEntries = se_JazzLogicalResourceIds(input[_RRe]);
-        if (input[_RRe]?.length === 0) {
-            entries.RemoveResources = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `RemoveResources.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RAR] != null) {
-        entries[_RAR] = input[_RAR];
-    }
-    if (input[_TC] != null) {
-        const memberEntries = se_TemplateConfiguration(input[_TC]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `TemplateConfiguration.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_UpdateStackInput = (input, context) => {
-    const entries = {};
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    if (input[_UPT] != null) {
-        entries[_UPT] = input[_UPT];
-    }
-    if (input[_SPDUB] != null) {
-        entries[_SPDUB] = input[_SPDUB];
-    }
-    if (input[_SPDUURL] != null) {
-        entries[_SPDUURL] = input[_SPDUURL];
-    }
-    if (input[_P] != null) {
-        const memberEntries = se_Parameters(input[_P]);
-        if (input[_P]?.length === 0) {
-            entries.Parameters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Parameters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_C] != null) {
-        const memberEntries = se_Capabilities(input[_C]);
-        if (input[_C]?.length === 0) {
-            entries.Capabilities = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Capabilities.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RTe] != null) {
-        const memberEntries = se_ResourceTypes(input[_RTe]);
-        if (input[_RTe]?.length === 0) {
-            entries.ResourceTypes = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ResourceTypes.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_RARN] != null) {
-        entries[_RARN] = input[_RARN];
-    }
-    if (input[_RC] != null) {
-        const memberEntries = se_RollbackConfiguration(input[_RC]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `RollbackConfiguration.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_SPB] != null) {
-        entries[_SPB] = input[_SPB];
-    }
-    if (input[_SPURL] != null) {
-        entries[_SPURL] = input[_SPURL];
-    }
-    if (input[_NARN] != null) {
-        const memberEntries = se_NotificationARNs(input[_NARN]);
-        if (input[_NARN]?.length === 0) {
-            entries.NotificationARNs = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `NotificationARNs.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_Ta] != null) {
-        const memberEntries = se_Tags(input[_Ta]);
-        if (input[_Ta]?.length === 0) {
-            entries.Tags = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Tags.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_DR] != null) {
-        entries[_DR] = input[_DR];
-    }
-    if (input[_CRT] != null) {
-        entries[_CRT] = input[_CRT];
-    }
-    if (input[_REOC] != null) {
-        entries[_REOC] = input[_REOC];
-    }
-    return entries;
-};
-const se_UpdateStackInstancesInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_Ac] != null) {
-        const memberEntries = se_AccountList(input[_Ac]);
-        if (input[_Ac]?.length === 0) {
-            entries.Accounts = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Accounts.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_DTep] != null) {
-        const memberEntries = se_DeploymentTargets(input[_DTep]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `DeploymentTargets.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_Re] != null) {
-        const memberEntries = se_RegionList(input[_Re]);
-        if (input[_Re]?.length === 0) {
-            entries.Regions = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Regions.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_PO] != null) {
-        const memberEntries = se_Parameters(input[_PO]);
-        if (input[_PO]?.length === 0) {
-            entries.ParameterOverrides = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ParameterOverrides.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OP] != null) {
-        const memberEntries = se_StackSetOperationPreferences(input[_OP]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `OperationPreferences.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OI] === undefined) {
-        input[_OI] = uuid.v4();
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    return entries;
-};
-const se_UpdateStackSetInput = (input, context) => {
-    const entries = {};
-    if (input[_SSN] != null) {
-        entries[_SSN] = input[_SSN];
-    }
-    if (input[_D] != null) {
-        entries[_D] = input[_D];
-    }
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    if (input[_UPT] != null) {
-        entries[_UPT] = input[_UPT];
-    }
-    if (input[_P] != null) {
-        const memberEntries = se_Parameters(input[_P]);
-        if (input[_P]?.length === 0) {
-            entries.Parameters = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Parameters.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_C] != null) {
-        const memberEntries = se_Capabilities(input[_C]);
-        if (input[_C]?.length === 0) {
-            entries.Capabilities = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Capabilities.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_Ta] != null) {
-        const memberEntries = se_Tags(input[_Ta]);
-        if (input[_Ta]?.length === 0) {
-            entries.Tags = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Tags.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OP] != null) {
-        const memberEntries = se_StackSetOperationPreferences(input[_OP]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `OperationPreferences.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_ARARN] != null) {
-        entries[_ARARN] = input[_ARARN];
-    }
-    if (input[_ERN] != null) {
-        entries[_ERN] = input[_ERN];
-    }
-    if (input[_DTep] != null) {
-        const memberEntries = se_DeploymentTargets(input[_DTep]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `DeploymentTargets.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_PM] != null) {
-        entries[_PM] = input[_PM];
-    }
-    if (input[_AD] != null) {
-        const memberEntries = se_AutoDeployment(input[_AD]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `AutoDeployment.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_OI] === undefined) {
-        input[_OI] = uuid.v4();
-    }
-    if (input[_OI] != null) {
-        entries[_OI] = input[_OI];
-    }
-    if (input[_Ac] != null) {
-        const memberEntries = se_AccountList(input[_Ac]);
-        if (input[_Ac]?.length === 0) {
-            entries.Accounts = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Accounts.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_Re] != null) {
-        const memberEntries = se_RegionList(input[_Re]);
-        if (input[_Re]?.length === 0) {
-            entries.Regions = [];
-        }
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `Regions.${key}`;
-            entries[loc] = value;
-        });
-    }
-    if (input[_CA] != null) {
-        entries[_CA] = input[_CA];
-    }
-    if (input[_ME] != null) {
-        const memberEntries = se_ManagedExecution(input[_ME]);
-        Object.entries(memberEntries).forEach(([key, value]) => {
-            const loc = `ManagedExecution.${key}`;
-            entries[loc] = value;
-        });
-    }
-    return entries;
-};
-const se_UpdateTerminationProtectionInput = (input, context) => {
-    const entries = {};
-    if (input[_ETP] != null) {
-        entries[_ETP] = input[_ETP];
-    }
-    if (input[_SN] != null) {
-        entries[_SN] = input[_SN];
-    }
-    return entries;
-};
-const se_ValidateTemplateInput = (input, context) => {
-    const entries = {};
-    if (input[_TB] != null) {
-        entries[_TB] = input[_TB];
-    }
-    if (input[_TURL] != null) {
-        entries[_TURL] = input[_TURL];
-    }
-    return entries;
-};
-const de_AccountGateResult = (output, context) => {
-    const contents = {};
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    return contents;
-};
-const de_AccountLimit = (output, context) => {
-    const contents = {};
-    if (output[_N] != null) {
-        contents[_N] = smithyClient.expectString(output[_N]);
-    }
-    if (output[_Val] != null) {
-        contents[_Val] = smithyClient.strictParseInt32(output[_Val]);
-    }
-    return contents;
-};
-const de_AccountLimitList = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_AccountLimit(entry);
-    });
-};
-const de_AccountList = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_ActivateOrganizationsAccessOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_ActivateTypeOutput = (output, context) => {
-    const contents = {};
-    if (output[_Ar] != null) {
-        contents[_Ar] = smithyClient.expectString(output[_Ar]);
-    }
-    return contents;
-};
-const de_AllowedValues = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_AlreadyExistsException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_AutoDeployment = (output, context) => {
-    const contents = {};
-    if (output[_E] != null) {
-        contents[_E] = smithyClient.parseBoolean(output[_E]);
-    }
-    if (output[_RSOAR] != null) {
-        contents[_RSOAR] = smithyClient.parseBoolean(output[_RSOAR]);
-    }
-    return contents;
-};
-const de_BatchDescribeTypeConfigurationsError = (output, context) => {
-    const contents = {};
-    if (output[_EC] != null) {
-        contents[_EC] = smithyClient.expectString(output[_EC]);
-    }
-    if (output[_EM] != null) {
-        contents[_EM] = smithyClient.expectString(output[_EM]);
-    }
-    if (output[_TCIy] != null) {
-        contents[_TCIy] = de_TypeConfigurationIdentifier(output[_TCIy]);
-    }
-    return contents;
-};
-const de_BatchDescribeTypeConfigurationsErrors = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_BatchDescribeTypeConfigurationsError(entry);
-    });
-};
-const de_BatchDescribeTypeConfigurationsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Errors).trim() === "") {
-        contents[_Er] = [];
-    }
-    else if (output[_Er] != null && output[_Er][_m] != null) {
-        contents[_Er] = de_BatchDescribeTypeConfigurationsErrors(smithyClient.getArrayIfSingleItem(output[_Er][_m]));
-    }
-    if (String(output.UnprocessedTypeConfigurations).trim() === "") {
-        contents[_UTC] = [];
-    }
-    else if (output[_UTC] != null && output[_UTC][_m] != null) {
-        contents[_UTC] = de_UnprocessedTypeConfigurations(smithyClient.getArrayIfSingleItem(output[_UTC][_m]));
-    }
-    if (String(output.TypeConfigurations).trim() === "") {
-        contents[_TCy] = [];
-    }
-    else if (output[_TCy] != null && output[_TCy][_m] != null) {
-        contents[_TCy] = de_TypeConfigurationDetailsList(smithyClient.getArrayIfSingleItem(output[_TCy][_m]));
-    }
-    return contents;
-};
-const de_Capabilities = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_CFNRegistryException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_Change = (output, context) => {
-    const contents = {};
-    if (output[_T] != null) {
-        contents[_T] = smithyClient.expectString(output[_T]);
-    }
-    if (output[_HIC] != null) {
-        contents[_HIC] = smithyClient.strictParseInt32(output[_HIC]);
-    }
-    if (output[_RCe] != null) {
-        contents[_RCe] = de_ResourceChange(output[_RCe]);
-    }
-    return contents;
-};
-const de_Changes = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_Change(entry);
-    });
-};
-const de_ChangeSetHook = (output, context) => {
-    const contents = {};
-    if (output[_IP] != null) {
-        contents[_IP] = smithyClient.expectString(output[_IP]);
-    }
-    if (output[_FM] != null) {
-        contents[_FM] = smithyClient.expectString(output[_FM]);
-    }
-    if (output[_TN] != null) {
-        contents[_TN] = smithyClient.expectString(output[_TN]);
-    }
-    if (output[_TVI] != null) {
-        contents[_TVI] = smithyClient.expectString(output[_TVI]);
-    }
-    if (output[_TCVI] != null) {
-        contents[_TCVI] = smithyClient.expectString(output[_TCVI]);
-    }
-    if (output[_TD] != null) {
-        contents[_TD] = de_ChangeSetHookTargetDetails(output[_TD]);
-    }
-    return contents;
-};
-const de_ChangeSetHookResourceTargetDetails = (output, context) => {
-    const contents = {};
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (output[_RA] != null) {
-        contents[_RA] = smithyClient.expectString(output[_RA]);
-    }
-    return contents;
-};
-const de_ChangeSetHooks = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ChangeSetHook(entry);
-    });
-};
-const de_ChangeSetHookTargetDetails = (output, context) => {
-    const contents = {};
-    if (output[_TTa] != null) {
-        contents[_TTa] = smithyClient.expectString(output[_TTa]);
-    }
-    if (output[_RTD] != null) {
-        contents[_RTD] = de_ChangeSetHookResourceTargetDetails(output[_RTD]);
-    }
-    return contents;
-};
-const de_ChangeSetNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_ChangeSetSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ChangeSetSummary(entry);
-    });
-};
-const de_ChangeSetSummary = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    if (output[_CSIh] != null) {
-        contents[_CSIh] = smithyClient.expectString(output[_CSIh]);
-    }
-    if (output[_CSN] != null) {
-        contents[_CSN] = smithyClient.expectString(output[_CSN]);
-    }
-    if (output[_ES] != null) {
-        contents[_ES] = smithyClient.expectString(output[_ES]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_CTr] != null) {
-        contents[_CTr] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_CTr]));
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_INS] != null) {
-        contents[_INS] = smithyClient.parseBoolean(output[_INS]);
-    }
-    if (output[_PCSI] != null) {
-        contents[_PCSI] = smithyClient.expectString(output[_PCSI]);
-    }
-    if (output[_RCSI] != null) {
-        contents[_RCSI] = smithyClient.expectString(output[_RCSI]);
-    }
-    if (output[_IER] != null) {
-        contents[_IER] = smithyClient.parseBoolean(output[_IER]);
-    }
-    return contents;
-};
-const de_ConcurrentResourcesLimitExceededException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_ContinueUpdateRollbackOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_CreateChangeSetOutput = (output, context) => {
-    const contents = {};
-    if (output[_I] != null) {
-        contents[_I] = smithyClient.expectString(output[_I]);
-    }
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    return contents;
-};
-const de_CreatedButModifiedException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_CreateGeneratedTemplateOutput = (output, context) => {
-    const contents = {};
-    if (output[_GTI] != null) {
-        contents[_GTI] = smithyClient.expectString(output[_GTI]);
-    }
-    return contents;
-};
-const de_CreateStackInstancesOutput = (output, context) => {
-    const contents = {};
-    if (output[_OI] != null) {
-        contents[_OI] = smithyClient.expectString(output[_OI]);
-    }
-    return contents;
-};
-const de_CreateStackOutput = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    return contents;
-};
-const de_CreateStackRefactorOutput = (output, context) => {
-    const contents = {};
-    if (output[_SRI] != null) {
-        contents[_SRI] = smithyClient.expectString(output[_SRI]);
-    }
-    return contents;
-};
-const de_CreateStackSetOutput = (output, context) => {
-    const contents = {};
-    if (output[_SSI] != null) {
-        contents[_SSI] = smithyClient.expectString(output[_SSI]);
-    }
-    return contents;
-};
-const de_DeactivateOrganizationsAccessOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_DeactivateTypeOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_DeleteChangeSetOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_DeleteStackInstancesOutput = (output, context) => {
-    const contents = {};
-    if (output[_OI] != null) {
-        contents[_OI] = smithyClient.expectString(output[_OI]);
-    }
-    return contents;
-};
-const de_DeleteStackSetOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_DeploymentTargets = (output, context) => {
-    const contents = {};
-    if (String(output.Accounts).trim() === "") {
-        contents[_Ac] = [];
-    }
-    else if (output[_Ac] != null && output[_Ac][_m] != null) {
-        contents[_Ac] = de_AccountList(smithyClient.getArrayIfSingleItem(output[_Ac][_m]));
-    }
-    if (output[_AUc] != null) {
-        contents[_AUc] = smithyClient.expectString(output[_AUc]);
-    }
-    if (String(output.OrganizationalUnitIds).trim() === "") {
-        contents[_OUI] = [];
-    }
-    else if (output[_OUI] != null && output[_OUI][_m] != null) {
-        contents[_OUI] = de_OrganizationalUnitIdList(smithyClient.getArrayIfSingleItem(output[_OUI][_m]));
-    }
-    if (output[_AFT] != null) {
-        contents[_AFT] = smithyClient.expectString(output[_AFT]);
-    }
-    return contents;
-};
-const de_DeregisterTypeOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_DescribeAccountLimitsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.AccountLimits).trim() === "") {
-        contents[_AL] = [];
-    }
-    else if (output[_AL] != null && output[_AL][_m] != null) {
-        contents[_AL] = de_AccountLimitList(smithyClient.getArrayIfSingleItem(output[_AL][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_DescribeChangeSetHooksOutput = (output, context) => {
-    const contents = {};
-    if (output[_CSIh] != null) {
-        contents[_CSIh] = smithyClient.expectString(output[_CSIh]);
-    }
-    if (output[_CSN] != null) {
-        contents[_CSN] = smithyClient.expectString(output[_CSN]);
-    }
-    if (String(output.Hooks).trim() === "") {
-        contents[_H] = [];
-    }
-    else if (output[_H] != null && output[_H][_m] != null) {
-        contents[_H] = de_ChangeSetHooks(smithyClient.getArrayIfSingleItem(output[_H][_m]));
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    return contents;
-};
-const de_DescribeChangeSetOutput = (output, context) => {
-    const contents = {};
-    if (output[_CSN] != null) {
-        contents[_CSN] = smithyClient.expectString(output[_CSN]);
-    }
-    if (output[_CSIh] != null) {
-        contents[_CSIh] = smithyClient.expectString(output[_CSIh]);
-    }
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (String(output.Parameters).trim() === "") {
-        contents[_P] = [];
-    }
-    else if (output[_P] != null && output[_P][_m] != null) {
-        contents[_P] = de_Parameters(smithyClient.getArrayIfSingleItem(output[_P][_m]));
-    }
-    if (output[_CTr] != null) {
-        contents[_CTr] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_CTr]));
-    }
-    if (output[_ES] != null) {
-        contents[_ES] = smithyClient.expectString(output[_ES]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (String(output.NotificationARNs).trim() === "") {
-        contents[_NARN] = [];
-    }
-    else if (output[_NARN] != null && output[_NARN][_m] != null) {
-        contents[_NARN] = de_NotificationARNs(smithyClient.getArrayIfSingleItem(output[_NARN][_m]));
-    }
-    if (output[_RC] != null) {
-        contents[_RC] = de_RollbackConfiguration(output[_RC]);
-    }
-    if (String(output.Capabilities).trim() === "") {
-        contents[_C] = [];
-    }
-    else if (output[_C] != null && output[_C][_m] != null) {
-        contents[_C] = de_Capabilities(smithyClient.getArrayIfSingleItem(output[_C][_m]));
-    }
-    if (String(output.Tags).trim() === "") {
-        contents[_Ta] = [];
-    }
-    else if (output[_Ta] != null && output[_Ta][_m] != null) {
-        contents[_Ta] = de_Tags(smithyClient.getArrayIfSingleItem(output[_Ta][_m]));
-    }
-    if (String(output.Changes).trim() === "") {
-        contents[_Ch] = [];
-    }
-    else if (output[_Ch] != null && output[_Ch][_m] != null) {
-        contents[_Ch] = de_Changes(smithyClient.getArrayIfSingleItem(output[_Ch][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    if (output[_INS] != null) {
-        contents[_INS] = smithyClient.parseBoolean(output[_INS]);
-    }
-    if (output[_PCSI] != null) {
-        contents[_PCSI] = smithyClient.expectString(output[_PCSI]);
-    }
-    if (output[_RCSI] != null) {
-        contents[_RCSI] = smithyClient.expectString(output[_RCSI]);
-    }
-    if (output[_OSF] != null) {
-        contents[_OSF] = smithyClient.expectString(output[_OSF]);
-    }
-    if (output[_IER] != null) {
-        contents[_IER] = smithyClient.parseBoolean(output[_IER]);
-    }
-    return contents;
-};
-const de_DescribeGeneratedTemplateOutput = (output, context) => {
-    const contents = {};
-    if (output[_GTI] != null) {
-        contents[_GTI] = smithyClient.expectString(output[_GTI]);
-    }
-    if (output[_GTN] != null) {
-        contents[_GTN] = smithyClient.expectString(output[_GTN]);
-    }
-    if (String(output.Resources).trim() === "") {
-        contents[_R] = [];
-    }
-    else if (output[_R] != null && output[_R][_m] != null) {
-        contents[_R] = de_ResourceDetails(smithyClient.getArrayIfSingleItem(output[_R][_m]));
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_CTr] != null) {
-        contents[_CTr] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_CTr]));
-    }
-    if (output[_LUT] != null) {
-        contents[_LUT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LUT]));
-    }
-    if (output[_Pr] != null) {
-        contents[_Pr] = de_TemplateProgress(output[_Pr]);
-    }
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_TC] != null) {
-        contents[_TC] = de_TemplateConfiguration(output[_TC]);
-    }
-    if (output[_TW] != null) {
-        contents[_TW] = smithyClient.strictParseInt32(output[_TW]);
-    }
-    return contents;
-};
-const de_DescribeOrganizationsAccessOutput = (output, context) => {
-    const contents = {};
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    return contents;
-};
-const de_DescribePublisherOutput = (output, context) => {
-    const contents = {};
-    if (output[_PI] != null) {
-        contents[_PI] = smithyClient.expectString(output[_PI]);
-    }
-    if (output[_PS] != null) {
-        contents[_PS] = smithyClient.expectString(output[_PS]);
-    }
-    if (output[_IPd] != null) {
-        contents[_IPd] = smithyClient.expectString(output[_IPd]);
-    }
-    if (output[_PP] != null) {
-        contents[_PP] = smithyClient.expectString(output[_PP]);
-    }
-    return contents;
-};
-const de_DescribeResourceScanOutput = (output, context) => {
-    const contents = {};
-    if (output[_RSI] != null) {
-        contents[_RSI] = smithyClient.expectString(output[_RSI]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_ST] != null) {
-        contents[_ST] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_ST]));
-    }
-    if (output[_ET] != null) {
-        contents[_ET] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_ET]));
-    }
-    if (output[_PC] != null) {
-        contents[_PC] = smithyClient.strictParseFloat(output[_PC]);
-    }
-    if (String(output.ResourceTypes).trim() === "") {
-        contents[_RTe] = [];
-    }
-    else if (output[_RTe] != null && output[_RTe][_m] != null) {
-        contents[_RTe] = de_ResourceTypes(smithyClient.getArrayIfSingleItem(output[_RTe][_m]));
-    }
-    if (output[_RSes] != null) {
-        contents[_RSes] = smithyClient.strictParseInt32(output[_RSes]);
-    }
-    if (output[_RRes] != null) {
-        contents[_RRes] = smithyClient.strictParseInt32(output[_RRes]);
-    }
-    if (String(output.ScanFilters).trim() === "") {
-        contents[_SF] = [];
-    }
-    else if (output[_SF] != null && output[_SF][_m] != null) {
-        contents[_SF] = de_ScanFilters(smithyClient.getArrayIfSingleItem(output[_SF][_m]));
-    }
-    return contents;
-};
-const de_DescribeStackDriftDetectionStatusOutput = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_SDDI] != null) {
-        contents[_SDDI] = smithyClient.expectString(output[_SDDI]);
-    }
-    if (output[_SDS] != null) {
-        contents[_SDS] = smithyClient.expectString(output[_SDS]);
-    }
-    if (output[_DSet] != null) {
-        contents[_DSet] = smithyClient.expectString(output[_DSet]);
-    }
-    if (output[_DSRet] != null) {
-        contents[_DSRet] = smithyClient.expectString(output[_DSRet]);
-    }
-    if (output[_DSRC] != null) {
-        contents[_DSRC] = smithyClient.strictParseInt32(output[_DSRC]);
-    }
-    if (output[_Ti] != null) {
-        contents[_Ti] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_Ti]));
-    }
-    return contents;
-};
-const de_DescribeStackEventsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.StackEvents).trim() === "") {
-        contents[_SE] = [];
-    }
-    else if (output[_SE] != null && output[_SE][_m] != null) {
-        contents[_SE] = de_StackEvents(smithyClient.getArrayIfSingleItem(output[_SE][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_DescribeStackInstanceOutput = (output, context) => {
-    const contents = {};
-    if (output[_SIta] != null) {
-        contents[_SIta] = de_StackInstance(output[_SIta]);
-    }
-    return contents;
-};
-const de_DescribeStackRefactorOutput = (output, context) => {
-    const contents = {};
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_SRI] != null) {
-        contents[_SRI] = smithyClient.expectString(output[_SRI]);
-    }
-    if (String(output.StackIds).trim() === "") {
-        contents[_SIt] = [];
-    }
-    else if (output[_SIt] != null && output[_SIt][_m] != null) {
-        contents[_SIt] = de_StackIds(smithyClient.getArrayIfSingleItem(output[_SIt][_m]));
-    }
-    if (output[_ES] != null) {
-        contents[_ES] = smithyClient.expectString(output[_ES]);
-    }
-    if (output[_ESRx] != null) {
-        contents[_ESRx] = smithyClient.expectString(output[_ESRx]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    return contents;
-};
-const de_DescribeStackResourceDriftsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.StackResourceDrifts).trim() === "") {
-        contents[_SRD] = [];
-    }
-    else if (output[_SRD] != null && output[_SRD][_m] != null) {
-        contents[_SRD] = de_StackResourceDrifts(smithyClient.getArrayIfSingleItem(output[_SRD][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_DescribeStackResourceOutput = (output, context) => {
-    const contents = {};
-    if (output[_SRDt] != null) {
-        contents[_SRDt] = de_StackResourceDetail(output[_SRDt]);
-    }
-    return contents;
-};
-const de_DescribeStackResourcesOutput = (output, context) => {
-    const contents = {};
-    if (String(output.StackResources).trim() === "") {
-        contents[_SRta] = [];
-    }
-    else if (output[_SRta] != null && output[_SRta][_m] != null) {
-        contents[_SRta] = de_StackResources(smithyClient.getArrayIfSingleItem(output[_SRta][_m]));
-    }
-    return contents;
-};
-const de_DescribeStackSetOperationOutput = (output, context) => {
-    const contents = {};
-    if (output[_SSO] != null) {
-        contents[_SSO] = de_StackSetOperation(output[_SSO]);
-    }
-    return contents;
-};
-const de_DescribeStackSetOutput = (output, context) => {
-    const contents = {};
-    if (output[_SS] != null) {
-        contents[_SS] = de_StackSet(output[_SS]);
-    }
-    return contents;
-};
-const de_DescribeStacksOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Stacks).trim() === "") {
-        contents[_St] = [];
-    }
-    else if (output[_St] != null && output[_St][_m] != null) {
-        contents[_St] = de_Stacks(smithyClient.getArrayIfSingleItem(output[_St][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_DescribeTypeOutput = (output, context) => {
-    const contents = {};
-    if (output[_Ar] != null) {
-        contents[_Ar] = smithyClient.expectString(output[_Ar]);
-    }
-    if (output[_T] != null) {
-        contents[_T] = smithyClient.expectString(output[_T]);
-    }
-    if (output[_TN] != null) {
-        contents[_TN] = smithyClient.expectString(output[_TN]);
-    }
-    if (output[_DVI] != null) {
-        contents[_DVI] = smithyClient.expectString(output[_DVI]);
-    }
-    if (output[_IDV] != null) {
-        contents[_IDV] = smithyClient.parseBoolean(output[_IDV]);
-    }
-    if (output[_TTS] != null) {
-        contents[_TTS] = smithyClient.expectString(output[_TTS]);
-    }
-    if (output[_TTSD] != null) {
-        contents[_TTSD] = smithyClient.expectString(output[_TTSD]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_Sc] != null) {
-        contents[_Sc] = smithyClient.expectString(output[_Sc]);
-    }
-    if (output[_PTr] != null) {
-        contents[_PTr] = smithyClient.expectString(output[_PTr]);
-    }
-    if (output[_DSep] != null) {
-        contents[_DSep] = smithyClient.expectString(output[_DSep]);
-    }
-    if (output[_LC] != null) {
-        contents[_LC] = de_LoggingConfig(output[_LC]);
-    }
-    if (String(output.RequiredActivatedTypes).trim() === "") {
-        contents[_RAT] = [];
-    }
-    else if (output[_RAT] != null && output[_RAT][_m] != null) {
-        contents[_RAT] = de_RequiredActivatedTypes(smithyClient.getArrayIfSingleItem(output[_RAT][_m]));
-    }
-    if (output[_ERA] != null) {
-        contents[_ERA] = smithyClient.expectString(output[_ERA]);
-    }
-    if (output[_Vi] != null) {
-        contents[_Vi] = smithyClient.expectString(output[_Vi]);
-    }
-    if (output[_SU] != null) {
-        contents[_SU] = smithyClient.expectString(output[_SU]);
-    }
-    if (output[_DU] != null) {
-        contents[_DU] = smithyClient.expectString(output[_DU]);
-    }
-    if (output[_LU] != null) {
-        contents[_LU] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LU]));
-    }
-    if (output[_TCi] != null) {
-        contents[_TCi] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_TCi]));
-    }
-    if (output[_CSo] != null) {
-        contents[_CSo] = smithyClient.expectString(output[_CSo]);
-    }
-    if (output[_PI] != null) {
-        contents[_PI] = smithyClient.expectString(output[_PI]);
-    }
-    if (output[_OTN] != null) {
-        contents[_OTN] = smithyClient.expectString(output[_OTN]);
-    }
-    if (output[_OTA] != null) {
-        contents[_OTA] = smithyClient.expectString(output[_OTA]);
-    }
-    if (output[_PVN] != null) {
-        contents[_PVN] = smithyClient.expectString(output[_PVN]);
-    }
-    if (output[_LPV] != null) {
-        contents[_LPV] = smithyClient.expectString(output[_LPV]);
-    }
-    if (output[_IA] != null) {
-        contents[_IA] = smithyClient.parseBoolean(output[_IA]);
-    }
-    if (output[_AU] != null) {
-        contents[_AU] = smithyClient.parseBoolean(output[_AU]);
-    }
-    return contents;
-};
-const de_DescribeTypeRegistrationOutput = (output, context) => {
-    const contents = {};
-    if (output[_PSr] != null) {
-        contents[_PSr] = smithyClient.expectString(output[_PSr]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_TA] != null) {
-        contents[_TA] = smithyClient.expectString(output[_TA]);
-    }
-    if (output[_TVA] != null) {
-        contents[_TVA] = smithyClient.expectString(output[_TVA]);
-    }
-    return contents;
-};
-const de_DetectStackDriftOutput = (output, context) => {
-    const contents = {};
-    if (output[_SDDI] != null) {
-        contents[_SDDI] = smithyClient.expectString(output[_SDDI]);
-    }
-    return contents;
-};
-const de_DetectStackResourceDriftOutput = (output, context) => {
-    const contents = {};
-    if (output[_SRDta] != null) {
-        contents[_SRDta] = de_StackResourceDrift(output[_SRDta]);
-    }
-    return contents;
-};
-const de_DetectStackSetDriftOutput = (output, context) => {
-    const contents = {};
-    if (output[_OI] != null) {
-        contents[_OI] = smithyClient.expectString(output[_OI]);
-    }
-    return contents;
-};
-const de_EstimateTemplateCostOutput = (output, context) => {
-    const contents = {};
-    if (output[_U] != null) {
-        contents[_U] = smithyClient.expectString(output[_U]);
-    }
-    return contents;
-};
-const de_ExecuteChangeSetOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_Export = (output, context) => {
-    const contents = {};
-    if (output[_ESI] != null) {
-        contents[_ESI] = smithyClient.expectString(output[_ESI]);
-    }
-    if (output[_N] != null) {
-        contents[_N] = smithyClient.expectString(output[_N]);
-    }
-    if (output[_Val] != null) {
-        contents[_Val] = smithyClient.expectString(output[_Val]);
-    }
-    return contents;
-};
-const de_Exports = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_Export(entry);
-    });
-};
-const de_GeneratedTemplateNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_GetGeneratedTemplateOutput = (output, context) => {
-    const contents = {};
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_TB] != null) {
-        contents[_TB] = smithyClient.expectString(output[_TB]);
-    }
-    return contents;
-};
-const de_GetStackPolicyOutput = (output, context) => {
-    const contents = {};
-    if (output[_SPB] != null) {
-        contents[_SPB] = smithyClient.expectString(output[_SPB]);
-    }
-    return contents;
-};
-const de_GetTemplateOutput = (output, context) => {
-    const contents = {};
-    if (output[_TB] != null) {
-        contents[_TB] = smithyClient.expectString(output[_TB]);
-    }
-    if (String(output.StagesAvailable).trim() === "") {
-        contents[_SA] = [];
-    }
-    else if (output[_SA] != null && output[_SA][_m] != null) {
-        contents[_SA] = de_StageList(smithyClient.getArrayIfSingleItem(output[_SA][_m]));
-    }
-    return contents;
-};
-const de_GetTemplateSummaryOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Parameters).trim() === "") {
-        contents[_P] = [];
-    }
-    else if (output[_P] != null && output[_P][_m] != null) {
-        contents[_P] = de_ParameterDeclarations(smithyClient.getArrayIfSingleItem(output[_P][_m]));
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (String(output.Capabilities).trim() === "") {
-        contents[_C] = [];
-    }
-    else if (output[_C] != null && output[_C][_m] != null) {
-        contents[_C] = de_Capabilities(smithyClient.getArrayIfSingleItem(output[_C][_m]));
-    }
-    if (output[_CR] != null) {
-        contents[_CR] = smithyClient.expectString(output[_CR]);
-    }
-    if (String(output.ResourceTypes).trim() === "") {
-        contents[_RTe] = [];
-    }
-    else if (output[_RTe] != null && output[_RTe][_m] != null) {
-        contents[_RTe] = de_ResourceTypes(smithyClient.getArrayIfSingleItem(output[_RTe][_m]));
-    }
-    if (output[_V] != null) {
-        contents[_V] = smithyClient.expectString(output[_V]);
-    }
-    if (output[_Me] != null) {
-        contents[_Me] = smithyClient.expectString(output[_Me]);
-    }
-    if (String(output.DeclaredTransforms).trim() === "") {
-        contents[_DTec] = [];
-    }
-    else if (output[_DTec] != null && output[_DTec][_m] != null) {
-        contents[_DTec] = de_TransformsList(smithyClient.getArrayIfSingleItem(output[_DTec][_m]));
-    }
-    if (String(output.ResourceIdentifierSummaries).trim() === "") {
-        contents[_RIS] = [];
-    }
-    else if (output[_RIS] != null && output[_RIS][_m] != null) {
-        contents[_RIS] = de_ResourceIdentifierSummaries(smithyClient.getArrayIfSingleItem(output[_RIS][_m]));
-    }
-    if (output[_W] != null) {
-        contents[_W] = de_Warnings(output[_W]);
-    }
-    return contents;
-};
-const de_HookResultNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_HookResultSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_HookResultSummary(entry);
-    });
-};
-const de_HookResultSummary = (output, context) => {
-    const contents = {};
-    if (output[_HRI] != null) {
-        contents[_HRI] = smithyClient.expectString(output[_HRI]);
-    }
-    if (output[_IP] != null) {
-        contents[_IP] = smithyClient.expectString(output[_IP]);
-    }
-    if (output[_FM] != null) {
-        contents[_FM] = smithyClient.expectString(output[_FM]);
-    }
-    if (output[_TN] != null) {
-        contents[_TN] = smithyClient.expectString(output[_TN]);
-    }
-    if (output[_TVI] != null) {
-        contents[_TVI] = smithyClient.expectString(output[_TVI]);
-    }
-    if (output[_TCVI] != null) {
-        contents[_TCVI] = smithyClient.expectString(output[_TCVI]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_HSR] != null) {
-        contents[_HSR] = smithyClient.expectString(output[_HSR]);
-    }
-    if (output[_IAn] != null) {
-        contents[_IAn] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_IAn]));
-    }
-    if (output[_TTa] != null) {
-        contents[_TTa] = smithyClient.expectString(output[_TTa]);
-    }
-    if (output[_TI] != null) {
-        contents[_TI] = smithyClient.expectString(output[_TI]);
-    }
-    if (output[_TA] != null) {
-        contents[_TA] = smithyClient.expectString(output[_TA]);
-    }
-    if (output[_HET] != null) {
-        contents[_HET] = smithyClient.expectString(output[_HET]);
-    }
-    return contents;
-};
-const de_Imports = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_ImportStacksToStackSetOutput = (output, context) => {
-    const contents = {};
-    if (output[_OI] != null) {
-        contents[_OI] = smithyClient.expectString(output[_OI]);
-    }
-    return contents;
-};
-const de_InsufficientCapabilitiesException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_InvalidChangeSetStatusException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_InvalidOperationException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_InvalidStateTransitionException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_JazzResourceIdentifierProperties = (output, context) => {
-    return output.reduce((acc, pair) => {
-        if (pair["value"] === null) {
-            return acc;
-        }
-        acc[pair["key"]] = smithyClient.expectString(pair["value"]);
-        return acc;
-    }, {});
-};
-const de_LimitExceededException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_ListChangeSetsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Summaries).trim() === "") {
-        contents[_Su] = [];
-    }
-    else if (output[_Su] != null && output[_Su][_m] != null) {
-        contents[_Su] = de_ChangeSetSummaries(smithyClient.getArrayIfSingleItem(output[_Su][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListExportsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Exports).trim() === "") {
-        contents[_Ex] = [];
-    }
-    else if (output[_Ex] != null && output[_Ex][_m] != null) {
-        contents[_Ex] = de_Exports(smithyClient.getArrayIfSingleItem(output[_Ex][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListGeneratedTemplatesOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Summaries).trim() === "") {
-        contents[_Su] = [];
-    }
-    else if (output[_Su] != null && output[_Su][_m] != null) {
-        contents[_Su] = de_TemplateSummaries(smithyClient.getArrayIfSingleItem(output[_Su][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListHookResultsOutput = (output, context) => {
-    const contents = {};
-    if (output[_TTa] != null) {
-        contents[_TTa] = smithyClient.expectString(output[_TTa]);
-    }
-    if (output[_TI] != null) {
-        contents[_TI] = smithyClient.expectString(output[_TI]);
-    }
-    if (String(output.HookResults).trim() === "") {
-        contents[_HR] = [];
-    }
-    else if (output[_HR] != null && output[_HR][_m] != null) {
-        contents[_HR] = de_HookResultSummaries(smithyClient.getArrayIfSingleItem(output[_HR][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListImportsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Imports).trim() === "") {
-        contents[_Im] = [];
-    }
-    else if (output[_Im] != null && output[_Im][_m] != null) {
-        contents[_Im] = de_Imports(smithyClient.getArrayIfSingleItem(output[_Im][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListResourceScanRelatedResourcesOutput = (output, context) => {
-    const contents = {};
-    if (String(output.RelatedResources).trim() === "") {
-        contents[_RRel] = [];
-    }
-    else if (output[_RRel] != null && output[_RRel][_m] != null) {
-        contents[_RRel] = de_RelatedResources(smithyClient.getArrayIfSingleItem(output[_RRel][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListResourceScanResourcesOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Resources).trim() === "") {
-        contents[_R] = [];
-    }
-    else if (output[_R] != null && output[_R][_m] != null) {
-        contents[_R] = de_ScannedResources(smithyClient.getArrayIfSingleItem(output[_R][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListResourceScansOutput = (output, context) => {
-    const contents = {};
-    if (String(output.ResourceScanSummaries).trim() === "") {
-        contents[_RSS] = [];
-    }
-    else if (output[_RSS] != null && output[_RSS][_m] != null) {
-        contents[_RSS] = de_ResourceScanSummaries(smithyClient.getArrayIfSingleItem(output[_RSS][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackInstanceResourceDriftsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Summaries).trim() === "") {
-        contents[_Su] = [];
-    }
-    else if (output[_Su] != null && output[_Su][_m] != null) {
-        contents[_Su] = de_StackInstanceResourceDriftsSummaries(smithyClient.getArrayIfSingleItem(output[_Su][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackInstancesOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Summaries).trim() === "") {
-        contents[_Su] = [];
-    }
-    else if (output[_Su] != null && output[_Su][_m] != null) {
-        contents[_Su] = de_StackInstanceSummaries(smithyClient.getArrayIfSingleItem(output[_Su][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackRefactorActionsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.StackRefactorActions).trim() === "") {
-        contents[_SRA] = [];
-    }
-    else if (output[_SRA] != null && output[_SRA][_m] != null) {
-        contents[_SRA] = de_StackRefactorActions(smithyClient.getArrayIfSingleItem(output[_SRA][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackRefactorsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.StackRefactorSummaries).trim() === "") {
-        contents[_SRSt] = [];
-    }
-    else if (output[_SRSt] != null && output[_SRSt][_m] != null) {
-        contents[_SRSt] = de_StackRefactorSummaries(smithyClient.getArrayIfSingleItem(output[_SRSt][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackResourcesOutput = (output, context) => {
-    const contents = {};
-    if (String(output.StackResourceSummaries).trim() === "") {
-        contents[_SRSta] = [];
-    }
-    else if (output[_SRSta] != null && output[_SRSta][_m] != null) {
-        contents[_SRSta] = de_StackResourceSummaries(smithyClient.getArrayIfSingleItem(output[_SRSta][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackSetAutoDeploymentTargetsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Summaries).trim() === "") {
-        contents[_Su] = [];
-    }
-    else if (output[_Su] != null && output[_Su][_m] != null) {
-        contents[_Su] = de_StackSetAutoDeploymentTargetSummaries(smithyClient.getArrayIfSingleItem(output[_Su][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackSetOperationResultsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Summaries).trim() === "") {
-        contents[_Su] = [];
-    }
-    else if (output[_Su] != null && output[_Su][_m] != null) {
-        contents[_Su] = de_StackSetOperationResultSummaries(smithyClient.getArrayIfSingleItem(output[_Su][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackSetOperationsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Summaries).trim() === "") {
-        contents[_Su] = [];
-    }
-    else if (output[_Su] != null && output[_Su][_m] != null) {
-        contents[_Su] = de_StackSetOperationSummaries(smithyClient.getArrayIfSingleItem(output[_Su][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStackSetsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Summaries).trim() === "") {
-        contents[_Su] = [];
-    }
-    else if (output[_Su] != null && output[_Su][_m] != null) {
-        contents[_Su] = de_StackSetSummaries(smithyClient.getArrayIfSingleItem(output[_Su][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListStacksOutput = (output, context) => {
-    const contents = {};
-    if (String(output.StackSummaries).trim() === "") {
-        contents[_SSt] = [];
-    }
-    else if (output[_SSt] != null && output[_SSt][_m] != null) {
-        contents[_SSt] = de_StackSummaries(smithyClient.getArrayIfSingleItem(output[_SSt][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListTypeRegistrationsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.RegistrationTokenList).trim() === "") {
-        contents[_RTL] = [];
-    }
-    else if (output[_RTL] != null && output[_RTL][_m] != null) {
-        contents[_RTL] = de_RegistrationTokenList(smithyClient.getArrayIfSingleItem(output[_RTL][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListTypesOutput = (output, context) => {
-    const contents = {};
-    if (String(output.TypeSummaries).trim() === "") {
-        contents[_TSy] = [];
-    }
-    else if (output[_TSy] != null && output[_TSy][_m] != null) {
-        contents[_TSy] = de_TypeSummaries(smithyClient.getArrayIfSingleItem(output[_TSy][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_ListTypeVersionsOutput = (output, context) => {
-    const contents = {};
-    if (String(output.TypeVersionSummaries).trim() === "") {
-        contents[_TVS] = [];
-    }
-    else if (output[_TVS] != null && output[_TVS][_m] != null) {
-        contents[_TVS] = de_TypeVersionSummaries(smithyClient.getArrayIfSingleItem(output[_TVS][_m]));
-    }
-    if (output[_NT] != null) {
-        contents[_NT] = smithyClient.expectString(output[_NT]);
-    }
-    return contents;
-};
-const de_LoggingConfig = (output, context) => {
-    const contents = {};
-    if (output[_LRA] != null) {
-        contents[_LRA] = smithyClient.expectString(output[_LRA]);
-    }
-    if (output[_LGN] != null) {
-        contents[_LGN] = smithyClient.expectString(output[_LGN]);
-    }
-    return contents;
-};
-const de_LogicalResourceIds = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_ManagedExecution = (output, context) => {
-    const contents = {};
-    if (output[_Act] != null) {
-        contents[_Act] = smithyClient.parseBoolean(output[_Act]);
-    }
-    return contents;
-};
-const de_ModuleInfo = (output, context) => {
-    const contents = {};
-    if (output[_TH] != null) {
-        contents[_TH] = smithyClient.expectString(output[_TH]);
-    }
-    if (output[_LIH] != null) {
-        contents[_LIH] = smithyClient.expectString(output[_LIH]);
-    }
-    return contents;
-};
-const de_NameAlreadyExistsException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_NotificationARNs = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_OperationIdAlreadyExistsException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_OperationInProgressException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_OperationNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_OperationStatusCheckFailedException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_OrganizationalUnitIdList = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_Output = (output, context) => {
-    const contents = {};
-    if (output[_OK] != null) {
-        contents[_OK] = smithyClient.expectString(output[_OK]);
-    }
-    if (output[_OV] != null) {
-        contents[_OV] = smithyClient.expectString(output[_OV]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_EN] != null) {
-        contents[_EN] = smithyClient.expectString(output[_EN]);
-    }
-    return contents;
-};
-const de_Outputs = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_Output(entry);
-    });
-};
-const de_Parameter = (output, context) => {
-    const contents = {};
-    if (output[_PK] != null) {
-        contents[_PK] = smithyClient.expectString(output[_PK]);
-    }
-    if (output[_PV] != null) {
-        contents[_PV] = smithyClient.expectString(output[_PV]);
-    }
-    if (output[_UPV] != null) {
-        contents[_UPV] = smithyClient.parseBoolean(output[_UPV]);
-    }
-    if (output[_RV] != null) {
-        contents[_RV] = smithyClient.expectString(output[_RV]);
-    }
-    return contents;
-};
-const de_ParameterConstraints = (output, context) => {
-    const contents = {};
-    if (String(output.AllowedValues).trim() === "") {
-        contents[_AV] = [];
-    }
-    else if (output[_AV] != null && output[_AV][_m] != null) {
-        contents[_AV] = de_AllowedValues(smithyClient.getArrayIfSingleItem(output[_AV][_m]));
-    }
-    return contents;
-};
-const de_ParameterDeclaration = (output, context) => {
-    const contents = {};
-    if (output[_PK] != null) {
-        contents[_PK] = smithyClient.expectString(output[_PK]);
-    }
-    if (output[_DV] != null) {
-        contents[_DV] = smithyClient.expectString(output[_DV]);
-    }
-    if (output[_PTa] != null) {
-        contents[_PTa] = smithyClient.expectString(output[_PTa]);
-    }
-    if (output[_NE] != null) {
-        contents[_NE] = smithyClient.parseBoolean(output[_NE]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_PCa] != null) {
-        contents[_PCa] = de_ParameterConstraints(output[_PCa]);
-    }
-    return contents;
-};
-const de_ParameterDeclarations = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ParameterDeclaration(entry);
-    });
-};
-const de_Parameters = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_Parameter(entry);
-    });
-};
-const de_PhysicalResourceIdContext = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_PhysicalResourceIdContextKeyValuePair(entry);
-    });
-};
-const de_PhysicalResourceIdContextKeyValuePair = (output, context) => {
-    const contents = {};
-    if (output[_K] != null) {
-        contents[_K] = smithyClient.expectString(output[_K]);
-    }
-    if (output[_Val] != null) {
-        contents[_Val] = smithyClient.expectString(output[_Val]);
-    }
-    return contents;
-};
-const de_PropertyDifference = (output, context) => {
-    const contents = {};
-    if (output[_PPr] != null) {
-        contents[_PPr] = smithyClient.expectString(output[_PPr]);
-    }
-    if (output[_EV] != null) {
-        contents[_EV] = smithyClient.expectString(output[_EV]);
-    }
-    if (output[_AVc] != null) {
-        contents[_AVc] = smithyClient.expectString(output[_AVc]);
-    }
-    if (output[_DTi] != null) {
-        contents[_DTi] = smithyClient.expectString(output[_DTi]);
-    }
-    return contents;
-};
-const de_PropertyDifferences = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_PropertyDifference(entry);
-    });
-};
-const de_PublishTypeOutput = (output, context) => {
-    const contents = {};
-    if (output[_PTA] != null) {
-        contents[_PTA] = smithyClient.expectString(output[_PTA]);
-    }
-    return contents;
-};
-const de_RecordHandlerProgressOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_RegionList = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_RegisterPublisherOutput = (output, context) => {
-    const contents = {};
-    if (output[_PI] != null) {
-        contents[_PI] = smithyClient.expectString(output[_PI]);
-    }
-    return contents;
-};
-const de_RegisterTypeOutput = (output, context) => {
-    const contents = {};
-    if (output[_RTeg] != null) {
-        contents[_RTeg] = smithyClient.expectString(output[_RTeg]);
-    }
-    return contents;
-};
-const de_RegistrationTokenList = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_RelatedResources = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ScannedResource(entry);
-    });
-};
-const de_RequiredActivatedType = (output, context) => {
-    const contents = {};
-    if (output[_TNA] != null) {
-        contents[_TNA] = smithyClient.expectString(output[_TNA]);
-    }
-    if (output[_OTN] != null) {
-        contents[_OTN] = smithyClient.expectString(output[_OTN]);
-    }
-    if (output[_PI] != null) {
-        contents[_PI] = smithyClient.expectString(output[_PI]);
-    }
-    if (String(output.SupportedMajorVersions).trim() === "") {
-        contents[_SMV] = [];
-    }
-    else if (output[_SMV] != null && output[_SMV][_m] != null) {
-        contents[_SMV] = de_SupportedMajorVersions(smithyClient.getArrayIfSingleItem(output[_SMV][_m]));
-    }
-    return contents;
-};
-const de_RequiredActivatedTypes = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_RequiredActivatedType(entry);
-    });
-};
-const de_ResourceChange = (output, context) => {
-    const contents = {};
-    if (output[_PA] != null) {
-        contents[_PA] = smithyClient.expectString(output[_PA]);
-    }
-    if (output[_A] != null) {
-        contents[_A] = smithyClient.expectString(output[_A]);
-    }
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (output[_PRI] != null) {
-        contents[_PRI] = smithyClient.expectString(output[_PRI]);
-    }
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (output[_Rep] != null) {
-        contents[_Rep] = smithyClient.expectString(output[_Rep]);
-    }
-    if (String(output.Scope).trim() === "") {
-        contents[_Sco] = [];
-    }
-    else if (output[_Sco] != null && output[_Sco][_m] != null) {
-        contents[_Sco] = de_Scope(smithyClient.getArrayIfSingleItem(output[_Sco][_m]));
-    }
-    if (String(output.Details).trim() === "") {
-        contents[_Det] = [];
-    }
-    else if (output[_Det] != null && output[_Det][_m] != null) {
-        contents[_Det] = de_ResourceChangeDetails(smithyClient.getArrayIfSingleItem(output[_Det][_m]));
-    }
-    if (output[_CSIh] != null) {
-        contents[_CSIh] = smithyClient.expectString(output[_CSIh]);
-    }
-    if (output[_MI] != null) {
-        contents[_MI] = de_ModuleInfo(output[_MI]);
-    }
-    if (output[_BC] != null) {
-        contents[_BC] = smithyClient.expectString(output[_BC]);
-    }
-    if (output[_AC] != null) {
-        contents[_AC] = smithyClient.expectString(output[_AC]);
-    }
-    return contents;
-};
-const de_ResourceChangeDetail = (output, context) => {
-    const contents = {};
-    if (output[_Tar] != null) {
-        contents[_Tar] = de_ResourceTargetDefinition(output[_Tar]);
-    }
-    if (output[_Ev] != null) {
-        contents[_Ev] = smithyClient.expectString(output[_Ev]);
-    }
-    if (output[_CSh] != null) {
-        contents[_CSh] = smithyClient.expectString(output[_CSh]);
-    }
-    if (output[_CE] != null) {
-        contents[_CE] = smithyClient.expectString(output[_CE]);
-    }
-    return contents;
-};
-const de_ResourceChangeDetails = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ResourceChangeDetail(entry);
-    });
-};
-const de_ResourceDetail = (output, context) => {
-    const contents = {};
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (String(output.ResourceIdentifier).trim() === "") {
-        contents[_RI] = {};
-    }
-    else if (output[_RI] != null && output[_RI][_e] != null) {
-        contents[_RI] = de_ResourceIdentifierProperties(smithyClient.getArrayIfSingleItem(output[_RI][_e]));
-    }
-    if (output[_RSeso] != null) {
-        contents[_RSeso] = smithyClient.expectString(output[_RSeso]);
-    }
-    if (output[_RSR] != null) {
-        contents[_RSR] = smithyClient.expectString(output[_RSR]);
-    }
-    if (String(output.Warnings).trim() === "") {
-        contents[_W] = [];
-    }
-    else if (output[_W] != null && output[_W][_m] != null) {
-        contents[_W] = de_WarningDetails(smithyClient.getArrayIfSingleItem(output[_W][_m]));
-    }
-    return contents;
-};
-const de_ResourceDetails = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ResourceDetail(entry);
-    });
-};
-const de_ResourceIdentifierProperties = (output, context) => {
-    return output.reduce((acc, pair) => {
-        if (pair["value"] === null) {
-            return acc;
-        }
-        acc[pair["key"]] = smithyClient.expectString(pair["value"]);
-        return acc;
-    }, {});
-};
-const de_ResourceIdentifiers = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_ResourceIdentifierSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ResourceIdentifierSummary(entry);
-    });
-};
-const de_ResourceIdentifierSummary = (output, context) => {
-    const contents = {};
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (String(output.LogicalResourceIds).trim() === "") {
-        contents[_LRIo] = [];
-    }
-    else if (output[_LRIo] != null && output[_LRIo][_m] != null) {
-        contents[_LRIo] = de_LogicalResourceIds(smithyClient.getArrayIfSingleItem(output[_LRIo][_m]));
-    }
-    if (String(output.ResourceIdentifiers).trim() === "") {
-        contents[_RIe] = [];
-    }
-    else if (output[_RIe] != null && output[_RIe][_m] != null) {
-        contents[_RIe] = de_ResourceIdentifiers(smithyClient.getArrayIfSingleItem(output[_RIe][_m]));
-    }
-    return contents;
-};
-const de_ResourceLocation = (output, context) => {
-    const contents = {};
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    return contents;
-};
-const de_ResourceMapping = (output, context) => {
-    const contents = {};
-    if (output[_So] != null) {
-        contents[_So] = de_ResourceLocation(output[_So]);
-    }
-    if (output[_De] != null) {
-        contents[_De] = de_ResourceLocation(output[_De]);
-    }
-    return contents;
-};
-const de_ResourceScanInProgressException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_ResourceScanLimitExceededException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_ResourceScanNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_ResourceScanSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ResourceScanSummary(entry);
-    });
-};
-const de_ResourceScanSummary = (output, context) => {
-    const contents = {};
-    if (output[_RSI] != null) {
-        contents[_RSI] = smithyClient.expectString(output[_RSI]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_ST] != null) {
-        contents[_ST] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_ST]));
-    }
-    if (output[_ET] != null) {
-        contents[_ET] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_ET]));
-    }
-    if (output[_PC] != null) {
-        contents[_PC] = smithyClient.strictParseFloat(output[_PC]);
-    }
-    if (output[_STc] != null) {
-        contents[_STc] = smithyClient.expectString(output[_STc]);
-    }
-    return contents;
-};
-const de_ResourceTargetDefinition = (output, context) => {
-    const contents = {};
-    if (output[_At] != null) {
-        contents[_At] = smithyClient.expectString(output[_At]);
-    }
-    if (output[_N] != null) {
-        contents[_N] = smithyClient.expectString(output[_N]);
-    }
-    if (output[_RReq] != null) {
-        contents[_RReq] = smithyClient.expectString(output[_RReq]);
-    }
-    if (output[_Pa] != null) {
-        contents[_Pa] = smithyClient.expectString(output[_Pa]);
-    }
-    if (output[_BV] != null) {
-        contents[_BV] = smithyClient.expectString(output[_BV]);
-    }
-    if (output[_AVf] != null) {
-        contents[_AVf] = smithyClient.expectString(output[_AVf]);
-    }
-    if (output[_ACT] != null) {
-        contents[_ACT] = smithyClient.expectString(output[_ACT]);
-    }
-    return contents;
-};
-const de_ResourceTypeFilters = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_ResourceTypes = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_RollbackConfiguration = (output, context) => {
-    const contents = {};
-    if (String(output.RollbackTriggers).trim() === "") {
-        contents[_RTo] = [];
-    }
-    else if (output[_RTo] != null && output[_RTo][_m] != null) {
-        contents[_RTo] = de_RollbackTriggers(smithyClient.getArrayIfSingleItem(output[_RTo][_m]));
-    }
-    if (output[_MTIM] != null) {
-        contents[_MTIM] = smithyClient.strictParseInt32(output[_MTIM]);
-    }
-    return contents;
-};
-const de_RollbackStackOutput = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    return contents;
-};
-const de_RollbackTrigger = (output, context) => {
-    const contents = {};
-    if (output[_Ar] != null) {
-        contents[_Ar] = smithyClient.expectString(output[_Ar]);
-    }
-    if (output[_T] != null) {
-        contents[_T] = smithyClient.expectString(output[_T]);
-    }
-    return contents;
-};
-const de_RollbackTriggers = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_RollbackTrigger(entry);
-    });
-};
-const de_ScanFilter = (output, context) => {
-    const contents = {};
-    if (String(output.Types).trim() === "") {
-        contents[_Ty] = [];
-    }
-    else if (output[_Ty] != null && output[_Ty][_m] != null) {
-        contents[_Ty] = de_ResourceTypeFilters(smithyClient.getArrayIfSingleItem(output[_Ty][_m]));
-    }
-    return contents;
-};
-const de_ScanFilters = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ScanFilter(entry);
-    });
-};
-const de_ScannedResource = (output, context) => {
-    const contents = {};
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (String(output.ResourceIdentifier).trim() === "") {
-        contents[_RI] = {};
-    }
-    else if (output[_RI] != null && output[_RI][_e] != null) {
-        contents[_RI] = de_JazzResourceIdentifierProperties(smithyClient.getArrayIfSingleItem(output[_RI][_e]));
-    }
-    if (output[_MBS] != null) {
-        contents[_MBS] = smithyClient.parseBoolean(output[_MBS]);
-    }
-    return contents;
-};
-const de_ScannedResources = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_ScannedResource(entry);
-    });
-};
-const de_Scope = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_SetTypeConfigurationOutput = (output, context) => {
-    const contents = {};
-    if (output[_CAonf] != null) {
-        contents[_CAonf] = smithyClient.expectString(output[_CAonf]);
-    }
-    return contents;
-};
-const de_SetTypeDefaultVersionOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_Stack = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    if (output[_CSIh] != null) {
-        contents[_CSIh] = smithyClient.expectString(output[_CSIh]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (String(output.Parameters).trim() === "") {
-        contents[_P] = [];
-    }
-    else if (output[_P] != null && output[_P][_m] != null) {
-        contents[_P] = de_Parameters(smithyClient.getArrayIfSingleItem(output[_P][_m]));
-    }
-    if (output[_CTr] != null) {
-        contents[_CTr] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_CTr]));
-    }
-    if (output[_DTel] != null) {
-        contents[_DTel] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_DTel]));
-    }
-    if (output[_LUT] != null) {
-        contents[_LUT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LUT]));
-    }
-    if (output[_RC] != null) {
-        contents[_RC] = de_RollbackConfiguration(output[_RC]);
-    }
-    if (output[_SSta] != null) {
-        contents[_SSta] = smithyClient.expectString(output[_SSta]);
-    }
-    if (output[_SSR] != null) {
-        contents[_SSR] = smithyClient.expectString(output[_SSR]);
-    }
-    if (output[_DR] != null) {
-        contents[_DR] = smithyClient.parseBoolean(output[_DR]);
-    }
-    if (String(output.NotificationARNs).trim() === "") {
-        contents[_NARN] = [];
-    }
-    else if (output[_NARN] != null && output[_NARN][_m] != null) {
-        contents[_NARN] = de_NotificationARNs(smithyClient.getArrayIfSingleItem(output[_NARN][_m]));
-    }
-    if (output[_TIM] != null) {
-        contents[_TIM] = smithyClient.strictParseInt32(output[_TIM]);
-    }
-    if (String(output.Capabilities).trim() === "") {
-        contents[_C] = [];
-    }
-    else if (output[_C] != null && output[_C][_m] != null) {
-        contents[_C] = de_Capabilities(smithyClient.getArrayIfSingleItem(output[_C][_m]));
-    }
-    if (String(output.Outputs).trim() === "") {
-        contents[_O] = [];
-    }
-    else if (output[_O] != null && output[_O][_m] != null) {
-        contents[_O] = de_Outputs(smithyClient.getArrayIfSingleItem(output[_O][_m]));
-    }
-    if (output[_RARN] != null) {
-        contents[_RARN] = smithyClient.expectString(output[_RARN]);
-    }
-    if (String(output.Tags).trim() === "") {
-        contents[_Ta] = [];
-    }
-    else if (output[_Ta] != null && output[_Ta][_m] != null) {
-        contents[_Ta] = de_Tags(smithyClient.getArrayIfSingleItem(output[_Ta][_m]));
-    }
-    if (output[_ETP] != null) {
-        contents[_ETP] = smithyClient.parseBoolean(output[_ETP]);
-    }
-    if (output[_PIa] != null) {
-        contents[_PIa] = smithyClient.expectString(output[_PIa]);
-    }
-    if (output[_RIo] != null) {
-        contents[_RIo] = smithyClient.expectString(output[_RIo]);
-    }
-    if (output[_DI] != null) {
-        contents[_DI] = de_StackDriftInformation(output[_DI]);
-    }
-    if (output[_REOC] != null) {
-        contents[_REOC] = smithyClient.parseBoolean(output[_REOC]);
-    }
-    if (output[_DM] != null) {
-        contents[_DM] = smithyClient.expectString(output[_DM]);
-    }
-    if (output[_DSeta] != null) {
-        contents[_DSeta] = smithyClient.expectString(output[_DSeta]);
-    }
-    return contents;
-};
-const de_StackDriftInformation = (output, context) => {
-    const contents = {};
-    if (output[_SDS] != null) {
-        contents[_SDS] = smithyClient.expectString(output[_SDS]);
-    }
-    if (output[_LCT] != null) {
-        contents[_LCT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LCT]));
-    }
-    return contents;
-};
-const de_StackDriftInformationSummary = (output, context) => {
-    const contents = {};
-    if (output[_SDS] != null) {
-        contents[_SDS] = smithyClient.expectString(output[_SDS]);
-    }
-    if (output[_LCT] != null) {
-        contents[_LCT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LCT]));
-    }
-    return contents;
-};
-const de_StackEvent = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_EI] != null) {
-        contents[_EI] = smithyClient.expectString(output[_EI]);
-    }
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (output[_PRI] != null) {
-        contents[_PRI] = smithyClient.expectString(output[_PRI]);
-    }
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (output[_Ti] != null) {
-        contents[_Ti] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_Ti]));
-    }
-    if (output[_RSeso] != null) {
-        contents[_RSeso] = smithyClient.expectString(output[_RSeso]);
-    }
-    if (output[_RSR] != null) {
-        contents[_RSR] = smithyClient.expectString(output[_RSR]);
-    }
-    if (output[_RPe] != null) {
-        contents[_RPe] = smithyClient.expectString(output[_RPe]);
-    }
-    if (output[_CRT] != null) {
-        contents[_CRT] = smithyClient.expectString(output[_CRT]);
-    }
-    if (output[_HT] != null) {
-        contents[_HT] = smithyClient.expectString(output[_HT]);
-    }
-    if (output[_HS] != null) {
-        contents[_HS] = smithyClient.expectString(output[_HS]);
-    }
-    if (output[_HSR] != null) {
-        contents[_HSR] = smithyClient.expectString(output[_HSR]);
-    }
-    if (output[_HIP] != null) {
-        contents[_HIP] = smithyClient.expectString(output[_HIP]);
-    }
-    if (output[_HII] != null) {
-        contents[_HII] = smithyClient.expectString(output[_HII]);
-    }
-    if (output[_HFM] != null) {
-        contents[_HFM] = smithyClient.expectString(output[_HFM]);
-    }
-    if (output[_DSeta] != null) {
-        contents[_DSeta] = smithyClient.expectString(output[_DSeta]);
-    }
-    return contents;
-};
-const de_StackEvents = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackEvent(entry);
-    });
-};
-const de_StackIds = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_StackInstance = (output, context) => {
-    const contents = {};
-    if (output[_SSI] != null) {
-        contents[_SSI] = smithyClient.expectString(output[_SSI]);
-    }
-    if (output[_Reg] != null) {
-        contents[_Reg] = smithyClient.expectString(output[_Reg]);
-    }
-    if (output[_Acc] != null) {
-        contents[_Acc] = smithyClient.expectString(output[_Acc]);
-    }
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (String(output.ParameterOverrides).trim() === "") {
-        contents[_PO] = [];
-    }
-    else if (output[_PO] != null && output[_PO][_m] != null) {
-        contents[_PO] = de_Parameters(smithyClient.getArrayIfSingleItem(output[_PO][_m]));
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SIS] != null) {
-        contents[_SIS] = de_StackInstanceComprehensiveStatus(output[_SIS]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_OUIr] != null) {
-        contents[_OUIr] = smithyClient.expectString(output[_OUIr]);
-    }
-    if (output[_DSr] != null) {
-        contents[_DSr] = smithyClient.expectString(output[_DSr]);
-    }
-    if (output[_LDCT] != null) {
-        contents[_LDCT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LDCT]));
-    }
-    if (output[_LOI] != null) {
-        contents[_LOI] = smithyClient.expectString(output[_LOI]);
-    }
-    return contents;
-};
-const de_StackInstanceComprehensiveStatus = (output, context) => {
-    const contents = {};
-    if (output[_DSeta] != null) {
-        contents[_DSeta] = smithyClient.expectString(output[_DSeta]);
-    }
-    return contents;
-};
-const de_StackInstanceNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_StackInstanceResourceDriftsSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackInstanceResourceDriftsSummary(entry);
-    });
-};
-const de_StackInstanceResourceDriftsSummary = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (output[_PRI] != null) {
-        contents[_PRI] = smithyClient.expectString(output[_PRI]);
-    }
-    if (String(output.PhysicalResourceIdContext).trim() === "") {
-        contents[_PRIC] = [];
-    }
-    else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
-        contents[_PRIC] = de_PhysicalResourceIdContext(smithyClient.getArrayIfSingleItem(output[_PRIC][_m]));
-    }
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (String(output.PropertyDifferences).trim() === "") {
-        contents[_PD] = [];
-    }
-    else if (output[_PD] != null && output[_PD][_m] != null) {
-        contents[_PD] = de_PropertyDifferences(smithyClient.getArrayIfSingleItem(output[_PD][_m]));
-    }
-    if (output[_SRDS] != null) {
-        contents[_SRDS] = smithyClient.expectString(output[_SRDS]);
-    }
-    if (output[_Ti] != null) {
-        contents[_Ti] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_Ti]));
-    }
-    return contents;
-};
-const de_StackInstanceSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackInstanceSummary(entry);
-    });
-};
-const de_StackInstanceSummary = (output, context) => {
-    const contents = {};
-    if (output[_SSI] != null) {
-        contents[_SSI] = smithyClient.expectString(output[_SSI]);
-    }
-    if (output[_Reg] != null) {
-        contents[_Reg] = smithyClient.expectString(output[_Reg]);
-    }
-    if (output[_Acc] != null) {
-        contents[_Acc] = smithyClient.expectString(output[_Acc]);
-    }
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_SIS] != null) {
-        contents[_SIS] = de_StackInstanceComprehensiveStatus(output[_SIS]);
-    }
-    if (output[_OUIr] != null) {
-        contents[_OUIr] = smithyClient.expectString(output[_OUIr]);
-    }
-    if (output[_DSr] != null) {
-        contents[_DSr] = smithyClient.expectString(output[_DSr]);
-    }
-    if (output[_LDCT] != null) {
-        contents[_LDCT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LDCT]));
-    }
-    if (output[_LOI] != null) {
-        contents[_LOI] = smithyClient.expectString(output[_LOI]);
-    }
-    return contents;
-};
-const de_StackNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_StackRefactorAction = (output, context) => {
-    const contents = {};
-    if (output[_A] != null) {
-        contents[_A] = smithyClient.expectString(output[_A]);
-    }
-    if (output[_En] != null) {
-        contents[_En] = smithyClient.expectString(output[_En]);
-    }
-    if (output[_PRI] != null) {
-        contents[_PRI] = smithyClient.expectString(output[_PRI]);
-    }
-    if (output[_RI] != null) {
-        contents[_RI] = smithyClient.expectString(output[_RI]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_Dete] != null) {
-        contents[_Dete] = smithyClient.expectString(output[_Dete]);
-    }
-    if (output[_DRe] != null) {
-        contents[_DRe] = smithyClient.expectString(output[_DRe]);
-    }
-    if (String(output.TagResources).trim() === "") {
-        contents[_TR] = [];
-    }
-    else if (output[_TR] != null && output[_TR][_m] != null) {
-        contents[_TR] = de_StackRefactorTagResources(smithyClient.getArrayIfSingleItem(output[_TR][_m]));
-    }
-    if (String(output.UntagResources).trim() === "") {
-        contents[_UR] = [];
-    }
-    else if (output[_UR] != null && output[_UR][_m] != null) {
-        contents[_UR] = de_StackRefactorUntagResources(smithyClient.getArrayIfSingleItem(output[_UR][_m]));
-    }
-    if (output[_RMes] != null) {
-        contents[_RMes] = de_ResourceMapping(output[_RMes]);
-    }
-    return contents;
-};
-const de_StackRefactorActions = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackRefactorAction(entry);
-    });
-};
-const de_StackRefactorNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_StackRefactorSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackRefactorSummary(entry);
-    });
-};
-const de_StackRefactorSummary = (output, context) => {
-    const contents = {};
-    if (output[_SRI] != null) {
-        contents[_SRI] = smithyClient.expectString(output[_SRI]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_ES] != null) {
-        contents[_ES] = smithyClient.expectString(output[_ES]);
-    }
-    if (output[_ESRx] != null) {
-        contents[_ESRx] = smithyClient.expectString(output[_ESRx]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    return contents;
-};
-const de_StackRefactorTagResources = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_Tag(entry);
-    });
-};
-const de_StackRefactorUntagResources = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_StackResource = (output, context) => {
-    const contents = {};
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (output[_PRI] != null) {
-        contents[_PRI] = smithyClient.expectString(output[_PRI]);
-    }
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (output[_Ti] != null) {
-        contents[_Ti] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_Ti]));
-    }
-    if (output[_RSeso] != null) {
-        contents[_RSeso] = smithyClient.expectString(output[_RSeso]);
-    }
-    if (output[_RSR] != null) {
-        contents[_RSR] = smithyClient.expectString(output[_RSR]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_DI] != null) {
-        contents[_DI] = de_StackResourceDriftInformation(output[_DI]);
-    }
-    if (output[_MI] != null) {
-        contents[_MI] = de_ModuleInfo(output[_MI]);
-    }
-    return contents;
-};
-const de_StackResourceDetail = (output, context) => {
-    const contents = {};
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (output[_PRI] != null) {
-        contents[_PRI] = smithyClient.expectString(output[_PRI]);
-    }
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (output[_LUTa] != null) {
-        contents[_LUTa] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LUTa]));
-    }
-    if (output[_RSeso] != null) {
-        contents[_RSeso] = smithyClient.expectString(output[_RSeso]);
-    }
-    if (output[_RSR] != null) {
-        contents[_RSR] = smithyClient.expectString(output[_RSR]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_Me] != null) {
-        contents[_Me] = smithyClient.expectString(output[_Me]);
-    }
-    if (output[_DI] != null) {
-        contents[_DI] = de_StackResourceDriftInformation(output[_DI]);
-    }
-    if (output[_MI] != null) {
-        contents[_MI] = de_ModuleInfo(output[_MI]);
-    }
-    return contents;
-};
-const de_StackResourceDrift = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (output[_PRI] != null) {
-        contents[_PRI] = smithyClient.expectString(output[_PRI]);
-    }
-    if (String(output.PhysicalResourceIdContext).trim() === "") {
-        contents[_PRIC] = [];
-    }
-    else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
-        contents[_PRIC] = de_PhysicalResourceIdContext(smithyClient.getArrayIfSingleItem(output[_PRIC][_m]));
-    }
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (output[_EP] != null) {
-        contents[_EP] = smithyClient.expectString(output[_EP]);
-    }
-    if (output[_AP] != null) {
-        contents[_AP] = smithyClient.expectString(output[_AP]);
-    }
-    if (String(output.PropertyDifferences).trim() === "") {
-        contents[_PD] = [];
-    }
-    else if (output[_PD] != null && output[_PD][_m] != null) {
-        contents[_PD] = de_PropertyDifferences(smithyClient.getArrayIfSingleItem(output[_PD][_m]));
-    }
-    if (output[_SRDS] != null) {
-        contents[_SRDS] = smithyClient.expectString(output[_SRDS]);
-    }
-    if (output[_Ti] != null) {
-        contents[_Ti] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_Ti]));
-    }
-    if (output[_MI] != null) {
-        contents[_MI] = de_ModuleInfo(output[_MI]);
-    }
-    if (output[_DSRr] != null) {
-        contents[_DSRr] = smithyClient.expectString(output[_DSRr]);
-    }
-    return contents;
-};
-const de_StackResourceDriftInformation = (output, context) => {
-    const contents = {};
-    if (output[_SRDS] != null) {
-        contents[_SRDS] = smithyClient.expectString(output[_SRDS]);
-    }
-    if (output[_LCT] != null) {
-        contents[_LCT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LCT]));
-    }
-    return contents;
-};
-const de_StackResourceDriftInformationSummary = (output, context) => {
-    const contents = {};
-    if (output[_SRDS] != null) {
-        contents[_SRDS] = smithyClient.expectString(output[_SRDS]);
-    }
-    if (output[_LCT] != null) {
-        contents[_LCT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LCT]));
-    }
-    return contents;
-};
-const de_StackResourceDrifts = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackResourceDrift(entry);
-    });
-};
-const de_StackResources = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackResource(entry);
-    });
-};
-const de_StackResourceSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackResourceSummary(entry);
-    });
-};
-const de_StackResourceSummary = (output, context) => {
-    const contents = {};
-    if (output[_LRI] != null) {
-        contents[_LRI] = smithyClient.expectString(output[_LRI]);
-    }
-    if (output[_PRI] != null) {
-        contents[_PRI] = smithyClient.expectString(output[_PRI]);
-    }
-    if (output[_RTes] != null) {
-        contents[_RTes] = smithyClient.expectString(output[_RTes]);
-    }
-    if (output[_LUTa] != null) {
-        contents[_LUTa] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LUTa]));
-    }
-    if (output[_RSeso] != null) {
-        contents[_RSeso] = smithyClient.expectString(output[_RSeso]);
-    }
-    if (output[_RSR] != null) {
-        contents[_RSR] = smithyClient.expectString(output[_RSR]);
-    }
-    if (output[_DI] != null) {
-        contents[_DI] = de_StackResourceDriftInformationSummary(output[_DI]);
-    }
-    if (output[_MI] != null) {
-        contents[_MI] = de_ModuleInfo(output[_MI]);
-    }
-    return contents;
-};
-const de_Stacks = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_Stack(entry);
-    });
-};
-const de_StackSet = (output, context) => {
-    const contents = {};
-    if (output[_SSN] != null) {
-        contents[_SSN] = smithyClient.expectString(output[_SSN]);
-    }
-    if (output[_SSI] != null) {
-        contents[_SSI] = smithyClient.expectString(output[_SSI]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_TB] != null) {
-        contents[_TB] = smithyClient.expectString(output[_TB]);
-    }
-    if (String(output.Parameters).trim() === "") {
-        contents[_P] = [];
-    }
-    else if (output[_P] != null && output[_P][_m] != null) {
-        contents[_P] = de_Parameters(smithyClient.getArrayIfSingleItem(output[_P][_m]));
-    }
-    if (String(output.Capabilities).trim() === "") {
-        contents[_C] = [];
-    }
-    else if (output[_C] != null && output[_C][_m] != null) {
-        contents[_C] = de_Capabilities(smithyClient.getArrayIfSingleItem(output[_C][_m]));
-    }
-    if (String(output.Tags).trim() === "") {
-        contents[_Ta] = [];
-    }
-    else if (output[_Ta] != null && output[_Ta][_m] != null) {
-        contents[_Ta] = de_Tags(smithyClient.getArrayIfSingleItem(output[_Ta][_m]));
-    }
-    if (output[_SSARN] != null) {
-        contents[_SSARN] = smithyClient.expectString(output[_SSARN]);
-    }
-    if (output[_ARARN] != null) {
-        contents[_ARARN] = smithyClient.expectString(output[_ARARN]);
-    }
-    if (output[_ERN] != null) {
-        contents[_ERN] = smithyClient.expectString(output[_ERN]);
-    }
-    if (output[_SSDDD] != null) {
-        contents[_SSDDD] = de_StackSetDriftDetectionDetails(output[_SSDDD]);
-    }
-    if (output[_AD] != null) {
-        contents[_AD] = de_AutoDeployment(output[_AD]);
-    }
-    if (output[_PM] != null) {
-        contents[_PM] = smithyClient.expectString(output[_PM]);
-    }
-    if (String(output.OrganizationalUnitIds).trim() === "") {
-        contents[_OUI] = [];
-    }
-    else if (output[_OUI] != null && output[_OUI][_m] != null) {
-        contents[_OUI] = de_OrganizationalUnitIdList(smithyClient.getArrayIfSingleItem(output[_OUI][_m]));
-    }
-    if (output[_ME] != null) {
-        contents[_ME] = de_ManagedExecution(output[_ME]);
-    }
-    if (String(output.Regions).trim() === "") {
-        contents[_Re] = [];
-    }
-    else if (output[_Re] != null && output[_Re][_m] != null) {
-        contents[_Re] = de_RegionList(smithyClient.getArrayIfSingleItem(output[_Re][_m]));
-    }
-    return contents;
-};
-const de_StackSetAutoDeploymentTargetSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackSetAutoDeploymentTargetSummary(entry);
-    });
-};
-const de_StackSetAutoDeploymentTargetSummary = (output, context) => {
-    const contents = {};
-    if (output[_OUIr] != null) {
-        contents[_OUIr] = smithyClient.expectString(output[_OUIr]);
-    }
-    if (String(output.Regions).trim() === "") {
-        contents[_Re] = [];
-    }
-    else if (output[_Re] != null && output[_Re][_m] != null) {
-        contents[_Re] = de_RegionList(smithyClient.getArrayIfSingleItem(output[_Re][_m]));
-    }
-    return contents;
-};
-const de_StackSetDriftDetectionDetails = (output, context) => {
-    const contents = {};
-    if (output[_DSr] != null) {
-        contents[_DSr] = smithyClient.expectString(output[_DSr]);
-    }
-    if (output[_DDS] != null) {
-        contents[_DDS] = smithyClient.expectString(output[_DDS]);
-    }
-    if (output[_LDCT] != null) {
-        contents[_LDCT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LDCT]));
-    }
-    if (output[_TSIC] != null) {
-        contents[_TSIC] = smithyClient.strictParseInt32(output[_TSIC]);
-    }
-    if (output[_DSIC] != null) {
-        contents[_DSIC] = smithyClient.strictParseInt32(output[_DSIC]);
-    }
-    if (output[_ISSIC] != null) {
-        contents[_ISSIC] = smithyClient.strictParseInt32(output[_ISSIC]);
-    }
-    if (output[_IPSIC] != null) {
-        contents[_IPSIC] = smithyClient.strictParseInt32(output[_IPSIC]);
-    }
-    if (output[_FSIC] != null) {
-        contents[_FSIC] = smithyClient.strictParseInt32(output[_FSIC]);
-    }
-    return contents;
-};
-const de_StackSetNotEmptyException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_StackSetNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_StackSetOperation = (output, context) => {
-    const contents = {};
-    if (output[_OI] != null) {
-        contents[_OI] = smithyClient.expectString(output[_OI]);
-    }
-    if (output[_SSI] != null) {
-        contents[_SSI] = smithyClient.expectString(output[_SSI]);
-    }
-    if (output[_A] != null) {
-        contents[_A] = smithyClient.expectString(output[_A]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_OP] != null) {
-        contents[_OP] = de_StackSetOperationPreferences(output[_OP]);
-    }
-    if (output[_RSe] != null) {
-        contents[_RSe] = smithyClient.parseBoolean(output[_RSe]);
-    }
-    if (output[_ARARN] != null) {
-        contents[_ARARN] = smithyClient.expectString(output[_ARARN]);
-    }
-    if (output[_ERN] != null) {
-        contents[_ERN] = smithyClient.expectString(output[_ERN]);
-    }
-    if (output[_CTre] != null) {
-        contents[_CTre] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_CTre]));
-    }
-    if (output[_ETn] != null) {
-        contents[_ETn] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_ETn]));
-    }
-    if (output[_DTep] != null) {
-        contents[_DTep] = de_DeploymentTargets(output[_DTep]);
-    }
-    if (output[_SSDDD] != null) {
-        contents[_SSDDD] = de_StackSetDriftDetectionDetails(output[_SSDDD]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_SDt] != null) {
-        contents[_SDt] = de_StackSetOperationStatusDetails(output[_SDt]);
-    }
-    return contents;
-};
-const de_StackSetOperationPreferences = (output, context) => {
-    const contents = {};
-    if (output[_RCT] != null) {
-        contents[_RCT] = smithyClient.expectString(output[_RCT]);
-    }
-    if (String(output.RegionOrder).trim() === "") {
-        contents[_RO] = [];
-    }
-    else if (output[_RO] != null && output[_RO][_m] != null) {
-        contents[_RO] = de_RegionList(smithyClient.getArrayIfSingleItem(output[_RO][_m]));
-    }
-    if (output[_FTC] != null) {
-        contents[_FTC] = smithyClient.strictParseInt32(output[_FTC]);
-    }
-    if (output[_FTP] != null) {
-        contents[_FTP] = smithyClient.strictParseInt32(output[_FTP]);
-    }
-    if (output[_MCC] != null) {
-        contents[_MCC] = smithyClient.strictParseInt32(output[_MCC]);
-    }
-    if (output[_MCP] != null) {
-        contents[_MCP] = smithyClient.strictParseInt32(output[_MCP]);
-    }
-    if (output[_CM] != null) {
-        contents[_CM] = smithyClient.expectString(output[_CM]);
-    }
-    return contents;
-};
-const de_StackSetOperationResultSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackSetOperationResultSummary(entry);
-    });
-};
-const de_StackSetOperationResultSummary = (output, context) => {
-    const contents = {};
-    if (output[_Acc] != null) {
-        contents[_Acc] = smithyClient.expectString(output[_Acc]);
-    }
-    if (output[_Reg] != null) {
-        contents[_Reg] = smithyClient.expectString(output[_Reg]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_AGR] != null) {
-        contents[_AGR] = de_AccountGateResult(output[_AGR]);
-    }
-    if (output[_OUIr] != null) {
-        contents[_OUIr] = smithyClient.expectString(output[_OUIr]);
-    }
-    return contents;
-};
-const de_StackSetOperationStatusDetails = (output, context) => {
-    const contents = {};
-    if (output[_FSIC] != null) {
-        contents[_FSIC] = smithyClient.strictParseInt32(output[_FSIC]);
-    }
-    return contents;
-};
-const de_StackSetOperationSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackSetOperationSummary(entry);
-    });
-};
-const de_StackSetOperationSummary = (output, context) => {
-    const contents = {};
-    if (output[_OI] != null) {
-        contents[_OI] = smithyClient.expectString(output[_OI]);
-    }
-    if (output[_A] != null) {
-        contents[_A] = smithyClient.expectString(output[_A]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_CTre] != null) {
-        contents[_CTre] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_CTre]));
-    }
-    if (output[_ETn] != null) {
-        contents[_ETn] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_ETn]));
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_SDt] != null) {
-        contents[_SDt] = de_StackSetOperationStatusDetails(output[_SDt]);
-    }
-    if (output[_OP] != null) {
-        contents[_OP] = de_StackSetOperationPreferences(output[_OP]);
-    }
-    return contents;
-};
-const de_StackSetSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackSetSummary(entry);
-    });
-};
-const de_StackSetSummary = (output, context) => {
-    const contents = {};
-    if (output[_SSN] != null) {
-        contents[_SSN] = smithyClient.expectString(output[_SSN]);
-    }
-    if (output[_SSI] != null) {
-        contents[_SSI] = smithyClient.expectString(output[_SSI]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_AD] != null) {
-        contents[_AD] = de_AutoDeployment(output[_AD]);
-    }
-    if (output[_PM] != null) {
-        contents[_PM] = smithyClient.expectString(output[_PM]);
-    }
-    if (output[_DSr] != null) {
-        contents[_DSr] = smithyClient.expectString(output[_DSr]);
-    }
-    if (output[_LDCT] != null) {
-        contents[_LDCT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LDCT]));
-    }
-    if (output[_ME] != null) {
-        contents[_ME] = de_ManagedExecution(output[_ME]);
-    }
-    return contents;
-};
-const de_StackSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_StackSummary(entry);
-    });
-};
-const de_StackSummary = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    if (output[_SN] != null) {
-        contents[_SN] = smithyClient.expectString(output[_SN]);
-    }
-    if (output[_TDe] != null) {
-        contents[_TDe] = smithyClient.expectString(output[_TDe]);
-    }
-    if (output[_CTr] != null) {
-        contents[_CTr] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_CTr]));
-    }
-    if (output[_LUT] != null) {
-        contents[_LUT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LUT]));
-    }
-    if (output[_DTel] != null) {
-        contents[_DTel] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_DTel]));
-    }
-    if (output[_SSta] != null) {
-        contents[_SSta] = smithyClient.expectString(output[_SSta]);
-    }
-    if (output[_SSR] != null) {
-        contents[_SSR] = smithyClient.expectString(output[_SSR]);
-    }
-    if (output[_PIa] != null) {
-        contents[_PIa] = smithyClient.expectString(output[_PIa]);
-    }
-    if (output[_RIo] != null) {
-        contents[_RIo] = smithyClient.expectString(output[_RIo]);
-    }
-    if (output[_DI] != null) {
-        contents[_DI] = de_StackDriftInformationSummary(output[_DI]);
-    }
-    return contents;
-};
-const de_StageList = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_StaleRequestException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_StartResourceScanOutput = (output, context) => {
-    const contents = {};
-    if (output[_RSI] != null) {
-        contents[_RSI] = smithyClient.expectString(output[_RSI]);
-    }
-    return contents;
-};
-const de_StopStackSetOperationOutput = (output, context) => {
-    const contents = {};
-    return contents;
-};
-const de_SupportedMajorVersions = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.strictParseInt32(entry);
-    });
-};
-const de_Tag = (output, context) => {
-    const contents = {};
-    if (output[_K] != null) {
-        contents[_K] = smithyClient.expectString(output[_K]);
-    }
-    if (output[_Val] != null) {
-        contents[_Val] = smithyClient.expectString(output[_Val]);
-    }
-    return contents;
-};
-const de_Tags = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_Tag(entry);
-    });
-};
-const de_TemplateConfiguration = (output, context) => {
-    const contents = {};
-    if (output[_DPe] != null) {
-        contents[_DPe] = smithyClient.expectString(output[_DPe]);
-    }
-    if (output[_URP] != null) {
-        contents[_URP] = smithyClient.expectString(output[_URP]);
-    }
-    return contents;
-};
-const de_TemplateParameter = (output, context) => {
-    const contents = {};
-    if (output[_PK] != null) {
-        contents[_PK] = smithyClient.expectString(output[_PK]);
-    }
-    if (output[_DV] != null) {
-        contents[_DV] = smithyClient.expectString(output[_DV]);
-    }
-    if (output[_NE] != null) {
-        contents[_NE] = smithyClient.parseBoolean(output[_NE]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    return contents;
-};
-const de_TemplateParameters = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_TemplateParameter(entry);
-    });
-};
-const de_TemplateProgress = (output, context) => {
-    const contents = {};
-    if (output[_RSesou] != null) {
-        contents[_RSesou] = smithyClient.strictParseInt32(output[_RSesou]);
-    }
-    if (output[_RF] != null) {
-        contents[_RF] = smithyClient.strictParseInt32(output[_RF]);
-    }
-    if (output[_RPes] != null) {
-        contents[_RPes] = smithyClient.strictParseInt32(output[_RPes]);
-    }
-    if (output[_RPeso] != null) {
-        contents[_RPeso] = smithyClient.strictParseInt32(output[_RPeso]);
-    }
-    return contents;
-};
-const de_TemplateSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_TemplateSummary(entry);
-    });
-};
-const de_TemplateSummary = (output, context) => {
-    const contents = {};
-    if (output[_GTI] != null) {
-        contents[_GTI] = smithyClient.expectString(output[_GTI]);
-    }
-    if (output[_GTN] != null) {
-        contents[_GTN] = smithyClient.expectString(output[_GTN]);
-    }
-    if (output[_S] != null) {
-        contents[_S] = smithyClient.expectString(output[_S]);
-    }
-    if (output[_SRt] != null) {
-        contents[_SRt] = smithyClient.expectString(output[_SRt]);
-    }
-    if (output[_CTr] != null) {
-        contents[_CTr] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_CTr]));
-    }
-    if (output[_LUT] != null) {
-        contents[_LUT] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LUT]));
-    }
-    if (output[_NOR] != null) {
-        contents[_NOR] = smithyClient.strictParseInt32(output[_NOR]);
-    }
-    return contents;
-};
-const de_TestTypeOutput = (output, context) => {
-    const contents = {};
-    if (output[_TVA] != null) {
-        contents[_TVA] = smithyClient.expectString(output[_TVA]);
-    }
-    return contents;
-};
-const de_TokenAlreadyExistsException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_TransformsList = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return smithyClient.expectString(entry);
-    });
-};
-const de_TypeConfigurationDetails = (output, context) => {
-    const contents = {};
-    if (output[_Ar] != null) {
-        contents[_Ar] = smithyClient.expectString(output[_Ar]);
-    }
-    if (output[_Al] != null) {
-        contents[_Al] = smithyClient.expectString(output[_Al]);
-    }
-    if (output[_Co] != null) {
-        contents[_Co] = smithyClient.expectString(output[_Co]);
-    }
-    if (output[_LU] != null) {
-        contents[_LU] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LU]));
-    }
-    if (output[_TA] != null) {
-        contents[_TA] = smithyClient.expectString(output[_TA]);
-    }
-    if (output[_TN] != null) {
-        contents[_TN] = smithyClient.expectString(output[_TN]);
-    }
-    if (output[_IDC] != null) {
-        contents[_IDC] = smithyClient.parseBoolean(output[_IDC]);
-    }
-    return contents;
-};
-const de_TypeConfigurationDetailsList = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_TypeConfigurationDetails(entry);
-    });
-};
-const de_TypeConfigurationIdentifier = (output, context) => {
-    const contents = {};
-    if (output[_TA] != null) {
-        contents[_TA] = smithyClient.expectString(output[_TA]);
-    }
-    if (output[_TCA] != null) {
-        contents[_TCA] = smithyClient.expectString(output[_TCA]);
-    }
-    if (output[_TCAy] != null) {
-        contents[_TCAy] = smithyClient.expectString(output[_TCAy]);
-    }
-    if (output[_T] != null) {
-        contents[_T] = smithyClient.expectString(output[_T]);
-    }
-    if (output[_TN] != null) {
-        contents[_TN] = smithyClient.expectString(output[_TN]);
-    }
-    return contents;
-};
-const de_TypeConfigurationNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_TypeNotFoundException = (output, context) => {
-    const contents = {};
-    if (output[_M] != null) {
-        contents[_M] = smithyClient.expectString(output[_M]);
-    }
-    return contents;
-};
-const de_TypeSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_TypeSummary(entry);
-    });
-};
-const de_TypeSummary = (output, context) => {
-    const contents = {};
-    if (output[_T] != null) {
-        contents[_T] = smithyClient.expectString(output[_T]);
-    }
-    if (output[_TN] != null) {
-        contents[_TN] = smithyClient.expectString(output[_TN]);
-    }
-    if (output[_DVI] != null) {
-        contents[_DVI] = smithyClient.expectString(output[_DVI]);
-    }
-    if (output[_TA] != null) {
-        contents[_TA] = smithyClient.expectString(output[_TA]);
-    }
-    if (output[_LU] != null) {
-        contents[_LU] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_LU]));
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_PI] != null) {
-        contents[_PI] = smithyClient.expectString(output[_PI]);
-    }
-    if (output[_OTN] != null) {
-        contents[_OTN] = smithyClient.expectString(output[_OTN]);
-    }
-    if (output[_PVN] != null) {
-        contents[_PVN] = smithyClient.expectString(output[_PVN]);
-    }
-    if (output[_LPV] != null) {
-        contents[_LPV] = smithyClient.expectString(output[_LPV]);
-    }
-    if (output[_PIu] != null) {
-        contents[_PIu] = smithyClient.expectString(output[_PIu]);
-    }
-    if (output[_PN] != null) {
-        contents[_PN] = smithyClient.expectString(output[_PN]);
-    }
-    if (output[_IA] != null) {
-        contents[_IA] = smithyClient.parseBoolean(output[_IA]);
-    }
-    return contents;
-};
-const de_TypeVersionSummaries = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_TypeVersionSummary(entry);
-    });
-};
-const de_TypeVersionSummary = (output, context) => {
-    const contents = {};
-    if (output[_T] != null) {
-        contents[_T] = smithyClient.expectString(output[_T]);
-    }
-    if (output[_TN] != null) {
-        contents[_TN] = smithyClient.expectString(output[_TN]);
-    }
-    if (output[_VI] != null) {
-        contents[_VI] = smithyClient.expectString(output[_VI]);
-    }
-    if (output[_IDV] != null) {
-        contents[_IDV] = smithyClient.parseBoolean(output[_IDV]);
-    }
-    if (output[_Ar] != null) {
-        contents[_Ar] = smithyClient.expectString(output[_Ar]);
-    }
-    if (output[_TCi] != null) {
-        contents[_TCi] = smithyClient.expectNonNull(smithyClient.parseRfc3339DateTimeWithOffset(output[_TCi]));
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (output[_PVN] != null) {
-        contents[_PVN] = smithyClient.expectString(output[_PVN]);
-    }
-    return contents;
-};
-const de_UnprocessedTypeConfigurations = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_TypeConfigurationIdentifier(entry);
-    });
-};
-const de_UpdateGeneratedTemplateOutput = (output, context) => {
-    const contents = {};
-    if (output[_GTI] != null) {
-        contents[_GTI] = smithyClient.expectString(output[_GTI]);
-    }
-    return contents;
-};
-const de_UpdateStackInstancesOutput = (output, context) => {
-    const contents = {};
-    if (output[_OI] != null) {
-        contents[_OI] = smithyClient.expectString(output[_OI]);
-    }
-    return contents;
-};
-const de_UpdateStackOutput = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    return contents;
-};
-const de_UpdateStackSetOutput = (output, context) => {
-    const contents = {};
-    if (output[_OI] != null) {
-        contents[_OI] = smithyClient.expectString(output[_OI]);
-    }
-    return contents;
-};
-const de_UpdateTerminationProtectionOutput = (output, context) => {
-    const contents = {};
-    if (output[_SI] != null) {
-        contents[_SI] = smithyClient.expectString(output[_SI]);
-    }
-    return contents;
-};
-const de_ValidateTemplateOutput = (output, context) => {
-    const contents = {};
-    if (String(output.Parameters).trim() === "") {
-        contents[_P] = [];
-    }
-    else if (output[_P] != null && output[_P][_m] != null) {
-        contents[_P] = de_TemplateParameters(smithyClient.getArrayIfSingleItem(output[_P][_m]));
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    if (String(output.Capabilities).trim() === "") {
-        contents[_C] = [];
-    }
-    else if (output[_C] != null && output[_C][_m] != null) {
-        contents[_C] = de_Capabilities(smithyClient.getArrayIfSingleItem(output[_C][_m]));
-    }
-    if (output[_CR] != null) {
-        contents[_CR] = smithyClient.expectString(output[_CR]);
-    }
-    if (String(output.DeclaredTransforms).trim() === "") {
-        contents[_DTec] = [];
-    }
-    else if (output[_DTec] != null && output[_DTec][_m] != null) {
-        contents[_DTec] = de_TransformsList(smithyClient.getArrayIfSingleItem(output[_DTec][_m]));
-    }
-    return contents;
-};
-const de_WarningDetail = (output, context) => {
-    const contents = {};
-    if (output[_T] != null) {
-        contents[_T] = smithyClient.expectString(output[_T]);
-    }
-    if (String(output.Properties).trim() === "") {
-        contents[_Pro] = [];
-    }
-    else if (output[_Pro] != null && output[_Pro][_m] != null) {
-        contents[_Pro] = de_WarningProperties(smithyClient.getArrayIfSingleItem(output[_Pro][_m]));
-    }
-    return contents;
-};
-const de_WarningDetails = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_WarningDetail(entry);
-    });
-};
-const de_WarningProperties = (output, context) => {
-    return (output || [])
-        .filter((e) => e != null)
-        .map((entry) => {
-        return de_WarningProperty(entry);
-    });
-};
-const de_WarningProperty = (output, context) => {
-    const contents = {};
-    if (output[_PPr] != null) {
-        contents[_PPr] = smithyClient.expectString(output[_PPr]);
-    }
-    if (output[_Req] != null) {
-        contents[_Req] = smithyClient.parseBoolean(output[_Req]);
-    }
-    if (output[_D] != null) {
-        contents[_D] = smithyClient.expectString(output[_D]);
-    }
-    return contents;
-};
-const de_Warnings = (output, context) => {
-    const contents = {};
-    if (String(output.UnrecognizedResourceTypes).trim() === "") {
-        contents[_URT] = [];
-    }
-    else if (output[_URT] != null && output[_URT][_m] != null) {
-        contents[_URT] = de_ResourceTypes(smithyClient.getArrayIfSingleItem(output[_URT][_m]));
-    }
-    return contents;
-};
-const deserializeMetadata = (output) => ({
-    httpStatusCode: output.statusCode,
-    requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
-    extendedRequestId: output.headers["x-amz-id-2"],
-    cfId: output.headers["x-amz-cf-id"],
-});
-const throwDefaultError = smithyClient.withBaseException(CloudFormationServiceException);
-const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, body) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-    const contents = {
-        protocol,
-        hostname,
-        port,
-        method: "POST",
-        path: basePath.endsWith("/") ? basePath.slice(0, -1) + path : basePath + path,
-        headers,
-    };
-    if (body !== undefined) {
-        contents.body = body;
-    }
-    return new protocolHttp.HttpRequest(contents);
-};
-const SHARED_HEADERS = {
-    "content-type": "application/x-www-form-urlencoded",
-};
-const _ = "2010-05-15";
-const _A = "Action";
+const _A = "Arn";
 const _AC = "AfterContext";
 const _ACT = "AttributeChangeType";
 const _AD = "AutoDeployment";
+const _AEE = "AlreadyExistsException";
 const _AFT = "AccountFilterType";
 const _AGR = "AccountGateResult";
-const _AL = "AccountLimits";
+const _AL = "AccountLimit";
+const _ALL = "AccountLimitList";
+const _ALc = "AccountLimits";
 const _AOA = "ActivateOrganizationsAccess";
+const _AOAI = "ActivateOrganizationsAccessInput";
+const _AOAO = "ActivateOrganizationsAccessOutput";
 const _AP = "ActualProperties";
 const _AR = "AddResources";
 const _ARARN = "AdministrationRoleARN";
 const _AT = "ActivateType";
 const _ATAC = "AcceptTermsAndConditions";
+const _ATI = "ActivateTypeInput";
+const _ATO = "ActivateTypeOutput";
 const _AU = "AutoUpdate";
 const _AUc = "AccountsUrl";
 const _AV = "AllowedValues";
@@ -12834,100 +4366,190 @@ const _AVf = "AfterValue";
 const _Ac = "Accounts";
 const _Acc = "Account";
 const _Act = "Active";
+const _Acti = "Action";
 const _Al = "Alias";
-const _Ar = "Arn";
 const _At = "Attribute";
 const _BC = "BeforeContext";
 const _BDTC = "BatchDescribeTypeConfigurations";
+const _BDTCE = "BatchDescribeTypeConfigurationsError";
+const _BDTCEa = "BatchDescribeTypeConfigurationsErrors";
+const _BDTCI = "BatchDescribeTypeConfigurationsInput";
+const _BDTCO = "BatchDescribeTypeConfigurationsOutput";
 const _BT = "BearerToken";
 const _BV = "BeforeValue";
-const _C = "Capabilities";
+const _C = "Change";
 const _CA = "CallAs";
 const _CAo = "ConnectionArn";
 const _CAon = "ConfigurationAlias";
 const _CAonf = "ConfigurationArn";
+const _CBME = "CreatedButModifiedException";
 const _CCS = "CreateChangeSet";
+const _CCSI = "CreateChangeSetInput";
+const _CCSO = "CreateChangeSetOutput";
 const _CE = "CausingEntity";
+const _CFNRE = "CFNRegistryException";
 const _CGT = "CreateGeneratedTemplate";
+const _CGTI = "CreateGeneratedTemplateInput";
+const _CGTO = "CreateGeneratedTemplateOutput";
 const _CM = "ConcurrencyMode";
 const _COS = "CurrentOperationStatus";
 const _CR = "CapabilitiesReason";
+const _CRLEE = "ConcurrentResourcesLimitExceededException";
 const _CRT = "ClientRequestToken";
-const _CS = "CreateStack";
-const _CSI = "CreateStackInstances";
-const _CSIh = "ChangeSetId";
+const _CS = "ConfigurationSchema";
+const _CSH = "ChangeSetHook";
+const _CSHRTD = "ChangeSetHookResourceTargetDetails";
+const _CSHTD = "ChangeSetHookTargetDetails";
+const _CSHh = "ChangeSetHooks";
+const _CSI = "ChangeSetId";
+const _CSII = "CreateStackInstancesInput";
+const _CSIO = "CreateStackInstancesOutput";
+const _CSIr = "CreateStackInput";
+const _CSIre = "CreateStackInstances";
 const _CSN = "ChangeSetName";
+const _CSNFE = "ChangeSetNotFoundException";
+const _CSO = "CreateStackOutput";
 const _CSR = "CreateStackRefactor";
-const _CSS = "CreateStackSet";
+const _CSRI = "CreateStackRefactorInput";
+const _CSRO = "CreateStackRefactorOutput";
+const _CSS = "ChangeSetSummary";
+const _CSSI = "CreateStackSetInput";
+const _CSSO = "CreateStackSetOutput";
+const _CSSh = "ChangeSetSummaries";
+const _CSSr = "CreateStackSet";
 const _CST = "ChangeSetType";
 const _CSh = "ChangeSource";
-const _CSo = "ConfigurationSchema";
-const _CT = "ClientToken";
-const _CTr = "CreationTime";
-const _CTre = "CreationTimestamp";
+const _CSr = "CreateStack";
+const _CT = "CreationTime";
+const _CTl = "ClientToken";
+const _CTr = "CreationTimestamp";
 const _CUR = "ContinueUpdateRollback";
+const _CURI = "ContinueUpdateRollbackInput";
+const _CURO = "ContinueUpdateRollbackOutput";
 const _CUS = "CancelUpdateStack";
-const _Ca = "Category";
+const _CUSI = "CancelUpdateStackInput";
+const _Ca = "Capabilities";
+const _Cat = "Category";
 const _Ch = "Changes";
 const _Co = "Configuration";
 const _D = "Description";
 const _DAL = "DescribeAccountLimits";
+const _DALI = "DescribeAccountLimitsInput";
+const _DALO = "DescribeAccountLimitsOutput";
 const _DCS = "DeleteChangeSet";
 const _DCSH = "DescribeChangeSetHooks";
+const _DCSHI = "DescribeChangeSetHooksInput";
+const _DCSHO = "DescribeChangeSetHooksOutput";
+const _DCSI = "DeleteChangeSetInput";
+const _DCSIe = "DescribeChangeSetInput";
+const _DCSO = "DeleteChangeSetOutput";
+const _DCSOe = "DescribeChangeSetOutput";
 const _DCSe = "DescribeChangeSet";
 const _DDS = "DriftDetectionStatus";
 const _DGT = "DeleteGeneratedTemplate";
+const _DGTI = "DeleteGeneratedTemplateInput";
+const _DGTIe = "DescribeGeneratedTemplateInput";
+const _DGTO = "DescribeGeneratedTemplateOutput";
 const _DGTe = "DescribeGeneratedTemplate";
 const _DI = "DriftInformation";
 const _DM = "DeletionMode";
 const _DOA = "DeactivateOrganizationsAccess";
+const _DOAI = "DeactivateOrganizationsAccessInput";
+const _DOAIe = "DescribeOrganizationsAccessInput";
+const _DOAO = "DeactivateOrganizationsAccessOutput";
+const _DOAOe = "DescribeOrganizationsAccessOutput";
 const _DOAe = "DescribeOrganizationsAccess";
-const _DP = "DescribePublisher";
-const _DPe = "DeletionPolicy";
+const _DP = "DeletionPolicy";
+const _DPI = "DescribePublisherInput";
+const _DPO = "DescribePublisherOutput";
+const _DPe = "DescribePublisher";
 const _DR = "DisableRollback";
 const _DRS = "DescribeResourceScan";
+const _DRSI = "DescribeResourceScanInput";
+const _DRSO = "DescribeResourceScanOutput";
 const _DRe = "DetectionReason";
-const _DS = "DeleteStack";
+const _DS = "DetectionStatus";
 const _DSD = "DetectStackDrift";
 const _DSDDS = "DescribeStackDriftDetectionStatus";
+const _DSDDSI = "DescribeStackDriftDetectionStatusInput";
+const _DSDDSO = "DescribeStackDriftDetectionStatusOutput";
+const _DSDI = "DetectStackDriftInput";
+const _DSDO = "DetectStackDriftOutput";
 const _DSE = "DescribeStackEvents";
-const _DSI = "DeleteStackInstances";
+const _DSEI = "DescribeStackEventsInput";
+const _DSEO = "DescribeStackEventsOutput";
+const _DSI = "DeleteStackInput";
 const _DSIC = "DriftedStackInstancesCount";
-const _DSIe = "DescribeStackInstance";
-const _DSR = "DescribeStackRefactor";
+const _DSII = "DeleteStackInstancesInput";
+const _DSIIe = "DescribeStackInstanceInput";
+const _DSIO = "DeleteStackInstancesOutput";
+const _DSIOe = "DescribeStackInstanceOutput";
+const _DSIe = "DescribeStacksInput";
+const _DSIel = "DeleteStackInstances";
+const _DSIes = "DescribeStackInstance";
+const _DSO = "DescribeStacksOutput";
+const _DSR = "DetectionStatusReason";
 const _DSRC = "DriftedStackResourceCount";
 const _DSRD = "DescribeStackResourceDrifts";
+const _DSRDI = "DescribeStackResourceDriftsInput";
+const _DSRDIe = "DetectStackResourceDriftInput";
+const _DSRDO = "DescribeStackResourceDriftsOutput";
+const _DSRDOe = "DetectStackResourceDriftOutput";
 const _DSRDe = "DetectStackResourceDrift";
-const _DSRe = "DescribeStackResource";
-const _DSRes = "DescribeStackResources";
-const _DSRet = "DetectionStatusReason";
+const _DSRI = "DescribeStackRefactorInput";
+const _DSRIe = "DescribeStackResourceInput";
+const _DSRIes = "DescribeStackResourcesInput";
+const _DSRO = "DescribeStackRefactorOutput";
+const _DSROe = "DescribeStackResourceOutput";
+const _DSROes = "DescribeStackResourcesOutput";
+const _DSRe = "DescribeStackRefactor";
+const _DSRes = "DescribeStackResource";
+const _DSResc = "DescribeStackResources";
 const _DSRr = "DriftStatusReason";
 const _DSS = "DeleteStackSet";
 const _DSSD = "DetectStackSetDrift";
-const _DSSO = "DescribeStackSetOperation";
+const _DSSDI = "DetectStackSetDriftInput";
+const _DSSDO = "DetectStackSetDriftOutput";
+const _DSSI = "DeleteStackSetInput";
+const _DSSIe = "DescribeStackSetInput";
+const _DSSO = "DeleteStackSetOutput";
+const _DSSOI = "DescribeStackSetOperationInput";
+const _DSSOO = "DescribeStackSetOperationOutput";
+const _DSSOe = "DescribeStackSetOutput";
+const _DSSOes = "DescribeStackSetOperation";
 const _DSSe = "DescribeStackSet";
-const _DSe = "DescribeStacks";
-const _DSep = "DeprecatedStatus";
-const _DSet = "DetectionStatus";
-const _DSeta = "DetailedStatus";
+const _DSe = "DeprecatedStatus";
+const _DSel = "DeleteStack";
+const _DSes = "DescribeStacks";
+const _DSet = "DetailedStatus";
 const _DSr = "DriftStatus";
-const _DT = "DeactivateType";
+const _DT = "DeploymentTargets";
+const _DTI = "DeactivateTypeInput";
+const _DTIe = "DeregisterTypeInput";
+const _DTIes = "DescribeTypeInput";
+const _DTO = "DeactivateTypeOutput";
+const _DTOe = "DeregisterTypeOutput";
+const _DTOes = "DescribeTypeOutput";
 const _DTR = "DescribeTypeRegistration";
-const _DTe = "DeregisterType";
-const _DTec = "DeclaredTransforms";
+const _DTRI = "DescribeTypeRegistrationInput";
+const _DTRO = "DescribeTypeRegistrationOutput";
+const _DTe = "DeclaredTransforms";
+const _DTea = "DeactivateType";
 const _DTel = "DeletionTime";
-const _DTep = "DeploymentTargets";
+const _DTer = "DeregisterType";
 const _DTes = "DescribeType";
 const _DTi = "DifferenceType";
 const _DU = "DocumentationUrl";
 const _DV = "DefaultValue";
 const _DVI = "DefaultVersionId";
-const _De = "Destination";
-const _Det = "Details";
-const _Dete = "Detection";
+const _De = "Details";
+const _Des = "Destination";
+const _Det = "Detection";
 const _E = "Enabled";
 const _EC = "ErrorCode";
 const _ECS = "ExecuteChangeSet";
+const _ECSI = "ExecuteChangeSetInput";
+const _ECSO = "ExecuteChangeSetOutput";
 const _EI = "EventId";
 const _EM = "ErrorMessage";
 const _EN = "ExportName";
@@ -12938,17 +4560,21 @@ const _ES = "ExecutionStatus";
 const _ESC = "EnableStackCreation";
 const _ESF = "ExecutionStatusFilter";
 const _ESI = "ExportingStackId";
-const _ESR = "ExecuteStackRefactor";
-const _ESRx = "ExecutionStatusReason";
+const _ESR = "ExecutionStatusReason";
+const _ESRI = "ExecuteStackRefactorInput";
+const _ESRx = "ExecuteStackRefactor";
 const _ET = "EndTime";
 const _ETC = "EstimateTemplateCost";
+const _ETCI = "EstimateTemplateCostInput";
+const _ETCO = "EstimateTemplateCostOutput";
 const _ETP = "EnableTerminationProtection";
 const _ETn = "EndTimestamp";
 const _EV = "ExpectedValue";
 const _En = "Entity";
 const _Er = "Errors";
 const _Ev = "Evaluation";
-const _Ex = "Exports";
+const _Ex = "Export";
+const _Exp = "Exports";
 const _F = "Format";
 const _FM = "FailureMode";
 const _FSIC = "FailedStackInstancesCount";
@@ -12956,11 +4582,20 @@ const _FTC = "FailureToleranceCount";
 const _FTP = "FailureTolerancePercentage";
 const _Fi = "Filters";
 const _GGT = "GetGeneratedTemplate";
+const _GGTI = "GetGeneratedTemplateInput";
+const _GGTO = "GetGeneratedTemplateOutput";
 const _GSP = "GetStackPolicy";
+const _GSPI = "GetStackPolicyInput";
+const _GSPO = "GetStackPolicyOutput";
 const _GT = "GetTemplate";
 const _GTI = "GeneratedTemplateId";
+const _GTIe = "GetTemplateInput";
 const _GTN = "GeneratedTemplateName";
+const _GTNFE = "GeneratedTemplateNotFoundException";
+const _GTO = "GetTemplateOutput";
 const _GTS = "GetTemplateSummary";
+const _GTSI = "GetTemplateSummaryInput";
+const _GTSO = "GetTemplateSummaryOutput";
 const _H = "Hooks";
 const _HET = "HookExecutionTarget";
 const _HFM = "HookFailureMode";
@@ -12969,56 +4604,108 @@ const _HII = "HookInvocationId";
 const _HIP = "HookInvocationPoint";
 const _HR = "HookResults";
 const _HRI = "HookResultId";
+const _HRNFE = "HookResultNotFoundException";
+const _HRS = "HookResultSummary";
+const _HRSo = "HookResultSummaries";
 const _HS = "HookStatus";
 const _HSR = "HookStatusReason";
 const _HT = "HookType";
 const _I = "Id";
 const _IA = "IsActivated";
 const _IAn = "InvokedAt";
+const _ICE = "InsufficientCapabilitiesException";
+const _ICSSE = "InvalidChangeSetStatusException";
 const _IDC = "IsDefaultConfiguration";
 const _IDV = "IsDefaultVersion";
 const _IER = "ImportExistingResources";
 const _INS = "IncludeNestedStacks";
+const _IOE = "InvalidOperationException";
 const _IP = "InvocationPoint";
 const _IPSIC = "InProgressStackInstancesCount";
 const _IPV = "IncludePropertyValues";
 const _IPd = "IdentityProvider";
 const _ISSIC = "InSyncStackInstancesCount";
+const _ISTE = "InvalidStateTransitionException";
 const _ISTSS = "ImportStacksToStackSet";
+const _ISTSSI = "ImportStacksToStackSetInput";
+const _ISTSSO = "ImportStacksToStackSetOutput";
 const _Im = "Imports";
 const _K = "Key";
 const _LC = "LoggingConfig";
 const _LCS = "ListChangeSets";
+const _LCSI = "ListChangeSetsInput";
+const _LCSO = "ListChangeSetsOutput";
 const _LCT = "LastCheckTimestamp";
 const _LDB = "LogDeliveryBucket";
 const _LDCT = "LastDriftCheckTimestamp";
 const _LE = "ListExports";
+const _LEE = "LimitExceededException";
+const _LEI = "ListExportsInput";
+const _LEO = "ListExportsOutput";
 const _LGN = "LogGroupName";
 const _LGT = "ListGeneratedTemplates";
+const _LGTI = "ListGeneratedTemplatesInput";
+const _LGTO = "ListGeneratedTemplatesOutput";
 const _LHR = "ListHookResults";
+const _LHRI = "ListHookResultsInput";
+const _LHRO = "ListHookResultsOutput";
 const _LI = "ListImports";
 const _LIH = "LogicalIdHierarchy";
+const _LII = "ListImportsInput";
+const _LIO = "ListImportsOutput";
 const _LOI = "LastOperationId";
 const _LPV = "LatestPublicVersion";
 const _LRA = "LogRoleArn";
 const _LRI = "LogicalResourceId";
 const _LRIo = "LogicalResourceIds";
 const _LRS = "ListResourceScans";
+const _LRSI = "ListResourceScansInput";
+const _LRSO = "ListResourceScansOutput";
 const _LRSR = "ListResourceScanResources";
+const _LRSRI = "ListResourceScanResourcesInput";
+const _LRSRO = "ListResourceScanResourcesOutput";
 const _LRSRR = "ListResourceScanRelatedResources";
+const _LRSRRI = "ListResourceScanRelatedResourcesInput";
+const _LRSRRO = "ListResourceScanRelatedResourcesOutput";
 const _LS = "ListStacks";
-const _LSI = "ListStackInstances";
+const _LSI = "ListStacksInput";
+const _LSII = "ListStackInstancesInput";
+const _LSIO = "ListStackInstancesOutput";
 const _LSIRD = "ListStackInstanceResourceDrifts";
+const _LSIRDI = "ListStackInstanceResourceDriftsInput";
+const _LSIRDO = "ListStackInstanceResourceDriftsOutput";
+const _LSIi = "ListStackInstances";
+const _LSO = "ListStacksOutput";
 const _LSR = "ListStackRefactors";
 const _LSRA = "ListStackRefactorActions";
+const _LSRAI = "ListStackRefactorActionsInput";
+const _LSRAO = "ListStackRefactorActionsOutput";
+const _LSRI = "ListStackRefactorsInput";
+const _LSRIi = "ListStackResourcesInput";
+const _LSRO = "ListStackRefactorsOutput";
+const _LSROi = "ListStackResourcesOutput";
 const _LSRi = "ListStackResources";
 const _LSS = "ListStackSets";
 const _LSSADT = "ListStackSetAutoDeploymentTargets";
-const _LSSO = "ListStackSetOperations";
+const _LSSADTI = "ListStackSetAutoDeploymentTargetsInput";
+const _LSSADTO = "ListStackSetAutoDeploymentTargetsOutput";
+const _LSSI = "ListStackSetsInput";
+const _LSSO = "ListStackSetsOutput";
+const _LSSOI = "ListStackSetOperationsInput";
+const _LSSOO = "ListStackSetOperationsOutput";
 const _LSSOR = "ListStackSetOperationResults";
+const _LSSORI = "ListStackSetOperationResultsInput";
+const _LSSORO = "ListStackSetOperationResultsOutput";
+const _LSSOi = "ListStackSetOperations";
 const _LT = "ListTypes";
+const _LTI = "ListTypesInput";
+const _LTO = "ListTypesOutput";
 const _LTR = "ListTypeRegistrations";
+const _LTRI = "ListTypeRegistrationsInput";
+const _LTRO = "ListTypeRegistrationsOutput";
 const _LTV = "ListTypeVersions";
+const _LTVI = "ListTypeVersionsInput";
+const _LTVO = "ListTypeVersionsOutput";
 const _LU = "LastUpdated";
 const _LUT = "LastUpdatedTime";
 const _LUTa = "LastUpdatedTimestamp";
@@ -13033,29 +4720,40 @@ const _MTIM = "MonitoringTimeInMinutes";
 const _MV = "MajorVersion";
 const _Me = "Metadata";
 const _N = "Name";
+const _NAEE = "NameAlreadyExistsException";
 const _NARN = "NotificationARNs";
 const _NE = "NoEcho";
 const _NGTN = "NewGeneratedTemplateName";
 const _NOR = "NumberOfResources";
 const _NT = "NextToken";
-const _O = "Outputs";
+const _O = "Output";
 const _OF = "OnFailure";
 const _OI = "OperationId";
+const _OIAEE = "OperationIdAlreadyExistsException";
+const _OIPE = "OperationInProgressException";
 const _OK = "OutputKey";
+const _ONFE = "OperationNotFoundException";
 const _OP = "OperationPreferences";
+const _ORF = "OperationResultFilter";
+const _ORFp = "OperationResultFilters";
 const _OS = "OperationStatus";
+const _OSCFE = "OperationStatusCheckFailedException";
 const _OSF = "OnStackFailure";
 const _OTA = "OriginalTypeArn";
 const _OTN = "OriginalTypeName";
 const _OUI = "OrganizationalUnitIds";
 const _OUIr = "OrganizationalUnitId";
 const _OV = "OutputValue";
+const _Ou = "Outputs";
 const _P = "Parameters";
 const _PA = "PolicyAction";
 const _PC = "PercentageCompleted";
 const _PCSI = "ParentChangeSetId";
 const _PCa = "ParameterConstraints";
-const _PD = "PropertyDifferences";
+const _PD = "ParameterDeclaration";
+const _PDa = "ParameterDeclarations";
+const _PDr = "PropertyDifference";
+const _PDro = "PropertyDifferences";
 const _PI = "PublisherId";
 const _PIa = "ParentId";
 const _PIu = "PublisherIdentity";
@@ -13067,15 +4765,19 @@ const _PP = "PublisherProfile";
 const _PPr = "PropertyPath";
 const _PRI = "PhysicalResourceId";
 const _PRIC = "PhysicalResourceIdContext";
+const _PRICKVP = "PhysicalResourceIdContextKeyValuePair";
 const _PS = "PublisherStatus";
 const _PSr = "ProgressStatus";
-const _PT = "PublishType";
+const _PT = "ProvisioningType";
 const _PTA = "PublicTypeArn";
+const _PTI = "PublishTypeInput";
+const _PTO = "PublishTypeOutput";
 const _PTa = "ParameterType";
-const _PTr = "ProvisioningType";
+const _PTu = "PublishType";
 const _PV = "ParameterValue";
 const _PVN = "PublicVersionNumber";
-const _Pa = "Path";
+const _Pa = "Parameter";
+const _Pat = "Path";
 const _Pr = "Progress";
 const _Pro = "Properties";
 const _R = "Resources";
@@ -13083,50 +4785,74 @@ const _RA = "ResourceAction";
 const _RAR = "RefreshAllResources";
 const _RARN = "RoleARN";
 const _RAT = "RequiredActivatedTypes";
-const _RC = "RollbackConfiguration";
+const _RATe = "RequiredActivatedType";
+const _RC = "ResourceChange";
+const _RCD = "ResourceChangeDetail";
+const _RCDe = "ResourceChangeDetails";
 const _RCSI = "RootChangeSetId";
 const _RCT = "RegionConcurrencyType";
-const _RCe = "ResourceChange";
+const _RCo = "RollbackConfiguration";
+const _RD = "ResourceDefinition";
+const _RDe = "ResourceDetail";
+const _RDes = "ResourceDefinitions";
+const _RDeso = "ResourceDetails";
 const _REOC = "RetainExceptOnCreate";
 const _RF = "ResourcesFailed";
 const _RHP = "RecordHandlerProgress";
+const _RHPI = "RecordHandlerProgressInput";
+const _RHPO = "RecordHandlerProgressOutput";
 const _RI = "ResourceIdentifier";
 const _RIS = "ResourceIdentifierSummaries";
+const _RISe = "ResourceIdentifierSummary";
 const _RIe = "ResourceIdentifiers";
 const _RIo = "RootId";
+const _RL = "ResourceLocation";
 const _RM = "ResourceMappings";
 const _RMe = "ResourceModel";
 const _RMes = "ResourceMapping";
 const _RO = "RegionOrder";
-const _RP = "RegisterPublisher";
-const _RPe = "ResourceProperties";
-const _RPes = "ResourcesProcessing";
-const _RPeso = "ResourcesPending";
+const _RP = "ResourceProperties";
+const _RPI = "RegisterPublisherInput";
+const _RPO = "RegisterPublisherOutput";
+const _RPe = "ResourcesProcessing";
+const _RPeg = "RegisterPublisher";
+const _RPes = "ResourcesPending";
 const _RR = "RetainResources";
-const _RRe = "RemoveResources";
+const _RRe = "ResourcesRead";
 const _RRel = "RelatedResources";
+const _RRem = "RemoveResources";
 const _RReq = "RequiresRecreation";
-const _RRes = "ResourcesRead";
-const _RS = "RollbackStack";
+const _RS = "RetainStacks";
 const _RSF = "RegistrationStatusFilter";
 const _RSI = "ResourceScanId";
+const _RSIPE = "ResourceScanInProgressException";
+const _RSIo = "RollbackStackInput";
+const _RSLEE = "ResourceScanLimitExceededException";
+const _RSNFE = "ResourceScanNotFoundException";
+const _RSO = "RollbackStackOutput";
 const _RSOAR = "RetainStacksOnAccountRemoval";
 const _RSR = "ResourceStatusReason";
 const _RSS = "ResourceScanSummaries";
-const _RSe = "RetainStacks";
-const _RSes = "ResourcesScanned";
-const _RSeso = "ResourceStatus";
-const _RSesou = "ResourcesSucceeded";
-const _RT = "RegisterType";
+const _RSSe = "ResourceScanSummary";
+const _RSe = "ResourcesScanned";
+const _RSes = "ResourceStatus";
+const _RSeso = "ResourcesSucceeded";
+const _RSo = "RollbackStack";
+const _RT = "ResourceType";
 const _RTD = "ResourceTargetDetails";
+const _RTDe = "ResourceTargetDefinition";
 const _RTI = "ResourcesToImport";
+const _RTIe = "RegisterTypeInput";
+const _RTIes = "ResourceToImport";
 const _RTL = "RegistrationTokenList";
+const _RTO = "RegisterTypeOutput";
 const _RTP = "ResourceTypePrefix";
 const _RTS = "ResourcesToSkip";
 const _RTe = "ResourceTypes";
 const _RTeg = "RegistrationToken";
-const _RTes = "ResourceType";
+const _RTegi = "RegisterType";
 const _RTo = "RollbackTriggers";
+const _RTol = "RollbackTrigger";
 const _RV = "ResolvedValue";
 const _Re = "Regions";
 const _Reg = "Region";
@@ -13136,54 +4862,104 @@ const _S = "Status";
 const _SA = "StagesAvailable";
 const _SD = "StackDefinitions";
 const _SDDI = "StackDriftDetectionId";
+const _SDI = "StackDriftInformation";
+const _SDIS = "StackDriftInformationSummary";
 const _SDS = "StackDriftStatus";
-const _SDt = "StatusDetails";
+const _SDt = "StackDefinition";
+const _SDta = "StatusDetails";
 const _SE = "StackEvents";
+const _SEt = "StackEvent";
 const _SF = "ScanFilters";
+const _SFc = "ScanFilter";
 const _SHP = "SchemaHandlerPackage";
 const _SI = "StackId";
 const _SIA = "StackInstanceAccount";
+const _SICS = "StackInstanceComprehensiveStatus";
+const _SIF = "StackInstanceFilter";
+const _SIFt = "StackInstanceFilters";
+const _SINFE = "StackInstanceNotFoundException";
 const _SIR = "StackInstanceRegion";
 const _SIRDS = "StackInstanceResourceDriftStatuses";
+const _SIRDSt = "StackInstanceResourceDriftsSummary";
+const _SIRDSta = "StackInstanceResourceDriftsSummaries";
 const _SIS = "StackInstanceStatus";
+const _SISt = "StackInstanceSummary";
+const _SISta = "StackInstanceSummaries";
 const _SIU = "StackIdsUrl";
-const _SIt = "StackIds";
-const _SIta = "StackInstance";
+const _SIt = "StackInstance";
+const _SIta = "StackIds";
 const _SM = "StatusMessage";
 const _SMV = "SupportedMajorVersions";
 const _SN = "StackName";
+const _SNFE = "StackNotFoundException";
 const _SPB = "StackPolicyBody";
 const _SPDUB = "StackPolicyDuringUpdateBody";
 const _SPDUURL = "StackPolicyDuringUpdateURL";
 const _SPURL = "StackPolicyURL";
-const _SR = "SignalResource";
+const _SR = "StatusReason";
 const _SRA = "StackRefactorActions";
+const _SRAt = "StackRefactorAction";
 const _SRD = "StackResourceDrifts";
+const _SRDI = "StackResourceDriftInformation";
+const _SRDIS = "StackResourceDriftInformationSummary";
 const _SRDS = "StackResourceDriftStatus";
 const _SRDSF = "StackResourceDriftStatusFilters";
 const _SRDt = "StackResourceDetail";
 const _SRDta = "StackResourceDrift";
+const _SRE = "StaleRequestException";
 const _SRI = "StackRefactorId";
-const _SRS = "StartResourceScan";
-const _SRSt = "StackRefactorSummaries";
-const _SRSta = "StackResourceSummaries";
-const _SRt = "StatusReason";
-const _SRta = "StackResources";
+const _SRIc = "ScannedResourceIdentifier";
+const _SRIca = "ScannedResourceIdentifiers";
+const _SRIi = "SignalResourceInput";
+const _SRNFE = "StackRefactorNotFoundException";
+const _SRS = "StackRefactorSummaries";
+const _SRSI = "StartResourceScanInput";
+const _SRSO = "StartResourceScanOutput";
+const _SRSt = "StackResourceSummaries";
+const _SRSta = "StackRefactorSummary";
+const _SRStac = "StackResourceSummary";
+const _SRStar = "StartResourceScan";
+const _SRTR = "StackRefactorTagResources";
+const _SRc = "ScannedResource";
+const _SRca = "ScannedResources";
+const _SRi = "SignalResource";
+const _SRt = "StackResources";
+const _SRta = "StackResource";
 const _SS = "StackSet";
+const _SSADTS = "StackSetAutoDeploymentTargetSummary";
+const _SSADTSt = "StackSetAutoDeploymentTargetSummaries";
 const _SSARN = "StackSetARN";
 const _SSDDD = "StackSetDriftDetectionDetails";
 const _SSF = "StackStatusFilter";
 const _SSI = "StackSetId";
 const _SSN = "StackSetName";
+const _SSNEE = "StackSetNotEmptyException";
+const _SSNFE = "StackSetNotFoundException";
 const _SSO = "StackSetOperation";
+const _SSOP = "StackSetOperationPreferences";
+const _SSORS = "StackSetOperationResultSummary";
+const _SSORSt = "StackSetOperationResultSummaries";
+const _SSOS = "StackSetOperationSummary";
+const _SSOSD = "StackSetOperationStatusDetails";
+const _SSOSt = "StackSetOperationSummaries";
 const _SSP = "SetStackPolicy";
+const _SSPI = "SetStackPolicyInput";
 const _SSR = "StackStatusReason";
+const _SSS = "StackSetSummary";
 const _SSSO = "StopStackSetOperation";
+const _SSSOI = "StopStackSetOperationInput";
+const _SSSOO = "StopStackSetOperationOutput";
+const _SSSt = "StackSetSummaries";
 const _SSt = "StackSummaries";
 const _SSta = "StackStatus";
+const _SStac = "StackSummary";
 const _ST = "StartTime";
 const _STC = "SetTypeConfiguration";
+const _STCI = "SetTypeConfigurationInput";
+const _STCO = "SetTypeConfigurationOutput";
 const _STDV = "SetTypeDefaultVersion";
+const _STDVI = "SetTypeDefaultVersionInput";
+const _STDVO = "SetTypeDefaultVersionOutput";
 const _STF = "ScanTypeFilter";
 const _STc = "ScanType";
 const _SU = "SourceUrl";
@@ -13191,49 +4967,68 @@ const _Sc = "Schema";
 const _Sco = "Scope";
 const _So = "Source";
 const _St = "Stacks";
+const _Sta = "Stack";
 const _Su = "Summaries";
 const _T = "Type";
 const _TA = "TypeArn";
+const _TAEE = "TokenAlreadyExistsException";
 const _TB = "TemplateBody";
-const _TC = "TemplateConfiguration";
+const _TC = "TypeConfigurations";
 const _TCA = "TypeConfigurationAlias";
 const _TCAy = "TypeConfigurationArn";
-const _TCI = "TypeConfigurationIdentifiers";
-const _TCIy = "TypeConfigurationIdentifier";
+const _TCD = "TypeConfigurationDetails";
+const _TCDL = "TypeConfigurationDetailsList";
+const _TCI = "TypeConfigurationIdentifier";
+const _TCIy = "TypeConfigurationIdentifiers";
+const _TCNFE = "TypeConfigurationNotFoundException";
 const _TCVI = "TypeConfigurationVersionId";
+const _TCe = "TemplateConfiguration";
 const _TCi = "TimeCreated";
-const _TCy = "TypeConfigurations";
 const _TD = "TargetDetails";
 const _TDe = "TemplateDescription";
+const _TF = "TypeFilters";
 const _TH = "TypeHierarchy";
 const _TI = "TargetId";
 const _TIM = "TimeoutInMinutes";
 const _TK = "TagKey";
 const _TN = "TypeName";
 const _TNA = "TypeNameAlias";
+const _TNFE = "TypeNotFoundException";
 const _TNP = "TypeNamePrefix";
+const _TP = "TemplateParameter";
+const _TPe = "TemplateProgress";
+const _TPem = "TemplateParameters";
 const _TR = "TagResources";
 const _TS = "TemplateStage";
 const _TSC = "TemplateSummaryConfig";
 const _TSIC = "TotalStackInstancesCount";
+const _TSe = "TemplateSummary";
+const _TSem = "TemplateSummaries";
 const _TSy = "TypeSummaries";
-const _TT = "TestType";
+const _TSyp = "TypeSummary";
+const _TT = "TargetType";
+const _TTI = "TestTypeInput";
+const _TTO = "TestTypeOutput";
 const _TTS = "TypeTestsStatus";
 const _TTSD = "TypeTestsStatusDescription";
-const _TTa = "TargetType";
+const _TTe = "TestType";
 const _TURL = "TemplateURL";
 const _TURTAW = "TreatUnrecognizedResourceTypesAsWarnings";
 const _TV = "TagValue";
 const _TVA = "TypeVersionArn";
 const _TVI = "TypeVersionId";
 const _TVS = "TypeVersionSummaries";
+const _TVSy = "TypeVersionSummary";
 const _TW = "TotalWarnings";
 const _Ta = "Tags";
+const _Tag = "Tag";
 const _Tar = "Target";
 const _Ti = "Timestamp";
 const _Ty = "Types";
 const _U = "Url";
 const _UGT = "UpdateGeneratedTemplate";
+const _UGTI = "UpdateGeneratedTemplateInput";
+const _UGTO = "UpdateGeneratedTemplateOutput";
 const _UI = "UniqueId";
 const _UPT = "UsePreviousTemplate";
 const _UPV = "UsePreviousValue";
@@ -13241,46 +5036,2315 @@ const _UR = "UntagResources";
 const _URP = "UpdateReplacePolicy";
 const _URT = "UnrecognizedResourceTypes";
 const _US = "UpdateStack";
-const _USI = "UpdateStackInstances";
+const _USI = "UpdateStackInput";
+const _USII = "UpdateStackInstancesInput";
+const _USIO = "UpdateStackInstancesOutput";
+const _USIp = "UpdateStackInstances";
+const _USO = "UpdateStackOutput";
 const _USS = "UpdateStackSet";
+const _USSI = "UpdateStackSetInput";
+const _USSO = "UpdateStackSetOutput";
 const _UTC = "UnprocessedTypeConfigurations";
 const _UTP = "UpdateTerminationProtection";
-const _V = "Version";
+const _UTPI = "UpdateTerminationProtectionInput";
+const _UTPO = "UpdateTerminationProtectionOutput";
+const _V = "Value";
 const _VB = "VersionBump";
 const _VI = "VersionId";
 const _VT = "ValidateTemplate";
+const _VTI = "ValidateTemplateInput";
+const _VTO = "ValidateTemplateOutput";
 const _Va = "Values";
-const _Val = "Value";
+const _Ve = "Version";
 const _Vi = "Visibility";
 const _W = "Warnings";
-const _e = "entry";
-const _m = "member";
-const buildFormUrlencodedString = (formEntries) => Object.entries(formEntries)
-    .map(([key, value]) => smithyClient.extendedEncodeURIComponent(key) + "=" + smithyClient.extendedEncodeURIComponent(value))
-    .join("&");
-const loadQueryErrorCode = (output, data) => {
-    if (data.Error?.Code !== undefined) {
-        return data.Error.Code;
-    }
-    if (output.statusCode == 404) {
-        return "NotFound";
-    }
-};
+const _WD = "WarningDetail";
+const _WDa = "WarningDetails";
+const _WP = "WarningProperty";
+const _WPa = "WarningProperties";
+const _aQE = "awsQueryError";
+const _c = "client";
+const _e = "error";
+const _hE = "httpError";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudformation";
+const n0 = "com.amazonaws.cloudformation";
+var AccountGateResult = [3, n0, _AGR, 0, [_S, _SR], [0, 0]];
+var AccountLimit = [3, n0, _AL, 0, [_N, _V], [0, 1]];
+var ActivateOrganizationsAccessInput = [3, n0, _AOAI, 0, [], []];
+var ActivateOrganizationsAccessOutput = [3, n0, _AOAO, 0, [], []];
+var ActivateTypeInput = [
+    3,
+    n0,
+    _ATI,
+    0,
+    [_T, _PTA, _PI, _TN, _TNA, _AU, _LC, _ERA, _VB, _MV],
+    [0, 0, 0, 0, 0, 2, () => LoggingConfig, 0, 0, 1],
+];
+var ActivateTypeOutput = [3, n0, _ATO, 0, [_A], [0]];
+var AlreadyExistsException = [
+    -3,
+    n0,
+    _AEE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`AlreadyExistsException`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(AlreadyExistsException, AlreadyExistsException$1);
+var AutoDeployment = [3, n0, _AD, 0, [_E, _RSOAR], [2, 2]];
+var BatchDescribeTypeConfigurationsError = [
+    3,
+    n0,
+    _BDTCE,
+    0,
+    [_EC, _EM, _TCI],
+    [0, 0, () => TypeConfigurationIdentifier],
+];
+var BatchDescribeTypeConfigurationsInput = [
+    3,
+    n0,
+    _BDTCI,
+    0,
+    [_TCIy],
+    [() => TypeConfigurationIdentifiers],
+];
+var BatchDescribeTypeConfigurationsOutput = [
+    3,
+    n0,
+    _BDTCO,
+    0,
+    [_Er, _UTC, _TC],
+    [
+        () => BatchDescribeTypeConfigurationsErrors,
+        () => UnprocessedTypeConfigurations,
+        () => TypeConfigurationDetailsList,
+    ],
+];
+var CancelUpdateStackInput = [3, n0, _CUSI, 0, [_SN, _CRT], [0, 0]];
+var CFNRegistryException = [
+    -3,
+    n0,
+    _CFNRE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`CFNRegistryException`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(CFNRegistryException, CFNRegistryException$1);
+var Change = [3, n0, _C, 0, [_T, _HIC, _RC], [0, 1, () => ResourceChange]];
+var ChangeSetHook = [
+    3,
+    n0,
+    _CSH,
+    0,
+    [_IP, _FM, _TN, _TVI, _TCVI, _TD],
+    [0, 0, 0, 0, 0, () => ChangeSetHookTargetDetails],
+];
+var ChangeSetHookResourceTargetDetails = [3, n0, _CSHRTD, 0, [_LRI, _RT, _RA], [0, 0, 0]];
+var ChangeSetHookTargetDetails = [
+    3,
+    n0,
+    _CSHTD,
+    0,
+    [_TT, _RTD],
+    [0, () => ChangeSetHookResourceTargetDetails],
+];
+var ChangeSetNotFoundException = [
+    -3,
+    n0,
+    _CSNFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`ChangeSetNotFound`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(ChangeSetNotFoundException, ChangeSetNotFoundException$1);
+var ChangeSetSummary = [
+    3,
+    n0,
+    _CSS,
+    0,
+    [_SI, _SN, _CSI, _CSN, _ES, _S, _SR, _CT, _D, _INS, _PCSI, _RCSI, _IER],
+    [0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 2],
+];
+var ConcurrentResourcesLimitExceededException = [
+    -3,
+    n0,
+    _CRLEE,
+    {
+        [_e]: _c,
+        [_hE]: 429,
+        [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(ConcurrentResourcesLimitExceededException, ConcurrentResourcesLimitExceededException$1);
+var ContinueUpdateRollbackInput = [
+    3,
+    n0,
+    _CURI,
+    0,
+    [_SN, _RARN, _RTS, _CRT],
+    [0, 0, 64 | 0, 0],
+];
+var ContinueUpdateRollbackOutput = [3, n0, _CURO, 0, [], []];
+var CreateChangeSetInput = [
+    3,
+    n0,
+    _CCSI,
+    0,
+    [_SN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CSN, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER],
+    [
+        0,
+        0,
+        0,
+        2,
+        () => _Parameters,
+        64 | 0,
+        64 | 0,
+        0,
+        () => RollbackConfiguration,
+        64 | 0,
+        () => Tags,
+        0,
+        0,
+        0,
+        0,
+        () => ResourcesToImport,
+        2,
+        0,
+        2,
+    ],
+];
+var CreateChangeSetOutput = [3, n0, _CCSO, 0, [_I, _SI], [0, 0]];
+var CreatedButModifiedException = [
+    -3,
+    n0,
+    _CBME,
+    {
+        [_e]: _c,
+        [_hE]: 409,
+        [_aQE]: [`CreatedButModifiedException`, 409],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(CreatedButModifiedException, CreatedButModifiedException$1);
+var CreateGeneratedTemplateInput = [
+    3,
+    n0,
+    _CGTI,
+    0,
+    [_R, _GTN, _SN, _TCe],
+    [() => ResourceDefinitions, 0, 0, () => TemplateConfiguration],
+];
+var CreateGeneratedTemplateOutput = [3, n0, _CGTO, 0, [_GTI], [0]];
+var CreateStackInput = [
+    3,
+    n0,
+    _CSIr,
+    0,
+    [_SN, _TB, _TURL, _P, _DR, _RCo, _TIM, _NARN, _Ca, _RTe, _RARN, _OF, _SPB, _SPURL, _Ta, _CRT, _ETP, _REOC],
+    [
+        0,
+        0,
+        0,
+        () => _Parameters,
+        2,
+        () => RollbackConfiguration,
+        1,
+        64 | 0,
+        64 | 0,
+        64 | 0,
+        0,
+        0,
+        0,
+        0,
+        () => Tags,
+        0,
+        2,
+        2,
+    ],
+];
+var CreateStackInstancesInput = [
+    3,
+    n0,
+    _CSII,
+    0,
+    [_SSN, _Ac, _DT, _Re, _PO, _OP, _OI, _CA],
+    [0, 64 | 0, () => DeploymentTargets, 64 | 0, () => _Parameters, () => StackSetOperationPreferences, [0, 4], 0],
+];
+var CreateStackInstancesOutput = [3, n0, _CSIO, 0, [_OI], [0]];
+var CreateStackOutput = [3, n0, _CSO, 0, [_SI], [0]];
+var CreateStackRefactorInput = [
+    3,
+    n0,
+    _CSRI,
+    0,
+    [_D, _ESC, _RM, _SD],
+    [0, 2, () => ResourceMappings, () => StackDefinitions],
+];
+var CreateStackRefactorOutput = [3, n0, _CSRO, 0, [_SRI], [0]];
+var CreateStackSetInput = [
+    3,
+    n0,
+    _CSSI,
+    0,
+    [_SSN, _D, _TB, _TURL, _SI, _P, _Ca, _Ta, _ARARN, _ERN, _PM, _AD, _CA, _CRT, _ME],
+    [
+        0,
+        0,
+        0,
+        0,
+        0,
+        () => _Parameters,
+        64 | 0,
+        () => Tags,
+        0,
+        0,
+        0,
+        () => AutoDeployment,
+        0,
+        [0, 4],
+        () => ManagedExecution,
+    ],
+];
+var CreateStackSetOutput = [3, n0, _CSSO, 0, [_SSI], [0]];
+var DeactivateOrganizationsAccessInput = [3, n0, _DOAI, 0, [], []];
+var DeactivateOrganizationsAccessOutput = [3, n0, _DOAO, 0, [], []];
+var DeactivateTypeInput = [3, n0, _DTI, 0, [_TN, _T, _A], [0, 0, 0]];
+var DeactivateTypeOutput = [3, n0, _DTO, 0, [], []];
+var DeleteChangeSetInput = [3, n0, _DCSI, 0, [_CSN, _SN], [0, 0]];
+var DeleteChangeSetOutput = [3, n0, _DCSO, 0, [], []];
+var DeleteGeneratedTemplateInput = [3, n0, _DGTI, 0, [_GTN], [0]];
+var DeleteStackInput = [
+    3,
+    n0,
+    _DSI,
+    0,
+    [_SN, _RR, _RARN, _CRT, _DM],
+    [0, 64 | 0, 0, 0, 0],
+];
+var DeleteStackInstancesInput = [
+    3,
+    n0,
+    _DSII,
+    0,
+    [_SSN, _Ac, _DT, _Re, _OP, _RS, _OI, _CA],
+    [0, 64 | 0, () => DeploymentTargets, 64 | 0, () => StackSetOperationPreferences, 2, [0, 4], 0],
+];
+var DeleteStackInstancesOutput = [3, n0, _DSIO, 0, [_OI], [0]];
+var DeleteStackSetInput = [3, n0, _DSSI, 0, [_SSN, _CA], [0, 0]];
+var DeleteStackSetOutput = [3, n0, _DSSO, 0, [], []];
+var DeploymentTargets = [3, n0, _DT, 0, [_Ac, _AUc, _OUI, _AFT], [64 | 0, 0, 64 | 0, 0]];
+var DeregisterTypeInput = [3, n0, _DTIe, 0, [_A, _T, _TN, _VI], [0, 0, 0, 0]];
+var DeregisterTypeOutput = [3, n0, _DTOe, 0, [], []];
+var DescribeAccountLimitsInput = [3, n0, _DALI, 0, [_NT], [0]];
+var DescribeAccountLimitsOutput = [
+    3,
+    n0,
+    _DALO,
+    0,
+    [_ALc, _NT],
+    [() => AccountLimitList, 0],
+];
+var DescribeChangeSetHooksInput = [
+    3,
+    n0,
+    _DCSHI,
+    0,
+    [_CSN, _SN, _NT, _LRI],
+    [0, 0, 0, 0],
+];
+var DescribeChangeSetHooksOutput = [
+    3,
+    n0,
+    _DCSHO,
+    0,
+    [_CSI, _CSN, _H, _S, _NT, _SI, _SN],
+    [0, 0, () => ChangeSetHooks, 0, 0, 0, 0],
+];
+var DescribeChangeSetInput = [3, n0, _DCSIe, 0, [_CSN, _SN, _NT, _IPV], [0, 0, 0, 2]];
+var DescribeChangeSetOutput = [
+    3,
+    n0,
+    _DCSOe,
+    0,
+    [_CSN, _CSI, _SI, _SN, _D, _P, _CT, _ES, _S, _SR, _NARN, _RCo, _Ca, _Ta, _Ch, _NT, _INS, _PCSI, _RCSI, _OSF, _IER],
+    [
+        0,
+        0,
+        0,
+        0,
+        0,
+        () => _Parameters,
+        4,
+        0,
+        0,
+        0,
+        64 | 0,
+        () => RollbackConfiguration,
+        64 | 0,
+        () => Tags,
+        () => Changes,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+    ],
+];
+var DescribeGeneratedTemplateInput = [3, n0, _DGTIe, 0, [_GTN], [0]];
+var DescribeGeneratedTemplateOutput = [
+    3,
+    n0,
+    _DGTO,
+    0,
+    [_GTI, _GTN, _R, _S, _SR, _CT, _LUT, _Pr, _SI, _TCe, _TW],
+    [0, 0, () => ResourceDetails, 0, 0, 4, 4, () => TemplateProgress, 0, () => TemplateConfiguration, 1],
+];
+var DescribeOrganizationsAccessInput = [3, n0, _DOAIe, 0, [_CA], [0]];
+var DescribeOrganizationsAccessOutput = [3, n0, _DOAOe, 0, [_S], [0]];
+var DescribePublisherInput = [3, n0, _DPI, 0, [_PI], [0]];
+var DescribePublisherOutput = [3, n0, _DPO, 0, [_PI, _PS, _IPd, _PP], [0, 0, 0, 0]];
+var DescribeResourceScanInput = [3, n0, _DRSI, 0, [_RSI], [0]];
+var DescribeResourceScanOutput = [
+    3,
+    n0,
+    _DRSO,
+    0,
+    [_RSI, _S, _SR, _ST, _ET, _PC, _RTe, _RSe, _RRe, _SF],
+    [0, 0, 0, 4, 4, 1, 64 | 0, 1, 1, () => ScanFilters],
+];
+var DescribeStackDriftDetectionStatusInput = [3, n0, _DSDDSI, 0, [_SDDI], [0]];
+var DescribeStackDriftDetectionStatusOutput = [
+    3,
+    n0,
+    _DSDDSO,
+    0,
+    [_SI, _SDDI, _SDS, _DS, _DSR, _DSRC, _Ti],
+    [0, 0, 0, 0, 0, 1, 4],
+];
+var DescribeStackEventsInput = [3, n0, _DSEI, 0, [_SN, _NT], [0, 0]];
+var DescribeStackEventsOutput = [3, n0, _DSEO, 0, [_SE, _NT], [() => StackEvents, 0]];
+var DescribeStackInstanceInput = [
+    3,
+    n0,
+    _DSIIe,
+    0,
+    [_SSN, _SIA, _SIR, _CA],
+    [0, 0, 0, 0],
+];
+var DescribeStackInstanceOutput = [3, n0, _DSIOe, 0, [_SIt], [() => StackInstance]];
+var DescribeStackRefactorInput = [3, n0, _DSRI, 0, [_SRI], [0]];
+var DescribeStackRefactorOutput = [
+    3,
+    n0,
+    _DSRO,
+    0,
+    [_D, _SRI, _SIta, _ES, _ESR, _S, _SR],
+    [0, 0, 64 | 0, 0, 0, 0, 0],
+];
+var DescribeStackResourceDriftsInput = [
+    3,
+    n0,
+    _DSRDI,
+    0,
+    [_SN, _SRDSF, _NT, _MR],
+    [0, 64 | 0, 0, 1],
+];
+var DescribeStackResourceDriftsOutput = [
+    3,
+    n0,
+    _DSRDO,
+    0,
+    [_SRD, _NT],
+    [() => StackResourceDrifts, 0],
+];
+var DescribeStackResourceInput = [3, n0, _DSRIe, 0, [_SN, _LRI], [0, 0]];
+var DescribeStackResourceOutput = [
+    3,
+    n0,
+    _DSROe,
+    0,
+    [_SRDt],
+    [() => StackResourceDetail],
+];
+var DescribeStackResourcesInput = [3, n0, _DSRIes, 0, [_SN, _LRI, _PRI], [0, 0, 0]];
+var DescribeStackResourcesOutput = [3, n0, _DSROes, 0, [_SRt], [() => StackResources]];
+var DescribeStackSetInput = [3, n0, _DSSIe, 0, [_SSN, _CA], [0, 0]];
+var DescribeStackSetOperationInput = [3, n0, _DSSOI, 0, [_SSN, _OI, _CA], [0, 0, 0]];
+var DescribeStackSetOperationOutput = [
+    3,
+    n0,
+    _DSSOO,
+    0,
+    [_SSO],
+    [() => StackSetOperation],
+];
+var DescribeStackSetOutput = [3, n0, _DSSOe, 0, [_SS], [() => StackSet]];
+var DescribeStacksInput = [3, n0, _DSIe, 0, [_SN, _NT], [0, 0]];
+var DescribeStacksOutput = [3, n0, _DSO, 0, [_St, _NT], [() => Stacks, 0]];
+var DescribeTypeInput = [
+    3,
+    n0,
+    _DTIes,
+    0,
+    [_T, _TN, _A, _VI, _PI, _PVN],
+    [0, 0, 0, 0, 0, 0],
+];
+var DescribeTypeOutput = [
+    3,
+    n0,
+    _DTOes,
+    0,
+    [
+        _A,
+        _T,
+        _TN,
+        _DVI,
+        _IDV,
+        _TTS,
+        _TTSD,
+        _D,
+        _Sc,
+        _PT,
+        _DSe,
+        _LC,
+        _RAT,
+        _ERA,
+        _Vi,
+        _SU,
+        _DU,
+        _LU,
+        _TCi,
+        _CS,
+        _PI,
+        _OTN,
+        _OTA,
+        _PVN,
+        _LPV,
+        _IA,
+        _AU,
+    ],
+    [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        () => LoggingConfig,
+        () => RequiredActivatedTypes,
+        0,
+        0,
+        0,
+        0,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+    ],
+];
+var DescribeTypeRegistrationInput = [3, n0, _DTRI, 0, [_RTeg], [0]];
+var DescribeTypeRegistrationOutput = [
+    3,
+    n0,
+    _DTRO,
+    0,
+    [_PSr, _D, _TA, _TVA],
+    [0, 0, 0, 0],
+];
+var DetectStackDriftInput = [3, n0, _DSDI, 0, [_SN, _LRIo], [0, 64 | 0]];
+var DetectStackDriftOutput = [3, n0, _DSDO, 0, [_SDDI], [0]];
+var DetectStackResourceDriftInput = [3, n0, _DSRDIe, 0, [_SN, _LRI], [0, 0]];
+var DetectStackResourceDriftOutput = [
+    3,
+    n0,
+    _DSRDOe,
+    0,
+    [_SRDta],
+    [() => StackResourceDrift],
+];
+var DetectStackSetDriftInput = [
+    3,
+    n0,
+    _DSSDI,
+    0,
+    [_SSN, _OP, _OI, _CA],
+    [0, () => StackSetOperationPreferences, [0, 4], 0],
+];
+var DetectStackSetDriftOutput = [3, n0, _DSSDO, 0, [_OI], [0]];
+var EstimateTemplateCostInput = [
+    3,
+    n0,
+    _ETCI,
+    0,
+    [_TB, _TURL, _P],
+    [0, 0, () => _Parameters],
+];
+var EstimateTemplateCostOutput = [3, n0, _ETCO, 0, [_U], [0]];
+var ExecuteChangeSetInput = [
+    3,
+    n0,
+    _ECSI,
+    0,
+    [_CSN, _SN, _CRT, _DR, _REOC],
+    [0, 0, 0, 2, 2],
+];
+var ExecuteChangeSetOutput = [3, n0, _ECSO, 0, [], []];
+var ExecuteStackRefactorInput = [3, n0, _ESRI, 0, [_SRI], [0]];
+var Export = [3, n0, _Ex, 0, [_ESI, _N, _V], [0, 0, 0]];
+var GeneratedTemplateNotFoundException = [
+    -3,
+    n0,
+    _GTNFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`GeneratedTemplateNotFound`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException, GeneratedTemplateNotFoundException$1);
+var GetGeneratedTemplateInput = [3, n0, _GGTI, 0, [_F, _GTN], [0, 0]];
+var GetGeneratedTemplateOutput = [3, n0, _GGTO, 0, [_S, _TB], [0, 0]];
+var GetStackPolicyInput = [3, n0, _GSPI, 0, [_SN], [0]];
+var GetStackPolicyOutput = [3, n0, _GSPO, 0, [_SPB], [0]];
+var GetTemplateInput = [3, n0, _GTIe, 0, [_SN, _CSN, _TS], [0, 0, 0]];
+var GetTemplateOutput = [3, n0, _GTO, 0, [_TB, _SA], [0, 64 | 0]];
+var GetTemplateSummaryInput = [
+    3,
+    n0,
+    _GTSI,
+    0,
+    [_TB, _TURL, _SN, _SSN, _CA, _TSC],
+    [0, 0, 0, 0, 0, () => TemplateSummaryConfig],
+];
+var GetTemplateSummaryOutput = [
+    3,
+    n0,
+    _GTSO,
+    0,
+    [_P, _D, _Ca, _CR, _RTe, _Ve, _Me, _DTe, _RIS, _W],
+    [() => ParameterDeclarations, 0, 64 | 0, 0, 64 | 0, 0, 0, 64 | 0, () => ResourceIdentifierSummaries, () => Warnings],
+];
+var HookResultNotFoundException = [
+    -3,
+    n0,
+    _HRNFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`HookResultNotFound`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(HookResultNotFoundException, HookResultNotFoundException$1);
+var HookResultSummary = [
+    3,
+    n0,
+    _HRS,
+    0,
+    [_HRI, _IP, _FM, _TN, _TVI, _TCVI, _S, _HSR, _IAn, _TT, _TI, _TA, _HET],
+    [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
+];
+var ImportStacksToStackSetInput = [
+    3,
+    n0,
+    _ISTSSI,
+    0,
+    [_SSN, _SIta, _SIU, _OUI, _OP, _OI, _CA],
+    [0, 64 | 0, 0, 64 | 0, () => StackSetOperationPreferences, [0, 4], 0],
+];
+var ImportStacksToStackSetOutput = [3, n0, _ISTSSO, 0, [_OI], [0]];
+var InsufficientCapabilitiesException = [
+    -3,
+    n0,
+    _ICE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`InsufficientCapabilitiesException`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(InsufficientCapabilitiesException, InsufficientCapabilitiesException$1);
+var InvalidChangeSetStatusException = [
+    -3,
+    n0,
+    _ICSSE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`InvalidChangeSetStatus`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(InvalidChangeSetStatusException, InvalidChangeSetStatusException$1);
+var InvalidOperationException = [
+    -3,
+    n0,
+    _IOE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`InvalidOperationException`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(InvalidOperationException, InvalidOperationException$1);
+var InvalidStateTransitionException = [
+    -3,
+    n0,
+    _ISTE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`InvalidStateTransition`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(InvalidStateTransitionException, InvalidStateTransitionException$1);
+var LimitExceededException = [
+    -3,
+    n0,
+    _LEE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`LimitExceededException`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(LimitExceededException, LimitExceededException$1);
+var ListChangeSetsInput = [3, n0, _LCSI, 0, [_SN, _NT], [0, 0]];
+var ListChangeSetsOutput = [3, n0, _LCSO, 0, [_Su, _NT], [() => ChangeSetSummaries, 0]];
+var ListExportsInput = [3, n0, _LEI, 0, [_NT], [0]];
+var ListExportsOutput = [3, n0, _LEO, 0, [_Exp, _NT], [() => Exports, 0]];
+var ListGeneratedTemplatesInput = [3, n0, _LGTI, 0, [_NT, _MR], [0, 1]];
+var ListGeneratedTemplatesOutput = [
+    3,
+    n0,
+    _LGTO,
+    0,
+    [_Su, _NT],
+    [() => TemplateSummaries, 0],
+];
+var ListHookResultsInput = [3, n0, _LHRI, 0, [_TT, _TI, _TA, _S, _NT], [0, 0, 0, 0, 0]];
+var ListHookResultsOutput = [
+    3,
+    n0,
+    _LHRO,
+    0,
+    [_TT, _TI, _HR, _NT],
+    [0, 0, () => HookResultSummaries, 0],
+];
+var ListImportsInput = [3, n0, _LII, 0, [_EN, _NT], [0, 0]];
+var ListImportsOutput = [3, n0, _LIO, 0, [_Im, _NT], [64 | 0, 0]];
+var ListResourceScanRelatedResourcesInput = [
+    3,
+    n0,
+    _LRSRRI,
+    0,
+    [_RSI, _R, _NT, _MR],
+    [0, () => ScannedResourceIdentifiers, 0, 1],
+];
+var ListResourceScanRelatedResourcesOutput = [
+    3,
+    n0,
+    _LRSRRO,
+    0,
+    [_RRel, _NT],
+    [() => RelatedResources, 0],
+];
+var ListResourceScanResourcesInput = [
+    3,
+    n0,
+    _LRSRI,
+    0,
+    [_RSI, _RI, _RTP, _TK, _TV, _NT, _MR],
+    [0, 0, 0, 0, 0, 0, 1],
+];
+var ListResourceScanResourcesOutput = [
+    3,
+    n0,
+    _LRSRO,
+    0,
+    [_R, _NT],
+    [() => ScannedResources, 0],
+];
+var ListResourceScansInput = [3, n0, _LRSI, 0, [_NT, _MR, _STF], [0, 1, 0]];
+var ListResourceScansOutput = [
+    3,
+    n0,
+    _LRSO,
+    0,
+    [_RSS, _NT],
+    [() => ResourceScanSummaries, 0],
+];
+var ListStackInstanceResourceDriftsInput = [
+    3,
+    n0,
+    _LSIRDI,
+    0,
+    [_SSN, _NT, _MR, _SIRDS, _SIA, _SIR, _OI, _CA],
+    [0, 0, 1, 64 | 0, 0, 0, 0, 0],
+];
+var ListStackInstanceResourceDriftsOutput = [
+    3,
+    n0,
+    _LSIRDO,
+    0,
+    [_Su, _NT],
+    [() => StackInstanceResourceDriftsSummaries, 0],
+];
+var ListStackInstancesInput = [
+    3,
+    n0,
+    _LSII,
+    0,
+    [_SSN, _NT, _MR, _Fi, _SIA, _SIR, _CA],
+    [0, 0, 1, () => StackInstanceFilters, 0, 0, 0],
+];
+var ListStackInstancesOutput = [
+    3,
+    n0,
+    _LSIO,
+    0,
+    [_Su, _NT],
+    [() => StackInstanceSummaries, 0],
+];
+var ListStackRefactorActionsInput = [3, n0, _LSRAI, 0, [_SRI, _NT, _MR], [0, 0, 1]];
+var ListStackRefactorActionsOutput = [
+    3,
+    n0,
+    _LSRAO,
+    0,
+    [_SRA, _NT],
+    [() => StackRefactorActions, 0],
+];
+var ListStackRefactorsInput = [3, n0, _LSRI, 0, [_ESF, _NT, _MR], [64 | 0, 0, 1]];
+var ListStackRefactorsOutput = [
+    3,
+    n0,
+    _LSRO,
+    0,
+    [_SRS, _NT],
+    [() => StackRefactorSummaries, 0],
+];
+var ListStackResourcesInput = [3, n0, _LSRIi, 0, [_SN, _NT], [0, 0]];
+var ListStackResourcesOutput = [
+    3,
+    n0,
+    _LSROi,
+    0,
+    [_SRSt, _NT],
+    [() => StackResourceSummaries, 0],
+];
+var ListStackSetAutoDeploymentTargetsInput = [
+    3,
+    n0,
+    _LSSADTI,
+    0,
+    [_SSN, _NT, _MR, _CA],
+    [0, 0, 1, 0],
+];
+var ListStackSetAutoDeploymentTargetsOutput = [
+    3,
+    n0,
+    _LSSADTO,
+    0,
+    [_Su, _NT],
+    [() => StackSetAutoDeploymentTargetSummaries, 0],
+];
+var ListStackSetOperationResultsInput = [
+    3,
+    n0,
+    _LSSORI,
+    0,
+    [_SSN, _OI, _NT, _MR, _CA, _Fi],
+    [0, 0, 0, 1, 0, () => OperationResultFilters],
+];
+var ListStackSetOperationResultsOutput = [
+    3,
+    n0,
+    _LSSORO,
+    0,
+    [_Su, _NT],
+    [() => StackSetOperationResultSummaries, 0],
+];
+var ListStackSetOperationsInput = [3, n0, _LSSOI, 0, [_SSN, _NT, _MR, _CA], [0, 0, 1, 0]];
+var ListStackSetOperationsOutput = [
+    3,
+    n0,
+    _LSSOO,
+    0,
+    [_Su, _NT],
+    [() => StackSetOperationSummaries, 0],
+];
+var ListStackSetsInput = [3, n0, _LSSI, 0, [_NT, _MR, _S, _CA], [0, 1, 0, 0]];
+var ListStackSetsOutput = [3, n0, _LSSO, 0, [_Su, _NT], [() => StackSetSummaries, 0]];
+var ListStacksInput = [3, n0, _LSI, 0, [_NT, _SSF], [0, 64 | 0]];
+var ListStacksOutput = [3, n0, _LSO, 0, [_SSt, _NT], [() => StackSummaries, 0]];
+var ListTypeRegistrationsInput = [
+    3,
+    n0,
+    _LTRI,
+    0,
+    [_T, _TN, _TA, _RSF, _MR, _NT],
+    [0, 0, 0, 0, 1, 0],
+];
+var ListTypeRegistrationsOutput = [3, n0, _LTRO, 0, [_RTL, _NT], [64 | 0, 0]];
+var ListTypesInput = [
+    3,
+    n0,
+    _LTI,
+    0,
+    [_Vi, _PT, _DSe, _T, _Fi, _MR, _NT],
+    [0, 0, 0, 0, () => TypeFilters, 1, 0],
+];
+var ListTypesOutput = [3, n0, _LTO, 0, [_TSy, _NT], [() => TypeSummaries, 0]];
+var ListTypeVersionsInput = [
+    3,
+    n0,
+    _LTVI,
+    0,
+    [_T, _TN, _A, _MR, _NT, _DSe, _PI],
+    [0, 0, 0, 1, 0, 0, 0],
+];
+var ListTypeVersionsOutput = [
+    3,
+    n0,
+    _LTVO,
+    0,
+    [_TVS, _NT],
+    [() => TypeVersionSummaries, 0],
+];
+var LoggingConfig = [3, n0, _LC, 0, [_LRA, _LGN], [0, 0]];
+var ManagedExecution = [3, n0, _ME, 0, [_Act], [2]];
+var ModuleInfo = [3, n0, _MI, 0, [_TH, _LIH], [0, 0]];
+var NameAlreadyExistsException = [
+    -3,
+    n0,
+    _NAEE,
+    {
+        [_e]: _c,
+        [_hE]: 409,
+        [_aQE]: [`NameAlreadyExistsException`, 409],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(NameAlreadyExistsException, NameAlreadyExistsException$1);
+var OperationIdAlreadyExistsException = [
+    -3,
+    n0,
+    _OIAEE,
+    {
+        [_e]: _c,
+        [_hE]: 409,
+        [_aQE]: [`OperationIdAlreadyExistsException`, 409],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(OperationIdAlreadyExistsException, OperationIdAlreadyExistsException$1);
+var OperationInProgressException = [
+    -3,
+    n0,
+    _OIPE,
+    {
+        [_e]: _c,
+        [_hE]: 409,
+        [_aQE]: [`OperationInProgressException`, 409],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(OperationInProgressException, OperationInProgressException$1);
+var OperationNotFoundException = [
+    -3,
+    n0,
+    _ONFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`OperationNotFoundException`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(OperationNotFoundException, OperationNotFoundException$1);
+var OperationResultFilter = [3, n0, _ORF, 0, [_N, _Va], [0, 0]];
+var OperationStatusCheckFailedException = [
+    -3,
+    n0,
+    _OSCFE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`ConditionalCheckFailed`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(OperationStatusCheckFailedException, OperationStatusCheckFailedException$1);
+var Output = [3, n0, _O, 0, [_OK, _OV, _D, _EN], [0, 0, 0, 0]];
+var Parameter = [3, n0, _Pa, 0, [_PK, _PV, _UPV, _RV], [0, 0, 2, 0]];
+var ParameterConstraints = [3, n0, _PCa, 0, [_AV], [64 | 0]];
+var ParameterDeclaration = [
+    3,
+    n0,
+    _PD,
+    0,
+    [_PK, _DV, _PTa, _NE, _D, _PCa],
+    [0, 0, 0, 2, 0, () => ParameterConstraints],
+];
+var PhysicalResourceIdContextKeyValuePair = [3, n0, _PRICKVP, 0, [_K, _V], [0, 0]];
+var PropertyDifference = [3, n0, _PDr, 0, [_PPr, _EV, _AVc, _DTi], [0, 0, 0, 0]];
+var PublishTypeInput = [3, n0, _PTI, 0, [_T, _A, _TN, _PVN], [0, 0, 0, 0]];
+var PublishTypeOutput = [3, n0, _PTO, 0, [_PTA], [0]];
+var RecordHandlerProgressInput = [
+    3,
+    n0,
+    _RHPI,
+    0,
+    [_BT, _OS, _COS, _SM, _EC, _RMe, _CRT],
+    [0, 0, 0, 0, 0, 0, 0],
+];
+var RecordHandlerProgressOutput = [3, n0, _RHPO, 0, [], []];
+var RegisterPublisherInput = [3, n0, _RPI, 0, [_ATAC, _CAo], [2, 0]];
+var RegisterPublisherOutput = [3, n0, _RPO, 0, [_PI], [0]];
+var RegisterTypeInput = [
+    3,
+    n0,
+    _RTIe,
+    0,
+    [_T, _TN, _SHP, _LC, _ERA, _CRT],
+    [0, 0, 0, () => LoggingConfig, 0, 0],
+];
+var RegisterTypeOutput = [3, n0, _RTO, 0, [_RTeg], [0]];
+var RequiredActivatedType = [3, n0, _RATe, 0, [_TNA, _OTN, _PI, _SMV], [0, 0, 0, 64 | 1]];
+var ResourceChange = [
+    3,
+    n0,
+    _RC,
+    0,
+    [_PA, _Acti, _LRI, _PRI, _RT, _Rep, _Sco, _De, _CSI, _MI, _BC, _AC],
+    [0, 0, 0, 0, 0, 0, 64 | 0, () => ResourceChangeDetails, 0, () => ModuleInfo, 0, 0],
+];
+var ResourceChangeDetail = [
+    3,
+    n0,
+    _RCD,
+    0,
+    [_Tar, _Ev, _CSh, _CE],
+    [() => ResourceTargetDefinition, 0, 0, 0],
+];
+var ResourceDefinition = [3, n0, _RD, 0, [_RT, _LRI, _RI], [0, 0, 128 | 0]];
+var ResourceDetail = [
+    3,
+    n0,
+    _RDe,
+    0,
+    [_RT, _LRI, _RI, _RSes, _RSR, _W],
+    [0, 0, 128 | 0, 0, 0, () => WarningDetails],
+];
+var ResourceIdentifierSummary = [
+    3,
+    n0,
+    _RISe,
+    0,
+    [_RT, _LRIo, _RIe],
+    [0, 64 | 0, 64 | 0],
+];
+var ResourceLocation = [3, n0, _RL, 0, [_SN, _LRI], [0, 0]];
+var ResourceMapping = [
+    3,
+    n0,
+    _RMes,
+    0,
+    [_So, _Des],
+    [() => ResourceLocation, () => ResourceLocation],
+];
+var ResourceScanInProgressException = [
+    -3,
+    n0,
+    _RSIPE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`ResourceScanInProgress`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(ResourceScanInProgressException, ResourceScanInProgressException$1);
+var ResourceScanLimitExceededException = [
+    -3,
+    n0,
+    _RSLEE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`ResourceScanLimitExceeded`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(ResourceScanLimitExceededException, ResourceScanLimitExceededException$1);
+var ResourceScanNotFoundException = [
+    -3,
+    n0,
+    _RSNFE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`ResourceScanNotFound`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(ResourceScanNotFoundException, ResourceScanNotFoundException$1);
+var ResourceScanSummary = [
+    3,
+    n0,
+    _RSSe,
+    0,
+    [_RSI, _S, _SR, _ST, _ET, _PC, _STc],
+    [0, 0, 0, 4, 4, 1, 0],
+];
+var ResourceTargetDefinition = [
+    3,
+    n0,
+    _RTDe,
+    0,
+    [_At, _N, _RReq, _Pat, _BV, _AVf, _ACT],
+    [0, 0, 0, 0, 0, 0, 0],
+];
+var ResourceToImport = [3, n0, _RTIes, 0, [_RT, _LRI, _RI], [0, 0, 128 | 0]];
+var RollbackConfiguration = [3, n0, _RCo, 0, [_RTo, _MTIM], [() => RollbackTriggers, 1]];
+var RollbackStackInput = [3, n0, _RSIo, 0, [_SN, _RARN, _CRT, _REOC], [0, 0, 0, 2]];
+var RollbackStackOutput = [3, n0, _RSO, 0, [_SI], [0]];
+var RollbackTrigger = [3, n0, _RTol, 0, [_A, _T], [0, 0]];
+var ScanFilter = [3, n0, _SFc, 0, [_Ty], [64 | 0]];
+var ScannedResource = [3, n0, _SRc, 0, [_RT, _RI, _MBS], [0, 128 | 0, 2]];
+var ScannedResourceIdentifier = [3, n0, _SRIc, 0, [_RT, _RI], [0, 128 | 0]];
+var SetStackPolicyInput = [3, n0, _SSPI, 0, [_SN, _SPB, _SPURL], [0, 0, 0]];
+var SetTypeConfigurationInput = [
+    3,
+    n0,
+    _STCI,
+    0,
+    [_TA, _Co, _CAon, _TN, _T],
+    [0, 0, 0, 0, 0],
+];
+var SetTypeConfigurationOutput = [3, n0, _STCO, 0, [_CAonf], [0]];
+var SetTypeDefaultVersionInput = [3, n0, _STDVI, 0, [_A, _T, _TN, _VI], [0, 0, 0, 0]];
+var SetTypeDefaultVersionOutput = [3, n0, _STDVO, 0, [], []];
+var SignalResourceInput = [3, n0, _SRIi, 0, [_SN, _LRI, _UI, _S], [0, 0, 0, 0]];
+var Stack = [
+    3,
+    n0,
+    _Sta,
+    0,
+    [
+        _SI,
+        _SN,
+        _CSI,
+        _D,
+        _P,
+        _CT,
+        _DTel,
+        _LUT,
+        _RCo,
+        _SSta,
+        _SSR,
+        _DR,
+        _NARN,
+        _TIM,
+        _Ca,
+        _Ou,
+        _RARN,
+        _Ta,
+        _ETP,
+        _PIa,
+        _RIo,
+        _DI,
+        _REOC,
+        _DM,
+        _DSet,
+    ],
+    [
+        0,
+        0,
+        0,
+        0,
+        () => _Parameters,
+        4,
+        4,
+        4,
+        () => RollbackConfiguration,
+        0,
+        0,
+        2,
+        64 | 0,
+        1,
+        64 | 0,
+        () => Outputs,
+        0,
+        () => Tags,
+        2,
+        0,
+        0,
+        () => StackDriftInformation,
+        2,
+        0,
+        0,
+    ],
+];
+var StackDefinition = [3, n0, _SDt, 0, [_SN, _TB, _TURL], [0, 0, 0]];
+var StackDriftInformation = [3, n0, _SDI, 0, [_SDS, _LCT], [0, 4]];
+var StackDriftInformationSummary = [3, n0, _SDIS, 0, [_SDS, _LCT], [0, 4]];
+var StackEvent = [
+    3,
+    n0,
+    _SEt,
+    0,
+    [_SI, _EI, _SN, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HT, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
+    [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
+var StackInstance = [
+    3,
+    n0,
+    _SIt,
+    0,
+    [_SSI, _Reg, _Acc, _SI, _PO, _S, _SIS, _SR, _OUIr, _DSr, _LDCT, _LOI],
+    [0, 0, 0, 0, () => _Parameters, 0, () => StackInstanceComprehensiveStatus, 0, 0, 0, 4, 0],
+];
+var StackInstanceComprehensiveStatus = [3, n0, _SICS, 0, [_DSet], [0]];
+var StackInstanceFilter = [3, n0, _SIF, 0, [_N, _Va], [0, 0]];
+var StackInstanceNotFoundException = [
+    -3,
+    n0,
+    _SINFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`StackInstanceNotFoundException`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(StackInstanceNotFoundException, StackInstanceNotFoundException$1);
+var StackInstanceResourceDriftsSummary = [
+    3,
+    n0,
+    _SIRDSt,
+    0,
+    [_SI, _LRI, _PRI, _PRIC, _RT, _PDro, _SRDS, _Ti],
+    [0, 0, 0, () => PhysicalResourceIdContext, 0, () => PropertyDifferences, 0, 4],
+];
+var StackInstanceSummary = [
+    3,
+    n0,
+    _SISt,
+    0,
+    [_SSI, _Reg, _Acc, _SI, _S, _SR, _SIS, _OUIr, _DSr, _LDCT, _LOI],
+    [0, 0, 0, 0, 0, 0, () => StackInstanceComprehensiveStatus, 0, 0, 4, 0],
+];
+var StackNotFoundException = [
+    -3,
+    n0,
+    _SNFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`StackNotFoundException`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(StackNotFoundException, StackNotFoundException$1);
+var StackRefactorAction = [
+    3,
+    n0,
+    _SRAt,
+    0,
+    [_Acti, _En, _PRI, _RI, _D, _Det, _DRe, _TR, _UR, _RMes],
+    [0, 0, 0, 0, 0, 0, 0, () => StackRefactorTagResources, 64 | 0, () => ResourceMapping],
+];
+var StackRefactorNotFoundException = [
+    -3,
+    n0,
+    _SRNFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`StackRefactorNotFoundException`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(StackRefactorNotFoundException, StackRefactorNotFoundException$1);
+var StackRefactorSummary = [
+    3,
+    n0,
+    _SRSta,
+    0,
+    [_SRI, _D, _ES, _ESR, _S, _SR],
+    [0, 0, 0, 0, 0, 0],
+];
+var StackResource = [
+    3,
+    n0,
+    _SRta,
+    0,
+    [_SN, _SI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _D, _DI, _MI],
+    [0, 0, 0, 0, 0, 4, 0, 0, 0, () => StackResourceDriftInformation, () => ModuleInfo],
+];
+var StackResourceDetail = [
+    3,
+    n0,
+    _SRDt,
+    0,
+    [_SN, _SI, _LRI, _PRI, _RT, _LUTa, _RSes, _RSR, _D, _Me, _DI, _MI],
+    [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, () => StackResourceDriftInformation, () => ModuleInfo],
+];
+var StackResourceDrift = [
+    3,
+    n0,
+    _SRDta,
+    0,
+    [_SI, _LRI, _PRI, _PRIC, _RT, _EP, _AP, _PDro, _SRDS, _Ti, _MI, _DSRr],
+    [0, 0, 0, () => PhysicalResourceIdContext, 0, 0, 0, () => PropertyDifferences, 0, 4, () => ModuleInfo, 0],
+];
+var StackResourceDriftInformation = [3, n0, _SRDI, 0, [_SRDS, _LCT], [0, 4]];
+var StackResourceDriftInformationSummary = [3, n0, _SRDIS, 0, [_SRDS, _LCT], [0, 4]];
+var StackResourceSummary = [
+    3,
+    n0,
+    _SRStac,
+    0,
+    [_LRI, _PRI, _RT, _LUTa, _RSes, _RSR, _DI, _MI],
+    [0, 0, 0, 4, 0, 0, () => StackResourceDriftInformationSummary, () => ModuleInfo],
+];
+var StackSet = [
+    3,
+    n0,
+    _SS,
+    0,
+    [_SSN, _SSI, _D, _S, _TB, _P, _Ca, _Ta, _SSARN, _ARARN, _ERN, _SSDDD, _AD, _PM, _OUI, _ME, _Re],
+    [
+        0,
+        0,
+        0,
+        0,
+        0,
+        () => _Parameters,
+        64 | 0,
+        () => Tags,
+        0,
+        0,
+        0,
+        () => StackSetDriftDetectionDetails,
+        () => AutoDeployment,
+        0,
+        64 | 0,
+        () => ManagedExecution,
+        64 | 0,
+    ],
+];
+var StackSetAutoDeploymentTargetSummary = [3, n0, _SSADTS, 0, [_OUIr, _Re], [0, 64 | 0]];
+var StackSetDriftDetectionDetails = [
+    3,
+    n0,
+    _SSDDD,
+    0,
+    [_DSr, _DDS, _LDCT, _TSIC, _DSIC, _ISSIC, _IPSIC, _FSIC],
+    [0, 0, 4, 1, 1, 1, 1, 1],
+];
+var StackSetNotEmptyException = [
+    -3,
+    n0,
+    _SSNEE,
+    {
+        [_e]: _c,
+        [_hE]: 409,
+        [_aQE]: [`StackSetNotEmptyException`, 409],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(StackSetNotEmptyException, StackSetNotEmptyException$1);
+var StackSetNotFoundException = [
+    -3,
+    n0,
+    _SSNFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`StackSetNotFoundException`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(StackSetNotFoundException, StackSetNotFoundException$1);
+var StackSetOperation = [
+    3,
+    n0,
+    _SSO,
+    0,
+    [_OI, _SSI, _Acti, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta],
+    [
+        0,
+        0,
+        0,
+        0,
+        () => StackSetOperationPreferences,
+        2,
+        0,
+        0,
+        4,
+        4,
+        () => DeploymentTargets,
+        () => StackSetDriftDetectionDetails,
+        0,
+        () => StackSetOperationStatusDetails,
+    ],
+];
+var StackSetOperationPreferences = [
+    3,
+    n0,
+    _SSOP,
+    0,
+    [_RCT, _RO, _FTC, _FTP, _MCC, _MCP, _CM],
+    [0, 64 | 0, 1, 1, 1, 1, 0],
+];
+var StackSetOperationResultSummary = [
+    3,
+    n0,
+    _SSORS,
+    0,
+    [_Acc, _Reg, _S, _SR, _AGR, _OUIr],
+    [0, 0, 0, 0, () => AccountGateResult, 0],
+];
+var StackSetOperationStatusDetails = [3, n0, _SSOSD, 0, [_FSIC], [1]];
+var StackSetOperationSummary = [
+    3,
+    n0,
+    _SSOS,
+    0,
+    [_OI, _Acti, _S, _CTr, _ETn, _SR, _SDta, _OP],
+    [0, 0, 0, 4, 4, 0, () => StackSetOperationStatusDetails, () => StackSetOperationPreferences],
+];
+var StackSetSummary = [
+    3,
+    n0,
+    _SSS,
+    0,
+    [_SSN, _SSI, _D, _S, _AD, _PM, _DSr, _LDCT, _ME],
+    [0, 0, 0, 0, () => AutoDeployment, 0, 0, 4, () => ManagedExecution],
+];
+var StackSummary = [
+    3,
+    n0,
+    _SStac,
+    0,
+    [_SI, _SN, _TDe, _CT, _LUT, _DTel, _SSta, _SSR, _PIa, _RIo, _DI],
+    [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary],
+];
+var StaleRequestException = [
+    -3,
+    n0,
+    _SRE,
+    {
+        [_e]: _c,
+        [_hE]: 409,
+        [_aQE]: [`StaleRequestException`, 409],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(StaleRequestException, StaleRequestException$1);
+var StartResourceScanInput = [3, n0, _SRSI, 0, [_CRT, _SF], [0, () => ScanFilters]];
+var StartResourceScanOutput = [3, n0, _SRSO, 0, [_RSI], [0]];
+var StopStackSetOperationInput = [3, n0, _SSSOI, 0, [_SSN, _OI, _CA], [0, 0, 0]];
+var StopStackSetOperationOutput = [3, n0, _SSSOO, 0, [], []];
+var Tag = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+var TemplateConfiguration = [3, n0, _TCe, 0, [_DP, _URP], [0, 0]];
+var TemplateParameter = [3, n0, _TP, 0, [_PK, _DV, _NE, _D], [0, 0, 2, 0]];
+var TemplateProgress = [3, n0, _TPe, 0, [_RSeso, _RF, _RPe, _RPes], [1, 1, 1, 1]];
+var TemplateSummary = [
+    3,
+    n0,
+    _TSe,
+    0,
+    [_GTI, _GTN, _S, _SR, _CT, _LUT, _NOR],
+    [0, 0, 0, 0, 4, 4, 1],
+];
+var TemplateSummaryConfig = [3, n0, _TSC, 0, [_TURTAW], [2]];
+var TestTypeInput = [3, n0, _TTI, 0, [_A, _T, _TN, _VI, _LDB], [0, 0, 0, 0, 0]];
+var TestTypeOutput = [3, n0, _TTO, 0, [_TVA], [0]];
+var TokenAlreadyExistsException = [
+    -3,
+    n0,
+    _TAEE,
+    {
+        [_e]: _c,
+        [_hE]: 400,
+        [_aQE]: [`TokenAlreadyExistsException`, 400],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(TokenAlreadyExistsException, TokenAlreadyExistsException$1);
+var TypeConfigurationDetails = [
+    3,
+    n0,
+    _TCD,
+    0,
+    [_A, _Al, _Co, _LU, _TA, _TN, _IDC],
+    [0, 0, 0, 4, 0, 0, 2],
+];
+var TypeConfigurationIdentifier = [
+    3,
+    n0,
+    _TCI,
+    0,
+    [_TA, _TCA, _TCAy, _T, _TN],
+    [0, 0, 0, 0, 0],
+];
+var TypeConfigurationNotFoundException = [
+    -3,
+    n0,
+    _TCNFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`TypeConfigurationNotFoundException`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(TypeConfigurationNotFoundException, TypeConfigurationNotFoundException$1);
+var TypeFilters = [3, n0, _TF, 0, [_Cat, _PI, _TNP], [0, 0, 0]];
+var TypeNotFoundException = [
+    -3,
+    n0,
+    _TNFE,
+    {
+        [_e]: _c,
+        [_hE]: 404,
+        [_aQE]: [`TypeNotFoundException`, 404],
+    },
+    [_M],
+    [0],
+];
+schema.TypeRegistry.for(n0).registerError(TypeNotFoundException, TypeNotFoundException$1);
+var TypeSummary = [
+    3,
+    n0,
+    _TSyp,
+    0,
+    [_T, _TN, _DVI, _TA, _LU, _D, _PI, _OTN, _PVN, _LPV, _PIu, _PN, _IA],
+    [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 2],
+];
+var TypeVersionSummary = [
+    3,
+    n0,
+    _TVSy,
+    0,
+    [_T, _TN, _VI, _IDV, _A, _TCi, _D, _PVN],
+    [0, 0, 0, 2, 0, 4, 0, 0],
+];
+var UpdateGeneratedTemplateInput = [
+    3,
+    n0,
+    _UGTI,
+    0,
+    [_GTN, _NGTN, _AR, _RRem, _RAR, _TCe],
+    [0, 0, () => ResourceDefinitions, 64 | 0, 2, () => TemplateConfiguration],
+];
+var UpdateGeneratedTemplateOutput = [3, n0, _UGTO, 0, [_GTI], [0]];
+var UpdateStackInput = [
+    3,
+    n0,
+    _USI,
+    0,
+    [_SN, _TB, _TURL, _UPT, _SPDUB, _SPDUURL, _P, _Ca, _RTe, _RARN, _RCo, _SPB, _SPURL, _NARN, _Ta, _DR, _CRT, _REOC],
+    [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        () => _Parameters,
+        64 | 0,
+        64 | 0,
+        0,
+        () => RollbackConfiguration,
+        0,
+        0,
+        64 | 0,
+        () => Tags,
+        2,
+        0,
+        2,
+    ],
+];
+var UpdateStackInstancesInput = [
+    3,
+    n0,
+    _USII,
+    0,
+    [_SSN, _Ac, _DT, _Re, _PO, _OP, _OI, _CA],
+    [0, 64 | 0, () => DeploymentTargets, 64 | 0, () => _Parameters, () => StackSetOperationPreferences, [0, 4], 0],
+];
+var UpdateStackInstancesOutput = [3, n0, _USIO, 0, [_OI], [0]];
+var UpdateStackOutput = [3, n0, _USO, 0, [_SI], [0]];
+var UpdateStackSetInput = [
+    3,
+    n0,
+    _USSI,
+    0,
+    [_SSN, _D, _TB, _TURL, _UPT, _P, _Ca, _Ta, _OP, _ARARN, _ERN, _DT, _PM, _AD, _OI, _Ac, _Re, _CA, _ME],
+    [
+        0,
+        0,
+        0,
+        0,
+        2,
+        () => _Parameters,
+        64 | 0,
+        () => Tags,
+        () => StackSetOperationPreferences,
+        0,
+        0,
+        () => DeploymentTargets,
+        0,
+        () => AutoDeployment,
+        [0, 4],
+        64 | 0,
+        64 | 0,
+        0,
+        () => ManagedExecution,
+    ],
+];
+var UpdateStackSetOutput = [3, n0, _USSO, 0, [_OI], [0]];
+var UpdateTerminationProtectionInput = [3, n0, _UTPI, 0, [_ETP, _SN], [2, 0]];
+var UpdateTerminationProtectionOutput = [3, n0, _UTPO, 0, [_SI], [0]];
+var ValidateTemplateInput = [3, n0, _VTI, 0, [_TB, _TURL], [0, 0]];
+var ValidateTemplateOutput = [
+    3,
+    n0,
+    _VTO,
+    0,
+    [_P, _D, _Ca, _CR, _DTe],
+    [() => TemplateParameters, 0, 64 | 0, 0, 64 | 0],
+];
+var WarningDetail = [3, n0, _WD, 0, [_T, _Pro], [0, () => WarningProperties]];
+var WarningProperty = [3, n0, _WP, 0, [_PPr, _Req, _D], [0, 2, 0]];
+var Warnings = [3, n0, _W, 0, [_URT], [64 | 0]];
+var __Unit = "unit";
+var CloudFormationServiceException = [-3, _s, "CloudFormationServiceException", 0, [], []];
+schema.TypeRegistry.for(_s).registerError(CloudFormationServiceException, CloudFormationServiceException$1);
+var AccountLimitList = [1, n0, _ALL, 0, () => AccountLimit];
+var BatchDescribeTypeConfigurationsErrors = [
+    1,
+    n0,
+    _BDTCEa,
+    0,
+    () => BatchDescribeTypeConfigurationsError,
+];
+var Changes = [1, n0, _Ch, 0, () => Change];
+var ChangeSetHooks = [1, n0, _CSHh, 0, () => ChangeSetHook];
+var ChangeSetSummaries = [1, n0, _CSSh, 0, () => ChangeSetSummary];
+var Exports = [1, n0, _Exp, 0, () => Export];
+var HookResultSummaries = [1, n0, _HRSo, 0, () => HookResultSummary];
+var OperationResultFilters = [1, n0, _ORFp, 0, () => OperationResultFilter];
+var Outputs = [1, n0, _Ou, 0, () => Output];
+var ParameterDeclarations = [1, n0, _PDa, 0, () => ParameterDeclaration];
+var _Parameters = [1, n0, _P, 0, () => Parameter];
+var PhysicalResourceIdContext = [1, n0, _PRIC, 0, () => PhysicalResourceIdContextKeyValuePair];
+var PropertyDifferences = [1, n0, _PDro, 0, () => PropertyDifference];
+var RelatedResources = [1, n0, _RRel, 0, () => ScannedResource];
+var RequiredActivatedTypes = [1, n0, _RAT, 0, () => RequiredActivatedType];
+var ResourceChangeDetails = [1, n0, _RCDe, 0, () => ResourceChangeDetail];
+var ResourceDefinitions = [1, n0, _RDes, 0, () => ResourceDefinition];
+var ResourceDetails = [1, n0, _RDeso, 0, () => ResourceDetail];
+var ResourceIdentifierSummaries = [1, n0, _RIS, 0, () => ResourceIdentifierSummary];
+var ResourceMappings = [1, n0, _RM, 0, () => ResourceMapping];
+var ResourceScanSummaries = [1, n0, _RSS, 0, () => ResourceScanSummary];
+var ResourcesToImport = [1, n0, _RTI, 0, () => ResourceToImport];
+var RollbackTriggers = [1, n0, _RTo, 0, () => RollbackTrigger];
+var ScanFilters = [1, n0, _SF, 0, () => ScanFilter];
+var ScannedResourceIdentifiers = [1, n0, _SRIca, 0, () => ScannedResourceIdentifier];
+var ScannedResources = [1, n0, _SRca, 0, () => ScannedResource];
+var StackDefinitions = [1, n0, _SD, 0, () => StackDefinition];
+var StackEvents = [1, n0, _SE, 0, () => StackEvent];
+var StackInstanceFilters = [1, n0, _SIFt, 0, () => StackInstanceFilter];
+var StackInstanceResourceDriftsSummaries = [
+    1,
+    n0,
+    _SIRDSta,
+    0,
+    () => StackInstanceResourceDriftsSummary,
+];
+var StackInstanceSummaries = [1, n0, _SISta, 0, () => StackInstanceSummary];
+var StackRefactorActions = [1, n0, _SRA, 0, () => StackRefactorAction];
+var StackRefactorSummaries = [1, n0, _SRS, 0, () => StackRefactorSummary];
+var StackRefactorTagResources = [1, n0, _SRTR, 0, () => Tag];
+var StackResourceDrifts = [1, n0, _SRD, 0, () => StackResourceDrift];
+var StackResources = [1, n0, _SRt, 0, () => StackResource];
+var StackResourceSummaries = [1, n0, _SRSt, 0, () => StackResourceSummary];
+var Stacks = [1, n0, _St, 0, () => Stack];
+var StackSetAutoDeploymentTargetSummaries = [
+    1,
+    n0,
+    _SSADTSt,
+    0,
+    () => StackSetAutoDeploymentTargetSummary,
+];
+var StackSetOperationResultSummaries = [
+    1,
+    n0,
+    _SSORSt,
+    0,
+    () => StackSetOperationResultSummary,
+];
+var StackSetOperationSummaries = [1, n0, _SSOSt, 0, () => StackSetOperationSummary];
+var StackSetSummaries = [1, n0, _SSSt, 0, () => StackSetSummary];
+var StackSummaries = [1, n0, _SSt, 0, () => StackSummary];
+var Tags = [1, n0, _Ta, 0, () => Tag];
+var TemplateParameters = [1, n0, _TPem, 0, () => TemplateParameter];
+var TemplateSummaries = [1, n0, _TSem, 0, () => TemplateSummary];
+var TypeConfigurationDetailsList = [1, n0, _TCDL, 0, () => TypeConfigurationDetails];
+var TypeConfigurationIdentifiers = [1, n0, _TCIy, 0, () => TypeConfigurationIdentifier];
+var TypeSummaries = [1, n0, _TSy, 0, () => TypeSummary];
+var TypeVersionSummaries = [1, n0, _TVS, 0, () => TypeVersionSummary];
+var UnprocessedTypeConfigurations = [1, n0, _UTC, 0, () => TypeConfigurationIdentifier];
+var WarningDetails = [1, n0, _WDa, 0, () => WarningDetail];
+var WarningProperties = [1, n0, _WPa, 0, () => WarningProperty];
+var ActivateOrganizationsAccess = [
+    9,
+    n0,
+    _AOA,
+    0,
+    () => ActivateOrganizationsAccessInput,
+    () => ActivateOrganizationsAccessOutput,
+];
+var ActivateType = [9, n0, _AT, 2, () => ActivateTypeInput, () => ActivateTypeOutput];
+var BatchDescribeTypeConfigurations = [
+    9,
+    n0,
+    _BDTC,
+    0,
+    () => BatchDescribeTypeConfigurationsInput,
+    () => BatchDescribeTypeConfigurationsOutput,
+];
+var CancelUpdateStack = [9, n0, _CUS, 0, () => CancelUpdateStackInput, () => __Unit];
+var ContinueUpdateRollback = [
+    9,
+    n0,
+    _CUR,
+    0,
+    () => ContinueUpdateRollbackInput,
+    () => ContinueUpdateRollbackOutput,
+];
+var CreateChangeSet = [
+    9,
+    n0,
+    _CCS,
+    0,
+    () => CreateChangeSetInput,
+    () => CreateChangeSetOutput,
+];
+var CreateGeneratedTemplate = [
+    9,
+    n0,
+    _CGT,
+    0,
+    () => CreateGeneratedTemplateInput,
+    () => CreateGeneratedTemplateOutput,
+];
+var CreateStack = [9, n0, _CSr, 0, () => CreateStackInput, () => CreateStackOutput];
+var CreateStackInstances = [
+    9,
+    n0,
+    _CSIre,
+    0,
+    () => CreateStackInstancesInput,
+    () => CreateStackInstancesOutput,
+];
+var CreateStackRefactor = [
+    9,
+    n0,
+    _CSR,
+    0,
+    () => CreateStackRefactorInput,
+    () => CreateStackRefactorOutput,
+];
+var CreateStackSet = [
+    9,
+    n0,
+    _CSSr,
+    0,
+    () => CreateStackSetInput,
+    () => CreateStackSetOutput,
+];
+var DeactivateOrganizationsAccess = [
+    9,
+    n0,
+    _DOA,
+    0,
+    () => DeactivateOrganizationsAccessInput,
+    () => DeactivateOrganizationsAccessOutput,
+];
+var DeactivateType = [
+    9,
+    n0,
+    _DTea,
+    2,
+    () => DeactivateTypeInput,
+    () => DeactivateTypeOutput,
+];
+var DeleteChangeSet = [
+    9,
+    n0,
+    _DCS,
+    0,
+    () => DeleteChangeSetInput,
+    () => DeleteChangeSetOutput,
+];
+var DeleteGeneratedTemplate = [
+    9,
+    n0,
+    _DGT,
+    0,
+    () => DeleteGeneratedTemplateInput,
+    () => __Unit,
+];
+var DeleteStack = [9, n0, _DSel, 0, () => DeleteStackInput, () => __Unit];
+var DeleteStackInstances = [
+    9,
+    n0,
+    _DSIel,
+    0,
+    () => DeleteStackInstancesInput,
+    () => DeleteStackInstancesOutput,
+];
+var DeleteStackSet = [
+    9,
+    n0,
+    _DSS,
+    0,
+    () => DeleteStackSetInput,
+    () => DeleteStackSetOutput,
+];
+var DeregisterType = [
+    9,
+    n0,
+    _DTer,
+    2,
+    () => DeregisterTypeInput,
+    () => DeregisterTypeOutput,
+];
+var DescribeAccountLimits = [
+    9,
+    n0,
+    _DAL,
+    0,
+    () => DescribeAccountLimitsInput,
+    () => DescribeAccountLimitsOutput,
+];
+var DescribeChangeSet = [
+    9,
+    n0,
+    _DCSe,
+    0,
+    () => DescribeChangeSetInput,
+    () => DescribeChangeSetOutput,
+];
+var DescribeChangeSetHooks = [
+    9,
+    n0,
+    _DCSH,
+    0,
+    () => DescribeChangeSetHooksInput,
+    () => DescribeChangeSetHooksOutput,
+];
+var DescribeGeneratedTemplate = [
+    9,
+    n0,
+    _DGTe,
+    0,
+    () => DescribeGeneratedTemplateInput,
+    () => DescribeGeneratedTemplateOutput,
+];
+var DescribeOrganizationsAccess = [
+    9,
+    n0,
+    _DOAe,
+    0,
+    () => DescribeOrganizationsAccessInput,
+    () => DescribeOrganizationsAccessOutput,
+];
+var DescribePublisher = [
+    9,
+    n0,
+    _DPe,
+    2,
+    () => DescribePublisherInput,
+    () => DescribePublisherOutput,
+];
+var DescribeResourceScan = [
+    9,
+    n0,
+    _DRS,
+    0,
+    () => DescribeResourceScanInput,
+    () => DescribeResourceScanOutput,
+];
+var DescribeStackDriftDetectionStatus = [
+    9,
+    n0,
+    _DSDDS,
+    0,
+    () => DescribeStackDriftDetectionStatusInput,
+    () => DescribeStackDriftDetectionStatusOutput,
+];
+var DescribeStackEvents = [
+    9,
+    n0,
+    _DSE,
+    0,
+    () => DescribeStackEventsInput,
+    () => DescribeStackEventsOutput,
+];
+var DescribeStackInstance = [
+    9,
+    n0,
+    _DSIes,
+    0,
+    () => DescribeStackInstanceInput,
+    () => DescribeStackInstanceOutput,
+];
+var DescribeStackRefactor = [
+    9,
+    n0,
+    _DSRe,
+    0,
+    () => DescribeStackRefactorInput,
+    () => DescribeStackRefactorOutput,
+];
+var DescribeStackResource = [
+    9,
+    n0,
+    _DSRes,
+    0,
+    () => DescribeStackResourceInput,
+    () => DescribeStackResourceOutput,
+];
+var DescribeStackResourceDrifts = [
+    9,
+    n0,
+    _DSRD,
+    0,
+    () => DescribeStackResourceDriftsInput,
+    () => DescribeStackResourceDriftsOutput,
+];
+var DescribeStackResources = [
+    9,
+    n0,
+    _DSResc,
+    0,
+    () => DescribeStackResourcesInput,
+    () => DescribeStackResourcesOutput,
+];
+var DescribeStacks = [
+    9,
+    n0,
+    _DSes,
+    0,
+    () => DescribeStacksInput,
+    () => DescribeStacksOutput,
+];
+var DescribeStackSet = [
+    9,
+    n0,
+    _DSSe,
+    0,
+    () => DescribeStackSetInput,
+    () => DescribeStackSetOutput,
+];
+var DescribeStackSetOperation = [
+    9,
+    n0,
+    _DSSOes,
+    0,
+    () => DescribeStackSetOperationInput,
+    () => DescribeStackSetOperationOutput,
+];
+var DescribeType = [9, n0, _DTes, 2, () => DescribeTypeInput, () => DescribeTypeOutput];
+var DescribeTypeRegistration = [
+    9,
+    n0,
+    _DTR,
+    2,
+    () => DescribeTypeRegistrationInput,
+    () => DescribeTypeRegistrationOutput,
+];
+var DetectStackDrift = [
+    9,
+    n0,
+    _DSD,
+    0,
+    () => DetectStackDriftInput,
+    () => DetectStackDriftOutput,
+];
+var DetectStackResourceDrift = [
+    9,
+    n0,
+    _DSRDe,
+    0,
+    () => DetectStackResourceDriftInput,
+    () => DetectStackResourceDriftOutput,
+];
+var DetectStackSetDrift = [
+    9,
+    n0,
+    _DSSD,
+    0,
+    () => DetectStackSetDriftInput,
+    () => DetectStackSetDriftOutput,
+];
+var EstimateTemplateCost = [
+    9,
+    n0,
+    _ETC,
+    0,
+    () => EstimateTemplateCostInput,
+    () => EstimateTemplateCostOutput,
+];
+var ExecuteChangeSet = [
+    9,
+    n0,
+    _ECS,
+    0,
+    () => ExecuteChangeSetInput,
+    () => ExecuteChangeSetOutput,
+];
+var ExecuteStackRefactor = [
+    9,
+    n0,
+    _ESRx,
+    0,
+    () => ExecuteStackRefactorInput,
+    () => __Unit,
+];
+var GetGeneratedTemplate = [
+    9,
+    n0,
+    _GGT,
+    0,
+    () => GetGeneratedTemplateInput,
+    () => GetGeneratedTemplateOutput,
+];
+var GetStackPolicy = [
+    9,
+    n0,
+    _GSP,
+    0,
+    () => GetStackPolicyInput,
+    () => GetStackPolicyOutput,
+];
+var GetTemplate = [9, n0, _GT, 0, () => GetTemplateInput, () => GetTemplateOutput];
+var GetTemplateSummary = [
+    9,
+    n0,
+    _GTS,
+    0,
+    () => GetTemplateSummaryInput,
+    () => GetTemplateSummaryOutput,
+];
+var ImportStacksToStackSet = [
+    9,
+    n0,
+    _ISTSS,
+    0,
+    () => ImportStacksToStackSetInput,
+    () => ImportStacksToStackSetOutput,
+];
+var ListChangeSets = [
+    9,
+    n0,
+    _LCS,
+    0,
+    () => ListChangeSetsInput,
+    () => ListChangeSetsOutput,
+];
+var ListExports = [9, n0, _LE, 0, () => ListExportsInput, () => ListExportsOutput];
+var ListGeneratedTemplates = [
+    9,
+    n0,
+    _LGT,
+    0,
+    () => ListGeneratedTemplatesInput,
+    () => ListGeneratedTemplatesOutput,
+];
+var ListHookResults = [
+    9,
+    n0,
+    _LHR,
+    0,
+    () => ListHookResultsInput,
+    () => ListHookResultsOutput,
+];
+var ListImports = [9, n0, _LI, 0, () => ListImportsInput, () => ListImportsOutput];
+var ListResourceScanRelatedResources = [
+    9,
+    n0,
+    _LRSRR,
+    0,
+    () => ListResourceScanRelatedResourcesInput,
+    () => ListResourceScanRelatedResourcesOutput,
+];
+var ListResourceScanResources = [
+    9,
+    n0,
+    _LRSR,
+    0,
+    () => ListResourceScanResourcesInput,
+    () => ListResourceScanResourcesOutput,
+];
+var ListResourceScans = [
+    9,
+    n0,
+    _LRS,
+    0,
+    () => ListResourceScansInput,
+    () => ListResourceScansOutput,
+];
+var ListStackInstanceResourceDrifts = [
+    9,
+    n0,
+    _LSIRD,
+    0,
+    () => ListStackInstanceResourceDriftsInput,
+    () => ListStackInstanceResourceDriftsOutput,
+];
+var ListStackInstances = [
+    9,
+    n0,
+    _LSIi,
+    0,
+    () => ListStackInstancesInput,
+    () => ListStackInstancesOutput,
+];
+var ListStackRefactorActions = [
+    9,
+    n0,
+    _LSRA,
+    0,
+    () => ListStackRefactorActionsInput,
+    () => ListStackRefactorActionsOutput,
+];
+var ListStackRefactors = [
+    9,
+    n0,
+    _LSR,
+    0,
+    () => ListStackRefactorsInput,
+    () => ListStackRefactorsOutput,
+];
+var ListStackResources = [
+    9,
+    n0,
+    _LSRi,
+    0,
+    () => ListStackResourcesInput,
+    () => ListStackResourcesOutput,
+];
+var ListStacks = [9, n0, _LS, 0, () => ListStacksInput, () => ListStacksOutput];
+var ListStackSetAutoDeploymentTargets = [
+    9,
+    n0,
+    _LSSADT,
+    0,
+    () => ListStackSetAutoDeploymentTargetsInput,
+    () => ListStackSetAutoDeploymentTargetsOutput,
+];
+var ListStackSetOperationResults = [
+    9,
+    n0,
+    _LSSOR,
+    0,
+    () => ListStackSetOperationResultsInput,
+    () => ListStackSetOperationResultsOutput,
+];
+var ListStackSetOperations = [
+    9,
+    n0,
+    _LSSOi,
+    0,
+    () => ListStackSetOperationsInput,
+    () => ListStackSetOperationsOutput,
+];
+var ListStackSets = [9, n0, _LSS, 0, () => ListStackSetsInput, () => ListStackSetsOutput];
+var ListTypeRegistrations = [
+    9,
+    n0,
+    _LTR,
+    2,
+    () => ListTypeRegistrationsInput,
+    () => ListTypeRegistrationsOutput,
+];
+var ListTypes = [9, n0, _LT, 2, () => ListTypesInput, () => ListTypesOutput];
+var ListTypeVersions = [
+    9,
+    n0,
+    _LTV,
+    2,
+    () => ListTypeVersionsInput,
+    () => ListTypeVersionsOutput,
+];
+var PublishType = [9, n0, _PTu, 2, () => PublishTypeInput, () => PublishTypeOutput];
+var RecordHandlerProgress = [
+    9,
+    n0,
+    _RHP,
+    2,
+    () => RecordHandlerProgressInput,
+    () => RecordHandlerProgressOutput,
+];
+var RegisterPublisher = [
+    9,
+    n0,
+    _RPeg,
+    2,
+    () => RegisterPublisherInput,
+    () => RegisterPublisherOutput,
+];
+var RegisterType = [9, n0, _RTegi, 2, () => RegisterTypeInput, () => RegisterTypeOutput];
+var RollbackStack = [9, n0, _RSo, 0, () => RollbackStackInput, () => RollbackStackOutput];
+var SetStackPolicy = [9, n0, _SSP, 0, () => SetStackPolicyInput, () => __Unit];
+var SetTypeConfiguration = [
+    9,
+    n0,
+    _STC,
+    0,
+    () => SetTypeConfigurationInput,
+    () => SetTypeConfigurationOutput,
+];
+var SetTypeDefaultVersion = [
+    9,
+    n0,
+    _STDV,
+    2,
+    () => SetTypeDefaultVersionInput,
+    () => SetTypeDefaultVersionOutput,
+];
+var SignalResource = [9, n0, _SRi, 0, () => SignalResourceInput, () => __Unit];
+var StartResourceScan = [
+    9,
+    n0,
+    _SRStar,
+    0,
+    () => StartResourceScanInput,
+    () => StartResourceScanOutput,
+];
+var StopStackSetOperation = [
+    9,
+    n0,
+    _SSSO,
+    0,
+    () => StopStackSetOperationInput,
+    () => StopStackSetOperationOutput,
+];
+var TestType = [9, n0, _TTe, 2, () => TestTypeInput, () => TestTypeOutput];
+var UpdateGeneratedTemplate = [
+    9,
+    n0,
+    _UGT,
+    0,
+    () => UpdateGeneratedTemplateInput,
+    () => UpdateGeneratedTemplateOutput,
+];
+var UpdateStack = [9, n0, _US, 0, () => UpdateStackInput, () => UpdateStackOutput];
+var UpdateStackInstances = [
+    9,
+    n0,
+    _USIp,
+    0,
+    () => UpdateStackInstancesInput,
+    () => UpdateStackInstancesOutput,
+];
+var UpdateStackSet = [
+    9,
+    n0,
+    _USS,
+    0,
+    () => UpdateStackSetInput,
+    () => UpdateStackSetOutput,
+];
+var UpdateTerminationProtection = [
+    9,
+    n0,
+    _UTP,
+    0,
+    () => UpdateTerminationProtectionInput,
+    () => UpdateTerminationProtectionOutput,
+];
+var ValidateTemplate = [
+    9,
+    n0,
+    _VT,
+    0,
+    () => ValidateTemplateInput,
+    () => ValidateTemplateOutput,
+];
 
 class ActivateOrganizationsAccessCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ActivateOrganizationsAccess", {})
     .n("CloudFormationClient", "ActivateOrganizationsAccessCommand")
-    .f(void 0, void 0)
-    .ser(se_ActivateOrganizationsAccessCommand)
-    .de(de_ActivateOrganizationsAccessCommand)
+    .sc(ActivateOrganizationsAccess)
     .build() {
 }
 
@@ -13288,16 +7352,11 @@ class ActivateTypeCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ActivateType", {})
     .n("CloudFormationClient", "ActivateTypeCommand")
-    .f(void 0, void 0)
-    .ser(se_ActivateTypeCommand)
-    .de(de_ActivateTypeCommand)
+    .sc(ActivateType)
     .build() {
 }
 
@@ -13305,16 +7364,11 @@ class BatchDescribeTypeConfigurationsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "BatchDescribeTypeConfigurations", {})
     .n("CloudFormationClient", "BatchDescribeTypeConfigurationsCommand")
-    .f(void 0, void 0)
-    .ser(se_BatchDescribeTypeConfigurationsCommand)
-    .de(de_BatchDescribeTypeConfigurationsCommand)
+    .sc(BatchDescribeTypeConfigurations)
     .build() {
 }
 
@@ -13322,16 +7376,11 @@ class CancelUpdateStackCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CancelUpdateStack", {})
     .n("CloudFormationClient", "CancelUpdateStackCommand")
-    .f(void 0, void 0)
-    .ser(se_CancelUpdateStackCommand)
-    .de(de_CancelUpdateStackCommand)
+    .sc(CancelUpdateStack)
     .build() {
 }
 
@@ -13339,16 +7388,11 @@ class ContinueUpdateRollbackCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ContinueUpdateRollback", {})
     .n("CloudFormationClient", "ContinueUpdateRollbackCommand")
-    .f(void 0, void 0)
-    .ser(se_ContinueUpdateRollbackCommand)
-    .de(de_ContinueUpdateRollbackCommand)
+    .sc(ContinueUpdateRollback)
     .build() {
 }
 
@@ -13356,16 +7400,11 @@ class CreateChangeSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateChangeSet", {})
     .n("CloudFormationClient", "CreateChangeSetCommand")
-    .f(void 0, void 0)
-    .ser(se_CreateChangeSetCommand)
-    .de(de_CreateChangeSetCommand)
+    .sc(CreateChangeSet)
     .build() {
 }
 
@@ -13373,16 +7412,11 @@ class CreateGeneratedTemplateCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateGeneratedTemplate", {})
     .n("CloudFormationClient", "CreateGeneratedTemplateCommand")
-    .f(void 0, void 0)
-    .ser(se_CreateGeneratedTemplateCommand)
-    .de(de_CreateGeneratedTemplateCommand)
+    .sc(CreateGeneratedTemplate)
     .build() {
 }
 
@@ -13390,16 +7424,11 @@ class CreateStackCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateStack", {})
     .n("CloudFormationClient", "CreateStackCommand")
-    .f(void 0, void 0)
-    .ser(se_CreateStackCommand)
-    .de(de_CreateStackCommand)
+    .sc(CreateStack)
     .build() {
 }
 
@@ -13407,16 +7436,11 @@ class CreateStackInstancesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateStackInstances", {})
     .n("CloudFormationClient", "CreateStackInstancesCommand")
-    .f(void 0, void 0)
-    .ser(se_CreateStackInstancesCommand)
-    .de(de_CreateStackInstancesCommand)
+    .sc(CreateStackInstances)
     .build() {
 }
 
@@ -13424,16 +7448,11 @@ class CreateStackRefactorCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateStackRefactor", {})
     .n("CloudFormationClient", "CreateStackRefactorCommand")
-    .f(void 0, void 0)
-    .ser(se_CreateStackRefactorCommand)
-    .de(de_CreateStackRefactorCommand)
+    .sc(CreateStackRefactor)
     .build() {
 }
 
@@ -13441,16 +7460,11 @@ class CreateStackSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateStackSet", {})
     .n("CloudFormationClient", "CreateStackSetCommand")
-    .f(void 0, void 0)
-    .ser(se_CreateStackSetCommand)
-    .de(de_CreateStackSetCommand)
+    .sc(CreateStackSet)
     .build() {
 }
 
@@ -13458,16 +7472,11 @@ class DeactivateOrganizationsAccessCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeactivateOrganizationsAccess", {})
     .n("CloudFormationClient", "DeactivateOrganizationsAccessCommand")
-    .f(void 0, void 0)
-    .ser(se_DeactivateOrganizationsAccessCommand)
-    .de(de_DeactivateOrganizationsAccessCommand)
+    .sc(DeactivateOrganizationsAccess)
     .build() {
 }
 
@@ -13475,16 +7484,11 @@ class DeactivateTypeCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeactivateType", {})
     .n("CloudFormationClient", "DeactivateTypeCommand")
-    .f(void 0, void 0)
-    .ser(se_DeactivateTypeCommand)
-    .de(de_DeactivateTypeCommand)
+    .sc(DeactivateType)
     .build() {
 }
 
@@ -13492,16 +7496,11 @@ class DeleteChangeSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteChangeSet", {})
     .n("CloudFormationClient", "DeleteChangeSetCommand")
-    .f(void 0, void 0)
-    .ser(se_DeleteChangeSetCommand)
-    .de(de_DeleteChangeSetCommand)
+    .sc(DeleteChangeSet)
     .build() {
 }
 
@@ -13509,16 +7508,11 @@ class DeleteGeneratedTemplateCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteGeneratedTemplate", {})
     .n("CloudFormationClient", "DeleteGeneratedTemplateCommand")
-    .f(void 0, void 0)
-    .ser(se_DeleteGeneratedTemplateCommand)
-    .de(de_DeleteGeneratedTemplateCommand)
+    .sc(DeleteGeneratedTemplate)
     .build() {
 }
 
@@ -13526,16 +7520,11 @@ class DeleteStackCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteStack", {})
     .n("CloudFormationClient", "DeleteStackCommand")
-    .f(void 0, void 0)
-    .ser(se_DeleteStackCommand)
-    .de(de_DeleteStackCommand)
+    .sc(DeleteStack)
     .build() {
 }
 
@@ -13543,16 +7532,11 @@ class DeleteStackInstancesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteStackInstances", {})
     .n("CloudFormationClient", "DeleteStackInstancesCommand")
-    .f(void 0, void 0)
-    .ser(se_DeleteStackInstancesCommand)
-    .de(de_DeleteStackInstancesCommand)
+    .sc(DeleteStackInstances)
     .build() {
 }
 
@@ -13560,16 +7544,11 @@ class DeleteStackSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteStackSet", {})
     .n("CloudFormationClient", "DeleteStackSetCommand")
-    .f(void 0, void 0)
-    .ser(se_DeleteStackSetCommand)
-    .de(de_DeleteStackSetCommand)
+    .sc(DeleteStackSet)
     .build() {
 }
 
@@ -13577,16 +7556,11 @@ class DeregisterTypeCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeregisterType", {})
     .n("CloudFormationClient", "DeregisterTypeCommand")
-    .f(void 0, void 0)
-    .ser(se_DeregisterTypeCommand)
-    .de(de_DeregisterTypeCommand)
+    .sc(DeregisterType)
     .build() {
 }
 
@@ -13594,16 +7568,11 @@ class DescribeAccountLimitsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeAccountLimits", {})
     .n("CloudFormationClient", "DescribeAccountLimitsCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeAccountLimitsCommand)
-    .de(de_DescribeAccountLimitsCommand)
+    .sc(DescribeAccountLimits)
     .build() {
 }
 
@@ -13611,16 +7580,11 @@ class DescribeChangeSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeChangeSet", {})
     .n("CloudFormationClient", "DescribeChangeSetCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeChangeSetCommand)
-    .de(de_DescribeChangeSetCommand)
+    .sc(DescribeChangeSet)
     .build() {
 }
 
@@ -13628,16 +7592,11 @@ class DescribeChangeSetHooksCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeChangeSetHooks", {})
     .n("CloudFormationClient", "DescribeChangeSetHooksCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeChangeSetHooksCommand)
-    .de(de_DescribeChangeSetHooksCommand)
+    .sc(DescribeChangeSetHooks)
     .build() {
 }
 
@@ -13645,16 +7604,11 @@ class DescribeGeneratedTemplateCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeGeneratedTemplate", {})
     .n("CloudFormationClient", "DescribeGeneratedTemplateCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeGeneratedTemplateCommand)
-    .de(de_DescribeGeneratedTemplateCommand)
+    .sc(DescribeGeneratedTemplate)
     .build() {
 }
 
@@ -13662,16 +7616,11 @@ class DescribeOrganizationsAccessCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeOrganizationsAccess", {})
     .n("CloudFormationClient", "DescribeOrganizationsAccessCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeOrganizationsAccessCommand)
-    .de(de_DescribeOrganizationsAccessCommand)
+    .sc(DescribeOrganizationsAccess)
     .build() {
 }
 
@@ -13679,16 +7628,11 @@ class DescribePublisherCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribePublisher", {})
     .n("CloudFormationClient", "DescribePublisherCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribePublisherCommand)
-    .de(de_DescribePublisherCommand)
+    .sc(DescribePublisher)
     .build() {
 }
 
@@ -13696,16 +7640,11 @@ class DescribeResourceScanCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeResourceScan", {})
     .n("CloudFormationClient", "DescribeResourceScanCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeResourceScanCommand)
-    .de(de_DescribeResourceScanCommand)
+    .sc(DescribeResourceScan)
     .build() {
 }
 
@@ -13713,16 +7652,11 @@ class DescribeStackDriftDetectionStatusCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackDriftDetectionStatus", {})
     .n("CloudFormationClient", "DescribeStackDriftDetectionStatusCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackDriftDetectionStatusCommand)
-    .de(de_DescribeStackDriftDetectionStatusCommand)
+    .sc(DescribeStackDriftDetectionStatus)
     .build() {
 }
 
@@ -13730,16 +7664,11 @@ class DescribeStackEventsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackEvents", {})
     .n("CloudFormationClient", "DescribeStackEventsCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackEventsCommand)
-    .de(de_DescribeStackEventsCommand)
+    .sc(DescribeStackEvents)
     .build() {
 }
 
@@ -13747,16 +7676,11 @@ class DescribeStackInstanceCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackInstance", {})
     .n("CloudFormationClient", "DescribeStackInstanceCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackInstanceCommand)
-    .de(de_DescribeStackInstanceCommand)
+    .sc(DescribeStackInstance)
     .build() {
 }
 
@@ -13764,16 +7688,11 @@ class DescribeStackRefactorCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackRefactor", {})
     .n("CloudFormationClient", "DescribeStackRefactorCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackRefactorCommand)
-    .de(de_DescribeStackRefactorCommand)
+    .sc(DescribeStackRefactor)
     .build() {
 }
 
@@ -13781,16 +7700,11 @@ class DescribeStackResourceCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackResource", {})
     .n("CloudFormationClient", "DescribeStackResourceCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackResourceCommand)
-    .de(de_DescribeStackResourceCommand)
+    .sc(DescribeStackResource)
     .build() {
 }
 
@@ -13798,16 +7712,11 @@ class DescribeStackResourceDriftsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackResourceDrifts", {})
     .n("CloudFormationClient", "DescribeStackResourceDriftsCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackResourceDriftsCommand)
-    .de(de_DescribeStackResourceDriftsCommand)
+    .sc(DescribeStackResourceDrifts)
     .build() {
 }
 
@@ -13815,16 +7724,11 @@ class DescribeStackResourcesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackResources", {})
     .n("CloudFormationClient", "DescribeStackResourcesCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackResourcesCommand)
-    .de(de_DescribeStackResourcesCommand)
+    .sc(DescribeStackResources)
     .build() {
 }
 
@@ -13832,16 +7736,11 @@ class DescribeStacksCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStacks", {})
     .n("CloudFormationClient", "DescribeStacksCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStacksCommand)
-    .de(de_DescribeStacksCommand)
+    .sc(DescribeStacks)
     .build() {
 }
 
@@ -13849,16 +7748,11 @@ class DescribeStackSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackSet", {})
     .n("CloudFormationClient", "DescribeStackSetCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackSetCommand)
-    .de(de_DescribeStackSetCommand)
+    .sc(DescribeStackSet)
     .build() {
 }
 
@@ -13866,16 +7760,11 @@ class DescribeStackSetOperationCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackSetOperation", {})
     .n("CloudFormationClient", "DescribeStackSetOperationCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeStackSetOperationCommand)
-    .de(de_DescribeStackSetOperationCommand)
+    .sc(DescribeStackSetOperation)
     .build() {
 }
 
@@ -13883,16 +7772,11 @@ class DescribeTypeCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeType", {})
     .n("CloudFormationClient", "DescribeTypeCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeTypeCommand)
-    .de(de_DescribeTypeCommand)
+    .sc(DescribeType)
     .build() {
 }
 
@@ -13900,16 +7784,11 @@ class DescribeTypeRegistrationCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeTypeRegistration", {})
     .n("CloudFormationClient", "DescribeTypeRegistrationCommand")
-    .f(void 0, void 0)
-    .ser(se_DescribeTypeRegistrationCommand)
-    .de(de_DescribeTypeRegistrationCommand)
+    .sc(DescribeTypeRegistration)
     .build() {
 }
 
@@ -13917,16 +7796,11 @@ class DetectStackDriftCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DetectStackDrift", {})
     .n("CloudFormationClient", "DetectStackDriftCommand")
-    .f(void 0, void 0)
-    .ser(se_DetectStackDriftCommand)
-    .de(de_DetectStackDriftCommand)
+    .sc(DetectStackDrift)
     .build() {
 }
 
@@ -13934,16 +7808,11 @@ class DetectStackResourceDriftCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DetectStackResourceDrift", {})
     .n("CloudFormationClient", "DetectStackResourceDriftCommand")
-    .f(void 0, void 0)
-    .ser(se_DetectStackResourceDriftCommand)
-    .de(de_DetectStackResourceDriftCommand)
+    .sc(DetectStackResourceDrift)
     .build() {
 }
 
@@ -13951,16 +7820,11 @@ class DetectStackSetDriftCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DetectStackSetDrift", {})
     .n("CloudFormationClient", "DetectStackSetDriftCommand")
-    .f(void 0, void 0)
-    .ser(se_DetectStackSetDriftCommand)
-    .de(de_DetectStackSetDriftCommand)
+    .sc(DetectStackSetDrift)
     .build() {
 }
 
@@ -13968,16 +7832,11 @@ class EstimateTemplateCostCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "EstimateTemplateCost", {})
     .n("CloudFormationClient", "EstimateTemplateCostCommand")
-    .f(void 0, void 0)
-    .ser(se_EstimateTemplateCostCommand)
-    .de(de_EstimateTemplateCostCommand)
+    .sc(EstimateTemplateCost)
     .build() {
 }
 
@@ -13985,16 +7844,11 @@ class ExecuteChangeSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ExecuteChangeSet", {})
     .n("CloudFormationClient", "ExecuteChangeSetCommand")
-    .f(void 0, void 0)
-    .ser(se_ExecuteChangeSetCommand)
-    .de(de_ExecuteChangeSetCommand)
+    .sc(ExecuteChangeSet)
     .build() {
 }
 
@@ -14002,16 +7856,11 @@ class ExecuteStackRefactorCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ExecuteStackRefactor", {})
     .n("CloudFormationClient", "ExecuteStackRefactorCommand")
-    .f(void 0, void 0)
-    .ser(se_ExecuteStackRefactorCommand)
-    .de(de_ExecuteStackRefactorCommand)
+    .sc(ExecuteStackRefactor)
     .build() {
 }
 
@@ -14019,16 +7868,11 @@ class GetGeneratedTemplateCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetGeneratedTemplate", {})
     .n("CloudFormationClient", "GetGeneratedTemplateCommand")
-    .f(void 0, void 0)
-    .ser(se_GetGeneratedTemplateCommand)
-    .de(de_GetGeneratedTemplateCommand)
+    .sc(GetGeneratedTemplate)
     .build() {
 }
 
@@ -14036,16 +7880,11 @@ class GetStackPolicyCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetStackPolicy", {})
     .n("CloudFormationClient", "GetStackPolicyCommand")
-    .f(void 0, void 0)
-    .ser(se_GetStackPolicyCommand)
-    .de(de_GetStackPolicyCommand)
+    .sc(GetStackPolicy)
     .build() {
 }
 
@@ -14053,16 +7892,11 @@ class GetTemplateCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetTemplate", {})
     .n("CloudFormationClient", "GetTemplateCommand")
-    .f(void 0, void 0)
-    .ser(se_GetTemplateCommand)
-    .de(de_GetTemplateCommand)
+    .sc(GetTemplate)
     .build() {
 }
 
@@ -14070,16 +7904,11 @@ class GetTemplateSummaryCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetTemplateSummary", {})
     .n("CloudFormationClient", "GetTemplateSummaryCommand")
-    .f(void 0, void 0)
-    .ser(se_GetTemplateSummaryCommand)
-    .de(de_GetTemplateSummaryCommand)
+    .sc(GetTemplateSummary)
     .build() {
 }
 
@@ -14087,16 +7916,11 @@ class ImportStacksToStackSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ImportStacksToStackSet", {})
     .n("CloudFormationClient", "ImportStacksToStackSetCommand")
-    .f(void 0, void 0)
-    .ser(se_ImportStacksToStackSetCommand)
-    .de(de_ImportStacksToStackSetCommand)
+    .sc(ImportStacksToStackSet)
     .build() {
 }
 
@@ -14104,16 +7928,11 @@ class ListChangeSetsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListChangeSets", {})
     .n("CloudFormationClient", "ListChangeSetsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListChangeSetsCommand)
-    .de(de_ListChangeSetsCommand)
+    .sc(ListChangeSets)
     .build() {
 }
 
@@ -14121,16 +7940,11 @@ class ListExportsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListExports", {})
     .n("CloudFormationClient", "ListExportsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListExportsCommand)
-    .de(de_ListExportsCommand)
+    .sc(ListExports)
     .build() {
 }
 
@@ -14138,16 +7952,11 @@ class ListGeneratedTemplatesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListGeneratedTemplates", {})
     .n("CloudFormationClient", "ListGeneratedTemplatesCommand")
-    .f(void 0, void 0)
-    .ser(se_ListGeneratedTemplatesCommand)
-    .de(de_ListGeneratedTemplatesCommand)
+    .sc(ListGeneratedTemplates)
     .build() {
 }
 
@@ -14155,16 +7964,11 @@ class ListHookResultsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListHookResults", {})
     .n("CloudFormationClient", "ListHookResultsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListHookResultsCommand)
-    .de(de_ListHookResultsCommand)
+    .sc(ListHookResults)
     .build() {
 }
 
@@ -14172,16 +7976,11 @@ class ListImportsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListImports", {})
     .n("CloudFormationClient", "ListImportsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListImportsCommand)
-    .de(de_ListImportsCommand)
+    .sc(ListImports)
     .build() {
 }
 
@@ -14189,16 +7988,11 @@ class ListResourceScanRelatedResourcesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListResourceScanRelatedResources", {})
     .n("CloudFormationClient", "ListResourceScanRelatedResourcesCommand")
-    .f(void 0, void 0)
-    .ser(se_ListResourceScanRelatedResourcesCommand)
-    .de(de_ListResourceScanRelatedResourcesCommand)
+    .sc(ListResourceScanRelatedResources)
     .build() {
 }
 
@@ -14206,16 +8000,11 @@ class ListResourceScanResourcesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListResourceScanResources", {})
     .n("CloudFormationClient", "ListResourceScanResourcesCommand")
-    .f(void 0, void 0)
-    .ser(se_ListResourceScanResourcesCommand)
-    .de(de_ListResourceScanResourcesCommand)
+    .sc(ListResourceScanResources)
     .build() {
 }
 
@@ -14223,16 +8012,11 @@ class ListResourceScansCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListResourceScans", {})
     .n("CloudFormationClient", "ListResourceScansCommand")
-    .f(void 0, void 0)
-    .ser(se_ListResourceScansCommand)
-    .de(de_ListResourceScansCommand)
+    .sc(ListResourceScans)
     .build() {
 }
 
@@ -14240,16 +8024,11 @@ class ListStackInstanceResourceDriftsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackInstanceResourceDrifts", {})
     .n("CloudFormationClient", "ListStackInstanceResourceDriftsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackInstanceResourceDriftsCommand)
-    .de(de_ListStackInstanceResourceDriftsCommand)
+    .sc(ListStackInstanceResourceDrifts)
     .build() {
 }
 
@@ -14257,16 +8036,11 @@ class ListStackInstancesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackInstances", {})
     .n("CloudFormationClient", "ListStackInstancesCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackInstancesCommand)
-    .de(de_ListStackInstancesCommand)
+    .sc(ListStackInstances)
     .build() {
 }
 
@@ -14274,16 +8048,11 @@ class ListStackRefactorActionsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackRefactorActions", {})
     .n("CloudFormationClient", "ListStackRefactorActionsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackRefactorActionsCommand)
-    .de(de_ListStackRefactorActionsCommand)
+    .sc(ListStackRefactorActions)
     .build() {
 }
 
@@ -14291,16 +8060,11 @@ class ListStackRefactorsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackRefactors", {})
     .n("CloudFormationClient", "ListStackRefactorsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackRefactorsCommand)
-    .de(de_ListStackRefactorsCommand)
+    .sc(ListStackRefactors)
     .build() {
 }
 
@@ -14308,16 +8072,11 @@ class ListStackResourcesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackResources", {})
     .n("CloudFormationClient", "ListStackResourcesCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackResourcesCommand)
-    .de(de_ListStackResourcesCommand)
+    .sc(ListStackResources)
     .build() {
 }
 
@@ -14325,16 +8084,11 @@ class ListStacksCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStacks", {})
     .n("CloudFormationClient", "ListStacksCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStacksCommand)
-    .de(de_ListStacksCommand)
+    .sc(ListStacks)
     .build() {
 }
 
@@ -14342,16 +8096,11 @@ class ListStackSetAutoDeploymentTargetsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackSetAutoDeploymentTargets", {})
     .n("CloudFormationClient", "ListStackSetAutoDeploymentTargetsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackSetAutoDeploymentTargetsCommand)
-    .de(de_ListStackSetAutoDeploymentTargetsCommand)
+    .sc(ListStackSetAutoDeploymentTargets)
     .build() {
 }
 
@@ -14359,16 +8108,11 @@ class ListStackSetOperationResultsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackSetOperationResults", {})
     .n("CloudFormationClient", "ListStackSetOperationResultsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackSetOperationResultsCommand)
-    .de(de_ListStackSetOperationResultsCommand)
+    .sc(ListStackSetOperationResults)
     .build() {
 }
 
@@ -14376,16 +8120,11 @@ class ListStackSetOperationsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackSetOperations", {})
     .n("CloudFormationClient", "ListStackSetOperationsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackSetOperationsCommand)
-    .de(de_ListStackSetOperationsCommand)
+    .sc(ListStackSetOperations)
     .build() {
 }
 
@@ -14393,16 +8132,11 @@ class ListStackSetsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackSets", {})
     .n("CloudFormationClient", "ListStackSetsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListStackSetsCommand)
-    .de(de_ListStackSetsCommand)
+    .sc(ListStackSets)
     .build() {
 }
 
@@ -14410,16 +8144,11 @@ class ListTypeRegistrationsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListTypeRegistrations", {})
     .n("CloudFormationClient", "ListTypeRegistrationsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListTypeRegistrationsCommand)
-    .de(de_ListTypeRegistrationsCommand)
+    .sc(ListTypeRegistrations)
     .build() {
 }
 
@@ -14427,16 +8156,11 @@ class ListTypesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListTypes", {})
     .n("CloudFormationClient", "ListTypesCommand")
-    .f(void 0, void 0)
-    .ser(se_ListTypesCommand)
-    .de(de_ListTypesCommand)
+    .sc(ListTypes)
     .build() {
 }
 
@@ -14444,16 +8168,11 @@ class ListTypeVersionsCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListTypeVersions", {})
     .n("CloudFormationClient", "ListTypeVersionsCommand")
-    .f(void 0, void 0)
-    .ser(se_ListTypeVersionsCommand)
-    .de(de_ListTypeVersionsCommand)
+    .sc(ListTypeVersions)
     .build() {
 }
 
@@ -14461,16 +8180,11 @@ class PublishTypeCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "PublishType", {})
     .n("CloudFormationClient", "PublishTypeCommand")
-    .f(void 0, void 0)
-    .ser(se_PublishTypeCommand)
-    .de(de_PublishTypeCommand)
+    .sc(PublishType)
     .build() {
 }
 
@@ -14478,16 +8192,11 @@ class RecordHandlerProgressCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "RecordHandlerProgress", {})
     .n("CloudFormationClient", "RecordHandlerProgressCommand")
-    .f(void 0, void 0)
-    .ser(se_RecordHandlerProgressCommand)
-    .de(de_RecordHandlerProgressCommand)
+    .sc(RecordHandlerProgress)
     .build() {
 }
 
@@ -14495,16 +8204,11 @@ class RegisterPublisherCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "RegisterPublisher", {})
     .n("CloudFormationClient", "RegisterPublisherCommand")
-    .f(void 0, void 0)
-    .ser(se_RegisterPublisherCommand)
-    .de(de_RegisterPublisherCommand)
+    .sc(RegisterPublisher)
     .build() {
 }
 
@@ -14512,16 +8216,11 @@ class RegisterTypeCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "RegisterType", {})
     .n("CloudFormationClient", "RegisterTypeCommand")
-    .f(void 0, void 0)
-    .ser(se_RegisterTypeCommand)
-    .de(de_RegisterTypeCommand)
+    .sc(RegisterType)
     .build() {
 }
 
@@ -14529,16 +8228,11 @@ class RollbackStackCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "RollbackStack", {})
     .n("CloudFormationClient", "RollbackStackCommand")
-    .f(void 0, void 0)
-    .ser(se_RollbackStackCommand)
-    .de(de_RollbackStackCommand)
+    .sc(RollbackStack)
     .build() {
 }
 
@@ -14546,16 +8240,11 @@ class SetStackPolicyCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "SetStackPolicy", {})
     .n("CloudFormationClient", "SetStackPolicyCommand")
-    .f(void 0, void 0)
-    .ser(se_SetStackPolicyCommand)
-    .de(de_SetStackPolicyCommand)
+    .sc(SetStackPolicy)
     .build() {
 }
 
@@ -14563,16 +8252,11 @@ class SetTypeConfigurationCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "SetTypeConfiguration", {})
     .n("CloudFormationClient", "SetTypeConfigurationCommand")
-    .f(void 0, void 0)
-    .ser(se_SetTypeConfigurationCommand)
-    .de(de_SetTypeConfigurationCommand)
+    .sc(SetTypeConfiguration)
     .build() {
 }
 
@@ -14580,16 +8264,11 @@ class SetTypeDefaultVersionCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "SetTypeDefaultVersion", {})
     .n("CloudFormationClient", "SetTypeDefaultVersionCommand")
-    .f(void 0, void 0)
-    .ser(se_SetTypeDefaultVersionCommand)
-    .de(de_SetTypeDefaultVersionCommand)
+    .sc(SetTypeDefaultVersion)
     .build() {
 }
 
@@ -14597,16 +8276,11 @@ class SignalResourceCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "SignalResource", {})
     .n("CloudFormationClient", "SignalResourceCommand")
-    .f(void 0, void 0)
-    .ser(se_SignalResourceCommand)
-    .de(de_SignalResourceCommand)
+    .sc(SignalResource)
     .build() {
 }
 
@@ -14614,16 +8288,11 @@ class StartResourceScanCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "StartResourceScan", {})
     .n("CloudFormationClient", "StartResourceScanCommand")
-    .f(void 0, void 0)
-    .ser(se_StartResourceScanCommand)
-    .de(de_StartResourceScanCommand)
+    .sc(StartResourceScan)
     .build() {
 }
 
@@ -14631,16 +8300,11 @@ class StopStackSetOperationCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "StopStackSetOperation", {})
     .n("CloudFormationClient", "StopStackSetOperationCommand")
-    .f(void 0, void 0)
-    .ser(se_StopStackSetOperationCommand)
-    .de(de_StopStackSetOperationCommand)
+    .sc(StopStackSetOperation)
     .build() {
 }
 
@@ -14648,16 +8312,11 @@ class TestTypeCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "TestType", {})
     .n("CloudFormationClient", "TestTypeCommand")
-    .f(void 0, void 0)
-    .ser(se_TestTypeCommand)
-    .de(de_TestTypeCommand)
+    .sc(TestType)
     .build() {
 }
 
@@ -14665,16 +8324,11 @@ class UpdateGeneratedTemplateCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateGeneratedTemplate", {})
     .n("CloudFormationClient", "UpdateGeneratedTemplateCommand")
-    .f(void 0, void 0)
-    .ser(se_UpdateGeneratedTemplateCommand)
-    .de(de_UpdateGeneratedTemplateCommand)
+    .sc(UpdateGeneratedTemplate)
     .build() {
 }
 
@@ -14682,16 +8336,11 @@ class UpdateStackCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateStack", {})
     .n("CloudFormationClient", "UpdateStackCommand")
-    .f(void 0, void 0)
-    .ser(se_UpdateStackCommand)
-    .de(de_UpdateStackCommand)
+    .sc(UpdateStack)
     .build() {
 }
 
@@ -14699,16 +8348,11 @@ class UpdateStackInstancesCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateStackInstances", {})
     .n("CloudFormationClient", "UpdateStackInstancesCommand")
-    .f(void 0, void 0)
-    .ser(se_UpdateStackInstancesCommand)
-    .de(de_UpdateStackInstancesCommand)
+    .sc(UpdateStackInstances)
     .build() {
 }
 
@@ -14716,16 +8360,11 @@ class UpdateStackSetCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateStackSet", {})
     .n("CloudFormationClient", "UpdateStackSetCommand")
-    .f(void 0, void 0)
-    .ser(se_UpdateStackSetCommand)
-    .de(de_UpdateStackSetCommand)
+    .sc(UpdateStackSet)
     .build() {
 }
 
@@ -14733,16 +8372,11 @@ class UpdateTerminationProtectionCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateTerminationProtection", {})
     .n("CloudFormationClient", "UpdateTerminationProtectionCommand")
-    .f(void 0, void 0)
-    .ser(se_UpdateTerminationProtectionCommand)
-    .de(de_UpdateTerminationProtectionCommand)
+    .sc(UpdateTerminationProtection)
     .build() {
 }
 
@@ -14750,16 +8384,11 @@ class ValidateTemplateCommand extends smithyClient.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [
-        middlewareSerde.getSerdePlugin(config, this.serialize, this.deserialize),
-        middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ValidateTemplate", {})
     .n("CloudFormationClient", "ValidateTemplateCommand")
-    .f(void 0, void 0)
-    .ser(se_ValidateTemplateCommand)
-    .de(de_ValidateTemplateCommand)
+    .sc(ValidateTemplate)
     .build() {
 }
 
@@ -15798,26 +9427,26 @@ __webpack_unused_export__ = AccountFilterType;
 __webpack_unused_export__ = AccountGateStatus;
 __webpack_unused_export__ = ActivateOrganizationsAccessCommand;
 __webpack_unused_export__ = ActivateTypeCommand;
-__webpack_unused_export__ = AlreadyExistsException;
+__webpack_unused_export__ = AlreadyExistsException$1;
 __webpack_unused_export__ = AttributeChangeType;
 __webpack_unused_export__ = BatchDescribeTypeConfigurationsCommand;
-__webpack_unused_export__ = CFNRegistryException;
+__webpack_unused_export__ = CFNRegistryException$1;
 __webpack_unused_export__ = CallAs;
 __webpack_unused_export__ = CancelUpdateStackCommand;
 __webpack_unused_export__ = Capability;
 __webpack_unused_export__ = Category;
 __webpack_unused_export__ = ChangeAction;
 __webpack_unused_export__ = ChangeSetHooksStatus;
-__webpack_unused_export__ = ChangeSetNotFoundException;
+__webpack_unused_export__ = ChangeSetNotFoundException$1;
 __webpack_unused_export__ = ChangeSetStatus;
 __webpack_unused_export__ = ChangeSetType;
 __webpack_unused_export__ = ChangeSource;
 __webpack_unused_export__ = ChangeType;
 __webpack_unused_export__ = CloudFormation;
 exports.m1N = CloudFormationClient;
-__webpack_unused_export__ = CloudFormationServiceException;
+__webpack_unused_export__ = CloudFormationServiceException$1;
 __webpack_unused_export__ = ConcurrencyMode;
-__webpack_unused_export__ = ConcurrentResourcesLimitExceededException;
+__webpack_unused_export__ = ConcurrentResourcesLimitExceededException$1;
 __webpack_unused_export__ = ContinueUpdateRollbackCommand;
 __webpack_unused_export__ = CreateChangeSetCommand;
 __webpack_unused_export__ = CreateGeneratedTemplateCommand;
@@ -15825,7 +9454,7 @@ __webpack_unused_export__ = CreateStackCommand;
 __webpack_unused_export__ = CreateStackInstancesCommand;
 __webpack_unused_export__ = CreateStackRefactorCommand;
 __webpack_unused_export__ = CreateStackSetCommand;
-__webpack_unused_export__ = CreatedButModifiedException;
+__webpack_unused_export__ = CreatedButModifiedException$1;
 __webpack_unused_export__ = DeactivateOrganizationsAccessCommand;
 __webpack_unused_export__ = DeactivateTypeCommand;
 __webpack_unused_export__ = DeleteChangeSetCommand;
@@ -15866,7 +9495,7 @@ __webpack_unused_export__ = ExecuteChangeSetCommand;
 __webpack_unused_export__ = ExecuteStackRefactorCommand;
 __webpack_unused_export__ = ExecutionStatus;
 __webpack_unused_export__ = GeneratedTemplateDeletionPolicy;
-__webpack_unused_export__ = GeneratedTemplateNotFoundException;
+__webpack_unused_export__ = GeneratedTemplateNotFoundException$1;
 __webpack_unused_export__ = GeneratedTemplateResourceStatus;
 __webpack_unused_export__ = GeneratedTemplateStatus;
 __webpack_unused_export__ = GeneratedTemplateUpdateReplacePolicy;
@@ -15877,16 +9506,16 @@ __webpack_unused_export__ = GetTemplateSummaryCommand;
 __webpack_unused_export__ = HandlerErrorCode;
 __webpack_unused_export__ = HookFailureMode;
 __webpack_unused_export__ = HookInvocationPoint;
-__webpack_unused_export__ = HookResultNotFoundException;
+__webpack_unused_export__ = HookResultNotFoundException$1;
 __webpack_unused_export__ = HookStatus;
 __webpack_unused_export__ = HookTargetType;
 __webpack_unused_export__ = IdentityProvider;
 __webpack_unused_export__ = ImportStacksToStackSetCommand;
-__webpack_unused_export__ = InsufficientCapabilitiesException;
-__webpack_unused_export__ = InvalidChangeSetStatusException;
-__webpack_unused_export__ = InvalidOperationException;
-__webpack_unused_export__ = InvalidStateTransitionException;
-__webpack_unused_export__ = LimitExceededException;
+__webpack_unused_export__ = InsufficientCapabilitiesException$1;
+__webpack_unused_export__ = InvalidChangeSetStatusException$1;
+__webpack_unused_export__ = InvalidOperationException$1;
+__webpack_unused_export__ = InvalidStateTransitionException$1;
+__webpack_unused_export__ = LimitExceededException$1;
 __webpack_unused_export__ = ListChangeSetsCommand;
 __webpack_unused_export__ = ListExportsCommand;
 __webpack_unused_export__ = ListGeneratedTemplatesCommand;
@@ -15909,15 +9538,15 @@ __webpack_unused_export__ = ListStacksCommand;
 __webpack_unused_export__ = ListTypeRegistrationsCommand;
 __webpack_unused_export__ = ListTypeVersionsCommand;
 __webpack_unused_export__ = ListTypesCommand;
-__webpack_unused_export__ = NameAlreadyExistsException;
+__webpack_unused_export__ = NameAlreadyExistsException$1;
 __webpack_unused_export__ = OnFailure;
 __webpack_unused_export__ = OnStackFailure;
-__webpack_unused_export__ = OperationIdAlreadyExistsException;
-__webpack_unused_export__ = OperationInProgressException;
-__webpack_unused_export__ = OperationNotFoundException;
+__webpack_unused_export__ = OperationIdAlreadyExistsException$1;
+__webpack_unused_export__ = OperationInProgressException$1;
+__webpack_unused_export__ = OperationNotFoundException$1;
 __webpack_unused_export__ = OperationResultFilterName;
 __webpack_unused_export__ = OperationStatus;
-__webpack_unused_export__ = OperationStatusCheckFailedException;
+__webpack_unused_export__ = OperationStatusCheckFailedException$1;
 __webpack_unused_export__ = OrganizationStatus;
 __webpack_unused_export__ = PermissionModels;
 __webpack_unused_export__ = PolicyAction;
@@ -15933,9 +9562,9 @@ __webpack_unused_export__ = RegistryType;
 __webpack_unused_export__ = Replacement;
 __webpack_unused_export__ = RequiresRecreation;
 __webpack_unused_export__ = ResourceAttribute;
-__webpack_unused_export__ = ResourceScanInProgressException;
-__webpack_unused_export__ = ResourceScanLimitExceededException;
-__webpack_unused_export__ = ResourceScanNotFoundException;
+__webpack_unused_export__ = ResourceScanInProgressException$1;
+__webpack_unused_export__ = ResourceScanLimitExceededException$1;
+__webpack_unused_export__ = ResourceScanNotFoundException$1;
 __webpack_unused_export__ = ResourceScanStatus;
 __webpack_unused_export__ = ResourceSignalStatus;
 __webpack_unused_export__ = ResourceStatus;
@@ -15949,35 +9578,35 @@ __webpack_unused_export__ = StackDriftDetectionStatus;
 __webpack_unused_export__ = StackDriftStatus;
 __webpack_unused_export__ = StackInstanceDetailedStatus;
 __webpack_unused_export__ = StackInstanceFilterName;
-__webpack_unused_export__ = StackInstanceNotFoundException;
+__webpack_unused_export__ = StackInstanceNotFoundException$1;
 __webpack_unused_export__ = StackInstanceStatus;
-__webpack_unused_export__ = StackNotFoundException;
+__webpack_unused_export__ = StackNotFoundException$1;
 __webpack_unused_export__ = StackRefactorActionEntity;
 __webpack_unused_export__ = StackRefactorActionType;
 __webpack_unused_export__ = StackRefactorDetection;
 __webpack_unused_export__ = StackRefactorExecutionStatus;
-__webpack_unused_export__ = StackRefactorNotFoundException;
+__webpack_unused_export__ = StackRefactorNotFoundException$1;
 __webpack_unused_export__ = StackRefactorStatus;
 __webpack_unused_export__ = StackResourceDriftStatus;
 __webpack_unused_export__ = StackSetDriftDetectionStatus;
 __webpack_unused_export__ = StackSetDriftStatus;
-__webpack_unused_export__ = StackSetNotEmptyException;
-__webpack_unused_export__ = StackSetNotFoundException;
+__webpack_unused_export__ = StackSetNotEmptyException$1;
+__webpack_unused_export__ = StackSetNotFoundException$1;
 __webpack_unused_export__ = StackSetOperationAction;
 __webpack_unused_export__ = StackSetOperationResultStatus;
 __webpack_unused_export__ = StackSetOperationStatus;
 __webpack_unused_export__ = StackSetStatus;
 __webpack_unused_export__ = StackStatus;
-__webpack_unused_export__ = StaleRequestException;
+__webpack_unused_export__ = StaleRequestException$1;
 __webpack_unused_export__ = StartResourceScanCommand;
 __webpack_unused_export__ = StopStackSetOperationCommand;
 __webpack_unused_export__ = TemplateFormat;
 __webpack_unused_export__ = TemplateStage;
 __webpack_unused_export__ = TestTypeCommand;
 __webpack_unused_export__ = ThirdPartyType;
-__webpack_unused_export__ = TokenAlreadyExistsException;
-__webpack_unused_export__ = TypeConfigurationNotFoundException;
-__webpack_unused_export__ = TypeNotFoundException;
+__webpack_unused_export__ = TokenAlreadyExistsException$1;
+__webpack_unused_export__ = TypeConfigurationNotFoundException$1;
+__webpack_unused_export__ = TypeNotFoundException$1;
 __webpack_unused_export__ = TypeTestsStatus;
 __webpack_unused_export__ = UpdateGeneratedTemplateCommand;
 __webpack_unused_export__ = UpdateStackCommand;
@@ -16034,28 +9663,28 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 5348:
+/***/ 8062:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(257));
-const core_1 = __nccwpck_require__(583);
-const credential_provider_node_1 = __nccwpck_require__(6842);
-const util_user_agent_node_1 = __nccwpck_require__(2975);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(7739));
+const core_1 = __nccwpck_require__(4134);
+const credential_provider_node_1 = __nccwpck_require__(6296);
+const util_user_agent_node_1 = __nccwpck_require__(6590);
 const config_resolver_1 = __nccwpck_require__(7358);
 const hash_node_1 = __nccwpck_require__(6354);
-const middleware_retry_1 = __nccwpck_require__(2260);
+const middleware_retry_1 = __nccwpck_require__(2386);
 const node_config_provider_1 = __nccwpck_require__(913);
 const node_http_handler_1 = __nccwpck_require__(4654);
 const util_body_length_node_1 = __nccwpck_require__(7062);
 const util_retry_1 = __nccwpck_require__(5840);
-const runtimeConfig_shared_1 = __nccwpck_require__(2229);
-const smithy_client_1 = __nccwpck_require__(1715);
-const util_defaults_mode_node_1 = __nccwpck_require__(2868);
-const smithy_client_2 = __nccwpck_require__(1715);
+const runtimeConfig_shared_1 = __nccwpck_require__(7639);
+const smithy_client_1 = __nccwpck_require__(3487);
+const util_defaults_mode_node_1 = __nccwpck_require__(2500);
+const smithy_client_2 = __nccwpck_require__(3487);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -16097,19 +9726,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 2229:
+/***/ 7639:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(583);
-const smithy_client_1 = __nccwpck_require__(1715);
+const core_1 = __nccwpck_require__(4134);
+const protocols_1 = __nccwpck_require__(442);
+const smithy_client_1 = __nccwpck_require__(3487);
 const url_parser_1 = __nccwpck_require__(7272);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_utf8_1 = __nccwpck_require__(5579);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(7933);
-const endpointResolver_1 = __nccwpck_require__(1267);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(2591);
+const endpointResolver_1 = __nccwpck_require__(3513);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -16127,6 +9757,12 @@ const getRuntimeConfig = (config) => {
             },
         ],
         logger: config?.logger ?? new smithy_client_1.NoOpLogger(),
+        protocol: config?.protocol ??
+            new protocols_1.AwsQueryProtocol({
+                defaultNamespace: "com.amazonaws.cloudformation",
+                xmlNamespace: "http://cloudformation.amazonaws.com/doc/2010-05-15/",
+                version: "2010-05-15",
+            }),
         serviceId: config?.serviceId ?? "CloudFormation",
         urlParser: config?.urlParser ?? url_parser_1.parseUrl,
         utf8Decoder: config?.utf8Decoder ?? util_utf8_1.fromUtf8,
@@ -16138,24 +9774,24 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 583:
+/***/ 4134:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var protocolHttp = __nccwpck_require__(1034);
-var core = __nccwpck_require__(2983);
+var core = __nccwpck_require__(6304);
 var propertyProvider = __nccwpck_require__(7717);
-var client = __nccwpck_require__(9135);
+var client = __nccwpck_require__(9342);
 var signatureV4 = __nccwpck_require__(3492);
-var cbor = __nccwpck_require__(1948);
-var schema = __nccwpck_require__(419);
-var protocols = __nccwpck_require__(990);
-var serde = __nccwpck_require__(2321);
+var cbor = __nccwpck_require__(5571);
+var schema = __nccwpck_require__(3392);
+var protocols = __nccwpck_require__(7512);
+var serde = __nccwpck_require__(832);
 var utilBase64 = __nccwpck_require__(1532);
-var smithyClient = __nccwpck_require__(1715);
+var smithyClient = __nccwpck_require__(3487);
 var utilUtf8 = __nccwpck_require__(5579);
-var xmlBuilder = __nccwpck_require__(7642);
+var xmlBuilder = __nccwpck_require__(8004);
 
 const state = {
     warningEmitted: false,
@@ -18118,7 +11754,7 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 9135:
+/***/ 9342:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -18176,12 +11812,1647 @@ exports.state = state;
 
 /***/ }),
 
-/***/ 5679:
+/***/ 442:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var client = __nccwpck_require__(9135);
+var cbor = __nccwpck_require__(5571);
+var schema = __nccwpck_require__(3392);
+var protocols = __nccwpck_require__(7512);
+var serde = __nccwpck_require__(832);
+var utilBase64 = __nccwpck_require__(1532);
+var smithyClient = __nccwpck_require__(3487);
+var utilUtf8 = __nccwpck_require__(5579);
+var xmlBuilder = __nccwpck_require__(8004);
+
+class ProtocolLib {
+    resolveRestContentType(defaultContentType, inputSchema) {
+        const members = inputSchema.getMemberSchemas();
+        const httpPayloadMember = Object.values(members).find((m) => {
+            return !!m.getMergedTraits().httpPayload;
+        });
+        if (httpPayloadMember) {
+            const mediaType = httpPayloadMember.getMergedTraits().mediaType;
+            if (mediaType) {
+                return mediaType;
+            }
+            else if (httpPayloadMember.isStringSchema()) {
+                return "text/plain";
+            }
+            else if (httpPayloadMember.isBlobSchema()) {
+                return "application/octet-stream";
+            }
+            else {
+                return defaultContentType;
+            }
+        }
+        else if (!inputSchema.isUnitSchema()) {
+            const hasBody = Object.values(members).find((m) => {
+                const { httpQuery, httpQueryParams, httpHeader, httpLabel, httpPrefixHeaders } = m.getMergedTraits();
+                const noPrefixHeaders = httpPrefixHeaders === void 0;
+                return !httpQuery && !httpQueryParams && !httpHeader && !httpLabel && noPrefixHeaders;
+            });
+            if (hasBody) {
+                return defaultContentType;
+            }
+        }
+    }
+    async getErrorSchemaOrThrowBaseException(errorIdentifier, defaultNamespace, response, dataObject, metadata, getErrorSchema) {
+        let namespace = defaultNamespace;
+        let errorName = errorIdentifier;
+        if (errorIdentifier.includes("#")) {
+            [namespace, errorName] = errorIdentifier.split("#");
+        }
+        const errorMetadata = {
+            $metadata: metadata,
+            $response: response,
+            $fault: response.statusCode < 500 ? "client" : "server",
+        };
+        const registry = schema.TypeRegistry.for(namespace);
+        try {
+            const errorSchema = getErrorSchema?.(registry, errorName) ?? registry.getSchema(errorIdentifier);
+            return { errorSchema, errorMetadata };
+        }
+        catch (e) {
+            dataObject.message = dataObject.message ?? dataObject.Message ?? "UnknownError";
+            const synthetic = schema.TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace);
+            const baseExceptionSchema = synthetic.getBaseException();
+            if (baseExceptionSchema) {
+                const ErrorCtor = synthetic.getErrorCtor(baseExceptionSchema) ?? Error;
+                throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
+            }
+            throw Object.assign(new Error(errorName), errorMetadata, dataObject);
+        }
+    }
+    setQueryCompatError(output, response) {
+        const queryErrorHeader = response.headers?.["x-amzn-query-error"];
+        if (output !== undefined && queryErrorHeader != null) {
+            const [Code, Type] = queryErrorHeader.split(";");
+            const entries = Object.entries(output);
+            const Error = {
+                Code,
+                Type,
+            };
+            Object.assign(output, Error);
+            for (const [k, v] of entries) {
+                Error[k] = v;
+            }
+            delete Error.__type;
+            output.Error = Error;
+        }
+    }
+    queryCompatOutput(queryCompatErrorData, errorData) {
+        if (queryCompatErrorData.Error) {
+            errorData.Error = queryCompatErrorData.Error;
+        }
+        if (queryCompatErrorData.Type) {
+            errorData.Type = queryCompatErrorData.Type;
+        }
+        if (queryCompatErrorData.Code) {
+            errorData.Code = queryCompatErrorData.Code;
+        }
+    }
+}
+
+class AwsSmithyRpcV2CborProtocol extends cbor.SmithyRpcV2CborProtocol {
+    awsQueryCompatible;
+    mixin = new ProtocolLib();
+    constructor({ defaultNamespace, awsQueryCompatible, }) {
+        super({ defaultNamespace });
+        this.awsQueryCompatible = !!awsQueryCompatible;
+    }
+    async serializeRequest(operationSchema, input, context) {
+        const request = await super.serializeRequest(operationSchema, input, context);
+        if (this.awsQueryCompatible) {
+            request.headers["x-amzn-query-mode"] = "true";
+        }
+        return request;
+    }
+    async handleError(operationSchema, context, response, dataObject, metadata) {
+        if (this.awsQueryCompatible) {
+            this.mixin.setQueryCompatError(dataObject, response);
+        }
+        const errorName = cbor.loadSmithyRpcV2CborErrorCode(response, dataObject) ?? "Unknown";
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorName, this.options.defaultNamespace, response, dataObject, metadata);
+        const ns = schema.NormalizedSchema.of(errorSchema);
+        const message = dataObject.message ?? dataObject.Message ?? "Unknown";
+        const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
+        const exception = new ErrorCtor(message);
+        const output = {};
+        for (const [name, member] of ns.structIterator()) {
+            output[name] = this.deserializer.readValue(member, dataObject[name]);
+        }
+        if (this.awsQueryCompatible) {
+            this.mixin.queryCompatOutput(dataObject, output);
+        }
+        throw Object.assign(exception, errorMetadata, {
+            $fault: ns.getMergedTraits().error,
+            message,
+        }, output);
+    }
+}
+
+const _toStr = (val) => {
+    if (val == null) {
+        return val;
+    }
+    if (typeof val === "number" || typeof val === "bigint") {
+        const warning = new Error(`Received number ${val} where a string was expected.`);
+        warning.name = "Warning";
+        console.warn(warning);
+        return String(val);
+    }
+    if (typeof val === "boolean") {
+        const warning = new Error(`Received boolean ${val} where a string was expected.`);
+        warning.name = "Warning";
+        console.warn(warning);
+        return String(val);
+    }
+    return val;
+};
+const _toBool = (val) => {
+    if (val == null) {
+        return val;
+    }
+    if (typeof val === "string") {
+        const lowercase = val.toLowerCase();
+        if (val !== "" && lowercase !== "false" && lowercase !== "true") {
+            const warning = new Error(`Received string "${val}" where a boolean was expected.`);
+            warning.name = "Warning";
+            console.warn(warning);
+        }
+        return val !== "" && lowercase !== "false";
+    }
+    return val;
+};
+const _toNum = (val) => {
+    if (val == null) {
+        return val;
+    }
+    if (typeof val === "string") {
+        const num = Number(val);
+        if (num.toString() !== val) {
+            const warning = new Error(`Received string "${val}" where a number was expected.`);
+            warning.name = "Warning";
+            console.warn(warning);
+            return val;
+        }
+        return num;
+    }
+    return val;
+};
+
+class SerdeContextConfig {
+    serdeContext;
+    setSerdeContext(serdeContext) {
+        this.serdeContext = serdeContext;
+    }
+}
+
+function jsonReviver(key, value, context) {
+    if (context?.source) {
+        const numericString = context.source;
+        if (typeof value === "number") {
+            if (value > Number.MAX_SAFE_INTEGER || value < Number.MIN_SAFE_INTEGER || numericString !== String(value)) {
+                const isFractional = numericString.includes(".");
+                if (isFractional) {
+                    return new serde.NumericValue(numericString, "bigDecimal");
+                }
+                else {
+                    return BigInt(numericString);
+                }
+            }
+        }
+    }
+    return value;
+}
+
+const collectBodyString = (streamBody, context) => smithyClient.collectBody(streamBody, context).then((body) => (context?.utf8Encoder ?? utilUtf8.toUtf8)(body));
+
+const parseJsonBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
+    if (encoded.length) {
+        try {
+            return JSON.parse(encoded);
+        }
+        catch (e) {
+            if (e?.name === "SyntaxError") {
+                Object.defineProperty(e, "$responseBodyText", {
+                    value: encoded,
+                });
+            }
+            throw e;
+        }
+    }
+    return {};
+});
+const parseJsonErrorBody = async (errorBody, context) => {
+    const value = await parseJsonBody(errorBody, context);
+    value.message = value.message ?? value.Message;
+    return value;
+};
+const loadRestJsonErrorCode = (output, data) => {
+    const findKey = (object, key) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+    const sanitizeErrorCode = (rawValue) => {
+        let cleanValue = rawValue;
+        if (typeof cleanValue === "number") {
+            cleanValue = cleanValue.toString();
+        }
+        if (cleanValue.indexOf(",") >= 0) {
+            cleanValue = cleanValue.split(",")[0];
+        }
+        if (cleanValue.indexOf(":") >= 0) {
+            cleanValue = cleanValue.split(":")[0];
+        }
+        if (cleanValue.indexOf("#") >= 0) {
+            cleanValue = cleanValue.split("#")[1];
+        }
+        return cleanValue;
+    };
+    const headerKey = findKey(output.headers, "x-amzn-errortype");
+    if (headerKey !== undefined) {
+        return sanitizeErrorCode(output.headers[headerKey]);
+    }
+    if (data && typeof data === "object") {
+        const codeKey = findKey(data, "code");
+        if (codeKey && data[codeKey] !== undefined) {
+            return sanitizeErrorCode(data[codeKey]);
+        }
+        if (data["__type"] !== undefined) {
+            return sanitizeErrorCode(data["__type"]);
+        }
+    }
+};
+
+class JsonShapeDeserializer extends SerdeContextConfig {
+    settings;
+    constructor(settings) {
+        super();
+        this.settings = settings;
+    }
+    async read(schema, data) {
+        return this._read(schema, typeof data === "string" ? JSON.parse(data, jsonReviver) : await parseJsonBody(data, this.serdeContext));
+    }
+    readObject(schema, data) {
+        return this._read(schema, data);
+    }
+    _read(schema$1, value) {
+        const isObject = value !== null && typeof value === "object";
+        const ns = schema.NormalizedSchema.of(schema$1);
+        if (ns.isListSchema() && Array.isArray(value)) {
+            const listMember = ns.getValueSchema();
+            const out = [];
+            const sparse = !!ns.getMergedTraits().sparse;
+            for (const item of value) {
+                if (sparse || item != null) {
+                    out.push(this._read(listMember, item));
+                }
+            }
+            return out;
+        }
+        else if (ns.isMapSchema() && isObject) {
+            const mapMember = ns.getValueSchema();
+            const out = {};
+            const sparse = !!ns.getMergedTraits().sparse;
+            for (const [_k, _v] of Object.entries(value)) {
+                if (sparse || _v != null) {
+                    out[_k] = this._read(mapMember, _v);
+                }
+            }
+            return out;
+        }
+        else if (ns.isStructSchema() && isObject) {
+            const out = {};
+            for (const [memberName, memberSchema] of ns.structIterator()) {
+                const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+                const deserializedValue = this._read(memberSchema, value[fromKey]);
+                if (deserializedValue != null) {
+                    out[memberName] = deserializedValue;
+                }
+            }
+            return out;
+        }
+        if (ns.isBlobSchema() && typeof value === "string") {
+            return utilBase64.fromBase64(value);
+        }
+        const mediaType = ns.getMergedTraits().mediaType;
+        if (ns.isStringSchema() && typeof value === "string" && mediaType) {
+            const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
+            if (isJson) {
+                return serde.LazyJsonString.from(value);
+            }
+        }
+        if (ns.isTimestampSchema() && value != null) {
+            const format = protocols.determineTimestampFormat(ns, this.settings);
+            switch (format) {
+                case 5:
+                    return serde.parseRfc3339DateTimeWithOffset(value);
+                case 6:
+                    return serde.parseRfc7231DateTime(value);
+                case 7:
+                    return serde.parseEpochTimestamp(value);
+                default:
+                    console.warn("Missing timestamp format, parsing value with Date constructor:", value);
+                    return new Date(value);
+            }
+        }
+        if (ns.isBigIntegerSchema() && (typeof value === "number" || typeof value === "string")) {
+            return BigInt(value);
+        }
+        if (ns.isBigDecimalSchema() && value != undefined) {
+            if (value instanceof serde.NumericValue) {
+                return value;
+            }
+            const untyped = value;
+            if (untyped.type === "bigDecimal" && "string" in untyped) {
+                return new serde.NumericValue(untyped.string, untyped.type);
+            }
+            return new serde.NumericValue(String(value), "bigDecimal");
+        }
+        if (ns.isNumericSchema() && typeof value === "string") {
+            switch (value) {
+                case "Infinity":
+                    return Infinity;
+                case "-Infinity":
+                    return -Infinity;
+                case "NaN":
+                    return NaN;
+            }
+        }
+        if (ns.isDocumentSchema()) {
+            if (isObject) {
+                const out = Array.isArray(value) ? [] : {};
+                for (const [k, v] of Object.entries(value)) {
+                    if (v instanceof serde.NumericValue) {
+                        out[k] = v;
+                    }
+                    else {
+                        out[k] = this._read(ns, v);
+                    }
+                }
+                return out;
+            }
+            else {
+                return structuredClone(value);
+            }
+        }
+        return value;
+    }
+}
+
+const NUMERIC_CONTROL_CHAR = String.fromCharCode(925);
+class JsonReplacer {
+    values = new Map();
+    counter = 0;
+    stage = 0;
+    createReplacer() {
+        if (this.stage === 1) {
+            throw new Error("@aws-sdk/core/protocols - JsonReplacer already created.");
+        }
+        if (this.stage === 2) {
+            throw new Error("@aws-sdk/core/protocols - JsonReplacer exhausted.");
+        }
+        this.stage = 1;
+        return (key, value) => {
+            if (value instanceof serde.NumericValue) {
+                const v = `${NUMERIC_CONTROL_CHAR + "nv" + this.counter++}_` + value.string;
+                this.values.set(`"${v}"`, value.string);
+                return v;
+            }
+            if (typeof value === "bigint") {
+                const s = value.toString();
+                const v = `${NUMERIC_CONTROL_CHAR + "b" + this.counter++}_` + s;
+                this.values.set(`"${v}"`, s);
+                return v;
+            }
+            return value;
+        };
+    }
+    replaceInJson(json) {
+        if (this.stage === 0) {
+            throw new Error("@aws-sdk/core/protocols - JsonReplacer not created yet.");
+        }
+        if (this.stage === 2) {
+            throw new Error("@aws-sdk/core/protocols - JsonReplacer exhausted.");
+        }
+        this.stage = 2;
+        if (this.counter === 0) {
+            return json;
+        }
+        for (const [key, value] of this.values) {
+            json = json.replace(key, value);
+        }
+        return json;
+    }
+}
+
+class JsonShapeSerializer extends SerdeContextConfig {
+    settings;
+    buffer;
+    rootSchema;
+    constructor(settings) {
+        super();
+        this.settings = settings;
+    }
+    write(schema$1, value) {
+        this.rootSchema = schema.NormalizedSchema.of(schema$1);
+        this.buffer = this._write(this.rootSchema, value);
+    }
+    writeDiscriminatedDocument(schema$1, value) {
+        this.write(schema$1, value);
+        if (typeof this.buffer === "object") {
+            this.buffer.__type = schema.NormalizedSchema.of(schema$1).getName(true);
+        }
+    }
+    flush() {
+        const { rootSchema } = this;
+        this.rootSchema = undefined;
+        if (rootSchema?.isStructSchema() || rootSchema?.isDocumentSchema()) {
+            const replacer = new JsonReplacer();
+            return replacer.replaceInJson(JSON.stringify(this.buffer, replacer.createReplacer(), 0));
+        }
+        return this.buffer;
+    }
+    _write(schema$1, value, container) {
+        const isObject = value !== null && typeof value === "object";
+        const ns = schema.NormalizedSchema.of(schema$1);
+        if (ns.isListSchema() && Array.isArray(value)) {
+            const listMember = ns.getValueSchema();
+            const out = [];
+            const sparse = !!ns.getMergedTraits().sparse;
+            for (const item of value) {
+                if (sparse || item != null) {
+                    out.push(this._write(listMember, item));
+                }
+            }
+            return out;
+        }
+        else if (ns.isMapSchema() && isObject) {
+            const mapMember = ns.getValueSchema();
+            const out = {};
+            const sparse = !!ns.getMergedTraits().sparse;
+            for (const [_k, _v] of Object.entries(value)) {
+                if (sparse || _v != null) {
+                    out[_k] = this._write(mapMember, _v);
+                }
+            }
+            return out;
+        }
+        else if (ns.isStructSchema() && isObject) {
+            const out = {};
+            for (const [memberName, memberSchema] of ns.structIterator()) {
+                const targetKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+                const serializableValue = this._write(memberSchema, value[memberName], ns);
+                if (serializableValue !== undefined) {
+                    out[targetKey] = serializableValue;
+                }
+            }
+            return out;
+        }
+        if (value === null && container?.isStructSchema()) {
+            return void 0;
+        }
+        if ((ns.isBlobSchema() && (value instanceof Uint8Array || typeof value === "string")) ||
+            (ns.isDocumentSchema() && value instanceof Uint8Array)) {
+            if (ns === this.rootSchema) {
+                return value;
+            }
+            return (this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(value);
+        }
+        if ((ns.isTimestampSchema() || ns.isDocumentSchema()) && value instanceof Date) {
+            const format = protocols.determineTimestampFormat(ns, this.settings);
+            switch (format) {
+                case 5:
+                    return value.toISOString().replace(".000Z", "Z");
+                case 6:
+                    return serde.dateToUtcString(value);
+                case 7:
+                    return value.getTime() / 1000;
+                default:
+                    console.warn("Missing timestamp format, using epoch seconds", value);
+                    return value.getTime() / 1000;
+            }
+        }
+        if (ns.isNumericSchema() && typeof value === "number") {
+            if (Math.abs(value) === Infinity || isNaN(value)) {
+                return String(value);
+            }
+        }
+        if (ns.isStringSchema()) {
+            if (typeof value === "undefined" && ns.isIdempotencyToken()) {
+                return serde.generateIdempotencyToken();
+            }
+            const mediaType = ns.getMergedTraits().mediaType;
+            if (value != null && mediaType) {
+                const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
+                if (isJson) {
+                    return serde.LazyJsonString.from(value);
+                }
+            }
+        }
+        if (ns.isDocumentSchema()) {
+            if (isObject) {
+                const out = Array.isArray(value) ? [] : {};
+                for (const [k, v] of Object.entries(value)) {
+                    if (v instanceof serde.NumericValue) {
+                        out[k] = v;
+                    }
+                    else {
+                        out[k] = this._write(ns, v);
+                    }
+                }
+                return out;
+            }
+            else {
+                return structuredClone(value);
+            }
+        }
+        return value;
+    }
+}
+
+class JsonCodec extends SerdeContextConfig {
+    settings;
+    constructor(settings) {
+        super();
+        this.settings = settings;
+    }
+    createSerializer() {
+        const serializer = new JsonShapeSerializer(this.settings);
+        serializer.setSerdeContext(this.serdeContext);
+        return serializer;
+    }
+    createDeserializer() {
+        const deserializer = new JsonShapeDeserializer(this.settings);
+        deserializer.setSerdeContext(this.serdeContext);
+        return deserializer;
+    }
+}
+
+class AwsJsonRpcProtocol extends protocols.RpcProtocol {
+    serializer;
+    deserializer;
+    serviceTarget;
+    codec;
+    mixin = new ProtocolLib();
+    awsQueryCompatible;
+    constructor({ defaultNamespace, serviceTarget, awsQueryCompatible, }) {
+        super({
+            defaultNamespace,
+        });
+        this.serviceTarget = serviceTarget;
+        this.codec = new JsonCodec({
+            timestampFormat: {
+                useTrait: true,
+                default: 7,
+            },
+            jsonName: false,
+        });
+        this.serializer = this.codec.createSerializer();
+        this.deserializer = this.codec.createDeserializer();
+        this.awsQueryCompatible = !!awsQueryCompatible;
+    }
+    async serializeRequest(operationSchema, input, context) {
+        const request = await super.serializeRequest(operationSchema, input, context);
+        if (!request.path.endsWith("/")) {
+            request.path += "/";
+        }
+        Object.assign(request.headers, {
+            "content-type": `application/x-amz-json-${this.getJsonRpcVersion()}`,
+            "x-amz-target": `${this.serviceTarget}.${operationSchema.name}`,
+        });
+        if (this.awsQueryCompatible) {
+            request.headers["x-amzn-query-mode"] = "true";
+        }
+        if (schema.deref(operationSchema.input) === "unit" || !request.body) {
+            request.body = "{}";
+        }
+        return request;
+    }
+    getPayloadCodec() {
+        return this.codec;
+    }
+    async handleError(operationSchema, context, response, dataObject, metadata) {
+        if (this.awsQueryCompatible) {
+            this.mixin.setQueryCompatError(dataObject, response);
+        }
+        const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata);
+        const ns = schema.NormalizedSchema.of(errorSchema);
+        const message = dataObject.message ?? dataObject.Message ?? "Unknown";
+        const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
+        const exception = new ErrorCtor(message);
+        const output = {};
+        for (const [name, member] of ns.structIterator()) {
+            const target = member.getMergedTraits().jsonName ?? name;
+            output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+        }
+        if (this.awsQueryCompatible) {
+            this.mixin.queryCompatOutput(dataObject, output);
+        }
+        throw Object.assign(exception, errorMetadata, {
+            $fault: ns.getMergedTraits().error,
+            message,
+        }, output);
+    }
+}
+
+class AwsJson1_0Protocol extends AwsJsonRpcProtocol {
+    constructor({ defaultNamespace, serviceTarget, awsQueryCompatible, }) {
+        super({
+            defaultNamespace,
+            serviceTarget,
+            awsQueryCompatible,
+        });
+    }
+    getShapeId() {
+        return "aws.protocols#awsJson1_0";
+    }
+    getJsonRpcVersion() {
+        return "1.0";
+    }
+    getDefaultContentType() {
+        return "application/x-amz-json-1.0";
+    }
+}
+
+class AwsJson1_1Protocol extends AwsJsonRpcProtocol {
+    constructor({ defaultNamespace, serviceTarget, awsQueryCompatible, }) {
+        super({
+            defaultNamespace,
+            serviceTarget,
+            awsQueryCompatible,
+        });
+    }
+    getShapeId() {
+        return "aws.protocols#awsJson1_1";
+    }
+    getJsonRpcVersion() {
+        return "1.1";
+    }
+    getDefaultContentType() {
+        return "application/x-amz-json-1.1";
+    }
+}
+
+class AwsRestJsonProtocol extends protocols.HttpBindingProtocol {
+    serializer;
+    deserializer;
+    codec;
+    mixin = new ProtocolLib();
+    constructor({ defaultNamespace }) {
+        super({
+            defaultNamespace,
+        });
+        const settings = {
+            timestampFormat: {
+                useTrait: true,
+                default: 7,
+            },
+            httpBindings: true,
+            jsonName: true,
+        };
+        this.codec = new JsonCodec(settings);
+        this.serializer = new protocols.HttpInterceptingShapeSerializer(this.codec.createSerializer(), settings);
+        this.deserializer = new protocols.HttpInterceptingShapeDeserializer(this.codec.createDeserializer(), settings);
+    }
+    getShapeId() {
+        return "aws.protocols#restJson1";
+    }
+    getPayloadCodec() {
+        return this.codec;
+    }
+    setSerdeContext(serdeContext) {
+        this.codec.setSerdeContext(serdeContext);
+        super.setSerdeContext(serdeContext);
+    }
+    async serializeRequest(operationSchema, input, context) {
+        const request = await super.serializeRequest(operationSchema, input, context);
+        const inputSchema = schema.NormalizedSchema.of(operationSchema.input);
+        if (!request.headers["content-type"]) {
+            const contentType = this.mixin.resolveRestContentType(this.getDefaultContentType(), inputSchema);
+            if (contentType) {
+                request.headers["content-type"] = contentType;
+            }
+        }
+        if (request.headers["content-type"] && !request.body) {
+            request.body = "{}";
+        }
+        return request;
+    }
+    async handleError(operationSchema, context, response, dataObject, metadata) {
+        const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata);
+        const ns = schema.NormalizedSchema.of(errorSchema);
+        const message = dataObject.message ?? dataObject.Message ?? "Unknown";
+        const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
+        const exception = new ErrorCtor(message);
+        await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
+        const output = {};
+        for (const [name, member] of ns.structIterator()) {
+            const target = member.getMergedTraits().jsonName ?? name;
+            output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+        }
+        throw Object.assign(exception, errorMetadata, {
+            $fault: ns.getMergedTraits().error,
+            message,
+        }, output);
+    }
+    getDefaultContentType() {
+        return "application/json";
+    }
+}
+
+const awsExpectUnion = (value) => {
+    if (value == null) {
+        return undefined;
+    }
+    if (typeof value === "object" && "__type" in value) {
+        delete value.__type;
+    }
+    return smithyClient.expectUnion(value);
+};
+
+class XmlShapeDeserializer extends SerdeContextConfig {
+    settings;
+    stringDeserializer;
+    constructor(settings) {
+        super();
+        this.settings = settings;
+        this.stringDeserializer = new protocols.FromStringShapeDeserializer(settings);
+    }
+    setSerdeContext(serdeContext) {
+        this.serdeContext = serdeContext;
+        this.stringDeserializer.setSerdeContext(serdeContext);
+    }
+    read(schema$1, bytes, key) {
+        const ns = schema.NormalizedSchema.of(schema$1);
+        const memberSchemas = ns.getMemberSchemas();
+        const isEventPayload = ns.isStructSchema() &&
+            ns.isMemberSchema() &&
+            !!Object.values(memberSchemas).find((memberNs) => {
+                return !!memberNs.getMemberTraits().eventPayload;
+            });
+        if (isEventPayload) {
+            const output = {};
+            const memberName = Object.keys(memberSchemas)[0];
+            const eventMemberSchema = memberSchemas[memberName];
+            if (eventMemberSchema.isBlobSchema()) {
+                output[memberName] = bytes;
+            }
+            else {
+                output[memberName] = this.read(memberSchemas[memberName], bytes);
+            }
+            return output;
+        }
+        const xmlString = (this.serdeContext?.utf8Encoder ?? utilUtf8.toUtf8)(bytes);
+        const parsedObject = this.parseXml(xmlString);
+        return this.readSchema(schema$1, key ? parsedObject[key] : parsedObject);
+    }
+    readSchema(_schema, value) {
+        const ns = schema.NormalizedSchema.of(_schema);
+        if (ns.isUnitSchema()) {
+            return;
+        }
+        const traits = ns.getMergedTraits();
+        if (ns.isListSchema() && !Array.isArray(value)) {
+            return this.readSchema(ns, [value]);
+        }
+        if (value == null) {
+            return value;
+        }
+        if (typeof value === "object") {
+            const sparse = !!traits.sparse;
+            const flat = !!traits.xmlFlattened;
+            if (ns.isListSchema()) {
+                const listValue = ns.getValueSchema();
+                const buffer = [];
+                const sourceKey = listValue.getMergedTraits().xmlName ?? "member";
+                const source = flat ? value : (value[0] ?? value)[sourceKey];
+                const sourceArray = Array.isArray(source) ? source : [source];
+                for (const v of sourceArray) {
+                    if (v != null || sparse) {
+                        buffer.push(this.readSchema(listValue, v));
+                    }
+                }
+                return buffer;
+            }
+            const buffer = {};
+            if (ns.isMapSchema()) {
+                const keyNs = ns.getKeySchema();
+                const memberNs = ns.getValueSchema();
+                let entries;
+                if (flat) {
+                    entries = Array.isArray(value) ? value : [value];
+                }
+                else {
+                    entries = Array.isArray(value.entry) ? value.entry : [value.entry];
+                }
+                const keyProperty = keyNs.getMergedTraits().xmlName ?? "key";
+                const valueProperty = memberNs.getMergedTraits().xmlName ?? "value";
+                for (const entry of entries) {
+                    const key = entry[keyProperty];
+                    const value = entry[valueProperty];
+                    if (value != null || sparse) {
+                        buffer[key] = this.readSchema(memberNs, value);
+                    }
+                }
+                return buffer;
+            }
+            if (ns.isStructSchema()) {
+                for (const [memberName, memberSchema] of ns.structIterator()) {
+                    const memberTraits = memberSchema.getMergedTraits();
+                    const xmlObjectKey = !memberTraits.httpPayload
+                        ? memberSchema.getMemberTraits().xmlName ?? memberName
+                        : memberTraits.xmlName ?? memberSchema.getName();
+                    if (value[xmlObjectKey] != null) {
+                        buffer[memberName] = this.readSchema(memberSchema, value[xmlObjectKey]);
+                    }
+                }
+                return buffer;
+            }
+            if (ns.isDocumentSchema()) {
+                return value;
+            }
+            throw new Error(`@aws-sdk/core/protocols - xml deserializer unhandled schema type for ${ns.getName(true)}`);
+        }
+        if (ns.isListSchema()) {
+            return [];
+        }
+        if (ns.isMapSchema() || ns.isStructSchema()) {
+            return {};
+        }
+        return this.stringDeserializer.read(ns, value);
+    }
+    parseXml(xml) {
+        if (xml.length) {
+            let parsedObj;
+            try {
+                parsedObj = xmlBuilder.parseXML(xml);
+            }
+            catch (e) {
+                if (e && typeof e === "object") {
+                    Object.defineProperty(e, "$responseBodyText", {
+                        value: xml,
+                    });
+                }
+                throw e;
+            }
+            const textNodeName = "#text";
+            const key = Object.keys(parsedObj)[0];
+            const parsedObjToReturn = parsedObj[key];
+            if (parsedObjToReturn[textNodeName]) {
+                parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
+                delete parsedObjToReturn[textNodeName];
+            }
+            return smithyClient.getValueFromTextNode(parsedObjToReturn);
+        }
+        return {};
+    }
+}
+
+class QueryShapeSerializer extends SerdeContextConfig {
+    settings;
+    buffer;
+    constructor(settings) {
+        super();
+        this.settings = settings;
+    }
+    write(schema$1, value, prefix = "") {
+        if (this.buffer === undefined) {
+            this.buffer = "";
+        }
+        const ns = schema.NormalizedSchema.of(schema$1);
+        if (prefix && !prefix.endsWith(".")) {
+            prefix += ".";
+        }
+        if (ns.isBlobSchema()) {
+            if (typeof value === "string" || value instanceof Uint8Array) {
+                this.writeKey(prefix);
+                this.writeValue((this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(value));
+            }
+        }
+        else if (ns.isBooleanSchema() || ns.isNumericSchema() || ns.isStringSchema()) {
+            if (value != null) {
+                this.writeKey(prefix);
+                this.writeValue(String(value));
+            }
+            else if (ns.isIdempotencyToken()) {
+                this.writeKey(prefix);
+                this.writeValue(serde.generateIdempotencyToken());
+            }
+        }
+        else if (ns.isBigIntegerSchema()) {
+            if (value != null) {
+                this.writeKey(prefix);
+                this.writeValue(String(value));
+            }
+        }
+        else if (ns.isBigDecimalSchema()) {
+            if (value != null) {
+                this.writeKey(prefix);
+                this.writeValue(value instanceof serde.NumericValue ? value.string : String(value));
+            }
+        }
+        else if (ns.isTimestampSchema()) {
+            if (value instanceof Date) {
+                this.writeKey(prefix);
+                const format = protocols.determineTimestampFormat(ns, this.settings);
+                switch (format) {
+                    case 5:
+                        this.writeValue(value.toISOString().replace(".000Z", "Z"));
+                        break;
+                    case 6:
+                        this.writeValue(smithyClient.dateToUtcString(value));
+                        break;
+                    case 7:
+                        this.writeValue(String(value.getTime() / 1000));
+                        break;
+                }
+            }
+        }
+        else if (ns.isDocumentSchema()) {
+            throw new Error(`@aws-sdk/core/protocols - QuerySerializer unsupported document type ${ns.getName(true)}`);
+        }
+        else if (ns.isListSchema()) {
+            if (Array.isArray(value)) {
+                if (value.length === 0) {
+                    if (this.settings.serializeEmptyLists) {
+                        this.writeKey(prefix);
+                        this.writeValue("");
+                    }
+                }
+                else {
+                    const member = ns.getValueSchema();
+                    const flat = this.settings.flattenLists || ns.getMergedTraits().xmlFlattened;
+                    let i = 1;
+                    for (const item of value) {
+                        if (item == null) {
+                            continue;
+                        }
+                        const suffix = this.getKey("member", member.getMergedTraits().xmlName);
+                        const key = flat ? `${prefix}${i}` : `${prefix}${suffix}.${i}`;
+                        this.write(member, item, key);
+                        ++i;
+                    }
+                }
+            }
+        }
+        else if (ns.isMapSchema()) {
+            if (value && typeof value === "object") {
+                const keySchema = ns.getKeySchema();
+                const memberSchema = ns.getValueSchema();
+                const flat = ns.getMergedTraits().xmlFlattened;
+                let i = 1;
+                for (const [k, v] of Object.entries(value)) {
+                    if (v == null) {
+                        continue;
+                    }
+                    const keySuffix = this.getKey("key", keySchema.getMergedTraits().xmlName);
+                    const key = flat ? `${prefix}${i}.${keySuffix}` : `${prefix}entry.${i}.${keySuffix}`;
+                    const valueSuffix = this.getKey("value", memberSchema.getMergedTraits().xmlName);
+                    const valueKey = flat ? `${prefix}${i}.${valueSuffix}` : `${prefix}entry.${i}.${valueSuffix}`;
+                    this.write(keySchema, k, key);
+                    this.write(memberSchema, v, valueKey);
+                    ++i;
+                }
+            }
+        }
+        else if (ns.isStructSchema()) {
+            if (value && typeof value === "object") {
+                for (const [memberName, member] of ns.structIterator()) {
+                    if (value[memberName] == null && !member.isIdempotencyToken()) {
+                        continue;
+                    }
+                    const suffix = this.getKey(memberName, member.getMergedTraits().xmlName);
+                    const key = `${prefix}${suffix}`;
+                    this.write(member, value[memberName], key);
+                }
+            }
+        }
+        else if (ns.isUnitSchema()) ;
+        else {
+            throw new Error(`@aws-sdk/core/protocols - QuerySerializer unrecognized schema type ${ns.getName(true)}`);
+        }
+    }
+    flush() {
+        if (this.buffer === undefined) {
+            throw new Error("@aws-sdk/core/protocols - QuerySerializer cannot flush with nothing written to buffer.");
+        }
+        const str = this.buffer;
+        delete this.buffer;
+        return str;
+    }
+    getKey(memberName, xmlName) {
+        const key = xmlName ?? memberName;
+        if (this.settings.capitalizeKeys) {
+            return key[0].toUpperCase() + key.slice(1);
+        }
+        return key;
+    }
+    writeKey(key) {
+        if (key.endsWith(".")) {
+            key = key.slice(0, key.length - 1);
+        }
+        this.buffer += `&${protocols.extendedEncodeURIComponent(key)}=`;
+    }
+    writeValue(value) {
+        this.buffer += protocols.extendedEncodeURIComponent(value);
+    }
+}
+
+class AwsQueryProtocol extends protocols.RpcProtocol {
+    options;
+    serializer;
+    deserializer;
+    mixin = new ProtocolLib();
+    constructor(options) {
+        super({
+            defaultNamespace: options.defaultNamespace,
+        });
+        this.options = options;
+        const settings = {
+            timestampFormat: {
+                useTrait: true,
+                default: 5,
+            },
+            httpBindings: false,
+            xmlNamespace: options.xmlNamespace,
+            serviceNamespace: options.defaultNamespace,
+            serializeEmptyLists: true,
+        };
+        this.serializer = new QueryShapeSerializer(settings);
+        this.deserializer = new XmlShapeDeserializer(settings);
+    }
+    getShapeId() {
+        return "aws.protocols#awsQuery";
+    }
+    setSerdeContext(serdeContext) {
+        this.serializer.setSerdeContext(serdeContext);
+        this.deserializer.setSerdeContext(serdeContext);
+    }
+    getPayloadCodec() {
+        throw new Error("AWSQuery protocol has no payload codec.");
+    }
+    async serializeRequest(operationSchema, input, context) {
+        const request = await super.serializeRequest(operationSchema, input, context);
+        if (!request.path.endsWith("/")) {
+            request.path += "/";
+        }
+        Object.assign(request.headers, {
+            "content-type": `application/x-www-form-urlencoded`,
+        });
+        if (schema.deref(operationSchema.input) === "unit" || !request.body) {
+            request.body = "";
+        }
+        const action = operationSchema.name.split("#")[1] ?? operationSchema.name;
+        request.body = `Action=${action}&Version=${this.options.version}` + request.body;
+        if (request.body.endsWith("&")) {
+            request.body = request.body.slice(-1);
+        }
+        return request;
+    }
+    async deserializeResponse(operationSchema, context, response) {
+        const deserializer = this.deserializer;
+        const ns = schema.NormalizedSchema.of(operationSchema.output);
+        const dataObject = {};
+        if (response.statusCode >= 300) {
+            const bytes = await protocols.collectBody(response.body, context);
+            if (bytes.byteLength > 0) {
+                Object.assign(dataObject, await deserializer.read(15, bytes));
+            }
+            await this.handleError(operationSchema, context, response, dataObject, this.deserializeMetadata(response));
+        }
+        for (const header in response.headers) {
+            const value = response.headers[header];
+            delete response.headers[header];
+            response.headers[header.toLowerCase()] = value;
+        }
+        const shortName = operationSchema.name.split("#")[1] ?? operationSchema.name;
+        const awsQueryResultKey = ns.isStructSchema() && this.useNestedResult() ? shortName + "Result" : undefined;
+        const bytes = await protocols.collectBody(response.body, context);
+        if (bytes.byteLength > 0) {
+            Object.assign(dataObject, await deserializer.read(ns, bytes, awsQueryResultKey));
+        }
+        const output = {
+            $metadata: this.deserializeMetadata(response),
+            ...dataObject,
+        };
+        return output;
+    }
+    useNestedResult() {
+        return true;
+    }
+    async handleError(operationSchema, context, response, dataObject, metadata) {
+        const errorIdentifier = this.loadQueryErrorCode(response, dataObject) ?? "Unknown";
+        const errorData = this.loadQueryError(dataObject);
+        const message = this.loadQueryErrorMessage(dataObject);
+        errorData.message = message;
+        errorData.Error = {
+            Type: errorData.Type,
+            Code: errorData.Code,
+            Message: message,
+        };
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, errorData, metadata, (registry, errorName) => {
+            try {
+                return registry.getSchema(errorName);
+            }
+            catch (e) {
+                return registry.find((schema$1) => schema.NormalizedSchema.of(schema$1).getMergedTraits().awsQueryError?.[0] === errorName);
+            }
+        });
+        const ns = schema.NormalizedSchema.of(errorSchema);
+        const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
+        const exception = new ErrorCtor(message);
+        const output = {
+            Error: errorData.Error,
+        };
+        for (const [name, member] of ns.structIterator()) {
+            const target = member.getMergedTraits().xmlName ?? name;
+            const value = errorData[target] ?? dataObject[target];
+            output[name] = this.deserializer.readSchema(member, value);
+        }
+        throw Object.assign(exception, errorMetadata, {
+            $fault: ns.getMergedTraits().error,
+            message,
+        }, output);
+    }
+    loadQueryErrorCode(output, data) {
+        const code = (data.Errors?.[0]?.Error ?? data.Errors?.Error ?? data.Error)?.Code;
+        if (code !== undefined) {
+            return code;
+        }
+        if (output.statusCode == 404) {
+            return "NotFound";
+        }
+    }
+    loadQueryError(data) {
+        return data.Errors?.[0]?.Error ?? data.Errors?.Error ?? data.Error;
+    }
+    loadQueryErrorMessage(data) {
+        const errorData = this.loadQueryError(data);
+        return errorData?.message ?? errorData?.Message ?? data.message ?? data.Message ?? "Unknown";
+    }
+    getDefaultContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+}
+
+class AwsEc2QueryProtocol extends AwsQueryProtocol {
+    options;
+    constructor(options) {
+        super(options);
+        this.options = options;
+        const ec2Settings = {
+            capitalizeKeys: true,
+            flattenLists: true,
+            serializeEmptyLists: false,
+        };
+        Object.assign(this.serializer.settings, ec2Settings);
+    }
+    useNestedResult() {
+        return false;
+    }
+}
+
+const parseXmlBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
+    if (encoded.length) {
+        let parsedObj;
+        try {
+            parsedObj = xmlBuilder.parseXML(encoded);
+        }
+        catch (e) {
+            if (e && typeof e === "object") {
+                Object.defineProperty(e, "$responseBodyText", {
+                    value: encoded,
+                });
+            }
+            throw e;
+        }
+        const textNodeName = "#text";
+        const key = Object.keys(parsedObj)[0];
+        const parsedObjToReturn = parsedObj[key];
+        if (parsedObjToReturn[textNodeName]) {
+            parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
+            delete parsedObjToReturn[textNodeName];
+        }
+        return smithyClient.getValueFromTextNode(parsedObjToReturn);
+    }
+    return {};
+});
+const parseXmlErrorBody = async (errorBody, context) => {
+    const value = await parseXmlBody(errorBody, context);
+    if (value.Error) {
+        value.Error.message = value.Error.message ?? value.Error.Message;
+    }
+    return value;
+};
+const loadRestXmlErrorCode = (output, data) => {
+    if (data?.Error?.Code !== undefined) {
+        return data.Error.Code;
+    }
+    if (data?.Code !== undefined) {
+        return data.Code;
+    }
+    if (output.statusCode == 404) {
+        return "NotFound";
+    }
+};
+
+class XmlShapeSerializer extends SerdeContextConfig {
+    settings;
+    stringBuffer;
+    byteBuffer;
+    buffer;
+    constructor(settings) {
+        super();
+        this.settings = settings;
+    }
+    write(schema$1, value) {
+        const ns = schema.NormalizedSchema.of(schema$1);
+        if (ns.isStringSchema() && typeof value === "string") {
+            this.stringBuffer = value;
+        }
+        else if (ns.isBlobSchema()) {
+            this.byteBuffer =
+                "byteLength" in value
+                    ? value
+                    : (this.serdeContext?.base64Decoder ?? utilBase64.fromBase64)(value);
+        }
+        else {
+            this.buffer = this.writeStruct(ns, value, undefined);
+            const traits = ns.getMergedTraits();
+            if (traits.httpPayload && !traits.xmlName) {
+                this.buffer.withName(ns.getName());
+            }
+        }
+    }
+    flush() {
+        if (this.byteBuffer !== undefined) {
+            const bytes = this.byteBuffer;
+            delete this.byteBuffer;
+            return bytes;
+        }
+        if (this.stringBuffer !== undefined) {
+            const str = this.stringBuffer;
+            delete this.stringBuffer;
+            return str;
+        }
+        const buffer = this.buffer;
+        if (this.settings.xmlNamespace) {
+            if (!buffer?.attributes?.["xmlns"]) {
+                buffer.addAttribute("xmlns", this.settings.xmlNamespace);
+            }
+        }
+        delete this.buffer;
+        return buffer.toString();
+    }
+    writeStruct(ns, value, parentXmlns) {
+        const traits = ns.getMergedTraits();
+        const name = ns.isMemberSchema() && !traits.httpPayload
+            ? ns.getMemberTraits().xmlName ?? ns.getMemberName()
+            : traits.xmlName ?? ns.getName();
+        if (!name || !ns.isStructSchema()) {
+            throw new Error(`@aws-sdk/core/protocols - xml serializer, cannot write struct with empty name or non-struct, schema=${ns.getName(true)}.`);
+        }
+        const structXmlNode = xmlBuilder.XmlNode.of(name);
+        const [xmlnsAttr, xmlns] = this.getXmlnsAttribute(ns, parentXmlns);
+        for (const [memberName, memberSchema] of ns.structIterator()) {
+            const val = value[memberName];
+            if (val != null || memberSchema.isIdempotencyToken()) {
+                if (memberSchema.getMergedTraits().xmlAttribute) {
+                    structXmlNode.addAttribute(memberSchema.getMergedTraits().xmlName ?? memberName, this.writeSimple(memberSchema, val));
+                    continue;
+                }
+                if (memberSchema.isListSchema()) {
+                    this.writeList(memberSchema, val, structXmlNode, xmlns);
+                }
+                else if (memberSchema.isMapSchema()) {
+                    this.writeMap(memberSchema, val, structXmlNode, xmlns);
+                }
+                else if (memberSchema.isStructSchema()) {
+                    structXmlNode.addChildNode(this.writeStruct(memberSchema, val, xmlns));
+                }
+                else {
+                    const memberNode = xmlBuilder.XmlNode.of(memberSchema.getMergedTraits().xmlName ?? memberSchema.getMemberName());
+                    this.writeSimpleInto(memberSchema, val, memberNode, xmlns);
+                    structXmlNode.addChildNode(memberNode);
+                }
+            }
+        }
+        if (xmlns) {
+            structXmlNode.addAttribute(xmlnsAttr, xmlns);
+        }
+        return structXmlNode;
+    }
+    writeList(listMember, array, container, parentXmlns) {
+        if (!listMember.isMemberSchema()) {
+            throw new Error(`@aws-sdk/core/protocols - xml serializer, cannot write non-member list: ${listMember.getName(true)}`);
+        }
+        const listTraits = listMember.getMergedTraits();
+        const listValueSchema = listMember.getValueSchema();
+        const listValueTraits = listValueSchema.getMergedTraits();
+        const sparse = !!listValueTraits.sparse;
+        const flat = !!listTraits.xmlFlattened;
+        const [xmlnsAttr, xmlns] = this.getXmlnsAttribute(listMember, parentXmlns);
+        const writeItem = (container, value) => {
+            if (listValueSchema.isListSchema()) {
+                this.writeList(listValueSchema, Array.isArray(value) ? value : [value], container, xmlns);
+            }
+            else if (listValueSchema.isMapSchema()) {
+                this.writeMap(listValueSchema, value, container, xmlns);
+            }
+            else if (listValueSchema.isStructSchema()) {
+                const struct = this.writeStruct(listValueSchema, value, xmlns);
+                container.addChildNode(struct.withName(flat ? listTraits.xmlName ?? listMember.getMemberName() : listValueTraits.xmlName ?? "member"));
+            }
+            else {
+                const listItemNode = xmlBuilder.XmlNode.of(flat ? listTraits.xmlName ?? listMember.getMemberName() : listValueTraits.xmlName ?? "member");
+                this.writeSimpleInto(listValueSchema, value, listItemNode, xmlns);
+                container.addChildNode(listItemNode);
+            }
+        };
+        if (flat) {
+            for (const value of array) {
+                if (sparse || value != null) {
+                    writeItem(container, value);
+                }
+            }
+        }
+        else {
+            const listNode = xmlBuilder.XmlNode.of(listTraits.xmlName ?? listMember.getMemberName());
+            if (xmlns) {
+                listNode.addAttribute(xmlnsAttr, xmlns);
+            }
+            for (const value of array) {
+                if (sparse || value != null) {
+                    writeItem(listNode, value);
+                }
+            }
+            container.addChildNode(listNode);
+        }
+    }
+    writeMap(mapMember, map, container, parentXmlns, containerIsMap = false) {
+        if (!mapMember.isMemberSchema()) {
+            throw new Error(`@aws-sdk/core/protocols - xml serializer, cannot write non-member map: ${mapMember.getName(true)}`);
+        }
+        const mapTraits = mapMember.getMergedTraits();
+        const mapKeySchema = mapMember.getKeySchema();
+        const mapKeyTraits = mapKeySchema.getMergedTraits();
+        const keyTag = mapKeyTraits.xmlName ?? "key";
+        const mapValueSchema = mapMember.getValueSchema();
+        const mapValueTraits = mapValueSchema.getMergedTraits();
+        const valueTag = mapValueTraits.xmlName ?? "value";
+        const sparse = !!mapValueTraits.sparse;
+        const flat = !!mapTraits.xmlFlattened;
+        const [xmlnsAttr, xmlns] = this.getXmlnsAttribute(mapMember, parentXmlns);
+        const addKeyValue = (entry, key, val) => {
+            const keyNode = xmlBuilder.XmlNode.of(keyTag, key);
+            const [keyXmlnsAttr, keyXmlns] = this.getXmlnsAttribute(mapKeySchema, xmlns);
+            if (keyXmlns) {
+                keyNode.addAttribute(keyXmlnsAttr, keyXmlns);
+            }
+            entry.addChildNode(keyNode);
+            let valueNode = xmlBuilder.XmlNode.of(valueTag);
+            if (mapValueSchema.isListSchema()) {
+                this.writeList(mapValueSchema, val, valueNode, xmlns);
+            }
+            else if (mapValueSchema.isMapSchema()) {
+                this.writeMap(mapValueSchema, val, valueNode, xmlns, true);
+            }
+            else if (mapValueSchema.isStructSchema()) {
+                valueNode = this.writeStruct(mapValueSchema, val, xmlns);
+            }
+            else {
+                this.writeSimpleInto(mapValueSchema, val, valueNode, xmlns);
+            }
+            entry.addChildNode(valueNode);
+        };
+        if (flat) {
+            for (const [key, val] of Object.entries(map)) {
+                if (sparse || val != null) {
+                    const entry = xmlBuilder.XmlNode.of(mapTraits.xmlName ?? mapMember.getMemberName());
+                    addKeyValue(entry, key, val);
+                    container.addChildNode(entry);
+                }
+            }
+        }
+        else {
+            let mapNode;
+            if (!containerIsMap) {
+                mapNode = xmlBuilder.XmlNode.of(mapTraits.xmlName ?? mapMember.getMemberName());
+                if (xmlns) {
+                    mapNode.addAttribute(xmlnsAttr, xmlns);
+                }
+                container.addChildNode(mapNode);
+            }
+            for (const [key, val] of Object.entries(map)) {
+                if (sparse || val != null) {
+                    const entry = xmlBuilder.XmlNode.of("entry");
+                    addKeyValue(entry, key, val);
+                    (containerIsMap ? container : mapNode).addChildNode(entry);
+                }
+            }
+        }
+    }
+    writeSimple(_schema, value) {
+        if (null === value) {
+            throw new Error("@aws-sdk/core/protocols - (XML serializer) cannot write null value.");
+        }
+        const ns = schema.NormalizedSchema.of(_schema);
+        let nodeContents = null;
+        if (value && typeof value === "object") {
+            if (ns.isBlobSchema()) {
+                nodeContents = (this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(value);
+            }
+            else if (ns.isTimestampSchema() && value instanceof Date) {
+                const format = protocols.determineTimestampFormat(ns, this.settings);
+                switch (format) {
+                    case 5:
+                        nodeContents = value.toISOString().replace(".000Z", "Z");
+                        break;
+                    case 6:
+                        nodeContents = smithyClient.dateToUtcString(value);
+                        break;
+                    case 7:
+                        nodeContents = String(value.getTime() / 1000);
+                        break;
+                    default:
+                        console.warn("Missing timestamp format, using http date", value);
+                        nodeContents = smithyClient.dateToUtcString(value);
+                        break;
+                }
+            }
+            else if (ns.isBigDecimalSchema() && value) {
+                if (value instanceof serde.NumericValue) {
+                    return value.string;
+                }
+                return String(value);
+            }
+            else if (ns.isMapSchema() || ns.isListSchema()) {
+                throw new Error("@aws-sdk/core/protocols - xml serializer, cannot call _write() on List/Map schema, call writeList or writeMap() instead.");
+            }
+            else {
+                throw new Error(`@aws-sdk/core/protocols - xml serializer, unhandled schema type for object value and schema: ${ns.getName(true)}`);
+            }
+        }
+        if (ns.isBooleanSchema() || ns.isNumericSchema() || ns.isBigIntegerSchema() || ns.isBigDecimalSchema()) {
+            nodeContents = String(value);
+        }
+        if (ns.isStringSchema()) {
+            if (value === undefined && ns.isIdempotencyToken()) {
+                nodeContents = serde.generateIdempotencyToken();
+            }
+            else {
+                nodeContents = String(value);
+            }
+        }
+        if (nodeContents === null) {
+            throw new Error(`Unhandled schema-value pair ${ns.getName(true)}=${value}`);
+        }
+        return nodeContents;
+    }
+    writeSimpleInto(_schema, value, into, parentXmlns) {
+        const nodeContents = this.writeSimple(_schema, value);
+        const ns = schema.NormalizedSchema.of(_schema);
+        const content = new xmlBuilder.XmlText(nodeContents);
+        const [xmlnsAttr, xmlns] = this.getXmlnsAttribute(ns, parentXmlns);
+        if (xmlns) {
+            into.addAttribute(xmlnsAttr, xmlns);
+        }
+        into.addChildNode(content);
+    }
+    getXmlnsAttribute(ns, parentXmlns) {
+        const traits = ns.getMergedTraits();
+        const [prefix, xmlns] = traits.xmlNamespace ?? [];
+        if (xmlns && xmlns !== parentXmlns) {
+            return [prefix ? `xmlns:${prefix}` : "xmlns", xmlns];
+        }
+        return [void 0, void 0];
+    }
+}
+
+class XmlCodec extends SerdeContextConfig {
+    settings;
+    constructor(settings) {
+        super();
+        this.settings = settings;
+    }
+    createSerializer() {
+        const serializer = new XmlShapeSerializer(this.settings);
+        serializer.setSerdeContext(this.serdeContext);
+        return serializer;
+    }
+    createDeserializer() {
+        const deserializer = new XmlShapeDeserializer(this.settings);
+        deserializer.setSerdeContext(this.serdeContext);
+        return deserializer;
+    }
+}
+
+class AwsRestXmlProtocol extends protocols.HttpBindingProtocol {
+    codec;
+    serializer;
+    deserializer;
+    mixin = new ProtocolLib();
+    constructor(options) {
+        super(options);
+        const settings = {
+            timestampFormat: {
+                useTrait: true,
+                default: 5,
+            },
+            httpBindings: true,
+            xmlNamespace: options.xmlNamespace,
+            serviceNamespace: options.defaultNamespace,
+        };
+        this.codec = new XmlCodec(settings);
+        this.serializer = new protocols.HttpInterceptingShapeSerializer(this.codec.createSerializer(), settings);
+        this.deserializer = new protocols.HttpInterceptingShapeDeserializer(this.codec.createDeserializer(), settings);
+    }
+    getPayloadCodec() {
+        return this.codec;
+    }
+    getShapeId() {
+        return "aws.protocols#restXml";
+    }
+    async serializeRequest(operationSchema, input, context) {
+        const request = await super.serializeRequest(operationSchema, input, context);
+        const inputSchema = schema.NormalizedSchema.of(operationSchema.input);
+        if (!request.headers["content-type"]) {
+            const contentType = this.mixin.resolveRestContentType(this.getDefaultContentType(), inputSchema);
+            if (contentType) {
+                request.headers["content-type"] = contentType;
+            }
+        }
+        if (request.headers["content-type"] === this.getDefaultContentType()) {
+            if (typeof request.body === "string") {
+                request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
+            }
+        }
+        return request;
+    }
+    async deserializeResponse(operationSchema, context, response) {
+        return super.deserializeResponse(operationSchema, context, response);
+    }
+    async handleError(operationSchema, context, response, dataObject, metadata) {
+        const errorIdentifier = loadRestXmlErrorCode(response, dataObject) ?? "Unknown";
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata);
+        const ns = schema.NormalizedSchema.of(errorSchema);
+        const message = dataObject.Error?.message ?? dataObject.Error?.Message ?? dataObject.message ?? dataObject.Message ?? "Unknown";
+        const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
+        const exception = new ErrorCtor(message);
+        await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
+        const output = {};
+        for (const [name, member] of ns.structIterator()) {
+            const target = member.getMergedTraits().xmlName ?? name;
+            const value = dataObject.Error?.[target] ?? dataObject[target];
+            output[name] = this.codec.createDeserializer().readSchema(member, value);
+        }
+        throw Object.assign(exception, errorMetadata, {
+            $fault: ns.getMergedTraits().error,
+            message,
+        }, output);
+    }
+    getDefaultContentType() {
+        return "application/xml";
+    }
+}
+
+exports.AwsEc2QueryProtocol = AwsEc2QueryProtocol;
+exports.AwsJson1_0Protocol = AwsJson1_0Protocol;
+exports.AwsJson1_1Protocol = AwsJson1_1Protocol;
+exports.AwsJsonRpcProtocol = AwsJsonRpcProtocol;
+exports.AwsQueryProtocol = AwsQueryProtocol;
+exports.AwsRestJsonProtocol = AwsRestJsonProtocol;
+exports.AwsRestXmlProtocol = AwsRestXmlProtocol;
+exports.AwsSmithyRpcV2CborProtocol = AwsSmithyRpcV2CborProtocol;
+exports.JsonCodec = JsonCodec;
+exports.JsonShapeDeserializer = JsonShapeDeserializer;
+exports.JsonShapeSerializer = JsonShapeSerializer;
+exports.XmlCodec = XmlCodec;
+exports.XmlShapeDeserializer = XmlShapeDeserializer;
+exports.XmlShapeSerializer = XmlShapeSerializer;
+exports._toBool = _toBool;
+exports._toNum = _toNum;
+exports._toStr = _toStr;
+exports.awsExpectUnion = awsExpectUnion;
+exports.loadRestJsonErrorCode = loadRestJsonErrorCode;
+exports.loadRestXmlErrorCode = loadRestXmlErrorCode;
+exports.parseJsonBody = parseJsonBody;
+exports.parseJsonErrorBody = parseJsonErrorBody;
+exports.parseXmlBody = parseXmlBody;
+exports.parseXmlErrorBody = parseXmlErrorBody;
+
+
+/***/ }),
+
+/***/ 3340:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+
+var client = __nccwpck_require__(9342);
 var propertyProvider = __nccwpck_require__(7717);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
@@ -18224,12 +13495,12 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 6842:
+/***/ 6296:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var credentialProviderEnv = __nccwpck_require__(5679);
+var credentialProviderEnv = __nccwpck_require__(3340);
 var propertyProvider = __nccwpck_require__(7717);
 var sharedIniFileLoader = __nccwpck_require__(2787);
 
@@ -18238,7 +13509,7 @@ const remoteProvider = async (init) => {
     const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 900).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4900, 19));
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 937).then(__nccwpck_require__.bind(__nccwpck_require__, 3937));
+        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 144).then(__nccwpck_require__.bind(__nccwpck_require__, 3144));
         return propertyProvider.chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -18342,22 +13613,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new propertyProvider.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 666).then(__nccwpck_require__.t.bind(__nccwpck_require__, 5666, 19));
+        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 980).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9980, 19));
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 390).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1390, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 380).then(__nccwpck_require__.t.bind(__nccwpck_require__, 3380, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 787).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4787, 19));
+        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 700).then(__nccwpck_require__.t.bind(__nccwpck_require__, 700, 19));
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await Promise.all(/* import() */[__nccwpck_require__.e(675), __nccwpck_require__.e(348)]).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2348, 23));
+        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 314).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4314, 23));
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -18381,7 +13652,7 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 9497:
+/***/ 9058:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18429,7 +13700,7 @@ exports.resolveHostHeaderConfig = resolveHostHeaderConfig;
 
 /***/ }),
 
-/***/ 3529:
+/***/ 5808:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -18484,12 +13755,12 @@ exports.loggerMiddlewareOptions = loggerMiddlewareOptions;
 
 /***/ }),
 
-/***/ 1993:
+/***/ 6482:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var recursionDetectionMiddleware = __nccwpck_require__(8842);
+var recursionDetectionMiddleware = __nccwpck_require__(5263);
 
 const recursionDetectionMiddlewareOptions = {
     step: "build",
@@ -18516,7 +13787,7 @@ Object.keys(recursionDetectionMiddleware).forEach(function (k) {
 
 /***/ }),
 
-/***/ 8842:
+/***/ 5263:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18555,15 +13826,15 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 
 /***/ }),
 
-/***/ 8727:
+/***/ 2512:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var core = __nccwpck_require__(2983);
-var utilEndpoints = __nccwpck_require__(2213);
+var core = __nccwpck_require__(6304);
+var utilEndpoints = __nccwpck_require__(9758);
 var protocolHttp = __nccwpck_require__(1034);
-var core$1 = __nccwpck_require__(583);
+var core$1 = __nccwpck_require__(4134);
 
 const DEFAULT_UA_APP_ID = undefined;
 function isValidUserAgentAppId(appId) {
@@ -18756,13 +14027,13 @@ exports.userAgentMiddleware = userAgentMiddleware;
 
 /***/ }),
 
-/***/ 9894:
+/***/ 8540:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var configResolver = __nccwpck_require__(7358);
-var stsRegionDefaultResolver = __nccwpck_require__(3362);
+var stsRegionDefaultResolver = __nccwpck_require__(2012);
 
 const getAwsRegionExtensionConfiguration = (runtimeConfig) => {
     return {
@@ -18812,7 +14083,7 @@ Object.keys(stsRegionDefaultResolver).forEach(function (k) {
 
 /***/ }),
 
-/***/ 3362:
+/***/ 2012:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18839,7 +14110,7 @@ exports.warning = {
 
 /***/ }),
 
-/***/ 2213:
+/***/ 9758:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19261,14 +14532,14 @@ exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
 
 /***/ }),
 
-/***/ 2975:
+/***/ 6590:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var os = __nccwpck_require__(857);
 var process = __nccwpck_require__(932);
-var middlewareUserAgent = __nccwpck_require__(8727);
+var middlewareUserAgent = __nccwpck_require__(2512);
 
 const crtAvailability = {
     isCrtAvailable: false,
@@ -19326,12 +14597,12 @@ exports.defaultUserAgent = defaultUserAgent;
 
 /***/ }),
 
-/***/ 7642:
+/***/ 8004:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var xmlParser = __nccwpck_require__(1351);
+var xmlParser = __nccwpck_require__(2637);
 
 function escapeAttribute(value) {
     return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -19457,7 +14728,7 @@ exports.XmlText = XmlText;
 
 /***/ }),
 
-/***/ 1351:
+/***/ 2637:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19675,7 +14946,7 @@ exports.resolveRegionConfig = resolveRegionConfig;
 
 /***/ }),
 
-/***/ 2983:
+/***/ 6304:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19684,7 +14955,7 @@ var types = __nccwpck_require__(1244);
 var utilMiddleware = __nccwpck_require__(1202);
 var middlewareSerde = __nccwpck_require__(6140);
 var protocolHttp = __nccwpck_require__(1034);
-var protocols = __nccwpck_require__(990);
+var protocols = __nccwpck_require__(7512);
 
 const getSmithyContext = (context) => context[types.SMITHY_CONTEXT_KEY] || (context[types.SMITHY_CONTEXT_KEY] = {});
 
@@ -20031,17 +15302,17 @@ exports.setFeature = setFeature;
 
 /***/ }),
 
-/***/ 1948:
+/***/ 5571:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var serde = __nccwpck_require__(2321);
+var serde = __nccwpck_require__(832);
 var utilUtf8 = __nccwpck_require__(5579);
-var protocols = __nccwpck_require__(990);
+var protocols = __nccwpck_require__(7512);
 var protocolHttp = __nccwpck_require__(1034);
 var utilBodyLengthBrowser = __nccwpck_require__(8773);
-var schema = __nccwpck_require__(419);
+var schema = __nccwpck_require__(3392);
 var utilMiddleware = __nccwpck_require__(1202);
 var utilBase64 = __nccwpck_require__(1532);
 
@@ -21089,14 +16360,14 @@ exports.tagSymbol = tagSymbol;
 
 /***/ }),
 
-/***/ 990:
+/***/ 7512:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var utilStream = __nccwpck_require__(2938);
-var schema = __nccwpck_require__(419);
-var serde = __nccwpck_require__(2321);
+var schema = __nccwpck_require__(3392);
+var serde = __nccwpck_require__(832);
 var protocolHttp = __nccwpck_require__(1034);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
@@ -21216,7 +16487,7 @@ class HttpProtocol extends SerdeContext {
         });
     }
     async loadEventStreamCapability() {
-        const { EventStreamSerde } = await __nccwpck_require__.e(/* import() */ 816).then(__nccwpck_require__.t.bind(__nccwpck_require__, 816, 19));
+        const { EventStreamSerde } = await __nccwpck_require__.e(/* import() */ 489).then(__nccwpck_require__.t.bind(__nccwpck_require__, 8489, 19));
         return new EventStreamSerde({
             marshaller: this.getEventStreamMarshaller(),
             serializer: this.serializer,
@@ -21283,7 +16554,7 @@ class HttpBindingProtocol extends HttpProtocol {
         for (const [memberName, memberNs] of ns.structIterator()) {
             const memberTraits = memberNs.getMergedTraits() ?? {};
             const inputMemberValue = input[memberName];
-            if (inputMemberValue == null) {
+            if (inputMemberValue == null && !memberNs.isIdempotencyToken()) {
                 continue;
             }
             if (memberTraits.httpPayload) {
@@ -21864,7 +17135,12 @@ class ToStringShapeSerializer extends SerdeContext {
                 this.stringBuffer = value;
                 break;
             default:
-                this.stringBuffer = String(value);
+                if (ns.isIdempotencyToken()) {
+                    this.stringBuffer = serde.generateIdempotencyToken();
+                }
+                else {
+                    this.stringBuffer = String(value);
+                }
         }
     }
     flush() {
@@ -21924,7 +17200,7 @@ exports.resolvedPath = resolvedPath;
 
 /***/ }),
 
-/***/ 419:
+/***/ 3392:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -22548,7 +17824,7 @@ exports.translateTraits = translateTraits;
 
 /***/ }),
 
-/***/ 2321:
+/***/ 832:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -23590,21 +18866,21 @@ exports.getContentLengthPlugin = getContentLengthPlugin;
 
 /***/ }),
 
-/***/ 5635:
+/***/ 3081:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getEndpointFromConfig = void 0;
 const node_config_provider_1 = __nccwpck_require__(913);
-const getEndpointUrlConfig_1 = __nccwpck_require__(9750);
+const getEndpointUrlConfig_1 = __nccwpck_require__(2856);
 const getEndpointFromConfig = async (serviceId) => (0, node_config_provider_1.loadConfig)((0, getEndpointUrlConfig_1.getEndpointUrlConfig)(serviceId ?? ""))();
 exports.getEndpointFromConfig = getEndpointFromConfig;
 
 
 /***/ }),
 
-/***/ 9750:
+/***/ 2856:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -23646,14 +18922,14 @@ exports.getEndpointUrlConfig = getEndpointUrlConfig;
 
 /***/ }),
 
-/***/ 7469:
+/***/ 1251:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var getEndpointFromConfig = __nccwpck_require__(5635);
+var getEndpointFromConfig = __nccwpck_require__(3081);
 var urlParser = __nccwpck_require__(7272);
-var core = __nccwpck_require__(2983);
+var core = __nccwpck_require__(6304);
 var utilMiddleware = __nccwpck_require__(1202);
 var middlewareSerde = __nccwpck_require__(6140);
 
@@ -23893,7 +19169,7 @@ exports.toEndpointV1 = toEndpointV1;
 
 /***/ }),
 
-/***/ 2260:
+/***/ 2386:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -23903,8 +19179,8 @@ var protocolHttp = __nccwpck_require__(1034);
 var serviceErrorClassification = __nccwpck_require__(5328);
 var uuid = __nccwpck_require__(7919);
 var utilMiddleware = __nccwpck_require__(1202);
-var smithyClient = __nccwpck_require__(1715);
-var isStreamingPayload = __nccwpck_require__(1793);
+var smithyClient = __nccwpck_require__(3487);
+var isStreamingPayload = __nccwpck_require__(6487);
 
 const getDefaultRetryQuota = (initialRetryTokens, options) => {
     const MAX_CAPACITY = initialRetryTokens;
@@ -24258,7 +19534,7 @@ exports.retryMiddlewareOptions = retryMiddlewareOptions;
 
 /***/ }),
 
-/***/ 1793:
+/***/ 6487:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -26791,16 +22067,16 @@ exports.signatureV4aContainer = signatureV4aContainer;
 
 /***/ }),
 
-/***/ 1715:
+/***/ 3487:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var middlewareStack = __nccwpck_require__(2375);
-var protocols = __nccwpck_require__(990);
+var protocols = __nccwpck_require__(7512);
 var types = __nccwpck_require__(1244);
-var schema = __nccwpck_require__(419);
-var serde = __nccwpck_require__(2321);
+var schema = __nccwpck_require__(3392);
+var serde = __nccwpck_require__(832);
 
 class Client {
     config;
@@ -27730,7 +23006,7 @@ exports.numberSelector = numberSelector;
 
 /***/ }),
 
-/***/ 2868:
+/***/ 2500:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -54407,10 +49683,10 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 257:
+/***/ 7739:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.929.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.928.0","@aws-sdk/credential-provider-node":"3.929.0","@aws-sdk/middleware-host-header":"3.922.0","@aws-sdk/middleware-logger":"3.922.0","@aws-sdk/middleware-recursion-detection":"3.922.0","@aws-sdk/middleware-user-agent":"3.928.0","@aws-sdk/region-config-resolver":"3.925.0","@aws-sdk/types":"3.922.0","@aws-sdk/util-endpoints":"3.922.0","@aws-sdk/util-user-agent-browser":"3.922.0","@aws-sdk/util-user-agent-node":"3.928.0","@smithy/config-resolver":"^4.4.2","@smithy/core":"^3.17.2","@smithy/fetch-http-handler":"^5.3.5","@smithy/hash-node":"^4.2.4","@smithy/invalid-dependency":"^4.2.4","@smithy/middleware-content-length":"^4.2.4","@smithy/middleware-endpoint":"^4.3.6","@smithy/middleware-retry":"^4.4.6","@smithy/middleware-serde":"^4.2.4","@smithy/middleware-stack":"^4.2.4","@smithy/node-config-provider":"^4.3.4","@smithy/node-http-handler":"^4.4.4","@smithy/protocol-http":"^5.3.4","@smithy/smithy-client":"^4.9.2","@smithy/types":"^4.8.1","@smithy/url-parser":"^4.2.4","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.5","@smithy/util-defaults-mode-node":"^4.2.8","@smithy/util-endpoints":"^3.2.4","@smithy/util-middleware":"^4.2.4","@smithy/util-retry":"^4.2.4","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.4","@smithy/uuid":"^1.1.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.930.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.930.0","@aws-sdk/credential-provider-node":"3.930.0","@aws-sdk/middleware-host-header":"3.930.0","@aws-sdk/middleware-logger":"3.930.0","@aws-sdk/middleware-recursion-detection":"3.930.0","@aws-sdk/middleware-user-agent":"3.930.0","@aws-sdk/region-config-resolver":"3.930.0","@aws-sdk/types":"3.930.0","@aws-sdk/util-endpoints":"3.930.0","@aws-sdk/util-user-agent-browser":"3.930.0","@aws-sdk/util-user-agent-node":"3.930.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.2","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.9","@smithy/middleware-retry":"^4.4.9","@smithy/middleware-serde":"^4.2.5","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.5","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.8","@smithy/util-defaults-mode-node":"^4.2.11","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -54600,7 +49876,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(6966);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(8034);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(8332);
 
 
 async function run() {
