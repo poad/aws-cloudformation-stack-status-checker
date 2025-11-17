@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig-build.json",
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "lint-fix": "eslint src/**/*.ts --fix",
     "lint": "eslint src/**/*.ts",
     "package": "ncc build --license licenses.txt --target es2022",
@@ -38,7 +38,6 @@
     "jiti": "^2.6.1",
     "js-yaml": "^4.1.1",
     "pnpm": "^10.22.0",
-    "rimraf": "^6.1.0",
     "ts-jest": "^29.4.5",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.4"

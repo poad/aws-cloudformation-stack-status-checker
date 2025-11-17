@@ -1,11 +1,15 @@
 packages:
-  - '.'
-  - 'test'
+  - .
+  - test
 
 enablePrePostScripts: true
-strictPeerDependencies: false
 
-# one day
 minimumReleaseAge: 1440
+
 minimumReleaseAgeExclude:
- - pnpm
+  - pnpm
+
+overrides:
+  glob@>=10.3.7 <=11.0.3: '>=11.1.0'
+
+strictPeerDependencies: false
