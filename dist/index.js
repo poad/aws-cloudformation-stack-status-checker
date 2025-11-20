@@ -3180,86 +3180,144 @@ function copyFile(srcFile, destFile, force) {
 
 /***/ }),
 
-/***/ 2907:
+/***/ 2933:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var async_hooks = __nccwpck_require__(290);
-
-const noGlobalAwsLambda = process.env["AWS_LAMBDA_NODEJS_NO_GLOBAL_AWSLAMBDA"] === "1" ||
-    process.env["AWS_LAMBDA_NODEJS_NO_GLOBAL_AWSLAMBDA"] === "true";
-if (!noGlobalAwsLambda) {
+const PROTECTED_KEYS = {
+    REQUEST_ID: Symbol.for("_AWS_LAMBDA_REQUEST_ID"),
+    X_RAY_TRACE_ID: Symbol.for("_AWS_LAMBDA_X_RAY_TRACE_ID"),
+    TENANT_ID: Symbol.for("_AWS_LAMBDA_TENANT_ID"),
+};
+const NO_GLOBAL_AWS_LAMBDA = ["true", "1"].includes(process.env?.AWS_LAMBDA_NODEJS_NO_GLOBAL_AWSLAMBDA ?? "");
+if (!NO_GLOBAL_AWS_LAMBDA) {
     globalThis.awslambda = globalThis.awslambda || {};
 }
-const PROTECTED_KEYS = {
-    REQUEST_ID: Symbol("_AWS_LAMBDA_REQUEST_ID"),
-    X_RAY_TRACE_ID: Symbol("_AWS_LAMBDA_X_RAY_TRACE_ID"),
-    TENANT_ID: Symbol("_AWS_LAMBDA_TENANT_ID"),
-};
-class InvokeStoreImpl {
-    static storage = new async_hooks.AsyncLocalStorage();
+class InvokeStoreBase {
     static PROTECTED_KEYS = PROTECTED_KEYS;
-    static run(context, fn) {
-        return this.storage.run({ ...context }, fn);
+    isProtectedKey(key) {
+        return Object.values(PROTECTED_KEYS).includes(key);
     }
-    static getContext() {
-        return this.storage.getStore();
+    getRequestId() {
+        return this.get(PROTECTED_KEYS.REQUEST_ID) ?? "-";
     }
-    static get(key) {
-        const context = this.storage.getStore();
-        return context?.[key];
+    getXRayTraceId() {
+        return this.get(PROTECTED_KEYS.X_RAY_TRACE_ID);
     }
-    static set(key, value) {
+    getTenantId() {
+        return this.get(PROTECTED_KEYS.TENANT_ID);
+    }
+}
+class InvokeStoreSingle extends InvokeStoreBase {
+    currentContext;
+    getContext() {
+        return this.currentContext;
+    }
+    hasContext() {
+        return this.currentContext !== undefined;
+    }
+    get(key) {
+        return this.currentContext?.[key];
+    }
+    set(key, value) {
         if (this.isProtectedKey(key)) {
-            throw new Error(`Cannot modify protected Lambda context field`);
+            throw new Error(`Cannot modify protected Lambda context field: ${String(key)}`);
         }
-        const context = this.storage.getStore();
-        if (context) {
-            context[key] = value;
+        this.currentContext = this.currentContext || {};
+        this.currentContext[key] = value;
+    }
+    run(context, fn) {
+        this.currentContext = context;
+        try {
+            return fn();
+        }
+        finally {
+            this.currentContext = undefined;
         }
     }
-    static getRequestId() {
-        return this.get(this.PROTECTED_KEYS.REQUEST_ID) ?? "-";
+}
+class InvokeStoreMulti extends InvokeStoreBase {
+    als;
+    static async create() {
+        const instance = new InvokeStoreMulti();
+        const asyncHooks = await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 6698, 23));
+        instance.als = new asyncHooks.AsyncLocalStorage();
+        return instance;
     }
-    static getXRayTraceId() {
-        return this.get(this.PROTECTED_KEYS.X_RAY_TRACE_ID);
+    getContext() {
+        return this.als.getStore();
     }
-    static getTenantId() {
-        return this.get(this.PROTECTED_KEYS.TENANT_ID);
+    hasContext() {
+        return this.als.getStore() !== undefined;
     }
-    static hasContext() {
-        return this.storage.getStore() !== undefined;
+    get(key) {
+        return this.als.getStore()?.[key];
     }
-    static isProtectedKey(key) {
-        return (key === this.PROTECTED_KEYS.REQUEST_ID ||
-            key === this.PROTECTED_KEYS.X_RAY_TRACE_ID);
+    set(key, value) {
+        if (this.isProtectedKey(key)) {
+            throw new Error(`Cannot modify protected Lambda context field: ${String(key)}`);
+        }
+        const store = this.als.getStore();
+        if (!store) {
+            throw new Error("No context available");
+        }
+        store[key] = value;
+    }
+    run(context, fn) {
+        return this.als.run(context, fn);
     }
 }
-let instance;
-if (!noGlobalAwsLambda && globalThis.awslambda?.InvokeStore) {
-    instance = globalThis.awslambda.InvokeStore;
-}
-else {
-    instance = InvokeStoreImpl;
-    if (!noGlobalAwsLambda && globalThis.awslambda) {
-        globalThis.awslambda.InvokeStore = instance;
+exports.InvokeStore = void 0;
+(function (InvokeStore) {
+    let instance = null;
+    async function getInstanceAsync() {
+        if (!instance) {
+            instance = (async () => {
+                const isMulti = "AWS_LAMBDA_MAX_CONCURRENCY" in process.env;
+                const newInstance = isMulti
+                    ? await InvokeStoreMulti.create()
+                    : new InvokeStoreSingle();
+                if (!NO_GLOBAL_AWS_LAMBDA && globalThis.awslambda?.InvokeStore) {
+                    return globalThis.awslambda.InvokeStore;
+                }
+                else if (!NO_GLOBAL_AWS_LAMBDA && globalThis.awslambda) {
+                    globalThis.awslambda.InvokeStore = newInstance;
+                    return newInstance;
+                }
+                else {
+                    return newInstance;
+                }
+            })();
+        }
+        return instance;
     }
-}
-const InvokeStore = instance;
+    InvokeStore.getInstanceAsync = getInstanceAsync;
+    InvokeStore._testing = process.env.AWS_LAMBDA_BENCHMARK_MODE === "1"
+        ? {
+            reset: () => {
+                instance = null;
+                if (globalThis.awslambda?.InvokeStore) {
+                    delete globalThis.awslambda.InvokeStore;
+                }
+                globalThis.awslambda = {};
+            },
+        }
+        : undefined;
+})(exports.InvokeStore || (exports.InvokeStore = {}));
 
-exports.InvokeStore = InvokeStore;
+exports.InvokeStoreBase = InvokeStoreBase;
 
 
 /***/ }),
 
-/***/ 6245:
+/***/ 4795:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(5996);
+const core_1 = __nccwpck_require__(8362);
 const util_middleware_1 = __nccwpck_require__(1202);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -3307,7 +3365,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 9803:
+/***/ 4069:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3315,7 +3373,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(9758);
 const util_endpoints_2 = __nccwpck_require__(4279);
-const ruleset_1 = __nccwpck_require__(176);
+const ruleset_1 = __nccwpck_require__(310);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -3332,7 +3390,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 176:
+/***/ 310:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -3346,7 +3404,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 4746:
+/***/ 2672:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
@@ -3354,8 +3412,8 @@ var __webpack_unused_export__;
 
 var middlewareHostHeader = __nccwpck_require__(9058);
 var middlewareLogger = __nccwpck_require__(5808);
-var middlewareRecursionDetection = __nccwpck_require__(6482);
-var middlewareUserAgent = __nccwpck_require__(5062);
+var middlewareRecursionDetection = __nccwpck_require__(2599);
+var middlewareUserAgent = __nccwpck_require__(676);
 var configResolver = __nccwpck_require__(7358);
 var core = __nccwpck_require__(8595);
 var schema = __nccwpck_require__(2615);
@@ -3363,8 +3421,8 @@ var middlewareContentLength = __nccwpck_require__(5550);
 var middlewareEndpoint = __nccwpck_require__(9720);
 var middlewareRetry = __nccwpck_require__(5195);
 var smithyClient = __nccwpck_require__(4791);
-var httpAuthSchemeProvider = __nccwpck_require__(6245);
-var runtimeConfig = __nccwpck_require__(8908);
+var httpAuthSchemeProvider = __nccwpck_require__(4795);
+var runtimeConfig = __nccwpck_require__(4338);
 var regionConfigResolver = __nccwpck_require__(8540);
 var protocolHttp = __nccwpck_require__(1034);
 var utilWaiter = __nccwpck_require__(8946);
@@ -3546,6 +3604,9 @@ let TypeNotFoundException$1 = class TypeNotFoundException extends CloudFormation
         this.Message = opts.Message;
     }
 };
+const AfterValueFrom = {
+    TEMPLATE: "TEMPLATE",
+};
 let AlreadyExistsException$1 = class AlreadyExistsException extends CloudFormationServiceException$1 {
     name = "AlreadyExistsException";
     $fault = "client";
@@ -3576,6 +3637,7 @@ const AttributeChangeType = {
     Add: "Add",
     Modify: "Modify",
     Remove: "Remove",
+    SyncWithActual: "SyncWithActual",
 };
 let TypeConfigurationNotFoundException$1 = class TypeConfigurationNotFoundException extends CloudFormationServiceException$1 {
     name = "TypeConfigurationNotFoundException";
@@ -3590,6 +3652,15 @@ let TypeConfigurationNotFoundException$1 = class TypeConfigurationNotFoundExcept
         Object.setPrototypeOf(this, TypeConfigurationNotFoundException.prototype);
         this.Message = opts.Message;
     }
+};
+const BeaconStackOperationStatus = {
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+    SUCCEEDED: "SUCCEEDED",
+};
+const BeforeValueFrom = {
+    ACTUAL_STATE: "ACTUAL_STATE",
+    PREVIOUS_DEPLOYMENT_STATE: "PREVIOUS_DEPLOYMENT_STATE",
 };
 const CallAs = {
     DELEGATED_ADMIN: "DELEGATED_ADMIN",
@@ -3626,10 +3697,12 @@ const ChangeAction = {
     Import: "Import",
     Modify: "Modify",
     Remove: "Remove",
+    SyncWithActual: "SyncWithActual",
 };
 const ChangeSource = {
     Automatic: "Automatic",
     DirectModification: "DirectModification",
+    NoModification: "NoModification",
     ParameterReference: "ParameterReference",
     ResourceAttribute: "ResourceAttribute",
     ResourceReference: "ResourceReference",
@@ -3664,6 +3737,18 @@ const Replacement = {
     Conditional: "Conditional",
     False: "False",
     True: "True",
+};
+const DriftIgnoredReason = {
+    MANAGED_BY_AWS: "MANAGED_BY_AWS",
+    WRITE_ONLY_PROPERTY: "WRITE_ONLY_PROPERTY",
+};
+const StackResourceDriftStatus = {
+    DELETED: "DELETED",
+    IN_SYNC: "IN_SYNC",
+    MODIFIED: "MODIFIED",
+    NOT_CHECKED: "NOT_CHECKED",
+    UNKNOWN: "UNKNOWN",
+    UNSUPPORTED: "UNSUPPORTED",
 };
 const ChangeType = {
     Resource: "Resource",
@@ -3719,6 +3804,9 @@ const ChangeSetType = {
     CREATE: "CREATE",
     IMPORT: "IMPORT",
     UPDATE: "UPDATE",
+};
+const DeploymentMode = {
+    REVERT_DRIFT: "REVERT_DRIFT",
 };
 const OnStackFailure = {
     DELETE: "DELETE",
@@ -3927,6 +4015,71 @@ const RegistryType = {
     MODULE: "MODULE",
     RESOURCE: "RESOURCE",
 };
+const StackDriftStatus = {
+    DRIFTED: "DRIFTED",
+    IN_SYNC: "IN_SYNC",
+    NOT_CHECKED: "NOT_CHECKED",
+    UNKNOWN: "UNKNOWN",
+};
+const DetailedStatus = {
+    CONFIGURATION_COMPLETE: "CONFIGURATION_COMPLETE",
+    VALIDATION_FAILED: "VALIDATION_FAILED",
+};
+const EventType = {
+    HOOK_INVOCATION_ERROR: "HOOK_INVOCATION_ERROR",
+    PROGRESS_EVENT: "PROGRESS_EVENT",
+    PROVISIONING_ERROR: "PROVISIONING_ERROR",
+    STACK_EVENT: "STACK_EVENT",
+    VALIDATION_ERROR: "VALIDATION_ERROR",
+};
+const HookStatus = {
+    HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
+    HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
+    HOOK_FAILED: "HOOK_FAILED",
+    HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
+};
+const OperationType = {
+    CONTINUE_ROLLBACK: "CONTINUE_ROLLBACK",
+    CREATE_CHANGESET: "CREATE_CHANGESET",
+    CREATE_STACK: "CREATE_STACK",
+    DELETE_STACK: "DELETE_STACK",
+    ROLLBACK: "ROLLBACK",
+    UPDATE_STACK: "UPDATE_STACK",
+};
+const ResourceStatus = {
+    CREATE_COMPLETE: "CREATE_COMPLETE",
+    CREATE_FAILED: "CREATE_FAILED",
+    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+    DELETE_COMPLETE: "DELETE_COMPLETE",
+    DELETE_FAILED: "DELETE_FAILED",
+    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+    DELETE_SKIPPED: "DELETE_SKIPPED",
+    EXPORT_COMPLETE: "EXPORT_COMPLETE",
+    EXPORT_FAILED: "EXPORT_FAILED",
+    EXPORT_IN_PROGRESS: "EXPORT_IN_PROGRESS",
+    EXPORT_ROLLBACK_COMPLETE: "EXPORT_ROLLBACK_COMPLETE",
+    EXPORT_ROLLBACK_FAILED: "EXPORT_ROLLBACK_FAILED",
+    EXPORT_ROLLBACK_IN_PROGRESS: "EXPORT_ROLLBACK_IN_PROGRESS",
+    IMPORT_COMPLETE: "IMPORT_COMPLETE",
+    IMPORT_FAILED: "IMPORT_FAILED",
+    IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+    IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+    IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+    IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+    ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+    ROLLBACK_FAILED: "ROLLBACK_FAILED",
+    ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+    UPDATE_COMPLETE: "UPDATE_COMPLETE",
+    UPDATE_FAILED: "UPDATE_FAILED",
+    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+    UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+    UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+    UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+};
+const ValidationStatus = {
+    FAILED: "FAILED",
+    SKIPPED: "SKIPPED",
+};
 const GeneratedTemplateResourceStatus = {
     COMPLETE: "COMPLETE",
     FAILED: "FAILED",
@@ -3989,52 +4142,6 @@ const StackDriftDetectionStatus = {
     DETECTION_FAILED: "DETECTION_FAILED",
     DETECTION_IN_PROGRESS: "DETECTION_IN_PROGRESS",
 };
-const StackDriftStatus = {
-    DRIFTED: "DRIFTED",
-    IN_SYNC: "IN_SYNC",
-    NOT_CHECKED: "NOT_CHECKED",
-    UNKNOWN: "UNKNOWN",
-};
-const DetailedStatus = {
-    CONFIGURATION_COMPLETE: "CONFIGURATION_COMPLETE",
-    VALIDATION_FAILED: "VALIDATION_FAILED",
-};
-const HookStatus = {
-    HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
-    HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
-    HOOK_FAILED: "HOOK_FAILED",
-    HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
-};
-const ResourceStatus = {
-    CREATE_COMPLETE: "CREATE_COMPLETE",
-    CREATE_FAILED: "CREATE_FAILED",
-    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-    DELETE_COMPLETE: "DELETE_COMPLETE",
-    DELETE_FAILED: "DELETE_FAILED",
-    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-    DELETE_SKIPPED: "DELETE_SKIPPED",
-    EXPORT_COMPLETE: "EXPORT_COMPLETE",
-    EXPORT_FAILED: "EXPORT_FAILED",
-    EXPORT_IN_PROGRESS: "EXPORT_IN_PROGRESS",
-    EXPORT_ROLLBACK_COMPLETE: "EXPORT_ROLLBACK_COMPLETE",
-    EXPORT_ROLLBACK_FAILED: "EXPORT_ROLLBACK_FAILED",
-    EXPORT_ROLLBACK_IN_PROGRESS: "EXPORT_ROLLBACK_IN_PROGRESS",
-    IMPORT_COMPLETE: "IMPORT_COMPLETE",
-    IMPORT_FAILED: "IMPORT_FAILED",
-    IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-    IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
-    IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
-    IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
-    ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
-    ROLLBACK_FAILED: "ROLLBACK_FAILED",
-    ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
-    UPDATE_COMPLETE: "UPDATE_COMPLETE",
-    UPDATE_FAILED: "UPDATE_FAILED",
-    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-    UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
-    UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
-    UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
-};
 const StackInstanceDetailedStatus = {
     CANCELLED: "CANCELLED",
     FAILED: "FAILED",
@@ -4096,13 +4203,6 @@ let StackRefactorNotFoundException$1 = class StackRefactorNotFoundException exte
         Object.setPrototypeOf(this, StackRefactorNotFoundException.prototype);
         this.Message = opts.Message;
     }
-};
-const StackResourceDriftStatus = {
-    DELETED: "DELETED",
-    IN_SYNC: "IN_SYNC",
-    MODIFIED: "MODIFIED",
-    NOT_CHECKED: "NOT_CHECKED",
-    UNKNOWN: "UNKNOWN",
 };
 const DifferenceType = {
     ADD: "ADD",
@@ -4271,10 +4371,10 @@ const StackRefactorActionEntity = {
     RESOURCE: "RESOURCE",
     STACK: "STACK",
 };
+
 const OperationResultFilterName = {
     OPERATION_RESULT_STATUS: "OPERATION_RESULT_STATUS",
 };
-
 const StackSetOperationResultStatus = {
     CANCELLED: "CANCELLED",
     FAILED: "FAILED",
@@ -4380,9 +4480,10 @@ const _ATI = "ActivateTypeInput";
 const _ATO = "ActivateTypeOutput";
 const _AU = "AutoUpdate";
 const _AUc = "AccountsUrl";
-const _AV = "AllowedValues";
-const _AVc = "ActualValue";
+const _AV = "ActualValue";
+const _AVF = "AfterValueFrom";
 const _AVf = "AfterValue";
+const _AVl = "AllowedValues";
 const _Ac = "Accounts";
 const _Acc = "Account";
 const _Act = "Action";
@@ -4399,6 +4500,7 @@ const _BDTCI = "BatchDescribeTypeConfigurationsInput";
 const _BDTCO = "BatchDescribeTypeConfigurationsOutput";
 const _BT = "BearerToken";
 const _BV = "BeforeValue";
+const _BVF = "BeforeValueFrom";
 const _C = "Change";
 const _CA = "CallAs";
 const _CAo = "ConnectionArn";
@@ -4468,13 +4570,18 @@ const _DCSO = "DeleteChangeSetOutput";
 const _DCSOe = "DescribeChangeSetOutput";
 const _DCSe = "DescribeChangeSet";
 const _DDS = "DriftDetectionStatus";
+const _DDT = "DriftDetectionTimestamp";
+const _DE = "DescribeEvents";
+const _DEI = "DescribeEventsInput";
+const _DEO = "DescribeEventsOutput";
 const _DGT = "DeleteGeneratedTemplate";
 const _DGTI = "DeleteGeneratedTemplateInput";
 const _DGTIe = "DescribeGeneratedTemplateInput";
 const _DGTO = "DescribeGeneratedTemplateOutput";
 const _DGTe = "DescribeGeneratedTemplate";
 const _DI = "DriftInformation";
-const _DM = "DeletionMode";
+const _DM = "DeploymentMode";
+const _DMe = "DeletionMode";
 const _DOA = "DeactivateOrganizationsAccess";
 const _DOAI = "DeactivateOrganizationsAccessInput";
 const _DOAIe = "DescribeOrganizationsAccessInput";
@@ -4567,11 +4674,13 @@ const _DVI = "DefaultVersionId";
 const _De = "Details";
 const _Des = "Destination";
 const _Det = "Detection";
+const _Dr = "Drift";
 const _E = "Enabled";
 const _EC = "ErrorCode";
 const _ECS = "ExecuteChangeSet";
 const _ECSI = "ExecuteChangeSetInput";
 const _ECSO = "ExecuteChangeSetOutput";
+const _EF = "EventFilter";
 const _EI = "EventId";
 const _EM = "ErrorMessage";
 const _EN = "ExportName";
@@ -4591,18 +4700,20 @@ const _ETCI = "EstimateTemplateCostInput";
 const _ETCO = "EstimateTemplateCostOutput";
 const _ETP = "EnableTerminationProtection";
 const _ETn = "EndTimestamp";
+const _ETv = "EventType";
 const _EV = "ExpectedValue";
 const _En = "Entity";
 const _Er = "Errors";
 const _Ev = "Evaluation";
 const _Ex = "Export";
 const _Exp = "Exports";
-const _F = "Format";
+const _F = "Filters";
+const _FE = "FailedEvents";
 const _FM = "FailureMode";
 const _FSIC = "FailedStackInstancesCount";
 const _FTC = "FailureToleranceCount";
 const _FTP = "FailureTolerancePercentage";
-const _Fi = "Filters";
+const _Fo = "Format";
 const _GGT = "GetGeneratedTemplate";
 const _GGTI = "GetGeneratedTemplateInput";
 const _GGTO = "GetGeneratedTemplateOutput";
@@ -4679,9 +4790,11 @@ const _LI = "ListImports";
 const _LIH = "LogicalIdHierarchy";
 const _LII = "ListImportsInput";
 const _LIO = "ListImportsOutput";
+const _LO = "LastOperations";
 const _LOI = "LastOperationId";
 const _LPV = "LatestPublicVersion";
 const _LRA = "LogRoleArn";
+const _LRD = "LiveResourceDrift";
 const _LRI = "LogicalResourceId";
 const _LRIo = "LogicalResourceIds";
 const _LRS = "ListResourceScans";
@@ -4753,6 +4866,9 @@ const _NGTN = "NewGeneratedTemplateName";
 const _NOR = "NumberOfResources";
 const _NT = "NextToken";
 const _O = "Output";
+const _OE = "OperationEvents";
+const _OEp = "OperationEntry";
+const _OEpe = "OperationEvent";
 const _OF = "OnFailure";
 const _OI = "OperationId";
 const _OIAEE = "OperationIdAlreadyExistsException";
@@ -4765,6 +4881,7 @@ const _ORFp = "OperationResultFilters";
 const _OS = "OperationStatus";
 const _OSCFE = "OperationStatusCheckFailedException";
 const _OSF = "OnStackFailure";
+const _OT = "OperationType";
 const _OTA = "OriginalTypeArn";
 const _OTN = "OriginalTypeName";
 const _OUI = "OrganizationalUnitIds";
@@ -4777,6 +4894,7 @@ const _PC = "PercentageCompleted";
 const _PCSI = "ParentChangeSetId";
 const _PCa = "ParameterConstraints";
 const _PD = "ParameterDeclaration";
+const _PDC = "PreviousDeploymentContext";
 const _PDa = "ParameterDeclarations";
 const _PDr = "PropertyDifference";
 const _PDro = "PropertyDifferences";
@@ -4800,8 +4918,9 @@ const _PTI = "PublishTypeInput";
 const _PTO = "PublishTypeOutput";
 const _PTa = "ParameterType";
 const _PTu = "PublishType";
-const _PV = "ParameterValue";
+const _PV = "PreviousValue";
 const _PVN = "PublicVersionNumber";
+const _PVa = "ParameterValue";
 const _Pa = "Parameter";
 const _Pat = "Path";
 const _Pr = "Progress";
@@ -4819,6 +4938,9 @@ const _RCSI = "RootChangeSetId";
 const _RCT = "RegionConcurrencyType";
 const _RCo = "RollbackConfiguration";
 const _RD = "ResourceDefinition";
+const _RDIA = "ResourceDriftIgnoredAttributes";
+const _RDIAe = "ResourceDriftIgnoredAttribute";
+const _RDS = "ResourceDriftStatus";
 const _RDe = "ResourceDetail";
 const _RDes = "ResourceDefinitions";
 const _RDeso = "ResourceDetails";
@@ -4883,6 +5005,7 @@ const _RTo = "RollbackTriggers";
 const _RTol = "RollbackTrigger";
 const _RV = "ResolvedValue";
 const _Re = "Regions";
+const _Rea = "Reason";
 const _Reg = "Region";
 const _Rep = "Replacement";
 const _Req = "Required";
@@ -5080,7 +5203,12 @@ const _UTPI = "UpdateTerminationProtectionInput";
 const _UTPO = "UpdateTerminationProtectionOutput";
 const _V = "Value";
 const _VB = "VersionBump";
+const _VFM = "ValidationFailureMode";
 const _VI = "VersionId";
+const _VN = "ValidationName";
+const _VP = "ValidationPath";
+const _VS = "ValidationStatus";
+const _VSR = "ValidationStatusReason";
 const _VT = "ValidateTemplate";
 const _VTI = "ValidateTemplateInput";
 const _VTO = "ValidateTemplateOutput";
@@ -5234,7 +5362,7 @@ var CreateChangeSetInput = [
     n0,
     _CCSI,
     0,
-    [_SN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CSN, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER],
+    [_SN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CSN, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
     [
         0,
         0,
@@ -5255,6 +5383,7 @@ var CreateChangeSetInput = [
         2,
         0,
         2,
+        0,
     ],
 ];
 var CreateChangeSetOutput = [3, n0, _CCSO, 0, [_I, _SI], [0, 0]];
@@ -5316,7 +5445,7 @@ var CreateStackInstancesInput = [
     [0, 64 | 0, () => DeploymentTargets, 64 | 0, () => _Parameters, () => StackSetOperationPreferences, [0, 4], 0],
 ];
 var CreateStackInstancesOutput = [3, n0, _CSIO, 0, [_OI], [0]];
-var CreateStackOutput = [3, n0, _CSO, 0, [_SI], [0]];
+var CreateStackOutput = [3, n0, _CSO, 0, [_SI, _OI], [0, 0]];
 var CreateStackRefactorInput = [
     3,
     n0,
@@ -5363,7 +5492,7 @@ var DeleteStackInput = [
     n0,
     _DSI,
     0,
-    [_SN, _RR, _RARN, _CRT, _DM],
+    [_SN, _RR, _RARN, _CRT, _DMe],
     [0, 64 | 0, 0, 0, 0],
 ];
 var DeleteStackInstancesInput = [
@@ -5411,7 +5540,31 @@ var DescribeChangeSetOutput = [
     n0,
     _DCSOe,
     0,
-    [_CSN, _CSI, _SI, _SN, _D, _P, _CT, _ES, _S, _SR, _NARN, _RCo, _Ca, _Ta, _Ch, _NT, _INS, _PCSI, _RCSI, _OSF, _IER],
+    [
+        _CSN,
+        _CSI,
+        _SI,
+        _SN,
+        _D,
+        _P,
+        _CT,
+        _ES,
+        _S,
+        _SR,
+        _SDS,
+        _NARN,
+        _RCo,
+        _Ca,
+        _Ta,
+        _Ch,
+        _NT,
+        _INS,
+        _PCSI,
+        _RCSI,
+        _OSF,
+        _IER,
+        _DM,
+    ],
     [
         0,
         0,
@@ -5420,6 +5573,7 @@ var DescribeChangeSetOutput = [
         0,
         () => _Parameters,
         4,
+        0,
         0,
         0,
         0,
@@ -5434,8 +5588,18 @@ var DescribeChangeSetOutput = [
         0,
         0,
         2,
+        0,
     ],
 ];
+var DescribeEventsInput = [
+    3,
+    n0,
+    _DEI,
+    0,
+    [_SN, _CSN, _OI, _F, _NT],
+    [0, 0, 0, () => EventFilter, 0],
+];
+var DescribeEventsOutput = [3, n0, _DEO, 0, [_OE, _NT], [() => OperationEvents, 0]];
 var DescribeGeneratedTemplateInput = [3, n0, _DGTIe, 0, [_GTN], [0]];
 var DescribeGeneratedTemplateOutput = [
     3,
@@ -5637,6 +5801,7 @@ var EstimateTemplateCostInput = [
     [0, 0, () => _Parameters],
 ];
 var EstimateTemplateCostOutput = [3, n0, _ETCO, 0, [_U], [0]];
+var EventFilter = [3, n0, _EF, 0, [_FE], [2]];
 var ExecuteChangeSetInput = [
     3,
     n0,
@@ -5661,7 +5826,7 @@ var GeneratedTemplateNotFoundException = [
     [0],
 ];
 schema.TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException, GeneratedTemplateNotFoundException$1);
-var GetGeneratedTemplateInput = [3, n0, _GGTI, 0, [_F, _GTN], [0, 0]];
+var GetGeneratedTemplateInput = [3, n0, _GGTI, 0, [_Fo, _GTN], [0, 0]];
 var GetGeneratedTemplateOutput = [3, n0, _GGTO, 0, [_S, _TB], [0, 0]];
 var GetHookResultInput = [3, n0, _GHRI, 0, [_HRI], [0]];
 var GetHookResultOutput = [
@@ -5874,7 +6039,7 @@ var ListStackInstancesInput = [
     n0,
     _LSII,
     0,
-    [_SSN, _NT, _MR, _Fi, _SIA, _SIR, _CA],
+    [_SSN, _NT, _MR, _F, _SIA, _SIR, _CA],
     [0, 0, 1, () => StackInstanceFilters, 0, 0, 0],
 ];
 var ListStackInstancesOutput = [
@@ -5933,7 +6098,7 @@ var ListStackSetOperationResultsInput = [
     n0,
     _LSSORI,
     0,
-    [_SSN, _OI, _NT, _MR, _CA, _Fi],
+    [_SSN, _OI, _NT, _MR, _CA, _F],
     [0, 0, 0, 1, 0, () => OperationResultFilters],
 ];
 var ListStackSetOperationResultsOutput = [
@@ -5971,7 +6136,7 @@ var ListTypesInput = [
     n0,
     _LTI,
     0,
-    [_Vi, _PT, _DSe, _T, _Fi, _MR, _NT],
+    [_Vi, _PT, _DSe, _T, _F, _MR, _NT],
     [0, 0, 0, 0, () => TypeFilters, 1, 0],
 ];
 var ListTypesOutput = [3, n0, _LTO, 0, [_TSy, _NT], [() => TypeSummaries, 0]];
@@ -5991,6 +6156,7 @@ var ListTypeVersionsOutput = [
     [_TVS, _NT],
     [() => TypeVersionSummaries, 0],
 ];
+var LiveResourceDrift = [3, n0, _LRD, 0, [_PV, _AV, _DDT], [0, 0, 4]];
 var LoggingConfig = [3, n0, _LC, 0, [_LRA, _LGN], [0, 0]];
 var ManagedExecution = [3, n0, _ME, 0, [_Acti], [2]];
 var ModuleInfo = [3, n0, _MI, 0, [_TH, _LIH], [0, 0]];
@@ -6007,6 +6173,43 @@ var NameAlreadyExistsException = [
     [0],
 ];
 schema.TypeRegistry.for(n0).registerError(NameAlreadyExistsException, NameAlreadyExistsException$1);
+var OperationEntry = [3, n0, _OEp, 0, [_OT, _OI], [0, 0]];
+var OperationEvent = [
+    3,
+    n0,
+    _OEpe,
+    0,
+    [
+        _EI,
+        _SI,
+        _OI,
+        _OT,
+        _OS,
+        _ETv,
+        _LRI,
+        _PRI,
+        _RT,
+        _Ti,
+        _ST,
+        _ET,
+        _RSes,
+        _RSR,
+        _RP,
+        _CRT,
+        _HTo,
+        _HS,
+        _HSR,
+        _HIP,
+        _HFM,
+        _DSet,
+        _VFM,
+        _VN,
+        _VS,
+        _VSR,
+        _VP,
+    ],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
 var OperationIdAlreadyExistsException = [
     -3,
     n0,
@@ -6061,8 +6264,8 @@ var OperationStatusCheckFailedException = [
 ];
 schema.TypeRegistry.for(n0).registerError(OperationStatusCheckFailedException, OperationStatusCheckFailedException$1);
 var Output = [3, n0, _O, 0, [_OK, _OV, _D, _EN], [0, 0, 0, 0]];
-var Parameter = [3, n0, _Pa, 0, [_PK, _PV, _UPV, _RV], [0, 0, 2, 0]];
-var ParameterConstraints = [3, n0, _PCa, 0, [_AV], [64 | 0]];
+var Parameter = [3, n0, _Pa, 0, [_PK, _PVa, _UPV, _RV], [0, 0, 2, 0]];
+var ParameterConstraints = [3, n0, _PCa, 0, [_AVl], [64 | 0]];
 var ParameterDeclaration = [
     3,
     n0,
@@ -6072,7 +6275,7 @@ var ParameterDeclaration = [
     [0, 0, 0, 2, 0, () => ParameterConstraints],
 ];
 var PhysicalResourceIdContextKeyValuePair = [3, n0, _PRICKVP, 0, [_K, _V], [0, 0]];
-var PropertyDifference = [3, n0, _PDr, 0, [_PPr, _EV, _AVc, _DTi], [0, 0, 0, 0]];
+var PropertyDifference = [3, n0, _PDr, 0, [_PPr, _EV, _AV, _DTi], [0, 0, 0, 0]];
 var PublishTypeInput = [3, n0, _PTI, 0, [_T, _A, _TN, _PVN], [0, 0, 0, 0]];
 var PublishTypeOutput = [3, n0, _PTO, 0, [_PTA], [0]];
 var RecordHandlerProgressInput = [
@@ -6101,8 +6304,24 @@ var ResourceChange = [
     n0,
     _RC,
     0,
-    [_PA, _Act, _LRI, _PRI, _RT, _Rep, _Sco, _De, _CSI, _MI, _BC, _AC],
-    [0, 0, 0, 0, 0, 0, 64 | 0, () => ResourceChangeDetails, 0, () => ModuleInfo, 0, 0],
+    [_PA, _Act, _LRI, _PRI, _RT, _Rep, _Sco, _RDS, _RDIA, _De, _CSI, _MI, _BC, _AC, _PDC],
+    [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        64 | 0,
+        0,
+        () => ResourceDriftIgnoredAttributes,
+        () => ResourceChangeDetails,
+        0,
+        () => ModuleInfo,
+        0,
+        0,
+        0,
+    ],
 ];
 var ResourceChangeDetail = [
     3,
@@ -6121,6 +6340,7 @@ var ResourceDetail = [
     [_RT, _LRI, _RI, _RSes, _RSR, _W],
     [0, 0, 128 | 0, 0, 0, () => WarningDetails],
 ];
+var ResourceDriftIgnoredAttribute = [3, n0, _RDIAe, 0, [_Pat, _Rea], [0, 0]];
 var ResourceIdentifierSummary = [
     3,
     n0,
@@ -6190,13 +6410,13 @@ var ResourceTargetDefinition = [
     n0,
     _RTDe,
     0,
-    [_At, _N, _RReq, _Pat, _BV, _AVf, _ACT],
-    [0, 0, 0, 0, 0, 0, 0],
+    [_At, _N, _RReq, _Pat, _BV, _AVf, _BVF, _AVF, _Dr, _ACT],
+    [0, 0, 0, 0, 0, 0, 0, 0, () => LiveResourceDrift, 0],
 ];
 var ResourceToImport = [3, n0, _RTIes, 0, [_RT, _LRI, _RI], [0, 0, 128 | 0]];
 var RollbackConfiguration = [3, n0, _RCo, 0, [_RTo, _MTIM], [() => RollbackTriggers, 1]];
 var RollbackStackInput = [3, n0, _RSIo, 0, [_SN, _RARN, _CRT, _REOC], [0, 0, 0, 2]];
-var RollbackStackOutput = [3, n0, _RSO, 0, [_SI], [0]];
+var RollbackStackOutput = [3, n0, _RSO, 0, [_SI, _OI], [0, 0]];
 var RollbackTrigger = [3, n0, _RTol, 0, [_A, _T], [0, 0]];
 var ScanFilter = [3, n0, _SFc, 0, [_Ty], [64 | 0]];
 var ScannedResource = [3, n0, _SRc, 0, [_RT, _RI, _MBS], [0, 128 | 0, 2]];
@@ -6243,8 +6463,9 @@ var Stack = [
         _RIo,
         _DI,
         _REOC,
-        _DM,
+        _DMe,
         _DSet,
+        _LO,
     ],
     [
         0,
@@ -6272,6 +6493,7 @@ var Stack = [
         2,
         0,
         0,
+        () => LastOperations,
     ],
 ];
 var StackDefinition = [3, n0, _SDt, 0, [_SN, _TB, _TURL], [0, 0, 0]];
@@ -6282,8 +6504,8 @@ var StackEvent = [
     n0,
     _SEt,
     0,
-    [_SI, _EI, _SN, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
-    [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [_SI, _EI, _SN, _OI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
+    [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 var StackInstance = [
     3,
@@ -6522,8 +6744,8 @@ var StackSummary = [
     n0,
     _SStac,
     0,
-    [_SI, _SN, _TDe, _CT, _LUT, _DTel, _SSta, _SSR, _PIa, _RIo, _DI],
-    [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary],
+    [_SI, _SN, _TDe, _CT, _LUT, _DTel, _SSta, _SSR, _PIa, _RIo, _DI, _LO],
+    [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary, () => LastOperations],
 ];
 var StaleRequestException = [
     -3,
@@ -6674,7 +6896,7 @@ var UpdateStackInstancesInput = [
     [0, 64 | 0, () => DeploymentTargets, 64 | 0, () => _Parameters, () => StackSetOperationPreferences, [0, 4], 0],
 ];
 var UpdateStackInstancesOutput = [3, n0, _USIO, 0, [_OI], [0]];
-var UpdateStackOutput = [3, n0, _USO, 0, [_SI], [0]];
+var UpdateStackOutput = [3, n0, _USO, 0, [_SI, _OI], [0, 0]];
 var UpdateStackSetInput = [
     3,
     n0,
@@ -6735,6 +6957,8 @@ var ChangeSetHooks = [1, n0, _CSHh, 0, () => ChangeSetHook];
 var ChangeSetSummaries = [1, n0, _CSSh, 0, () => ChangeSetSummary];
 var Exports = [1, n0, _Exp, 0, () => Export];
 var HookResultSummaries = [1, n0, _HRSo, 0, () => HookResultSummary];
+var LastOperations = [1, n0, _LO, 0, () => OperationEntry];
+var OperationEvents = [1, n0, _OE, 0, () => OperationEvent];
 var OperationResultFilters = [1, n0, _ORFp, 0, () => OperationResultFilter];
 var Outputs = [1, n0, _Ou, 0, () => Output];
 var ParameterDeclarations = [1, n0, _PDa, 0, () => ParameterDeclaration];
@@ -6746,6 +6970,7 @@ var RequiredActivatedTypes = [1, n0, _RAT, 0, () => RequiredActivatedType];
 var ResourceChangeDetails = [1, n0, _RCDe, 0, () => ResourceChangeDetail];
 var ResourceDefinitions = [1, n0, _RDes, 0, () => ResourceDefinition];
 var ResourceDetails = [1, n0, _RDeso, 0, () => ResourceDetail];
+var ResourceDriftIgnoredAttributes = [1, n0, _RDIA, 0, () => ResourceDriftIgnoredAttribute];
 var ResourceIdentifierSummaries = [1, n0, _RIS, 0, () => ResourceIdentifierSummary];
 var ResourceMappings = [1, n0, _RMe, 0, () => ResourceMapping];
 var ResourceScanSummaries = [1, n0, _RSS, 0, () => ResourceScanSummary];
@@ -6946,6 +7171,14 @@ var DescribeChangeSetHooks = [
     0,
     () => DescribeChangeSetHooksInput,
     () => DescribeChangeSetHooksOutput,
+];
+var DescribeEvents = [
+    9,
+    n0,
+    _DE,
+    0,
+    () => DescribeEventsInput,
+    () => DescribeEventsOutput,
 ];
 var DescribeGeneratedTemplate = [
     9,
@@ -7640,6 +7873,18 @@ class DescribeChangeSetHooksCommand extends smithyClient.Command
     .s("CloudFormation", "DescribeChangeSetHooks", {})
     .n("CloudFormationClient", "DescribeChangeSetHooksCommand")
     .sc(DescribeChangeSetHooks)
+    .build() {
+}
+
+class DescribeEventsCommand extends smithyClient.Command
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+})
+    .s("CloudFormation", "DescribeEvents", {})
+    .n("CloudFormationClient", "DescribeEventsCommand")
+    .sc(DescribeEvents)
     .build() {
 }
 
@@ -8470,6 +8715,7 @@ const commands = {
     DescribeAccountLimitsCommand,
     DescribeChangeSetCommand,
     DescribeChangeSetHooksCommand,
+    DescribeEventsCommand,
     DescribeGeneratedTemplateCommand,
     DescribeOrganizationsAccessCommand,
     DescribePublisherCommand,
@@ -8543,6 +8789,10 @@ class CloudFormation extends CloudFormationClient {
 smithyClient.createAggregatedClient(commands, CloudFormation);
 
 const paginateDescribeAccountLimits = core.createPaginator(CloudFormationClient, DescribeAccountLimitsCommand, "NextToken", "NextToken", "");
+
+const paginateDescribeChangeSet = core.createPaginator(CloudFormationClient, DescribeChangeSetCommand, "NextToken", "NextToken", "");
+
+const paginateDescribeEvents = core.createPaginator(CloudFormationClient, DescribeEventsCommand, "NextToken", "NextToken", "");
 
 const paginateDescribeStackEvents = core.createPaginator(CloudFormationClient, DescribeStackEventsCommand, "NextToken", "NextToken", "");
 
@@ -9483,11 +9733,14 @@ __webpack_unused_export__ = AccountFilterType;
 __webpack_unused_export__ = AccountGateStatus;
 __webpack_unused_export__ = ActivateOrganizationsAccessCommand;
 __webpack_unused_export__ = ActivateTypeCommand;
+__webpack_unused_export__ = AfterValueFrom;
 __webpack_unused_export__ = AlreadyExistsException$1;
 __webpack_unused_export__ = AnnotationSeverityLevel;
 __webpack_unused_export__ = AnnotationStatus;
 __webpack_unused_export__ = AttributeChangeType;
 __webpack_unused_export__ = BatchDescribeTypeConfigurationsCommand;
+__webpack_unused_export__ = BeaconStackOperationStatus;
+__webpack_unused_export__ = BeforeValueFrom;
 __webpack_unused_export__ = CFNRegistryException$1;
 __webpack_unused_export__ = CallAs;
 __webpack_unused_export__ = CancelUpdateStackCommand;
@@ -9521,11 +9774,13 @@ __webpack_unused_export__ = DeleteStackCommand;
 __webpack_unused_export__ = DeleteStackInstancesCommand;
 __webpack_unused_export__ = DeleteStackSetCommand;
 __webpack_unused_export__ = DeletionMode;
+__webpack_unused_export__ = DeploymentMode;
 __webpack_unused_export__ = DeprecatedStatus;
 __webpack_unused_export__ = DeregisterTypeCommand;
 __webpack_unused_export__ = DescribeAccountLimitsCommand;
 __webpack_unused_export__ = DescribeChangeSetCommand;
 __webpack_unused_export__ = DescribeChangeSetHooksCommand;
+__webpack_unused_export__ = DescribeEventsCommand;
 __webpack_unused_export__ = DescribeGeneratedTemplateCommand;
 __webpack_unused_export__ = DescribeOrganizationsAccessCommand;
 __webpack_unused_export__ = DescribePublisherCommand;
@@ -9547,8 +9802,10 @@ __webpack_unused_export__ = DetectStackDriftCommand;
 __webpack_unused_export__ = DetectStackResourceDriftCommand;
 __webpack_unused_export__ = DetectStackSetDriftCommand;
 __webpack_unused_export__ = DifferenceType;
+__webpack_unused_export__ = DriftIgnoredReason;
 __webpack_unused_export__ = EstimateTemplateCostCommand;
 __webpack_unused_export__ = EvaluationType;
+__webpack_unused_export__ = EventType;
 __webpack_unused_export__ = ExecuteChangeSetCommand;
 __webpack_unused_export__ = ExecuteStackRefactorCommand;
 __webpack_unused_export__ = ExecutionStatus;
@@ -9607,6 +9864,7 @@ __webpack_unused_export__ = OperationNotFoundException$1;
 __webpack_unused_export__ = OperationResultFilterName;
 __webpack_unused_export__ = OperationStatus;
 __webpack_unused_export__ = OperationStatusCheckFailedException$1;
+__webpack_unused_export__ = OperationType;
 __webpack_unused_export__ = OrganizationStatus;
 __webpack_unused_export__ = PermissionModels;
 __webpack_unused_export__ = PolicyAction;
@@ -9674,10 +9932,13 @@ __webpack_unused_export__ = UpdateStackInstancesCommand;
 __webpack_unused_export__ = UpdateStackSetCommand;
 __webpack_unused_export__ = UpdateTerminationProtectionCommand;
 __webpack_unused_export__ = ValidateTemplateCommand;
+__webpack_unused_export__ = ValidationStatus;
 __webpack_unused_export__ = VersionBump;
 __webpack_unused_export__ = Visibility;
 __webpack_unused_export__ = WarningType;
 __webpack_unused_export__ = paginateDescribeAccountLimits;
+__webpack_unused_export__ = paginateDescribeChangeSet;
+__webpack_unused_export__ = paginateDescribeEvents;
 __webpack_unused_export__ = paginateDescribeStackEvents;
 __webpack_unused_export__ = paginateDescribeStackResourceDrifts;
 __webpack_unused_export__ = paginateDescribeStacks;
@@ -9723,17 +9984,17 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 8908:
+/***/ 4338:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(6349));
-const core_1 = __nccwpck_require__(5996);
-const credential_provider_node_1 = __nccwpck_require__(4374);
-const util_user_agent_node_1 = __nccwpck_require__(9112);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(4343));
+const core_1 = __nccwpck_require__(8362);
+const credential_provider_node_1 = __nccwpck_require__(9020);
+const util_user_agent_node_1 = __nccwpck_require__(8442);
 const config_resolver_1 = __nccwpck_require__(7358);
 const hash_node_1 = __nccwpck_require__(6354);
 const middleware_retry_1 = __nccwpck_require__(5195);
@@ -9741,7 +10002,7 @@ const node_config_provider_1 = __nccwpck_require__(913);
 const node_http_handler_1 = __nccwpck_require__(4654);
 const util_body_length_node_1 = __nccwpck_require__(7062);
 const util_retry_1 = __nccwpck_require__(5840);
-const runtimeConfig_shared_1 = __nccwpck_require__(5453);
+const runtimeConfig_shared_1 = __nccwpck_require__(2571);
 const smithy_client_1 = __nccwpck_require__(4791);
 const util_defaults_mode_node_1 = __nccwpck_require__(931);
 const smithy_client_2 = __nccwpck_require__(4791);
@@ -9786,20 +10047,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 5453:
+/***/ 2571:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(5996);
-const protocols_1 = __nccwpck_require__(3516);
+const core_1 = __nccwpck_require__(8362);
+const protocols_1 = __nccwpck_require__(9190);
 const smithy_client_1 = __nccwpck_require__(4791);
 const url_parser_1 = __nccwpck_require__(7272);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_utf8_1 = __nccwpck_require__(5579);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(6245);
-const endpointResolver_1 = __nccwpck_require__(9803);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(4795);
+const endpointResolver_1 = __nccwpck_require__(4069);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -9834,7 +10095,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 5996:
+/***/ 8362:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -9842,7 +10103,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 var protocolHttp = __nccwpck_require__(1034);
 var core = __nccwpck_require__(8595);
 var propertyProvider = __nccwpck_require__(7717);
-var client = __nccwpck_require__(7156);
+var client = __nccwpck_require__(1722);
 var signatureV4 = __nccwpck_require__(3492);
 var cbor = __nccwpck_require__(9672);
 var schema = __nccwpck_require__(2615);
@@ -11841,7 +12102,7 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 7156:
+/***/ 1722:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -11899,7 +12160,7 @@ exports.state = state;
 
 /***/ }),
 
-/***/ 3516:
+/***/ 9190:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -13561,12 +13822,12 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 2390:
+/***/ 8056:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var client = __nccwpck_require__(7156);
+var client = __nccwpck_require__(1722);
 var propertyProvider = __nccwpck_require__(7717);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
@@ -13609,12 +13870,12 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 4374:
+/***/ 9020:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var credentialProviderEnv = __nccwpck_require__(2390);
+var credentialProviderEnv = __nccwpck_require__(8056);
 var propertyProvider = __nccwpck_require__(7717);
 var sharedIniFileLoader = __nccwpck_require__(2787);
 
@@ -13623,7 +13884,7 @@ const remoteProvider = async (init) => {
     const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 900).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4900, 19));
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 78).then(__nccwpck_require__.bind(__nccwpck_require__, 6078));
+        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 116).then(__nccwpck_require__.bind(__nccwpck_require__, 6116));
         return propertyProvider.chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -13727,22 +13988,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new propertyProvider.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 546).then(__nccwpck_require__.t.bind(__nccwpck_require__, 5546, 19));
+        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 120).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7120, 19));
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 550).then(__nccwpck_require__.t.bind(__nccwpck_require__, 550, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 64).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4064, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 182).then(__nccwpck_require__.t.bind(__nccwpck_require__, 8182, 19));
+        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 696).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2696, 19));
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 588).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7588, 23));
+        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 758).then(__nccwpck_require__.t.bind(__nccwpck_require__, 8758, 23));
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -13869,12 +14130,12 @@ exports.loggerMiddlewareOptions = loggerMiddlewareOptions;
 
 /***/ }),
 
-/***/ 6482:
+/***/ 2599:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var recursionDetectionMiddleware = __nccwpck_require__(5263);
+var recursionDetectionMiddleware = __nccwpck_require__(4340);
 
 const recursionDetectionMiddlewareOptions = {
     step: "build",
@@ -13901,13 +14162,13 @@ Object.keys(recursionDetectionMiddleware).forEach(function (k) {
 
 /***/ }),
 
-/***/ 5263:
+/***/ 4340:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.recursionDetectionMiddleware = void 0;
-const lambda_invoke_store_1 = __nccwpck_require__(2907);
+const lambda_invoke_store_1 = __nccwpck_require__(2933);
 const protocol_http_1 = __nccwpck_require__(1034);
 const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
 const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
@@ -13924,7 +14185,8 @@ const recursionDetectionMiddleware = () => (next) => async (args) => {
     }
     const functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
     const traceIdFromEnv = process.env[ENV_TRACE_ID];
-    const traceIdFromInvokeStore = lambda_invoke_store_1.InvokeStore.getXRayTraceId();
+    const invokeStore = await lambda_invoke_store_1.InvokeStore.getInstanceAsync();
+    const traceIdFromInvokeStore = invokeStore?.getXRayTraceId();
     const traceId = traceIdFromInvokeStore ?? traceIdFromEnv;
     const nonEmptyString = (str) => typeof str === "string" && str.length > 0;
     if (nonEmptyString(functionName) && nonEmptyString(traceId)) {
@@ -13940,7 +14202,7 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 
 /***/ }),
 
-/***/ 5062:
+/***/ 676:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -13948,7 +14210,7 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 var core = __nccwpck_require__(8595);
 var utilEndpoints = __nccwpck_require__(9758);
 var protocolHttp = __nccwpck_require__(1034);
-var core$1 = __nccwpck_require__(5996);
+var core$1 = __nccwpck_require__(8362);
 
 const DEFAULT_UA_APP_ID = undefined;
 function isValidUserAgentAppId(appId) {
@@ -14646,14 +14908,14 @@ exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
 
 /***/ }),
 
-/***/ 9112:
+/***/ 8442:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var os = __nccwpck_require__(857);
 var process = __nccwpck_require__(932);
-var middlewareUserAgent = __nccwpck_require__(5062);
+var middlewareUserAgent = __nccwpck_require__(676);
 
 const crtAvailability = {
     isCrtAvailable: false,
@@ -48035,6 +48297,13 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("net");
 
 /***/ }),
 
+/***/ 6698:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:async_hooks");
+
+/***/ }),
+
 /***/ 7598:
 /***/ ((module) => {
 
@@ -49802,10 +50071,10 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 6349:
+/***/ 4343:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.932.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.932.0","@aws-sdk/credential-provider-node":"3.932.0","@aws-sdk/middleware-host-header":"3.930.0","@aws-sdk/middleware-logger":"3.930.0","@aws-sdk/middleware-recursion-detection":"3.930.0","@aws-sdk/middleware-user-agent":"3.932.0","@aws-sdk/region-config-resolver":"3.930.0","@aws-sdk/types":"3.930.0","@aws-sdk/util-endpoints":"3.930.0","@aws-sdk/util-user-agent-browser":"3.930.0","@aws-sdk/util-user-agent-node":"3.932.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.2","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.9","@smithy/middleware-retry":"^4.4.9","@smithy/middleware-serde":"^4.2.5","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.5","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.8","@smithy/util-defaults-mode-node":"^4.2.11","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.934.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.934.0","@aws-sdk/credential-provider-node":"3.934.0","@aws-sdk/middleware-host-header":"3.930.0","@aws-sdk/middleware-logger":"3.930.0","@aws-sdk/middleware-recursion-detection":"3.933.0","@aws-sdk/middleware-user-agent":"3.934.0","@aws-sdk/region-config-resolver":"3.930.0","@aws-sdk/types":"3.930.0","@aws-sdk/util-endpoints":"3.930.0","@aws-sdk/util-user-agent-browser":"3.930.0","@aws-sdk/util-user-agent-node":"3.934.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.2","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.9","@smithy/middleware-retry":"^4.4.9","@smithy/middleware-serde":"^4.2.5","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.5","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.8","@smithy/util-defaults-mode-node":"^4.2.11","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -49995,7 +50264,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(6966);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(4746);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(2672);
 
 
 async function run() {
