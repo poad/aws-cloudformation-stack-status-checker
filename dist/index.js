@@ -3180,7 +3180,7 @@ function copyFile(srcFile, destFile, force) {
 
 /***/ }),
 
-/***/ 2933:
+/***/ 3686:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3311,13 +3311,13 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 4795:
+/***/ 4324:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(8362);
+const core_1 = __nccwpck_require__(3600);
 const util_middleware_1 = __nccwpck_require__(1202);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -3365,15 +3365,15 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 4069:
+/***/ 4001:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(9758);
+const util_endpoints_1 = __nccwpck_require__(6636);
 const util_endpoints_2 = __nccwpck_require__(4279);
-const ruleset_1 = __nccwpck_require__(310);
+const ruleset_1 = __nccwpck_require__(3642);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -3390,7 +3390,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 310:
+/***/ 3642:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -3404,26 +3404,26 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 2672:
+/***/ 3844:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
 
 
-var middlewareHostHeader = __nccwpck_require__(9058);
-var middlewareLogger = __nccwpck_require__(5808);
-var middlewareRecursionDetection = __nccwpck_require__(2599);
-var middlewareUserAgent = __nccwpck_require__(676);
+var middlewareHostHeader = __nccwpck_require__(1960);
+var middlewareLogger = __nccwpck_require__(1218);
+var middlewareRecursionDetection = __nccwpck_require__(1772);
+var middlewareUserAgent = __nccwpck_require__(8938);
 var configResolver = __nccwpck_require__(7358);
-var core = __nccwpck_require__(8595);
-var schema = __nccwpck_require__(2615);
+var core = __nccwpck_require__(3234);
+var schema = __nccwpck_require__(7162);
 var middlewareContentLength = __nccwpck_require__(5550);
-var middlewareEndpoint = __nccwpck_require__(9720);
-var middlewareRetry = __nccwpck_require__(5195);
-var smithyClient = __nccwpck_require__(4791);
-var httpAuthSchemeProvider = __nccwpck_require__(4795);
-var runtimeConfig = __nccwpck_require__(4338);
-var regionConfigResolver = __nccwpck_require__(8540);
+var middlewareEndpoint = __nccwpck_require__(3065);
+var middlewareRetry = __nccwpck_require__(9579);
+var smithyClient = __nccwpck_require__(2958);
+var httpAuthSchemeProvider = __nccwpck_require__(4324);
+var runtimeConfig = __nccwpck_require__(7158);
+var regionConfigResolver = __nccwpck_require__(3334);
 var protocolHttp = __nccwpck_require__(1034);
 var utilWaiter = __nccwpck_require__(8946);
 
@@ -3528,17 +3528,6 @@ let CloudFormationServiceException$1 = class CloudFormationServiceException exte
     }
 };
 
-const AccountFilterType = {
-    DIFFERENCE: "DIFFERENCE",
-    INTERSECTION: "INTERSECTION",
-    NONE: "NONE",
-    UNION: "UNION",
-};
-const AccountGateStatus = {
-    FAILED: "FAILED",
-    SKIPPED: "SKIPPED",
-    SUCCEEDED: "SUCCEEDED",
-};
 let InvalidOperationException$1 = class InvalidOperationException extends CloudFormationServiceException$1 {
     name = "InvalidOperationException";
     $fault = "client";
@@ -3566,15 +3555,6 @@ let OperationNotFoundException$1 = class OperationNotFoundException extends Clou
         Object.setPrototypeOf(this, OperationNotFoundException.prototype);
         this.Message = opts.Message;
     }
-};
-const ThirdPartyType = {
-    HOOK: "HOOK",
-    MODULE: "MODULE",
-    RESOURCE: "RESOURCE",
-};
-const VersionBump = {
-    MAJOR: "MAJOR",
-    MINOR: "MINOR",
 };
 let CFNRegistryException$1 = class CFNRegistryException extends CloudFormationServiceException$1 {
     name = "CFNRegistryException";
@@ -3604,9 +3584,6 @@ let TypeNotFoundException$1 = class TypeNotFoundException extends CloudFormation
         this.Message = opts.Message;
     }
 };
-const AfterValueFrom = {
-    TEMPLATE: "TEMPLATE",
-};
 let AlreadyExistsException$1 = class AlreadyExistsException extends CloudFormationServiceException$1 {
     name = "AlreadyExistsException";
     $fault = "client";
@@ -3620,24 +3597,6 @@ let AlreadyExistsException$1 = class AlreadyExistsException extends CloudFormati
         Object.setPrototypeOf(this, AlreadyExistsException.prototype);
         this.Message = opts.Message;
     }
-};
-const AnnotationSeverityLevel = {
-    CRITICAL: "CRITICAL",
-    HIGH: "HIGH",
-    INFORMATIONAL: "INFORMATIONAL",
-    LOW: "LOW",
-    MEDIUM: "MEDIUM",
-};
-const AnnotationStatus = {
-    FAILED: "FAILED",
-    PASSED: "PASSED",
-    SKIPPED: "SKIPPED",
-};
-const AttributeChangeType = {
-    Add: "Add",
-    Modify: "Modify",
-    Remove: "Remove",
-    SyncWithActual: "SyncWithActual",
 };
 let TypeConfigurationNotFoundException$1 = class TypeConfigurationNotFoundException extends CloudFormationServiceException$1 {
     name = "TypeConfigurationNotFoundException";
@@ -3653,19 +3612,6 @@ let TypeConfigurationNotFoundException$1 = class TypeConfigurationNotFoundExcept
         this.Message = opts.Message;
     }
 };
-const BeaconStackOperationStatus = {
-    FAILED: "FAILED",
-    IN_PROGRESS: "IN_PROGRESS",
-    SUCCEEDED: "SUCCEEDED",
-};
-const BeforeValueFrom = {
-    ACTUAL_STATE: "ACTUAL_STATE",
-    PREVIOUS_DEPLOYMENT_STATE: "PREVIOUS_DEPLOYMENT_STATE",
-};
-const CallAs = {
-    DELEGATED_ADMIN: "DELEGATED_ADMIN",
-    SELF: "SELF",
-};
 let TokenAlreadyExistsException$1 = class TokenAlreadyExistsException extends CloudFormationServiceException$1 {
     name = "TokenAlreadyExistsException";
     $fault = "client";
@@ -3680,94 +3626,6 @@ let TokenAlreadyExistsException$1 = class TokenAlreadyExistsException extends Cl
         this.Message = opts.Message;
     }
 };
-const Capability = {
-    CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
-    CAPABILITY_IAM: "CAPABILITY_IAM",
-    CAPABILITY_NAMED_IAM: "CAPABILITY_NAMED_IAM",
-};
-const Category = {
-    ACTIVATED: "ACTIVATED",
-    AWS_TYPES: "AWS_TYPES",
-    REGISTERED: "REGISTERED",
-    THIRD_PARTY: "THIRD_PARTY",
-};
-const ChangeAction = {
-    Add: "Add",
-    Dynamic: "Dynamic",
-    Import: "Import",
-    Modify: "Modify",
-    Remove: "Remove",
-    SyncWithActual: "SyncWithActual",
-};
-const ChangeSource = {
-    Automatic: "Automatic",
-    DirectModification: "DirectModification",
-    NoModification: "NoModification",
-    ParameterReference: "ParameterReference",
-    ResourceAttribute: "ResourceAttribute",
-    ResourceReference: "ResourceReference",
-};
-const EvaluationType = {
-    Dynamic: "Dynamic",
-    Static: "Static",
-};
-const ResourceAttribute = {
-    CreationPolicy: "CreationPolicy",
-    DeletionPolicy: "DeletionPolicy",
-    Metadata: "Metadata",
-    Properties: "Properties",
-    Tags: "Tags",
-    UpdatePolicy: "UpdatePolicy",
-    UpdateReplacePolicy: "UpdateReplacePolicy",
-};
-const RequiresRecreation = {
-    Always: "Always",
-    Conditionally: "Conditionally",
-    Never: "Never",
-};
-const PolicyAction = {
-    Delete: "Delete",
-    ReplaceAndDelete: "ReplaceAndDelete",
-    ReplaceAndRetain: "ReplaceAndRetain",
-    ReplaceAndSnapshot: "ReplaceAndSnapshot",
-    Retain: "Retain",
-    Snapshot: "Snapshot",
-};
-const Replacement = {
-    Conditional: "Conditional",
-    False: "False",
-    True: "True",
-};
-const DriftIgnoredReason = {
-    MANAGED_BY_AWS: "MANAGED_BY_AWS",
-    WRITE_ONLY_PROPERTY: "WRITE_ONLY_PROPERTY",
-};
-const StackResourceDriftStatus = {
-    DELETED: "DELETED",
-    IN_SYNC: "IN_SYNC",
-    MODIFIED: "MODIFIED",
-    NOT_CHECKED: "NOT_CHECKED",
-    UNKNOWN: "UNKNOWN",
-    UNSUPPORTED: "UNSUPPORTED",
-};
-const ChangeType = {
-    Resource: "Resource",
-};
-const HookFailureMode = {
-    FAIL: "FAIL",
-    WARN: "WARN",
-};
-const HookInvocationPoint = {
-    PRE_PROVISION: "PRE_PROVISION",
-};
-const HookTargetType = {
-    RESOURCE: "RESOURCE",
-};
-const ChangeSetHooksStatus = {
-    PLANNED: "PLANNED",
-    PLANNING: "PLANNING",
-    UNAVAILABLE: "UNAVAILABLE",
-};
 let ChangeSetNotFoundException$1 = class ChangeSetNotFoundException extends CloudFormationServiceException$1 {
     name = "ChangeSetNotFoundException";
     $fault = "client";
@@ -3781,37 +3639,6 @@ let ChangeSetNotFoundException$1 = class ChangeSetNotFoundException extends Clou
         Object.setPrototypeOf(this, ChangeSetNotFoundException.prototype);
         this.Message = opts.Message;
     }
-};
-const ChangeSetStatus = {
-    CREATE_COMPLETE: "CREATE_COMPLETE",
-    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-    CREATE_PENDING: "CREATE_PENDING",
-    DELETE_COMPLETE: "DELETE_COMPLETE",
-    DELETE_FAILED: "DELETE_FAILED",
-    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-    DELETE_PENDING: "DELETE_PENDING",
-    FAILED: "FAILED",
-};
-const ExecutionStatus = {
-    AVAILABLE: "AVAILABLE",
-    EXECUTE_COMPLETE: "EXECUTE_COMPLETE",
-    EXECUTE_FAILED: "EXECUTE_FAILED",
-    EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
-    OBSOLETE: "OBSOLETE",
-    UNAVAILABLE: "UNAVAILABLE",
-};
-const ChangeSetType = {
-    CREATE: "CREATE",
-    IMPORT: "IMPORT",
-    UPDATE: "UPDATE",
-};
-const DeploymentMode = {
-    REVERT_DRIFT: "REVERT_DRIFT",
-};
-const OnStackFailure = {
-    DELETE: "DELETE",
-    DO_NOTHING: "DO_NOTHING",
-    ROLLBACK: "ROLLBACK",
 };
 let InsufficientCapabilitiesException$1 = class InsufficientCapabilitiesException extends CloudFormationServiceException$1 {
     name = "InsufficientCapabilitiesException";
@@ -3854,27 +3681,6 @@ let ConcurrentResourcesLimitExceededException$1 = class ConcurrentResourcesLimit
         Object.setPrototypeOf(this, ConcurrentResourcesLimitExceededException.prototype);
         this.Message = opts.Message;
     }
-};
-const GeneratedTemplateDeletionPolicy = {
-    DELETE: "DELETE",
-    RETAIN: "RETAIN",
-};
-const GeneratedTemplateUpdateReplacePolicy = {
-    DELETE: "DELETE",
-    RETAIN: "RETAIN",
-};
-const OnFailure = {
-    DELETE: "DELETE",
-    DO_NOTHING: "DO_NOTHING",
-    ROLLBACK: "ROLLBACK",
-};
-const ConcurrencyMode = {
-    SOFT_FAILURE_TOLERANCE: "SOFT_FAILURE_TOLERANCE",
-    STRICT_FAILURE_TOLERANCE: "STRICT_FAILURE_TOLERANCE",
-};
-const RegionConcurrencyType = {
-    PARALLEL: "PARALLEL",
-    SEQUENTIAL: "SEQUENTIAL",
 };
 let OperationIdAlreadyExistsException$1 = class OperationIdAlreadyExistsException extends CloudFormationServiceException$1 {
     name = "OperationIdAlreadyExistsException";
@@ -3946,10 +3752,6 @@ let CreatedButModifiedException$1 = class CreatedButModifiedException extends Cl
         this.Message = opts.Message;
     }
 };
-const PermissionModels = {
-    SELF_MANAGED: "SELF_MANAGED",
-    SERVICE_MANAGED: "SERVICE_MANAGED",
-};
 let NameAlreadyExistsException$1 = class NameAlreadyExistsException extends CloudFormationServiceException$1 {
     name = "NameAlreadyExistsException";
     $fault = "client";
@@ -3992,10 +3794,6 @@ let GeneratedTemplateNotFoundException$1 = class GeneratedTemplateNotFoundExcept
         this.Message = opts.Message;
     }
 };
-const DeletionMode = {
-    FORCE_DELETE_STACK: "FORCE_DELETE_STACK",
-    STANDARD: "STANDARD",
-};
 let StackSetNotEmptyException$1 = class StackSetNotEmptyException extends CloudFormationServiceException$1 {
     name = "StackSetNotEmptyException";
     $fault = "client";
@@ -4009,119 +3807,6 @@ let StackSetNotEmptyException$1 = class StackSetNotEmptyException extends CloudF
         Object.setPrototypeOf(this, StackSetNotEmptyException.prototype);
         this.Message = opts.Message;
     }
-};
-const RegistryType = {
-    HOOK: "HOOK",
-    MODULE: "MODULE",
-    RESOURCE: "RESOURCE",
-};
-const StackDriftStatus = {
-    DRIFTED: "DRIFTED",
-    IN_SYNC: "IN_SYNC",
-    NOT_CHECKED: "NOT_CHECKED",
-    UNKNOWN: "UNKNOWN",
-};
-const DetailedStatus = {
-    CONFIGURATION_COMPLETE: "CONFIGURATION_COMPLETE",
-    VALIDATION_FAILED: "VALIDATION_FAILED",
-};
-const EventType = {
-    HOOK_INVOCATION_ERROR: "HOOK_INVOCATION_ERROR",
-    PROGRESS_EVENT: "PROGRESS_EVENT",
-    PROVISIONING_ERROR: "PROVISIONING_ERROR",
-    STACK_EVENT: "STACK_EVENT",
-    VALIDATION_ERROR: "VALIDATION_ERROR",
-};
-const HookStatus = {
-    HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
-    HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
-    HOOK_FAILED: "HOOK_FAILED",
-    HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
-};
-const OperationType = {
-    CONTINUE_ROLLBACK: "CONTINUE_ROLLBACK",
-    CREATE_CHANGESET: "CREATE_CHANGESET",
-    CREATE_STACK: "CREATE_STACK",
-    DELETE_STACK: "DELETE_STACK",
-    ROLLBACK: "ROLLBACK",
-    UPDATE_STACK: "UPDATE_STACK",
-};
-const ResourceStatus = {
-    CREATE_COMPLETE: "CREATE_COMPLETE",
-    CREATE_FAILED: "CREATE_FAILED",
-    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-    DELETE_COMPLETE: "DELETE_COMPLETE",
-    DELETE_FAILED: "DELETE_FAILED",
-    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-    DELETE_SKIPPED: "DELETE_SKIPPED",
-    EXPORT_COMPLETE: "EXPORT_COMPLETE",
-    EXPORT_FAILED: "EXPORT_FAILED",
-    EXPORT_IN_PROGRESS: "EXPORT_IN_PROGRESS",
-    EXPORT_ROLLBACK_COMPLETE: "EXPORT_ROLLBACK_COMPLETE",
-    EXPORT_ROLLBACK_FAILED: "EXPORT_ROLLBACK_FAILED",
-    EXPORT_ROLLBACK_IN_PROGRESS: "EXPORT_ROLLBACK_IN_PROGRESS",
-    IMPORT_COMPLETE: "IMPORT_COMPLETE",
-    IMPORT_FAILED: "IMPORT_FAILED",
-    IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-    IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
-    IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
-    IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
-    ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
-    ROLLBACK_FAILED: "ROLLBACK_FAILED",
-    ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
-    UPDATE_COMPLETE: "UPDATE_COMPLETE",
-    UPDATE_FAILED: "UPDATE_FAILED",
-    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-    UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
-    UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
-    UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
-};
-const ValidationStatus = {
-    FAILED: "FAILED",
-    SKIPPED: "SKIPPED",
-};
-const GeneratedTemplateResourceStatus = {
-    COMPLETE: "COMPLETE",
-    FAILED: "FAILED",
-    IN_PROGRESS: "IN_PROGRESS",
-    PENDING: "PENDING",
-};
-const WarningType = {
-    EXCLUDED_PROPERTIES: "EXCLUDED_PROPERTIES",
-    EXCLUDED_RESOURCES: "EXCLUDED_RESOURCES",
-    MUTUALLY_EXCLUSIVE_PROPERTIES: "MUTUALLY_EXCLUSIVE_PROPERTIES",
-    MUTUALLY_EXCLUSIVE_TYPES: "MUTUALLY_EXCLUSIVE_TYPES",
-    UNSUPPORTED_PROPERTIES: "UNSUPPORTED_PROPERTIES",
-};
-const GeneratedTemplateStatus = {
-    COMPLETE: "COMPLETE",
-    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-    CREATE_PENDING: "CREATE_PENDING",
-    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-    DELETE_PENDING: "DELETE_PENDING",
-    FAILED: "FAILED",
-    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-    UPDATE_PENDING: "UPDATE_PENDING",
-};
-const OrganizationStatus = {
-    DISABLED: "DISABLED",
-    DISABLED_PERMANENTLY: "DISABLED_PERMANENTLY",
-    ENABLED: "ENABLED",
-};
-const IdentityProvider = {
-    AWS_Marketplace: "AWS_Marketplace",
-    Bitbucket: "Bitbucket",
-    GitHub: "GitHub",
-};
-const PublisherStatus = {
-    UNVERIFIED: "UNVERIFIED",
-    VERIFIED: "VERIFIED",
-};
-const ResourceScanStatus = {
-    COMPLETE: "COMPLETE",
-    EXPIRED: "EXPIRED",
-    FAILED: "FAILED",
-    IN_PROGRESS: "IN_PROGRESS",
 };
 let ResourceScanNotFoundException$1 = class ResourceScanNotFoundException extends CloudFormationServiceException$1 {
     name = "ResourceScanNotFoundException";
@@ -4137,26 +3822,6 @@ let ResourceScanNotFoundException$1 = class ResourceScanNotFoundException extend
         this.Message = opts.Message;
     }
 };
-const StackDriftDetectionStatus = {
-    DETECTION_COMPLETE: "DETECTION_COMPLETE",
-    DETECTION_FAILED: "DETECTION_FAILED",
-    DETECTION_IN_PROGRESS: "DETECTION_IN_PROGRESS",
-};
-const StackInstanceDetailedStatus = {
-    CANCELLED: "CANCELLED",
-    FAILED: "FAILED",
-    FAILED_IMPORT: "FAILED_IMPORT",
-    INOPERABLE: "INOPERABLE",
-    PENDING: "PENDING",
-    RUNNING: "RUNNING",
-    SKIPPED_SUSPENDED_ACCOUNT: "SKIPPED_SUSPENDED_ACCOUNT",
-    SUCCEEDED: "SUCCEEDED",
-};
-const StackInstanceStatus = {
-    CURRENT: "CURRENT",
-    INOPERABLE: "INOPERABLE",
-    OUTDATED: "OUTDATED",
-};
 let StackInstanceNotFoundException$1 = class StackInstanceNotFoundException extends CloudFormationServiceException$1 {
     name = "StackInstanceNotFoundException";
     $fault = "client";
@@ -4170,25 +3835,6 @@ let StackInstanceNotFoundException$1 = class StackInstanceNotFoundException exte
         Object.setPrototypeOf(this, StackInstanceNotFoundException.prototype);
         this.Message = opts.Message;
     }
-};
-const StackRefactorExecutionStatus = {
-    AVAILABLE: "AVAILABLE",
-    EXECUTE_COMPLETE: "EXECUTE_COMPLETE",
-    EXECUTE_FAILED: "EXECUTE_FAILED",
-    EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
-    OBSOLETE: "OBSOLETE",
-    ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
-    ROLLBACK_FAILED: "ROLLBACK_FAILED",
-    ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
-    UNAVAILABLE: "UNAVAILABLE",
-};
-const StackRefactorStatus = {
-    CREATE_COMPLETE: "CREATE_COMPLETE",
-    CREATE_FAILED: "CREATE_FAILED",
-    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-    DELETE_COMPLETE: "DELETE_COMPLETE",
-    DELETE_FAILED: "DELETE_FAILED",
-    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
 };
 let StackRefactorNotFoundException$1 = class StackRefactorNotFoundException extends CloudFormationServiceException$1 {
     name = "StackRefactorNotFoundException";
@@ -4204,100 +3850,6 @@ let StackRefactorNotFoundException$1 = class StackRefactorNotFoundException exte
         this.Message = opts.Message;
     }
 };
-const DifferenceType = {
-    ADD: "ADD",
-    NOT_EQUAL: "NOT_EQUAL",
-    REMOVE: "REMOVE",
-};
-const StackStatus = {
-    CREATE_COMPLETE: "CREATE_COMPLETE",
-    CREATE_FAILED: "CREATE_FAILED",
-    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-    DELETE_COMPLETE: "DELETE_COMPLETE",
-    DELETE_FAILED: "DELETE_FAILED",
-    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-    IMPORT_COMPLETE: "IMPORT_COMPLETE",
-    IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-    IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
-    IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
-    IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
-    REVIEW_IN_PROGRESS: "REVIEW_IN_PROGRESS",
-    ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
-    ROLLBACK_FAILED: "ROLLBACK_FAILED",
-    ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
-    UPDATE_COMPLETE: "UPDATE_COMPLETE",
-    UPDATE_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
-    UPDATE_FAILED: "UPDATE_FAILED",
-    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-    UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
-    UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
-    UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
-    UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
-};
-const StackSetDriftDetectionStatus = {
-    COMPLETED: "COMPLETED",
-    FAILED: "FAILED",
-    IN_PROGRESS: "IN_PROGRESS",
-    PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
-    STOPPED: "STOPPED",
-};
-const StackSetDriftStatus = {
-    DRIFTED: "DRIFTED",
-    IN_SYNC: "IN_SYNC",
-    NOT_CHECKED: "NOT_CHECKED",
-};
-const StackSetStatus = {
-    ACTIVE: "ACTIVE",
-    DELETED: "DELETED",
-};
-const StackSetOperationAction = {
-    CREATE: "CREATE",
-    DELETE: "DELETE",
-    DETECT_DRIFT: "DETECT_DRIFT",
-    UPDATE: "UPDATE",
-};
-const StackSetOperationStatus = {
-    FAILED: "FAILED",
-    QUEUED: "QUEUED",
-    RUNNING: "RUNNING",
-    STOPPED: "STOPPED",
-    STOPPING: "STOPPING",
-    SUCCEEDED: "SUCCEEDED",
-};
-const DeprecatedStatus = {
-    DEPRECATED: "DEPRECATED",
-    LIVE: "LIVE",
-};
-const ProvisioningType = {
-    FULLY_MUTABLE: "FULLY_MUTABLE",
-    IMMUTABLE: "IMMUTABLE",
-    NON_PROVISIONABLE: "NON_PROVISIONABLE",
-};
-const TypeTestsStatus = {
-    FAILED: "FAILED",
-    IN_PROGRESS: "IN_PROGRESS",
-    NOT_TESTED: "NOT_TESTED",
-    PASSED: "PASSED",
-};
-const Visibility = {
-    PRIVATE: "PRIVATE",
-    PUBLIC: "PUBLIC",
-};
-const RegistrationStatus = {
-    COMPLETE: "COMPLETE",
-    FAILED: "FAILED",
-    IN_PROGRESS: "IN_PROGRESS",
-};
-const TemplateFormat = {
-    JSON: "JSON",
-    YAML: "YAML",
-};
-const HookTargetAction = {
-    CREATE: "CREATE",
-    DELETE: "DELETE",
-    IMPORT: "IMPORT",
-    UPDATE: "UPDATE",
-};
 let HookResultNotFoundException$1 = class HookResultNotFoundException extends CloudFormationServiceException$1 {
     name = "HookResultNotFoundException";
     $fault = "client";
@@ -4311,10 +3863,6 @@ let HookResultNotFoundException$1 = class HookResultNotFoundException extends Cl
         Object.setPrototypeOf(this, HookResultNotFoundException.prototype);
         this.Message = opts.Message;
     }
-};
-const TemplateStage = {
-    Original: "Original",
-    Processed: "Processed",
 };
 let StackNotFoundException$1 = class StackNotFoundException extends CloudFormationServiceException$1 {
     name = "StackNotFoundException";
@@ -4330,12 +3878,6 @@ let StackNotFoundException$1 = class StackNotFoundException extends CloudFormati
         this.Message = opts.Message;
     }
 };
-const ListHookResultsTargetType = {
-    CHANGE_SET: "CHANGE_SET",
-    CLOUD_CONTROL: "CLOUD_CONTROL",
-    RESOURCE: "RESOURCE",
-    STACK: "STACK",
-};
 let ResourceScanInProgressException$1 = class ResourceScanInProgressException extends CloudFormationServiceException$1 {
     name = "ResourceScanInProgressException";
     $fault = "client";
@@ -4349,38 +3891,6 @@ let ResourceScanInProgressException$1 = class ResourceScanInProgressException ex
         Object.setPrototypeOf(this, ResourceScanInProgressException.prototype);
         this.Message = opts.Message;
     }
-};
-const ScanType = {
-    FULL: "FULL",
-    PARTIAL: "PARTIAL",
-};
-const StackInstanceFilterName = {
-    DETAILED_STATUS: "DETAILED_STATUS",
-    DRIFT_STATUS: "DRIFT_STATUS",
-    LAST_OPERATION_ID: "LAST_OPERATION_ID",
-};
-const StackRefactorActionType = {
-    CREATE: "CREATE",
-    MOVE: "MOVE",
-};
-const StackRefactorDetection = {
-    AUTO: "AUTO",
-    MANUAL: "MANUAL",
-};
-const StackRefactorActionEntity = {
-    RESOURCE: "RESOURCE",
-    STACK: "STACK",
-};
-
-const OperationResultFilterName = {
-    OPERATION_RESULT_STATUS: "OPERATION_RESULT_STATUS",
-};
-const StackSetOperationResultStatus = {
-    CANCELLED: "CANCELLED",
-    FAILED: "FAILED",
-    PENDING: "PENDING",
-    RUNNING: "RUNNING",
-    SUCCEEDED: "SUCCEEDED",
 };
 let InvalidStateTransitionException$1 = class InvalidStateTransitionException extends CloudFormationServiceException$1 {
     name = "InvalidStateTransitionException";
@@ -4409,37 +3919,6 @@ let OperationStatusCheckFailedException$1 = class OperationStatusCheckFailedExce
         Object.setPrototypeOf(this, OperationStatusCheckFailedException.prototype);
         this.Message = opts.Message;
     }
-};
-const OperationStatus = {
-    FAILED: "FAILED",
-    IN_PROGRESS: "IN_PROGRESS",
-    PENDING: "PENDING",
-    SUCCESS: "SUCCESS",
-};
-const HandlerErrorCode = {
-    AccessDenied: "AccessDenied",
-    AlreadyExists: "AlreadyExists",
-    GeneralServiceException: "GeneralServiceException",
-    HandlerInternalFailure: "HandlerInternalFailure",
-    InternalFailure: "InternalFailure",
-    InvalidCredentials: "InvalidCredentials",
-    InvalidRequest: "InvalidRequest",
-    InvalidTypeConfiguration: "InvalidTypeConfiguration",
-    NetworkFailure: "NetworkFailure",
-    NonCompliant: "NonCompliant",
-    NotFound: "NotFound",
-    NotUpdatable: "NotUpdatable",
-    ResourceConflict: "ResourceConflict",
-    ServiceInternalError: "ServiceInternalError",
-    ServiceLimitExceeded: "ServiceLimitExceeded",
-    ServiceTimeout: "NotStabilized",
-    Throttling: "Throttling",
-    Unknown: "Unknown",
-    UnsupportedTarget: "UnsupportedTarget",
-};
-const ResourceSignalStatus = {
-    FAILURE: "FAILURE",
-    SUCCESS: "SUCCESS",
 };
 let ResourceScanLimitExceededException$1 = class ResourceScanLimitExceededException extends CloudFormationServiceException$1 {
     name = "ResourceScanLimitExceededException";
@@ -4582,6 +4061,7 @@ const _DGTe = "DescribeGeneratedTemplate";
 const _DI = "DriftInformation";
 const _DM = "DeploymentMode";
 const _DMe = "DeletionMode";
+const _DO = "DependsOn";
 const _DOA = "DeactivateOrganizationsAccess";
 const _DOAI = "DeactivateOrganizationsAccessInput";
 const _DOAIe = "DescribeOrganizationsAccessInput";
@@ -5253,7 +4733,7 @@ var AlreadyExistsException = [
 ];
 schema.TypeRegistry.for(n0).registerError(AlreadyExistsException, AlreadyExistsException$1);
 var Annotation = [3, n0, _An, 0, [_AN, _S, _SM, _RM, _RL, _SL], [0, 0, 0, 0, 0, 0]];
-var AutoDeployment = [3, n0, _AD, 0, [_E, _RSOAR], [2, 2]];
+var AutoDeployment = [3, n0, _AD, 0, [_E, _RSOAR, _DO], [2, 2, 64 | 0]];
 var BatchDescribeTypeConfigurationsError = [
     3,
     n0,
@@ -9721,6 +9201,527 @@ const waitUntilTypeRegistrationComplete = async (params, input) => {
     return utilWaiter.checkExceptions(result);
 };
 
+const AccountFilterType = {
+    DIFFERENCE: "DIFFERENCE",
+    INTERSECTION: "INTERSECTION",
+    NONE: "NONE",
+    UNION: "UNION",
+};
+const AccountGateStatus = {
+    FAILED: "FAILED",
+    SKIPPED: "SKIPPED",
+    SUCCEEDED: "SUCCEEDED",
+};
+const ThirdPartyType = {
+    HOOK: "HOOK",
+    MODULE: "MODULE",
+    RESOURCE: "RESOURCE",
+};
+const VersionBump = {
+    MAJOR: "MAJOR",
+    MINOR: "MINOR",
+};
+const AfterValueFrom = {
+    TEMPLATE: "TEMPLATE",
+};
+const AnnotationSeverityLevel = {
+    CRITICAL: "CRITICAL",
+    HIGH: "HIGH",
+    INFORMATIONAL: "INFORMATIONAL",
+    LOW: "LOW",
+    MEDIUM: "MEDIUM",
+};
+const AnnotationStatus = {
+    FAILED: "FAILED",
+    PASSED: "PASSED",
+    SKIPPED: "SKIPPED",
+};
+const AttributeChangeType = {
+    Add: "Add",
+    Modify: "Modify",
+    Remove: "Remove",
+    SyncWithActual: "SyncWithActual",
+};
+const BeaconStackOperationStatus = {
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+    SUCCEEDED: "SUCCEEDED",
+};
+const BeforeValueFrom = {
+    ACTUAL_STATE: "ACTUAL_STATE",
+    PREVIOUS_DEPLOYMENT_STATE: "PREVIOUS_DEPLOYMENT_STATE",
+};
+const CallAs = {
+    DELEGATED_ADMIN: "DELEGATED_ADMIN",
+    SELF: "SELF",
+};
+const Capability = {
+    CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
+    CAPABILITY_IAM: "CAPABILITY_IAM",
+    CAPABILITY_NAMED_IAM: "CAPABILITY_NAMED_IAM",
+};
+const Category = {
+    ACTIVATED: "ACTIVATED",
+    AWS_TYPES: "AWS_TYPES",
+    REGISTERED: "REGISTERED",
+    THIRD_PARTY: "THIRD_PARTY",
+};
+const ChangeAction = {
+    Add: "Add",
+    Dynamic: "Dynamic",
+    Import: "Import",
+    Modify: "Modify",
+    Remove: "Remove",
+    SyncWithActual: "SyncWithActual",
+};
+const ChangeSource = {
+    Automatic: "Automatic",
+    DirectModification: "DirectModification",
+    NoModification: "NoModification",
+    ParameterReference: "ParameterReference",
+    ResourceAttribute: "ResourceAttribute",
+    ResourceReference: "ResourceReference",
+};
+const EvaluationType = {
+    Dynamic: "Dynamic",
+    Static: "Static",
+};
+const ResourceAttribute = {
+    CreationPolicy: "CreationPolicy",
+    DeletionPolicy: "DeletionPolicy",
+    Metadata: "Metadata",
+    Properties: "Properties",
+    Tags: "Tags",
+    UpdatePolicy: "UpdatePolicy",
+    UpdateReplacePolicy: "UpdateReplacePolicy",
+};
+const RequiresRecreation = {
+    Always: "Always",
+    Conditionally: "Conditionally",
+    Never: "Never",
+};
+const PolicyAction = {
+    Delete: "Delete",
+    ReplaceAndDelete: "ReplaceAndDelete",
+    ReplaceAndRetain: "ReplaceAndRetain",
+    ReplaceAndSnapshot: "ReplaceAndSnapshot",
+    Retain: "Retain",
+    Snapshot: "Snapshot",
+};
+const Replacement = {
+    Conditional: "Conditional",
+    False: "False",
+    True: "True",
+};
+const DriftIgnoredReason = {
+    MANAGED_BY_AWS: "MANAGED_BY_AWS",
+    WRITE_ONLY_PROPERTY: "WRITE_ONLY_PROPERTY",
+};
+const StackResourceDriftStatus = {
+    DELETED: "DELETED",
+    IN_SYNC: "IN_SYNC",
+    MODIFIED: "MODIFIED",
+    NOT_CHECKED: "NOT_CHECKED",
+    UNKNOWN: "UNKNOWN",
+    UNSUPPORTED: "UNSUPPORTED",
+};
+const ChangeType = {
+    Resource: "Resource",
+};
+const HookFailureMode = {
+    FAIL: "FAIL",
+    WARN: "WARN",
+};
+const HookInvocationPoint = {
+    PRE_PROVISION: "PRE_PROVISION",
+};
+const HookTargetType = {
+    RESOURCE: "RESOURCE",
+};
+const ChangeSetHooksStatus = {
+    PLANNED: "PLANNED",
+    PLANNING: "PLANNING",
+    UNAVAILABLE: "UNAVAILABLE",
+};
+const ChangeSetStatus = {
+    CREATE_COMPLETE: "CREATE_COMPLETE",
+    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+    CREATE_PENDING: "CREATE_PENDING",
+    DELETE_COMPLETE: "DELETE_COMPLETE",
+    DELETE_FAILED: "DELETE_FAILED",
+    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+    DELETE_PENDING: "DELETE_PENDING",
+    FAILED: "FAILED",
+};
+const ExecutionStatus = {
+    AVAILABLE: "AVAILABLE",
+    EXECUTE_COMPLETE: "EXECUTE_COMPLETE",
+    EXECUTE_FAILED: "EXECUTE_FAILED",
+    EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+    OBSOLETE: "OBSOLETE",
+    UNAVAILABLE: "UNAVAILABLE",
+};
+const ChangeSetType = {
+    CREATE: "CREATE",
+    IMPORT: "IMPORT",
+    UPDATE: "UPDATE",
+};
+const DeploymentMode = {
+    REVERT_DRIFT: "REVERT_DRIFT",
+};
+const OnStackFailure = {
+    DELETE: "DELETE",
+    DO_NOTHING: "DO_NOTHING",
+    ROLLBACK: "ROLLBACK",
+};
+const GeneratedTemplateDeletionPolicy = {
+    DELETE: "DELETE",
+    RETAIN: "RETAIN",
+};
+const GeneratedTemplateUpdateReplacePolicy = {
+    DELETE: "DELETE",
+    RETAIN: "RETAIN",
+};
+const OnFailure = {
+    DELETE: "DELETE",
+    DO_NOTHING: "DO_NOTHING",
+    ROLLBACK: "ROLLBACK",
+};
+const ConcurrencyMode = {
+    SOFT_FAILURE_TOLERANCE: "SOFT_FAILURE_TOLERANCE",
+    STRICT_FAILURE_TOLERANCE: "STRICT_FAILURE_TOLERANCE",
+};
+const RegionConcurrencyType = {
+    PARALLEL: "PARALLEL",
+    SEQUENTIAL: "SEQUENTIAL",
+};
+const PermissionModels = {
+    SELF_MANAGED: "SELF_MANAGED",
+    SERVICE_MANAGED: "SERVICE_MANAGED",
+};
+const DeletionMode = {
+    FORCE_DELETE_STACK: "FORCE_DELETE_STACK",
+    STANDARD: "STANDARD",
+};
+const RegistryType = {
+    HOOK: "HOOK",
+    MODULE: "MODULE",
+    RESOURCE: "RESOURCE",
+};
+const StackDriftStatus = {
+    DRIFTED: "DRIFTED",
+    IN_SYNC: "IN_SYNC",
+    NOT_CHECKED: "NOT_CHECKED",
+    UNKNOWN: "UNKNOWN",
+};
+const DetailedStatus = {
+    CONFIGURATION_COMPLETE: "CONFIGURATION_COMPLETE",
+    VALIDATION_FAILED: "VALIDATION_FAILED",
+};
+const EventType = {
+    HOOK_INVOCATION_ERROR: "HOOK_INVOCATION_ERROR",
+    PROGRESS_EVENT: "PROGRESS_EVENT",
+    PROVISIONING_ERROR: "PROVISIONING_ERROR",
+    STACK_EVENT: "STACK_EVENT",
+    VALIDATION_ERROR: "VALIDATION_ERROR",
+};
+const HookStatus = {
+    HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
+    HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
+    HOOK_FAILED: "HOOK_FAILED",
+    HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
+};
+const OperationType = {
+    CONTINUE_ROLLBACK: "CONTINUE_ROLLBACK",
+    CREATE_CHANGESET: "CREATE_CHANGESET",
+    CREATE_STACK: "CREATE_STACK",
+    DELETE_STACK: "DELETE_STACK",
+    ROLLBACK: "ROLLBACK",
+    UPDATE_STACK: "UPDATE_STACK",
+};
+const ResourceStatus = {
+    CREATE_COMPLETE: "CREATE_COMPLETE",
+    CREATE_FAILED: "CREATE_FAILED",
+    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+    DELETE_COMPLETE: "DELETE_COMPLETE",
+    DELETE_FAILED: "DELETE_FAILED",
+    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+    DELETE_SKIPPED: "DELETE_SKIPPED",
+    EXPORT_COMPLETE: "EXPORT_COMPLETE",
+    EXPORT_FAILED: "EXPORT_FAILED",
+    EXPORT_IN_PROGRESS: "EXPORT_IN_PROGRESS",
+    EXPORT_ROLLBACK_COMPLETE: "EXPORT_ROLLBACK_COMPLETE",
+    EXPORT_ROLLBACK_FAILED: "EXPORT_ROLLBACK_FAILED",
+    EXPORT_ROLLBACK_IN_PROGRESS: "EXPORT_ROLLBACK_IN_PROGRESS",
+    IMPORT_COMPLETE: "IMPORT_COMPLETE",
+    IMPORT_FAILED: "IMPORT_FAILED",
+    IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+    IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+    IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+    IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+    ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+    ROLLBACK_FAILED: "ROLLBACK_FAILED",
+    ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+    UPDATE_COMPLETE: "UPDATE_COMPLETE",
+    UPDATE_FAILED: "UPDATE_FAILED",
+    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+    UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+    UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+    UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+};
+const ValidationStatus = {
+    FAILED: "FAILED",
+    SKIPPED: "SKIPPED",
+};
+const GeneratedTemplateResourceStatus = {
+    COMPLETE: "COMPLETE",
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+    PENDING: "PENDING",
+};
+const WarningType = {
+    EXCLUDED_PROPERTIES: "EXCLUDED_PROPERTIES",
+    EXCLUDED_RESOURCES: "EXCLUDED_RESOURCES",
+    MUTUALLY_EXCLUSIVE_PROPERTIES: "MUTUALLY_EXCLUSIVE_PROPERTIES",
+    MUTUALLY_EXCLUSIVE_TYPES: "MUTUALLY_EXCLUSIVE_TYPES",
+    UNSUPPORTED_PROPERTIES: "UNSUPPORTED_PROPERTIES",
+};
+const GeneratedTemplateStatus = {
+    COMPLETE: "COMPLETE",
+    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+    CREATE_PENDING: "CREATE_PENDING",
+    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+    DELETE_PENDING: "DELETE_PENDING",
+    FAILED: "FAILED",
+    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+    UPDATE_PENDING: "UPDATE_PENDING",
+};
+const OrganizationStatus = {
+    DISABLED: "DISABLED",
+    DISABLED_PERMANENTLY: "DISABLED_PERMANENTLY",
+    ENABLED: "ENABLED",
+};
+const IdentityProvider = {
+    AWS_Marketplace: "AWS_Marketplace",
+    Bitbucket: "Bitbucket",
+    GitHub: "GitHub",
+};
+const PublisherStatus = {
+    UNVERIFIED: "UNVERIFIED",
+    VERIFIED: "VERIFIED",
+};
+const ResourceScanStatus = {
+    COMPLETE: "COMPLETE",
+    EXPIRED: "EXPIRED",
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+};
+const StackDriftDetectionStatus = {
+    DETECTION_COMPLETE: "DETECTION_COMPLETE",
+    DETECTION_FAILED: "DETECTION_FAILED",
+    DETECTION_IN_PROGRESS: "DETECTION_IN_PROGRESS",
+};
+const StackInstanceDetailedStatus = {
+    CANCELLED: "CANCELLED",
+    FAILED: "FAILED",
+    FAILED_IMPORT: "FAILED_IMPORT",
+    INOPERABLE: "INOPERABLE",
+    PENDING: "PENDING",
+    RUNNING: "RUNNING",
+    SKIPPED_SUSPENDED_ACCOUNT: "SKIPPED_SUSPENDED_ACCOUNT",
+    SUCCEEDED: "SUCCEEDED",
+};
+const StackInstanceStatus = {
+    CURRENT: "CURRENT",
+    INOPERABLE: "INOPERABLE",
+    OUTDATED: "OUTDATED",
+};
+const StackRefactorExecutionStatus = {
+    AVAILABLE: "AVAILABLE",
+    EXECUTE_COMPLETE: "EXECUTE_COMPLETE",
+    EXECUTE_FAILED: "EXECUTE_FAILED",
+    EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+    OBSOLETE: "OBSOLETE",
+    ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+    ROLLBACK_FAILED: "ROLLBACK_FAILED",
+    ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+    UNAVAILABLE: "UNAVAILABLE",
+};
+const StackRefactorStatus = {
+    CREATE_COMPLETE: "CREATE_COMPLETE",
+    CREATE_FAILED: "CREATE_FAILED",
+    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+    DELETE_COMPLETE: "DELETE_COMPLETE",
+    DELETE_FAILED: "DELETE_FAILED",
+    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+};
+const DifferenceType = {
+    ADD: "ADD",
+    NOT_EQUAL: "NOT_EQUAL",
+    REMOVE: "REMOVE",
+};
+const StackStatus = {
+    CREATE_COMPLETE: "CREATE_COMPLETE",
+    CREATE_FAILED: "CREATE_FAILED",
+    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+    DELETE_COMPLETE: "DELETE_COMPLETE",
+    DELETE_FAILED: "DELETE_FAILED",
+    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+    IMPORT_COMPLETE: "IMPORT_COMPLETE",
+    IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+    IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+    IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+    IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+    REVIEW_IN_PROGRESS: "REVIEW_IN_PROGRESS",
+    ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+    ROLLBACK_FAILED: "ROLLBACK_FAILED",
+    ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+    UPDATE_COMPLETE: "UPDATE_COMPLETE",
+    UPDATE_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
+    UPDATE_FAILED: "UPDATE_FAILED",
+    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+    UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+    UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
+    UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+    UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+};
+const StackSetDriftDetectionStatus = {
+    COMPLETED: "COMPLETED",
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+    PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+    STOPPED: "STOPPED",
+};
+const StackSetDriftStatus = {
+    DRIFTED: "DRIFTED",
+    IN_SYNC: "IN_SYNC",
+    NOT_CHECKED: "NOT_CHECKED",
+};
+const StackSetStatus = {
+    ACTIVE: "ACTIVE",
+    DELETED: "DELETED",
+};
+const StackSetOperationAction = {
+    CREATE: "CREATE",
+    DELETE: "DELETE",
+    DETECT_DRIFT: "DETECT_DRIFT",
+    UPDATE: "UPDATE",
+};
+const StackSetOperationStatus = {
+    FAILED: "FAILED",
+    QUEUED: "QUEUED",
+    RUNNING: "RUNNING",
+    STOPPED: "STOPPED",
+    STOPPING: "STOPPING",
+    SUCCEEDED: "SUCCEEDED",
+};
+const DeprecatedStatus = {
+    DEPRECATED: "DEPRECATED",
+    LIVE: "LIVE",
+};
+const ProvisioningType = {
+    FULLY_MUTABLE: "FULLY_MUTABLE",
+    IMMUTABLE: "IMMUTABLE",
+    NON_PROVISIONABLE: "NON_PROVISIONABLE",
+};
+const TypeTestsStatus = {
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+    NOT_TESTED: "NOT_TESTED",
+    PASSED: "PASSED",
+};
+const Visibility = {
+    PRIVATE: "PRIVATE",
+    PUBLIC: "PUBLIC",
+};
+const RegistrationStatus = {
+    COMPLETE: "COMPLETE",
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+};
+const TemplateFormat = {
+    JSON: "JSON",
+    YAML: "YAML",
+};
+const HookTargetAction = {
+    CREATE: "CREATE",
+    DELETE: "DELETE",
+    IMPORT: "IMPORT",
+    UPDATE: "UPDATE",
+};
+const TemplateStage = {
+    Original: "Original",
+    Processed: "Processed",
+};
+const ListHookResultsTargetType = {
+    CHANGE_SET: "CHANGE_SET",
+    CLOUD_CONTROL: "CLOUD_CONTROL",
+    RESOURCE: "RESOURCE",
+    STACK: "STACK",
+};
+const ScanType = {
+    FULL: "FULL",
+    PARTIAL: "PARTIAL",
+};
+const StackInstanceFilterName = {
+    DETAILED_STATUS: "DETAILED_STATUS",
+    DRIFT_STATUS: "DRIFT_STATUS",
+    LAST_OPERATION_ID: "LAST_OPERATION_ID",
+};
+const StackRefactorActionType = {
+    CREATE: "CREATE",
+    MOVE: "MOVE",
+};
+const StackRefactorDetection = {
+    AUTO: "AUTO",
+    MANUAL: "MANUAL",
+};
+const StackRefactorActionEntity = {
+    RESOURCE: "RESOURCE",
+    STACK: "STACK",
+};
+const OperationResultFilterName = {
+    OPERATION_RESULT_STATUS: "OPERATION_RESULT_STATUS",
+};
+const StackSetOperationResultStatus = {
+    CANCELLED: "CANCELLED",
+    FAILED: "FAILED",
+    PENDING: "PENDING",
+    RUNNING: "RUNNING",
+    SUCCEEDED: "SUCCEEDED",
+};
+const OperationStatus = {
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+    PENDING: "PENDING",
+    SUCCESS: "SUCCESS",
+};
+const HandlerErrorCode = {
+    AccessDenied: "AccessDenied",
+    AlreadyExists: "AlreadyExists",
+    GeneralServiceException: "GeneralServiceException",
+    HandlerInternalFailure: "HandlerInternalFailure",
+    InternalFailure: "InternalFailure",
+    InvalidCredentials: "InvalidCredentials",
+    InvalidRequest: "InvalidRequest",
+    InvalidTypeConfiguration: "InvalidTypeConfiguration",
+    NetworkFailure: "NetworkFailure",
+    NonCompliant: "NonCompliant",
+    NotFound: "NotFound",
+    NotUpdatable: "NotUpdatable",
+    ResourceConflict: "ResourceConflict",
+    ServiceInternalError: "ServiceInternalError",
+    ServiceLimitExceeded: "ServiceLimitExceeded",
+    ServiceTimeout: "NotStabilized",
+    Throttling: "Throttling",
+    Unknown: "Unknown",
+    UnsupportedTarget: "UnsupportedTarget",
+};
+const ResourceSignalStatus = {
+    FAILURE: "FAILURE",
+    SUCCESS: "SUCCESS",
+};
+
 __webpack_unused_export__ = ({
     enumerable: true,
     get: function () { return smithyClient.Command; }
@@ -9984,28 +9985,28 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 4338:
+/***/ 7158:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(4343));
-const core_1 = __nccwpck_require__(8362);
-const credential_provider_node_1 = __nccwpck_require__(9020);
-const util_user_agent_node_1 = __nccwpck_require__(8442);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(2499));
+const core_1 = __nccwpck_require__(3600);
+const credential_provider_node_1 = __nccwpck_require__(3002);
+const util_user_agent_node_1 = __nccwpck_require__(2951);
 const config_resolver_1 = __nccwpck_require__(7358);
 const hash_node_1 = __nccwpck_require__(6354);
-const middleware_retry_1 = __nccwpck_require__(5195);
+const middleware_retry_1 = __nccwpck_require__(9579);
 const node_config_provider_1 = __nccwpck_require__(913);
 const node_http_handler_1 = __nccwpck_require__(4654);
 const util_body_length_node_1 = __nccwpck_require__(7062);
 const util_retry_1 = __nccwpck_require__(5840);
-const runtimeConfig_shared_1 = __nccwpck_require__(2571);
-const smithy_client_1 = __nccwpck_require__(4791);
-const util_defaults_mode_node_1 = __nccwpck_require__(931);
-const smithy_client_2 = __nccwpck_require__(4791);
+const runtimeConfig_shared_1 = __nccwpck_require__(4879);
+const smithy_client_1 = __nccwpck_require__(2958);
+const util_defaults_mode_node_1 = __nccwpck_require__(3910);
+const smithy_client_2 = __nccwpck_require__(2958);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -10047,20 +10048,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 2571:
+/***/ 4879:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(8362);
-const protocols_1 = __nccwpck_require__(9190);
-const smithy_client_1 = __nccwpck_require__(4791);
+const core_1 = __nccwpck_require__(3600);
+const protocols_1 = __nccwpck_require__(4856);
+const smithy_client_1 = __nccwpck_require__(2958);
 const url_parser_1 = __nccwpck_require__(7272);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_utf8_1 = __nccwpck_require__(5579);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(4795);
-const endpointResolver_1 = __nccwpck_require__(4069);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(4324);
+const endpointResolver_1 = __nccwpck_require__(4001);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -10095,21 +10096,21 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 8362:
+/***/ 3600:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var protocolHttp = __nccwpck_require__(1034);
-var core = __nccwpck_require__(8595);
+var core = __nccwpck_require__(3234);
 var propertyProvider = __nccwpck_require__(7717);
-var client = __nccwpck_require__(1722);
+var client = __nccwpck_require__(8736);
 var signatureV4 = __nccwpck_require__(3492);
-var cbor = __nccwpck_require__(9672);
-var schema = __nccwpck_require__(2615);
-var smithyClient = __nccwpck_require__(4791);
-var protocols = __nccwpck_require__(949);
-var serde = __nccwpck_require__(245);
+var cbor = __nccwpck_require__(3874);
+var schema = __nccwpck_require__(7162);
+var smithyClient = __nccwpck_require__(2958);
+var protocols = __nccwpck_require__(2078);
+var serde = __nccwpck_require__(5726);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
 var xmlBuilder = __nccwpck_require__(8004);
@@ -12102,7 +12103,7 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 1722:
+/***/ 8736:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -12160,16 +12161,16 @@ exports.state = state;
 
 /***/ }),
 
-/***/ 9190:
+/***/ 4856:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var cbor = __nccwpck_require__(9672);
-var schema = __nccwpck_require__(2615);
-var smithyClient = __nccwpck_require__(4791);
-var protocols = __nccwpck_require__(949);
-var serde = __nccwpck_require__(245);
+var cbor = __nccwpck_require__(3874);
+var schema = __nccwpck_require__(7162);
+var smithyClient = __nccwpck_require__(2958);
+var protocols = __nccwpck_require__(2078);
+var serde = __nccwpck_require__(5726);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
 var xmlBuilder = __nccwpck_require__(8004);
@@ -13822,12 +13823,12 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 8056:
+/***/ 450:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var client = __nccwpck_require__(1722);
+var client = __nccwpck_require__(8736);
 var propertyProvider = __nccwpck_require__(7717);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
@@ -13870,12 +13871,12 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 9020:
+/***/ 3002:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var credentialProviderEnv = __nccwpck_require__(8056);
+var credentialProviderEnv = __nccwpck_require__(450);
 var propertyProvider = __nccwpck_require__(7717);
 var sharedIniFileLoader = __nccwpck_require__(2787);
 
@@ -13884,7 +13885,7 @@ const remoteProvider = async (init) => {
     const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 900).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4900, 19));
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 116).then(__nccwpck_require__.bind(__nccwpck_require__, 6116));
+        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 314).then(__nccwpck_require__.bind(__nccwpck_require__, 6314));
         return propertyProvider.chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -13988,22 +13989,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new propertyProvider.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 120).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7120, 19));
+        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 86).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9086, 19));
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 64).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4064, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 466).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2466, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 696).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2696, 19));
+        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 938).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7938, 19));
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 758).then(__nccwpck_require__.t.bind(__nccwpck_require__, 8758, 23));
+        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 144).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2144, 23));
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -14027,7 +14028,7 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 9058:
+/***/ 1960:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14075,7 +14076,7 @@ exports.resolveHostHeaderConfig = resolveHostHeaderConfig;
 
 /***/ }),
 
-/***/ 5808:
+/***/ 1218:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -14130,12 +14131,12 @@ exports.loggerMiddlewareOptions = loggerMiddlewareOptions;
 
 /***/ }),
 
-/***/ 2599:
+/***/ 1772:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var recursionDetectionMiddleware = __nccwpck_require__(4340);
+var recursionDetectionMiddleware = __nccwpck_require__(4773);
 
 const recursionDetectionMiddlewareOptions = {
     step: "build",
@@ -14162,13 +14163,13 @@ Object.keys(recursionDetectionMiddleware).forEach(function (k) {
 
 /***/ }),
 
-/***/ 4340:
+/***/ 4773:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.recursionDetectionMiddleware = void 0;
-const lambda_invoke_store_1 = __nccwpck_require__(2933);
+const lambda_invoke_store_1 = __nccwpck_require__(3686);
 const protocol_http_1 = __nccwpck_require__(1034);
 const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
 const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
@@ -14202,15 +14203,15 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 
 /***/ }),
 
-/***/ 676:
+/***/ 8938:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var core = __nccwpck_require__(8595);
-var utilEndpoints = __nccwpck_require__(9758);
+var core = __nccwpck_require__(3234);
+var utilEndpoints = __nccwpck_require__(6636);
 var protocolHttp = __nccwpck_require__(1034);
-var core$1 = __nccwpck_require__(8362);
+var core$1 = __nccwpck_require__(3600);
 
 const DEFAULT_UA_APP_ID = undefined;
 function isValidUserAgentAppId(appId) {
@@ -14403,13 +14404,13 @@ exports.userAgentMiddleware = userAgentMiddleware;
 
 /***/ }),
 
-/***/ 8540:
+/***/ 3334:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var configResolver = __nccwpck_require__(7358);
-var stsRegionDefaultResolver = __nccwpck_require__(2012);
+var stsRegionDefaultResolver = __nccwpck_require__(914);
 
 const getAwsRegionExtensionConfiguration = (runtimeConfig) => {
     return {
@@ -14459,7 +14460,7 @@ Object.keys(stsRegionDefaultResolver).forEach(function (k) {
 
 /***/ }),
 
-/***/ 2012:
+/***/ 914:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14486,7 +14487,7 @@ exports.warning = {
 
 /***/ }),
 
-/***/ 9758:
+/***/ 6636:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14908,14 +14909,14 @@ exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
 
 /***/ }),
 
-/***/ 8442:
+/***/ 2951:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var os = __nccwpck_require__(857);
 var process = __nccwpck_require__(932);
-var middlewareUserAgent = __nccwpck_require__(676);
+var middlewareUserAgent = __nccwpck_require__(8938);
 
 const crtAvailability = {
     isCrtAvailable: false,
@@ -15322,7 +15323,7 @@ exports.resolveRegionConfig = resolveRegionConfig;
 
 /***/ }),
 
-/***/ 8595:
+/***/ 3234:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15331,7 +15332,7 @@ var types = __nccwpck_require__(1244);
 var utilMiddleware = __nccwpck_require__(1202);
 var middlewareSerde = __nccwpck_require__(8515);
 var protocolHttp = __nccwpck_require__(1034);
-var protocols = __nccwpck_require__(949);
+var protocols = __nccwpck_require__(2078);
 
 const getSmithyContext = (context) => context[types.SMITHY_CONTEXT_KEY] || (context[types.SMITHY_CONTEXT_KEY] = {});
 
@@ -15678,17 +15679,17 @@ exports.setFeature = setFeature;
 
 /***/ }),
 
-/***/ 9672:
+/***/ 3874:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var serde = __nccwpck_require__(245);
+var serde = __nccwpck_require__(5726);
 var utilUtf8 = __nccwpck_require__(5579);
-var protocols = __nccwpck_require__(949);
+var protocols = __nccwpck_require__(2078);
 var protocolHttp = __nccwpck_require__(1034);
 var utilBodyLengthBrowser = __nccwpck_require__(8773);
-var schema = __nccwpck_require__(2615);
+var schema = __nccwpck_require__(7162);
 var utilMiddleware = __nccwpck_require__(1202);
 var utilBase64 = __nccwpck_require__(1532);
 
@@ -16735,14 +16736,14 @@ exports.tagSymbol = tagSymbol;
 
 /***/ }),
 
-/***/ 949:
+/***/ 2078:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var utilStream = __nccwpck_require__(2938);
-var schema = __nccwpck_require__(2615);
-var serde = __nccwpck_require__(245);
+var schema = __nccwpck_require__(7162);
+var serde = __nccwpck_require__(5726);
 var protocolHttp = __nccwpck_require__(1034);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
@@ -16862,7 +16863,7 @@ class HttpProtocol extends SerdeContext {
         });
     }
     async loadEventStreamCapability() {
-        const { EventStreamSerde } = await __nccwpck_require__.e(/* import() */ 988).then(__nccwpck_require__.t.bind(__nccwpck_require__, 3988, 19));
+        const { EventStreamSerde } = await __nccwpck_require__.e(/* import() */ 891).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9891, 19));
         return new EventStreamSerde({
             marshaller: this.getEventStreamMarshaller(),
             serializer: this.serializer,
@@ -17056,6 +17057,9 @@ class HttpBindingProtocol extends HttpProtocol {
                 }
             }
         }
+        else if (nonHttpBindingMembers.discardResponseBody) {
+            await collectBody(response.body, context);
+        }
         dataObject.$metadata = this.deserializeMetadata(response);
         return dataObject;
     }
@@ -17067,12 +17071,14 @@ class HttpBindingProtocol extends HttpProtocol {
         else {
             dataObject = arg4;
         }
+        let discardResponseBody = true;
         const deserializer = this.deserializer;
         const ns = schema.NormalizedSchema.of(schema$1);
         const nonHttpBindingMembers = [];
         for (const [memberName, memberSchema] of ns.structIterator()) {
             const memberTraits = memberSchema.getMemberTraits();
             if (memberTraits.httpPayload) {
+                discardResponseBody = false;
                 const isStreaming = memberSchema.isStreaming();
                 if (isStreaming) {
                     const isEventStream = memberSchema.isStructSchema();
@@ -17136,6 +17142,7 @@ class HttpBindingProtocol extends HttpProtocol {
                 nonHttpBindingMembers.push(memberName);
             }
         }
+        nonHttpBindingMembers.discardResponseBody = discardResponseBody;
         return nonHttpBindingMembers;
     }
 }
@@ -17575,7 +17582,7 @@ exports.resolvedPath = resolvedPath;
 
 /***/ }),
 
-/***/ 2615:
+/***/ 7162:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -18202,7 +18209,7 @@ exports.translateTraits = translateTraits;
 
 /***/ }),
 
-/***/ 245:
+/***/ 5726:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19244,21 +19251,21 @@ exports.getContentLengthPlugin = getContentLengthPlugin;
 
 /***/ }),
 
-/***/ 276:
+/***/ 2335:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getEndpointFromConfig = void 0;
 const node_config_provider_1 = __nccwpck_require__(913);
-const getEndpointUrlConfig_1 = __nccwpck_require__(7607);
+const getEndpointUrlConfig_1 = __nccwpck_require__(3490);
 const getEndpointFromConfig = async (serviceId) => (0, node_config_provider_1.loadConfig)((0, getEndpointUrlConfig_1.getEndpointUrlConfig)(serviceId ?? ""))();
 exports.getEndpointFromConfig = getEndpointFromConfig;
 
 
 /***/ }),
 
-/***/ 7607:
+/***/ 3490:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19300,14 +19307,14 @@ exports.getEndpointUrlConfig = getEndpointUrlConfig;
 
 /***/ }),
 
-/***/ 9720:
+/***/ 3065:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var getEndpointFromConfig = __nccwpck_require__(276);
+var getEndpointFromConfig = __nccwpck_require__(2335);
 var urlParser = __nccwpck_require__(7272);
-var core = __nccwpck_require__(8595);
+var core = __nccwpck_require__(3234);
 var utilMiddleware = __nccwpck_require__(1202);
 var middlewareSerde = __nccwpck_require__(8515);
 
@@ -19547,7 +19554,7 @@ exports.toEndpointV1 = toEndpointV1;
 
 /***/ }),
 
-/***/ 5195:
+/***/ 9579:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19557,8 +19564,8 @@ var protocolHttp = __nccwpck_require__(1034);
 var serviceErrorClassification = __nccwpck_require__(5328);
 var uuid = __nccwpck_require__(7919);
 var utilMiddleware = __nccwpck_require__(1202);
-var smithyClient = __nccwpck_require__(4791);
-var isStreamingPayload = __nccwpck_require__(1250);
+var smithyClient = __nccwpck_require__(2958);
+var isStreamingPayload = __nccwpck_require__(69);
 
 const getDefaultRetryQuota = (initialRetryTokens, options) => {
     const MAX_CAPACITY = initialRetryTokens;
@@ -19912,7 +19919,7 @@ exports.retryMiddlewareOptions = retryMiddlewareOptions;
 
 /***/ }),
 
-/***/ 1250:
+/***/ 69:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -22448,16 +22455,16 @@ exports.signatureV4aContainer = signatureV4aContainer;
 
 /***/ }),
 
-/***/ 4791:
+/***/ 2958:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var middlewareStack = __nccwpck_require__(2375);
-var protocols = __nccwpck_require__(949);
+var protocols = __nccwpck_require__(2078);
 var types = __nccwpck_require__(1244);
-var schema = __nccwpck_require__(2615);
-var serde = __nccwpck_require__(245);
+var schema = __nccwpck_require__(7162);
+var serde = __nccwpck_require__(5726);
 
 class Client {
     config;
@@ -23387,7 +23394,7 @@ exports.numberSelector = numberSelector;
 
 /***/ }),
 
-/***/ 931:
+/***/ 3910:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -48332,6 +48339,20 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:fs/prom
 
 /***/ }),
 
+/***/ 8161:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:os");
+
+/***/ }),
+
+/***/ 6760:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:path");
+
+/***/ }),
+
 /***/ 7075:
 /***/ ((module) => {
 
@@ -50071,10 +50092,10 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 4343:
+/***/ 2499:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.934.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.934.0","@aws-sdk/credential-provider-node":"3.934.0","@aws-sdk/middleware-host-header":"3.930.0","@aws-sdk/middleware-logger":"3.930.0","@aws-sdk/middleware-recursion-detection":"3.933.0","@aws-sdk/middleware-user-agent":"3.934.0","@aws-sdk/region-config-resolver":"3.930.0","@aws-sdk/types":"3.930.0","@aws-sdk/util-endpoints":"3.930.0","@aws-sdk/util-user-agent-browser":"3.930.0","@aws-sdk/util-user-agent-node":"3.934.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.2","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.9","@smithy/middleware-retry":"^4.4.9","@smithy/middleware-serde":"^4.2.5","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.5","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.8","@smithy/util-defaults-mode-node":"^4.2.11","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.938.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.936.0","@aws-sdk/credential-provider-node":"3.936.0","@aws-sdk/middleware-host-header":"3.936.0","@aws-sdk/middleware-logger":"3.936.0","@aws-sdk/middleware-recursion-detection":"3.936.0","@aws-sdk/middleware-user-agent":"3.936.0","@aws-sdk/region-config-resolver":"3.936.0","@aws-sdk/types":"3.936.0","@aws-sdk/util-endpoints":"3.936.0","@aws-sdk/util-user-agent-browser":"3.936.0","@aws-sdk/util-user-agent-node":"3.936.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.5","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.12","@smithy/middleware-retry":"^4.4.12","@smithy/middleware-serde":"^4.2.6","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.8","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.11","@smithy/util-defaults-mode-node":"^4.2.14","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -50264,7 +50285,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(6966);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(2672);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(3844);
 
 
 async function run() {
