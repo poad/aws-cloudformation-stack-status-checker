@@ -3311,13 +3311,13 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 4324:
+/***/ 5866:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(3600);
+const core_1 = __nccwpck_require__(9901);
 const util_middleware_1 = __nccwpck_require__(1202);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -3365,7 +3365,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 4001:
+/***/ 6900:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3373,7 +3373,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(6636);
 const util_endpoints_2 = __nccwpck_require__(4279);
-const ruleset_1 = __nccwpck_require__(3642);
+const ruleset_1 = __nccwpck_require__(8297);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -3390,7 +3390,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 3642:
+/***/ 8297:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -3404,7 +3404,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 3844:
+/***/ 5601:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
@@ -3413,7 +3413,7 @@ var __webpack_unused_export__;
 var middlewareHostHeader = __nccwpck_require__(1960);
 var middlewareLogger = __nccwpck_require__(1218);
 var middlewareRecursionDetection = __nccwpck_require__(1772);
-var middlewareUserAgent = __nccwpck_require__(8938);
+var middlewareUserAgent = __nccwpck_require__(6001);
 var configResolver = __nccwpck_require__(7358);
 var core = __nccwpck_require__(3234);
 var schema = __nccwpck_require__(7162);
@@ -3421,8 +3421,8 @@ var middlewareContentLength = __nccwpck_require__(5550);
 var middlewareEndpoint = __nccwpck_require__(3065);
 var middlewareRetry = __nccwpck_require__(9579);
 var smithyClient = __nccwpck_require__(2958);
-var httpAuthSchemeProvider = __nccwpck_require__(4324);
-var runtimeConfig = __nccwpck_require__(7158);
+var httpAuthSchemeProvider = __nccwpck_require__(5866);
+var runtimeConfig = __nccwpck_require__(5547);
 var regionConfigResolver = __nccwpck_require__(3334);
 var protocolHttp = __nccwpck_require__(1034);
 var utilWaiter = __nccwpck_require__(8946);
@@ -9985,17 +9985,17 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 7158:
+/***/ 5547:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(2499));
-const core_1 = __nccwpck_require__(3600);
-const credential_provider_node_1 = __nccwpck_require__(3002);
-const util_user_agent_node_1 = __nccwpck_require__(2951);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(7576));
+const core_1 = __nccwpck_require__(9901);
+const credential_provider_node_1 = __nccwpck_require__(7775);
+const util_user_agent_node_1 = __nccwpck_require__(6025);
 const config_resolver_1 = __nccwpck_require__(7358);
 const hash_node_1 = __nccwpck_require__(6354);
 const middleware_retry_1 = __nccwpck_require__(9579);
@@ -10003,7 +10003,7 @@ const node_config_provider_1 = __nccwpck_require__(913);
 const node_http_handler_1 = __nccwpck_require__(4654);
 const util_body_length_node_1 = __nccwpck_require__(7062);
 const util_retry_1 = __nccwpck_require__(5840);
-const runtimeConfig_shared_1 = __nccwpck_require__(4879);
+const runtimeConfig_shared_1 = __nccwpck_require__(9352);
 const smithy_client_1 = __nccwpck_require__(2958);
 const util_defaults_mode_node_1 = __nccwpck_require__(3910);
 const smithy_client_2 = __nccwpck_require__(2958);
@@ -10048,20 +10048,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 4879:
+/***/ 9352:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(3600);
-const protocols_1 = __nccwpck_require__(4856);
+const core_1 = __nccwpck_require__(9901);
+const protocols_1 = __nccwpck_require__(4755);
 const smithy_client_1 = __nccwpck_require__(2958);
 const url_parser_1 = __nccwpck_require__(7272);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_utf8_1 = __nccwpck_require__(5579);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(4324);
-const endpointResolver_1 = __nccwpck_require__(4001);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(5866);
+const endpointResolver_1 = __nccwpck_require__(6900);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -10096,7 +10096,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3600:
+/***/ 9901:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -10104,7 +10104,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 var protocolHttp = __nccwpck_require__(1034);
 var core = __nccwpck_require__(3234);
 var propertyProvider = __nccwpck_require__(7717);
-var client = __nccwpck_require__(8736);
+var client = __nccwpck_require__(3229);
 var signatureV4 = __nccwpck_require__(3492);
 var cbor = __nccwpck_require__(3874);
 var schema = __nccwpck_require__(7162);
@@ -10640,6 +10640,44 @@ class SerdeContextConfig {
     }
 }
 
+function* serializingStructIterator(ns, sourceObject) {
+    if (ns.isUnitSchema()) {
+        return;
+    }
+    const struct = ns.getSchema();
+    for (let i = 0; i < struct[4].length; ++i) {
+        const key = struct[4][i];
+        const memberNs = new schema.NormalizedSchema([struct[5][i], 0], key);
+        if (!(key in sourceObject) && !memberNs.isIdempotencyToken()) {
+            continue;
+        }
+        yield [key, memberNs];
+    }
+}
+function* deserializingStructIterator(ns, sourceObject, nameTrait) {
+    if (ns.isUnitSchema()) {
+        return;
+    }
+    const struct = ns.getSchema();
+    let keysRemaining = Object.keys(sourceObject).length;
+    for (let i = 0; i < struct[4].length; ++i) {
+        if (keysRemaining === 0) {
+            break;
+        }
+        const key = struct[4][i];
+        const memberNs = new schema.NormalizedSchema([struct[5][i], 0], key);
+        let serializationKey = key;
+        if (nameTrait) {
+            serializationKey = memberNs.getMergedTraits()[nameTrait] ?? key;
+        }
+        if (!(serializationKey in sourceObject)) {
+            continue;
+        }
+        yield [key, memberNs];
+        keysRemaining -= 1;
+    }
+}
+
 function jsonReviver(key, value, context) {
     if (context?.source) {
         const numericString = context.source;
@@ -10753,7 +10791,7 @@ class JsonShapeDeserializer extends SerdeContextConfig {
         }
         else if (ns.isStructSchema() && isObject) {
             const out = {};
-            for (const [memberName, memberSchema] of ns.structIterator()) {
+            for (const [memberName, memberSchema] of deserializingStructIterator(ns, value, this.settings.jsonName ? "jsonName" : false)) {
                 const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
                 const deserializedValue = this._read(memberSchema, value[fromKey]);
                 if (deserializedValue != null) {
@@ -10930,10 +10968,10 @@ class JsonShapeSerializer extends SerdeContextConfig {
         }
         else if (ns.isStructSchema() && isObject) {
             const out = {};
-            for (const [memberName, memberSchema] of ns.structIterator()) {
-                const targetKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+            for (const [memberName, memberSchema] of serializingStructIterator(ns, value)) {
                 const serializableValue = this._write(memberSchema, value[memberName], ns);
                 if (serializableValue !== undefined) {
+                    const targetKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
                     out[targetKey] = serializableValue;
                 }
             }
@@ -11461,7 +11499,7 @@ class QueryShapeSerializer extends SerdeContextConfig {
         }
         else if (ns.isStructSchema()) {
             if (value && typeof value === "object") {
-                for (const [memberName, member] of ns.structIterator()) {
+                for (const [memberName, member] of serializingStructIterator(ns, value)) {
                     if (value[memberName] == null && !member.isIdempotencyToken()) {
                         continue;
                     }
@@ -11758,7 +11796,7 @@ class XmlShapeSerializer extends SerdeContextConfig {
         }
         const structXmlNode = xmlBuilder.XmlNode.of(name);
         const [xmlnsAttr, xmlns] = this.getXmlnsAttribute(ns, parentXmlns);
-        for (const [memberName, memberSchema] of ns.structIterator()) {
+        for (const [memberName, memberSchema] of serializingStructIterator(ns, value)) {
             const val = value[memberName];
             if (val != null || memberSchema.isIdempotencyToken()) {
                 if (memberSchema.getMergedTraits().xmlAttribute) {
@@ -12103,7 +12141,7 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 8736:
+/***/ 3229:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -12161,7 +12199,7 @@ exports.state = state;
 
 /***/ }),
 
-/***/ 4856:
+/***/ 4755:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -12375,6 +12413,44 @@ class SerdeContextConfig {
     }
 }
 
+function* serializingStructIterator(ns, sourceObject) {
+    if (ns.isUnitSchema()) {
+        return;
+    }
+    const struct = ns.getSchema();
+    for (let i = 0; i < struct[4].length; ++i) {
+        const key = struct[4][i];
+        const memberNs = new schema.NormalizedSchema([struct[5][i], 0], key);
+        if (!(key in sourceObject) && !memberNs.isIdempotencyToken()) {
+            continue;
+        }
+        yield [key, memberNs];
+    }
+}
+function* deserializingStructIterator(ns, sourceObject, nameTrait) {
+    if (ns.isUnitSchema()) {
+        return;
+    }
+    const struct = ns.getSchema();
+    let keysRemaining = Object.keys(sourceObject).length;
+    for (let i = 0; i < struct[4].length; ++i) {
+        if (keysRemaining === 0) {
+            break;
+        }
+        const key = struct[4][i];
+        const memberNs = new schema.NormalizedSchema([struct[5][i], 0], key);
+        let serializationKey = key;
+        if (nameTrait) {
+            serializationKey = memberNs.getMergedTraits()[nameTrait] ?? key;
+        }
+        if (!(serializationKey in sourceObject)) {
+            continue;
+        }
+        yield [key, memberNs];
+        keysRemaining -= 1;
+    }
+}
+
 function jsonReviver(key, value, context) {
     if (context?.source) {
         const numericString = context.source;
@@ -12488,7 +12564,7 @@ class JsonShapeDeserializer extends SerdeContextConfig {
         }
         else if (ns.isStructSchema() && isObject) {
             const out = {};
-            for (const [memberName, memberSchema] of ns.structIterator()) {
+            for (const [memberName, memberSchema] of deserializingStructIterator(ns, value, this.settings.jsonName ? "jsonName" : false)) {
                 const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
                 const deserializedValue = this._read(memberSchema, value[fromKey]);
                 if (deserializedValue != null) {
@@ -12665,10 +12741,10 @@ class JsonShapeSerializer extends SerdeContextConfig {
         }
         else if (ns.isStructSchema() && isObject) {
             const out = {};
-            for (const [memberName, memberSchema] of ns.structIterator()) {
-                const targetKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+            for (const [memberName, memberSchema] of serializingStructIterator(ns, value)) {
                 const serializableValue = this._write(memberSchema, value[memberName], ns);
                 if (serializableValue !== undefined) {
+                    const targetKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
                     out[targetKey] = serializableValue;
                 }
             }
@@ -13196,7 +13272,7 @@ class QueryShapeSerializer extends SerdeContextConfig {
         }
         else if (ns.isStructSchema()) {
             if (value && typeof value === "object") {
-                for (const [memberName, member] of ns.structIterator()) {
+                for (const [memberName, member] of serializingStructIterator(ns, value)) {
                     if (value[memberName] == null && !member.isIdempotencyToken()) {
                         continue;
                     }
@@ -13493,7 +13569,7 @@ class XmlShapeSerializer extends SerdeContextConfig {
         }
         const structXmlNode = xmlBuilder.XmlNode.of(name);
         const [xmlnsAttr, xmlns] = this.getXmlnsAttribute(ns, parentXmlns);
-        for (const [memberName, memberSchema] of ns.structIterator()) {
+        for (const [memberName, memberSchema] of serializingStructIterator(ns, value)) {
             const val = value[memberName];
             if (val != null || memberSchema.isIdempotencyToken()) {
                 if (memberSchema.getMergedTraits().xmlAttribute) {
@@ -13823,12 +13899,12 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 450:
+/***/ 5521:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var client = __nccwpck_require__(8736);
+var client = __nccwpck_require__(3229);
 var propertyProvider = __nccwpck_require__(7717);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
@@ -13871,12 +13947,12 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 3002:
+/***/ 7775:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var credentialProviderEnv = __nccwpck_require__(450);
+var credentialProviderEnv = __nccwpck_require__(5521);
 var propertyProvider = __nccwpck_require__(7717);
 var sharedIniFileLoader = __nccwpck_require__(2787);
 
@@ -13885,7 +13961,7 @@ const remoteProvider = async (init) => {
     const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 900).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4900, 19));
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 314).then(__nccwpck_require__.bind(__nccwpck_require__, 6314));
+        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 979).then(__nccwpck_require__.bind(__nccwpck_require__, 3979));
         return propertyProvider.chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -13989,22 +14065,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new propertyProvider.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 86).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9086, 19));
+        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 597).then(__nccwpck_require__.t.bind(__nccwpck_require__, 597, 19));
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 466).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2466, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 213).then(__nccwpck_require__.t.bind(__nccwpck_require__, 8213, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 938).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7938, 19));
+        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 669).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7669, 19));
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 144).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2144, 23));
+        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 281).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9281, 23));
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -14203,7 +14279,7 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 
 /***/ }),
 
-/***/ 8938:
+/***/ 6001:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14211,7 +14287,7 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 var core = __nccwpck_require__(3234);
 var utilEndpoints = __nccwpck_require__(6636);
 var protocolHttp = __nccwpck_require__(1034);
-var core$1 = __nccwpck_require__(3600);
+var core$1 = __nccwpck_require__(9901);
 
 const DEFAULT_UA_APP_ID = undefined;
 function isValidUserAgentAppId(appId) {
@@ -14909,14 +14985,14 @@ exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
 
 /***/ }),
 
-/***/ 2951:
+/***/ 6025:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var os = __nccwpck_require__(857);
 var process = __nccwpck_require__(932);
-var middlewareUserAgent = __nccwpck_require__(8938);
+var middlewareUserAgent = __nccwpck_require__(6001);
 
 const crtAvailability = {
     isCrtAvailable: false,
@@ -50092,10 +50168,10 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 2499:
+/***/ 7576:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.938.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.936.0","@aws-sdk/credential-provider-node":"3.936.0","@aws-sdk/middleware-host-header":"3.936.0","@aws-sdk/middleware-logger":"3.936.0","@aws-sdk/middleware-recursion-detection":"3.936.0","@aws-sdk/middleware-user-agent":"3.936.0","@aws-sdk/region-config-resolver":"3.936.0","@aws-sdk/types":"3.936.0","@aws-sdk/util-endpoints":"3.936.0","@aws-sdk/util-user-agent-browser":"3.936.0","@aws-sdk/util-user-agent-node":"3.936.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.5","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.12","@smithy/middleware-retry":"^4.4.12","@smithy/middleware-serde":"^4.2.6","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.8","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.11","@smithy/util-defaults-mode-node":"^4.2.14","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.940.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.940.0","@aws-sdk/credential-provider-node":"3.940.0","@aws-sdk/middleware-host-header":"3.936.0","@aws-sdk/middleware-logger":"3.936.0","@aws-sdk/middleware-recursion-detection":"3.936.0","@aws-sdk/middleware-user-agent":"3.940.0","@aws-sdk/region-config-resolver":"3.936.0","@aws-sdk/types":"3.936.0","@aws-sdk/util-endpoints":"3.936.0","@aws-sdk/util-user-agent-browser":"3.936.0","@aws-sdk/util-user-agent-node":"3.940.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.5","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.12","@smithy/middleware-retry":"^4.4.12","@smithy/middleware-serde":"^4.2.6","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.8","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.11","@smithy/util-defaults-mode-node":"^4.2.14","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -50285,7 +50361,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(6966);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(3844);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5601);
 
 
 async function run() {
