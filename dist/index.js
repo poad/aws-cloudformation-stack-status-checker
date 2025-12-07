@@ -3306,13 +3306,13 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 5989:
+/***/ 3716:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(3696);
+const core_1 = __nccwpck_require__(3519);
 const util_middleware_1 = __nccwpck_require__(1202);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -3360,7 +3360,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 7787:
+/***/ 4090:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3368,7 +3368,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(6636);
 const util_endpoints_2 = __nccwpck_require__(4279);
-const ruleset_1 = __nccwpck_require__(8288);
+const ruleset_1 = __nccwpck_require__(7011);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -3385,7 +3385,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 8288:
+/***/ 7011:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -3399,7 +3399,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 3002:
+/***/ 5259:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
@@ -3408,7 +3408,7 @@ var __webpack_unused_export__;
 var middlewareHostHeader = __nccwpck_require__(1960);
 var middlewareLogger = __nccwpck_require__(1218);
 var middlewareRecursionDetection = __nccwpck_require__(1772);
-var middlewareUserAgent = __nccwpck_require__(5274);
+var middlewareUserAgent = __nccwpck_require__(1491);
 var configResolver = __nccwpck_require__(7358);
 var core = __nccwpck_require__(12);
 var schema = __nccwpck_require__(4260);
@@ -3416,8 +3416,8 @@ var middlewareContentLength = __nccwpck_require__(5550);
 var middlewareEndpoint = __nccwpck_require__(8223);
 var middlewareRetry = __nccwpck_require__(9478);
 var smithyClient = __nccwpck_require__(4037);
-var httpAuthSchemeProvider = __nccwpck_require__(5989);
-var runtimeConfig = __nccwpck_require__(9724);
+var httpAuthSchemeProvider = __nccwpck_require__(3716);
+var runtimeConfig = __nccwpck_require__(2957);
 var regionConfigResolver = __nccwpck_require__(3334);
 var protocolHttp = __nccwpck_require__(1034);
 var utilWaiter = __nccwpck_require__(8946);
@@ -4718,11 +4718,7 @@ var AlreadyExistsException = [
     -3,
     n0,
     _AEE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`AlreadyExistsException`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyExistsException`, 400] },
     [_M],
     [0],
 ];
@@ -4762,11 +4758,7 @@ var CFNRegistryException = [
     -3,
     n0,
     _CFNRE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`CFNRegistryException`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`CFNRegistryException`, 400] },
     [_M],
     [0],
 ];
@@ -4793,11 +4785,7 @@ var ChangeSetNotFoundException = [
     -3,
     n0,
     _CSNFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`ChangeSetNotFound`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`ChangeSetNotFound`, 404] },
     [_M],
     [0],
 ];
@@ -4814,11 +4802,7 @@ var ConcurrentResourcesLimitExceededException = [
     -3,
     n0,
     _CRLEE,
-    {
-        [_e]: _c,
-        [_hE]: 429,
-        [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429],
-    },
+    { [_e]: _c, [_hE]: 429, [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429] },
     [_M],
     [0],
 ];
@@ -4866,11 +4850,7 @@ var CreatedButModifiedException = [
     -3,
     n0,
     _CBME,
-    {
-        [_e]: _c,
-        [_hE]: 409,
-        [_aQE]: [`CreatedButModifiedException`, 409],
-    },
+    { [_e]: _c, [_hE]: 409, [_aQE]: [`CreatedButModifiedException`, 409] },
     [_M],
     [0],
 ];
@@ -5292,11 +5272,7 @@ var GeneratedTemplateNotFoundException = [
     -3,
     n0,
     _GTNFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`GeneratedTemplateNotFound`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`GeneratedTemplateNotFound`, 404] },
     [_M],
     [0],
 ];
@@ -5336,11 +5312,7 @@ var HookResultNotFoundException = [
     -3,
     n0,
     _HRNFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`HookResultNotFound`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`HookResultNotFound`, 404] },
     [_M],
     [0],
 ];
@@ -5367,11 +5339,7 @@ var InsufficientCapabilitiesException = [
     -3,
     n0,
     _ICE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`InsufficientCapabilitiesException`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientCapabilitiesException`, 400] },
     [_M],
     [0],
 ];
@@ -5380,11 +5348,7 @@ var InvalidChangeSetStatusException = [
     -3,
     n0,
     _ICSSE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`InvalidChangeSetStatus`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidChangeSetStatus`, 400] },
     [_M],
     [0],
 ];
@@ -5393,11 +5357,7 @@ var InvalidOperationException = [
     -3,
     n0,
     _IOE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`InvalidOperationException`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidOperationException`, 400] },
     [_M],
     [0],
 ];
@@ -5406,11 +5366,7 @@ var InvalidStateTransitionException = [
     -3,
     n0,
     _ISTE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`InvalidStateTransition`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidStateTransition`, 400] },
     [_M],
     [0],
 ];
@@ -5419,11 +5375,7 @@ var LimitExceededException = [
     -3,
     n0,
     _LEE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`LimitExceededException`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceededException`, 400] },
     [_M],
     [0],
 ];
@@ -5639,11 +5591,7 @@ var NameAlreadyExistsException = [
     -3,
     n0,
     _NAEE,
-    {
-        [_e]: _c,
-        [_hE]: 409,
-        [_aQE]: [`NameAlreadyExistsException`, 409],
-    },
+    { [_e]: _c, [_hE]: 409, [_aQE]: [`NameAlreadyExistsException`, 409] },
     [_M],
     [0],
 ];
@@ -5689,11 +5637,7 @@ var OperationIdAlreadyExistsException = [
     -3,
     n0,
     _OIAEE,
-    {
-        [_e]: _c,
-        [_hE]: 409,
-        [_aQE]: [`OperationIdAlreadyExistsException`, 409],
-    },
+    { [_e]: _c, [_hE]: 409, [_aQE]: [`OperationIdAlreadyExistsException`, 409] },
     [_M],
     [0],
 ];
@@ -5702,11 +5646,7 @@ var OperationInProgressException = [
     -3,
     n0,
     _OIPE,
-    {
-        [_e]: _c,
-        [_hE]: 409,
-        [_aQE]: [`OperationInProgressException`, 409],
-    },
+    { [_e]: _c, [_hE]: 409, [_aQE]: [`OperationInProgressException`, 409] },
     [_M],
     [0],
 ];
@@ -5715,11 +5655,7 @@ var OperationNotFoundException = [
     -3,
     n0,
     _ONFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`OperationNotFoundException`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`OperationNotFoundException`, 404] },
     [_M],
     [0],
 ];
@@ -5729,11 +5665,7 @@ var OperationStatusCheckFailedException = [
     -3,
     n0,
     _OSCFE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`ConditionalCheckFailed`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`ConditionalCheckFailed`, 400] },
     [_M],
     [0],
 ];
@@ -5837,11 +5769,7 @@ var ResourceScanInProgressException = [
     -3,
     n0,
     _RSIPE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`ResourceScanInProgress`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanInProgress`, 400] },
     [_M],
     [0],
 ];
@@ -5850,11 +5778,7 @@ var ResourceScanLimitExceededException = [
     -3,
     n0,
     _RSLEE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`ResourceScanLimitExceeded`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanLimitExceeded`, 400] },
     [_M],
     [0],
 ];
@@ -5863,11 +5787,7 @@ var ResourceScanNotFoundException = [
     -3,
     n0,
     _RSNFE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`ResourceScanNotFound`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanNotFound`, 400] },
     [_M],
     [0],
 ];
@@ -5996,11 +5916,7 @@ var StackInstanceNotFoundException = [
     -3,
     n0,
     _SINFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`StackInstanceNotFoundException`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`StackInstanceNotFoundException`, 404] },
     [_M],
     [0],
 ];
@@ -6025,11 +5941,7 @@ var StackNotFoundException = [
     -3,
     n0,
     _SNFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`StackNotFoundException`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`StackNotFoundException`, 404] },
     [_M],
     [0],
 ];
@@ -6046,11 +5958,7 @@ var StackRefactorNotFoundException = [
     -3,
     n0,
     _SRNFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`StackRefactorNotFoundException`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`StackRefactorNotFoundException`, 404] },
     [_M],
     [0],
 ];
@@ -6136,11 +6044,7 @@ var StackSetNotEmptyException = [
     -3,
     n0,
     _SSNEE,
-    {
-        [_e]: _c,
-        [_hE]: 409,
-        [_aQE]: [`StackSetNotEmptyException`, 409],
-    },
+    { [_e]: _c, [_hE]: 409, [_aQE]: [`StackSetNotEmptyException`, 409] },
     [_M],
     [0],
 ];
@@ -6149,11 +6053,7 @@ var StackSetNotFoundException = [
     -3,
     n0,
     _SSNFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`StackSetNotFoundException`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`StackSetNotFoundException`, 404] },
     [_M],
     [0],
 ];
@@ -6226,11 +6126,7 @@ var StaleRequestException = [
     -3,
     n0,
     _SRE,
-    {
-        [_e]: _c,
-        [_hE]: 409,
-        [_aQE]: [`StaleRequestException`, 409],
-    },
+    { [_e]: _c, [_hE]: 409, [_aQE]: [`StaleRequestException`, 409] },
     [_M],
     [0],
 ];
@@ -6258,11 +6154,7 @@ var TokenAlreadyExistsException = [
     -3,
     n0,
     _TAEE,
-    {
-        [_e]: _c,
-        [_hE]: 400,
-        [_aQE]: [`TokenAlreadyExistsException`, 400],
-    },
+    { [_e]: _c, [_hE]: 400, [_aQE]: [`TokenAlreadyExistsException`, 400] },
     [_M],
     [0],
 ];
@@ -6287,11 +6179,7 @@ var TypeConfigurationNotFoundException = [
     -3,
     n0,
     _TCNFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`TypeConfigurationNotFoundException`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`TypeConfigurationNotFoundException`, 404] },
     [_M],
     [0],
 ];
@@ -6301,11 +6189,7 @@ var TypeNotFoundException = [
     -3,
     n0,
     _TNFE,
-    {
-        [_e]: _c,
-        [_hE]: 404,
-        [_aQE]: [`TypeNotFoundException`, 404],
-    },
+    { [_e]: _c, [_hE]: 404, [_aQE]: [`TypeNotFoundException`, 404] },
     [_M],
     [0],
 ];
@@ -9980,30 +9864,29 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 9724:
+/***/ 2957:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(8009));
-const core_1 = __nccwpck_require__(3696);
-const credential_provider_node_1 = __nccwpck_require__(4746);
-const util_user_agent_node_1 = __nccwpck_require__(8772);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(8478));
+const core_1 = __nccwpck_require__(3519);
+const credential_provider_node_1 = __nccwpck_require__(2081);
+const util_user_agent_node_1 = __nccwpck_require__(5031);
 const config_resolver_1 = __nccwpck_require__(7358);
 const hash_node_1 = __nccwpck_require__(6354);
 const middleware_retry_1 = __nccwpck_require__(9478);
 const node_config_provider_1 = __nccwpck_require__(913);
 const node_http_handler_1 = __nccwpck_require__(4654);
-const util_body_length_node_1 = __nccwpck_require__(7062);
-const util_retry_1 = __nccwpck_require__(5840);
-const runtimeConfig_shared_1 = __nccwpck_require__(9421);
 const smithy_client_1 = __nccwpck_require__(4037);
+const util_body_length_node_1 = __nccwpck_require__(7062);
 const util_defaults_mode_node_1 = __nccwpck_require__(208);
-const smithy_client_2 = __nccwpck_require__(4037);
+const util_retry_1 = __nccwpck_require__(5840);
+const runtimeConfig_shared_1 = __nccwpck_require__(7682);
 const getRuntimeConfig = (config) => {
-    (0, smithy_client_2.emitWarningIfUnsupportedVersion)(process.version);
+    (0, smithy_client_1.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
     const defaultConfigProvider = () => defaultsMode().then(smithy_client_1.loadConfigsForDefaultMode);
     const clientSharedValues = (0, runtimeConfig_shared_1.getRuntimeConfig)(config);
@@ -10043,20 +9926,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 9421:
+/***/ 7682:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(3696);
-const protocols_1 = __nccwpck_require__(7768);
+const core_1 = __nccwpck_require__(3519);
+const protocols_1 = __nccwpck_require__(921);
 const smithy_client_1 = __nccwpck_require__(4037);
 const url_parser_1 = __nccwpck_require__(7272);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_utf8_1 = __nccwpck_require__(5579);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(5989);
-const endpointResolver_1 = __nccwpck_require__(7787);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(3716);
+const endpointResolver_1 = __nccwpck_require__(4090);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -10091,7 +9974,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3696:
+/***/ 3519:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -10099,7 +9982,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 var protocolHttp = __nccwpck_require__(1034);
 var core = __nccwpck_require__(12);
 var propertyProvider = __nccwpck_require__(7717);
-var client = __nccwpck_require__(2416);
+var client = __nccwpck_require__(8503);
 var signatureV4 = __nccwpck_require__(3492);
 var cbor = __nccwpck_require__(2732);
 var schema = __nccwpck_require__(4260);
@@ -10502,8 +10385,17 @@ class ProtocolLib {
             const msg = exception.Message ?? additions.Message;
             const error = smithyClient.decorateServiceException(exception, additions);
             if (msg) {
-                error.Message = msg;
                 error.message = msg;
+            }
+            error.Error = {
+                ...error.Error,
+                Type: error.Error.Type,
+                Code: error.Error.Code,
+                Message: error.Error.message ?? error.Error.Message ?? msg,
+            };
+            const reqId = error.$metadata.requestId;
+            if (reqId) {
+                error.RequestId = reqId;
             }
             return error;
         }
@@ -10520,7 +10412,7 @@ class ProtocolLib {
             };
             Object.assign(output, Error);
             for (const [k, v] of entries) {
-                Error[k] = v;
+                Error[k === "message" ? "Message" : k] = v;
             }
             delete Error.__type;
             output.Error = Error;
@@ -10535,6 +10427,14 @@ class ProtocolLib {
         }
         if (queryCompatErrorData.Code) {
             errorData.Code = queryCompatErrorData.Code;
+        }
+    }
+    findQueryCompatibleError(registry, errorName) {
+        try {
+            return registry.getSchema(errorName);
+        }
+        catch (e) {
+            return registry.find((schema$1) => schema.NormalizedSchema.of(schema$1).getMergedTraits().awsQueryError?.[0] === errorName);
         }
     }
 }
@@ -10558,15 +10458,23 @@ class AwsSmithyRpcV2CborProtocol extends cbor.SmithyRpcV2CborProtocol {
         if (this.awsQueryCompatible) {
             this.mixin.setQueryCompatError(dataObject, response);
         }
-        const errorName = cbor.loadSmithyRpcV2CborErrorCode(response, dataObject) ?? "Unknown";
-        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorName, this.options.defaultNamespace, response, dataObject, metadata);
+        const errorName = (() => {
+            const compatHeader = response.headers["x-amzn-query-error"];
+            if (compatHeader && this.awsQueryCompatible) {
+                return compatHeader.split(";")[0];
+            }
+            return cbor.loadSmithyRpcV2CborErrorCode(response, dataObject) ?? "Unknown";
+        })();
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorName, this.options.defaultNamespace, response, dataObject, metadata, this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined);
         const ns = schema.NormalizedSchema.of(errorSchema);
         const message = dataObject.message ?? dataObject.Message ?? "Unknown";
         const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
         const exception = new ErrorCtor(message);
         const output = {};
         for (const [name, member] of ns.structIterator()) {
-            output[name] = this.deserializer.readValue(member, dataObject[name]);
+            if (dataObject[name] != null) {
+                output[name] = this.deserializer.readValue(member, dataObject[name]);
+            }
         }
         if (this.awsQueryCompatible) {
             this.mixin.queryCompatOutput(dataObject, output);
@@ -11131,15 +11039,16 @@ class AwsJsonRpcProtocol extends protocols.RpcProtocol {
             this.mixin.setQueryCompatError(dataObject, response);
         }
         const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
-        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata);
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata, this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined);
         const ns = schema.NormalizedSchema.of(errorSchema);
         const message = dataObject.message ?? dataObject.Message ?? "Unknown";
         const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
         const exception = new ErrorCtor(message);
         const output = {};
         for (const [name, member] of ns.structIterator()) {
-            const target = member.getMergedTraits().jsonName ?? name;
-            output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+            if (dataObject[name] != null) {
+                output[name] = this.codec.createDeserializer().readObject(member, dataObject[name]);
+            }
         }
         if (this.awsQueryCompatible) {
             this.mixin.queryCompatOutput(dataObject, output);
@@ -11659,18 +11568,13 @@ class AwsQueryProtocol extends protocols.RpcProtocol {
             Code: errorData.Code,
             Message: message,
         };
-        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, errorData, metadata, (registry, errorName) => {
-            try {
-                return registry.getSchema(errorName);
-            }
-            catch (e) {
-                return registry.find((schema$1) => schema.NormalizedSchema.of(schema$1).getMergedTraits().awsQueryError?.[0] === errorName);
-            }
-        });
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, errorData, metadata, this.mixin.findQueryCompatibleError);
         const ns = schema.NormalizedSchema.of(errorSchema);
         const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
         const exception = new ErrorCtor(message);
         const output = {
+            Type: errorData.Error.Type,
+            Code: errorData.Error.Code,
             Error: errorData.Error,
         };
         for (const [name, member] of ns.structIterator()) {
@@ -12093,7 +11997,9 @@ class AwsRestXmlProtocol extends protocols.HttpBindingProtocol {
         }
         if (request.headers["content-type"] === this.getDefaultContentType()) {
             if (typeof request.body === "string") {
-                request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
+                if (!request.body.startsWith("<?xml ")) {
+                    request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
+                }
             }
         }
         return request;
@@ -12168,7 +12074,7 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 2416:
+/***/ 8503:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -12226,7 +12132,7 @@ exports.state = state;
 
 /***/ }),
 
-/***/ 7768:
+/***/ 921:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -12307,8 +12213,17 @@ class ProtocolLib {
             const msg = exception.Message ?? additions.Message;
             const error = smithyClient.decorateServiceException(exception, additions);
             if (msg) {
-                error.Message = msg;
                 error.message = msg;
+            }
+            error.Error = {
+                ...error.Error,
+                Type: error.Error.Type,
+                Code: error.Error.Code,
+                Message: error.Error.message ?? error.Error.Message ?? msg,
+            };
+            const reqId = error.$metadata.requestId;
+            if (reqId) {
+                error.RequestId = reqId;
             }
             return error;
         }
@@ -12325,7 +12240,7 @@ class ProtocolLib {
             };
             Object.assign(output, Error);
             for (const [k, v] of entries) {
-                Error[k] = v;
+                Error[k === "message" ? "Message" : k] = v;
             }
             delete Error.__type;
             output.Error = Error;
@@ -12340,6 +12255,14 @@ class ProtocolLib {
         }
         if (queryCompatErrorData.Code) {
             errorData.Code = queryCompatErrorData.Code;
+        }
+    }
+    findQueryCompatibleError(registry, errorName) {
+        try {
+            return registry.getSchema(errorName);
+        }
+        catch (e) {
+            return registry.find((schema$1) => schema.NormalizedSchema.of(schema$1).getMergedTraits().awsQueryError?.[0] === errorName);
         }
     }
 }
@@ -12363,15 +12286,23 @@ class AwsSmithyRpcV2CborProtocol extends cbor.SmithyRpcV2CborProtocol {
         if (this.awsQueryCompatible) {
             this.mixin.setQueryCompatError(dataObject, response);
         }
-        const errorName = cbor.loadSmithyRpcV2CborErrorCode(response, dataObject) ?? "Unknown";
-        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorName, this.options.defaultNamespace, response, dataObject, metadata);
+        const errorName = (() => {
+            const compatHeader = response.headers["x-amzn-query-error"];
+            if (compatHeader && this.awsQueryCompatible) {
+                return compatHeader.split(";")[0];
+            }
+            return cbor.loadSmithyRpcV2CborErrorCode(response, dataObject) ?? "Unknown";
+        })();
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorName, this.options.defaultNamespace, response, dataObject, metadata, this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined);
         const ns = schema.NormalizedSchema.of(errorSchema);
         const message = dataObject.message ?? dataObject.Message ?? "Unknown";
         const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
         const exception = new ErrorCtor(message);
         const output = {};
         for (const [name, member] of ns.structIterator()) {
-            output[name] = this.deserializer.readValue(member, dataObject[name]);
+            if (dataObject[name] != null) {
+                output[name] = this.deserializer.readValue(member, dataObject[name]);
+            }
         }
         if (this.awsQueryCompatible) {
             this.mixin.queryCompatOutput(dataObject, output);
@@ -12936,15 +12867,16 @@ class AwsJsonRpcProtocol extends protocols.RpcProtocol {
             this.mixin.setQueryCompatError(dataObject, response);
         }
         const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
-        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata);
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata, this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined);
         const ns = schema.NormalizedSchema.of(errorSchema);
         const message = dataObject.message ?? dataObject.Message ?? "Unknown";
         const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
         const exception = new ErrorCtor(message);
         const output = {};
         for (const [name, member] of ns.structIterator()) {
-            const target = member.getMergedTraits().jsonName ?? name;
-            output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+            if (dataObject[name] != null) {
+                output[name] = this.codec.createDeserializer().readObject(member, dataObject[name]);
+            }
         }
         if (this.awsQueryCompatible) {
             this.mixin.queryCompatOutput(dataObject, output);
@@ -13464,18 +13396,13 @@ class AwsQueryProtocol extends protocols.RpcProtocol {
             Code: errorData.Code,
             Message: message,
         };
-        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, errorData, metadata, (registry, errorName) => {
-            try {
-                return registry.getSchema(errorName);
-            }
-            catch (e) {
-                return registry.find((schema$1) => schema.NormalizedSchema.of(schema$1).getMergedTraits().awsQueryError?.[0] === errorName);
-            }
-        });
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, errorData, metadata, this.mixin.findQueryCompatibleError);
         const ns = schema.NormalizedSchema.of(errorSchema);
         const ErrorCtor = schema.TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
         const exception = new ErrorCtor(message);
         const output = {
+            Type: errorData.Error.Type,
+            Code: errorData.Error.Code,
             Error: errorData.Error,
         };
         for (const [name, member] of ns.structIterator()) {
@@ -13898,7 +13825,9 @@ class AwsRestXmlProtocol extends protocols.HttpBindingProtocol {
         }
         if (request.headers["content-type"] === this.getDefaultContentType()) {
             if (typeof request.body === "string") {
-                request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
+                if (!request.body.startsWith("<?xml ")) {
+                    request.body = '<?xml version="1.0" encoding="UTF-8"?>' + request.body;
+                }
             }
         }
         return request;
@@ -13958,12 +13887,12 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 9762:
+/***/ 3783:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var client = __nccwpck_require__(2416);
+var client = __nccwpck_require__(8503);
 var propertyProvider = __nccwpck_require__(7717);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
@@ -14006,12 +13935,12 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 4746:
+/***/ 2081:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var credentialProviderEnv = __nccwpck_require__(9762);
+var credentialProviderEnv = __nccwpck_require__(3783);
 var propertyProvider = __nccwpck_require__(7717);
 var sharedIniFileLoader = __nccwpck_require__(2787);
 
@@ -14020,7 +13949,7 @@ const remoteProvider = async (init) => {
     const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 900).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4900, 19));
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 322).then(__nccwpck_require__.bind(__nccwpck_require__, 7322));
+        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 53).then(__nccwpck_require__.bind(__nccwpck_require__, 5053));
         return propertyProvider.chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -14124,22 +14053,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new propertyProvider.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 710).then(__nccwpck_require__.t.bind(__nccwpck_require__, 5710, 19));
+        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 815).then(__nccwpck_require__.t.bind(__nccwpck_require__, 815, 19));
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 150).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1150, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 875).then(__nccwpck_require__.t.bind(__nccwpck_require__, 875, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 6).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4006, 19));
+        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 803).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9803, 19));
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 408).then(__nccwpck_require__.t.bind(__nccwpck_require__, 3408, 23));
+        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 103).then(__nccwpck_require__.t.bind(__nccwpck_require__, 103, 23));
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -14338,7 +14267,7 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 
 /***/ }),
 
-/***/ 5274:
+/***/ 1491:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14346,7 +14275,7 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 var core = __nccwpck_require__(12);
 var utilEndpoints = __nccwpck_require__(6636);
 var protocolHttp = __nccwpck_require__(1034);
-var core$1 = __nccwpck_require__(3696);
+var core$1 = __nccwpck_require__(3519);
 
 const DEFAULT_UA_APP_ID = undefined;
 function isValidUserAgentAppId(appId) {
@@ -15044,14 +14973,14 @@ exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
 
 /***/ }),
 
-/***/ 8772:
+/***/ 5031:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var os = __nccwpck_require__(857);
 var process = __nccwpck_require__(932);
-var middlewareUserAgent = __nccwpck_require__(5274);
+var middlewareUserAgent = __nccwpck_require__(1491);
 
 const crtAvailability = {
     isCrtAvailable: false,
@@ -50234,10 +50163,10 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 8009:
+/***/ 8478:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.943.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.943.0","@aws-sdk/credential-provider-node":"3.943.0","@aws-sdk/middleware-host-header":"3.936.0","@aws-sdk/middleware-logger":"3.936.0","@aws-sdk/middleware-recursion-detection":"3.936.0","@aws-sdk/middleware-user-agent":"3.943.0","@aws-sdk/region-config-resolver":"3.936.0","@aws-sdk/types":"3.936.0","@aws-sdk/util-endpoints":"3.936.0","@aws-sdk/util-user-agent-browser":"3.936.0","@aws-sdk/util-user-agent-node":"3.943.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.5","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.12","@smithy/middleware-retry":"^4.4.12","@smithy/middleware-serde":"^4.2.6","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.8","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.11","@smithy/util-defaults-mode-node":"^4.2.14","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.946.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.946.0","@aws-sdk/credential-provider-node":"3.946.0","@aws-sdk/middleware-host-header":"3.936.0","@aws-sdk/middleware-logger":"3.936.0","@aws-sdk/middleware-recursion-detection":"3.936.0","@aws-sdk/middleware-user-agent":"3.946.0","@aws-sdk/region-config-resolver":"3.936.0","@aws-sdk/types":"3.936.0","@aws-sdk/util-endpoints":"3.936.0","@aws-sdk/util-user-agent-browser":"3.936.0","@aws-sdk/util-user-agent-node":"3.946.0","@smithy/config-resolver":"^4.4.3","@smithy/core":"^3.18.7","@smithy/fetch-http-handler":"^5.3.6","@smithy/hash-node":"^4.2.5","@smithy/invalid-dependency":"^4.2.5","@smithy/middleware-content-length":"^4.2.5","@smithy/middleware-endpoint":"^4.3.14","@smithy/middleware-retry":"^4.4.14","@smithy/middleware-serde":"^4.2.6","@smithy/middleware-stack":"^4.2.5","@smithy/node-config-provider":"^4.3.5","@smithy/node-http-handler":"^4.4.5","@smithy/protocol-http":"^5.3.5","@smithy/smithy-client":"^4.9.10","@smithy/types":"^4.9.0","@smithy/url-parser":"^4.2.5","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.13","@smithy/util-defaults-mode-node":"^4.2.16","@smithy/util-endpoints":"^3.2.5","@smithy/util-middleware":"^4.2.5","@smithy/util-retry":"^4.2.5","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.5","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -50427,7 +50356,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(6966);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(3002);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5259);
 
 
 async function run() {
