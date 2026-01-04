@@ -3547,7 +3547,7 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 9417:
+/***/ 7742:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3600,7 +3600,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 2703:
+/***/ 5176:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3608,7 +3608,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const util_endpoints_1 = __nccwpck_require__(4985);
 const util_endpoints_2 = __nccwpck_require__(3277);
-const ruleset_1 = __nccwpck_require__(2812);
+const ruleset_1 = __nccwpck_require__(7125);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -3625,7 +3625,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 2812:
+/***/ 7125:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -3639,7 +3639,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 1078:
+/***/ 6557:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
@@ -3656,8 +3656,8 @@ var middlewareContentLength = __nccwpck_require__(9684);
 var middlewareEndpoint = __nccwpck_require__(6878);
 var middlewareRetry = __nccwpck_require__(9229);
 var smithyClient = __nccwpck_require__(4270);
-var httpAuthSchemeProvider = __nccwpck_require__(9417);
-var runtimeConfig = __nccwpck_require__(9688);
+var httpAuthSchemeProvider = __nccwpck_require__(7742);
+var runtimeConfig = __nccwpck_require__(5543);
 var regionConfigResolver = __nccwpck_require__(4239);
 var protocolHttp = __nccwpck_require__(6204);
 var utilWaiter = __nccwpck_require__(4516);
@@ -8092,10 +8092,10 @@ const paginateListTypeVersions = core.createPaginator(CloudFormationClient, List
 const checkState$9 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeChangeSetCommand(input));
+        let result = await client.send(new DescribeChangeSetCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.Status;
             };
             if (returnComparator() === "CREATE_COMPLETE") {
@@ -8104,7 +8104,7 @@ const checkState$9 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.Status;
             };
             if (returnComparator() === "FAILED") {
@@ -8134,10 +8134,10 @@ const waitUntilChangeSetCreateComplete = async (params, input) => {
 const checkState$8 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeStackRefactorCommand(input));
+        let result = await client.send(new DescribeStackRefactorCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.Status;
             };
             if (returnComparator() === "CREATE_COMPLETE") {
@@ -8146,7 +8146,7 @@ const checkState$8 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.Status;
             };
             if (returnComparator() === "CREATE_FAILED") {
@@ -8176,10 +8176,10 @@ const waitUntilStackRefactorCreateComplete = async (params, input) => {
 const checkState$7 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeStackRefactorCommand(input));
+        let result = await client.send(new DescribeStackRefactorCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.ExecutionStatus;
             };
             if (returnComparator() === "EXECUTE_COMPLETE") {
@@ -8188,7 +8188,7 @@ const checkState$7 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.ExecutionStatus;
             };
             if (returnComparator() === "EXECUTE_FAILED") {
@@ -8197,7 +8197,7 @@ const checkState$7 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.ExecutionStatus;
             };
             if (returnComparator() === "ROLLBACK_COMPLETE") {
@@ -8227,10 +8227,10 @@ const waitUntilStackRefactorExecuteComplete = async (params, input) => {
 const checkState$6 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeStacksCommand(input));
+        let result = await client.send(new DescribeStacksCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8247,7 +8247,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8264,7 +8264,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8281,7 +8281,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8298,7 +8298,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8315,7 +8315,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8332,7 +8332,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8349,7 +8349,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8366,7 +8366,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8383,7 +8383,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8398,7 +8398,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8413,7 +8413,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8428,7 +8428,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8443,7 +8443,7 @@ const checkState$6 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8479,10 +8479,10 @@ const waitUntilStackCreateComplete = async (params, input) => {
 const checkState$5 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeStacksCommand(input));
+        let result = await client.send(new DescribeStacksCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8499,7 +8499,7 @@ const checkState$5 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8514,7 +8514,7 @@ const checkState$5 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8529,7 +8529,7 @@ const checkState$5 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8544,7 +8544,7 @@ const checkState$5 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8559,7 +8559,7 @@ const checkState$5 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8574,7 +8574,7 @@ const checkState$5 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8589,7 +8589,7 @@ const checkState$5 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8625,7 +8625,7 @@ const waitUntilStackDeleteComplete = async (params, input) => {
 const checkState$4 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeStacksCommand(input));
+        let result = await client.send(new DescribeStacksCommand(input));
         reason = result;
         return { state: utilWaiter.WaiterState.SUCCESS, reason };
     }
@@ -8650,10 +8650,10 @@ const waitUntilStackExists = async (params, input) => {
 const checkState$3 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeStacksCommand(input));
+        let result = await client.send(new DescribeStacksCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8670,7 +8670,7 @@ const checkState$3 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8685,7 +8685,7 @@ const checkState$3 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8700,7 +8700,7 @@ const checkState$3 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8715,7 +8715,7 @@ const checkState$3 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8730,7 +8730,7 @@ const checkState$3 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8766,10 +8766,10 @@ const waitUntilStackImportComplete = async (params, input) => {
 const checkState$2 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeStacksCommand(input));
+        let result = await client.send(new DescribeStacksCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8786,7 +8786,7 @@ const checkState$2 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8801,7 +8801,7 @@ const checkState$2 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8816,7 +8816,7 @@ const checkState$2 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8852,10 +8852,10 @@ const waitUntilStackRollbackComplete = async (params, input) => {
 const checkState$1 = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeStacksCommand(input));
+        let result = await client.send(new DescribeStacksCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8872,7 +8872,7 @@ const checkState$1 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8887,7 +8887,7 @@ const checkState$1 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8902,7 +8902,7 @@ const checkState$1 = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 let flat_1 = [].concat(...result.Stacks);
                 let projection_3 = flat_1.map((element_2) => {
                     return element_2.StackStatus;
@@ -8938,10 +8938,10 @@ const waitUntilStackUpdateComplete = async (params, input) => {
 const checkState = async (client, input) => {
     let reason;
     try {
-        const result = await client.send(new DescribeTypeRegistrationCommand(input));
+        let result = await client.send(new DescribeTypeRegistrationCommand(input));
         reason = result;
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.ProgressStatus;
             };
             if (returnComparator() === "COMPLETE") {
@@ -8950,7 +8950,7 @@ const checkState = async (client, input) => {
         }
         catch (e) { }
         try {
-            let returnComparator = () => {
+            const returnComparator = () => {
                 return result.ProgressStatus;
             };
             if (returnComparator() === "FAILED") {
@@ -10139,16 +10139,16 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 9688:
+/***/ 5543:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(2497));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(9884));
 const core_1 = __nccwpck_require__(2701);
-const credential_provider_node_1 = __nccwpck_require__(9554);
+const credential_provider_node_1 = __nccwpck_require__(9507);
 const util_user_agent_node_1 = __nccwpck_require__(7889);
 const config_resolver_1 = __nccwpck_require__(7536);
 const hash_node_1 = __nccwpck_require__(3180);
@@ -10159,7 +10159,7 @@ const smithy_client_1 = __nccwpck_require__(4270);
 const util_body_length_node_1 = __nccwpck_require__(7062);
 const util_defaults_mode_node_1 = __nccwpck_require__(3889);
 const util_retry_1 = __nccwpck_require__(9274);
-const runtimeConfig_shared_1 = __nccwpck_require__(1433);
+const runtimeConfig_shared_1 = __nccwpck_require__(4212);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_1.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -10199,7 +10199,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 1433:
+/***/ 4212:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -10211,8 +10211,8 @@ const smithy_client_1 = __nccwpck_require__(4270);
 const url_parser_1 = __nccwpck_require__(3282);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_utf8_1 = __nccwpck_require__(5579);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(9417);
-const endpointResolver_1 = __nccwpck_require__(2703);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(7742);
+const endpointResolver_1 = __nccwpck_require__(5176);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -14409,7 +14409,7 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 9554:
+/***/ 9507:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -14532,7 +14532,7 @@ const defaultProvider = (init = {}) => memoizeChain([
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 842).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4842, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 537).then(__nccwpck_require__.t.bind(__nccwpck_require__, 5537, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
@@ -50673,10 +50673,10 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 2497:
+/***/ 9884:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.958.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.957.0","@aws-sdk/credential-provider-node":"3.958.0","@aws-sdk/middleware-host-header":"3.957.0","@aws-sdk/middleware-logger":"3.957.0","@aws-sdk/middleware-recursion-detection":"3.957.0","@aws-sdk/middleware-user-agent":"3.957.0","@aws-sdk/region-config-resolver":"3.957.0","@aws-sdk/types":"3.957.0","@aws-sdk/util-endpoints":"3.957.0","@aws-sdk/util-user-agent-browser":"3.957.0","@aws-sdk/util-user-agent-node":"3.957.0","@smithy/config-resolver":"^4.4.5","@smithy/core":"^3.20.0","@smithy/fetch-http-handler":"^5.3.8","@smithy/hash-node":"^4.2.7","@smithy/invalid-dependency":"^4.2.7","@smithy/middleware-content-length":"^4.2.7","@smithy/middleware-endpoint":"^4.4.1","@smithy/middleware-retry":"^4.4.17","@smithy/middleware-serde":"^4.2.8","@smithy/middleware-stack":"^4.2.7","@smithy/node-config-provider":"^4.3.7","@smithy/node-http-handler":"^4.4.7","@smithy/protocol-http":"^5.3.7","@smithy/smithy-client":"^4.10.2","@smithy/types":"^4.11.0","@smithy/url-parser":"^4.2.7","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.16","@smithy/util-defaults-mode-node":"^4.2.19","@smithy/util-endpoints":"^3.2.7","@smithy/util-middleware":"^4.2.7","@smithy/util-retry":"^4.2.7","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.7","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.962.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.957.0","@aws-sdk/credential-provider-node":"3.962.0","@aws-sdk/middleware-host-header":"3.957.0","@aws-sdk/middleware-logger":"3.957.0","@aws-sdk/middleware-recursion-detection":"3.957.0","@aws-sdk/middleware-user-agent":"3.957.0","@aws-sdk/region-config-resolver":"3.957.0","@aws-sdk/types":"3.957.0","@aws-sdk/util-endpoints":"3.957.0","@aws-sdk/util-user-agent-browser":"3.957.0","@aws-sdk/util-user-agent-node":"3.957.0","@smithy/config-resolver":"^4.4.5","@smithy/core":"^3.20.0","@smithy/fetch-http-handler":"^5.3.8","@smithy/hash-node":"^4.2.7","@smithy/invalid-dependency":"^4.2.7","@smithy/middleware-content-length":"^4.2.7","@smithy/middleware-endpoint":"^4.4.1","@smithy/middleware-retry":"^4.4.17","@smithy/middleware-serde":"^4.2.8","@smithy/middleware-stack":"^4.2.7","@smithy/node-config-provider":"^4.3.7","@smithy/node-http-handler":"^4.4.7","@smithy/protocol-http":"^5.3.7","@smithy/smithy-client":"^4.10.2","@smithy/types":"^4.11.0","@smithy/url-parser":"^4.2.7","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.16","@smithy/util-defaults-mode-node":"^4.2.19","@smithy/util-endpoints":"^3.2.7","@smithy/util-middleware":"^4.2.7","@smithy/util-retry":"^4.2.7","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.7","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -50866,7 +50866,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(1635);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(1078);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(6557);
 
 
 async function run() {
