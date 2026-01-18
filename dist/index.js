@@ -3558,14 +3558,14 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 3901:
+/***/ 3070:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(3364);
-const util_middleware_1 = __nccwpck_require__(7256);
+const core_1 = __nccwpck_require__(7202);
+const util_middleware_1 = __nccwpck_require__(5417);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
         operation: (0, util_middleware_1.getSmithyContext)(context).operation,
@@ -3611,15 +3611,15 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 6435:
+/***/ 3448:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(9856);
-const util_endpoints_2 = __nccwpck_require__(3277);
-const ruleset_1 = __nccwpck_require__(4520);
+const util_endpoints_1 = __nccwpck_require__(1914);
+const util_endpoints_2 = __nccwpck_require__(3298);
+const ruleset_1 = __nccwpck_require__(8757);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -3636,7 +3636,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 4520:
+/***/ 8757:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -3650,28 +3650,28 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 8034:
+/***/ 2877:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
 
 
-var middlewareHostHeader = __nccwpck_require__(8784);
-var middlewareLogger = __nccwpck_require__(2374);
-var middlewareRecursionDetection = __nccwpck_require__(4216);
-var middlewareUserAgent = __nccwpck_require__(8738);
-var configResolver = __nccwpck_require__(7536);
-var core = __nccwpck_require__(9151);
-var schema = __nccwpck_require__(5003);
-var middlewareContentLength = __nccwpck_require__(9684);
-var middlewareEndpoint = __nccwpck_require__(1579);
-var middlewareRetry = __nccwpck_require__(9834);
-var smithyClient = __nccwpck_require__(6121);
-var httpAuthSchemeProvider = __nccwpck_require__(3901);
-var runtimeConfig = __nccwpck_require__(5780);
-var regionConfigResolver = __nccwpck_require__(8762);
-var protocolHttp = __nccwpck_require__(6204);
-var utilWaiter = __nccwpck_require__(4516);
+var middlewareHostHeader = __nccwpck_require__(36);
+var middlewareLogger = __nccwpck_require__(6610);
+var middlewareRecursionDetection = __nccwpck_require__(4972);
+var middlewareUserAgent = __nccwpck_require__(7820);
+var configResolver = __nccwpck_require__(705);
+var core = __nccwpck_require__(7925);
+var schema = __nccwpck_require__(2425);
+var middlewareContentLength = __nccwpck_require__(9097);
+var middlewareEndpoint = __nccwpck_require__(8505);
+var middlewareRetry = __nccwpck_require__(3063);
+var smithyClient = __nccwpck_require__(9235);
+var httpAuthSchemeProvider = __nccwpck_require__(3070);
+var runtimeConfig = __nccwpck_require__(3511);
+var regionConfigResolver = __nccwpck_require__(5798);
+var protocolHttp = __nccwpck_require__(9953);
+var utilWaiter = __nccwpck_require__(7633);
 
 const resolveClientEndpointParameters = (options) => {
     return Object.assign(options, {
@@ -5006,7 +5006,7 @@ var BatchDescribeTypeConfigurationsError$ = [3, n0, _BDTCE,
 var BatchDescribeTypeConfigurationsInput$ = [3, n0, _BDTCI,
     0,
     [_TCIy],
-    [() => TypeConfigurationIdentifiers]
+    [() => TypeConfigurationIdentifiers], 1
 ];
 var BatchDescribeTypeConfigurationsOutput$ = [3, n0, _BDTCO,
     0,
@@ -5016,7 +5016,7 @@ var BatchDescribeTypeConfigurationsOutput$ = [3, n0, _BDTCO,
 var CancelUpdateStackInput$ = [3, n0, _CUSI,
     0,
     [_SN, _CRT],
-    [0, 0]
+    [0, 0], 1
 ];
 var CFNRegistryException$ = [-3, n0, _CFNRE,
     { [_aQE]: [`CFNRegistryException`, 400], [_e]: _c, [_hE]: 400 },
@@ -5064,7 +5064,7 @@ schema.TypeRegistry.for(n0).registerError(ConcurrentResourcesLimitExceededExcept
 var ContinueUpdateRollbackInput$ = [3, n0, _CURI,
     0,
     [_SN, _RARN, _RTS, _CRT],
-    [0, 0, 64 | 0, 0]
+    [0, 0, 64 | 0, 0], 1
 ];
 var ContinueUpdateRollbackOutput$ = [3, n0, _CURO,
     0,
@@ -5073,8 +5073,8 @@ var ContinueUpdateRollbackOutput$ = [3, n0, _CURO,
 ];
 var CreateChangeSetInput$ = [3, n0, _CCSI,
     0,
-    [_SN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CSN, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
-    [0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0]
+    [_SN, _CSN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
+    [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0], 2
 ];
 var CreateChangeSetOutput$ = [3, n0, _CCSO,
     0,
@@ -5089,8 +5089,8 @@ var CreatedButModifiedException$ = [-3, n0, _CBME,
 schema.TypeRegistry.for(n0).registerError(CreatedButModifiedException$, CreatedButModifiedException);
 var CreateGeneratedTemplateInput$ = [3, n0, _CGTI,
     0,
-    [_R, _GTN, _SN, _TCe],
-    [() => ResourceDefinitions, 0, 0, () => TemplateConfiguration$]
+    [_GTN, _R, _SN, _TCe],
+    [0, () => ResourceDefinitions, 0, () => TemplateConfiguration$], 1
 ];
 var CreateGeneratedTemplateOutput$ = [3, n0, _CGTO,
     0,
@@ -5100,12 +5100,12 @@ var CreateGeneratedTemplateOutput$ = [3, n0, _CGTO,
 var CreateStackInput$ = [3, n0, _CSIr,
     0,
     [_SN, _TB, _TURL, _P, _DR, _RCo, _TIM, _NARN, _Ca, _RTe, _RARN, _OF, _SPB, _SPURL, _Ta, _CRT, _ETP, _REOC],
-    [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2]
+    [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2], 1
 ];
 var CreateStackInstancesInput$ = [3, n0, _CSII,
     0,
-    [_SSN, _Ac, _DT, _Re, _PO, _OP, _OI, _CA],
-    [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0]
+    [_SSN, _Re, _Ac, _DT, _PO, _OP, _OI, _CA],
+    [0, 64 | 0, 64 | 0, () => DeploymentTargets$, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0], 2
 ];
 var CreateStackInstancesOutput$ = [3, n0, _CSIO,
     0,
@@ -5119,18 +5119,18 @@ var CreateStackOutput$ = [3, n0, _CSO,
 ];
 var CreateStackRefactorInput$ = [3, n0, _CSRI,
     0,
-    [_D, _ESC, _RMe, _SD],
-    [0, 2, () => ResourceMappings, () => StackDefinitions]
+    [_SD, _D, _ESC, _RMe],
+    [() => StackDefinitions, 0, 2, () => ResourceMappings], 1
 ];
 var CreateStackRefactorOutput$ = [3, n0, _CSRO,
     0,
     [_SRI],
-    [0]
+    [0], 1
 ];
 var CreateStackSetInput$ = [3, n0, _CSSI,
     0,
     [_SSN, _D, _TB, _TURL, _SI, _P, _Ca, _Ta, _ARARN, _ERN, _PM, _AD, _CA, _CRT, _ME],
-    [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$]
+    [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$], 1
 ];
 var CreateStackSetOutput$ = [3, n0, _CSSO,
     0,
@@ -5160,7 +5160,7 @@ var DeactivateTypeOutput$ = [3, n0, _DTO,
 var DeleteChangeSetInput$ = [3, n0, _DCSI,
     0,
     [_CSN, _SN],
-    [0, 0]
+    [0, 0], 1
 ];
 var DeleteChangeSetOutput$ = [3, n0, _DCSO,
     0,
@@ -5170,17 +5170,17 @@ var DeleteChangeSetOutput$ = [3, n0, _DCSO,
 var DeleteGeneratedTemplateInput$ = [3, n0, _DGTI,
     0,
     [_GTN],
-    [0]
+    [0], 1
 ];
 var DeleteStackInput$ = [3, n0, _DSI,
     0,
     [_SN, _RR, _RARN, _CRT, _DMe],
-    [0, 64 | 0, 0, 0, 0]
+    [0, 64 | 0, 0, 0, 0], 1
 ];
 var DeleteStackInstancesInput$ = [3, n0, _DSII,
     0,
-    [_SSN, _Ac, _DT, _Re, _OP, _RS, _OI, _CA],
-    [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => StackSetOperationPreferences$, 2, [0, 4], 0]
+    [_SSN, _Re, _RS, _Ac, _DT, _OP, _OI, _CA],
+    [0, 64 | 0, 2, 64 | 0, () => DeploymentTargets$, () => StackSetOperationPreferences$, [0, 4], 0], 3
 ];
 var DeleteStackInstancesOutput$ = [3, n0, _DSIO,
     0,
@@ -5190,7 +5190,7 @@ var DeleteStackInstancesOutput$ = [3, n0, _DSIO,
 var DeleteStackSetInput$ = [3, n0, _DSSI,
     0,
     [_SSN, _CA],
-    [0, 0]
+    [0, 0], 1
 ];
 var DeleteStackSetOutput$ = [3, n0, _DSSO,
     0,
@@ -5225,7 +5225,7 @@ var DescribeAccountLimitsOutput$ = [3, n0, _DALO,
 var DescribeChangeSetHooksInput$ = [3, n0, _DCSHI,
     0,
     [_CSN, _SN, _NT, _LRI],
-    [0, 0, 0, 0]
+    [0, 0, 0, 0], 1
 ];
 var DescribeChangeSetHooksOutput$ = [3, n0, _DCSHO,
     0,
@@ -5235,7 +5235,7 @@ var DescribeChangeSetHooksOutput$ = [3, n0, _DCSHO,
 var DescribeChangeSetInput$ = [3, n0, _DCSIe,
     0,
     [_CSN, _SN, _NT, _IPV],
-    [0, 0, 0, 2]
+    [0, 0, 0, 2], 1
 ];
 var DescribeChangeSetOutput$ = [3, n0, _DCSOe,
     0,
@@ -5255,7 +5255,7 @@ var DescribeEventsOutput$ = [3, n0, _DEO,
 var DescribeGeneratedTemplateInput$ = [3, n0, _DGTIe,
     0,
     [_GTN],
-    [0]
+    [0], 1
 ];
 var DescribeGeneratedTemplateOutput$ = [3, n0, _DGTO,
     0,
@@ -5285,7 +5285,7 @@ var DescribePublisherOutput$ = [3, n0, _DPO,
 var DescribeResourceScanInput$ = [3, n0, _DRSI,
     0,
     [_RSI],
-    [0]
+    [0], 1
 ];
 var DescribeResourceScanOutput$ = [3, n0, _DRSO,
     0,
@@ -5295,17 +5295,17 @@ var DescribeResourceScanOutput$ = [3, n0, _DRSO,
 var DescribeStackDriftDetectionStatusInput$ = [3, n0, _DSDDSI,
     0,
     [_SDDI],
-    [0]
+    [0], 1
 ];
 var DescribeStackDriftDetectionStatusOutput$ = [3, n0, _DSDDSO,
     0,
-    [_SI, _SDDI, _SDS, _DS, _DSR, _DSRC, _Ti],
-    [0, 0, 0, 0, 0, 1, 4]
+    [_SI, _SDDI, _DS, _Ti, _SDS, _DSR, _DSRC],
+    [0, 0, 0, 4, 0, 0, 1], 4
 ];
 var DescribeStackEventsInput$ = [3, n0, _DSEI,
     0,
     [_SN, _NT],
-    [0, 0]
+    [0, 0], 1
 ];
 var DescribeStackEventsOutput$ = [3, n0, _DSEO,
     0,
@@ -5315,7 +5315,7 @@ var DescribeStackEventsOutput$ = [3, n0, _DSEO,
 var DescribeStackInstanceInput$ = [3, n0, _DSIIe,
     0,
     [_SSN, _SIA, _SIR, _CA],
-    [0, 0, 0, 0]
+    [0, 0, 0, 0], 3
 ];
 var DescribeStackInstanceOutput$ = [3, n0, _DSIOe,
     0,
@@ -5325,7 +5325,7 @@ var DescribeStackInstanceOutput$ = [3, n0, _DSIOe,
 var DescribeStackRefactorInput$ = [3, n0, _DSRI,
     0,
     [_SRI],
-    [0]
+    [0], 1
 ];
 var DescribeStackRefactorOutput$ = [3, n0, _DSRO,
     0,
@@ -5335,17 +5335,17 @@ var DescribeStackRefactorOutput$ = [3, n0, _DSRO,
 var DescribeStackResourceDriftsInput$ = [3, n0, _DSRDI,
     0,
     [_SN, _SRDSF, _NT, _MR],
-    [0, 64 | 0, 0, 1]
+    [0, 64 | 0, 0, 1], 1
 ];
 var DescribeStackResourceDriftsOutput$ = [3, n0, _DSRDO,
     0,
     [_SRD, _NT],
-    [() => StackResourceDrifts, 0]
+    [() => StackResourceDrifts, 0], 1
 ];
 var DescribeStackResourceInput$ = [3, n0, _DSRIe,
     0,
     [_SN, _LRI],
-    [0, 0]
+    [0, 0], 2
 ];
 var DescribeStackResourceOutput$ = [3, n0, _DSROe,
     0,
@@ -5365,12 +5365,12 @@ var DescribeStackResourcesOutput$ = [3, n0, _DSROes,
 var DescribeStackSetInput$ = [3, n0, _DSSIe,
     0,
     [_SSN, _CA],
-    [0, 0]
+    [0, 0], 1
 ];
 var DescribeStackSetOperationInput$ = [3, n0, _DSSOI,
     0,
     [_SSN, _OI, _CA],
-    [0, 0, 0]
+    [0, 0, 0], 2
 ];
 var DescribeStackSetOperationOutput$ = [3, n0, _DSSOO,
     0,
@@ -5405,7 +5405,7 @@ var DescribeTypeOutput$ = [3, n0, _DTOes,
 var DescribeTypeRegistrationInput$ = [3, n0, _DTRI,
     0,
     [_RTeg],
-    [0]
+    [0], 1
 ];
 var DescribeTypeRegistrationOutput$ = [3, n0, _DTRO,
     0,
@@ -5415,27 +5415,27 @@ var DescribeTypeRegistrationOutput$ = [3, n0, _DTRO,
 var DetectStackDriftInput$ = [3, n0, _DSDI,
     0,
     [_SN, _LRIo],
-    [0, 64 | 0]
+    [0, 64 | 0], 1
 ];
 var DetectStackDriftOutput$ = [3, n0, _DSDO,
     0,
     [_SDDI],
-    [0]
+    [0], 1
 ];
 var DetectStackResourceDriftInput$ = [3, n0, _DSRDIe,
     0,
     [_SN, _LRI],
-    [0, 0]
+    [0, 0], 2
 ];
 var DetectStackResourceDriftOutput$ = [3, n0, _DSRDOe,
     0,
     [_SRDta],
-    [() => StackResourceDrift$]
+    [() => StackResourceDrift$], 1
 ];
 var DetectStackSetDriftInput$ = [3, n0, _DSSDI,
     0,
     [_SSN, _OP, _OI, _CA],
-    [0, () => StackSetOperationPreferences$, [0, 4], 0]
+    [0, () => StackSetOperationPreferences$, [0, 4], 0], 1
 ];
 var DetectStackSetDriftOutput$ = [3, n0, _DSSDO,
     0,
@@ -5460,7 +5460,7 @@ var EventFilter$ = [3, n0, _EF,
 var ExecuteChangeSetInput$ = [3, n0, _ECSI,
     0,
     [_CSN, _SN, _CRT, _DR, _REOC],
-    [0, 0, 0, 2, 2]
+    [0, 0, 0, 2, 2], 1
 ];
 var ExecuteChangeSetOutput$ = [3, n0, _ECSO,
     0,
@@ -5470,7 +5470,7 @@ var ExecuteChangeSetOutput$ = [3, n0, _ECSO,
 var ExecuteStackRefactorInput$ = [3, n0, _ESRI,
     0,
     [_SRI],
-    [0]
+    [0], 1
 ];
 var Export$ = [3, n0, _Ex,
     0,
@@ -5485,8 +5485,8 @@ var GeneratedTemplateNotFoundException$ = [-3, n0, _GTNFE,
 schema.TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException$, GeneratedTemplateNotFoundException);
 var GetGeneratedTemplateInput$ = [3, n0, _GGTI,
     0,
-    [_Fo, _GTN],
-    [0, 0]
+    [_GTN, _Fo],
+    [0, 0], 1
 ];
 var GetGeneratedTemplateOutput$ = [3, n0, _GGTO,
     0,
@@ -5506,7 +5506,7 @@ var GetHookResultOutput$ = [3, n0, _GHRO,
 var GetStackPolicyInput$ = [3, n0, _GSPI,
     0,
     [_SN],
-    [0]
+    [0], 1
 ];
 var GetStackPolicyOutput$ = [3, n0, _GSPO,
     0,
@@ -5547,12 +5547,12 @@ var HookResultSummary$ = [3, n0, _HRS,
 var HookTarget$ = [3, n0, _HT,
     0,
     [_TT, _TTN, _TI, _Act],
-    [0, 0, 0, 0]
+    [0, 0, 0, 0], 4
 ];
 var ImportStacksToStackSetInput$ = [3, n0, _ISTSSI,
     0,
     [_SSN, _SIta, _SIU, _OUI, _OP, _OI, _CA],
-    [0, 64 | 0, 0, 64 | 0, () => StackSetOperationPreferences$, [0, 4], 0]
+    [0, 64 | 0, 0, 64 | 0, () => StackSetOperationPreferences$, [0, 4], 0], 1
 ];
 var ImportStacksToStackSetOutput$ = [3, n0, _ISTSSO,
     0,
@@ -5592,7 +5592,7 @@ schema.TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceeded
 var ListChangeSetsInput$ = [3, n0, _LCSI,
     0,
     [_SN, _NT],
-    [0, 0]
+    [0, 0], 1
 ];
 var ListChangeSetsOutput$ = [3, n0, _LCSO,
     0,
@@ -5632,7 +5632,7 @@ var ListHookResultsOutput$ = [3, n0, _LHRO,
 var ListImportsInput$ = [3, n0, _LII,
     0,
     [_EN, _NT],
-    [0, 0]
+    [0, 0], 1
 ];
 var ListImportsOutput$ = [3, n0, _LIO,
     0,
@@ -5642,7 +5642,7 @@ var ListImportsOutput$ = [3, n0, _LIO,
 var ListResourceScanRelatedResourcesInput$ = [3, n0, _LRSRRI,
     0,
     [_RSI, _R, _NT, _MR],
-    [0, () => ScannedResourceIdentifiers, 0, 1]
+    [0, () => ScannedResourceIdentifiers, 0, 1], 2
 ];
 var ListResourceScanRelatedResourcesOutput$ = [3, n0, _LRSRRO,
     0,
@@ -5652,7 +5652,7 @@ var ListResourceScanRelatedResourcesOutput$ = [3, n0, _LRSRRO,
 var ListResourceScanResourcesInput$ = [3, n0, _LRSRI,
     0,
     [_RSI, _RI, _RTP, _TK, _TV, _NT, _MR],
-    [0, 0, 0, 0, 0, 0, 1]
+    [0, 0, 0, 0, 0, 0, 1], 1
 ];
 var ListResourceScanResourcesOutput$ = [3, n0, _LRSRO,
     0,
@@ -5671,8 +5671,8 @@ var ListResourceScansOutput$ = [3, n0, _LRSO,
 ];
 var ListStackInstanceResourceDriftsInput$ = [3, n0, _LSIRDI,
     0,
-    [_SSN, _NT, _MR, _SIRDS, _SIA, _SIR, _OI, _CA],
-    [0, 0, 1, 64 | 0, 0, 0, 0, 0]
+    [_SSN, _SIA, _SIR, _OI, _NT, _MR, _SIRDS, _CA],
+    [0, 0, 0, 0, 0, 1, 64 | 0, 0], 4
 ];
 var ListStackInstanceResourceDriftsOutput$ = [3, n0, _LSIRDO,
     0,
@@ -5682,7 +5682,7 @@ var ListStackInstanceResourceDriftsOutput$ = [3, n0, _LSIRDO,
 var ListStackInstancesInput$ = [3, n0, _LSII,
     0,
     [_SSN, _NT, _MR, _F, _SIA, _SIR, _CA],
-    [0, 0, 1, () => StackInstanceFilters, 0, 0, 0]
+    [0, 0, 1, () => StackInstanceFilters, 0, 0, 0], 1
 ];
 var ListStackInstancesOutput$ = [3, n0, _LSIO,
     0,
@@ -5692,12 +5692,12 @@ var ListStackInstancesOutput$ = [3, n0, _LSIO,
 var ListStackRefactorActionsInput$ = [3, n0, _LSRAI,
     0,
     [_SRI, _NT, _MR],
-    [0, 0, 1]
+    [0, 0, 1], 1
 ];
 var ListStackRefactorActionsOutput$ = [3, n0, _LSRAO,
     0,
     [_SRA, _NT],
-    [() => StackRefactorActions, 0]
+    [() => StackRefactorActions, 0], 1
 ];
 var ListStackRefactorsInput$ = [3, n0, _LSRI,
     0,
@@ -5707,12 +5707,12 @@ var ListStackRefactorsInput$ = [3, n0, _LSRI,
 var ListStackRefactorsOutput$ = [3, n0, _LSRO,
     0,
     [_SRS, _NT],
-    [() => StackRefactorSummaries, 0]
+    [() => StackRefactorSummaries, 0], 1
 ];
 var ListStackResourcesInput$ = [3, n0, _LSRIi,
     0,
     [_SN, _NT],
-    [0, 0]
+    [0, 0], 1
 ];
 var ListStackResourcesOutput$ = [3, n0, _LSROi,
     0,
@@ -5722,7 +5722,7 @@ var ListStackResourcesOutput$ = [3, n0, _LSROi,
 var ListStackSetAutoDeploymentTargetsInput$ = [3, n0, _LSSADTI,
     0,
     [_SSN, _NT, _MR, _CA],
-    [0, 0, 1, 0]
+    [0, 0, 1, 0], 1
 ];
 var ListStackSetAutoDeploymentTargetsOutput$ = [3, n0, _LSSADTO,
     0,
@@ -5732,7 +5732,7 @@ var ListStackSetAutoDeploymentTargetsOutput$ = [3, n0, _LSSADTO,
 var ListStackSetOperationResultsInput$ = [3, n0, _LSSORI,
     0,
     [_SSN, _OI, _NT, _MR, _CA, _F],
-    [0, 0, 0, 1, 0, () => OperationResultFilters]
+    [0, 0, 0, 1, 0, () => OperationResultFilters], 2
 ];
 var ListStackSetOperationResultsOutput$ = [3, n0, _LSSORO,
     0,
@@ -5742,7 +5742,7 @@ var ListStackSetOperationResultsOutput$ = [3, n0, _LSSORO,
 var ListStackSetOperationsInput$ = [3, n0, _LSSOI,
     0,
     [_SSN, _NT, _MR, _CA],
-    [0, 0, 1, 0]
+    [0, 0, 1, 0], 1
 ];
 var ListStackSetOperationsOutput$ = [3, n0, _LSSOO,
     0,
@@ -5807,7 +5807,7 @@ var LiveResourceDrift$ = [3, n0, _LRD,
 var LoggingConfig$ = [3, n0, _LC,
     0,
     [_LRA, _LGN],
-    [0, 0]
+    [0, 0], 2
 ];
 var ManagedExecution$ = [3, n0, _ME,
     0,
@@ -5887,12 +5887,12 @@ var ParameterDeclaration$ = [3, n0, _PD,
 var PhysicalResourceIdContextKeyValuePair$ = [3, n0, _PRICKVP,
     0,
     [_K, _V],
-    [0, 0]
+    [0, 0], 2
 ];
 var PropertyDifference$ = [3, n0, _PDr,
     0,
     [_PPr, _EV, _AV, _DTi],
-    [0, 0, 0, 0]
+    [0, 0, 0, 0], 4
 ];
 var PublishTypeInput$ = [3, n0, _PTI,
     0,
@@ -5907,7 +5907,7 @@ var PublishTypeOutput$ = [3, n0, _PTO,
 var RecordHandlerProgressInput$ = [3, n0, _RHPI,
     0,
     [_BT, _OS, _COS, _SM, _EC, _RMes, _CRT],
-    [0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0], 2
 ];
 var RecordHandlerProgressOutput$ = [3, n0, _RHPO,
     0,
@@ -5926,8 +5926,8 @@ var RegisterPublisherOutput$ = [3, n0, _RPO,
 ];
 var RegisterTypeInput$ = [3, n0, _RTIe,
     0,
-    [_T, _TN, _SHP, _LC, _ERA, _CRT],
-    [0, 0, 0, () => LoggingConfig$, 0, 0]
+    [_TN, _SHP, _T, _LC, _ERA, _CRT],
+    [0, 0, 0, () => LoggingConfig$, 0, 0], 2
 ];
 var RegisterTypeOutput$ = [3, n0, _RTO,
     0,
@@ -5951,8 +5951,8 @@ var ResourceChangeDetail$ = [3, n0, _RCD,
 ];
 var ResourceDefinition$ = [3, n0, _RD,
     0,
-    [_RT, _LRI, _RI],
-    [0, 0, 128 | 0]
+    [_RT, _RI, _LRI],
+    [0, 128 | 0, 0], 2
 ];
 var ResourceDetail$ = [3, n0, _RDe,
     0,
@@ -5972,12 +5972,12 @@ var ResourceIdentifierSummary$ = [3, n0, _RISe,
 var ResourceLocation$ = [3, n0, _RLe,
     0,
     [_SN, _LRI],
-    [0, 0]
+    [0, 0], 2
 ];
 var ResourceMapping$ = [3, n0, _RMeso,
     0,
     [_So, _Des],
-    [() => ResourceLocation$, () => ResourceLocation$]
+    [() => ResourceLocation$, () => ResourceLocation$], 2
 ];
 var ResourceScanInProgressException$ = [-3, n0, _RSIPE,
     { [_aQE]: [`ResourceScanInProgress`, 400], [_e]: _c, [_hE]: 400 },
@@ -6010,7 +6010,7 @@ var ResourceTargetDefinition$ = [3, n0, _RTDe,
 var ResourceToImport$ = [3, n0, _RTIes,
     0,
     [_RT, _LRI, _RI],
-    [0, 0, 128 | 0]
+    [0, 0, 128 | 0], 3
 ];
 var RollbackConfiguration$ = [3, n0, _RCo,
     0,
@@ -6020,7 +6020,7 @@ var RollbackConfiguration$ = [3, n0, _RCo,
 var RollbackStackInput$ = [3, n0, _RSIo,
     0,
     [_SN, _RARN, _CRT, _REOC],
-    [0, 0, 0, 2]
+    [0, 0, 0, 2], 1
 ];
 var RollbackStackOutput$ = [3, n0, _RSO,
     0,
@@ -6030,7 +6030,7 @@ var RollbackStackOutput$ = [3, n0, _RSO,
 var RollbackTrigger$ = [3, n0, _RTol,
     0,
     [_A, _T],
-    [0, 0]
+    [0, 0], 2
 ];
 var ScanFilter$ = [3, n0, _SFc,
     0,
@@ -6045,17 +6045,17 @@ var ScannedResource$ = [3, n0, _SRc,
 var ScannedResourceIdentifier$ = [3, n0, _SRIc,
     0,
     [_RT, _RI],
-    [0, 128 | 0]
+    [0, 128 | 0], 2
 ];
 var SetStackPolicyInput$ = [3, n0, _SSPI,
     0,
     [_SN, _SPB, _SPURL],
-    [0, 0, 0]
+    [0, 0, 0], 1
 ];
 var SetTypeConfigurationInput$ = [3, n0, _STCI,
     0,
-    [_TA, _Co, _CAon, _TN, _T],
-    [0, 0, 0, 0, 0]
+    [_Co, _TA, _CAon, _TN, _T],
+    [0, 0, 0, 0, 0], 1
 ];
 var SetTypeConfigurationOutput$ = [3, n0, _STCO,
     0,
@@ -6075,12 +6075,12 @@ var SetTypeDefaultVersionOutput$ = [3, n0, _STDVO,
 var SignalResourceInput$ = [3, n0, _SRIi,
     0,
     [_SN, _LRI, _UI, _S],
-    [0, 0, 0, 0]
+    [0, 0, 0, 0], 4
 ];
 var Stack$ = [3, n0, _Sta,
     0,
-    [_SI, _SN, _CSI, _D, _P, _CT, _DTel, _LUT, _RCo, _SSta, _SSR, _DR, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
-    [0, 0, 0, 0, () => _Parameters, 4, 4, 4, () => RollbackConfiguration$, 0, 0, 2, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations]
+    [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
+    [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations], 3
 ];
 var StackDefinition$ = [3, n0, _SDt,
     0,
@@ -6090,17 +6090,17 @@ var StackDefinition$ = [3, n0, _SDt,
 var StackDriftInformation$ = [3, n0, _SDI,
     0,
     [_SDS, _LCT],
-    [0, 4]
+    [0, 4], 1
 ];
 var StackDriftInformationSummary$ = [3, n0, _SDIS,
     0,
     [_SDS, _LCT],
-    [0, 4]
+    [0, 4], 1
 ];
 var StackEvent$ = [3, n0, _SEt,
     0,
-    [_SI, _EI, _SN, _OI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
-    [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [_SI, _EI, _SN, _Ti, _OI, _LRI, _PRI, _RT, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
+    [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 4
 ];
 var StackInstance$ = [3, n0, _SIt,
     0,
@@ -6125,8 +6125,8 @@ var StackInstanceNotFoundException$ = [-3, n0, _SINFE,
 schema.TypeRegistry.for(n0).registerError(StackInstanceNotFoundException$, StackInstanceNotFoundException);
 var StackInstanceResourceDriftsSummary$ = [3, n0, _SIRDSt,
     0,
-    [_SI, _LRI, _PRI, _PRIC, _RT, _PDro, _SRDS, _Ti],
-    [0, 0, 0, () => PhysicalResourceIdContext, 0, () => PropertyDifferences, 0, 4]
+    [_SI, _LRI, _RT, _SRDS, _Ti, _PRI, _PRIC, _PDro],
+    [0, 0, 0, 0, 4, 0, () => PhysicalResourceIdContext, () => PropertyDifferences], 5
 ];
 var StackInstanceSummary$ = [3, n0, _SISt,
     0,
@@ -6157,33 +6157,33 @@ var StackRefactorSummary$ = [3, n0, _SRSta,
 ];
 var StackResource$ = [3, n0, _SRta,
     0,
-    [_SN, _SI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _D, _DI, _MI],
-    [0, 0, 0, 0, 0, 4, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$]
+    [_LRI, _RT, _Ti, _RSes, _SN, _SI, _PRI, _RSR, _D, _DI, _MI],
+    [0, 0, 4, 0, 0, 0, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$], 4
 ];
 var StackResourceDetail$ = [3, n0, _SRDt,
     0,
-    [_SN, _SI, _LRI, _PRI, _RT, _LUTa, _RSes, _RSR, _D, _Me, _DI, _MI],
-    [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$]
+    [_LRI, _RT, _LUTa, _RSes, _SN, _SI, _PRI, _RSR, _D, _Me, _DI, _MI],
+    [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$], 4
 ];
 var StackResourceDrift$ = [3, n0, _SRDta,
     0,
-    [_SI, _LRI, _PRI, _PRIC, _RT, _EP, _AP, _PDro, _SRDS, _Ti, _MI, _DSRr],
-    [0, 0, 0, () => PhysicalResourceIdContext, 0, 0, 0, () => PropertyDifferences, 0, 4, () => ModuleInfo$, 0]
+    [_SI, _LRI, _RT, _SRDS, _Ti, _PRI, _PRIC, _EP, _AP, _PDro, _MI, _DSRr],
+    [0, 0, 0, 0, 4, 0, () => PhysicalResourceIdContext, 0, 0, () => PropertyDifferences, () => ModuleInfo$, 0], 5
 ];
 var StackResourceDriftInformation$ = [3, n0, _SRDI,
     0,
     [_SRDS, _LCT],
-    [0, 4]
+    [0, 4], 1
 ];
 var StackResourceDriftInformationSummary$ = [3, n0, _SRDIS,
     0,
     [_SRDS, _LCT],
-    [0, 4]
+    [0, 4], 1
 ];
 var StackResourceSummary$ = [3, n0, _SRStac,
     0,
-    [_LRI, _PRI, _RT, _LUTa, _RSes, _RSR, _DI, _MI],
-    [0, 0, 0, 4, 0, 0, () => StackResourceDriftInformationSummary$, () => ModuleInfo$]
+    [_LRI, _RT, _LUTa, _RSes, _PRI, _RSR, _DI, _MI],
+    [0, 0, 4, 0, 0, 0, () => StackResourceDriftInformationSummary$, () => ModuleInfo$], 4
 ];
 var StackSet$ = [3, n0, _SS,
     0,
@@ -6244,8 +6244,8 @@ var StackSetSummary$ = [3, n0, _SSS,
 ];
 var StackSummary$ = [3, n0, _SStac,
     0,
-    [_SI, _SN, _TDe, _CT, _LUT, _DTel, _SSta, _SSR, _PIa, _RIo, _DI, _LO],
-    [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations]
+    [_SN, _CT, _SSta, _SI, _TDe, _LUT, _DTel, _SSR, _PIa, _RIo, _DI, _LO],
+    [0, 4, 0, 0, 0, 4, 4, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations], 3
 ];
 var StaleRequestException$ = [-3, n0, _SRE,
     { [_aQE]: [`StaleRequestException`, 409], [_e]: _c, [_hE]: 409 },
@@ -6266,7 +6266,7 @@ var StartResourceScanOutput$ = [3, n0, _SRSO,
 var StopStackSetOperationInput$ = [3, n0, _SSSOI,
     0,
     [_SSN, _OI, _CA],
-    [0, 0, 0]
+    [0, 0, 0], 2
 ];
 var StopStackSetOperationOutput$ = [3, n0, _SSSOO,
     0,
@@ -6276,7 +6276,7 @@ var StopStackSetOperationOutput$ = [3, n0, _SSSOO,
 var Tag$ = [3, n0, _Tag,
     0,
     [_K, _V],
-    [0, 0]
+    [0, 0], 2
 ];
 var TemplateConfiguration$ = [3, n0, _TCe,
     0,
@@ -6359,7 +6359,7 @@ var TypeVersionSummary$ = [3, n0, _TVSy,
 var UpdateGeneratedTemplateInput$ = [3, n0, _UGTI,
     0,
     [_GTN, _NGTN, _AR, _RRem, _RAR, _TCe],
-    [0, 0, () => ResourceDefinitions, 64 | 0, 2, () => TemplateConfiguration$]
+    [0, 0, () => ResourceDefinitions, 64 | 0, 2, () => TemplateConfiguration$], 1
 ];
 var UpdateGeneratedTemplateOutput$ = [3, n0, _UGTO,
     0,
@@ -6369,12 +6369,12 @@ var UpdateGeneratedTemplateOutput$ = [3, n0, _UGTO,
 var UpdateStackInput$ = [3, n0, _USI,
     0,
     [_SN, _TB, _TURL, _UPT, _SPDUB, _SPDUURL, _P, _Ca, _RTe, _RARN, _RCo, _SPB, _SPURL, _NARN, _Ta, _DR, _CRT, _REOC],
-    [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2]
+    [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2], 1
 ];
 var UpdateStackInstancesInput$ = [3, n0, _USII,
     0,
-    [_SSN, _Ac, _DT, _Re, _PO, _OP, _OI, _CA],
-    [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0]
+    [_SSN, _Re, _Ac, _DT, _PO, _OP, _OI, _CA],
+    [0, 64 | 0, 64 | 0, () => DeploymentTargets$, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0], 2
 ];
 var UpdateStackInstancesOutput$ = [3, n0, _USIO,
     0,
@@ -6389,7 +6389,7 @@ var UpdateStackOutput$ = [3, n0, _USO,
 var UpdateStackSetInput$ = [3, n0, _USSI,
     0,
     [_SSN, _D, _TB, _TURL, _UPT, _P, _Ca, _Ta, _OP, _ARARN, _ERN, _DT, _PM, _AD, _OI, _Ac, _Re, _CA, _ME],
-    [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$]
+    [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$], 1
 ];
 var UpdateStackSetOutput$ = [3, n0, _USSO,
     0,
@@ -6399,7 +6399,7 @@ var UpdateStackSetOutput$ = [3, n0, _USSO,
 var UpdateTerminationProtectionInput$ = [3, n0, _UTPI,
     0,
     [_ETP, _SN],
-    [2, 0]
+    [2, 0], 2
 ];
 var UpdateTerminationProtectionOutput$ = [3, n0, _UTPO,
     0,
@@ -10150,27 +10150,27 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 5780:
+/***/ 3511:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(3129));
-const core_1 = __nccwpck_require__(3364);
-const credential_provider_node_1 = __nccwpck_require__(3922);
-const util_user_agent_node_1 = __nccwpck_require__(7296);
-const config_resolver_1 = __nccwpck_require__(7536);
-const hash_node_1 = __nccwpck_require__(3180);
-const middleware_retry_1 = __nccwpck_require__(9834);
-const node_config_provider_1 = __nccwpck_require__(1755);
-const node_http_handler_1 = __nccwpck_require__(6876);
-const smithy_client_1 = __nccwpck_require__(6121);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(9056));
+const core_1 = __nccwpck_require__(7202);
+const credential_provider_node_1 = __nccwpck_require__(5399);
+const util_user_agent_node_1 = __nccwpck_require__(4977);
+const config_resolver_1 = __nccwpck_require__(705);
+const hash_node_1 = __nccwpck_require__(2869);
+const middleware_retry_1 = __nccwpck_require__(3063);
+const node_config_provider_1 = __nccwpck_require__(6068);
+const node_http_handler_1 = __nccwpck_require__(3801);
+const smithy_client_1 = __nccwpck_require__(9235);
 const util_body_length_node_1 = __nccwpck_require__(7062);
-const util_defaults_mode_node_1 = __nccwpck_require__(9469);
-const util_retry_1 = __nccwpck_require__(9274);
-const runtimeConfig_shared_1 = __nccwpck_require__(3013);
+const util_defaults_mode_node_1 = __nccwpck_require__(3803);
+const util_retry_1 = __nccwpck_require__(9093);
+const runtimeConfig_shared_1 = __nccwpck_require__(8836);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_1.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -10210,20 +10210,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3013:
+/***/ 8836:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(3364);
-const protocols_1 = __nccwpck_require__(1908);
-const smithy_client_1 = __nccwpck_require__(6121);
-const url_parser_1 = __nccwpck_require__(3282);
+const core_1 = __nccwpck_require__(7202);
+const protocols_1 = __nccwpck_require__(5358);
+const smithy_client_1 = __nccwpck_require__(9235);
+const url_parser_1 = __nccwpck_require__(8149);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_utf8_1 = __nccwpck_require__(5579);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(3901);
-const endpointResolver_1 = __nccwpck_require__(6435);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(3070);
+const endpointResolver_1 = __nccwpck_require__(3448);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -10259,24 +10259,24 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3364:
+/***/ 7202:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(6204);
-var core = __nccwpck_require__(9151);
-var propertyProvider = __nccwpck_require__(4200);
-var client = __nccwpck_require__(3311);
-var signatureV4 = __nccwpck_require__(9922);
-var cbor = __nccwpck_require__(5620);
-var schema = __nccwpck_require__(5003);
-var smithyClient = __nccwpck_require__(6121);
-var protocols = __nccwpck_require__(713);
-var serde = __nccwpck_require__(8665);
+var protocolHttp = __nccwpck_require__(9953);
+var core = __nccwpck_require__(7925);
+var propertyProvider = __nccwpck_require__(5169);
+var client = __nccwpck_require__(3730);
+var signatureV4 = __nccwpck_require__(3293);
+var cbor = __nccwpck_require__(6890);
+var schema = __nccwpck_require__(2425);
+var smithyClient = __nccwpck_require__(9235);
+var protocols = __nccwpck_require__(9099);
+var serde = __nccwpck_require__(4771);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
-var xmlBuilder = __nccwpck_require__(2658);
+var xmlBuilder = __nccwpck_require__(3894);
 
 const state = {
     warningEmitted: false,
@@ -10991,23 +10991,41 @@ class JsonShapeDeserializer extends SerdeContextConfig {
         const ns = schema.NormalizedSchema.of(schema$1);
         if (isObject) {
             if (ns.isStructSchema()) {
+                const record = value;
                 const union = ns.isUnionSchema();
                 const out = {};
+                let nameMap = void 0;
+                const { jsonName } = this.settings;
+                if (jsonName) {
+                    nameMap = {};
+                }
                 let unionSerde;
                 if (union) {
-                    unionSerde = new UnionSerde(value, out);
+                    unionSerde = new UnionSerde(record, out);
                 }
-                for (const [memberName, memberSchema] of deserializingStructIterator(ns, value, this.settings.jsonName ? "jsonName" : false)) {
-                    const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+                for (const [memberName, memberSchema] of deserializingStructIterator(ns, record, jsonName ? "jsonName" : false)) {
+                    let fromKey = memberName;
+                    if (jsonName) {
+                        fromKey = memberSchema.getMergedTraits().jsonName ?? fromKey;
+                        nameMap[fromKey] = memberName;
+                    }
                     if (union) {
                         unionSerde.mark(fromKey);
                     }
-                    if (value[fromKey] != null) {
-                        out[memberName] = this._read(memberSchema, value[fromKey]);
+                    if (record[fromKey] != null) {
+                        out[memberName] = this._read(memberSchema, record[fromKey]);
                     }
                 }
                 if (union) {
                     unionSerde.writeUnknown();
+                }
+                else if (typeof record.__type === "string") {
+                    for (const [k, v] of Object.entries(record)) {
+                        const t = jsonName ? nameMap[k] ?? k : k;
+                        if (!(t in out)) {
+                            out[t] = v;
+                        }
+                    }
                 }
                 return out;
             }
@@ -11187,20 +11205,37 @@ class JsonShapeSerializer extends SerdeContextConfig {
         const ns = schema.NormalizedSchema.of(schema$1);
         if (isObject) {
             if (ns.isStructSchema()) {
+                const record = value;
                 const out = {};
-                for (const [memberName, memberSchema] of serializingStructIterator(ns, value)) {
-                    const serializableValue = this._write(memberSchema, value[memberName], ns);
+                const { jsonName } = this.settings;
+                let nameMap = void 0;
+                if (jsonName) {
+                    nameMap = {};
+                }
+                for (const [memberName, memberSchema] of serializingStructIterator(ns, record)) {
+                    const serializableValue = this._write(memberSchema, record[memberName], ns);
                     if (serializableValue !== undefined) {
-                        const jsonName = memberSchema.getMergedTraits().jsonName;
-                        const targetKey = this.settings.jsonName ? jsonName ?? memberName : memberName;
+                        let targetKey = memberName;
+                        if (jsonName) {
+                            targetKey = memberSchema.getMergedTraits().jsonName ?? memberName;
+                            nameMap[memberName] = targetKey;
+                        }
                         out[targetKey] = serializableValue;
                     }
                 }
                 if (ns.isUnionSchema() && Object.keys(out).length === 0) {
-                    const { $unknown } = value;
+                    const { $unknown } = record;
                     if (Array.isArray($unknown)) {
                         const [k, v] = $unknown;
                         out[k] = this._write(15, v);
+                    }
+                }
+                else if (typeof record.__type === "string") {
+                    for (const [k, v] of Object.entries(record)) {
+                        const targetKey = jsonName ? nameMap[k] ?? k : k;
+                        if (!(targetKey in out)) {
+                            out[targetKey] = this._write(15, v);
+                        }
                     }
                 }
                 return out;
@@ -12467,7 +12502,7 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 3311:
+/***/ 3730:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -12525,19 +12560,19 @@ exports.state = state;
 
 /***/ }),
 
-/***/ 1908:
+/***/ 5358:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var cbor = __nccwpck_require__(5620);
-var schema = __nccwpck_require__(5003);
-var smithyClient = __nccwpck_require__(6121);
-var protocols = __nccwpck_require__(713);
-var serde = __nccwpck_require__(8665);
+var cbor = __nccwpck_require__(6890);
+var schema = __nccwpck_require__(2425);
+var smithyClient = __nccwpck_require__(9235);
+var protocols = __nccwpck_require__(9099);
+var serde = __nccwpck_require__(4771);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
-var xmlBuilder = __nccwpck_require__(2658);
+var xmlBuilder = __nccwpck_require__(3894);
 
 class ProtocolLib {
     queryCompat;
@@ -12919,23 +12954,41 @@ class JsonShapeDeserializer extends SerdeContextConfig {
         const ns = schema.NormalizedSchema.of(schema$1);
         if (isObject) {
             if (ns.isStructSchema()) {
+                const record = value;
                 const union = ns.isUnionSchema();
                 const out = {};
+                let nameMap = void 0;
+                const { jsonName } = this.settings;
+                if (jsonName) {
+                    nameMap = {};
+                }
                 let unionSerde;
                 if (union) {
-                    unionSerde = new UnionSerde(value, out);
+                    unionSerde = new UnionSerde(record, out);
                 }
-                for (const [memberName, memberSchema] of deserializingStructIterator(ns, value, this.settings.jsonName ? "jsonName" : false)) {
-                    const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+                for (const [memberName, memberSchema] of deserializingStructIterator(ns, record, jsonName ? "jsonName" : false)) {
+                    let fromKey = memberName;
+                    if (jsonName) {
+                        fromKey = memberSchema.getMergedTraits().jsonName ?? fromKey;
+                        nameMap[fromKey] = memberName;
+                    }
                     if (union) {
                         unionSerde.mark(fromKey);
                     }
-                    if (value[fromKey] != null) {
-                        out[memberName] = this._read(memberSchema, value[fromKey]);
+                    if (record[fromKey] != null) {
+                        out[memberName] = this._read(memberSchema, record[fromKey]);
                     }
                 }
                 if (union) {
                     unionSerde.writeUnknown();
+                }
+                else if (typeof record.__type === "string") {
+                    for (const [k, v] of Object.entries(record)) {
+                        const t = jsonName ? nameMap[k] ?? k : k;
+                        if (!(t in out)) {
+                            out[t] = v;
+                        }
+                    }
                 }
                 return out;
             }
@@ -13115,20 +13168,37 @@ class JsonShapeSerializer extends SerdeContextConfig {
         const ns = schema.NormalizedSchema.of(schema$1);
         if (isObject) {
             if (ns.isStructSchema()) {
+                const record = value;
                 const out = {};
-                for (const [memberName, memberSchema] of serializingStructIterator(ns, value)) {
-                    const serializableValue = this._write(memberSchema, value[memberName], ns);
+                const { jsonName } = this.settings;
+                let nameMap = void 0;
+                if (jsonName) {
+                    nameMap = {};
+                }
+                for (const [memberName, memberSchema] of serializingStructIterator(ns, record)) {
+                    const serializableValue = this._write(memberSchema, record[memberName], ns);
                     if (serializableValue !== undefined) {
-                        const jsonName = memberSchema.getMergedTraits().jsonName;
-                        const targetKey = this.settings.jsonName ? jsonName ?? memberName : memberName;
+                        let targetKey = memberName;
+                        if (jsonName) {
+                            targetKey = memberSchema.getMergedTraits().jsonName ?? memberName;
+                            nameMap[memberName] = targetKey;
+                        }
                         out[targetKey] = serializableValue;
                     }
                 }
                 if (ns.isUnionSchema() && Object.keys(out).length === 0) {
-                    const { $unknown } = value;
+                    const { $unknown } = record;
                     if (Array.isArray($unknown)) {
                         const [k, v] = $unknown;
                         out[k] = this._write(15, v);
+                    }
+                }
+                else if (typeof record.__type === "string") {
+                    for (const [k, v] of Object.entries(record)) {
+                        const targetKey = jsonName ? nameMap[k] ?? k : k;
+                        if (!(targetKey in out)) {
+                            out[targetKey] = this._write(15, v);
+                        }
                     }
                 }
                 return out;
@@ -14380,13 +14450,13 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 5678:
+/***/ 3056:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var client = __nccwpck_require__(3311);
-var propertyProvider = __nccwpck_require__(4200);
+var client = __nccwpck_require__(3730);
+var propertyProvider = __nccwpck_require__(5169);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
 const ENV_SECRET = "AWS_SECRET_ACCESS_KEY";
@@ -14428,21 +14498,21 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 3922:
+/***/ 5399:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var credentialProviderEnv = __nccwpck_require__(5678);
-var propertyProvider = __nccwpck_require__(4200);
-var sharedIniFileLoader = __nccwpck_require__(5285);
+var credentialProviderEnv = __nccwpck_require__(3056);
+var propertyProvider = __nccwpck_require__(5169);
+var sharedIniFileLoader = __nccwpck_require__(3628);
 
 const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 const remoteProvider = async (init) => {
-    const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 950).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9950, 19));
+    const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 885).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1885, 19));
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 154).then(__nccwpck_require__.bind(__nccwpck_require__, 6154));
+        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 932).then(__nccwpck_require__.bind(__nccwpck_require__, 7932));
         return propertyProvider.chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -14546,22 +14616,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new propertyProvider.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 602).then(__nccwpck_require__.t.bind(__nccwpck_require__, 3602, 19));
+        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 133).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9133, 19));
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 446).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4446, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 625).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4625, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 98).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1098, 19));
+        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 568).then(__nccwpck_require__.t.bind(__nccwpck_require__, 6568, 19));
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 44).then(__nccwpck_require__.t.bind(__nccwpck_require__, 6044, 23));
+        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 953).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4953, 23));
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -14585,12 +14655,12 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 8784:
+/***/ 36:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(6204);
+var protocolHttp = __nccwpck_require__(9953);
 
 function resolveHostHeaderConfig(input) {
     return input;
@@ -14633,7 +14703,7 @@ exports.resolveHostHeaderConfig = resolveHostHeaderConfig;
 
 /***/ }),
 
-/***/ 2374:
+/***/ 6610:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -14688,12 +14758,12 @@ exports.loggerMiddlewareOptions = loggerMiddlewareOptions;
 
 /***/ }),
 
-/***/ 4216:
+/***/ 4972:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var recursionDetectionMiddleware = __nccwpck_require__(241);
+var recursionDetectionMiddleware = __nccwpck_require__(453);
 
 const recursionDetectionMiddlewareOptions = {
     step: "build",
@@ -14720,14 +14790,14 @@ Object.keys(recursionDetectionMiddleware).forEach(function (k) {
 
 /***/ }),
 
-/***/ 241:
+/***/ 453:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.recursionDetectionMiddleware = void 0;
 const lambda_invoke_store_1 = __nccwpck_require__(3320);
-const protocol_http_1 = __nccwpck_require__(6204);
+const protocol_http_1 = __nccwpck_require__(9953);
 const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
 const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
 const ENV_TRACE_ID = "_X_AMZN_TRACE_ID";
@@ -14760,15 +14830,15 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 
 /***/ }),
 
-/***/ 8738:
+/***/ 7820:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var core = __nccwpck_require__(9151);
-var utilEndpoints = __nccwpck_require__(9856);
-var protocolHttp = __nccwpck_require__(6204);
-var core$1 = __nccwpck_require__(3364);
+var core = __nccwpck_require__(7925);
+var utilEndpoints = __nccwpck_require__(1914);
+var protocolHttp = __nccwpck_require__(9953);
+var core$1 = __nccwpck_require__(7202);
 
 const DEFAULT_UA_APP_ID = undefined;
 function isValidUserAgentAppId(appId) {
@@ -14961,13 +15031,13 @@ exports.userAgentMiddleware = userAgentMiddleware;
 
 /***/ }),
 
-/***/ 8762:
+/***/ 5798:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var stsRegionDefaultResolver = __nccwpck_require__(5702);
-var configResolver = __nccwpck_require__(7536);
+var stsRegionDefaultResolver = __nccwpck_require__(2498);
+var configResolver = __nccwpck_require__(705);
 
 const getAwsRegionExtensionConfiguration = (runtimeConfig) => {
     return {
@@ -15017,15 +15087,15 @@ Object.keys(stsRegionDefaultResolver).forEach(function (k) {
 
 /***/ }),
 
-/***/ 5702:
+/***/ 2498:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.warning = void 0;
 exports.stsRegionDefaultResolver = stsRegionDefaultResolver;
-const config_resolver_1 = __nccwpck_require__(7536);
-const node_config_provider_1 = __nccwpck_require__(1755);
+const config_resolver_1 = __nccwpck_require__(705);
+const node_config_provider_1 = __nccwpck_require__(6068);
 function stsRegionDefaultResolver(loaderConfig = {}) {
     return (0, node_config_provider_1.loadConfig)({
         ...config_resolver_1.NODE_REGION_CONFIG_OPTIONS,
@@ -15044,13 +15114,13 @@ exports.warning = {
 
 /***/ }),
 
-/***/ 9856:
+/***/ 1914:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var utilEndpoints = __nccwpck_require__(3277);
-var urlParser = __nccwpck_require__(3282);
+var utilEndpoints = __nccwpck_require__(3298);
+var urlParser = __nccwpck_require__(8149);
 
 const isVirtualHostableS3Bucket = (value, allowSubDomains = false) => {
     if (allowSubDomains) {
@@ -15251,7 +15321,7 @@ var partitions = [
 		regionRegex: "^eusc\\-(de)\\-\\w+\\-\\d+$",
 		regions: {
 			"eusc-de-east-1": {
-				description: "EU (Germany)"
+				description: "AWS European Sovereign Cloud (Germany)"
 			}
 		}
 	},
@@ -15466,14 +15536,14 @@ exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
 
 /***/ }),
 
-/***/ 7296:
+/***/ 4977:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var os = __nccwpck_require__(857);
 var process = __nccwpck_require__(932);
-var middlewareUserAgent = __nccwpck_require__(8738);
+var middlewareUserAgent = __nccwpck_require__(7820);
 
 const crtAvailability = {
     isCrtAvailable: false,
@@ -15531,12 +15601,12 @@ exports.defaultUserAgent = defaultUserAgent;
 
 /***/ }),
 
-/***/ 2658:
+/***/ 3894:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var xmlParser = __nccwpck_require__(5519);
+var xmlParser = __nccwpck_require__(5635);
 
 function escapeAttribute(value) {
     return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -15662,7 +15732,7 @@ exports.XmlText = XmlText;
 
 /***/ }),
 
-/***/ 5519:
+/***/ 5635:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -15687,14 +15757,14 @@ function parseXML(xmlString) {
 
 /***/ }),
 
-/***/ 7536:
+/***/ 705:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var utilConfigProvider = __nccwpck_require__(5897);
-var utilMiddleware = __nccwpck_require__(7256);
-var utilEndpoints = __nccwpck_require__(3277);
+var utilMiddleware = __nccwpck_require__(5417);
+var utilEndpoints = __nccwpck_require__(3298);
 
 const ENV_USE_DUALSTACK_ENDPOINT = "AWS_USE_DUALSTACK_ENDPOINT";
 const CONFIG_USE_DUALSTACK_ENDPOINT = "use_dualstack_endpoint";
@@ -15880,16 +15950,16 @@ exports.resolveRegionConfig = resolveRegionConfig;
 
 /***/ }),
 
-/***/ 9151:
+/***/ 7925:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var types = __nccwpck_require__(2807);
-var utilMiddleware = __nccwpck_require__(7256);
-var middlewareSerde = __nccwpck_require__(2021);
-var protocolHttp = __nccwpck_require__(6204);
-var protocols = __nccwpck_require__(713);
+var types = __nccwpck_require__(3310);
+var utilMiddleware = __nccwpck_require__(5417);
+var middlewareSerde = __nccwpck_require__(8344);
+var protocolHttp = __nccwpck_require__(9953);
+var protocols = __nccwpck_require__(9099);
 
 const getSmithyContext = (context) => context[types.SMITHY_CONTEXT_KEY] || (context[types.SMITHY_CONTEXT_KEY] = {});
 
@@ -16236,18 +16306,18 @@ exports.setFeature = setFeature;
 
 /***/ }),
 
-/***/ 5620:
+/***/ 6890:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var serde = __nccwpck_require__(8665);
+var serde = __nccwpck_require__(4771);
 var utilUtf8 = __nccwpck_require__(5579);
-var protocols = __nccwpck_require__(713);
-var protocolHttp = __nccwpck_require__(6204);
+var protocols = __nccwpck_require__(9099);
+var protocolHttp = __nccwpck_require__(9953);
 var utilBodyLengthBrowser = __nccwpck_require__(8773);
-var schema = __nccwpck_require__(5003);
-var utilMiddleware = __nccwpck_require__(7256);
+var schema = __nccwpck_require__(2425);
+var utilMiddleware = __nccwpck_require__(5417);
 var utilBase64 = __nccwpck_require__(1532);
 
 const majorUint64 = 0;
@@ -17097,11 +17167,21 @@ class CborShapeSerializer extends protocols.SerdeContext {
                     const [k, v] = sourceObject.$unknown;
                     newObject[k] = v;
                 }
+                else if (typeof sourceObject.__type === "string") {
+                    for (const [k, v] of Object.entries(sourceObject)) {
+                        if (!(k in newObject)) {
+                            newObject[k] = this.serialize(15, v);
+                        }
+                    }
+                }
             }
             else if (ns.isDocumentSchema()) {
                 for (const key of Object.keys(sourceObject)) {
                     newObject[key] = this.serialize(ns.getValueSchema(), sourceObject[key]);
                 }
+            }
+            else if (ns.isBigDecimalSchema()) {
+                return sourceObject;
             }
             return newObject;
         }
@@ -17197,6 +17277,13 @@ class CborShapeDeserializer extends protocols.SerdeContext {
                 if (isUnion && keys?.size === 1 && Object.keys(newObject).length === 0) {
                     const k = keys.values().next().value;
                     newObject.$unknown = [k, value[k]];
+                }
+                else if (typeof value.__type === "string") {
+                    for (const [k, v] of Object.entries(value)) {
+                        if (!(k in newObject)) {
+                            newObject[k] = v;
+                        }
+                    }
                 }
             }
             else if (value instanceof serde.NumericValue) {
@@ -17319,15 +17406,15 @@ exports.tagSymbol = tagSymbol;
 
 /***/ }),
 
-/***/ 713:
+/***/ 9099:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var utilStream = __nccwpck_require__(7292);
-var schema = __nccwpck_require__(5003);
-var serde = __nccwpck_require__(8665);
-var protocolHttp = __nccwpck_require__(6204);
+var utilStream = __nccwpck_require__(4113);
+var schema = __nccwpck_require__(2425);
+var serde = __nccwpck_require__(4771);
+var protocolHttp = __nccwpck_require__(9953);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
 
@@ -17404,6 +17491,9 @@ class HttpProtocol extends SerdeContext {
         }
     }
     setHostPrefix(request, operationSchema, input) {
+        if (this.serdeContext?.disableHostPrefix) {
+            return;
+        }
         const inputNs = schema.NormalizedSchema.of(operationSchema.input);
         const opTraits = schema.translateTraits(operationSchema.traits ?? {});
         if (opTraits.endpoint) {
@@ -17446,7 +17536,7 @@ class HttpProtocol extends SerdeContext {
         });
     }
     async loadEventStreamCapability() {
-        const { EventStreamSerde } = await __nccwpck_require__.e(/* import() */ 544).then(__nccwpck_require__.t.bind(__nccwpck_require__, 3544, 19));
+        const { EventStreamSerde } = await __nccwpck_require__.e(/* import() */ 878).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1878, 19));
         return new EventStreamSerde({
             marshaller: this.getEventStreamMarshaller(),
             serializer: this.serializer,
@@ -17514,6 +17604,9 @@ class HttpBindingProtocol extends HttpProtocol {
             const memberTraits = memberNs.getMergedTraits() ?? {};
             const inputMemberValue = input[memberName];
             if (inputMemberValue == null && !memberNs.isIdempotencyToken()) {
+                if (memberTraits.httpLabel) {
+                    throw new Error(`No value provided for input HTTP label: ${memberName}.`);
+                }
                 continue;
             }
             if (memberTraits.httpPayload) {
@@ -18165,13 +18258,13 @@ exports.resolvedPath = resolvedPath;
 
 /***/ }),
 
-/***/ 5003:
+/***/ 2425:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(6204);
-var utilMiddleware = __nccwpck_require__(7256);
+var protocolHttp = __nccwpck_require__(9953);
+var utilMiddleware = __nccwpck_require__(5417);
 
 const deref = (schemaRef) => {
     if (typeof schemaRef === "function") {
@@ -18798,7 +18891,7 @@ exports.translateTraits = translateTraits;
 
 /***/ }),
 
-/***/ 8665:
+/***/ 4771:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19502,13 +19595,13 @@ exports.strictParseShort = strictParseShort;
 
 /***/ }),
 
-/***/ 725:
+/***/ 248:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(6204);
-var querystringBuilder = __nccwpck_require__(6416);
+var protocolHttp = __nccwpck_require__(9953);
+var querystringBuilder = __nccwpck_require__(4469);
 var utilBase64 = __nccwpck_require__(1532);
 
 function createRequest(url, requestOptions) {
@@ -19725,7 +19818,7 @@ exports.streamCollector = streamCollector;
 
 /***/ }),
 
-/***/ 3180:
+/***/ 2869:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -19787,12 +19880,12 @@ exports.isArrayBuffer = isArrayBuffer;
 
 /***/ }),
 
-/***/ 9684:
+/***/ 9097:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(6204);
+var protocolHttp = __nccwpck_require__(9953);
 
 const CONTENT_LENGTH_HEADER = "content-length";
 function contentLengthMiddleware(bodyLengthChecker) {
@@ -19840,27 +19933,27 @@ exports.getContentLengthPlugin = getContentLengthPlugin;
 
 /***/ }),
 
-/***/ 9393:
+/***/ 5215:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getEndpointFromConfig = void 0;
-const node_config_provider_1 = __nccwpck_require__(1755);
-const getEndpointUrlConfig_1 = __nccwpck_require__(7632);
+const node_config_provider_1 = __nccwpck_require__(6068);
+const getEndpointUrlConfig_1 = __nccwpck_require__(66);
 const getEndpointFromConfig = async (serviceId) => (0, node_config_provider_1.loadConfig)((0, getEndpointUrlConfig_1.getEndpointUrlConfig)(serviceId ?? ""))();
 exports.getEndpointFromConfig = getEndpointFromConfig;
 
 
 /***/ }),
 
-/***/ 7632:
+/***/ 66:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getEndpointUrlConfig = void 0;
-const shared_ini_file_loader_1 = __nccwpck_require__(5285);
+const shared_ini_file_loader_1 = __nccwpck_require__(3628);
 const ENV_ENDPOINT_URL = "AWS_ENDPOINT_URL";
 const CONFIG_ENDPOINT_URL = "endpoint_url";
 const getEndpointUrlConfig = (serviceId) => ({
@@ -19896,16 +19989,16 @@ exports.getEndpointUrlConfig = getEndpointUrlConfig;
 
 /***/ }),
 
-/***/ 1579:
+/***/ 8505:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var getEndpointFromConfig = __nccwpck_require__(9393);
-var urlParser = __nccwpck_require__(3282);
-var core = __nccwpck_require__(9151);
-var utilMiddleware = __nccwpck_require__(7256);
-var middlewareSerde = __nccwpck_require__(2021);
+var getEndpointFromConfig = __nccwpck_require__(5215);
+var urlParser = __nccwpck_require__(8149);
+var core = __nccwpck_require__(7925);
+var utilMiddleware = __nccwpck_require__(5417);
+var middlewareSerde = __nccwpck_require__(8344);
 
 const resolveParamsForS3 = async (endpointParams) => {
     const bucket = endpointParams?.Bucket || "";
@@ -20151,18 +20244,18 @@ exports.toEndpointV1 = toEndpointV1;
 
 /***/ }),
 
-/***/ 9834:
+/***/ 3063:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var utilRetry = __nccwpck_require__(9274);
-var protocolHttp = __nccwpck_require__(6204);
-var serviceErrorClassification = __nccwpck_require__(854);
+var utilRetry = __nccwpck_require__(9093);
+var protocolHttp = __nccwpck_require__(9953);
+var serviceErrorClassification = __nccwpck_require__(5433);
 var uuid = __nccwpck_require__(7919);
-var utilMiddleware = __nccwpck_require__(7256);
-var smithyClient = __nccwpck_require__(6121);
-var isStreamingPayload = __nccwpck_require__(7871);
+var utilMiddleware = __nccwpck_require__(5417);
+var smithyClient = __nccwpck_require__(9235);
+var isStreamingPayload = __nccwpck_require__(3838);
 
 const getDefaultRetryQuota = (initialRetryTokens, options) => {
     const MAX_CAPACITY = initialRetryTokens;
@@ -20516,7 +20609,7 @@ exports.retryMiddlewareOptions = retryMiddlewareOptions;
 
 /***/ }),
 
-/***/ 7871:
+/***/ 3838:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -20530,12 +20623,12 @@ exports.isStreamingPayload = isStreamingPayload;
 
 /***/ }),
 
-/***/ 2021:
+/***/ 8344:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(6204);
+var protocolHttp = __nccwpck_require__(9953);
 
 const deserializerMiddleware = (options, deserializer) => (next, context) => async (args) => {
     const { response } = await next(args);
@@ -20640,7 +20733,7 @@ exports.serializerMiddlewareOption = serializerMiddlewareOption;
 
 /***/ }),
 
-/***/ 9846:
+/***/ 209:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -20932,13 +21025,13 @@ exports.constructStack = constructStack;
 
 /***/ }),
 
-/***/ 1755:
+/***/ 6068:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var propertyProvider = __nccwpck_require__(4200);
-var sharedIniFileLoader = __nccwpck_require__(5285);
+var propertyProvider = __nccwpck_require__(5169);
+var sharedIniFileLoader = __nccwpck_require__(3628);
 
 function getSelectorName(functionString) {
     try {
@@ -21001,13 +21094,13 @@ exports.loadConfig = loadConfig;
 
 /***/ }),
 
-/***/ 6876:
+/***/ 3801:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(6204);
-var querystringBuilder = __nccwpck_require__(6416);
+var protocolHttp = __nccwpck_require__(9953);
+var querystringBuilder = __nccwpck_require__(4469);
 var http = __nccwpck_require__(8611);
 var https = __nccwpck_require__(5692);
 var stream = __nccwpck_require__(2203);
@@ -21740,7 +21833,7 @@ exports.streamCollector = streamCollector;
 
 /***/ }),
 
-/***/ 4200:
+/***/ 5169:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -21864,12 +21957,12 @@ exports.memoize = memoize;
 
 /***/ }),
 
-/***/ 6204:
+/***/ 9953:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var types = __nccwpck_require__(2807);
+var types = __nccwpck_require__(3310);
 
 const getHttpHandlerExtensionConfiguration = (runtimeConfig) => {
     return {
@@ -22040,7 +22133,7 @@ exports.resolveHttpHandlerRuntimeConfig = resolveHttpHandlerRuntimeConfig;
 
 /***/ }),
 
-/***/ 6416:
+/***/ 4469:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -22073,7 +22166,7 @@ exports.buildQueryString = buildQueryString;
 
 /***/ }),
 
-/***/ 8182:
+/***/ 6461:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -22107,7 +22200,7 @@ exports.parseQueryString = parseQueryString;
 
 /***/ }),
 
-/***/ 854:
+/***/ 5433:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -22191,7 +22284,7 @@ exports.isTransientError = isTransientError;
 
 /***/ }),
 
-/***/ 8067:
+/***/ 4068:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -22224,7 +22317,7 @@ exports.getHomeDir = getHomeDir;
 
 /***/ }),
 
-/***/ 3088:
+/***/ 7749:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -22232,7 +22325,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getSSOTokenFilepath = void 0;
 const crypto_1 = __nccwpck_require__(6982);
 const path_1 = __nccwpck_require__(6928);
-const getHomeDir_1 = __nccwpck_require__(8067);
+const getHomeDir_1 = __nccwpck_require__(4068);
 const getSSOTokenFilepath = (id) => {
     const hasher = (0, crypto_1.createHash)("sha1");
     const cacheName = hasher.update(id).digest("hex");
@@ -22243,14 +22336,14 @@ exports.getSSOTokenFilepath = getSSOTokenFilepath;
 
 /***/ }),
 
-/***/ 455:
+/***/ 3846:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getSSOTokenFromFile = exports.tokenIntercept = void 0;
 const promises_1 = __nccwpck_require__(1943);
-const getSSOTokenFilepath_1 = __nccwpck_require__(3088);
+const getSSOTokenFilepath_1 = __nccwpck_require__(7749);
 exports.tokenIntercept = {};
 const getSSOTokenFromFile = async (id) => {
     if (exports.tokenIntercept[id]) {
@@ -22265,17 +22358,17 @@ exports.getSSOTokenFromFile = getSSOTokenFromFile;
 
 /***/ }),
 
-/***/ 5285:
+/***/ 3628:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var getHomeDir = __nccwpck_require__(8067);
-var getSSOTokenFilepath = __nccwpck_require__(3088);
-var getSSOTokenFromFile = __nccwpck_require__(455);
+var getHomeDir = __nccwpck_require__(4068);
+var getSSOTokenFilepath = __nccwpck_require__(7749);
+var getSSOTokenFromFile = __nccwpck_require__(3846);
 var path = __nccwpck_require__(6928);
-var types = __nccwpck_require__(2807);
-var readFile = __nccwpck_require__(3495);
+var types = __nccwpck_require__(3310);
+var readFile = __nccwpck_require__(2868);
 
 const ENV_PROFILE = "AWS_PROFILE";
 const DEFAULT_PROFILE = "default";
@@ -22466,7 +22559,7 @@ Object.keys(getSSOTokenFilepath).forEach(function (k) {
 
 /***/ }),
 
-/***/ 3495:
+/***/ 2868:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -22489,7 +22582,7 @@ exports.readFile = readFile;
 
 /***/ }),
 
-/***/ 9922:
+/***/ 3293:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -22497,8 +22590,8 @@ exports.readFile = readFile;
 var utilHexEncoding = __nccwpck_require__(6999);
 var utilUtf8 = __nccwpck_require__(5579);
 var isArrayBuffer = __nccwpck_require__(3273);
-var protocolHttp = __nccwpck_require__(6204);
-var utilMiddleware = __nccwpck_require__(7256);
+var protocolHttp = __nccwpck_require__(9953);
+var utilMiddleware = __nccwpck_require__(5417);
 var utilUriEscape = __nccwpck_require__(5009);
 
 const ALGORITHM_QUERY_PARAM = "X-Amz-Algorithm";
@@ -23052,16 +23145,16 @@ exports.signatureV4aContainer = signatureV4aContainer;
 
 /***/ }),
 
-/***/ 6121:
+/***/ 9235:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var middlewareStack = __nccwpck_require__(9846);
-var protocols = __nccwpck_require__(713);
-var types = __nccwpck_require__(2807);
-var schema = __nccwpck_require__(5003);
-var serde = __nccwpck_require__(8665);
+var middlewareStack = __nccwpck_require__(209);
+var protocols = __nccwpck_require__(9099);
+var types = __nccwpck_require__(3310);
+var schema = __nccwpck_require__(2425);
+var serde = __nccwpck_require__(4771);
 
 class Client {
     config;
@@ -23654,7 +23747,7 @@ Object.keys(serde).forEach(function (k) {
 
 /***/ }),
 
-/***/ 2807:
+/***/ 3310:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -23752,12 +23845,12 @@ exports.resolveDefaultRuntimeConfig = resolveDefaultRuntimeConfig;
 
 /***/ }),
 
-/***/ 3282:
+/***/ 8149:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var querystringParser = __nccwpck_require__(8182);
+var querystringParser = __nccwpck_require__(6461);
 
 const parseUrl = (url) => {
     if (typeof url === "string") {
@@ -23997,14 +24090,14 @@ exports.numberSelector = numberSelector;
 
 /***/ }),
 
-/***/ 9469:
+/***/ 3803:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var configResolver = __nccwpck_require__(7536);
-var nodeConfigProvider = __nccwpck_require__(1755);
-var propertyProvider = __nccwpck_require__(4200);
+var configResolver = __nccwpck_require__(705);
+var nodeConfigProvider = __nccwpck_require__(6068);
+var propertyProvider = __nccwpck_require__(5169);
 
 const AWS_EXECUTION_ENV = "AWS_EXECUTION_ENV";
 const AWS_REGION_ENV = "AWS_REGION";
@@ -24064,7 +24157,7 @@ const inferPhysicalRegion = async () => {
     }
     if (!process.env[ENV_IMDS_DISABLED]) {
         try {
-            const { getInstanceMetadataEndpoint, httpRequest } = await __nccwpck_require__.e(/* import() */ 950).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9950, 19));
+            const { getInstanceMetadataEndpoint, httpRequest } = await __nccwpck_require__.e(/* import() */ 885).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1885, 19));
             const endpoint = await getInstanceMetadataEndpoint();
             return (await httpRequest({ ...endpoint, path: IMDS_REGION_PATH })).toString();
         }
@@ -24078,12 +24171,12 @@ exports.resolveDefaultsModeConfig = resolveDefaultsModeConfig;
 
 /***/ }),
 
-/***/ 3277:
+/***/ 3298:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var types = __nccwpck_require__(2807);
+var types = __nccwpck_require__(3310);
 
 class EndpointCache {
     capacity;
@@ -24602,12 +24695,12 @@ exports.toHex = toHex;
 
 /***/ }),
 
-/***/ 7256:
+/***/ 5417:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var types = __nccwpck_require__(2807);
+var types = __nccwpck_require__(3310);
 
 const getSmithyContext = (context) => context[types.SMITHY_CONTEXT_KEY] || (context[types.SMITHY_CONTEXT_KEY] = {});
 
@@ -24624,12 +24717,12 @@ exports.normalizeProvider = normalizeProvider;
 
 /***/ }),
 
-/***/ 9274:
+/***/ 9093:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var serviceErrorClassification = __nccwpck_require__(854);
+var serviceErrorClassification = __nccwpck_require__(5433);
 
 exports.RETRY_MODES = void 0;
 (function (RETRY_MODES) {
@@ -24909,7 +25002,7 @@ exports.TIMEOUT_RETRY_COST = TIMEOUT_RETRY_COST;
 
 /***/ }),
 
-/***/ 2532:
+/***/ 807:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -24952,7 +25045,7 @@ exports.ByteArrayCollector = ByteArrayCollector;
 
 /***/ }),
 
-/***/ 1945:
+/***/ 6700:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -24966,7 +25059,7 @@ exports.ChecksumStream = ChecksumStream;
 
 /***/ }),
 
-/***/ 1215:
+/***/ 5010:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -25026,15 +25119,15 @@ exports.ChecksumStream = ChecksumStream;
 
 /***/ }),
 
-/***/ 1953:
+/***/ 9768:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createChecksumStream = void 0;
 const util_base64_1 = __nccwpck_require__(1532);
-const stream_type_check_1 = __nccwpck_require__(8526);
-const ChecksumStream_browser_1 = __nccwpck_require__(1945);
+const stream_type_check_1 = __nccwpck_require__(2143);
+const ChecksumStream_browser_1 = __nccwpck_require__(6700);
 const createChecksumStream = ({ expectedChecksum, checksum, source, checksumSourceLocation, base64Encoder, }) => {
     if (!(0, stream_type_check_1.isReadableStream)(source)) {
         throw new Error(`@smithy/util-stream: unsupported source type ${source?.constructor?.name ?? source} in ChecksumStream.`);
@@ -25072,15 +25165,15 @@ exports.createChecksumStream = createChecksumStream;
 
 /***/ }),
 
-/***/ 1399:
+/***/ 7358:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createChecksumStream = createChecksumStream;
-const stream_type_check_1 = __nccwpck_require__(8526);
-const ChecksumStream_1 = __nccwpck_require__(1215);
-const createChecksumStream_browser_1 = __nccwpck_require__(1953);
+const stream_type_check_1 = __nccwpck_require__(2143);
+const ChecksumStream_1 = __nccwpck_require__(5010);
+const createChecksumStream_browser_1 = __nccwpck_require__(9768);
 function createChecksumStream(init) {
     if (typeof ReadableStream === "function" && (0, stream_type_check_1.isReadableStream)(init.source)) {
         return (0, createChecksumStream_browser_1.createChecksumStream)(init);
@@ -25091,16 +25184,16 @@ function createChecksumStream(init) {
 
 /***/ }),
 
-/***/ 9845:
+/***/ 7394:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createBufferedReadable = createBufferedReadable;
 const node_stream_1 = __nccwpck_require__(7075);
-const ByteArrayCollector_1 = __nccwpck_require__(2532);
-const createBufferedReadableStream_1 = __nccwpck_require__(3397);
-const stream_type_check_1 = __nccwpck_require__(8526);
+const ByteArrayCollector_1 = __nccwpck_require__(807);
+const createBufferedReadableStream_1 = __nccwpck_require__(482);
+const stream_type_check_1 = __nccwpck_require__(2143);
 function createBufferedReadable(upstream, size, logger) {
     if ((0, stream_type_check_1.isReadableStream)(upstream)) {
         return (0, createBufferedReadableStream_1.createBufferedReadableStream)(upstream, size, logger);
@@ -25158,7 +25251,7 @@ function createBufferedReadable(upstream, size, logger) {
 
 /***/ }),
 
-/***/ 3397:
+/***/ 482:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -25169,7 +25262,7 @@ exports.merge = merge;
 exports.flush = flush;
 exports.sizeOf = sizeOf;
 exports.modeOf = modeOf;
-const ByteArrayCollector_1 = __nccwpck_require__(2532);
+const ByteArrayCollector_1 = __nccwpck_require__(807);
 function createBufferedReadableStream(upstream, size, logger) {
     const reader = upstream.getReader();
     let streamBufferingLoggedWarning = false;
@@ -25268,28 +25361,78 @@ function modeOf(chunk, allowBuffer = true) {
 
 /***/ }),
 
-/***/ 5834:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+/***/ 113:
+/***/ ((__unused_webpack_module, exports) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getAwsChunkedEncodingStream = void 0;
-const stream_1 = __nccwpck_require__(2203);
 const getAwsChunkedEncodingStream = (readableStream, options) => {
+    const { base64Encoder, bodyLengthChecker, checksumAlgorithmFn, checksumLocationName, streamHasher } = options;
+    const checksumRequired = base64Encoder !== undefined &&
+        bodyLengthChecker !== undefined &&
+        checksumAlgorithmFn !== undefined &&
+        checksumLocationName !== undefined &&
+        streamHasher !== undefined;
+    const digest = checksumRequired ? streamHasher(checksumAlgorithmFn, readableStream) : undefined;
+    const reader = readableStream.getReader();
+    return new ReadableStream({
+        async pull(controller) {
+            const { value, done } = await reader.read();
+            if (done) {
+                controller.enqueue(`0\r\n`);
+                if (checksumRequired) {
+                    const checksum = base64Encoder(await digest);
+                    controller.enqueue(`${checksumLocationName}:${checksum}\r\n`);
+                    controller.enqueue(`\r\n`);
+                }
+                controller.close();
+            }
+            else {
+                controller.enqueue(`${(bodyLengthChecker(value) || 0).toString(16)}\r\n${value}\r\n`);
+            }
+        },
+    });
+};
+exports.getAwsChunkedEncodingStream = getAwsChunkedEncodingStream;
+
+
+/***/ }),
+
+/***/ 1479:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getAwsChunkedEncodingStream = getAwsChunkedEncodingStream;
+const node_stream_1 = __nccwpck_require__(7075);
+const getAwsChunkedEncodingStream_browser_1 = __nccwpck_require__(113);
+const stream_type_check_1 = __nccwpck_require__(2143);
+function getAwsChunkedEncodingStream(stream, options) {
+    const readable = stream;
+    const readableStream = stream;
+    if ((0, stream_type_check_1.isReadableStream)(readableStream)) {
+        return (0, getAwsChunkedEncodingStream_browser_1.getAwsChunkedEncodingStream)(readableStream, options);
+    }
     const { base64Encoder, bodyLengthChecker, checksumAlgorithmFn, checksumLocationName, streamHasher } = options;
     const checksumRequired = base64Encoder !== undefined &&
         checksumAlgorithmFn !== undefined &&
         checksumLocationName !== undefined &&
         streamHasher !== undefined;
-    const digest = checksumRequired ? streamHasher(checksumAlgorithmFn, readableStream) : undefined;
-    const awsChunkedEncodingStream = new stream_1.Readable({ read: () => { } });
-    readableStream.on("data", (data) => {
+    const digest = checksumRequired ? streamHasher(checksumAlgorithmFn, readable) : undefined;
+    const awsChunkedEncodingStream = new node_stream_1.Readable({
+        read: () => { },
+    });
+    readable.on("data", (data) => {
         const length = bodyLengthChecker(data) || 0;
+        if (length === 0) {
+            return;
+        }
         awsChunkedEncodingStream.push(`${length.toString(16)}\r\n`);
         awsChunkedEncodingStream.push(data);
         awsChunkedEncodingStream.push("\r\n");
     });
-    readableStream.on("end", async () => {
+    readable.on("end", async () => {
         awsChunkedEncodingStream.push(`0\r\n`);
         if (checksumRequired) {
             const checksum = base64Encoder(await digest);
@@ -25299,13 +25442,12 @@ const getAwsChunkedEncodingStream = (readableStream, options) => {
         awsChunkedEncodingStream.push(null);
     });
     return awsChunkedEncodingStream;
-};
-exports.getAwsChunkedEncodingStream = getAwsChunkedEncodingStream;
+}
 
 
 /***/ }),
 
-/***/ 8130:
+/***/ 9069:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -25346,15 +25488,15 @@ async function headStream(stream, bytes) {
 
 /***/ }),
 
-/***/ 3708:
+/***/ 5795:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.headStream = void 0;
 const stream_1 = __nccwpck_require__(2203);
-const headStream_browser_1 = __nccwpck_require__(8130);
-const stream_type_check_1 = __nccwpck_require__(8526);
+const headStream_browser_1 = __nccwpck_require__(9069);
+const stream_type_check_1 = __nccwpck_require__(2143);
 const headStream = (stream, bytes) => {
     if ((0, stream_type_check_1.isReadableStream)(stream)) {
         return (0, headStream_browser_1.headStream)(stream, bytes);
@@ -25395,21 +25537,21 @@ class Collector extends stream_1.Writable {
 
 /***/ }),
 
-/***/ 7292:
+/***/ 4113:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
-var ChecksumStream = __nccwpck_require__(1215);
-var createChecksumStream = __nccwpck_require__(1399);
-var createBufferedReadable = __nccwpck_require__(9845);
-var getAwsChunkedEncodingStream = __nccwpck_require__(5834);
-var headStream = __nccwpck_require__(3708);
-var sdkStreamMixin = __nccwpck_require__(321);
-var splitStream = __nccwpck_require__(3868);
-var streamTypeCheck = __nccwpck_require__(8526);
+var ChecksumStream = __nccwpck_require__(5010);
+var createChecksumStream = __nccwpck_require__(7358);
+var createBufferedReadable = __nccwpck_require__(7394);
+var getAwsChunkedEncodingStream = __nccwpck_require__(1479);
+var headStream = __nccwpck_require__(5795);
+var sdkStreamMixin = __nccwpck_require__(4122);
+var splitStream = __nccwpck_require__(8557);
+var streamTypeCheck = __nccwpck_require__(2143);
 
 class Uint8ArrayBlobAdapter extends Uint8Array {
     static fromString(source, encoding = "utf-8") {
@@ -25433,6 +25575,14 @@ class Uint8ArrayBlobAdapter extends Uint8Array {
     }
 }
 
+Object.defineProperty(exports, "isBlob", ({
+    enumerable: true,
+    get: function () { return streamTypeCheck.isBlob; }
+}));
+Object.defineProperty(exports, "isReadableStream", ({
+    enumerable: true,
+    get: function () { return streamTypeCheck.isReadableStream; }
+}));
 exports.Uint8ArrayBlobAdapter = Uint8ArrayBlobAdapter;
 Object.keys(ChecksumStream).forEach(function (k) {
     if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) Object.defineProperty(exports, k, {
@@ -25476,27 +25626,21 @@ Object.keys(splitStream).forEach(function (k) {
         get: function () { return splitStream[k]; }
     });
 });
-Object.keys(streamTypeCheck).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) Object.defineProperty(exports, k, {
-        enumerable: true,
-        get: function () { return streamTypeCheck[k]; }
-    });
-});
 
 
 /***/ }),
 
-/***/ 1103:
+/***/ 500:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.sdkStreamMixin = void 0;
-const fetch_http_handler_1 = __nccwpck_require__(725);
+const fetch_http_handler_1 = __nccwpck_require__(248);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_hex_encoding_1 = __nccwpck_require__(6999);
 const util_utf8_1 = __nccwpck_require__(5579);
-const stream_type_check_1 = __nccwpck_require__(8526);
+const stream_type_check_1 = __nccwpck_require__(2143);
 const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
 const sdkStreamMixin = (stream) => {
     if (!isBlobInstance(stream) && !(0, stream_type_check_1.isReadableStream)(stream)) {
@@ -25561,16 +25705,16 @@ const isBlobInstance = (stream) => typeof Blob === "function" && stream instance
 
 /***/ }),
 
-/***/ 321:
+/***/ 4122:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.sdkStreamMixin = void 0;
-const node_http_handler_1 = __nccwpck_require__(6876);
+const node_http_handler_1 = __nccwpck_require__(3801);
 const util_buffer_from_1 = __nccwpck_require__(4845);
 const stream_1 = __nccwpck_require__(2203);
-const sdk_stream_mixin_browser_1 = __nccwpck_require__(1103);
+const sdk_stream_mixin_browser_1 = __nccwpck_require__(500);
 const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
 const sdkStreamMixin = (stream) => {
     if (!(stream instanceof stream_1.Readable)) {
@@ -25622,7 +25766,7 @@ exports.sdkStreamMixin = sdkStreamMixin;
 
 /***/ }),
 
-/***/ 2722:
+/***/ 2315:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -25639,15 +25783,15 @@ async function splitStream(stream) {
 
 /***/ }),
 
-/***/ 3868:
+/***/ 8557:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.splitStream = splitStream;
 const stream_1 = __nccwpck_require__(2203);
-const splitStream_browser_1 = __nccwpck_require__(2722);
-const stream_type_check_1 = __nccwpck_require__(8526);
+const splitStream_browser_1 = __nccwpck_require__(2315);
+const stream_type_check_1 = __nccwpck_require__(2143);
 async function splitStream(stream) {
     if ((0, stream_type_check_1.isReadableStream)(stream) || (0, stream_type_check_1.isBlob)(stream)) {
         return (0, splitStream_browser_1.splitStream)(stream);
@@ -25662,7 +25806,7 @@ async function splitStream(stream) {
 
 /***/ }),
 
-/***/ 8526:
+/***/ 2143:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -25734,7 +25878,7 @@ exports.toUtf8 = toUtf8;
 
 /***/ }),
 
-/***/ 4516:
+/***/ 7633:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -50695,10 +50839,10 @@ module.exports = parseParams
 
 /***/ }),
 
-/***/ 3129:
+/***/ 9056:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.965.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.965.0","@aws-sdk/credential-provider-node":"3.965.0","@aws-sdk/middleware-host-header":"3.965.0","@aws-sdk/middleware-logger":"3.965.0","@aws-sdk/middleware-recursion-detection":"3.965.0","@aws-sdk/middleware-user-agent":"3.965.0","@aws-sdk/region-config-resolver":"3.965.0","@aws-sdk/types":"3.965.0","@aws-sdk/util-endpoints":"3.965.0","@aws-sdk/util-user-agent-browser":"3.965.0","@aws-sdk/util-user-agent-node":"3.965.0","@smithy/config-resolver":"^4.4.5","@smithy/core":"^3.20.0","@smithy/fetch-http-handler":"^5.3.8","@smithy/hash-node":"^4.2.7","@smithy/invalid-dependency":"^4.2.7","@smithy/middleware-content-length":"^4.2.7","@smithy/middleware-endpoint":"^4.4.1","@smithy/middleware-retry":"^4.4.17","@smithy/middleware-serde":"^4.2.8","@smithy/middleware-stack":"^4.2.7","@smithy/node-config-provider":"^4.3.7","@smithy/node-http-handler":"^4.4.7","@smithy/protocol-http":"^5.3.7","@smithy/smithy-client":"^4.10.2","@smithy/types":"^4.11.0","@smithy/url-parser":"^4.2.7","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.16","@smithy/util-defaults-mode-node":"^4.2.19","@smithy/util-endpoints":"^3.2.7","@smithy/util-middleware":"^4.2.7","@smithy/util-retry":"^4.2.7","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.7","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"5.0.10","typescript":"~5.8.3"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.971.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.970.0","@aws-sdk/credential-provider-node":"3.971.0","@aws-sdk/middleware-host-header":"3.969.0","@aws-sdk/middleware-logger":"3.969.0","@aws-sdk/middleware-recursion-detection":"3.969.0","@aws-sdk/middleware-user-agent":"3.970.0","@aws-sdk/region-config-resolver":"3.969.0","@aws-sdk/types":"3.969.0","@aws-sdk/util-endpoints":"3.970.0","@aws-sdk/util-user-agent-browser":"3.969.0","@aws-sdk/util-user-agent-node":"3.971.0","@smithy/config-resolver":"^4.4.6","@smithy/core":"^3.20.6","@smithy/fetch-http-handler":"^5.3.9","@smithy/hash-node":"^4.2.8","@smithy/invalid-dependency":"^4.2.8","@smithy/middleware-content-length":"^4.2.8","@smithy/middleware-endpoint":"^4.4.7","@smithy/middleware-retry":"^4.4.23","@smithy/middleware-serde":"^4.2.9","@smithy/middleware-stack":"^4.2.8","@smithy/node-config-provider":"^4.3.8","@smithy/node-http-handler":"^4.4.8","@smithy/protocol-http":"^5.3.8","@smithy/smithy-client":"^4.10.8","@smithy/types":"^4.12.0","@smithy/url-parser":"^4.2.8","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.22","@smithy/util-defaults-mode-node":"^4.2.25","@smithy/util-endpoints":"^3.2.8","@smithy/util-middleware":"^4.2.8","@smithy/util-retry":"^4.2.8","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.8","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node20":"20.1.8","@types/node":"^20.14.8","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"5.0.10","typescript":"~5.8.3"},"engines":{"node":">=20.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -50888,7 +51032,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(9550);
-/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(8034);
+/* harmony import */ var _aws_sdk_client_cloudformation__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(2877);
 
 
 async function run() {
