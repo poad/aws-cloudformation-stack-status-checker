@@ -10,6 +10,8 @@ minimumReleaseAgeExclude:
   - pnpm
 
 overrides:
+  diff@>=4.0.0 <4.0.4: '>=4.0.4'
+  fast-xml-parser@>=4.3.6 <=5.3.3: '>=5.3.4'
   glob@>=10.3.7 <=11.0.3: '>=11.1.0'
 
 strictPeerDependencies: false
