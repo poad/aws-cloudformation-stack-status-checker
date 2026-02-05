@@ -127,13 +127,13 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 4931:
+/***/ 1372:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const core_1 = __nccwpck_require__(4504);
+const core_1 = __nccwpck_require__(6113);
 const util_middleware_1 = __nccwpck_require__(5417);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -180,15 +180,15 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 589:
+/***/ 1522:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(9774);
+const util_endpoints_1 = __nccwpck_require__(8975);
 const util_endpoints_2 = __nccwpck_require__(3298);
-const ruleset_1 = __nccwpck_require__(7726);
+const ruleset_1 = __nccwpck_require__(4427);
 const cache = new util_endpoints_2.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -205,7 +205,7 @@ util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunct
 
 /***/ }),
 
-/***/ 7726:
+/***/ 4427:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -219,7 +219,7 @@ exports.ruleSet = _data;
 
 /***/ }),
 
-/***/ 5192:
+/***/ 8691:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
@@ -228,7 +228,7 @@ var __webpack_unused_export__;
 var middlewareHostHeader = __nccwpck_require__(2533);
 var middlewareLogger = __nccwpck_require__(8193);
 var middlewareRecursionDetection = __nccwpck_require__(9225);
-var middlewareUserAgent = __nccwpck_require__(6463);
+var middlewareUserAgent = __nccwpck_require__(9976);
 var configResolver = __nccwpck_require__(705);
 var core = __nccwpck_require__(3065);
 var schema = __nccwpck_require__(6261);
@@ -236,8 +236,8 @@ var middlewareContentLength = __nccwpck_require__(9097);
 var middlewareEndpoint = __nccwpck_require__(3377);
 var middlewareRetry = __nccwpck_require__(2980);
 var smithyClient = __nccwpck_require__(4869);
-var httpAuthSchemeProvider = __nccwpck_require__(4931);
-var runtimeConfig = __nccwpck_require__(7082);
+var httpAuthSchemeProvider = __nccwpck_require__(1372);
+var runtimeConfig = __nccwpck_require__(8693);
 var regionConfigResolver = __nccwpck_require__(8151);
 var protocolHttp = __nccwpck_require__(9953);
 var utilWaiter = __nccwpck_require__(7633);
@@ -6757,17 +6757,17 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 7082:
+/***/ 8693:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(9323));
-const core_1 = __nccwpck_require__(4504);
-const credential_provider_node_1 = __nccwpck_require__(3230);
-const util_user_agent_node_1 = __nccwpck_require__(2381);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(3598));
+const core_1 = __nccwpck_require__(6113);
+const credential_provider_node_1 = __nccwpck_require__(493);
+const util_user_agent_node_1 = __nccwpck_require__(4696);
 const config_resolver_1 = __nccwpck_require__(705);
 const hash_node_1 = __nccwpck_require__(2869);
 const middleware_retry_1 = __nccwpck_require__(2980);
@@ -6777,7 +6777,7 @@ const smithy_client_1 = __nccwpck_require__(4869);
 const util_body_length_node_1 = __nccwpck_require__(7062);
 const util_defaults_mode_node_1 = __nccwpck_require__(2642);
 const util_retry_1 = __nccwpck_require__(9093);
-const runtimeConfig_shared_1 = __nccwpck_require__(3155);
+const runtimeConfig_shared_1 = __nccwpck_require__(314);
 const getRuntimeConfig = (config) => {
     (0, smithy_client_1.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
@@ -6817,20 +6817,20 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3155:
+/***/ 314:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const core_1 = __nccwpck_require__(4504);
-const protocols_1 = __nccwpck_require__(3360);
+const core_1 = __nccwpck_require__(6113);
+const protocols_1 = __nccwpck_require__(5727);
 const smithy_client_1 = __nccwpck_require__(4869);
 const url_parser_1 = __nccwpck_require__(8149);
 const util_base64_1 = __nccwpck_require__(1532);
 const util_utf8_1 = __nccwpck_require__(5579);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(4931);
-const endpointResolver_1 = __nccwpck_require__(589);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(1372);
+const endpointResolver_1 = __nccwpck_require__(1522);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -6866,7 +6866,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 4504:
+/***/ 6113:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -6874,7 +6874,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 var protocolHttp = __nccwpck_require__(9953);
 var core = __nccwpck_require__(3065);
 var propertyProvider = __nccwpck_require__(5169);
-var client = __nccwpck_require__(8296);
+var client = __nccwpck_require__(2217);
 var signatureV4 = __nccwpck_require__(3293);
 var cbor = __nccwpck_require__(7694);
 var schema = __nccwpck_require__(6261);
@@ -6883,7 +6883,7 @@ var protocols = __nccwpck_require__(1412);
 var serde = __nccwpck_require__(3023);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
-var xmlBuilder = __nccwpck_require__(5433);
+var xmlBuilder = __nccwpck_require__(4890);
 
 const state = {
     warningEmitted: false,
@@ -9069,7 +9069,7 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 8296:
+/***/ 2217:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -9127,7 +9127,7 @@ exports.state = state;
 
 /***/ }),
 
-/***/ 3360:
+/***/ 5727:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -9139,7 +9139,7 @@ var protocols = __nccwpck_require__(1412);
 var serde = __nccwpck_require__(3023);
 var utilBase64 = __nccwpck_require__(1532);
 var utilUtf8 = __nccwpck_require__(5579);
-var xmlBuilder = __nccwpck_require__(5433);
+var xmlBuilder = __nccwpck_require__(4890);
 
 class ProtocolLib {
     queryCompat;
@@ -10977,12 +10977,12 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 2341:
+/***/ 118:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var client = __nccwpck_require__(8296);
+var client = __nccwpck_require__(2217);
 var propertyProvider = __nccwpck_require__(5169);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
@@ -11025,12 +11025,12 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 3230:
+/***/ 493:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var credentialProviderEnv = __nccwpck_require__(2341);
+var credentialProviderEnv = __nccwpck_require__(118);
 var propertyProvider = __nccwpck_require__(5169);
 var sharedIniFileLoader = __nccwpck_require__(1247);
 
@@ -11039,7 +11039,7 @@ const remoteProvider = async (init) => {
     const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 885).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1885, 19));
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 449).then(__nccwpck_require__.bind(__nccwpck_require__, 7449));
+        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 840).then(__nccwpck_require__.bind(__nccwpck_require__, 1840));
         return propertyProvider.chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -11149,22 +11149,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new propertyProvider.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 729).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4729, 19));
+        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 578).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7578, 19));
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 85).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2085, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 902).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1902, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 101).then(__nccwpck_require__.t.bind(__nccwpck_require__, 101, 19));
+        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 110).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2110, 19));
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 77).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7077, 23));
+        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 276).then(__nccwpck_require__.t.bind(__nccwpck_require__, 5895, 23));
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -11363,15 +11363,15 @@ exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
 
 /***/ }),
 
-/***/ 6463:
+/***/ 9976:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var core = __nccwpck_require__(3065);
-var utilEndpoints = __nccwpck_require__(3733);
+var utilEndpoints = __nccwpck_require__(8975);
 var protocolHttp = __nccwpck_require__(9953);
-var core$1 = __nccwpck_require__(4504);
+var core$1 = __nccwpck_require__(6113);
 
 const DEFAULT_UA_APP_ID = undefined;
 function isValidUserAgentAppId(appId) {
@@ -11647,7 +11647,7 @@ exports.warning = {
 
 /***/ }),
 
-/***/ 3733:
+/***/ 8975:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -12069,436 +12069,14 @@ exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
 
 /***/ }),
 
-/***/ 9774:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var utilEndpoints = __nccwpck_require__(3298);
-var urlParser = __nccwpck_require__(8149);
-
-const isVirtualHostableS3Bucket = (value, allowSubDomains = false) => {
-    if (allowSubDomains) {
-        for (const label of value.split(".")) {
-            if (!isVirtualHostableS3Bucket(label)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    if (!utilEndpoints.isValidHostLabel(value)) {
-        return false;
-    }
-    if (value.length < 3 || value.length > 63) {
-        return false;
-    }
-    if (value !== value.toLowerCase()) {
-        return false;
-    }
-    if (utilEndpoints.isIpAddress(value)) {
-        return false;
-    }
-    return true;
-};
-
-const ARN_DELIMITER = ":";
-const RESOURCE_DELIMITER = "/";
-const parseArn = (value) => {
-    const segments = value.split(ARN_DELIMITER);
-    if (segments.length < 6)
-        return null;
-    const [arn, partition, service, region, accountId, ...resourcePath] = segments;
-    if (arn !== "arn" || partition === "" || service === "" || resourcePath.join(ARN_DELIMITER) === "")
-        return null;
-    const resourceId = resourcePath.map((resource) => resource.split(RESOURCE_DELIMITER)).flat();
-    return {
-        partition,
-        service,
-        region,
-        accountId,
-        resourceId,
-    };
-};
-
-var partitions = [
-	{
-		id: "aws",
-		outputs: {
-			dnsSuffix: "amazonaws.com",
-			dualStackDnsSuffix: "api.aws",
-			implicitGlobalRegion: "us-east-1",
-			name: "aws",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^(us|eu|ap|sa|ca|me|af|il|mx)\\-\\w+\\-\\d+$",
-		regions: {
-			"af-south-1": {
-				description: "Africa (Cape Town)"
-			},
-			"ap-east-1": {
-				description: "Asia Pacific (Hong Kong)"
-			},
-			"ap-east-2": {
-				description: "Asia Pacific (Taipei)"
-			},
-			"ap-northeast-1": {
-				description: "Asia Pacific (Tokyo)"
-			},
-			"ap-northeast-2": {
-				description: "Asia Pacific (Seoul)"
-			},
-			"ap-northeast-3": {
-				description: "Asia Pacific (Osaka)"
-			},
-			"ap-south-1": {
-				description: "Asia Pacific (Mumbai)"
-			},
-			"ap-south-2": {
-				description: "Asia Pacific (Hyderabad)"
-			},
-			"ap-southeast-1": {
-				description: "Asia Pacific (Singapore)"
-			},
-			"ap-southeast-2": {
-				description: "Asia Pacific (Sydney)"
-			},
-			"ap-southeast-3": {
-				description: "Asia Pacific (Jakarta)"
-			},
-			"ap-southeast-4": {
-				description: "Asia Pacific (Melbourne)"
-			},
-			"ap-southeast-5": {
-				description: "Asia Pacific (Malaysia)"
-			},
-			"ap-southeast-6": {
-				description: "Asia Pacific (New Zealand)"
-			},
-			"ap-southeast-7": {
-				description: "Asia Pacific (Thailand)"
-			},
-			"aws-global": {
-				description: "aws global region"
-			},
-			"ca-central-1": {
-				description: "Canada (Central)"
-			},
-			"ca-west-1": {
-				description: "Canada West (Calgary)"
-			},
-			"eu-central-1": {
-				description: "Europe (Frankfurt)"
-			},
-			"eu-central-2": {
-				description: "Europe (Zurich)"
-			},
-			"eu-north-1": {
-				description: "Europe (Stockholm)"
-			},
-			"eu-south-1": {
-				description: "Europe (Milan)"
-			},
-			"eu-south-2": {
-				description: "Europe (Spain)"
-			},
-			"eu-west-1": {
-				description: "Europe (Ireland)"
-			},
-			"eu-west-2": {
-				description: "Europe (London)"
-			},
-			"eu-west-3": {
-				description: "Europe (Paris)"
-			},
-			"il-central-1": {
-				description: "Israel (Tel Aviv)"
-			},
-			"me-central-1": {
-				description: "Middle East (UAE)"
-			},
-			"me-south-1": {
-				description: "Middle East (Bahrain)"
-			},
-			"mx-central-1": {
-				description: "Mexico (Central)"
-			},
-			"sa-east-1": {
-				description: "South America (Sao Paulo)"
-			},
-			"us-east-1": {
-				description: "US East (N. Virginia)"
-			},
-			"us-east-2": {
-				description: "US East (Ohio)"
-			},
-			"us-west-1": {
-				description: "US West (N. California)"
-			},
-			"us-west-2": {
-				description: "US West (Oregon)"
-			}
-		}
-	},
-	{
-		id: "aws-cn",
-		outputs: {
-			dnsSuffix: "amazonaws.com.cn",
-			dualStackDnsSuffix: "api.amazonwebservices.com.cn",
-			implicitGlobalRegion: "cn-northwest-1",
-			name: "aws-cn",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^cn\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-cn-global": {
-				description: "aws-cn global region"
-			},
-			"cn-north-1": {
-				description: "China (Beijing)"
-			},
-			"cn-northwest-1": {
-				description: "China (Ningxia)"
-			}
-		}
-	},
-	{
-		id: "aws-eusc",
-		outputs: {
-			dnsSuffix: "amazonaws.eu",
-			dualStackDnsSuffix: "api.amazonwebservices.eu",
-			implicitGlobalRegion: "eusc-de-east-1",
-			name: "aws-eusc",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^eusc\\-(de)\\-\\w+\\-\\d+$",
-		regions: {
-			"eusc-de-east-1": {
-				description: "AWS European Sovereign Cloud (Germany)"
-			}
-		}
-	},
-	{
-		id: "aws-iso",
-		outputs: {
-			dnsSuffix: "c2s.ic.gov",
-			dualStackDnsSuffix: "api.aws.ic.gov",
-			implicitGlobalRegion: "us-iso-east-1",
-			name: "aws-iso",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-iso-global": {
-				description: "aws-iso global region"
-			},
-			"us-iso-east-1": {
-				description: "US ISO East"
-			},
-			"us-iso-west-1": {
-				description: "US ISO WEST"
-			}
-		}
-	},
-	{
-		id: "aws-iso-b",
-		outputs: {
-			dnsSuffix: "sc2s.sgov.gov",
-			dualStackDnsSuffix: "api.aws.scloud",
-			implicitGlobalRegion: "us-isob-east-1",
-			name: "aws-iso-b",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-iso-b-global": {
-				description: "aws-iso-b global region"
-			},
-			"us-isob-east-1": {
-				description: "US ISOB East (Ohio)"
-			},
-			"us-isob-west-1": {
-				description: "US ISOB West"
-			}
-		}
-	},
-	{
-		id: "aws-iso-e",
-		outputs: {
-			dnsSuffix: "cloud.adc-e.uk",
-			dualStackDnsSuffix: "api.cloud-aws.adc-e.uk",
-			implicitGlobalRegion: "eu-isoe-west-1",
-			name: "aws-iso-e",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^eu\\-isoe\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-iso-e-global": {
-				description: "aws-iso-e global region"
-			},
-			"eu-isoe-west-1": {
-				description: "EU ISOE West"
-			}
-		}
-	},
-	{
-		id: "aws-iso-f",
-		outputs: {
-			dnsSuffix: "csp.hci.ic.gov",
-			dualStackDnsSuffix: "api.aws.hci.ic.gov",
-			implicitGlobalRegion: "us-isof-south-1",
-			name: "aws-iso-f",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^us\\-isof\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-iso-f-global": {
-				description: "aws-iso-f global region"
-			},
-			"us-isof-east-1": {
-				description: "US ISOF EAST"
-			},
-			"us-isof-south-1": {
-				description: "US ISOF SOUTH"
-			}
-		}
-	},
-	{
-		id: "aws-us-gov",
-		outputs: {
-			dnsSuffix: "amazonaws.com",
-			dualStackDnsSuffix: "api.aws",
-			implicitGlobalRegion: "us-gov-west-1",
-			name: "aws-us-gov",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-us-gov-global": {
-				description: "aws-us-gov global region"
-			},
-			"us-gov-east-1": {
-				description: "AWS GovCloud (US-East)"
-			},
-			"us-gov-west-1": {
-				description: "AWS GovCloud (US-West)"
-			}
-		}
-	}
-];
-var version = "1.1";
-var partitionsInfo = {
-	partitions: partitions,
-	version: version
-};
-
-let selectedPartitionsInfo = partitionsInfo;
-let selectedUserAgentPrefix = "";
-const partition = (value) => {
-    const { partitions } = selectedPartitionsInfo;
-    for (const partition of partitions) {
-        const { regions, outputs } = partition;
-        for (const [region, regionData] of Object.entries(regions)) {
-            if (region === value) {
-                return {
-                    ...outputs,
-                    ...regionData,
-                };
-            }
-        }
-    }
-    for (const partition of partitions) {
-        const { regionRegex, outputs } = partition;
-        if (new RegExp(regionRegex).test(value)) {
-            return {
-                ...outputs,
-            };
-        }
-    }
-    const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws");
-    if (!DEFAULT_PARTITION) {
-        throw new Error("Provided region was not found in the partition array or regex," +
-            " and default partition with id 'aws' doesn't exist.");
-    }
-    return {
-        ...DEFAULT_PARTITION.outputs,
-    };
-};
-const setPartitionInfo = (partitionsInfo, userAgentPrefix = "") => {
-    selectedPartitionsInfo = partitionsInfo;
-    selectedUserAgentPrefix = userAgentPrefix;
-};
-const useDefaultPartitionInfo = () => {
-    setPartitionInfo(partitionsInfo, "");
-};
-const getUserAgentPrefix = () => selectedUserAgentPrefix;
-
-const awsEndpointFunctions = {
-    isVirtualHostableS3Bucket: isVirtualHostableS3Bucket,
-    parseArn: parseArn,
-    partition: partition,
-};
-utilEndpoints.customEndpointFunctions.aws = awsEndpointFunctions;
-
-const resolveDefaultAwsRegionalEndpointsConfig = (input) => {
-    if (typeof input.endpointProvider !== "function") {
-        throw new Error("@aws-sdk/util-endpoint - endpointProvider and endpoint missing in config for this client.");
-    }
-    const { endpoint } = input;
-    if (endpoint === undefined) {
-        input.endpoint = async () => {
-            return toEndpointV1(input.endpointProvider({
-                Region: typeof input.region === "function" ? await input.region() : input.region,
-                UseDualStack: typeof input.useDualstackEndpoint === "function"
-                    ? await input.useDualstackEndpoint()
-                    : input.useDualstackEndpoint,
-                UseFIPS: typeof input.useFipsEndpoint === "function" ? await input.useFipsEndpoint() : input.useFipsEndpoint,
-                Endpoint: undefined,
-            }, { logger: input.logger }));
-        };
-    }
-    return input;
-};
-const toEndpointV1 = (endpoint) => urlParser.parseUrl(endpoint.url);
-
-Object.defineProperty(exports, "EndpointError", ({
-    enumerable: true,
-    get: function () { return utilEndpoints.EndpointError; }
-}));
-Object.defineProperty(exports, "isIpAddress", ({
-    enumerable: true,
-    get: function () { return utilEndpoints.isIpAddress; }
-}));
-Object.defineProperty(exports, "resolveEndpoint", ({
-    enumerable: true,
-    get: function () { return utilEndpoints.resolveEndpoint; }
-}));
-exports.awsEndpointFunctions = awsEndpointFunctions;
-exports.getUserAgentPrefix = getUserAgentPrefix;
-exports.partition = partition;
-exports.resolveDefaultAwsRegionalEndpointsConfig = resolveDefaultAwsRegionalEndpointsConfig;
-exports.setPartitionInfo = setPartitionInfo;
-exports.toEndpointV1 = toEndpointV1;
-exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
-
-
-/***/ }),
-
-/***/ 2381:
+/***/ 4696:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
 var os = __nccwpck_require__(857);
 var process = __nccwpck_require__(932);
-var middlewareUserAgent = __nccwpck_require__(6463);
+var middlewareUserAgent = __nccwpck_require__(9976);
 
 const crtAvailability = {
     isCrtAvailable: false,
@@ -12556,12 +12134,12 @@ exports.defaultUserAgent = defaultUserAgent;
 
 /***/ }),
 
-/***/ 5433:
+/***/ 4890:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var xmlParser = __nccwpck_require__(6786);
+var xmlParser = __nccwpck_require__(2951);
 
 function escapeAttribute(value) {
     return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -12687,7 +12265,7 @@ exports.XmlText = XmlText;
 
 /***/ }),
 
-/***/ 6786:
+/***/ 2951:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -17224,7 +16802,7 @@ exports.toEndpointV1 = toEndpointV1;
 
 var utilRetry = __nccwpck_require__(9093);
 var protocolHttp = __nccwpck_require__(9953);
-var serviceErrorClassification = __nccwpck_require__(7814);
+var serviceErrorClassification = __nccwpck_require__(5433);
 var uuid = __nccwpck_require__(7919);
 var utilMiddleware = __nccwpck_require__(5417);
 var smithyClient = __nccwpck_require__(4869);
@@ -19173,7 +18751,7 @@ exports.parseQueryString = parseQueryString;
 
 /***/ }),
 
-/***/ 7814:
+/***/ 5433:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -21721,7 +21299,7 @@ exports.normalizeProvider = normalizeProvider;
 
 
 
-var serviceErrorClassification = __nccwpck_require__(7814);
+var serviceErrorClassification = __nccwpck_require__(5433);
 
 exports.RETRY_MODES = void 0;
 (function (RETRY_MODES) {
@@ -51477,10 +51055,10 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 
 /***/ }),
 
-/***/ 9323:
+/***/ 3598:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.981.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"^3.973.5","@aws-sdk/credential-provider-node":"^3.972.4","@aws-sdk/middleware-host-header":"^3.972.3","@aws-sdk/middleware-logger":"^3.972.3","@aws-sdk/middleware-recursion-detection":"^3.972.3","@aws-sdk/middleware-user-agent":"^3.972.5","@aws-sdk/region-config-resolver":"^3.972.3","@aws-sdk/types":"^3.973.1","@aws-sdk/util-endpoints":"3.981.0","@aws-sdk/util-user-agent-browser":"^3.972.3","@aws-sdk/util-user-agent-node":"^3.972.3","@smithy/config-resolver":"^4.4.6","@smithy/core":"^3.22.0","@smithy/fetch-http-handler":"^5.3.9","@smithy/hash-node":"^4.2.8","@smithy/invalid-dependency":"^4.2.8","@smithy/middleware-content-length":"^4.2.8","@smithy/middleware-endpoint":"^4.4.12","@smithy/middleware-retry":"^4.4.29","@smithy/middleware-serde":"^4.2.9","@smithy/middleware-stack":"^4.2.8","@smithy/node-config-provider":"^4.3.8","@smithy/node-http-handler":"^4.4.8","@smithy/protocol-http":"^5.3.8","@smithy/smithy-client":"^4.11.1","@smithy/types":"^4.12.0","@smithy/url-parser":"^4.2.8","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.28","@smithy/util-defaults-mode-node":"^4.2.31","@smithy/util-endpoints":"^3.2.8","@smithy/util-middleware":"^4.2.8","@smithy/util-retry":"^4.2.8","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.8","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node20":"20.1.8","@types/node":"^20.14.8","concurrently":"7.0.0","downlevel-dts":"0.10.1","premove":"4.0.0","typescript":"~5.8.3"},"engines":{"node":">=20.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.982.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"^3.973.6","@aws-sdk/credential-provider-node":"^3.972.5","@aws-sdk/middleware-host-header":"^3.972.3","@aws-sdk/middleware-logger":"^3.972.3","@aws-sdk/middleware-recursion-detection":"^3.972.3","@aws-sdk/middleware-user-agent":"^3.972.6","@aws-sdk/region-config-resolver":"^3.972.3","@aws-sdk/types":"^3.973.1","@aws-sdk/util-endpoints":"3.982.0","@aws-sdk/util-user-agent-browser":"^3.972.3","@aws-sdk/util-user-agent-node":"^3.972.4","@smithy/config-resolver":"^4.4.6","@smithy/core":"^3.22.0","@smithy/fetch-http-handler":"^5.3.9","@smithy/hash-node":"^4.2.8","@smithy/invalid-dependency":"^4.2.8","@smithy/middleware-content-length":"^4.2.8","@smithy/middleware-endpoint":"^4.4.12","@smithy/middleware-retry":"^4.4.29","@smithy/middleware-serde":"^4.2.9","@smithy/middleware-stack":"^4.2.8","@smithy/node-config-provider":"^4.3.8","@smithy/node-http-handler":"^4.4.8","@smithy/protocol-http":"^5.3.8","@smithy/smithy-client":"^4.11.1","@smithy/types":"^4.12.0","@smithy/url-parser":"^4.2.8","@smithy/util-base64":"^4.3.0","@smithy/util-body-length-browser":"^4.2.0","@smithy/util-body-length-node":"^4.2.1","@smithy/util-defaults-mode-browser":"^4.3.28","@smithy/util-defaults-mode-node":"^4.2.31","@smithy/util-endpoints":"^3.2.8","@smithy/util-middleware":"^4.2.8","@smithy/util-retry":"^4.2.8","@smithy/util-utf8":"^4.2.0","@smithy/util-waiter":"^4.2.8","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node20":"20.1.8","@types/node":"^20.14.8","concurrently":"7.0.0","downlevel-dts":"0.10.1","premove":"4.0.0","typescript":"~5.8.3"},"engines":{"node":">=20.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -54615,8 +54193,8 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.981.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
-var dist_cjs = __nccwpck_require__(5192);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.982.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
+var dist_cjs = __nccwpck_require__(8691);
 ;// CONCATENATED MODULE: ./dist/main.js
 
 
