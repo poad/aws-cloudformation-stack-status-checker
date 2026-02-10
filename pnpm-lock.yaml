@@ -24,10 +24,10 @@ importers:
         version: 3.985.0
     devDependencies:
       '@eslint/js':
-        specifier: ^9.39.2
+        specifier: ^9
         version: 9.39.2
       '@stylistic/eslint-plugin':
-        specifier: ^5.8.0
+        specifier: '>=5.0.0'
         version: 5.8.0(eslint@9.39.2(jiti@2.6.1))
       '@types/node':
         specifier: ^25.2.2
@@ -36,7 +36,7 @@ importers:
         specifier: ^0.38.4
         version: 0.38.4
       eslint:
-        specifier: ^9.39.2
+        specifier: ^9
         version: 9.39.2(jiti@2.6.1)
       eslint-plugin-github:
         specifier: ^6.0.0
