@@ -17,8 +17,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       '@aws-sdk/client-cloudformation':
-        specifier: ^3.1010.0
-        version: 3.1010.0
+        specifier: ^3.1011.0
+        version: 3.1011.0
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
@@ -119,8 +119,8 @@ packages:
   '@aws-crypto/util@5.2.0':
     resolution: {integrity: sha512-4RkU9EsI6ZpBve5fseQlGNUWKMa1RLPQ1dnjnQoe07ldfIzcsGb5hC5W0Dm7u423KWzawlrpbjXBrXCEv9zazQ==}
 
-  '@aws-sdk/client-cloudformation@3.1010.0':
-    resolution: {integrity: sha512-C1fqSeTiMtNHsE/xay1LeRZ8dhBGvNtPuDgoen8+bOETUhZA1uw2eB4VHU2WTT/l8L8HjQuc2Jw4pdJ/7lf4dQ==}
+  '@aws-sdk/client-cloudformation@3.1011.0':
+    resolution: {integrity: sha512-v7qixZ+o2+t5f+Y+9qN5EyEejdkGpeDxhkRBaW9xOlE41owhsv7y1EmCsW1Lo5W+0krm0r/09w/TWy7rLHa57Q==}
     engines: {node: '>=20.0.0'}
 
   '@aws-sdk/core@3.973.20':
@@ -1484,8 +1484,8 @@ packages:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
     engines: {node: '>=16'}
 
-  flatted@3.4.1:
-    resolution: {integrity: sha512-IxfVbRFVlV8V/yRaGzk0UVIcsKKHMSfYw66T/u4nTwlWteQePsxe//LjudR1AMX4tZW3WFCh3Zqa/sjlqpbURQ==}
+  flatted@3.4.2:
+    resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
 
   for-each@0.3.5:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
@@ -2656,7 +2656,7 @@ snapshots:
       '@smithy/util-utf8': 2.3.0
       tslib: 2.8.1
 
-  '@aws-sdk/client-cloudformation@3.1010.0':
+  '@aws-sdk/client-cloudformation@3.1011.0':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
@@ -4607,10 +4607,10 @@ snapshots:
 
   flat-cache@4.0.1:
     dependencies:
-      flatted: 3.4.1
+      flatted: 3.4.2
       keyv: 4.5.4
 
-  flatted@3.4.1: {}
+  flatted@3.4.2: {}
 
   for-each@0.3.5:
     dependencies:
