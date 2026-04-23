@@ -37,7 +37,7 @@
     "eslint-plugin-github": "^6.0.0",
     "jiti": "^2.6.1",
     "js-yaml": "^4.1.1",
-    "pnpm": "^10.33.1",
+    "pnpm": "^10.33.2",
     "ts-jest": "^29.4.9",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.0"
