@@ -2,10 +2,9 @@ packages:
   - .
   - test
 
-enablePrePostScripts: true
+enablePrePostScripts: false
 
 minimumReleaseAge: 1440
-
 minimumReleaseAgeExclude:
   - fast-xml-parser@5.7.1
   - fast-xml-builder@1.1.5
@@ -13,5 +12,7 @@ minimumReleaseAgeExclude:
 
 overrides:
   fast-xml-parser@<5.7.0: '>=5.7.0'
+
+  '@types/node': ^24
 
 strictPeerDependencies: false

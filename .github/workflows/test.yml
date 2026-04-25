@@ -17,8 +17,6 @@ permissions:
 
 jobs:
   build:
-    env:
-      AWS_REGION: us-west-2
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -35,27 +33,13 @@ jobs:
       with:
         run_install: |
           - recursive: true
-            args: [--no-frozen-lockfile, --strict-peer-dependencies]
+            args: [--no-frozen-lockfile]
+
+    - name: lint
+      run: pnpm lint
 
     - name: build
-      run: pnpm build && pnpm lint && pnpm package
-
-    - name: configure aws credentials
-      uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37  # v6.1.0
-      with:
-        role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-        role-session-name: GitHubActions
-        aws-region: ${{ env.AWS_REGION }}
-
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-
-    - uses: ./
-      id: stack-status
-      with:
-        stack-name: CDKToolkit
-
-    - name: 'test'
-      run: echo ${{ steps.stack-status.outputs.status }}
+      run: pnpm build
 
   test:
     runs-on: ubuntu-latest
@@ -88,14 +72,13 @@ jobs:
       with:
         run_install: |
           - recursive: true
-            args: [--no-frozen-lockfile, --strict-peer-dependencies]
-          - args: [--global, aws-cdk]
+            args: [--no-frozen-lockfile]
 
     - name: create stack
       env:
         TIMESTAMP: ${{ steps.gen-timestamp.outputs.timestamp }}
       working-directory: test
-      run: cdk deploy -c timestamp=${TIMESTAMP} -c region=us-east-1
+      run: pnpm dlx aws-cdk@latest deploy -c timestamp=${TIMESTAMP} -c region=us-east-1
 
     - uses: ./
       id: stack-status
@@ -110,4 +93,45 @@ jobs:
       env:
         TIMESTAMP: ${{ steps.gen-timestamp.outputs.timestamp }}
       working-directory: test
-      run: cdk destroy -c name="${TIMESTAMP}" -c region=us-east-1 -f
+      run: pnpm dlx aws-cdk@latest destroy -c name="${TIMESTAMP}" -c region=us-east-1 -f
+
+  e2e-test:
+    env:
+      AWS_REGION: us-west-2
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+    - name: Use Node.js
+      uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+      with:
+        node-version: 'lts/*'
+        check-latest: true
+        package-manager-cache: pnpm
+
+    - uses: pnpm/action-setup@078e9d416474b29c0c387560859308974f7e9c53 # v6.0.1
+      name: Install pnpm
+      with:
+        run_install: |
+          - recursive: true
+            args: [--no-frozen-lockfile]
+
+    - name: build
+      run: pnpm build && pnpm package
+
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37  # v6.1.0
+      with:
+        role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+        role-session-name: GitHubActions
+        aws-region: ${{ env.AWS_REGION }}
+
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+    - uses: ./
+      id: stack-status
+      with:
+        stack-name: CDKToolkit
+
+    - name: 'test'
+      run: echo ${{ steps.stack-status.outputs.status }}

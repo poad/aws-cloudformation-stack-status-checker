@@ -1,18 +1,19 @@
 {
   "name": "test",
   "version": "0.1.0",
+  "type": "module",
   "bin": {
     "test": "bin/test.js"
   },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "test": "vitest run --passWithNoTests",
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0",
-    "aws-cdk": "^2.1118.4",
+    "@types/node": "^24.12.2",
+    "aws-cdk": "^2.1119.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
   },
