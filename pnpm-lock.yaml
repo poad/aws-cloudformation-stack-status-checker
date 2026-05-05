@@ -32,7 +32,7 @@ importers:
         specifier: ^5.10.0
         version: 5.10.0(eslint@10.3.0(jiti@2.6.1))
       '@types/node':
-        specifier: ^24.12.2
+        specifier: ^24
         version: 24.12.2
       '@vercel/ncc':
         specifier: ^0.38.4
