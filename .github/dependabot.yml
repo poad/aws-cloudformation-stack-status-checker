@@ -18,9 +18,7 @@ updates:
     schedule:
       interval: daily
     cooldown:
-      default-days: 3
-      exclude:
-        - 'pnpm'
+      default-days: 7
     groups:
       npm:
         patterns:

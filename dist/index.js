@@ -127,18 +127,18 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 3939:
+/***/ 4278:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.resolveHttpAuthSchemeConfig = exports.defaultCloudFormationHttpAuthSchemeProvider = exports.defaultCloudFormationHttpAuthSchemeParametersProvider = void 0;
-const httpAuthSchemes_1 = __nccwpck_require__(4313);
-const util_middleware_1 = __nccwpck_require__(5822);
+const httpAuthSchemes_1 = __nccwpck_require__(3479);
+const client_1 = __nccwpck_require__(6045);
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
-        operation: (0, util_middleware_1.getSmithyContext)(context).operation,
-        region: await (0, util_middleware_1.normalizeProvider)(config.region)() || (() => {
+        operation: (0, client_1.getSmithyContext)(context).operation,
+        region: await (0, client_1.normalizeProvider)(config.region)() || (() => {
             throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
         })(),
     };
@@ -172,7 +172,7 @@ exports.defaultCloudFormationHttpAuthSchemeProvider = defaultCloudFormationHttpA
 const resolveHttpAuthSchemeConfig = (config) => {
     const config_0 = (0, httpAuthSchemes_1.resolveAwsSdkSigV4Config)(config);
     return Object.assign(config_0, {
-        authSchemePreference: (0, util_middleware_1.normalizeProvider)(config.authSchemePreference ?? []),
+        authSchemePreference: (0, client_1.normalizeProvider)(config.authSchemePreference ?? []),
     });
 };
 exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
@@ -180,13 +180,13 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 1322:
+/***/ 2509:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.bdd = void 0;
-const util_endpoints_1 = __nccwpck_require__(5606);
+const endpoints_1 = __nccwpck_require__(7072);
 const k = "ref";
 const a = -1, b = true, c = "isSet", d = "PartitionResult", e = "booleanEquals", f = "getAttr", g = { [k]: "Endpoint" }, h = { [k]: d }, i = {}, j = [{ [k]: "Region" }];
 const _data = {
@@ -234,60 +234,54 @@ const nodes = new Int32Array([
     3, r + 1, 14,
     4, r + 2, r + 3,
 ]);
-exports.bdd = util_endpoints_1.BinaryDecisionDiagram.from(nodes, root, _data.conditions, _data.results);
+exports.bdd = endpoints_1.BinaryDecisionDiagram.from(nodes, root, _data.conditions, _data.results);
 
 
 /***/ }),
 
-/***/ 6461:
+/***/ 6176:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
-const util_endpoints_1 = __nccwpck_require__(1982);
-const util_endpoints_2 = __nccwpck_require__(5606);
-const bdd_1 = __nccwpck_require__(1322);
-const cache = new util_endpoints_2.EndpointCache({
+const client_1 = __nccwpck_require__(2596);
+const endpoints_1 = __nccwpck_require__(7072);
+const bdd_1 = __nccwpck_require__(2509);
+const cache = new endpoints_1.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
 });
 const defaultEndpointResolver = (endpointParams, context = {}) => {
-    return cache.get(endpointParams, () => (0, util_endpoints_2.decideEndpoint)(bdd_1.bdd, {
+    return cache.get(endpointParams, () => (0, endpoints_1.decideEndpoint)(bdd_1.bdd, {
         endpointParams: endpointParams,
         logger: context.logger,
     }));
 };
 exports.defaultEndpointResolver = defaultEndpointResolver;
-util_endpoints_2.customEndpointFunctions.aws = util_endpoints_1.awsEndpointFunctions;
+endpoints_1.customEndpointFunctions.aws = client_1.awsEndpointFunctions;
 
 
 /***/ }),
 
-/***/ 9768:
+/***/ 8085:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var middlewareHostHeader = __nccwpck_require__(5333);
-var middlewareLogger = __nccwpck_require__(1721);
-var middlewareRecursionDetection = __nccwpck_require__(7350);
-var middlewareUserAgent = __nccwpck_require__(3809);
-var configResolver = __nccwpck_require__(9785);
-var core = __nccwpck_require__(9715);
-var schema = __nccwpck_require__(6519);
-var middlewareContentLength = __nccwpck_require__(762);
-var middlewareEndpoint = __nccwpck_require__(1896);
-var middlewareRetry = __nccwpck_require__(7561);
-var smithyClient = __nccwpck_require__(3684);
-var httpAuthSchemeProvider = __nccwpck_require__(3939);
-var runtimeConfig = __nccwpck_require__(6093);
-var regionConfigResolver = __nccwpck_require__(3140);
-var protocolHttp = __nccwpck_require__(9526);
-var schemas_0 = __nccwpck_require__(652);
-var utilWaiter = __nccwpck_require__(2226);
-var errors = __nccwpck_require__(5056);
-var CloudFormationServiceException = __nccwpck_require__(407);
+var client$1 = __nccwpck_require__(2596);
+var core = __nccwpck_require__(9741);
+var client = __nccwpck_require__(6045);
+var config = __nccwpck_require__(8208);
+var endpoints = __nccwpck_require__(7072);
+var protocols = __nccwpck_require__(6051);
+var retry = __nccwpck_require__(4684);
+var schema = __nccwpck_require__(7393);
+var httpAuthSchemeProvider = __nccwpck_require__(4278);
+var runtimeConfig = __nccwpck_require__(7007);
+var schemas_0 = __nccwpck_require__(3205);
+var errors = __nccwpck_require__(4281);
+var CloudFormationServiceException = __nccwpck_require__(7342);
 
 const resolveClientEndpointParameters = (options) => {
     return Object.assign(options, {
@@ -343,33 +337,33 @@ const resolveHttpAuthRuntimeConfig = (config) => {
 };
 
 const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
-    const extensionConfiguration = Object.assign(regionConfigResolver.getAwsRegionExtensionConfiguration(runtimeConfig), smithyClient.getDefaultExtensionConfiguration(runtimeConfig), protocolHttp.getHttpHandlerExtensionConfiguration(runtimeConfig), getHttpAuthExtensionConfiguration(runtimeConfig));
+    const extensionConfiguration = Object.assign(client$1.getAwsRegionExtensionConfiguration(runtimeConfig), client.getDefaultExtensionConfiguration(runtimeConfig), protocols.getHttpHandlerExtensionConfiguration(runtimeConfig), getHttpAuthExtensionConfiguration(runtimeConfig));
     extensions.forEach((extension) => extension.configure(extensionConfiguration));
-    return Object.assign(runtimeConfig, regionConfigResolver.resolveAwsRegionExtensionConfiguration(extensionConfiguration), smithyClient.resolveDefaultRuntimeConfig(extensionConfiguration), protocolHttp.resolveHttpHandlerRuntimeConfig(extensionConfiguration), resolveHttpAuthRuntimeConfig(extensionConfiguration));
+    return Object.assign(runtimeConfig, client$1.resolveAwsRegionExtensionConfiguration(extensionConfiguration), client.resolveDefaultRuntimeConfig(extensionConfiguration), protocols.resolveHttpHandlerRuntimeConfig(extensionConfiguration), resolveHttpAuthRuntimeConfig(extensionConfiguration));
 };
 
-class CloudFormationClient extends smithyClient.Client {
+class CloudFormationClient extends client.Client {
     config;
     constructor(...[configuration]) {
         const _config_0 = runtimeConfig.getRuntimeConfig(configuration || {});
         super(_config_0);
         this.initConfig = _config_0;
         const _config_1 = resolveClientEndpointParameters(_config_0);
-        const _config_2 = middlewareUserAgent.resolveUserAgentConfig(_config_1);
-        const _config_3 = middlewareRetry.resolveRetryConfig(_config_2);
-        const _config_4 = configResolver.resolveRegionConfig(_config_3);
-        const _config_5 = middlewareHostHeader.resolveHostHeaderConfig(_config_4);
-        const _config_6 = middlewareEndpoint.resolveEndpointConfig(_config_5);
+        const _config_2 = client$1.resolveUserAgentConfig(_config_1);
+        const _config_3 = retry.resolveRetryConfig(_config_2);
+        const _config_4 = config.resolveRegionConfig(_config_3);
+        const _config_5 = client$1.resolveHostHeaderConfig(_config_4);
+        const _config_6 = endpoints.resolveEndpointConfig(_config_5);
         const _config_7 = httpAuthSchemeProvider.resolveHttpAuthSchemeConfig(_config_6);
         const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
         this.config = _config_8;
         this.middlewareStack.use(schema.getSchemaSerdePlugin(this.config));
-        this.middlewareStack.use(middlewareUserAgent.getUserAgentPlugin(this.config));
-        this.middlewareStack.use(middlewareRetry.getRetryPlugin(this.config));
-        this.middlewareStack.use(middlewareContentLength.getContentLengthPlugin(this.config));
-        this.middlewareStack.use(middlewareHostHeader.getHostHeaderPlugin(this.config));
-        this.middlewareStack.use(middlewareLogger.getLoggerPlugin(this.config));
-        this.middlewareStack.use(middlewareRecursionDetection.getRecursionDetectionPlugin(this.config));
+        this.middlewareStack.use(client$1.getUserAgentPlugin(this.config));
+        this.middlewareStack.use(retry.getRetryPlugin(this.config));
+        this.middlewareStack.use(protocols.getContentLengthPlugin(this.config));
+        this.middlewareStack.use(client$1.getHostHeaderPlugin(this.config));
+        this.middlewareStack.use(client$1.getLoggerPlugin(this.config));
+        this.middlewareStack.use(client$1.getRecursionDetectionPlugin(this.config));
         this.middlewareStack.use(core.getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
             httpAuthSchemeParametersProvider: httpAuthSchemeProvider.defaultCloudFormationHttpAuthSchemeParametersProvider,
             identityProviderConfigProvider: async (config) => new core.DefaultIdentityProviderConfig({
@@ -383,11 +377,11 @@ class CloudFormationClient extends smithyClient.Client {
     }
 }
 
-class ActivateOrganizationsAccessCommand extends smithyClient.Command
+class ActivateOrganizationsAccessCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ActivateOrganizationsAccess", {})
     .n("CloudFormationClient", "ActivateOrganizationsAccessCommand")
@@ -395,11 +389,11 @@ class ActivateOrganizationsAccessCommand extends smithyClient.Command
     .build() {
 }
 
-class ActivateTypeCommand extends smithyClient.Command
+class ActivateTypeCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ActivateType", {})
     .n("CloudFormationClient", "ActivateTypeCommand")
@@ -407,11 +401,11 @@ class ActivateTypeCommand extends smithyClient.Command
     .build() {
 }
 
-class BatchDescribeTypeConfigurationsCommand extends smithyClient.Command
+class BatchDescribeTypeConfigurationsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "BatchDescribeTypeConfigurations", {})
     .n("CloudFormationClient", "BatchDescribeTypeConfigurationsCommand")
@@ -419,11 +413,11 @@ class BatchDescribeTypeConfigurationsCommand extends smithyClient.Command
     .build() {
 }
 
-class CancelUpdateStackCommand extends smithyClient.Command
+class CancelUpdateStackCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CancelUpdateStack", {})
     .n("CloudFormationClient", "CancelUpdateStackCommand")
@@ -431,11 +425,11 @@ class CancelUpdateStackCommand extends smithyClient.Command
     .build() {
 }
 
-class ContinueUpdateRollbackCommand extends smithyClient.Command
+class ContinueUpdateRollbackCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ContinueUpdateRollback", {})
     .n("CloudFormationClient", "ContinueUpdateRollbackCommand")
@@ -443,11 +437,11 @@ class ContinueUpdateRollbackCommand extends smithyClient.Command
     .build() {
 }
 
-class CreateChangeSetCommand extends smithyClient.Command
+class CreateChangeSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateChangeSet", {})
     .n("CloudFormationClient", "CreateChangeSetCommand")
@@ -455,11 +449,11 @@ class CreateChangeSetCommand extends smithyClient.Command
     .build() {
 }
 
-class CreateGeneratedTemplateCommand extends smithyClient.Command
+class CreateGeneratedTemplateCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateGeneratedTemplate", {})
     .n("CloudFormationClient", "CreateGeneratedTemplateCommand")
@@ -467,11 +461,11 @@ class CreateGeneratedTemplateCommand extends smithyClient.Command
     .build() {
 }
 
-class CreateStackCommand extends smithyClient.Command
+class CreateStackCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateStack", {})
     .n("CloudFormationClient", "CreateStackCommand")
@@ -479,11 +473,11 @@ class CreateStackCommand extends smithyClient.Command
     .build() {
 }
 
-class CreateStackInstancesCommand extends smithyClient.Command
+class CreateStackInstancesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateStackInstances", {})
     .n("CloudFormationClient", "CreateStackInstancesCommand")
@@ -491,11 +485,11 @@ class CreateStackInstancesCommand extends smithyClient.Command
     .build() {
 }
 
-class CreateStackRefactorCommand extends smithyClient.Command
+class CreateStackRefactorCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateStackRefactor", {})
     .n("CloudFormationClient", "CreateStackRefactorCommand")
@@ -503,11 +497,11 @@ class CreateStackRefactorCommand extends smithyClient.Command
     .build() {
 }
 
-class CreateStackSetCommand extends smithyClient.Command
+class CreateStackSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "CreateStackSet", {})
     .n("CloudFormationClient", "CreateStackSetCommand")
@@ -515,11 +509,11 @@ class CreateStackSetCommand extends smithyClient.Command
     .build() {
 }
 
-class DeactivateOrganizationsAccessCommand extends smithyClient.Command
+class DeactivateOrganizationsAccessCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeactivateOrganizationsAccess", {})
     .n("CloudFormationClient", "DeactivateOrganizationsAccessCommand")
@@ -527,11 +521,11 @@ class DeactivateOrganizationsAccessCommand extends smithyClient.Command
     .build() {
 }
 
-class DeactivateTypeCommand extends smithyClient.Command
+class DeactivateTypeCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeactivateType", {})
     .n("CloudFormationClient", "DeactivateTypeCommand")
@@ -539,11 +533,11 @@ class DeactivateTypeCommand extends smithyClient.Command
     .build() {
 }
 
-class DeleteChangeSetCommand extends smithyClient.Command
+class DeleteChangeSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteChangeSet", {})
     .n("CloudFormationClient", "DeleteChangeSetCommand")
@@ -551,11 +545,11 @@ class DeleteChangeSetCommand extends smithyClient.Command
     .build() {
 }
 
-class DeleteGeneratedTemplateCommand extends smithyClient.Command
+class DeleteGeneratedTemplateCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteGeneratedTemplate", {})
     .n("CloudFormationClient", "DeleteGeneratedTemplateCommand")
@@ -563,11 +557,11 @@ class DeleteGeneratedTemplateCommand extends smithyClient.Command
     .build() {
 }
 
-class DeleteStackCommand extends smithyClient.Command
+class DeleteStackCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteStack", {})
     .n("CloudFormationClient", "DeleteStackCommand")
@@ -575,11 +569,11 @@ class DeleteStackCommand extends smithyClient.Command
     .build() {
 }
 
-class DeleteStackInstancesCommand extends smithyClient.Command
+class DeleteStackInstancesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteStackInstances", {})
     .n("CloudFormationClient", "DeleteStackInstancesCommand")
@@ -587,11 +581,11 @@ class DeleteStackInstancesCommand extends smithyClient.Command
     .build() {
 }
 
-class DeleteStackSetCommand extends smithyClient.Command
+class DeleteStackSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeleteStackSet", {})
     .n("CloudFormationClient", "DeleteStackSetCommand")
@@ -599,11 +593,11 @@ class DeleteStackSetCommand extends smithyClient.Command
     .build() {
 }
 
-class DeregisterTypeCommand extends smithyClient.Command
+class DeregisterTypeCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DeregisterType", {})
     .n("CloudFormationClient", "DeregisterTypeCommand")
@@ -611,11 +605,11 @@ class DeregisterTypeCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeAccountLimitsCommand extends smithyClient.Command
+class DescribeAccountLimitsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeAccountLimits", {})
     .n("CloudFormationClient", "DescribeAccountLimitsCommand")
@@ -623,11 +617,11 @@ class DescribeAccountLimitsCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeChangeSetCommand extends smithyClient.Command
+class DescribeChangeSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeChangeSet", {})
     .n("CloudFormationClient", "DescribeChangeSetCommand")
@@ -635,11 +629,11 @@ class DescribeChangeSetCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeChangeSetHooksCommand extends smithyClient.Command
+class DescribeChangeSetHooksCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeChangeSetHooks", {})
     .n("CloudFormationClient", "DescribeChangeSetHooksCommand")
@@ -647,11 +641,11 @@ class DescribeChangeSetHooksCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeEventsCommand extends smithyClient.Command
+class DescribeEventsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeEvents", {})
     .n("CloudFormationClient", "DescribeEventsCommand")
@@ -659,11 +653,11 @@ class DescribeEventsCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeGeneratedTemplateCommand extends smithyClient.Command
+class DescribeGeneratedTemplateCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeGeneratedTemplate", {})
     .n("CloudFormationClient", "DescribeGeneratedTemplateCommand")
@@ -671,11 +665,11 @@ class DescribeGeneratedTemplateCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeOrganizationsAccessCommand extends smithyClient.Command
+class DescribeOrganizationsAccessCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeOrganizationsAccess", {})
     .n("CloudFormationClient", "DescribeOrganizationsAccessCommand")
@@ -683,11 +677,11 @@ class DescribeOrganizationsAccessCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribePublisherCommand extends smithyClient.Command
+class DescribePublisherCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribePublisher", {})
     .n("CloudFormationClient", "DescribePublisherCommand")
@@ -695,11 +689,11 @@ class DescribePublisherCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeResourceScanCommand extends smithyClient.Command
+class DescribeResourceScanCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeResourceScan", {})
     .n("CloudFormationClient", "DescribeResourceScanCommand")
@@ -707,11 +701,11 @@ class DescribeResourceScanCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackDriftDetectionStatusCommand extends smithyClient.Command
+class DescribeStackDriftDetectionStatusCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackDriftDetectionStatus", {})
     .n("CloudFormationClient", "DescribeStackDriftDetectionStatusCommand")
@@ -719,11 +713,11 @@ class DescribeStackDriftDetectionStatusCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackEventsCommand extends smithyClient.Command
+class DescribeStackEventsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackEvents", {})
     .n("CloudFormationClient", "DescribeStackEventsCommand")
@@ -731,11 +725,11 @@ class DescribeStackEventsCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackInstanceCommand extends smithyClient.Command
+class DescribeStackInstanceCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackInstance", {})
     .n("CloudFormationClient", "DescribeStackInstanceCommand")
@@ -743,11 +737,11 @@ class DescribeStackInstanceCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackRefactorCommand extends smithyClient.Command
+class DescribeStackRefactorCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackRefactor", {})
     .n("CloudFormationClient", "DescribeStackRefactorCommand")
@@ -755,11 +749,11 @@ class DescribeStackRefactorCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackResourceCommand extends smithyClient.Command
+class DescribeStackResourceCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackResource", {})
     .n("CloudFormationClient", "DescribeStackResourceCommand")
@@ -767,11 +761,11 @@ class DescribeStackResourceCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackResourceDriftsCommand extends smithyClient.Command
+class DescribeStackResourceDriftsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackResourceDrifts", {})
     .n("CloudFormationClient", "DescribeStackResourceDriftsCommand")
@@ -779,11 +773,11 @@ class DescribeStackResourceDriftsCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackResourcesCommand extends smithyClient.Command
+class DescribeStackResourcesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackResources", {})
     .n("CloudFormationClient", "DescribeStackResourcesCommand")
@@ -791,11 +785,11 @@ class DescribeStackResourcesCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStacksCommand extends smithyClient.Command
+class DescribeStacksCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStacks", {})
     .n("CloudFormationClient", "DescribeStacksCommand")
@@ -803,11 +797,11 @@ class DescribeStacksCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackSetCommand extends smithyClient.Command
+class DescribeStackSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackSet", {})
     .n("CloudFormationClient", "DescribeStackSetCommand")
@@ -815,11 +809,11 @@ class DescribeStackSetCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeStackSetOperationCommand extends smithyClient.Command
+class DescribeStackSetOperationCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeStackSetOperation", {})
     .n("CloudFormationClient", "DescribeStackSetOperationCommand")
@@ -827,11 +821,11 @@ class DescribeStackSetOperationCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeTypeCommand extends smithyClient.Command
+class DescribeTypeCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeType", {})
     .n("CloudFormationClient", "DescribeTypeCommand")
@@ -839,11 +833,11 @@ class DescribeTypeCommand extends smithyClient.Command
     .build() {
 }
 
-class DescribeTypeRegistrationCommand extends smithyClient.Command
+class DescribeTypeRegistrationCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DescribeTypeRegistration", {})
     .n("CloudFormationClient", "DescribeTypeRegistrationCommand")
@@ -851,11 +845,11 @@ class DescribeTypeRegistrationCommand extends smithyClient.Command
     .build() {
 }
 
-class DetectStackDriftCommand extends smithyClient.Command
+class DetectStackDriftCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DetectStackDrift", {})
     .n("CloudFormationClient", "DetectStackDriftCommand")
@@ -863,11 +857,11 @@ class DetectStackDriftCommand extends smithyClient.Command
     .build() {
 }
 
-class DetectStackResourceDriftCommand extends smithyClient.Command
+class DetectStackResourceDriftCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DetectStackResourceDrift", {})
     .n("CloudFormationClient", "DetectStackResourceDriftCommand")
@@ -875,11 +869,11 @@ class DetectStackResourceDriftCommand extends smithyClient.Command
     .build() {
 }
 
-class DetectStackSetDriftCommand extends smithyClient.Command
+class DetectStackSetDriftCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "DetectStackSetDrift", {})
     .n("CloudFormationClient", "DetectStackSetDriftCommand")
@@ -887,11 +881,11 @@ class DetectStackSetDriftCommand extends smithyClient.Command
     .build() {
 }
 
-class EstimateTemplateCostCommand extends smithyClient.Command
+class EstimateTemplateCostCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "EstimateTemplateCost", {})
     .n("CloudFormationClient", "EstimateTemplateCostCommand")
@@ -899,11 +893,11 @@ class EstimateTemplateCostCommand extends smithyClient.Command
     .build() {
 }
 
-class ExecuteChangeSetCommand extends smithyClient.Command
+class ExecuteChangeSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ExecuteChangeSet", {})
     .n("CloudFormationClient", "ExecuteChangeSetCommand")
@@ -911,11 +905,11 @@ class ExecuteChangeSetCommand extends smithyClient.Command
     .build() {
 }
 
-class ExecuteStackRefactorCommand extends smithyClient.Command
+class ExecuteStackRefactorCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ExecuteStackRefactor", {})
     .n("CloudFormationClient", "ExecuteStackRefactorCommand")
@@ -923,11 +917,11 @@ class ExecuteStackRefactorCommand extends smithyClient.Command
     .build() {
 }
 
-class GetGeneratedTemplateCommand extends smithyClient.Command
+class GetGeneratedTemplateCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetGeneratedTemplate", {})
     .n("CloudFormationClient", "GetGeneratedTemplateCommand")
@@ -935,11 +929,11 @@ class GetGeneratedTemplateCommand extends smithyClient.Command
     .build() {
 }
 
-class GetHookResultCommand extends smithyClient.Command
+class GetHookResultCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetHookResult", {})
     .n("CloudFormationClient", "GetHookResultCommand")
@@ -947,11 +941,11 @@ class GetHookResultCommand extends smithyClient.Command
     .build() {
 }
 
-class GetStackPolicyCommand extends smithyClient.Command
+class GetStackPolicyCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetStackPolicy", {})
     .n("CloudFormationClient", "GetStackPolicyCommand")
@@ -959,11 +953,11 @@ class GetStackPolicyCommand extends smithyClient.Command
     .build() {
 }
 
-class GetTemplateCommand extends smithyClient.Command
+class GetTemplateCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetTemplate", {})
     .n("CloudFormationClient", "GetTemplateCommand")
@@ -971,11 +965,11 @@ class GetTemplateCommand extends smithyClient.Command
     .build() {
 }
 
-class GetTemplateSummaryCommand extends smithyClient.Command
+class GetTemplateSummaryCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "GetTemplateSummary", {})
     .n("CloudFormationClient", "GetTemplateSummaryCommand")
@@ -983,11 +977,11 @@ class GetTemplateSummaryCommand extends smithyClient.Command
     .build() {
 }
 
-class ImportStacksToStackSetCommand extends smithyClient.Command
+class ImportStacksToStackSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ImportStacksToStackSet", {})
     .n("CloudFormationClient", "ImportStacksToStackSetCommand")
@@ -995,11 +989,11 @@ class ImportStacksToStackSetCommand extends smithyClient.Command
     .build() {
 }
 
-class ListChangeSetsCommand extends smithyClient.Command
+class ListChangeSetsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListChangeSets", {})
     .n("CloudFormationClient", "ListChangeSetsCommand")
@@ -1007,11 +1001,11 @@ class ListChangeSetsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListExportsCommand extends smithyClient.Command
+class ListExportsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListExports", {})
     .n("CloudFormationClient", "ListExportsCommand")
@@ -1019,11 +1013,11 @@ class ListExportsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListGeneratedTemplatesCommand extends smithyClient.Command
+class ListGeneratedTemplatesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListGeneratedTemplates", {})
     .n("CloudFormationClient", "ListGeneratedTemplatesCommand")
@@ -1031,11 +1025,11 @@ class ListGeneratedTemplatesCommand extends smithyClient.Command
     .build() {
 }
 
-class ListHookResultsCommand extends smithyClient.Command
+class ListHookResultsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListHookResults", {})
     .n("CloudFormationClient", "ListHookResultsCommand")
@@ -1043,11 +1037,11 @@ class ListHookResultsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListImportsCommand extends smithyClient.Command
+class ListImportsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListImports", {})
     .n("CloudFormationClient", "ListImportsCommand")
@@ -1055,11 +1049,11 @@ class ListImportsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListResourceScanRelatedResourcesCommand extends smithyClient.Command
+class ListResourceScanRelatedResourcesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListResourceScanRelatedResources", {})
     .n("CloudFormationClient", "ListResourceScanRelatedResourcesCommand")
@@ -1067,11 +1061,11 @@ class ListResourceScanRelatedResourcesCommand extends smithyClient.Command
     .build() {
 }
 
-class ListResourceScanResourcesCommand extends smithyClient.Command
+class ListResourceScanResourcesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListResourceScanResources", {})
     .n("CloudFormationClient", "ListResourceScanResourcesCommand")
@@ -1079,11 +1073,11 @@ class ListResourceScanResourcesCommand extends smithyClient.Command
     .build() {
 }
 
-class ListResourceScansCommand extends smithyClient.Command
+class ListResourceScansCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListResourceScans", {})
     .n("CloudFormationClient", "ListResourceScansCommand")
@@ -1091,11 +1085,11 @@ class ListResourceScansCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackInstanceResourceDriftsCommand extends smithyClient.Command
+class ListStackInstanceResourceDriftsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackInstanceResourceDrifts", {})
     .n("CloudFormationClient", "ListStackInstanceResourceDriftsCommand")
@@ -1103,11 +1097,11 @@ class ListStackInstanceResourceDriftsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackInstancesCommand extends smithyClient.Command
+class ListStackInstancesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackInstances", {})
     .n("CloudFormationClient", "ListStackInstancesCommand")
@@ -1115,11 +1109,11 @@ class ListStackInstancesCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackRefactorActionsCommand extends smithyClient.Command
+class ListStackRefactorActionsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackRefactorActions", {})
     .n("CloudFormationClient", "ListStackRefactorActionsCommand")
@@ -1127,11 +1121,11 @@ class ListStackRefactorActionsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackRefactorsCommand extends smithyClient.Command
+class ListStackRefactorsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackRefactors", {})
     .n("CloudFormationClient", "ListStackRefactorsCommand")
@@ -1139,11 +1133,11 @@ class ListStackRefactorsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackResourcesCommand extends smithyClient.Command
+class ListStackResourcesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackResources", {})
     .n("CloudFormationClient", "ListStackResourcesCommand")
@@ -1151,11 +1145,11 @@ class ListStackResourcesCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStacksCommand extends smithyClient.Command
+class ListStacksCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStacks", {})
     .n("CloudFormationClient", "ListStacksCommand")
@@ -1163,11 +1157,11 @@ class ListStacksCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackSetAutoDeploymentTargetsCommand extends smithyClient.Command
+class ListStackSetAutoDeploymentTargetsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackSetAutoDeploymentTargets", {})
     .n("CloudFormationClient", "ListStackSetAutoDeploymentTargetsCommand")
@@ -1175,11 +1169,11 @@ class ListStackSetAutoDeploymentTargetsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackSetOperationResultsCommand extends smithyClient.Command
+class ListStackSetOperationResultsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackSetOperationResults", {})
     .n("CloudFormationClient", "ListStackSetOperationResultsCommand")
@@ -1187,11 +1181,11 @@ class ListStackSetOperationResultsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackSetOperationsCommand extends smithyClient.Command
+class ListStackSetOperationsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackSetOperations", {})
     .n("CloudFormationClient", "ListStackSetOperationsCommand")
@@ -1199,11 +1193,11 @@ class ListStackSetOperationsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListStackSetsCommand extends smithyClient.Command
+class ListStackSetsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListStackSets", {})
     .n("CloudFormationClient", "ListStackSetsCommand")
@@ -1211,11 +1205,11 @@ class ListStackSetsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListTypeRegistrationsCommand extends smithyClient.Command
+class ListTypeRegistrationsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListTypeRegistrations", {})
     .n("CloudFormationClient", "ListTypeRegistrationsCommand")
@@ -1223,11 +1217,11 @@ class ListTypeRegistrationsCommand extends smithyClient.Command
     .build() {
 }
 
-class ListTypesCommand extends smithyClient.Command
+class ListTypesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListTypes", {})
     .n("CloudFormationClient", "ListTypesCommand")
@@ -1235,11 +1229,11 @@ class ListTypesCommand extends smithyClient.Command
     .build() {
 }
 
-class ListTypeVersionsCommand extends smithyClient.Command
+class ListTypeVersionsCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ListTypeVersions", {})
     .n("CloudFormationClient", "ListTypeVersionsCommand")
@@ -1247,11 +1241,11 @@ class ListTypeVersionsCommand extends smithyClient.Command
     .build() {
 }
 
-class PublishTypeCommand extends smithyClient.Command
+class PublishTypeCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "PublishType", {})
     .n("CloudFormationClient", "PublishTypeCommand")
@@ -1259,11 +1253,11 @@ class PublishTypeCommand extends smithyClient.Command
     .build() {
 }
 
-class RecordHandlerProgressCommand extends smithyClient.Command
+class RecordHandlerProgressCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "RecordHandlerProgress", {})
     .n("CloudFormationClient", "RecordHandlerProgressCommand")
@@ -1271,11 +1265,11 @@ class RecordHandlerProgressCommand extends smithyClient.Command
     .build() {
 }
 
-class RegisterPublisherCommand extends smithyClient.Command
+class RegisterPublisherCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "RegisterPublisher", {})
     .n("CloudFormationClient", "RegisterPublisherCommand")
@@ -1283,11 +1277,11 @@ class RegisterPublisherCommand extends smithyClient.Command
     .build() {
 }
 
-class RegisterTypeCommand extends smithyClient.Command
+class RegisterTypeCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "RegisterType", {})
     .n("CloudFormationClient", "RegisterTypeCommand")
@@ -1295,11 +1289,11 @@ class RegisterTypeCommand extends smithyClient.Command
     .build() {
 }
 
-class RollbackStackCommand extends smithyClient.Command
+class RollbackStackCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "RollbackStack", {})
     .n("CloudFormationClient", "RollbackStackCommand")
@@ -1307,11 +1301,11 @@ class RollbackStackCommand extends smithyClient.Command
     .build() {
 }
 
-class SetStackPolicyCommand extends smithyClient.Command
+class SetStackPolicyCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "SetStackPolicy", {})
     .n("CloudFormationClient", "SetStackPolicyCommand")
@@ -1319,11 +1313,11 @@ class SetStackPolicyCommand extends smithyClient.Command
     .build() {
 }
 
-class SetTypeConfigurationCommand extends smithyClient.Command
+class SetTypeConfigurationCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "SetTypeConfiguration", {})
     .n("CloudFormationClient", "SetTypeConfigurationCommand")
@@ -1331,11 +1325,11 @@ class SetTypeConfigurationCommand extends smithyClient.Command
     .build() {
 }
 
-class SetTypeDefaultVersionCommand extends smithyClient.Command
+class SetTypeDefaultVersionCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "SetTypeDefaultVersion", {})
     .n("CloudFormationClient", "SetTypeDefaultVersionCommand")
@@ -1343,11 +1337,11 @@ class SetTypeDefaultVersionCommand extends smithyClient.Command
     .build() {
 }
 
-class SignalResourceCommand extends smithyClient.Command
+class SignalResourceCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "SignalResource", {})
     .n("CloudFormationClient", "SignalResourceCommand")
@@ -1355,11 +1349,11 @@ class SignalResourceCommand extends smithyClient.Command
     .build() {
 }
 
-class StartResourceScanCommand extends smithyClient.Command
+class StartResourceScanCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "StartResourceScan", {})
     .n("CloudFormationClient", "StartResourceScanCommand")
@@ -1367,11 +1361,11 @@ class StartResourceScanCommand extends smithyClient.Command
     .build() {
 }
 
-class StopStackSetOperationCommand extends smithyClient.Command
+class StopStackSetOperationCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "StopStackSetOperation", {})
     .n("CloudFormationClient", "StopStackSetOperationCommand")
@@ -1379,11 +1373,11 @@ class StopStackSetOperationCommand extends smithyClient.Command
     .build() {
 }
 
-class TestTypeCommand extends smithyClient.Command
+class TestTypeCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "TestType", {})
     .n("CloudFormationClient", "TestTypeCommand")
@@ -1391,11 +1385,11 @@ class TestTypeCommand extends smithyClient.Command
     .build() {
 }
 
-class UpdateGeneratedTemplateCommand extends smithyClient.Command
+class UpdateGeneratedTemplateCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateGeneratedTemplate", {})
     .n("CloudFormationClient", "UpdateGeneratedTemplateCommand")
@@ -1403,11 +1397,11 @@ class UpdateGeneratedTemplateCommand extends smithyClient.Command
     .build() {
 }
 
-class UpdateStackCommand extends smithyClient.Command
+class UpdateStackCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateStack", {})
     .n("CloudFormationClient", "UpdateStackCommand")
@@ -1415,11 +1409,11 @@ class UpdateStackCommand extends smithyClient.Command
     .build() {
 }
 
-class UpdateStackInstancesCommand extends smithyClient.Command
+class UpdateStackInstancesCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateStackInstances", {})
     .n("CloudFormationClient", "UpdateStackInstancesCommand")
@@ -1427,11 +1421,11 @@ class UpdateStackInstancesCommand extends smithyClient.Command
     .build() {
 }
 
-class UpdateStackSetCommand extends smithyClient.Command
+class UpdateStackSetCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateStackSet", {})
     .n("CloudFormationClient", "UpdateStackSetCommand")
@@ -1439,11 +1433,11 @@ class UpdateStackSetCommand extends smithyClient.Command
     .build() {
 }
 
-class UpdateTerminationProtectionCommand extends smithyClient.Command
+class UpdateTerminationProtectionCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "UpdateTerminationProtection", {})
     .n("CloudFormationClient", "UpdateTerminationProtectionCommand")
@@ -1451,11 +1445,11 @@ class UpdateTerminationProtectionCommand extends smithyClient.Command
     .build() {
 }
 
-class ValidateTemplateCommand extends smithyClient.Command
+class ValidateTemplateCommand extends client.Command
     .classBuilder()
     .ep(commonParams)
     .m(function (Command, cs, config, o) {
-    return [middlewareEndpoint.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [endpoints.getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
 })
     .s("CloudFormation", "ValidateTemplate", {})
     .n("CloudFormationClient", "ValidateTemplateCommand")
@@ -1511,17 +1505,17 @@ const paginateListTypes = core.createPaginator(CloudFormationClient, ListTypesCo
 
 const paginateListTypeVersions = core.createPaginator(CloudFormationClient, ListTypeVersionsCommand, "NextToken", "NextToken", "MaxResults");
 
-const checkState$9 = async (client, input) => {
+const checkState$9 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeChangeSetCommand(input));
+        let result = await client$1.send(new DescribeChangeSetCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
                 return result.Status;
             };
             if (returnComparator() === "CREATE_COMPLETE") {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1530,7 +1524,7 @@ const checkState$9 = async (client, input) => {
                 return result.Status;
             };
             if (returnComparator() === "FAILED") {
-                return { state: utilWaiter.WaiterState.FAILURE, reason };
+                return { state: client.WaiterState.FAILURE, reason };
             }
         }
         catch (e) { }
@@ -1538,25 +1532,25 @@ const checkState$9 = async (client, input) => {
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.FAILURE, reason };
+            return { state: client.WaiterState.FAILURE, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForChangeSetCreateComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$9);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$9);
 };
 const waitUntilChangeSetCreateComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$9);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$9);
+    return client.checkExceptions(result);
 };
 
-const checkState$8 = async (client, input) => {
+const checkState$8 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeStacksCommand(input));
+        let result = await client$1.send(new DescribeStacksCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
@@ -1571,7 +1565,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "CREATE_COMPLETE");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1588,7 +1582,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_COMPLETE");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1605,7 +1599,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_IN_PROGRESS");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1622,7 +1616,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1639,7 +1633,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_FAILED");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1656,7 +1650,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_ROLLBACK_IN_PROGRESS");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1673,7 +1667,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_ROLLBACK_FAILED");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1690,7 +1684,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1707,7 +1701,7 @@ const checkState$8 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_ROLLBACK_COMPLETE");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1721,7 +1715,7 @@ const checkState$8 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "CREATE_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1736,7 +1730,7 @@ const checkState$8 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "DELETE_COMPLETE") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1751,7 +1745,7 @@ const checkState$8 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "DELETE_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1766,7 +1760,7 @@ const checkState$8 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "ROLLBACK_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1781,7 +1775,7 @@ const checkState$8 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "ROLLBACK_COMPLETE") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1790,25 +1784,25 @@ const checkState$8 = async (client, input) => {
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.FAILURE, reason };
+            return { state: client.WaiterState.FAILURE, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForStackCreateComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$8);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$8);
 };
 const waitUntilStackCreateComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$8);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$8);
+    return client.checkExceptions(result);
 };
 
-const checkState$7 = async (client, input) => {
+const checkState$7 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeStacksCommand(input));
+        let result = await client$1.send(new DescribeStacksCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
@@ -1823,7 +1817,7 @@ const checkState$7 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "DELETE_COMPLETE");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -1837,7 +1831,7 @@ const checkState$7 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "DELETE_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1852,7 +1846,7 @@ const checkState$7 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "CREATE_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1867,7 +1861,7 @@ const checkState$7 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "ROLLBACK_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1882,7 +1876,7 @@ const checkState$7 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_ROLLBACK_IN_PROGRESS") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1897,7 +1891,7 @@ const checkState$7 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_ROLLBACK_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1912,7 +1906,7 @@ const checkState$7 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_ROLLBACK_COMPLETE") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1927,7 +1921,7 @@ const checkState$7 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_COMPLETE") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -1936,50 +1930,50 @@ const checkState$7 = async (client, input) => {
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.SUCCESS, reason };
+            return { state: client.WaiterState.SUCCESS, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForStackDeleteComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$7);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$7);
 };
 const waitUntilStackDeleteComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$7);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$7);
+    return client.checkExceptions(result);
 };
 
-const checkState$6 = async (client, input) => {
+const checkState$6 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeStacksCommand(input));
+        let result = await client$1.send(new DescribeStacksCommand(input));
         reason = result;
-        return { state: utilWaiter.WaiterState.SUCCESS, reason };
+        return { state: client.WaiterState.SUCCESS, reason };
     }
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.RETRY, reason };
+            return { state: client.WaiterState.RETRY, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForStackExists = async (params, input) => {
     const serviceDefaults = { minDelay: 5, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$6);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$6);
 };
 const waitUntilStackExists = async (params, input) => {
     const serviceDefaults = { minDelay: 5, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$6);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$6);
+    return client.checkExceptions(result);
 };
 
-const checkState$5 = async (client, input) => {
+const checkState$5 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeStacksCommand(input));
+        let result = await client$1.send(new DescribeStacksCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
@@ -1994,7 +1988,7 @@ const checkState$5 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "IMPORT_COMPLETE");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -2008,7 +2002,7 @@ const checkState$5 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "ROLLBACK_COMPLETE") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2023,7 +2017,7 @@ const checkState$5 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "ROLLBACK_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2038,7 +2032,7 @@ const checkState$5 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "IMPORT_ROLLBACK_IN_PROGRESS") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2053,7 +2047,7 @@ const checkState$5 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "IMPORT_ROLLBACK_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2068,7 +2062,7 @@ const checkState$5 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "IMPORT_ROLLBACK_COMPLETE") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2077,32 +2071,32 @@ const checkState$5 = async (client, input) => {
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.FAILURE, reason };
+            return { state: client.WaiterState.FAILURE, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForStackImportComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$5);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$5);
 };
 const waitUntilStackImportComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$5);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$5);
+    return client.checkExceptions(result);
 };
 
-const checkState$4 = async (client, input) => {
+const checkState$4 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeStackRefactorCommand(input));
+        let result = await client$1.send(new DescribeStackRefactorCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
                 return result.Status;
             };
             if (returnComparator() === "CREATE_COMPLETE") {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -2111,7 +2105,7 @@ const checkState$4 = async (client, input) => {
                 return result.Status;
             };
             if (returnComparator() === "CREATE_FAILED") {
-                return { state: utilWaiter.WaiterState.FAILURE, reason };
+                return { state: client.WaiterState.FAILURE, reason };
             }
         }
         catch (e) { }
@@ -2119,32 +2113,32 @@ const checkState$4 = async (client, input) => {
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.FAILURE, reason };
+            return { state: client.WaiterState.FAILURE, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForStackRefactorCreateComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 5, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$4);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$4);
 };
 const waitUntilStackRefactorCreateComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 5, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$4);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$4);
+    return client.checkExceptions(result);
 };
 
-const checkState$3 = async (client, input) => {
+const checkState$3 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeStackRefactorCommand(input));
+        let result = await client$1.send(new DescribeStackRefactorCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
                 return result.ExecutionStatus;
             };
             if (returnComparator() === "EXECUTE_COMPLETE") {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -2153,7 +2147,7 @@ const checkState$3 = async (client, input) => {
                 return result.ExecutionStatus;
             };
             if (returnComparator() === "EXECUTE_FAILED") {
-                return { state: utilWaiter.WaiterState.FAILURE, reason };
+                return { state: client.WaiterState.FAILURE, reason };
             }
         }
         catch (e) { }
@@ -2162,7 +2156,7 @@ const checkState$3 = async (client, input) => {
                 return result.ExecutionStatus;
             };
             if (returnComparator() === "ROLLBACK_COMPLETE") {
-                return { state: utilWaiter.WaiterState.FAILURE, reason };
+                return { state: client.WaiterState.FAILURE, reason };
             }
         }
         catch (e) { }
@@ -2170,25 +2164,25 @@ const checkState$3 = async (client, input) => {
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.FAILURE, reason };
+            return { state: client.WaiterState.FAILURE, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForStackRefactorExecuteComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 15, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$3);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$3);
 };
 const waitUntilStackRefactorExecuteComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 15, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$3);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$3);
+    return client.checkExceptions(result);
 };
 
-const checkState$2 = async (client, input) => {
+const checkState$2 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeStacksCommand(input));
+        let result = await client$1.send(new DescribeStacksCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
@@ -2203,7 +2197,7 @@ const checkState$2 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_ROLLBACK_COMPLETE");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -2217,7 +2211,7 @@ const checkState$2 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2232,7 +2226,7 @@ const checkState$2 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_ROLLBACK_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2247,7 +2241,7 @@ const checkState$2 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "DELETE_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2256,25 +2250,25 @@ const checkState$2 = async (client, input) => {
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.FAILURE, reason };
+            return { state: client.WaiterState.FAILURE, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForStackRollbackComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$2);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$2);
 };
 const waitUntilStackRollbackComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$2);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$2);
+    return client.checkExceptions(result);
 };
 
-const checkState$1 = async (client, input) => {
+const checkState$1 = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeStacksCommand(input));
+        let result = await client$1.send(new DescribeStacksCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
@@ -2289,7 +2283,7 @@ const checkState$1 = async (client, input) => {
                 allStringEq_5 = allStringEq_5 && (element_4 == "UPDATE_COMPLETE");
             }
             if (allStringEq_5) {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -2303,7 +2297,7 @@ const checkState$1 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2318,7 +2312,7 @@ const checkState$1 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_ROLLBACK_FAILED") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2333,7 +2327,7 @@ const checkState$1 = async (client, input) => {
             };
             for (let anyStringEq_4 of returnComparator()) {
                 if (anyStringEq_4 == "UPDATE_ROLLBACK_COMPLETE") {
-                    return { state: utilWaiter.WaiterState.FAILURE, reason };
+                    return { state: client.WaiterState.FAILURE, reason };
                 }
             }
         }
@@ -2342,32 +2336,32 @@ const checkState$1 = async (client, input) => {
     catch (exception) {
         reason = exception;
         if (exception.name === "ValidationError") {
-            return { state: utilWaiter.WaiterState.FAILURE, reason };
+            return { state: client.WaiterState.FAILURE, reason };
         }
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForStackUpdateComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$1);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$1);
 };
 const waitUntilStackUpdateComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState$1);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState$1);
+    return client.checkExceptions(result);
 };
 
-const checkState = async (client, input) => {
+const checkState = async (client$1, input) => {
     let reason;
     try {
-        let result = await client.send(new DescribeTypeRegistrationCommand(input));
+        let result = await client$1.send(new DescribeTypeRegistrationCommand(input));
         reason = result;
         try {
             const returnComparator = () => {
                 return result.ProgressStatus;
             };
             if (returnComparator() === "COMPLETE") {
-                return { state: utilWaiter.WaiterState.SUCCESS, reason };
+                return { state: client.WaiterState.SUCCESS, reason };
             }
         }
         catch (e) { }
@@ -2376,7 +2370,7 @@ const checkState = async (client, input) => {
                 return result.ProgressStatus;
             };
             if (returnComparator() === "FAILED") {
-                return { state: utilWaiter.WaiterState.FAILURE, reason };
+                return { state: client.WaiterState.FAILURE, reason };
             }
         }
         catch (e) { }
@@ -2384,16 +2378,16 @@ const checkState = async (client, input) => {
     catch (exception) {
         reason = exception;
     }
-    return { state: utilWaiter.WaiterState.RETRY, reason };
+    return { state: client.WaiterState.RETRY, reason };
 };
 const waitForTypeRegistrationComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    return utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+    return client.createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 const waitUntilTypeRegistrationComplete = async (params, input) => {
     const serviceDefaults = { minDelay: 30, maxDelay: 120 };
-    const result = await utilWaiter.createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-    return utilWaiter.checkExceptions(result);
+    const result = await client.createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+    return client.checkExceptions(result);
 };
 
 const commands = {
@@ -2528,7 +2522,7 @@ const waiters = {
 };
 class CloudFormation extends CloudFormationClient {
 }
-smithyClient.createAggregatedClient(commands, CloudFormation, { paginators, waiters });
+client.createAggregatedClient(commands, CloudFormation, { paginators, waiters });
 
 const AccountFilterType = {
     DIFFERENCE: "DIFFERENCE",
@@ -3051,8 +3045,8 @@ const ResourceSignalStatus = {
     SUCCESS: "SUCCESS",
 };
 
-exports.$Command = smithyClient.Command;
-exports.__Client = smithyClient.Client;
+exports.$Command = client.Command;
+exports.__Client = client.Client;
 exports.CloudFormationServiceException = CloudFormationServiceException.CloudFormationServiceException;
 exports.AccountFilterType = AccountFilterType;
 exports.AccountGateStatus = AccountGateStatus;
@@ -3299,15 +3293,15 @@ Object.keys(errors).forEach(function (k) {
 
 /***/ }),
 
-/***/ 407:
+/***/ 7342:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CloudFormationServiceException = exports.__ServiceException = void 0;
-const smithy_client_1 = __nccwpck_require__(3684);
-Object.defineProperty(exports, "__ServiceException", ({ enumerable: true, get: function () { return smithy_client_1.ServiceException; } }));
-class CloudFormationServiceException extends smithy_client_1.ServiceException {
+const client_1 = __nccwpck_require__(6045);
+Object.defineProperty(exports, "__ServiceException", ({ enumerable: true, get: function () { return client_1.ServiceException; } }));
+class CloudFormationServiceException extends client_1.ServiceException {
     constructor(options) {
         super(options);
         Object.setPrototypeOf(this, CloudFormationServiceException.prototype);
@@ -3318,13 +3312,13 @@ exports.CloudFormationServiceException = CloudFormationServiceException;
 
 /***/ }),
 
-/***/ 5056:
+/***/ 4281:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ResourceScanLimitExceededException = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.ResourceScanInProgressException = exports.StackNotFoundException = exports.HookResultNotFoundException = exports.StackRefactorNotFoundException = exports.StackInstanceNotFoundException = exports.ResourceScanNotFoundException = exports.StackSetNotEmptyException = exports.GeneratedTemplateNotFoundException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.ConcurrentResourcesLimitExceededException = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.ChangeSetNotFoundException = exports.TokenAlreadyExistsException = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.OperationNotFoundException = exports.InvalidOperationException = void 0;
-const CloudFormationServiceException_1 = __nccwpck_require__(407);
+const CloudFormationServiceException_1 = __nccwpck_require__(7342);
 class InvalidOperationException extends CloudFormationServiceException_1.CloudFormationServiceException {
     name = "InvalidOperationException";
     $fault = "client";
@@ -3764,32 +3758,27 @@ exports.ResourceScanLimitExceededException = ResourceScanLimitExceededException;
 
 /***/ }),
 
-/***/ 6093:
+/***/ 7007:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(3943));
-const client_1 = __nccwpck_require__(7838);
-const httpAuthSchemes_1 = __nccwpck_require__(4313);
-const credential_provider_node_1 = __nccwpck_require__(2616);
-const util_user_agent_node_1 = __nccwpck_require__(1199);
-const config_resolver_1 = __nccwpck_require__(9785);
-const hash_node_1 = __nccwpck_require__(4550);
-const middleware_retry_1 = __nccwpck_require__(7561);
-const node_config_provider_1 = __nccwpck_require__(1275);
-const node_http_handler_1 = __nccwpck_require__(6144);
-const smithy_client_1 = __nccwpck_require__(3684);
-const util_body_length_node_1 = __nccwpck_require__(6000);
-const util_defaults_mode_node_1 = __nccwpck_require__(2754);
-const util_retry_1 = __nccwpck_require__(9600);
-const runtimeConfig_shared_1 = __nccwpck_require__(3523);
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(5424));
+const client_1 = __nccwpck_require__(2596);
+const httpAuthSchemes_1 = __nccwpck_require__(3479);
+const credential_provider_node_1 = __nccwpck_require__(4166);
+const client_2 = __nccwpck_require__(6045);
+const config_1 = __nccwpck_require__(8208);
+const retry_1 = __nccwpck_require__(4684);
+const serde_1 = __nccwpck_require__(7643);
+const node_http_handler_1 = __nccwpck_require__(3485);
+const runtimeConfig_shared_1 = __nccwpck_require__(124);
 const getRuntimeConfig = (config) => {
-    (0, smithy_client_1.emitWarningIfUnsupportedVersion)(process.version);
-    const defaultsMode = (0, util_defaults_mode_node_1.resolveDefaultsModeConfig)(config);
-    const defaultConfigProvider = () => defaultsMode().then(smithy_client_1.loadConfigsForDefaultMode);
+    (0, client_2.emitWarningIfUnsupportedVersion)(process.version);
+    const defaultsMode = (0, config_1.resolveDefaultsModeConfig)(config);
+    const defaultConfigProvider = () => defaultsMode().then(client_2.loadConfigsForDefaultMode);
     const clientSharedValues = (0, runtimeConfig_shared_1.getRuntimeConfig)(config);
     (0, client_1.emitWarningIfUnsupportedVersion)(process.version);
     const loaderConfig = {
@@ -3801,23 +3790,23 @@ const getRuntimeConfig = (config) => {
         ...config,
         runtime: "node",
         defaultsMode,
-        authSchemePreference: config?.authSchemePreference ?? (0, node_config_provider_1.loadConfig)(httpAuthSchemes_1.NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
-        bodyLengthChecker: config?.bodyLengthChecker ?? util_body_length_node_1.calculateBodyLength,
+        authSchemePreference: config?.authSchemePreference ?? (0, config_1.loadConfig)(httpAuthSchemes_1.NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
+        bodyLengthChecker: config?.bodyLengthChecker ?? serde_1.calculateBodyLength,
         credentialDefaultProvider: config?.credentialDefaultProvider ?? credential_provider_node_1.defaultProvider,
-        defaultUserAgentProvider: config?.defaultUserAgentProvider ?? (0, util_user_agent_node_1.createDefaultUserAgentProvider)({ serviceId: clientSharedValues.serviceId, clientVersion: package_json_1.default.version }),
-        maxAttempts: config?.maxAttempts ?? (0, node_config_provider_1.loadConfig)(middleware_retry_1.NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
-        region: config?.region ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_REGION_CONFIG_OPTIONS, { ...config_resolver_1.NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig }),
+        defaultUserAgentProvider: config?.defaultUserAgentProvider ?? (0, client_1.createDefaultUserAgentProvider)({ serviceId: clientSharedValues.serviceId, clientVersion: package_json_1.default.version }),
+        maxAttempts: config?.maxAttempts ?? (0, config_1.loadConfig)(retry_1.NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
+        region: config?.region ?? (0, config_1.loadConfig)(config_1.NODE_REGION_CONFIG_OPTIONS, { ...config_1.NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig }),
         requestHandler: node_http_handler_1.NodeHttpHandler.create(config?.requestHandler ?? defaultConfigProvider),
         retryMode: config?.retryMode ??
-            (0, node_config_provider_1.loadConfig)({
-                ...middleware_retry_1.NODE_RETRY_MODE_CONFIG_OPTIONS,
-                default: async () => (await defaultConfigProvider()).retryMode || util_retry_1.DEFAULT_RETRY_MODE,
+            (0, config_1.loadConfig)({
+                ...retry_1.NODE_RETRY_MODE_CONFIG_OPTIONS,
+                default: async () => (await defaultConfigProvider()).retryMode || retry_1.DEFAULT_RETRY_MODE,
             }, config),
-        sha256: config?.sha256 ?? hash_node_1.Hash.bind(null, "sha256"),
+        sha256: config?.sha256 ?? serde_1.Hash.bind(null, "sha256"),
         streamCollector: config?.streamCollector ?? node_http_handler_1.streamCollector,
-        useDualstackEndpoint: config?.useDualstackEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
-        useFipsEndpoint: config?.useFipsEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
-        userAgentAppId: config?.userAgentAppId ?? (0, node_config_provider_1.loadConfig)(util_user_agent_node_1.NODE_APP_ID_CONFIG_OPTIONS, loaderConfig),
+        useDualstackEndpoint: config?.useDualstackEndpoint ?? (0, config_1.loadConfig)(config_1.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
+        useFipsEndpoint: config?.useFipsEndpoint ?? (0, config_1.loadConfig)(config_1.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
+        userAgentAppId: config?.userAgentAppId ?? (0, config_1.loadConfig)(client_1.NODE_APP_ID_CONFIG_OPTIONS, loaderConfig),
     };
 };
 exports.getRuntimeConfig = getRuntimeConfig;
@@ -3825,26 +3814,25 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3523:
+/***/ 124:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
-const httpAuthSchemes_1 = __nccwpck_require__(4313);
-const protocols_1 = __nccwpck_require__(6122);
-const smithy_client_1 = __nccwpck_require__(3684);
-const url_parser_1 = __nccwpck_require__(948);
-const util_base64_1 = __nccwpck_require__(3158);
-const util_utf8_1 = __nccwpck_require__(8165);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(3939);
-const endpointResolver_1 = __nccwpck_require__(6461);
-const schemas_0_1 = __nccwpck_require__(652);
+const httpAuthSchemes_1 = __nccwpck_require__(3479);
+const protocols_1 = __nccwpck_require__(828);
+const client_1 = __nccwpck_require__(6045);
+const protocols_2 = __nccwpck_require__(6051);
+const serde_1 = __nccwpck_require__(7643);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(4278);
+const endpointResolver_1 = __nccwpck_require__(6176);
+const schemas_0_1 = __nccwpck_require__(3205);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
-        base64Decoder: config?.base64Decoder ?? util_base64_1.fromBase64,
-        base64Encoder: config?.base64Encoder ?? util_base64_1.toBase64,
+        base64Decoder: config?.base64Decoder ?? serde_1.fromBase64,
+        base64Encoder: config?.base64Encoder ?? serde_1.toBase64,
         disableHostPrefix: config?.disableHostPrefix ?? false,
         endpointProvider: config?.endpointProvider ?? endpointResolver_1.defaultEndpointResolver,
         extensions: config?.extensions ?? [],
@@ -3856,7 +3844,7 @@ const getRuntimeConfig = (config) => {
                 signer: new httpAuthSchemes_1.AwsSdkSigV4Signer(),
             },
         ],
-        logger: config?.logger ?? new smithy_client_1.NoOpLogger(),
+        logger: config?.logger ?? new client_1.NoOpLogger(),
         protocol: config?.protocol ?? protocols_1.AwsQueryProtocol,
         protocolSettings: config?.protocolSettings ?? {
             defaultNamespace: "com.amazonaws.cloudformation",
@@ -3866,9 +3854,9 @@ const getRuntimeConfig = (config) => {
             serviceTarget: "CloudFormation",
         },
         serviceId: config?.serviceId ?? "CloudFormation",
-        urlParser: config?.urlParser ?? url_parser_1.parseUrl,
-        utf8Decoder: config?.utf8Decoder ?? util_utf8_1.fromUtf8,
-        utf8Encoder: config?.utf8Encoder ?? util_utf8_1.toUtf8,
+        urlParser: config?.urlParser ?? protocols_2.parseUrl,
+        utf8Decoder: config?.utf8Decoder ?? serde_1.fromUtf8,
+        utf8Encoder: config?.utf8Encoder ?? serde_1.toUtf8,
     };
 };
 exports.getRuntimeConfig = getRuntimeConfig;
@@ -3876,7 +3864,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 652:
+/***/ 3205:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4660,9 +4648,9 @@ const _e = "error";
 const _hE = "httpError";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudformation";
 const n0 = "com.amazonaws.cloudformation";
-const schema_1 = __nccwpck_require__(6519);
-const CloudFormationServiceException_1 = __nccwpck_require__(407);
-const errors_1 = __nccwpck_require__(5056);
+const schema_1 = __nccwpck_require__(7393);
+const CloudFormationServiceException_1 = __nccwpck_require__(7342);
+const errors_1 = __nccwpck_require__(4281);
 const _s_registry = schema_1.TypeRegistry.for(_s);
 exports.CloudFormationServiceException$ = [-3, _s, "CloudFormationServiceException", 0, [], []];
 _s_registry.registerError(exports.CloudFormationServiceException$, CloudFormationServiceException_1.CloudFormationServiceException);
@@ -6624,12 +6612,21 @@ exports.ValidateTemplate$ = [9, n0, _VT,
 
 /***/ }),
 
-/***/ 7838:
+/***/ 2596:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var utilRetry = __nccwpck_require__(9600);
+var retry = __nccwpck_require__(4684);
+var protocols = __nccwpck_require__(6051);
+var lambdaInvokeStore = __nccwpck_require__(2017);
+var core = __nccwpck_require__(9741);
+var node_os = __nccwpck_require__(8161);
+var node_process = __nccwpck_require__(1708);
+var config = __nccwpck_require__(8208);
+var promises = __nccwpck_require__(1455);
+var node_path = __nccwpck_require__(6760);
+var endpoints = __nccwpck_require__(7072);
 
 const state = {
     warningEmitted: false,
@@ -6680,7 +6677,7 @@ function setCredentialFeature(credentials, feature, value) {
     return credentials;
 }
 
-utilRetry.Retry.v2026 ||= typeof process === "object" && process.env?.AWS_NEW_RETRIES_2026 === "true";
+retry.Retry.v2026 ||= typeof process === "object" && process.env?.AWS_NEW_RETRIES_2026 === "true";
 function setFeature(context, feature, value) {
     if (!context.__aws_sdk_context) {
         context.__aws_sdk_context = {
@@ -6701,28 +6698,734 @@ function setTokenFeature(token, feature, value) {
     return token;
 }
 
+function resolveHostHeaderConfig(input) {
+    return input;
+}
+const hostHeaderMiddleware = (options) => (next) => async (args) => {
+    if (!protocols.HttpRequest.isInstance(args.request))
+        return next(args);
+    const { request } = args;
+    const { handlerProtocol = "" } = options.requestHandler.metadata || {};
+    if (handlerProtocol.indexOf("h2") >= 0 && !request.headers[":authority"]) {
+        delete request.headers["host"];
+        request.headers[":authority"] = request.hostname + (request.port ? ":" + request.port : "");
+    }
+    else if (!request.headers["host"]) {
+        let host = request.hostname;
+        if (request.port != null)
+            host += `:${request.port}`;
+        request.headers["host"] = host;
+    }
+    return next(args);
+};
+const hostHeaderMiddlewareOptions = {
+    name: "hostHeaderMiddleware",
+    step: "build",
+    priority: "low",
+    tags: ["HOST"],
+    override: true,
+};
+const getHostHeaderPlugin = (options) => ({
+    applyToStack: (clientStack) => {
+        clientStack.add(hostHeaderMiddleware(options), hostHeaderMiddlewareOptions);
+    },
+});
+
+const loggerMiddleware = () => (next, context) => async (args) => {
+    try {
+        const response = await next(args);
+        const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
+        const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
+        const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
+        const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog ?? context.outputFilterSensitiveLog;
+        const { $metadata, ...outputWithoutMetadata } = response.output;
+        logger?.info?.({
+            clientName,
+            commandName,
+            input: inputFilterSensitiveLog(args.input),
+            output: outputFilterSensitiveLog(outputWithoutMetadata),
+            metadata: $metadata,
+        });
+        return response;
+    }
+    catch (error) {
+        const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
+        const { overrideInputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
+        const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
+        logger?.error?.({
+            clientName,
+            commandName,
+            input: inputFilterSensitiveLog(args.input),
+            error,
+            metadata: error.$metadata,
+        });
+        throw error;
+    }
+};
+const loggerMiddlewareOptions = {
+    name: "loggerMiddleware",
+    tags: ["LOGGER"],
+    step: "initialize",
+    override: true,
+};
+const getLoggerPlugin = (options) => ({
+    applyToStack: (clientStack) => {
+        clientStack.add(loggerMiddleware(), loggerMiddlewareOptions);
+    },
+});
+
+const recursionDetectionMiddlewareOptions = {
+    step: "build",
+    tags: ["RECURSION_DETECTION"],
+    name: "recursionDetectionMiddleware",
+    override: true,
+    priority: "low",
+};
+
+const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
+const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
+const ENV_TRACE_ID = "_X_AMZN_TRACE_ID";
+const recursionDetectionMiddleware = () => (next) => async (args) => {
+    const { request } = args;
+    if (!protocols.HttpRequest.isInstance(request)) {
+        return next(args);
+    }
+    const traceIdHeader = Object.keys(request.headers ?? {}).find((h) => h.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()) ??
+        TRACE_ID_HEADER_NAME;
+    if (request.headers.hasOwnProperty(traceIdHeader)) {
+        return next(args);
+    }
+    const functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
+    const traceIdFromEnv = process.env[ENV_TRACE_ID];
+    const invokeStore = await lambdaInvokeStore.InvokeStore.getInstanceAsync();
+    const traceIdFromInvokeStore = invokeStore?.getXRayTraceId();
+    const traceId = traceIdFromInvokeStore ?? traceIdFromEnv;
+    const nonEmptyString = (str) => typeof str === "string" && str.length > 0;
+    if (nonEmptyString(functionName) && nonEmptyString(traceId)) {
+        request.headers[TRACE_ID_HEADER_NAME] = traceId;
+    }
+    return next({
+        ...args,
+        request,
+    });
+};
+
+const getRecursionDetectionPlugin = (options) => ({
+    applyToStack: (clientStack) => {
+        clientStack.add(recursionDetectionMiddleware(), recursionDetectionMiddlewareOptions);
+    },
+});
+
+const DEFAULT_UA_APP_ID = undefined;
+function isValidUserAgentAppId(appId) {
+    if (appId === undefined) {
+        return true;
+    }
+    return typeof appId === "string" && appId.length <= 50;
+}
+function resolveUserAgentConfig(input) {
+    const normalizedAppIdProvider = core.normalizeProvider(input.userAgentAppId ?? DEFAULT_UA_APP_ID);
+    const { customUserAgent } = input;
+    return Object.assign(input, {
+        customUserAgent: typeof customUserAgent === "string" ? [[customUserAgent]] : customUserAgent,
+        userAgentAppId: async () => {
+            const appId = await normalizedAppIdProvider();
+            if (!isValidUserAgentAppId(appId)) {
+                const logger = input.logger?.constructor?.name === "NoOpLogger" || !input.logger ? console : input.logger;
+                if (typeof appId !== "string") {
+                    logger?.warn("userAgentAppId must be a string or undefined.");
+                }
+                else if (appId.length > 50) {
+                    logger?.warn("The provided userAgentAppId exceeds the maximum length of 50 characters.");
+                }
+            }
+            return appId;
+        },
+    });
+}
+
+const partitionsInfo = { "partitions": [{ "id": "aws", "outputs": { "dnsSuffix": "amazonaws.com", "dualStackDnsSuffix": "api.aws", "implicitGlobalRegion": "us-east-1", "name": "aws", "supportsDualStack": true, "supportsFIPS": true }, "regionRegex": "^(us|eu|ap|sa|ca|me|af|il|mx)\\-\\w+\\-\\d+$", "regions": { "af-south-1": { "description": "Africa (Cape Town)" }, "ap-east-1": { "description": "Asia Pacific (Hong Kong)" }, "ap-east-2": { "description": "Asia Pacific (Taipei)" }, "ap-northeast-1": { "description": "Asia Pacific (Tokyo)" }, "ap-northeast-2": { "description": "Asia Pacific (Seoul)" }, "ap-northeast-3": { "description": "Asia Pacific (Osaka)" }, "ap-south-1": { "description": "Asia Pacific (Mumbai)" }, "ap-south-2": { "description": "Asia Pacific (Hyderabad)" }, "ap-southeast-1": { "description": "Asia Pacific (Singapore)" }, "ap-southeast-2": { "description": "Asia Pacific (Sydney)" }, "ap-southeast-3": { "description": "Asia Pacific (Jakarta)" }, "ap-southeast-4": { "description": "Asia Pacific (Melbourne)" }, "ap-southeast-5": { "description": "Asia Pacific (Malaysia)" }, "ap-southeast-6": { "description": "Asia Pacific (New Zealand)" }, "ap-southeast-7": { "description": "Asia Pacific (Thailand)" }, "aws-global": { "description": "aws global region" }, "ca-central-1": { "description": "Canada (Central)" }, "ca-west-1": { "description": "Canada West (Calgary)" }, "eu-central-1": { "description": "Europe (Frankfurt)" }, "eu-central-2": { "description": "Europe (Zurich)" }, "eu-north-1": { "description": "Europe (Stockholm)" }, "eu-south-1": { "description": "Europe (Milan)" }, "eu-south-2": { "description": "Europe (Spain)" }, "eu-west-1": { "description": "Europe (Ireland)" }, "eu-west-2": { "description": "Europe (London)" }, "eu-west-3": { "description": "Europe (Paris)" }, "il-central-1": { "description": "Israel (Tel Aviv)" }, "me-central-1": { "description": "Middle East (UAE)" }, "me-south-1": { "description": "Middle East (Bahrain)" }, "mx-central-1": { "description": "Mexico (Central)" }, "sa-east-1": { "description": "South America (Sao Paulo)" }, "us-east-1": { "description": "US East (N. Virginia)" }, "us-east-2": { "description": "US East (Ohio)" }, "us-west-1": { "description": "US West (N. California)" }, "us-west-2": { "description": "US West (Oregon)" } } }, { "id": "aws-cn", "outputs": { "dnsSuffix": "amazonaws.com.cn", "dualStackDnsSuffix": "api.amazonwebservices.com.cn", "implicitGlobalRegion": "cn-northwest-1", "name": "aws-cn", "supportsDualStack": true, "supportsFIPS": true }, "regionRegex": "^cn\\-\\w+\\-\\d+$", "regions": { "aws-cn-global": { "description": "aws-cn global region" }, "cn-north-1": { "description": "China (Beijing)" }, "cn-northwest-1": { "description": "China (Ningxia)" } } }, { "id": "aws-eusc", "outputs": { "dnsSuffix": "amazonaws.eu", "dualStackDnsSuffix": "api.amazonwebservices.eu", "implicitGlobalRegion": "eusc-de-east-1", "name": "aws-eusc", "supportsDualStack": true, "supportsFIPS": true }, "regionRegex": "^eusc\\-(de)\\-\\w+\\-\\d+$", "regions": { "eusc-de-east-1": { "description": "AWS European Sovereign Cloud (Germany)" } } }, { "id": "aws-iso", "outputs": { "dnsSuffix": "c2s.ic.gov", "dualStackDnsSuffix": "api.aws.ic.gov", "implicitGlobalRegion": "us-iso-east-1", "name": "aws-iso", "supportsDualStack": true, "supportsFIPS": true }, "regionRegex": "^us\\-iso\\-\\w+\\-\\d+$", "regions": { "aws-iso-global": { "description": "aws-iso global region" }, "us-iso-east-1": { "description": "US ISO East" }, "us-iso-west-1": { "description": "US ISO WEST" } } }, { "id": "aws-iso-b", "outputs": { "dnsSuffix": "sc2s.sgov.gov", "dualStackDnsSuffix": "api.aws.scloud", "implicitGlobalRegion": "us-isob-east-1", "name": "aws-iso-b", "supportsDualStack": true, "supportsFIPS": true }, "regionRegex": "^us\\-isob\\-\\w+\\-\\d+$", "regions": { "aws-iso-b-global": { "description": "aws-iso-b global region" }, "us-isob-east-1": { "description": "US ISOB East (Ohio)" }, "us-isob-west-1": { "description": "US ISOB West" } } }, { "id": "aws-iso-e", "outputs": { "dnsSuffix": "cloud.adc-e.uk", "dualStackDnsSuffix": "api.cloud-aws.adc-e.uk", "implicitGlobalRegion": "eu-isoe-west-1", "name": "aws-iso-e", "supportsDualStack": true, "supportsFIPS": true }, "regionRegex": "^eu\\-isoe\\-\\w+\\-\\d+$", "regions": { "aws-iso-e-global": { "description": "aws-iso-e global region" }, "eu-isoe-west-1": { "description": "EU ISOE West" } } }, { "id": "aws-iso-f", "outputs": { "dnsSuffix": "csp.hci.ic.gov", "dualStackDnsSuffix": "api.aws.hci.ic.gov", "implicitGlobalRegion": "us-isof-south-1", "name": "aws-iso-f", "supportsDualStack": true, "supportsFIPS": true }, "regionRegex": "^us\\-isof\\-\\w+\\-\\d+$", "regions": { "aws-iso-f-global": { "description": "aws-iso-f global region" }, "us-isof-east-1": { "description": "US ISOF EAST" }, "us-isof-south-1": { "description": "US ISOF SOUTH" } } }, { "id": "aws-us-gov", "outputs": { "dnsSuffix": "amazonaws.com", "dualStackDnsSuffix": "api.aws", "implicitGlobalRegion": "us-gov-west-1", "name": "aws-us-gov", "supportsDualStack": true, "supportsFIPS": true }, "regionRegex": "^us\\-gov\\-\\w+\\-\\d+$", "regions": { "aws-us-gov-global": { "description": "aws-us-gov global region" }, "us-gov-east-1": { "description": "AWS GovCloud (US-East)" }, "us-gov-west-1": { "description": "AWS GovCloud (US-West)" } } }], "version": "1.1" };
+
+let selectedPartitionsInfo = partitionsInfo;
+let selectedUserAgentPrefix = "";
+const partition = (value) => {
+    const { partitions } = selectedPartitionsInfo;
+    for (const partition of partitions) {
+        const { regions, outputs } = partition;
+        for (const [region, regionData] of Object.entries(regions)) {
+            if (region === value) {
+                return {
+                    ...outputs,
+                    ...regionData,
+                };
+            }
+        }
+    }
+    for (const partition of partitions) {
+        const { regionRegex, outputs } = partition;
+        if (new RegExp(regionRegex).test(value)) {
+            return {
+                ...outputs,
+            };
+        }
+    }
+    const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws");
+    if (!DEFAULT_PARTITION) {
+        throw new Error("Provided region was not found in the partition array or regex," +
+            " and default partition with id 'aws' doesn't exist.");
+    }
+    return {
+        ...DEFAULT_PARTITION.outputs,
+    };
+};
+const setPartitionInfo = (partitionsInfo, userAgentPrefix = "") => {
+    selectedPartitionsInfo = partitionsInfo;
+    selectedUserAgentPrefix = userAgentPrefix;
+};
+const useDefaultPartitionInfo = () => {
+    setPartitionInfo(partitionsInfo, "");
+};
+const getUserAgentPrefix = () => selectedUserAgentPrefix;
+
+const ACCOUNT_ID_ENDPOINT_REGEX = /\d{12}\.ddb/;
+async function checkFeatures(context, config, args) {
+    const request = args.request;
+    if (request?.headers?.["smithy-protocol"] === "rpc-v2-cbor") {
+        setFeature(context, "PROTOCOL_RPC_V2_CBOR", "M");
+    }
+    if (typeof config.retryStrategy === "function") {
+        const retryStrategy = await config.retryStrategy();
+        if (typeof retryStrategy.mode === "string") {
+            switch (retryStrategy.mode) {
+                case retry.RETRY_MODES.ADAPTIVE:
+                    setFeature(context, "RETRY_MODE_ADAPTIVE", "F");
+                    break;
+                case retry.RETRY_MODES.STANDARD:
+                    setFeature(context, "RETRY_MODE_STANDARD", "E");
+                    break;
+            }
+        }
+    }
+    if (typeof config.accountIdEndpointMode === "function") {
+        const endpointV2 = context.endpointV2;
+        if (String(endpointV2?.url?.hostname).match(ACCOUNT_ID_ENDPOINT_REGEX)) {
+            setFeature(context, "ACCOUNT_ID_ENDPOINT", "O");
+        }
+        switch (await config.accountIdEndpointMode?.()) {
+            case "disabled":
+                setFeature(context, "ACCOUNT_ID_MODE_DISABLED", "Q");
+                break;
+            case "preferred":
+                setFeature(context, "ACCOUNT_ID_MODE_PREFERRED", "P");
+                break;
+            case "required":
+                setFeature(context, "ACCOUNT_ID_MODE_REQUIRED", "R");
+                break;
+        }
+    }
+    const identity = context.__smithy_context?.selectedHttpAuthScheme?.identity;
+    if (identity?.$source) {
+        const credentials = identity;
+        if (credentials.accountId) {
+            setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
+        }
+        for (const [key, value] of Object.entries(credentials.$source ?? {})) {
+            setFeature(context, key, value);
+        }
+    }
+}
+
+const USER_AGENT = "user-agent";
+const X_AMZ_USER_AGENT = "x-amz-user-agent";
+const SPACE = " ";
+const UA_NAME_SEPARATOR = "/";
+const UA_NAME_ESCAPE_REGEX = /[^!$%&'*+\-.^_`|~\w]/g;
+const UA_VALUE_ESCAPE_REGEX = /[^!$%&'*+\-.^_`|~\w#]/g;
+const UA_ESCAPE_CHAR = "-";
+
+const BYTE_LIMIT = 1024;
+function encodeFeatures(features) {
+    let buffer = "";
+    for (const key in features) {
+        const val = features[key];
+        if (buffer.length + val.length + 1 <= BYTE_LIMIT) {
+            if (buffer.length) {
+                buffer += "," + val;
+            }
+            else {
+                buffer += val;
+            }
+            continue;
+        }
+        break;
+    }
+    return buffer;
+}
+
+const userAgentMiddleware = (options) => (next, context) => async (args) => {
+    const { request } = args;
+    if (!protocols.HttpRequest.isInstance(request)) {
+        return next(args);
+    }
+    const { headers } = request;
+    const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
+    const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
+    await checkFeatures(context, options, args);
+    const awsContext = context;
+    defaultUserAgent.push(`m/${encodeFeatures(Object.assign({}, context.__smithy_context?.features, awsContext.__aws_sdk_context?.features))}`);
+    const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
+    const appId = await options.userAgentAppId();
+    if (appId) {
+        defaultUserAgent.push(escapeUserAgent([`app`, `${appId}`]));
+    }
+    const prefix = getUserAgentPrefix();
+    const sdkUserAgentValue = (prefix ? [prefix] : [])
+        .concat([...defaultUserAgent, ...userAgent, ...customUserAgent])
+        .join(SPACE);
+    const normalUAValue = [
+        ...defaultUserAgent.filter((section) => section.startsWith("aws-sdk-")),
+        ...customUserAgent,
+    ].join(SPACE);
+    if (options.runtime !== "browser") {
+        if (normalUAValue) {
+            headers[X_AMZ_USER_AGENT] = headers[X_AMZ_USER_AGENT]
+                ? `${headers[USER_AGENT]} ${normalUAValue}`
+                : normalUAValue;
+        }
+        headers[USER_AGENT] = sdkUserAgentValue;
+    }
+    else {
+        headers[X_AMZ_USER_AGENT] = sdkUserAgentValue;
+    }
+    return next({
+        ...args,
+        request,
+    });
+};
+const escapeUserAgent = (userAgentPair) => {
+    const name = userAgentPair[0]
+        .split(UA_NAME_SEPARATOR)
+        .map((part) => part.replace(UA_NAME_ESCAPE_REGEX, UA_ESCAPE_CHAR))
+        .join(UA_NAME_SEPARATOR);
+    const version = userAgentPair[1]?.replace(UA_VALUE_ESCAPE_REGEX, UA_ESCAPE_CHAR);
+    const prefixSeparatorIndex = name.indexOf(UA_NAME_SEPARATOR);
+    const prefix = name.substring(0, prefixSeparatorIndex);
+    let uaName = name.substring(prefixSeparatorIndex + 1);
+    if (prefix === "api") {
+        uaName = uaName.toLowerCase();
+    }
+    return [prefix, uaName, version]
+        .filter((item) => item && item.length > 0)
+        .reduce((acc, item, index) => {
+        switch (index) {
+            case 0:
+                return item;
+            case 1:
+                return `${acc}/${item}`;
+            default:
+                return `${acc}#${item}`;
+        }
+    }, "");
+};
+const getUserAgentMiddlewareOptions = {
+    name: "getUserAgentMiddleware",
+    step: "build",
+    priority: "low",
+    tags: ["SET_USER_AGENT", "USER_AGENT"],
+    override: true,
+};
+const getUserAgentPlugin = (config) => ({
+    applyToStack: (clientStack) => {
+        clientStack.add(userAgentMiddleware(config), getUserAgentMiddlewareOptions);
+    },
+});
+
+const getRuntimeUserAgentPair = () => {
+    const runtimesToCheck = ["deno", "bun", "llrt"];
+    for (const runtime of runtimesToCheck) {
+        if (node_process.versions[runtime]) {
+            return [`md/${runtime}`, node_process.versions[runtime]];
+        }
+    }
+    return ["md/nodejs", node_process.versions.node];
+};
+
+const getNodeModulesParentDirs = (dirname) => {
+    const cwd = process.cwd();
+    if (!dirname) {
+        return [cwd];
+    }
+    const normalizedPath = node_path.normalize(dirname);
+    const parts = normalizedPath.split(node_path.sep);
+    const nodeModulesIndex = parts.indexOf("node_modules");
+    const parentDir = nodeModulesIndex !== -1 ? parts.slice(0, nodeModulesIndex).join(node_path.sep) : normalizedPath;
+    if (cwd === parentDir) {
+        return [cwd];
+    }
+    return [parentDir, cwd];
+};
+
+const SEMVER_REGEX = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*)?$/;
+const getSanitizedTypeScriptVersion = (version = "") => {
+    const match = version.match(SEMVER_REGEX);
+    if (!match) {
+        return undefined;
+    }
+    const [major, minor, patch, prerelease] = [match[1], match[2], match[3], match[4]];
+    return prerelease ? `${major}.${minor}.${patch}-${prerelease}` : `${major}.${minor}.${patch}`;
+};
+
+const ALLOWED_PREFIXES = ["^", "~", ">=", "<=", ">", "<"];
+const ALLOWED_DIST_TAGS = ["latest", "beta", "dev", "rc", "insiders", "next"];
+const getSanitizedDevTypeScriptVersion = (version = "") => {
+    if (ALLOWED_DIST_TAGS.includes(version)) {
+        return version;
+    }
+    const prefix = ALLOWED_PREFIXES.find((p) => version.startsWith(p)) ?? "";
+    const sanitizedTypeScriptVersion = getSanitizedTypeScriptVersion(version.slice(prefix.length));
+    if (!sanitizedTypeScriptVersion) {
+        return undefined;
+    }
+    return `${prefix}${sanitizedTypeScriptVersion}`;
+};
+
+let tscVersion;
+const TS_PACKAGE_JSON = node_path.join("node_modules", "typescript", "package.json");
+const getTypeScriptUserAgentPair = async () => {
+    if (tscVersion === null) {
+        return undefined;
+    }
+    else if (typeof tscVersion === "string") {
+        return ["md/tsc", tscVersion];
+    }
+    let isTypeScriptDetectionDisabled = false;
+    try {
+        isTypeScriptDetectionDisabled =
+            config.booleanSelector(process.env, "AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED", config.SelectorType.ENV) || false;
+    }
+    catch { }
+    if (isTypeScriptDetectionDisabled) {
+        tscVersion = null;
+        return undefined;
+    }
+    const dirname = typeof __dirname !== "undefined" ? __dirname : undefined;
+    const nodeModulesParentDirs = getNodeModulesParentDirs(dirname);
+    let versionFromApp;
+    for (const nodeModulesParentDir of nodeModulesParentDirs) {
+        try {
+            const appPackageJsonPath = node_path.join(nodeModulesParentDir, "package.json");
+            const packageJson = await promises.readFile(appPackageJsonPath, "utf-8");
+            const { dependencies, devDependencies } = JSON.parse(packageJson);
+            const version = devDependencies?.typescript ?? dependencies?.typescript;
+            if (typeof version !== "string") {
+                continue;
+            }
+            versionFromApp = version;
+            break;
+        }
+        catch {
+        }
+    }
+    if (!versionFromApp) {
+        tscVersion = null;
+        return undefined;
+    }
+    let versionFromNodeModules;
+    for (const nodeModulesParentDir of nodeModulesParentDirs) {
+        try {
+            const tsPackageJsonPath = node_path.join(nodeModulesParentDir, TS_PACKAGE_JSON);
+            const packageJson = await promises.readFile(tsPackageJsonPath, "utf-8");
+            const { version } = JSON.parse(packageJson);
+            const sanitizedVersion = getSanitizedTypeScriptVersion(version);
+            if (typeof sanitizedVersion !== "string") {
+                continue;
+            }
+            versionFromNodeModules = sanitizedVersion;
+            break;
+        }
+        catch {
+        }
+    }
+    if (versionFromNodeModules) {
+        tscVersion = versionFromNodeModules;
+        return ["md/tsc", tscVersion];
+    }
+    const sanitizedVersion = getSanitizedDevTypeScriptVersion(versionFromApp);
+    if (typeof sanitizedVersion !== "string") {
+        tscVersion = null;
+        return undefined;
+    }
+    tscVersion = `dev_${sanitizedVersion}`;
+    return ["md/tsc", tscVersion];
+};
+
+const crtAvailability = {
+    isCrtAvailable: false,
+};
+
+const isCrtAvailable = () => {
+    if (crtAvailability.isCrtAvailable) {
+        return ["md/crt-avail"];
+    }
+    return null;
+};
+
+const createDefaultUserAgentProvider = ({ serviceId, clientVersion }) => {
+    const runtimeUserAgentPair = getRuntimeUserAgentPair();
+    return async (config) => {
+        const sections = [
+            ["aws-sdk-js", clientVersion],
+            ["ua", "2.1"],
+            [`os/${node_os.platform()}`, node_os.release()],
+            ["lang/js"],
+            runtimeUserAgentPair,
+        ];
+        const typescriptUserAgentPair = await getTypeScriptUserAgentPair();
+        if (typescriptUserAgentPair) {
+            sections.push(typescriptUserAgentPair);
+        }
+        const crtAvailable = isCrtAvailable();
+        if (crtAvailable) {
+            sections.push(crtAvailable);
+        }
+        if (serviceId) {
+            sections.push([`api/${serviceId}`, clientVersion]);
+        }
+        if (node_process.env.AWS_EXECUTION_ENV) {
+            sections.push([`exec-env/${node_process.env.AWS_EXECUTION_ENV}`]);
+        }
+        const appId = await config?.userAgentAppId?.();
+        const resolvedUserAgent = appId ? [...sections, [`app/${appId}`]] : [...sections];
+        return resolvedUserAgent;
+    };
+};
+const defaultUserAgent = createDefaultUserAgentProvider;
+
+const UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
+const UA_APP_ID_INI_NAME = "sdk_ua_app_id";
+const UA_APP_ID_INI_NAME_DEPRECATED = "sdk-ua-app-id";
+const NODE_APP_ID_CONFIG_OPTIONS = {
+    environmentVariableSelector: (env) => env[UA_APP_ID_ENV_NAME],
+    configFileSelector: (profile) => profile[UA_APP_ID_INI_NAME] ?? profile[UA_APP_ID_INI_NAME_DEPRECATED],
+    default: DEFAULT_UA_APP_ID,
+};
+
+const createUserAgentStringParsingProvider = ({ serviceId, clientVersion }) => async (config) => {
+    const module = await __nccwpck_require__.e(/* import() */ 886).then(__nccwpck_require__.t.bind(__nccwpck_require__, 8886, 23));
+    const parse = module.parse ?? module.default.parse ?? (() => "");
+    const parsedUA = typeof window !== "undefined" && window?.navigator?.userAgent ? parse(window.navigator.userAgent) : undefined;
+    const sections = [
+        ["aws-sdk-js", clientVersion],
+        ["ua", "2.1"],
+        [`os/${parsedUA?.os?.name || "other"}`, parsedUA?.os?.version],
+        ["lang/js"],
+        ["md/browser", `${parsedUA?.browser?.name ?? "unknown"}_${parsedUA?.browser?.version ?? "unknown"}`],
+    ];
+    if (serviceId) {
+        sections.push([`api/${serviceId}`, clientVersion]);
+    }
+    const appId = await config?.userAgentAppId?.();
+    if (appId) {
+        sections.push([`app/${appId}`]);
+    }
+    return sections;
+};
+
+const fallback = {
+    os(ua) {
+        if (/iPhone|iPad|iPod/.test(ua))
+            return "iOS";
+        if (/Macintosh|Mac OS X/.test(ua))
+            return "macOS";
+        if (/Windows NT/.test(ua))
+            return "Windows";
+        if (/Android/.test(ua))
+            return "Android";
+        if (/Linux/.test(ua))
+            return "Linux";
+        return undefined;
+    },
+    browser(ua) {
+        if (/EdgiOS|EdgA|Edg\//.test(ua))
+            return "Microsoft Edge";
+        if (/Firefox\//.test(ua))
+            return "Firefox";
+        if (/Chrome\//.test(ua))
+            return "Chrome";
+        if (/Safari\//.test(ua))
+            return "Safari";
+        return undefined;
+    },
+};
+
+const isVirtualHostableS3Bucket = (value, allowSubDomains = false) => {
+    if (allowSubDomains) {
+        for (const label of value.split(".")) {
+            if (!isVirtualHostableS3Bucket(label)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    if (!endpoints.isValidHostLabel(value)) {
+        return false;
+    }
+    if (value.length < 3 || value.length > 63) {
+        return false;
+    }
+    if (value !== value.toLowerCase()) {
+        return false;
+    }
+    if (endpoints.isIpAddress(value)) {
+        return false;
+    }
+    return true;
+};
+
+const ARN_DELIMITER = ":";
+const RESOURCE_DELIMITER = "/";
+const parseArn = (value) => {
+    const segments = value.split(ARN_DELIMITER);
+    if (segments.length < 6)
+        return null;
+    const [arn, partition, service, region, accountId, ...resourcePath] = segments;
+    if (arn !== "arn" || partition === "" || service === "" || resourcePath.join(ARN_DELIMITER) === "")
+        return null;
+    const resourceId = resourcePath.map((resource) => resource.split(RESOURCE_DELIMITER)).flat();
+    return {
+        partition,
+        service,
+        region,
+        accountId,
+        resourceId,
+    };
+};
+
+const awsEndpointFunctions = {
+    isVirtualHostableS3Bucket: isVirtualHostableS3Bucket,
+    parseArn: parseArn,
+    partition: partition,
+};
+endpoints.customEndpointFunctions.aws = awsEndpointFunctions;
+
+const resolveDefaultAwsRegionalEndpointsConfig = (input) => {
+    if (typeof input.endpointProvider !== "function") {
+        throw new Error("@aws-sdk/util-endpoint - endpointProvider and endpoint missing in config for this client.");
+    }
+    const { endpoint } = input;
+    if (endpoint === undefined) {
+        input.endpoint = async () => {
+            return toEndpointV1(input.endpointProvider({
+                Region: typeof input.region === "function" ? await input.region() : input.region,
+                UseDualStack: typeof input.useDualstackEndpoint === "function"
+                    ? await input.useDualstackEndpoint()
+                    : input.useDualstackEndpoint,
+                UseFIPS: typeof input.useFipsEndpoint === "function" ? await input.useFipsEndpoint() : input.useFipsEndpoint,
+                Endpoint: undefined,
+            }, { logger: input.logger }));
+        };
+    }
+    return input;
+};
+const toEndpointV1 = (endpoint) => protocols.parseUrl(endpoint.url);
+
+function stsRegionDefaultResolver(loaderConfig = {}) {
+    return config.loadConfig({
+        ...config.NODE_REGION_CONFIG_OPTIONS,
+        async default() {
+            if (!warning.silence) {
+                console.warn("@aws-sdk - WARN - default STS region of us-east-1 used. See @aws-sdk/credential-providers README and set a region explicitly.");
+            }
+            return "us-east-1";
+        },
+    }, { ...config.NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig });
+}
+const warning = {
+    silence: false,
+};
+
+const getAwsRegionExtensionConfiguration = (runtimeConfig) => {
+    return {
+        setRegion(region) {
+            runtimeConfig.region = region;
+        },
+        region() {
+            return runtimeConfig.region;
+        },
+    };
+};
+const resolveAwsRegionExtensionConfiguration = (awsRegionExtensionConfiguration) => {
+    return {
+        region: awsRegionExtensionConfiguration.region(),
+    };
+};
+
+exports.NODE_REGION_CONFIG_FILE_OPTIONS = config.NODE_REGION_CONFIG_FILE_OPTIONS;
+exports.NODE_REGION_CONFIG_OPTIONS = config.NODE_REGION_CONFIG_OPTIONS;
+exports.REGION_ENV_NAME = config.REGION_ENV_NAME;
+exports.REGION_INI_NAME = config.REGION_INI_NAME;
+exports.resolveRegionConfig = config.resolveRegionConfig;
+exports.EndpointError = endpoints.EndpointError;
+exports.isIpAddress = endpoints.isIpAddress;
+exports.resolveEndpoint = endpoints.resolveEndpoint;
+exports.DEFAULT_UA_APP_ID = DEFAULT_UA_APP_ID;
+exports.NODE_APP_ID_CONFIG_OPTIONS = NODE_APP_ID_CONFIG_OPTIONS;
+exports.UA_APP_ID_ENV_NAME = UA_APP_ID_ENV_NAME;
+exports.UA_APP_ID_INI_NAME = UA_APP_ID_INI_NAME;
+exports.awsEndpointFunctions = awsEndpointFunctions;
+exports.createDefaultUserAgentProvider = createDefaultUserAgentProvider;
+exports.createUserAgentStringParsingProvider = createUserAgentStringParsingProvider;
+exports.crtAvailability = crtAvailability;
+exports.defaultUserAgent = defaultUserAgent;
 exports.emitWarningIfUnsupportedVersion = emitWarningIfUnsupportedVersion;
+exports.fallback = fallback;
+exports.getAwsRegionExtensionConfiguration = getAwsRegionExtensionConfiguration;
+exports.getHostHeaderPlugin = getHostHeaderPlugin;
+exports.getLoggerPlugin = getLoggerPlugin;
 exports.getLongPollPlugin = getLongPollPlugin;
+exports.getRecursionDetectionPlugin = getRecursionDetectionPlugin;
+exports.getUserAgentMiddlewareOptions = getUserAgentMiddlewareOptions;
+exports.getUserAgentPlugin = getUserAgentPlugin;
+exports.getUserAgentPrefix = getUserAgentPrefix;
+exports.hostHeaderMiddleware = hostHeaderMiddleware;
+exports.hostHeaderMiddlewareOptions = hostHeaderMiddlewareOptions;
+exports.isVirtualHostableS3Bucket = isVirtualHostableS3Bucket;
+exports.loggerMiddleware = loggerMiddleware;
+exports.loggerMiddlewareOptions = loggerMiddlewareOptions;
+exports.parseArn = parseArn;
+exports.partition = partition;
+exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
+exports.recursionDetectionMiddlewareOptions = recursionDetectionMiddlewareOptions;
+exports.resolveAwsRegionExtensionConfiguration = resolveAwsRegionExtensionConfiguration;
+exports.resolveDefaultAwsRegionalEndpointsConfig = resolveDefaultAwsRegionalEndpointsConfig;
+exports.resolveHostHeaderConfig = resolveHostHeaderConfig;
+exports.resolveUserAgentConfig = resolveUserAgentConfig;
 exports.setCredentialFeature = setCredentialFeature;
 exports.setFeature = setFeature;
+exports.setPartitionInfo = setPartitionInfo;
 exports.setTokenFeature = setTokenFeature;
 exports.state = state;
+exports.stsRegionDefaultResolver = stsRegionDefaultResolver;
+exports.stsRegionWarning = warning;
+exports.toEndpointV1 = toEndpointV1;
+exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
+exports.userAgentMiddleware = userAgentMiddleware;
 
 
 /***/ }),
 
-/***/ 4313:
+/***/ 3479:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(9526);
-var core = __nccwpck_require__(9715);
-var propertyProvider = __nccwpck_require__(7930);
-var client = __nccwpck_require__(7838);
-var signatureV4 = __nccwpck_require__(8512);
+var protocols = __nccwpck_require__(6051);
+var core = __nccwpck_require__(9741);
+var config = __nccwpck_require__(8208);
+var client = __nccwpck_require__(2596);
+var signatureV4 = __nccwpck_require__(1029);
 
-const getDateHeader = (response) => protocolHttp.HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : undefined;
+const getDateHeader = (response) => protocols.HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : undefined;
 
 const getSkewCorrectedDate = (systemClockOffset) => new Date(Date.now() + systemClockOffset);
 
@@ -6761,7 +7464,7 @@ const validateSigningProperties = async (signingProperties) => {
 };
 class AwsSdkSigV4Signer {
     async sign(httpRequest, identity, signingProperties) {
-        if (!protocolHttp.HttpRequest.isInstance(httpRequest)) {
+        if (!protocols.HttpRequest.isInstance(httpRequest)) {
             throw new Error("The request is not an instance of `HttpRequest` and cannot be signed");
         }
         const validatedProps = await validateSigningProperties(signingProperties);
@@ -6809,7 +7512,7 @@ const AWSSDKSigV4Signer = AwsSdkSigV4Signer;
 
 class AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
     async sign(httpRequest, identity, signingProperties) {
-        if (!protocolHttp.HttpRequest.isInstance(httpRequest)) {
+        if (!protocols.HttpRequest.isInstance(httpRequest)) {
             throw new Error("The request is not an instance of `HttpRequest` and cannot be signed");
         }
         const { config, signer, signingRegion, signingRegionSet, signingName } = await validateSigningProperties(signingProperties);
@@ -6859,7 +7562,7 @@ const NODE_SIGV4A_CONFIG_OPTIONS = {
         if (env.AWS_SIGV4A_SIGNING_REGION_SET) {
             return env.AWS_SIGV4A_SIGNING_REGION_SET.split(",").map((_) => _.trim());
         }
-        throw new propertyProvider.ProviderError("AWS_SIGV4A_SIGNING_REGION_SET not set in env.", {
+        throw new config.ProviderError("AWS_SIGV4A_SIGNING_REGION_SET not set in env.", {
             tryNextLink: true,
         });
     },
@@ -6867,7 +7570,7 @@ const NODE_SIGV4A_CONFIG_OPTIONS = {
         if (profile.sigv4a_signing_region_set) {
             return (profile.sigv4a_signing_region_set ?? "").split(",").map((_) => _.trim());
         }
-        throw new propertyProvider.ProviderError("sigv4a_signing_region_set not set in profile.", {
+        throw new config.ProviderError("sigv4a_signing_region_set not set in profile.", {
             tryNextLink: true,
         });
     },
@@ -7025,19 +7728,17 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 6122:
+/***/ 828:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var cbor = __nccwpck_require__(2088);
-var schema = __nccwpck_require__(6519);
-var smithyClient = __nccwpck_require__(3684);
-var protocols = __nccwpck_require__(7061);
-var serde = __nccwpck_require__(9429);
-var utilBase64 = __nccwpck_require__(3158);
-var utilUtf8 = __nccwpck_require__(8165);
-var xmlBuilder = __nccwpck_require__(7834);
+var cbor = __nccwpck_require__(4626);
+var schema = __nccwpck_require__(7393);
+var client = __nccwpck_require__(6045);
+var protocols = __nccwpck_require__(6051);
+var serde = __nccwpck_require__(7643);
+var xmlBuilder = __nccwpck_require__(7048);
 
 class ProtocolLib {
     queryCompat;
@@ -7122,7 +7823,7 @@ class ProtocolLib {
     decorateServiceException(exception, additions = {}) {
         if (this.queryCompat) {
             const msg = exception.Message ?? additions.Message;
-            const error = smithyClient.decorateServiceException(exception, additions);
+            const error = client.decorateServiceException(exception, additions);
             if (msg) {
                 error.message = msg;
             }
@@ -7137,7 +7838,7 @@ class ProtocolLib {
             }
             return error;
         }
-        return smithyClient.decorateServiceException(exception, additions);
+        return client.decorateServiceException(exception, additions);
     }
     setQueryCompatError(output, response) {
         const queryErrorHeader = response.headers?.["x-amzn-query-error"];
@@ -7210,7 +7911,7 @@ class AwsSmithyRpcV2CborProtocol extends cbor.SmithyRpcV2CborProtocol {
         const ns = schema.NormalizedSchema.of(errorSchema);
         const message = dataObject.message ?? dataObject.Message ?? "UnknownError";
         const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-        const exception = new ErrorCtor(message);
+        const exception = new ErrorCtor({});
         const output = {};
         for (const [name, member] of ns.structIterator()) {
             if (dataObject[name] != null) {
@@ -7329,7 +8030,7 @@ function jsonReviver(key, value, context) {
     return value;
 }
 
-const collectBodyString = (streamBody, context) => smithyClient.collectBody(streamBody, context).then((body) => (context?.utf8Encoder ?? utilUtf8.toUtf8)(body));
+const collectBodyString = (streamBody, context) => protocols.collectBody(streamBody, context).then((body) => (context?.utf8Encoder ?? serde.toUtf8)(body));
 
 const parseJsonBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -7353,7 +8054,7 @@ const parseJsonErrorBody = async (errorBody, context) => {
     return value;
 };
 const findKey = (object, key) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
-const sanitizeErrorCode = (rawValue) => {
+const sanitizeErrorCode = (rawValue, removeNamespace = true) => {
     let cleanValue = rawValue;
     if (typeof cleanValue === "number") {
         cleanValue = cleanValue.toString();
@@ -7364,23 +8065,38 @@ const sanitizeErrorCode = (rawValue) => {
     if (cleanValue.indexOf(":") >= 0) {
         cleanValue = cleanValue.split(":")[0];
     }
-    if (cleanValue.indexOf("#") >= 0) {
+    if (removeNamespace && cleanValue.indexOf("#") >= 0) {
         cleanValue = cleanValue.split("#")[1];
     }
     return cleanValue;
 };
 const loadRestJsonErrorCode = (output, data) => {
-    const headerKey = findKey(output.headers, "x-amzn-errortype");
-    if (headerKey !== undefined) {
-        return sanitizeErrorCode(output.headers[headerKey]);
-    }
-    if (data && typeof data === "object") {
-        const codeKey = findKey(data, "code");
-        if (codeKey && data[codeKey] !== undefined) {
-            return sanitizeErrorCode(data[codeKey]);
-        }
-        if (data["__type"] !== undefined) {
-            return sanitizeErrorCode(data["__type"]);
+    return loadErrorCode(output, data, true, ["header", "code", "type"]);
+};
+const loadJsonRpcErrorCode = (output, data, removeNamespace, queryCompat = false) => {
+    return loadErrorCode(output, data, removeNamespace, queryCompat ? ["code", "header", "type"] : ["type", "code", "header"]);
+};
+const loadErrorCode = ({ headers }, data, removeNamespace, order) => {
+    while (order.length > 0) {
+        const location = order.shift();
+        switch (location) {
+            case "header":
+                const headerKey = findKey(headers ?? {}, "x-amzn-errortype");
+                if (headerKey !== undefined) {
+                    return sanitizeErrorCode(headers[headerKey], removeNamespace);
+                }
+                break;
+            case "code":
+                const codeKey = findKey(data ?? {}, "code");
+                if (codeKey && data[codeKey] !== undefined) {
+                    return sanitizeErrorCode(data[codeKey], removeNamespace);
+                }
+                break;
+            case "type":
+                if (data?.__type !== undefined) {
+                    return sanitizeErrorCode(data.__type, removeNamespace);
+                }
+                break;
         }
     }
 };
@@ -7459,7 +8175,7 @@ class JsonShapeDeserializer extends SerdeContextConfig {
             }
         }
         if (ns.isBlobSchema() && typeof value === "string") {
-            return utilBase64.fromBase64(value);
+            return serde.fromBase64(value);
         }
         const mediaType = ns.getMergedTraits().mediaType;
         if (ns.isStringSchema() && typeof value === "string" && mediaType) {
@@ -7677,7 +8393,7 @@ class JsonShapeSerializer extends SerdeContextConfig {
                 if (ns === this.rootSchema) {
                     return value;
                 }
-                return (this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(value);
+                return (this.serdeContext?.base64Encoder ?? serde.toBase64)(value);
             }
             if (value instanceof Date && (ns.isTimestampSchema() || ns.isDocumentSchema())) {
                 const format = protocols.determineTimestampFormat(ns, this.settings);
@@ -7723,7 +8439,7 @@ class JsonShapeSerializer extends SerdeContextConfig {
             if (ns === this.rootSchema) {
                 return value;
             }
-            return (this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(value);
+            return (this.serdeContext?.base64Encoder ?? serde.toBase64)(value);
         }
         if (typeof value === "bigint") {
             this.useReplacer = true;
@@ -7815,16 +8531,17 @@ class AwsJsonRpcProtocol extends protocols.RpcProtocol {
         return this.codec;
     }
     async handleError(operationSchema, context, response, dataObject, metadata) {
-        if (this.awsQueryCompatible) {
+        const { awsQueryCompatible } = this;
+        if (awsQueryCompatible) {
             this.mixin.setQueryCompatError(dataObject, response);
         }
-        const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
+        const errorIdentifier = loadJsonRpcErrorCode(response, dataObject, this.getJsonRpcVersion() === "1.1", awsQueryCompatible) ?? "Unknown";
         this.mixin.compose(this.compositeErrorRegistry, errorIdentifier, this.options.defaultNamespace);
-        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata, this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined);
+        const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, dataObject, metadata, awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined);
         const ns = schema.NormalizedSchema.of(errorSchema);
         const message = dataObject.message ?? dataObject.Message ?? "UnknownError";
         const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-        const exception = new ErrorCtor(message);
+        const exception = new ErrorCtor({});
         const output = {};
         const errorDeserializer = this.codec.createDeserializer();
         for (const [name, member] of ns.structIterator()) {
@@ -7832,7 +8549,7 @@ class AwsJsonRpcProtocol extends protocols.RpcProtocol {
                 output[name] = errorDeserializer.readObject(member, dataObject[name]);
             }
         }
-        if (this.awsQueryCompatible) {
+        if (awsQueryCompatible) {
             this.mixin.queryCompatOutput(dataObject, output);
         }
         throw this.mixin.decorateServiceException(Object.assign(exception, errorMetadata, {
@@ -7947,7 +8664,7 @@ class AwsRestJsonProtocol extends protocols.HttpBindingProtocol {
         const ns = schema.NormalizedSchema.of(errorSchema);
         const message = dataObject.message ?? dataObject.Message ?? "UnknownError";
         const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-        const exception = new ErrorCtor(message);
+        const exception = new ErrorCtor({});
         await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
         const output = {};
         const errorDeserializer = this.codec.createDeserializer();
@@ -7972,7 +8689,7 @@ const awsExpectUnion = (value) => {
     if (typeof value === "object" && "__type" in value) {
         delete value.__type;
     }
-    return smithyClient.expectUnion(value);
+    return serde.expectUnion(value);
 };
 
 class XmlShapeDeserializer extends SerdeContextConfig {
@@ -8007,7 +8724,7 @@ class XmlShapeDeserializer extends SerdeContextConfig {
             }
             return output;
         }
-        const xmlString = (this.serdeContext?.utf8Encoder ?? utilUtf8.toUtf8)(bytes);
+        const xmlString = (this.serdeContext?.utf8Encoder ?? serde.toUtf8)(bytes);
         const parsedObject = this.parseXml(xmlString);
         return this.readSchema(schema$1, key ? parsedObject[key] : parsedObject);
     }
@@ -8116,7 +8833,7 @@ class XmlShapeDeserializer extends SerdeContextConfig {
                 parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
                 delete parsedObjToReturn[textNodeName];
             }
-            return smithyClient.getValueFromTextNode(parsedObjToReturn);
+            return client.getValueFromTextNode(parsedObjToReturn);
         }
         return {};
     }
@@ -8140,7 +8857,7 @@ class QueryShapeSerializer extends SerdeContextConfig {
         if (ns.isBlobSchema()) {
             if (typeof value === "string" || value instanceof Uint8Array) {
                 this.writeKey(prefix);
-                this.writeValue((this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(value));
+                this.writeValue((this.serdeContext?.base64Encoder ?? serde.toBase64)(value));
             }
         }
         else if (ns.isBooleanSchema() || ns.isNumericSchema() || ns.isStringSchema()) {
@@ -8174,7 +8891,7 @@ class QueryShapeSerializer extends SerdeContextConfig {
                         this.writeValue(value.toISOString().replace(".000Z", "Z"));
                         break;
                     case 6:
-                        this.writeValue(smithyClient.dateToUtcString(value));
+                        this.writeValue(serde.dateToUtcString(value));
                         break;
                     case 7:
                         this.writeValue(String(value.getTime() / 1000));
@@ -8398,7 +9115,7 @@ class AwsQueryProtocol extends protocols.RpcProtocol {
         const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(errorIdentifier, this.options.defaultNamespace, response, errorData, metadata, this.mixin.findQueryCompatibleError);
         const ns = schema.NormalizedSchema.of(errorSchema);
         const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-        const exception = new ErrorCtor(message);
+        const exception = new ErrorCtor({});
         const output = {
             Type: errorData.Error.Type,
             Code: errorData.Error.Code,
@@ -8477,7 +9194,7 @@ const parseXmlBody = (streamBody, context) => collectBodyString(streamBody, cont
             parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
             delete parsedObjToReturn[textNodeName];
         }
-        return smithyClient.getValueFromTextNode(parsedObjToReturn);
+        return client.getValueFromTextNode(parsedObjToReturn);
     }
     return {};
 });
@@ -8518,7 +9235,7 @@ class XmlShapeSerializer extends SerdeContextConfig {
             this.byteBuffer =
                 "byteLength" in value
                     ? value
-                    : (this.serdeContext?.base64Decoder ?? utilBase64.fromBase64)(value);
+                    : (this.serdeContext?.base64Decoder ?? serde.fromBase64)(value);
         }
         else {
             this.buffer = this.writeStruct(ns, value, undefined);
@@ -8722,7 +9439,7 @@ class XmlShapeSerializer extends SerdeContextConfig {
         let nodeContents = null;
         if (value && typeof value === "object") {
             if (ns.isBlobSchema()) {
-                nodeContents = (this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(value);
+                nodeContents = (this.serdeContext?.base64Encoder ?? serde.toBase64)(value);
             }
             else if (ns.isTimestampSchema() && value instanceof Date) {
                 const format = protocols.determineTimestampFormat(ns, this.settings);
@@ -8731,14 +9448,14 @@ class XmlShapeSerializer extends SerdeContextConfig {
                         nodeContents = value.toISOString().replace(".000Z", "Z");
                         break;
                     case 6:
-                        nodeContents = smithyClient.dateToUtcString(value);
+                        nodeContents = serde.dateToUtcString(value);
                         break;
                     case 7:
                         nodeContents = String(value.getTime() / 1000);
                         break;
                     default:
                         console.warn("Missing timestamp format, using http date", value);
-                        nodeContents = smithyClient.dateToUtcString(value);
+                        nodeContents = serde.dateToUtcString(value);
                         break;
                 }
             }
@@ -8877,7 +9594,7 @@ class AwsRestXmlProtocol extends protocols.HttpBindingProtocol {
             dataObject.Message ??
             "UnknownError";
         const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-        const exception = new ErrorCtor(message);
+        const exception = new ErrorCtor({});
         await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
         const output = {};
         const errorDeserializer = this.codec.createDeserializer();
@@ -8923,6 +9640,7 @@ exports._toBool = _toBool;
 exports._toNum = _toNum;
 exports._toStr = _toStr;
 exports.awsExpectUnion = awsExpectUnion;
+exports.loadJsonRpcErrorCode = loadJsonRpcErrorCode;
 exports.loadRestJsonErrorCode = loadRestJsonErrorCode;
 exports.loadRestXmlErrorCode = loadRestXmlErrorCode;
 exports.parseJsonBody = parseJsonBody;
@@ -8933,13 +9651,13 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 3659:
+/***/ 4404:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var client = __nccwpck_require__(7838);
-var propertyProvider = __nccwpck_require__(7930);
+var client = __nccwpck_require__(2596);
+var config = __nccwpck_require__(8208);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
 const ENV_SECRET = "AWS_SECRET_ACCESS_KEY";
@@ -8967,7 +9685,7 @@ const fromEnv = (init) => async () => {
         client.setCredentialFeature(credentials, "CREDENTIALS_ENV_VARS", "g");
         return credentials;
     }
-    throw new propertyProvider.CredentialsProviderError("Unable to find environment variable credentials.", { logger: init?.logger });
+    throw new config.CredentialsProviderError("Unable to find environment variable credentials.", { logger: init?.logger });
 };
 
 exports.ENV_ACCOUNT_ID = ENV_ACCOUNT_ID;
@@ -8981,26 +9699,25 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 2616:
+/***/ 4166:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var credentialProviderEnv = __nccwpck_require__(3659);
-var propertyProvider = __nccwpck_require__(7930);
-var sharedIniFileLoader = __nccwpck_require__(9498);
+var credentialProviderEnv = __nccwpck_require__(4404);
+var config = __nccwpck_require__(8208);
 
 const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 const remoteProvider = async (init) => {
-    const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 480).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9480, 19));
+    const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await __nccwpck_require__.e(/* import() */ 723).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2723, 19));
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 277).then(__nccwpck_require__.bind(__nccwpck_require__, 8277));
-        return propertyProvider.chain(fromHttp(init), fromContainerMetadata(init));
+        const { fromHttp } = await __nccwpck_require__.e(/* import() */ 200).then(__nccwpck_require__.t.bind(__nccwpck_require__, 6200, 19));
+        return config.chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
         return async () => {
-            throw new propertyProvider.CredentialsProviderError("EC2 Instance Metadata Service access disabled", { logger: init.logger });
+            throw new config.CredentialsProviderError("EC2 Instance Metadata Service access disabled", { logger: init.logger });
         };
     }
     init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromInstanceMetadata");
@@ -9071,7 +9788,7 @@ const internalCreateChain = (providers) => async (awsIdentityProperties) => {
 let multipleCredentialSourceWarningEmitted = false;
 const defaultProvider = (init = {}) => memoizeChain([
     async () => {
-        const profile = init.profile ?? process.env[sharedIniFileLoader.ENV_PROFILE];
+        const profile = init.profile ?? process.env[config.ENV_PROFILE];
         if (profile) {
             const envStaticCredentialsAreSet = process.env[credentialProviderEnv.ENV_KEY] && process.env[credentialProviderEnv.ENV_SECRET];
             if (envStaticCredentialsAreSet) {
@@ -9091,7 +9808,7 @@ const defaultProvider = (init = {}) => memoizeChain([
                     multipleCredentialSourceWarningEmitted = true;
                 }
             }
-            throw new propertyProvider.CredentialsProviderError("AWS_PROFILE is set, skipping fromEnv provider.", {
+            throw new config.CredentialsProviderError("AWS_PROFILE is set, skipping fromEnv provider.", {
                 logger: init.logger,
                 tryNextLink: true,
             });
@@ -9103,24 +9820,24 @@ const defaultProvider = (init = {}) => memoizeChain([
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
         const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
-            throw new propertyProvider.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
+            throw new config.CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 15).then(__nccwpck_require__.t.bind(__nccwpck_require__, 8015, 19));
+        const { fromSSO } = await __nccwpck_require__.e(/* import() */ 195).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7195, 19));
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = await __nccwpck_require__.e(/* import() */ 981).then(__nccwpck_require__.t.bind(__nccwpck_require__, 981, 19));
+        const { fromIni } = await __nccwpck_require__.e(/* import() */ 465).then(__nccwpck_require__.t.bind(__nccwpck_require__, 6465, 19));
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 443).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7443, 19));
+        const { fromProcess } = await __nccwpck_require__.e(/* import() */ 908).then(__nccwpck_require__.t.bind(__nccwpck_require__, 4908, 19));
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = await Promise.all(/* import() */[__nccwpck_require__.e(886), __nccwpck_require__.e(855)]).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2855, 23));
+        const { fromTokenFile } = await __nccwpck_require__.e(/* import() */ 211).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1211, 23));
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -9128,7 +9845,7 @@ const defaultProvider = (init = {}) => memoizeChain([
         return (await remoteProvider(init))();
     },
     async () => {
-        throw new propertyProvider.CredentialsProviderError("Could not load credentials from any providers", {
+        throw new config.CredentialsProviderError("Could not load credentials from any providers", {
             tryNextLink: false,
             logger: init.logger,
         });
@@ -9144,1069 +9861,12 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 5333:
+/***/ 7048:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(9526);
-
-function resolveHostHeaderConfig(input) {
-    return input;
-}
-const hostHeaderMiddleware = (options) => (next) => async (args) => {
-    if (!protocolHttp.HttpRequest.isInstance(args.request))
-        return next(args);
-    const { request } = args;
-    const { handlerProtocol = "" } = options.requestHandler.metadata || {};
-    if (handlerProtocol.indexOf("h2") >= 0 && !request.headers[":authority"]) {
-        delete request.headers["host"];
-        request.headers[":authority"] = request.hostname + (request.port ? ":" + request.port : "");
-    }
-    else if (!request.headers["host"]) {
-        let host = request.hostname;
-        if (request.port != null)
-            host += `:${request.port}`;
-        request.headers["host"] = host;
-    }
-    return next(args);
-};
-const hostHeaderMiddlewareOptions = {
-    name: "hostHeaderMiddleware",
-    step: "build",
-    priority: "low",
-    tags: ["HOST"],
-    override: true,
-};
-const getHostHeaderPlugin = (options) => ({
-    applyToStack: (clientStack) => {
-        clientStack.add(hostHeaderMiddleware(options), hostHeaderMiddlewareOptions);
-    },
-});
-
-exports.getHostHeaderPlugin = getHostHeaderPlugin;
-exports.hostHeaderMiddleware = hostHeaderMiddleware;
-exports.hostHeaderMiddlewareOptions = hostHeaderMiddlewareOptions;
-exports.resolveHostHeaderConfig = resolveHostHeaderConfig;
-
-
-/***/ }),
-
-/***/ 1721:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const loggerMiddleware = () => (next, context) => async (args) => {
-    try {
-        const response = await next(args);
-        const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
-        const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
-        const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
-        const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog ?? context.outputFilterSensitiveLog;
-        const { $metadata, ...outputWithoutMetadata } = response.output;
-        logger?.info?.({
-            clientName,
-            commandName,
-            input: inputFilterSensitiveLog(args.input),
-            output: outputFilterSensitiveLog(outputWithoutMetadata),
-            metadata: $metadata,
-        });
-        return response;
-    }
-    catch (error) {
-        const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
-        const { overrideInputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
-        const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
-        logger?.error?.({
-            clientName,
-            commandName,
-            input: inputFilterSensitiveLog(args.input),
-            error,
-            metadata: error.$metadata,
-        });
-        throw error;
-    }
-};
-const loggerMiddlewareOptions = {
-    name: "loggerMiddleware",
-    tags: ["LOGGER"],
-    step: "initialize",
-    override: true,
-};
-const getLoggerPlugin = (options) => ({
-    applyToStack: (clientStack) => {
-        clientStack.add(loggerMiddleware(), loggerMiddlewareOptions);
-    },
-});
-
-exports.getLoggerPlugin = getLoggerPlugin;
-exports.loggerMiddleware = loggerMiddleware;
-exports.loggerMiddlewareOptions = loggerMiddlewareOptions;
-
-
-/***/ }),
-
-/***/ 7350:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var recursionDetectionMiddleware = __nccwpck_require__(2339);
-
-const recursionDetectionMiddlewareOptions = {
-    step: "build",
-    tags: ["RECURSION_DETECTION"],
-    name: "recursionDetectionMiddleware",
-    override: true,
-    priority: "low",
-};
-
-const getRecursionDetectionPlugin = (options) => ({
-    applyToStack: (clientStack) => {
-        clientStack.add(recursionDetectionMiddleware.recursionDetectionMiddleware(), recursionDetectionMiddlewareOptions);
-    },
-});
-
-exports.getRecursionDetectionPlugin = getRecursionDetectionPlugin;
-Object.prototype.hasOwnProperty.call(recursionDetectionMiddleware, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: recursionDetectionMiddleware['__proto__']
-    });
-
-Object.keys(recursionDetectionMiddleware).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = recursionDetectionMiddleware[k];
-});
-
-
-/***/ }),
-
-/***/ 2339:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.recursionDetectionMiddleware = void 0;
-const lambda_invoke_store_1 = __nccwpck_require__(2017);
-const protocol_http_1 = __nccwpck_require__(9526);
-const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
-const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
-const ENV_TRACE_ID = "_X_AMZN_TRACE_ID";
-const recursionDetectionMiddleware = () => (next) => async (args) => {
-    const { request } = args;
-    if (!protocol_http_1.HttpRequest.isInstance(request)) {
-        return next(args);
-    }
-    const traceIdHeader = Object.keys(request.headers ?? {}).find((h) => h.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()) ??
-        TRACE_ID_HEADER_NAME;
-    if (request.headers.hasOwnProperty(traceIdHeader)) {
-        return next(args);
-    }
-    const functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
-    const traceIdFromEnv = process.env[ENV_TRACE_ID];
-    const invokeStore = await lambda_invoke_store_1.InvokeStore.getInstanceAsync();
-    const traceIdFromInvokeStore = invokeStore?.getXRayTraceId();
-    const traceId = traceIdFromInvokeStore ?? traceIdFromEnv;
-    const nonEmptyString = (str) => typeof str === "string" && str.length > 0;
-    if (nonEmptyString(functionName) && nonEmptyString(traceId)) {
-        request.headers[TRACE_ID_HEADER_NAME] = traceId;
-    }
-    return next({
-        ...args,
-        request,
-    });
-};
-exports.recursionDetectionMiddleware = recursionDetectionMiddleware;
-
-
-/***/ }),
-
-/***/ 3809:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var core = __nccwpck_require__(9715);
-var utilEndpoints = __nccwpck_require__(1982);
-var protocolHttp = __nccwpck_require__(9526);
-var client = __nccwpck_require__(7838);
-var utilRetry = __nccwpck_require__(9600);
-
-const DEFAULT_UA_APP_ID = undefined;
-function isValidUserAgentAppId(appId) {
-    if (appId === undefined) {
-        return true;
-    }
-    return typeof appId === "string" && appId.length <= 50;
-}
-function resolveUserAgentConfig(input) {
-    const normalizedAppIdProvider = core.normalizeProvider(input.userAgentAppId ?? DEFAULT_UA_APP_ID);
-    const { customUserAgent } = input;
-    return Object.assign(input, {
-        customUserAgent: typeof customUserAgent === "string" ? [[customUserAgent]] : customUserAgent,
-        userAgentAppId: async () => {
-            const appId = await normalizedAppIdProvider();
-            if (!isValidUserAgentAppId(appId)) {
-                const logger = input.logger?.constructor?.name === "NoOpLogger" || !input.logger ? console : input.logger;
-                if (typeof appId !== "string") {
-                    logger?.warn("userAgentAppId must be a string or undefined.");
-                }
-                else if (appId.length > 50) {
-                    logger?.warn("The provided userAgentAppId exceeds the maximum length of 50 characters.");
-                }
-            }
-            return appId;
-        },
-    });
-}
-
-const ACCOUNT_ID_ENDPOINT_REGEX = /\d{12}\.ddb/;
-async function checkFeatures(context, config, args) {
-    const request = args.request;
-    if (request?.headers?.["smithy-protocol"] === "rpc-v2-cbor") {
-        client.setFeature(context, "PROTOCOL_RPC_V2_CBOR", "M");
-    }
-    if (typeof config.retryStrategy === "function") {
-        const retryStrategy = await config.retryStrategy();
-        if (typeof retryStrategy.mode === "string") {
-            switch (retryStrategy.mode) {
-                case utilRetry.RETRY_MODES.ADAPTIVE:
-                    client.setFeature(context, "RETRY_MODE_ADAPTIVE", "F");
-                    break;
-                case utilRetry.RETRY_MODES.STANDARD:
-                    client.setFeature(context, "RETRY_MODE_STANDARD", "E");
-                    break;
-            }
-        }
-    }
-    if (typeof config.accountIdEndpointMode === "function") {
-        const endpointV2 = context.endpointV2;
-        if (String(endpointV2?.url?.hostname).match(ACCOUNT_ID_ENDPOINT_REGEX)) {
-            client.setFeature(context, "ACCOUNT_ID_ENDPOINT", "O");
-        }
-        switch (await config.accountIdEndpointMode?.()) {
-            case "disabled":
-                client.setFeature(context, "ACCOUNT_ID_MODE_DISABLED", "Q");
-                break;
-            case "preferred":
-                client.setFeature(context, "ACCOUNT_ID_MODE_PREFERRED", "P");
-                break;
-            case "required":
-                client.setFeature(context, "ACCOUNT_ID_MODE_REQUIRED", "R");
-                break;
-        }
-    }
-    const identity = context.__smithy_context?.selectedHttpAuthScheme?.identity;
-    if (identity?.$source) {
-        const credentials = identity;
-        if (credentials.accountId) {
-            client.setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
-        }
-        for (const [key, value] of Object.entries(credentials.$source ?? {})) {
-            client.setFeature(context, key, value);
-        }
-    }
-}
-
-const USER_AGENT = "user-agent";
-const X_AMZ_USER_AGENT = "x-amz-user-agent";
-const SPACE = " ";
-const UA_NAME_SEPARATOR = "/";
-const UA_NAME_ESCAPE_REGEX = /[^!$%&'*+\-.^_`|~\w]/g;
-const UA_VALUE_ESCAPE_REGEX = /[^!$%&'*+\-.^_`|~\w#]/g;
-const UA_ESCAPE_CHAR = "-";
-
-const BYTE_LIMIT = 1024;
-function encodeFeatures(features) {
-    let buffer = "";
-    for (const key in features) {
-        const val = features[key];
-        if (buffer.length + val.length + 1 <= BYTE_LIMIT) {
-            if (buffer.length) {
-                buffer += "," + val;
-            }
-            else {
-                buffer += val;
-            }
-            continue;
-        }
-        break;
-    }
-    return buffer;
-}
-
-const userAgentMiddleware = (options) => (next, context) => async (args) => {
-    const { request } = args;
-    if (!protocolHttp.HttpRequest.isInstance(request)) {
-        return next(args);
-    }
-    const { headers } = request;
-    const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
-    const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
-    await checkFeatures(context, options, args);
-    const awsContext = context;
-    defaultUserAgent.push(`m/${encodeFeatures(Object.assign({}, context.__smithy_context?.features, awsContext.__aws_sdk_context?.features))}`);
-    const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
-    const appId = await options.userAgentAppId();
-    if (appId) {
-        defaultUserAgent.push(escapeUserAgent([`app`, `${appId}`]));
-    }
-    const prefix = utilEndpoints.getUserAgentPrefix();
-    const sdkUserAgentValue = (prefix ? [prefix] : [])
-        .concat([...defaultUserAgent, ...userAgent, ...customUserAgent])
-        .join(SPACE);
-    const normalUAValue = [
-        ...defaultUserAgent.filter((section) => section.startsWith("aws-sdk-")),
-        ...customUserAgent,
-    ].join(SPACE);
-    if (options.runtime !== "browser") {
-        if (normalUAValue) {
-            headers[X_AMZ_USER_AGENT] = headers[X_AMZ_USER_AGENT]
-                ? `${headers[USER_AGENT]} ${normalUAValue}`
-                : normalUAValue;
-        }
-        headers[USER_AGENT] = sdkUserAgentValue;
-    }
-    else {
-        headers[X_AMZ_USER_AGENT] = sdkUserAgentValue;
-    }
-    return next({
-        ...args,
-        request,
-    });
-};
-const escapeUserAgent = (userAgentPair) => {
-    const name = userAgentPair[0]
-        .split(UA_NAME_SEPARATOR)
-        .map((part) => part.replace(UA_NAME_ESCAPE_REGEX, UA_ESCAPE_CHAR))
-        .join(UA_NAME_SEPARATOR);
-    const version = userAgentPair[1]?.replace(UA_VALUE_ESCAPE_REGEX, UA_ESCAPE_CHAR);
-    const prefixSeparatorIndex = name.indexOf(UA_NAME_SEPARATOR);
-    const prefix = name.substring(0, prefixSeparatorIndex);
-    let uaName = name.substring(prefixSeparatorIndex + 1);
-    if (prefix === "api") {
-        uaName = uaName.toLowerCase();
-    }
-    return [prefix, uaName, version]
-        .filter((item) => item && item.length > 0)
-        .reduce((acc, item, index) => {
-        switch (index) {
-            case 0:
-                return item;
-            case 1:
-                return `${acc}/${item}`;
-            default:
-                return `${acc}#${item}`;
-        }
-    }, "");
-};
-const getUserAgentMiddlewareOptions = {
-    name: "getUserAgentMiddleware",
-    step: "build",
-    priority: "low",
-    tags: ["SET_USER_AGENT", "USER_AGENT"],
-    override: true,
-};
-const getUserAgentPlugin = (config) => ({
-    applyToStack: (clientStack) => {
-        clientStack.add(userAgentMiddleware(config), getUserAgentMiddlewareOptions);
-    },
-});
-
-exports.DEFAULT_UA_APP_ID = DEFAULT_UA_APP_ID;
-exports.getUserAgentMiddlewareOptions = getUserAgentMiddlewareOptions;
-exports.getUserAgentPlugin = getUserAgentPlugin;
-exports.resolveUserAgentConfig = resolveUserAgentConfig;
-exports.userAgentMiddleware = userAgentMiddleware;
-
-
-/***/ }),
-
-/***/ 3140:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var stsRegionDefaultResolver = __nccwpck_require__(8516);
-var configResolver = __nccwpck_require__(9785);
-
-const getAwsRegionExtensionConfiguration = (runtimeConfig) => {
-    return {
-        setRegion(region) {
-            runtimeConfig.region = region;
-        },
-        region() {
-            return runtimeConfig.region;
-        },
-    };
-};
-const resolveAwsRegionExtensionConfiguration = (awsRegionExtensionConfiguration) => {
-    return {
-        region: awsRegionExtensionConfiguration.region(),
-    };
-};
-
-exports.NODE_REGION_CONFIG_FILE_OPTIONS = configResolver.NODE_REGION_CONFIG_FILE_OPTIONS;
-exports.NODE_REGION_CONFIG_OPTIONS = configResolver.NODE_REGION_CONFIG_OPTIONS;
-exports.REGION_ENV_NAME = configResolver.REGION_ENV_NAME;
-exports.REGION_INI_NAME = configResolver.REGION_INI_NAME;
-exports.resolveRegionConfig = configResolver.resolveRegionConfig;
-exports.getAwsRegionExtensionConfiguration = getAwsRegionExtensionConfiguration;
-exports.resolveAwsRegionExtensionConfiguration = resolveAwsRegionExtensionConfiguration;
-Object.prototype.hasOwnProperty.call(stsRegionDefaultResolver, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: stsRegionDefaultResolver['__proto__']
-    });
-
-Object.keys(stsRegionDefaultResolver).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = stsRegionDefaultResolver[k];
-});
-
-
-/***/ }),
-
-/***/ 8516:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.warning = void 0;
-exports.stsRegionDefaultResolver = stsRegionDefaultResolver;
-const config_resolver_1 = __nccwpck_require__(9785);
-const node_config_provider_1 = __nccwpck_require__(1275);
-function stsRegionDefaultResolver(loaderConfig = {}) {
-    return (0, node_config_provider_1.loadConfig)({
-        ...config_resolver_1.NODE_REGION_CONFIG_OPTIONS,
-        async default() {
-            if (!exports.warning.silence) {
-                console.warn("@aws-sdk - WARN - default STS region of us-east-1 used. See @aws-sdk/credential-providers README and set a region explicitly.");
-            }
-            return "us-east-1";
-        },
-    }, { ...config_resolver_1.NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig });
-}
-exports.warning = {
-    silence: false,
-};
-
-
-/***/ }),
-
-/***/ 1982:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var utilEndpoints = __nccwpck_require__(5606);
-var urlParser = __nccwpck_require__(948);
-
-const isVirtualHostableS3Bucket = (value, allowSubDomains = false) => {
-    if (allowSubDomains) {
-        for (const label of value.split(".")) {
-            if (!isVirtualHostableS3Bucket(label)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    if (!utilEndpoints.isValidHostLabel(value)) {
-        return false;
-    }
-    if (value.length < 3 || value.length > 63) {
-        return false;
-    }
-    if (value !== value.toLowerCase()) {
-        return false;
-    }
-    if (utilEndpoints.isIpAddress(value)) {
-        return false;
-    }
-    return true;
-};
-
-const ARN_DELIMITER = ":";
-const RESOURCE_DELIMITER = "/";
-const parseArn = (value) => {
-    const segments = value.split(ARN_DELIMITER);
-    if (segments.length < 6)
-        return null;
-    const [arn, partition, service, region, accountId, ...resourcePath] = segments;
-    if (arn !== "arn" || partition === "" || service === "" || resourcePath.join(ARN_DELIMITER) === "")
-        return null;
-    const resourceId = resourcePath.map((resource) => resource.split(RESOURCE_DELIMITER)).flat();
-    return {
-        partition,
-        service,
-        region,
-        accountId,
-        resourceId,
-    };
-};
-
-var partitions = [
-	{
-		id: "aws",
-		outputs: {
-			dnsSuffix: "amazonaws.com",
-			dualStackDnsSuffix: "api.aws",
-			implicitGlobalRegion: "us-east-1",
-			name: "aws",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^(us|eu|ap|sa|ca|me|af|il|mx)\\-\\w+\\-\\d+$",
-		regions: {
-			"af-south-1": {
-				description: "Africa (Cape Town)"
-			},
-			"ap-east-1": {
-				description: "Asia Pacific (Hong Kong)"
-			},
-			"ap-east-2": {
-				description: "Asia Pacific (Taipei)"
-			},
-			"ap-northeast-1": {
-				description: "Asia Pacific (Tokyo)"
-			},
-			"ap-northeast-2": {
-				description: "Asia Pacific (Seoul)"
-			},
-			"ap-northeast-3": {
-				description: "Asia Pacific (Osaka)"
-			},
-			"ap-south-1": {
-				description: "Asia Pacific (Mumbai)"
-			},
-			"ap-south-2": {
-				description: "Asia Pacific (Hyderabad)"
-			},
-			"ap-southeast-1": {
-				description: "Asia Pacific (Singapore)"
-			},
-			"ap-southeast-2": {
-				description: "Asia Pacific (Sydney)"
-			},
-			"ap-southeast-3": {
-				description: "Asia Pacific (Jakarta)"
-			},
-			"ap-southeast-4": {
-				description: "Asia Pacific (Melbourne)"
-			},
-			"ap-southeast-5": {
-				description: "Asia Pacific (Malaysia)"
-			},
-			"ap-southeast-6": {
-				description: "Asia Pacific (New Zealand)"
-			},
-			"ap-southeast-7": {
-				description: "Asia Pacific (Thailand)"
-			},
-			"aws-global": {
-				description: "aws global region"
-			},
-			"ca-central-1": {
-				description: "Canada (Central)"
-			},
-			"ca-west-1": {
-				description: "Canada West (Calgary)"
-			},
-			"eu-central-1": {
-				description: "Europe (Frankfurt)"
-			},
-			"eu-central-2": {
-				description: "Europe (Zurich)"
-			},
-			"eu-north-1": {
-				description: "Europe (Stockholm)"
-			},
-			"eu-south-1": {
-				description: "Europe (Milan)"
-			},
-			"eu-south-2": {
-				description: "Europe (Spain)"
-			},
-			"eu-west-1": {
-				description: "Europe (Ireland)"
-			},
-			"eu-west-2": {
-				description: "Europe (London)"
-			},
-			"eu-west-3": {
-				description: "Europe (Paris)"
-			},
-			"il-central-1": {
-				description: "Israel (Tel Aviv)"
-			},
-			"me-central-1": {
-				description: "Middle East (UAE)"
-			},
-			"me-south-1": {
-				description: "Middle East (Bahrain)"
-			},
-			"mx-central-1": {
-				description: "Mexico (Central)"
-			},
-			"sa-east-1": {
-				description: "South America (Sao Paulo)"
-			},
-			"us-east-1": {
-				description: "US East (N. Virginia)"
-			},
-			"us-east-2": {
-				description: "US East (Ohio)"
-			},
-			"us-west-1": {
-				description: "US West (N. California)"
-			},
-			"us-west-2": {
-				description: "US West (Oregon)"
-			}
-		}
-	},
-	{
-		id: "aws-cn",
-		outputs: {
-			dnsSuffix: "amazonaws.com.cn",
-			dualStackDnsSuffix: "api.amazonwebservices.com.cn",
-			implicitGlobalRegion: "cn-northwest-1",
-			name: "aws-cn",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^cn\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-cn-global": {
-				description: "aws-cn global region"
-			},
-			"cn-north-1": {
-				description: "China (Beijing)"
-			},
-			"cn-northwest-1": {
-				description: "China (Ningxia)"
-			}
-		}
-	},
-	{
-		id: "aws-eusc",
-		outputs: {
-			dnsSuffix: "amazonaws.eu",
-			dualStackDnsSuffix: "api.amazonwebservices.eu",
-			implicitGlobalRegion: "eusc-de-east-1",
-			name: "aws-eusc",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^eusc\\-(de)\\-\\w+\\-\\d+$",
-		regions: {
-			"eusc-de-east-1": {
-				description: "AWS European Sovereign Cloud (Germany)"
-			}
-		}
-	},
-	{
-		id: "aws-iso",
-		outputs: {
-			dnsSuffix: "c2s.ic.gov",
-			dualStackDnsSuffix: "api.aws.ic.gov",
-			implicitGlobalRegion: "us-iso-east-1",
-			name: "aws-iso",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-iso-global": {
-				description: "aws-iso global region"
-			},
-			"us-iso-east-1": {
-				description: "US ISO East"
-			},
-			"us-iso-west-1": {
-				description: "US ISO WEST"
-			}
-		}
-	},
-	{
-		id: "aws-iso-b",
-		outputs: {
-			dnsSuffix: "sc2s.sgov.gov",
-			dualStackDnsSuffix: "api.aws.scloud",
-			implicitGlobalRegion: "us-isob-east-1",
-			name: "aws-iso-b",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-iso-b-global": {
-				description: "aws-iso-b global region"
-			},
-			"us-isob-east-1": {
-				description: "US ISOB East (Ohio)"
-			},
-			"us-isob-west-1": {
-				description: "US ISOB West"
-			}
-		}
-	},
-	{
-		id: "aws-iso-e",
-		outputs: {
-			dnsSuffix: "cloud.adc-e.uk",
-			dualStackDnsSuffix: "api.cloud-aws.adc-e.uk",
-			implicitGlobalRegion: "eu-isoe-west-1",
-			name: "aws-iso-e",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^eu\\-isoe\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-iso-e-global": {
-				description: "aws-iso-e global region"
-			},
-			"eu-isoe-west-1": {
-				description: "EU ISOE West"
-			}
-		}
-	},
-	{
-		id: "aws-iso-f",
-		outputs: {
-			dnsSuffix: "csp.hci.ic.gov",
-			dualStackDnsSuffix: "api.aws.hci.ic.gov",
-			implicitGlobalRegion: "us-isof-south-1",
-			name: "aws-iso-f",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^us\\-isof\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-iso-f-global": {
-				description: "aws-iso-f global region"
-			},
-			"us-isof-east-1": {
-				description: "US ISOF EAST"
-			},
-			"us-isof-south-1": {
-				description: "US ISOF SOUTH"
-			}
-		}
-	},
-	{
-		id: "aws-us-gov",
-		outputs: {
-			dnsSuffix: "amazonaws.com",
-			dualStackDnsSuffix: "api.aws",
-			implicitGlobalRegion: "us-gov-west-1",
-			name: "aws-us-gov",
-			supportsDualStack: true,
-			supportsFIPS: true
-		},
-		regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-		regions: {
-			"aws-us-gov-global": {
-				description: "aws-us-gov global region"
-			},
-			"us-gov-east-1": {
-				description: "AWS GovCloud (US-East)"
-			},
-			"us-gov-west-1": {
-				description: "AWS GovCloud (US-West)"
-			}
-		}
-	}
-];
-var version = "1.1";
-var partitionsInfo = {
-	partitions: partitions,
-	version: version
-};
-
-let selectedPartitionsInfo = partitionsInfo;
-let selectedUserAgentPrefix = "";
-const partition = (value) => {
-    const { partitions } = selectedPartitionsInfo;
-    for (const partition of partitions) {
-        const { regions, outputs } = partition;
-        for (const [region, regionData] of Object.entries(regions)) {
-            if (region === value) {
-                return {
-                    ...outputs,
-                    ...regionData,
-                };
-            }
-        }
-    }
-    for (const partition of partitions) {
-        const { regionRegex, outputs } = partition;
-        if (new RegExp(regionRegex).test(value)) {
-            return {
-                ...outputs,
-            };
-        }
-    }
-    const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws");
-    if (!DEFAULT_PARTITION) {
-        throw new Error("Provided region was not found in the partition array or regex," +
-            " and default partition with id 'aws' doesn't exist.");
-    }
-    return {
-        ...DEFAULT_PARTITION.outputs,
-    };
-};
-const setPartitionInfo = (partitionsInfo, userAgentPrefix = "") => {
-    selectedPartitionsInfo = partitionsInfo;
-    selectedUserAgentPrefix = userAgentPrefix;
-};
-const useDefaultPartitionInfo = () => {
-    setPartitionInfo(partitionsInfo, "");
-};
-const getUserAgentPrefix = () => selectedUserAgentPrefix;
-
-const awsEndpointFunctions = {
-    isVirtualHostableS3Bucket: isVirtualHostableS3Bucket,
-    parseArn: parseArn,
-    partition: partition,
-};
-utilEndpoints.customEndpointFunctions.aws = awsEndpointFunctions;
-
-const resolveDefaultAwsRegionalEndpointsConfig = (input) => {
-    if (typeof input.endpointProvider !== "function") {
-        throw new Error("@aws-sdk/util-endpoint - endpointProvider and endpoint missing in config for this client.");
-    }
-    const { endpoint } = input;
-    if (endpoint === undefined) {
-        input.endpoint = async () => {
-            return toEndpointV1(input.endpointProvider({
-                Region: typeof input.region === "function" ? await input.region() : input.region,
-                UseDualStack: typeof input.useDualstackEndpoint === "function"
-                    ? await input.useDualstackEndpoint()
-                    : input.useDualstackEndpoint,
-                UseFIPS: typeof input.useFipsEndpoint === "function" ? await input.useFipsEndpoint() : input.useFipsEndpoint,
-                Endpoint: undefined,
-            }, { logger: input.logger }));
-        };
-    }
-    return input;
-};
-const toEndpointV1 = (endpoint) => urlParser.parseUrl(endpoint.url);
-
-exports.EndpointError = utilEndpoints.EndpointError;
-exports.isIpAddress = utilEndpoints.isIpAddress;
-exports.resolveEndpoint = utilEndpoints.resolveEndpoint;
-exports.awsEndpointFunctions = awsEndpointFunctions;
-exports.getUserAgentPrefix = getUserAgentPrefix;
-exports.partition = partition;
-exports.resolveDefaultAwsRegionalEndpointsConfig = resolveDefaultAwsRegionalEndpointsConfig;
-exports.setPartitionInfo = setPartitionInfo;
-exports.toEndpointV1 = toEndpointV1;
-exports.useDefaultPartitionInfo = useDefaultPartitionInfo;
-
-
-/***/ }),
-
-/***/ 1199:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var node_os = __nccwpck_require__(8161);
-var node_process = __nccwpck_require__(1708);
-var utilConfigProvider = __nccwpck_require__(7883);
-var promises = __nccwpck_require__(1455);
-var node_path = __nccwpck_require__(6760);
-var middlewareUserAgent = __nccwpck_require__(3809);
-
-const getRuntimeUserAgentPair = () => {
-    const runtimesToCheck = ["deno", "bun", "llrt"];
-    for (const runtime of runtimesToCheck) {
-        if (node_process.versions[runtime]) {
-            return [`md/${runtime}`, node_process.versions[runtime]];
-        }
-    }
-    return ["md/nodejs", node_process.versions.node];
-};
-
-const getNodeModulesParentDirs = (dirname) => {
-    const cwd = process.cwd();
-    if (!dirname) {
-        return [cwd];
-    }
-    const normalizedPath = node_path.normalize(dirname);
-    const parts = normalizedPath.split(node_path.sep);
-    const nodeModulesIndex = parts.indexOf("node_modules");
-    const parentDir = nodeModulesIndex !== -1 ? parts.slice(0, nodeModulesIndex).join(node_path.sep) : normalizedPath;
-    if (cwd === parentDir) {
-        return [cwd];
-    }
-    return [parentDir, cwd];
-};
-
-const SEMVER_REGEX = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*)?$/;
-const getSanitizedTypeScriptVersion = (version = "") => {
-    const match = version.match(SEMVER_REGEX);
-    if (!match) {
-        return undefined;
-    }
-    const [major, minor, patch, prerelease] = [match[1], match[2], match[3], match[4]];
-    return prerelease ? `${major}.${minor}.${patch}-${prerelease}` : `${major}.${minor}.${patch}`;
-};
-
-const ALLOWED_PREFIXES = ["^", "~", ">=", "<=", ">", "<"];
-const ALLOWED_DIST_TAGS = ["latest", "beta", "dev", "rc", "insiders", "next"];
-const getSanitizedDevTypeScriptVersion = (version = "") => {
-    if (ALLOWED_DIST_TAGS.includes(version)) {
-        return version;
-    }
-    const prefix = ALLOWED_PREFIXES.find((p) => version.startsWith(p)) ?? "";
-    const sanitizedTypeScriptVersion = getSanitizedTypeScriptVersion(version.slice(prefix.length));
-    if (!sanitizedTypeScriptVersion) {
-        return undefined;
-    }
-    return `${prefix}${sanitizedTypeScriptVersion}`;
-};
-
-let tscVersion;
-const TS_PACKAGE_JSON = node_path.join("node_modules", "typescript", "package.json");
-const getTypeScriptUserAgentPair = async () => {
-    if (tscVersion === null) {
-        return undefined;
-    }
-    else if (typeof tscVersion === "string") {
-        return ["md/tsc", tscVersion];
-    }
-    let isTypeScriptDetectionDisabled = false;
-    try {
-        isTypeScriptDetectionDisabled =
-            utilConfigProvider.booleanSelector(process.env, "AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED", utilConfigProvider.SelectorType.ENV) || false;
-    }
-    catch { }
-    if (isTypeScriptDetectionDisabled) {
-        tscVersion = null;
-        return undefined;
-    }
-    const dirname = typeof __dirname !== "undefined" ? __dirname : undefined;
-    const nodeModulesParentDirs = getNodeModulesParentDirs(dirname);
-    let versionFromApp;
-    for (const nodeModulesParentDir of nodeModulesParentDirs) {
-        try {
-            const appPackageJsonPath = node_path.join(nodeModulesParentDir, "package.json");
-            const packageJson = await promises.readFile(appPackageJsonPath, "utf-8");
-            const { dependencies, devDependencies } = JSON.parse(packageJson);
-            const version = devDependencies?.typescript ?? dependencies?.typescript;
-            if (typeof version !== "string") {
-                continue;
-            }
-            versionFromApp = version;
-            break;
-        }
-        catch {
-        }
-    }
-    if (!versionFromApp) {
-        tscVersion = null;
-        return undefined;
-    }
-    let versionFromNodeModules;
-    for (const nodeModulesParentDir of nodeModulesParentDirs) {
-        try {
-            const tsPackageJsonPath = node_path.join(nodeModulesParentDir, TS_PACKAGE_JSON);
-            const packageJson = await promises.readFile(tsPackageJsonPath, "utf-8");
-            const { version } = JSON.parse(packageJson);
-            const sanitizedVersion = getSanitizedTypeScriptVersion(version);
-            if (typeof sanitizedVersion !== "string") {
-                continue;
-            }
-            versionFromNodeModules = sanitizedVersion;
-            break;
-        }
-        catch {
-        }
-    }
-    if (versionFromNodeModules) {
-        tscVersion = versionFromNodeModules;
-        return ["md/tsc", tscVersion];
-    }
-    const sanitizedVersion = getSanitizedDevTypeScriptVersion(versionFromApp);
-    if (typeof sanitizedVersion !== "string") {
-        tscVersion = null;
-        return undefined;
-    }
-    tscVersion = `dev_${sanitizedVersion}`;
-    return ["md/tsc", tscVersion];
-};
-
-const crtAvailability = {
-    isCrtAvailable: false,
-};
-
-const isCrtAvailable = () => {
-    if (crtAvailability.isCrtAvailable) {
-        return ["md/crt-avail"];
-    }
-    return null;
-};
-
-const createDefaultUserAgentProvider = ({ serviceId, clientVersion }) => {
-    const runtimeUserAgentPair = getRuntimeUserAgentPair();
-    return async (config) => {
-        const sections = [
-            ["aws-sdk-js", clientVersion],
-            ["ua", "2.1"],
-            [`os/${node_os.platform()}`, node_os.release()],
-            ["lang/js"],
-            runtimeUserAgentPair,
-        ];
-        const typescriptUserAgentPair = await getTypeScriptUserAgentPair();
-        if (typescriptUserAgentPair) {
-            sections.push(typescriptUserAgentPair);
-        }
-        const crtAvailable = isCrtAvailable();
-        if (crtAvailable) {
-            sections.push(crtAvailable);
-        }
-        if (serviceId) {
-            sections.push([`api/${serviceId}`, clientVersion]);
-        }
-        if (node_process.env.AWS_EXECUTION_ENV) {
-            sections.push([`exec-env/${node_process.env.AWS_EXECUTION_ENV}`]);
-        }
-        const appId = await config?.userAgentAppId?.();
-        const resolvedUserAgent = appId ? [...sections, [`app/${appId}`]] : [...sections];
-        return resolvedUserAgent;
-    };
-};
-const defaultUserAgent = createDefaultUserAgentProvider;
-
-const UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
-const UA_APP_ID_INI_NAME = "sdk_ua_app_id";
-const UA_APP_ID_INI_NAME_DEPRECATED = "sdk-ua-app-id";
-const NODE_APP_ID_CONFIG_OPTIONS = {
-    environmentVariableSelector: (env) => env[UA_APP_ID_ENV_NAME],
-    configFileSelector: (profile) => profile[UA_APP_ID_INI_NAME] ?? profile[UA_APP_ID_INI_NAME_DEPRECATED],
-    default: middlewareUserAgent.DEFAULT_UA_APP_ID,
-};
-
-exports.NODE_APP_ID_CONFIG_OPTIONS = NODE_APP_ID_CONFIG_OPTIONS;
-exports.UA_APP_ID_ENV_NAME = UA_APP_ID_ENV_NAME;
-exports.UA_APP_ID_INI_NAME = UA_APP_ID_INI_NAME;
-exports.createDefaultUserAgentProvider = createDefaultUserAgentProvider;
-exports.crtAvailability = crtAvailability;
-exports.defaultUserAgent = defaultUserAgent;
-
-
-/***/ }),
-
-/***/ 7834:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var xmlParser = __nccwpck_require__(7143);
+var xmlParser = __nccwpck_require__(1777);
 
 const ATTR_ESCAPE_RE = /[&<>"]/g;
 const ATTR_ESCAPE_MAP = {
@@ -10339,7 +9999,7 @@ exports.XmlText = XmlText;
 
 /***/ }),
 
-/***/ 2915:
+/***/ 2097:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -10682,14 +10342,14 @@ exports.EntityDecoderImpl = EntityDecoderImpl;
 
 /***/ }),
 
-/***/ 7143:
+/***/ 1777:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.parseXML = parseXML;
-const fast_xml_parser_1 = __nccwpck_require__(7416);
-const nodable_entities_1 = __nccwpck_require__(2915);
+const fast_xml_parser_1 = __nccwpck_require__(8139);
+const nodable_entities_1 = __nccwpck_require__(2097);
 const entityDecoder = new nodable_entities_1.EntityDecoderImpl({
     namedEntities: { ...nodable_entities_1.XML, ...nodable_entities_1.COMMON_HTML, ...nodable_entities_1.CURRENCY },
     numericAllowed: true,
@@ -10736,220 +10396,14 @@ function parseXML(xmlString) {
 
 /***/ }),
 
-/***/ 9785:
+/***/ 9741:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var utilConfigProvider = __nccwpck_require__(7883);
-var utilMiddleware = __nccwpck_require__(5822);
-var utilEndpoints = __nccwpck_require__(5606);
-
-const ENV_USE_DUALSTACK_ENDPOINT = "AWS_USE_DUALSTACK_ENDPOINT";
-const CONFIG_USE_DUALSTACK_ENDPOINT = "use_dualstack_endpoint";
-const DEFAULT_USE_DUALSTACK_ENDPOINT = false;
-const NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS = {
-    environmentVariableSelector: (env) => utilConfigProvider.booleanSelector(env, ENV_USE_DUALSTACK_ENDPOINT, utilConfigProvider.SelectorType.ENV),
-    configFileSelector: (profile) => utilConfigProvider.booleanSelector(profile, CONFIG_USE_DUALSTACK_ENDPOINT, utilConfigProvider.SelectorType.CONFIG),
-    default: false,
-};
-const nodeDualstackConfigSelectors = {
-    environmentVariableSelector: (env) => utilConfigProvider.booleanSelector(env, ENV_USE_DUALSTACK_ENDPOINT, utilConfigProvider.SelectorType.ENV),
-    configFileSelector: (profile) => utilConfigProvider.booleanSelector(profile, CONFIG_USE_DUALSTACK_ENDPOINT, utilConfigProvider.SelectorType.CONFIG),
-    default: undefined,
-};
-
-const ENV_USE_FIPS_ENDPOINT = "AWS_USE_FIPS_ENDPOINT";
-const CONFIG_USE_FIPS_ENDPOINT = "use_fips_endpoint";
-const DEFAULT_USE_FIPS_ENDPOINT = false;
-const NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS = {
-    environmentVariableSelector: (env) => utilConfigProvider.booleanSelector(env, ENV_USE_FIPS_ENDPOINT, utilConfigProvider.SelectorType.ENV),
-    configFileSelector: (profile) => utilConfigProvider.booleanSelector(profile, CONFIG_USE_FIPS_ENDPOINT, utilConfigProvider.SelectorType.CONFIG),
-    default: false,
-};
-const nodeFipsConfigSelectors = {
-    environmentVariableSelector: (env) => utilConfigProvider.booleanSelector(env, ENV_USE_FIPS_ENDPOINT, utilConfigProvider.SelectorType.ENV),
-    configFileSelector: (profile) => utilConfigProvider.booleanSelector(profile, CONFIG_USE_FIPS_ENDPOINT, utilConfigProvider.SelectorType.CONFIG),
-    default: undefined,
-};
-
-const resolveCustomEndpointsConfig = (input) => {
-    const { tls, endpoint, urlParser, useDualstackEndpoint } = input;
-    return Object.assign(input, {
-        tls: tls ?? true,
-        endpoint: utilMiddleware.normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint),
-        isCustomEndpoint: true,
-        useDualstackEndpoint: utilMiddleware.normalizeProvider(useDualstackEndpoint ?? false),
-    });
-};
-
-const getEndpointFromRegion = async (input) => {
-    const { tls = true } = input;
-    const region = await input.region();
-    const dnsHostRegex = new RegExp(/^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])$/);
-    if (!dnsHostRegex.test(region)) {
-        throw new Error("Invalid region in client config");
-    }
-    const useDualstackEndpoint = await input.useDualstackEndpoint();
-    const useFipsEndpoint = await input.useFipsEndpoint();
-    const { hostname } = (await input.regionInfoProvider(region, { useDualstackEndpoint, useFipsEndpoint })) ?? {};
-    if (!hostname) {
-        throw new Error("Cannot resolve hostname from client config");
-    }
-    return input.urlParser(`${tls ? "https:" : "http:"}//${hostname}`);
-};
-
-const resolveEndpointsConfig = (input) => {
-    const useDualstackEndpoint = utilMiddleware.normalizeProvider(input.useDualstackEndpoint ?? false);
-    const { endpoint, useFipsEndpoint, urlParser, tls } = input;
-    return Object.assign(input, {
-        tls: tls ?? true,
-        endpoint: endpoint
-            ? utilMiddleware.normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint)
-            : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
-        isCustomEndpoint: !!endpoint,
-        useDualstackEndpoint,
-    });
-};
-
-const REGION_ENV_NAME = "AWS_REGION";
-const REGION_INI_NAME = "region";
-const NODE_REGION_CONFIG_OPTIONS = {
-    environmentVariableSelector: (env) => env[REGION_ENV_NAME],
-    configFileSelector: (profile) => profile[REGION_INI_NAME],
-    default: () => {
-        throw new Error("Region is missing");
-    },
-};
-const NODE_REGION_CONFIG_FILE_OPTIONS = {
-    preferredFile: "credentials",
-};
-
-const validRegions = new Set();
-const checkRegion = (region, check = utilEndpoints.isValidHostLabel) => {
-    if (!validRegions.has(region) && !check(region)) {
-        if (region === "*") {
-            console.warn(`@smithy/config-resolver WARN - Please use the caller region instead of "*". See "sigv4a" in https://github.com/aws/aws-sdk-js-v3/blob/main/supplemental-docs/CLIENTS.md.`);
-        }
-        else {
-            throw new Error(`Region not accepted: region="${region}" is not a valid hostname component.`);
-        }
-    }
-    else {
-        validRegions.add(region);
-    }
-};
-
-const isFipsRegion = (region) => typeof region === "string" && (region.startsWith("fips-") || region.endsWith("-fips"));
-
-const getRealRegion = (region) => isFipsRegion(region)
-    ? ["fips-aws-global", "aws-fips"].includes(region)
-        ? "us-east-1"
-        : region.replace(/fips-(dkr-|prod-)?|-fips/, "")
-    : region;
-
-const resolveRegionConfig = (input) => {
-    const { region, useFipsEndpoint } = input;
-    if (!region) {
-        throw new Error("Region is missing");
-    }
-    return Object.assign(input, {
-        region: async () => {
-            const providedRegion = typeof region === "function" ? await region() : region;
-            const realRegion = getRealRegion(providedRegion);
-            checkRegion(realRegion);
-            return realRegion;
-        },
-        useFipsEndpoint: async () => {
-            const providedRegion = typeof region === "string" ? region : await region();
-            if (isFipsRegion(providedRegion)) {
-                return true;
-            }
-            return typeof useFipsEndpoint !== "function" ? Promise.resolve(!!useFipsEndpoint) : useFipsEndpoint();
-        },
-    });
-};
-
-const getHostnameFromVariants = (variants = [], { useFipsEndpoint, useDualstackEndpoint }) => variants.find(({ tags }) => useFipsEndpoint === tags.includes("fips") && useDualstackEndpoint === tags.includes("dualstack"))?.hostname;
-
-const getResolvedHostname = (resolvedRegion, { regionHostname, partitionHostname }) => regionHostname
-    ? regionHostname
-    : partitionHostname
-        ? partitionHostname.replace("{region}", resolvedRegion)
-        : undefined;
-
-const getResolvedPartition = (region, { partitionHash }) => Object.keys(partitionHash || {}).find((key) => partitionHash[key].regions.includes(region)) ?? "aws";
-
-const getResolvedSigningRegion = (hostname, { signingRegion, regionRegex, useFipsEndpoint }) => {
-    if (signingRegion) {
-        return signingRegion;
-    }
-    else if (useFipsEndpoint) {
-        const regionRegexJs = regionRegex.replace("\\\\", "\\").replace(/^\^/g, "\\.").replace(/\$$/g, "\\.");
-        const regionRegexmatchArray = hostname.match(regionRegexJs);
-        if (regionRegexmatchArray) {
-            return regionRegexmatchArray[0].slice(1, -1);
-        }
-    }
-};
-
-const getRegionInfo = (region, { useFipsEndpoint = false, useDualstackEndpoint = false, signingService, regionHash, partitionHash, }) => {
-    const partition = getResolvedPartition(region, { partitionHash });
-    const resolvedRegion = region in regionHash ? region : partitionHash[partition]?.endpoint ?? region;
-    const hostnameOptions = { useFipsEndpoint, useDualstackEndpoint };
-    const regionHostname = getHostnameFromVariants(regionHash[resolvedRegion]?.variants, hostnameOptions);
-    const partitionHostname = getHostnameFromVariants(partitionHash[partition]?.variants, hostnameOptions);
-    const hostname = getResolvedHostname(resolvedRegion, { regionHostname, partitionHostname });
-    if (hostname === undefined) {
-        throw new Error(`Endpoint resolution failed for: ${{ resolvedRegion, useFipsEndpoint, useDualstackEndpoint }}`);
-    }
-    const signingRegion = getResolvedSigningRegion(hostname, {
-        signingRegion: regionHash[resolvedRegion]?.signingRegion,
-        regionRegex: partitionHash[partition].regionRegex,
-        useFipsEndpoint,
-    });
-    return {
-        partition,
-        signingService,
-        hostname,
-        ...(signingRegion && { signingRegion }),
-        ...(regionHash[resolvedRegion]?.signingService && {
-            signingService: regionHash[resolvedRegion].signingService,
-        }),
-    };
-};
-
-exports.CONFIG_USE_DUALSTACK_ENDPOINT = CONFIG_USE_DUALSTACK_ENDPOINT;
-exports.CONFIG_USE_FIPS_ENDPOINT = CONFIG_USE_FIPS_ENDPOINT;
-exports.DEFAULT_USE_DUALSTACK_ENDPOINT = DEFAULT_USE_DUALSTACK_ENDPOINT;
-exports.DEFAULT_USE_FIPS_ENDPOINT = DEFAULT_USE_FIPS_ENDPOINT;
-exports.ENV_USE_DUALSTACK_ENDPOINT = ENV_USE_DUALSTACK_ENDPOINT;
-exports.ENV_USE_FIPS_ENDPOINT = ENV_USE_FIPS_ENDPOINT;
-exports.NODE_REGION_CONFIG_FILE_OPTIONS = NODE_REGION_CONFIG_FILE_OPTIONS;
-exports.NODE_REGION_CONFIG_OPTIONS = NODE_REGION_CONFIG_OPTIONS;
-exports.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS = NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS;
-exports.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS = NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
-exports.REGION_ENV_NAME = REGION_ENV_NAME;
-exports.REGION_INI_NAME = REGION_INI_NAME;
-exports.getRegionInfo = getRegionInfo;
-exports.nodeDualstackConfigSelectors = nodeDualstackConfigSelectors;
-exports.nodeFipsConfigSelectors = nodeFipsConfigSelectors;
-exports.resolveCustomEndpointsConfig = resolveCustomEndpointsConfig;
-exports.resolveEndpointsConfig = resolveEndpointsConfig;
-exports.resolveRegionConfig = resolveRegionConfig;
-
-
-/***/ }),
-
-/***/ 9715:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var types = __nccwpck_require__(8151);
-var protocolHttp = __nccwpck_require__(9526);
-var utilMiddleware = __nccwpck_require__(5822);
-var protocols = __nccwpck_require__(7061);
+var types = __nccwpck_require__(8362);
+var protocols = __nccwpck_require__(6051);
+var client = __nccwpck_require__(6045);
 
 const getSmithyContext = (context) => context[types.SMITHY_CONTEXT_KEY] || (context[types.SMITHY_CONTEXT_KEY] = {});
 
@@ -10986,7 +10440,7 @@ const httpAuthSchemeMiddleware = (config, mwOptions) => (next, context) => async
     const authSchemePreference = config.authSchemePreference ? await config.authSchemePreference() : [];
     const resolvedOptions = resolveAuthOptions(options, authSchemePreference);
     const authSchemes = convertHttpAuthSchemesToMap(config.httpAuthSchemes);
-    const smithyContext = utilMiddleware.getSmithyContext(context);
+    const smithyContext = client.getSmithyContext(context);
     const failureReasons = [];
     for (const option of resolvedOptions) {
         const scheme = authSchemes.get(option.schemeId);
@@ -11054,10 +10508,10 @@ const defaultErrorHandler = (signingProperties) => (error) => {
 };
 const defaultSuccessHandler = (httpResponse, signingProperties) => { };
 const httpSigningMiddleware = (config) => (next, context) => async (args) => {
-    if (!protocolHttp.HttpRequest.isInstance(args.request)) {
+    if (!protocols.HttpRequest.isInstance(args.request)) {
         return next(args);
     }
-    const smithyContext = utilMiddleware.getSmithyContext(context);
+    const smithyContext = client.getSmithyContext(context);
     const scheme = smithyContext.selectedHttpAuthScheme;
     if (!scheme) {
         throw new Error(`No HttpAuthScheme was selected: unable to sign request`);
@@ -11176,7 +10630,7 @@ class HttpApiKeyAuthSigner {
         if (!identity.apiKey) {
             throw new Error("request could not be signed with `apiKey` since the `apiKey` is not defined");
         }
-        const clonedRequest = protocolHttp.HttpRequest.clone(httpRequest);
+        const clonedRequest = protocols.HttpRequest.clone(httpRequest);
         if (signingProperties.in === types.HttpApiKeyAuthLocation.QUERY) {
             clonedRequest.query[signingProperties.name] = identity.apiKey;
         }
@@ -11197,7 +10651,7 @@ class HttpApiKeyAuthSigner {
 
 class HttpBearerAuthSigner {
     async sign(httpRequest, identity, signingProperties) {
-        const clonedRequest = protocolHttp.HttpRequest.clone(httpRequest);
+        const clonedRequest = protocols.HttpRequest.clone(httpRequest);
         if (!identity.token) {
             throw new Error("request could not be signed with `token` since the `token` is not defined");
         }
@@ -11294,19 +10748,15 @@ exports.setFeature = setFeature;
 
 /***/ }),
 
-/***/ 2088:
+/***/ 4626:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var serde = __nccwpck_require__(9429);
-var utilUtf8 = __nccwpck_require__(8165);
-var protocols = __nccwpck_require__(7061);
-var protocolHttp = __nccwpck_require__(9526);
-var utilBodyLengthBrowser = __nccwpck_require__(3063);
-var schema = __nccwpck_require__(6519);
-var utilMiddleware = __nccwpck_require__(5822);
-var utilBase64 = __nccwpck_require__(3158);
+var serde = __nccwpck_require__(7643);
+var protocols = __nccwpck_require__(6051);
+var client = __nccwpck_require__(6045);
+var schema = __nccwpck_require__(7393);
 
 const majorUint64 = 0;
 const majorNegativeInt64 = 1;
@@ -11484,7 +10934,7 @@ function bytesToUtf8(bytes, at, to) {
     if (textDecoder) {
         return textDecoder.decode(bytes.subarray(at, to));
     }
-    return utilUtf8.toUtf8(bytes.subarray(at, to));
+    return serde.toUtf8(bytes.subarray(at, to));
 }
 function demote(bigInteger) {
     const num = Number(bigInteger);
@@ -11828,7 +11278,7 @@ function encode(_input) {
                 cursor += data.write(input, cursor);
             }
             else {
-                const bytes = utilUtf8.fromUtf8(input);
+                const bytes = serde.fromUtf8(input);
                 encodeHeader(majorUtf8String, bytes.byteLength);
                 data.set(bytes, cursor);
                 cursor += bytes.byteLength;
@@ -12084,11 +11534,11 @@ const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, bod
     if (body !== undefined) {
         contents.body = body;
         try {
-            contents.headers["content-length"] = String(utilBodyLengthBrowser.calculateBodyLength(body));
+            contents.headers["content-length"] = String(serde.calculateBodyLength(body));
         }
         catch (e) { }
     }
-    return new protocolHttp.HttpRequest(contents);
+    return new protocols.HttpRequest(contents);
 };
 
 class CborCodec extends protocols.SerdeContext {
@@ -12118,7 +11568,7 @@ class CborShapeSerializer extends protocols.SerdeContext {
         }
         if (ns.isBlobSchema()) {
             if (typeof source === "string") {
-                return (this.serdeContext?.base64Decoder ?? utilBase64.fromBase64)(source);
+                return (this.serdeContext?.base64Decoder ?? serde.fromBase64)(source);
             }
             return source;
         }
@@ -12212,7 +11662,7 @@ class CborShapeDeserializer extends protocols.SerdeContext {
         }
         if (ns.isBlobSchema()) {
             if (typeof value === "string") {
-                return (this.serdeContext?.base64Decoder ?? utilBase64.fromBase64)(value);
+                return (this.serdeContext?.base64Decoder ?? serde.fromBase64)(value);
             }
             return value;
         }
@@ -12337,7 +11787,7 @@ class SmithyRpcV2CborProtocol extends protocols.RpcProtocol {
             }
             catch (e) { }
         }
-        const { service, operation } = utilMiddleware.getSmithyContext(context);
+        const { service, operation } = client.getSmithyContext(context);
         const path = `/service/${service}/operation/${operation}`;
         if (request.path.endsWith("/")) {
             request.path += path.slice(1);
@@ -12383,7 +11833,7 @@ class SmithyRpcV2CborProtocol extends protocols.RpcProtocol {
         const ns = schema.NormalizedSchema.of(errorSchema);
         const ErrorCtor = registry.getErrorCtor(errorSchema);
         const message = dataObject.message ?? dataObject.Message ?? "Unknown";
-        const exception = new ErrorCtor(message);
+        const exception = new ErrorCtor({});
         const output = {};
         for (const [name, member] of ns.structIterator()) {
             output[name] = this.deserializer.readValue(member, dataObject[name]);
@@ -12415,17 +11865,2025 @@ exports.tagSymbol = tagSymbol;
 
 /***/ }),
 
-/***/ 3330:
+/***/ 6045:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var urlParser = __nccwpck_require__(948);
+var types = __nccwpck_require__(8362);
+var schema = __nccwpck_require__(7393);
+
+const getAllAliases = (name, aliases) => {
+    const _aliases = [];
+    if (name) {
+        _aliases.push(name);
+    }
+    if (aliases) {
+        for (const alias of aliases) {
+            _aliases.push(alias);
+        }
+    }
+    return _aliases;
+};
+const getMiddlewareNameWithAliases = (name, aliases) => {
+    return `${name || "anonymous"}${aliases && aliases.length > 0 ? ` (a.k.a. ${aliases.join(",")})` : ""}`;
+};
+const constructStack = () => {
+    let absoluteEntries = [];
+    let relativeEntries = [];
+    let identifyOnResolve = false;
+    const entriesNameSet = new Set();
+    const sort = (entries) => entries.sort((a, b) => stepWeights[b.step] - stepWeights[a.step] ||
+        priorityWeights[b.priority || "normal"] - priorityWeights[a.priority || "normal"]);
+    const removeByName = (toRemove) => {
+        let isRemoved = false;
+        const filterCb = (entry) => {
+            const aliases = getAllAliases(entry.name, entry.aliases);
+            if (aliases.includes(toRemove)) {
+                isRemoved = true;
+                for (const alias of aliases) {
+                    entriesNameSet.delete(alias);
+                }
+                return false;
+            }
+            return true;
+        };
+        absoluteEntries = absoluteEntries.filter(filterCb);
+        relativeEntries = relativeEntries.filter(filterCb);
+        return isRemoved;
+    };
+    const removeByReference = (toRemove) => {
+        let isRemoved = false;
+        const filterCb = (entry) => {
+            if (entry.middleware === toRemove) {
+                isRemoved = true;
+                for (const alias of getAllAliases(entry.name, entry.aliases)) {
+                    entriesNameSet.delete(alias);
+                }
+                return false;
+            }
+            return true;
+        };
+        absoluteEntries = absoluteEntries.filter(filterCb);
+        relativeEntries = relativeEntries.filter(filterCb);
+        return isRemoved;
+    };
+    const cloneTo = (toStack) => {
+        absoluteEntries.forEach((entry) => {
+            toStack.add(entry.middleware, { ...entry });
+        });
+        relativeEntries.forEach((entry) => {
+            toStack.addRelativeTo(entry.middleware, { ...entry });
+        });
+        toStack.identifyOnResolve?.(stack.identifyOnResolve());
+        return toStack;
+    };
+    const expandRelativeMiddlewareList = (from) => {
+        const expandedMiddlewareList = [];
+        from.before.forEach((entry) => {
+            if (entry.before.length === 0 && entry.after.length === 0) {
+                expandedMiddlewareList.push(entry);
+            }
+            else {
+                expandedMiddlewareList.push(...expandRelativeMiddlewareList(entry));
+            }
+        });
+        expandedMiddlewareList.push(from);
+        from.after.reverse().forEach((entry) => {
+            if (entry.before.length === 0 && entry.after.length === 0) {
+                expandedMiddlewareList.push(entry);
+            }
+            else {
+                expandedMiddlewareList.push(...expandRelativeMiddlewareList(entry));
+            }
+        });
+        return expandedMiddlewareList;
+    };
+    const getMiddlewareList = (debug = false) => {
+        const normalizedAbsoluteEntries = [];
+        const normalizedRelativeEntries = [];
+        const normalizedEntriesNameMap = {};
+        absoluteEntries.forEach((entry) => {
+            const normalizedEntry = {
+                ...entry,
+                before: [],
+                after: [],
+            };
+            for (const alias of getAllAliases(normalizedEntry.name, normalizedEntry.aliases)) {
+                normalizedEntriesNameMap[alias] = normalizedEntry;
+            }
+            normalizedAbsoluteEntries.push(normalizedEntry);
+        });
+        relativeEntries.forEach((entry) => {
+            const normalizedEntry = {
+                ...entry,
+                before: [],
+                after: [],
+            };
+            for (const alias of getAllAliases(normalizedEntry.name, normalizedEntry.aliases)) {
+                normalizedEntriesNameMap[alias] = normalizedEntry;
+            }
+            normalizedRelativeEntries.push(normalizedEntry);
+        });
+        normalizedRelativeEntries.forEach((entry) => {
+            if (entry.toMiddleware) {
+                const toMiddleware = normalizedEntriesNameMap[entry.toMiddleware];
+                if (toMiddleware === undefined) {
+                    if (debug) {
+                        return;
+                    }
+                    throw new Error(`${entry.toMiddleware} is not found when adding ` +
+                        `${getMiddlewareNameWithAliases(entry.name, entry.aliases)} ` +
+                        `middleware ${entry.relation} ${entry.toMiddleware}`);
+                }
+                if (entry.relation === "after") {
+                    toMiddleware.after.push(entry);
+                }
+                if (entry.relation === "before") {
+                    toMiddleware.before.push(entry);
+                }
+            }
+        });
+        const mainChain = sort(normalizedAbsoluteEntries)
+            .map(expandRelativeMiddlewareList)
+            .reduce((wholeList, expandedMiddlewareList) => {
+            wholeList.push(...expandedMiddlewareList);
+            return wholeList;
+        }, []);
+        return mainChain;
+    };
+    const stack = {
+        add: (middleware, options = {}) => {
+            const { name, override, aliases: _aliases } = options;
+            const entry = {
+                step: "initialize",
+                priority: "normal",
+                middleware,
+                ...options,
+            };
+            const aliases = getAllAliases(name, _aliases);
+            if (aliases.length > 0) {
+                if (aliases.some((alias) => entriesNameSet.has(alias))) {
+                    if (!override)
+                        throw new Error(`Duplicate middleware name '${getMiddlewareNameWithAliases(name, _aliases)}'`);
+                    for (const alias of aliases) {
+                        const toOverrideIndex = absoluteEntries.findIndex((entry) => entry.name === alias || entry.aliases?.some((a) => a === alias));
+                        if (toOverrideIndex === -1) {
+                            continue;
+                        }
+                        const toOverride = absoluteEntries[toOverrideIndex];
+                        if (toOverride.step !== entry.step || entry.priority !== toOverride.priority) {
+                            throw new Error(`"${getMiddlewareNameWithAliases(toOverride.name, toOverride.aliases)}" middleware with ` +
+                                `${toOverride.priority} priority in ${toOverride.step} step cannot ` +
+                                `be overridden by "${getMiddlewareNameWithAliases(name, _aliases)}" middleware with ` +
+                                `${entry.priority} priority in ${entry.step} step.`);
+                        }
+                        absoluteEntries.splice(toOverrideIndex, 1);
+                    }
+                }
+                for (const alias of aliases) {
+                    entriesNameSet.add(alias);
+                }
+            }
+            absoluteEntries.push(entry);
+        },
+        addRelativeTo: (middleware, options) => {
+            const { name, override, aliases: _aliases } = options;
+            const entry = {
+                middleware,
+                ...options,
+            };
+            const aliases = getAllAliases(name, _aliases);
+            if (aliases.length > 0) {
+                if (aliases.some((alias) => entriesNameSet.has(alias))) {
+                    if (!override)
+                        throw new Error(`Duplicate middleware name '${getMiddlewareNameWithAliases(name, _aliases)}'`);
+                    for (const alias of aliases) {
+                        const toOverrideIndex = relativeEntries.findIndex((entry) => entry.name === alias || entry.aliases?.some((a) => a === alias));
+                        if (toOverrideIndex === -1) {
+                            continue;
+                        }
+                        const toOverride = relativeEntries[toOverrideIndex];
+                        if (toOverride.toMiddleware !== entry.toMiddleware || toOverride.relation !== entry.relation) {
+                            throw new Error(`"${getMiddlewareNameWithAliases(toOverride.name, toOverride.aliases)}" middleware ` +
+                                `${toOverride.relation} "${toOverride.toMiddleware}" middleware cannot be overridden ` +
+                                `by "${getMiddlewareNameWithAliases(name, _aliases)}" middleware ${entry.relation} ` +
+                                `"${entry.toMiddleware}" middleware.`);
+                        }
+                        relativeEntries.splice(toOverrideIndex, 1);
+                    }
+                }
+                for (const alias of aliases) {
+                    entriesNameSet.add(alias);
+                }
+            }
+            relativeEntries.push(entry);
+        },
+        clone: () => cloneTo(constructStack()),
+        use: (plugin) => {
+            plugin.applyToStack(stack);
+        },
+        remove: (toRemove) => {
+            if (typeof toRemove === "string")
+                return removeByName(toRemove);
+            else
+                return removeByReference(toRemove);
+        },
+        removeByTag: (toRemove) => {
+            let isRemoved = false;
+            const filterCb = (entry) => {
+                const { tags, name, aliases: _aliases } = entry;
+                if (tags && tags.includes(toRemove)) {
+                    const aliases = getAllAliases(name, _aliases);
+                    for (const alias of aliases) {
+                        entriesNameSet.delete(alias);
+                    }
+                    isRemoved = true;
+                    return false;
+                }
+                return true;
+            };
+            absoluteEntries = absoluteEntries.filter(filterCb);
+            relativeEntries = relativeEntries.filter(filterCb);
+            return isRemoved;
+        },
+        concat: (from) => {
+            const cloned = cloneTo(constructStack());
+            cloned.use(from);
+            cloned.identifyOnResolve(identifyOnResolve || cloned.identifyOnResolve() || (from.identifyOnResolve?.() ?? false));
+            return cloned;
+        },
+        applyToStack: cloneTo,
+        identify: () => {
+            return getMiddlewareList(true).map((mw) => {
+                const step = mw.step ??
+                    mw.relation +
+                        " " +
+                        mw.toMiddleware;
+                return getMiddlewareNameWithAliases(mw.name, mw.aliases) + " - " + step;
+            });
+        },
+        identifyOnResolve(toggle) {
+            if (typeof toggle === "boolean")
+                identifyOnResolve = toggle;
+            return identifyOnResolve;
+        },
+        resolve: (handler, context) => {
+            for (const middleware of getMiddlewareList()
+                .map((entry) => entry.middleware)
+                .reverse()) {
+                handler = middleware(handler, context);
+            }
+            if (identifyOnResolve) {
+                console.log(stack.identify());
+            }
+            return handler;
+        },
+    };
+    return stack;
+};
+const stepWeights = {
+    initialize: 5,
+    serialize: 4,
+    build: 3,
+    finalizeRequest: 2,
+    deserialize: 1,
+};
+const priorityWeights = {
+    high: 3,
+    normal: 2,
+    low: 1,
+};
+
+const getSmithyContext = (context) => context[types.SMITHY_CONTEXT_KEY] || (context[types.SMITHY_CONTEXT_KEY] = {});
+
+const normalizeProvider = (input) => {
+    if (typeof input === "function")
+        return input;
+    const promisified = Promise.resolve(input);
+    return () => promisified;
+};
+
+const invalidFunction = (message) => () => {
+    throw new Error(message);
+};
+
+const invalidProvider = (message) => () => Promise.reject(message);
+
+const getCircularReplacer = () => {
+    const seen = new WeakSet();
+    return (key, value) => {
+        if (typeof value === "object" && value !== null) {
+            if (seen.has(value)) {
+                return "[Circular]";
+            }
+            seen.add(value);
+        }
+        return value;
+    };
+};
+
+const sleep = (seconds) => {
+    return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+};
+
+const waiterServiceDefaults = {
+    minDelay: 2,
+    maxDelay: 120,
+};
+exports.WaiterState = void 0;
+(function (WaiterState) {
+    WaiterState["ABORTED"] = "ABORTED";
+    WaiterState["FAILURE"] = "FAILURE";
+    WaiterState["SUCCESS"] = "SUCCESS";
+    WaiterState["RETRY"] = "RETRY";
+    WaiterState["TIMEOUT"] = "TIMEOUT";
+})(exports.WaiterState || (exports.WaiterState = {}));
+const checkExceptions = (result) => {
+    if (result.state === exports.WaiterState.ABORTED) {
+        const abortError = new Error(`${JSON.stringify({
+            ...result,
+            reason: "Request was aborted",
+        }, getCircularReplacer())}`);
+        abortError.name = "AbortError";
+        throw abortError;
+    }
+    else if (result.state === exports.WaiterState.TIMEOUT) {
+        const timeoutError = new Error(`${JSON.stringify({
+            ...result,
+            reason: "Waiter has timed out",
+        }, getCircularReplacer())}`);
+        timeoutError.name = "TimeoutError";
+        throw timeoutError;
+    }
+    else if (result.state !== exports.WaiterState.SUCCESS) {
+        throw new Error(`${JSON.stringify(result, getCircularReplacer())}`);
+    }
+    return result;
+};
+
+const runPolling = async ({ minDelay, maxDelay, maxWaitTime, abortController, client, abortSignal }, input, acceptorChecks) => {
+    const observedResponses = {};
+    const [minDelayMs, maxDelayMs] = [minDelay * 1000, maxDelay * 1000];
+    let currentAttempt = 0;
+    const waitUntil = Date.now() + maxWaitTime * 1000;
+    const warn403Time = Date.now() + 60_000;
+    let didWarn403 = false;
+    while (true) {
+        if (currentAttempt > 0) {
+            const delayMs = exponentialBackoffWithJitter(minDelayMs, maxDelayMs, currentAttempt, waitUntil);
+            if (abortController?.signal?.aborted || abortSignal?.aborted) {
+                const message = "AbortController signal aborted.";
+                observedResponses[message] |= 0;
+                observedResponses[message] += 1;
+                return { state: exports.WaiterState.ABORTED, observedResponses };
+            }
+            if (Date.now() + delayMs > waitUntil) {
+                return { state: exports.WaiterState.TIMEOUT, observedResponses };
+            }
+            await sleep(delayMs / 1_000);
+        }
+        const { state, reason } = await acceptorChecks(client, input);
+        if (reason) {
+            const message = createMessageFromResponse(reason);
+            observedResponses[message] |= 0;
+            observedResponses[message] += 1;
+        }
+        if (state !== exports.WaiterState.RETRY) {
+            return { state, reason, final: reason, observedResponses };
+        }
+        currentAttempt += 1;
+        if (!didWarn403 && Date.now() >= warn403Time) {
+            checkWarn403(observedResponses, client);
+            didWarn403 = true;
+        }
+    }
+};
+const checkWarn403 = (observedResponses = {}, client) => {
+    const orderedErrors = Object.keys(observedResponses);
+    let count403 = 0;
+    for (const response of orderedErrors) {
+        const n = observedResponses[response] | 0;
+        if (response.startsWith("403:")) {
+            count403 += n;
+        }
+    }
+    const clientLogger = client?.config?.logger;
+    const warningLogger = typeof clientLogger?.warn === "function" && !clientLogger.constructor?.name?.includes?.("NoOpLogger")
+        ? clientLogger
+        : console;
+    if (count403 >= 3 || orderedErrors[orderedErrors.length - 1]?.startsWith("403:")) {
+        warningLogger.warn(`@smithy/util-waiter WARN - 403 status code encountered during waiter polling.`);
+    }
+};
+const createMessageFromResponse = (reason) => {
+    const status = reason?.$response?.statusCode ?? reason?.$metadata?.httpStatusCode;
+    if (reason?.$responseBodyText) {
+        return `${status ? status + ": " : ""}Deserialization error for body: ${reason.$responseBodyText}`;
+    }
+    if (status) {
+        if (reason?.$response || reason?.message) {
+            return `${status ?? "Unknown"}: ${reason?.message}`;
+        }
+        return `${status}: OK`;
+    }
+    return String(reason?.message ?? JSON.stringify(reason, getCircularReplacer()) ?? "Unknown");
+};
+const exponentialBackoffWithJitter = (minDelayMs, maxDelayMs, attempt, waitUntil) => {
+    const attemptCountCeiling = Math.log(maxDelayMs / minDelayMs) / Math.log(2) + 1;
+    if (attempt > attemptCountCeiling) {
+        return maxDelayMs;
+    }
+    const delay = minDelayMs * 2 ** (attempt - 1);
+    const capped = Math.min(delay, maxDelayMs);
+    const waitFor = randomInRange(minDelayMs, capped);
+    if (Date.now() + waitFor > waitUntil) {
+        const timeRemaining = waitUntil - Date.now();
+        return Math.max(0, timeRemaining - 500);
+    }
+    return waitFor;
+};
+const randomInRange = (min, max) => min + Math.random() * (max - min);
+
+const validateWaiterOptions = (options) => {
+    if (options.maxWaitTime <= 0) {
+        throw new Error(`WaiterConfiguration.maxWaitTime must be greater than 0`);
+    }
+    else if (options.minDelay <= 0) {
+        throw new Error(`WaiterConfiguration.minDelay must be greater than 0`);
+    }
+    else if (options.maxDelay <= 0) {
+        throw new Error(`WaiterConfiguration.maxDelay must be greater than 0`);
+    }
+    else if (options.maxWaitTime <= options.minDelay) {
+        throw new Error(`WaiterConfiguration.maxWaitTime [${options.maxWaitTime}] must be greater than WaiterConfiguration.minDelay [${options.minDelay}] for this waiter`);
+    }
+    else if (options.maxDelay < options.minDelay) {
+        throw new Error(`WaiterConfiguration.maxDelay [${options.maxDelay}] must be greater than WaiterConfiguration.minDelay [${options.minDelay}] for this waiter`);
+    }
+};
+
+const abortTimeout = (abortSignal) => {
+    let onAbort;
+    const promise = new Promise((resolve) => {
+        onAbort = () => resolve({ state: exports.WaiterState.ABORTED });
+        if (typeof abortSignal.addEventListener === "function") {
+            abortSignal.addEventListener("abort", onAbort);
+        }
+        else {
+            abortSignal.onabort = onAbort;
+        }
+    });
+    return {
+        clearListener() {
+            if (typeof abortSignal.removeEventListener === "function") {
+                abortSignal.removeEventListener("abort", onAbort);
+            }
+        },
+        aborted: promise,
+    };
+};
+const createWaiter = async (options, input, acceptorChecks) => {
+    const params = {
+        ...waiterServiceDefaults,
+        ...options,
+    };
+    validateWaiterOptions(params);
+    const exitConditions = [runPolling(params, input, acceptorChecks)];
+    const finalize = [];
+    if (options.abortSignal) {
+        const { aborted, clearListener } = abortTimeout(options.abortSignal);
+        finalize.push(clearListener);
+        exitConditions.push(aborted);
+    }
+    if (options.abortController?.signal) {
+        const { aborted, clearListener } = abortTimeout(options.abortController.signal);
+        finalize.push(clearListener);
+        exitConditions.push(aborted);
+    }
+    return Promise.race(exitConditions).then((result) => {
+        for (const fn of finalize) {
+            fn();
+        }
+        return result;
+    });
+};
+
+class Client {
+    config;
+    middlewareStack = constructStack();
+    initConfig;
+    handlers;
+    constructor(config) {
+        this.config = config;
+        const { protocol, protocolSettings } = config;
+        if (protocolSettings) {
+            if (typeof protocol === "function") {
+                config.protocol = new protocol(protocolSettings);
+            }
+        }
+    }
+    send(command, optionsOrCb, cb) {
+        const options = typeof optionsOrCb !== "function" ? optionsOrCb : undefined;
+        const callback = typeof optionsOrCb === "function" ? optionsOrCb : cb;
+        const useHandlerCache = options === undefined && this.config.cacheMiddleware === true;
+        let handler;
+        if (useHandlerCache) {
+            if (!this.handlers) {
+                this.handlers = new WeakMap();
+            }
+            const handlers = this.handlers;
+            if (handlers.has(command.constructor)) {
+                handler = handlers.get(command.constructor);
+            }
+            else {
+                handler = command.resolveMiddleware(this.middlewareStack, this.config, options);
+                handlers.set(command.constructor, handler);
+            }
+        }
+        else {
+            delete this.handlers;
+            handler = command.resolveMiddleware(this.middlewareStack, this.config, options);
+        }
+        if (callback) {
+            handler(command)
+                .then((result) => callback(null, result.output), (err) => callback(err))
+                .catch(() => { });
+        }
+        else {
+            return handler(command).then((result) => result.output);
+        }
+    }
+    destroy() {
+        this.config?.requestHandler?.destroy?.();
+        delete this.handlers;
+    }
+}
+
+const SENSITIVE_STRING$1 = "***SensitiveInformation***";
+function schemaLogFilter(schema$1, data) {
+    if (data == null) {
+        return data;
+    }
+    const ns = schema.NormalizedSchema.of(schema$1);
+    if (ns.getMergedTraits().sensitive) {
+        return SENSITIVE_STRING$1;
+    }
+    if (ns.isListSchema()) {
+        const isSensitive = !!ns.getValueSchema().getMergedTraits().sensitive;
+        if (isSensitive) {
+            return SENSITIVE_STRING$1;
+        }
+    }
+    else if (ns.isMapSchema()) {
+        const isSensitive = !!ns.getKeySchema().getMergedTraits().sensitive || !!ns.getValueSchema().getMergedTraits().sensitive;
+        if (isSensitive) {
+            return SENSITIVE_STRING$1;
+        }
+    }
+    else if (ns.isStructSchema() && typeof data === "object") {
+        const object = data;
+        const newObject = {};
+        for (const [member, memberNs] of ns.structIterator()) {
+            if (object[member] != null) {
+                newObject[member] = schemaLogFilter(memberNs, object[member]);
+            }
+        }
+        return newObject;
+    }
+    return data;
+}
+
+class Command {
+    middlewareStack = constructStack();
+    schema;
+    static classBuilder() {
+        return new ClassBuilder();
+    }
+    resolveMiddlewareWithContext(clientStack, configuration, options, { middlewareFn, clientName, commandName, inputFilterSensitiveLog, outputFilterSensitiveLog, smithyContext, additionalContext, CommandCtor, }) {
+        for (const mw of middlewareFn.bind(this)(CommandCtor, clientStack, configuration, options)) {
+            this.middlewareStack.use(mw);
+        }
+        const stack = clientStack.concat(this.middlewareStack);
+        const { logger } = configuration;
+        const handlerExecutionContext = {
+            logger,
+            clientName,
+            commandName,
+            inputFilterSensitiveLog,
+            outputFilterSensitiveLog,
+            [types.SMITHY_CONTEXT_KEY]: {
+                commandInstance: this,
+                ...smithyContext,
+            },
+            ...additionalContext,
+        };
+        const { requestHandler } = configuration;
+        let requestOptions = options ?? {};
+        if (smithyContext.eventStream) {
+            requestOptions = {
+                isEventStream: true,
+                ...requestOptions,
+            };
+        }
+        return stack.resolve((request) => requestHandler.handle(request.request, requestOptions), handlerExecutionContext);
+    }
+}
+class ClassBuilder {
+    _init = () => { };
+    _ep = {};
+    _middlewareFn = () => [];
+    _commandName = "";
+    _clientName = "";
+    _additionalContext = {};
+    _smithyContext = {};
+    _inputFilterSensitiveLog = undefined;
+    _outputFilterSensitiveLog = undefined;
+    _serializer = null;
+    _deserializer = null;
+    _operationSchema;
+    init(cb) {
+        this._init = cb;
+    }
+    ep(endpointParameterInstructions) {
+        this._ep = endpointParameterInstructions;
+        return this;
+    }
+    m(middlewareSupplier) {
+        this._middlewareFn = middlewareSupplier;
+        return this;
+    }
+    s(service, operation, smithyContext = {}) {
+        this._smithyContext = {
+            service,
+            operation,
+            ...smithyContext,
+        };
+        return this;
+    }
+    c(additionalContext = {}) {
+        this._additionalContext = additionalContext;
+        return this;
+    }
+    n(clientName, commandName) {
+        this._clientName = clientName;
+        this._commandName = commandName;
+        return this;
+    }
+    f(inputFilter = (_) => _, outputFilter = (_) => _) {
+        this._inputFilterSensitiveLog = inputFilter;
+        this._outputFilterSensitiveLog = outputFilter;
+        return this;
+    }
+    ser(serializer) {
+        this._serializer = serializer;
+        return this;
+    }
+    de(deserializer) {
+        this._deserializer = deserializer;
+        return this;
+    }
+    sc(operation) {
+        this._operationSchema = operation;
+        this._smithyContext.operationSchema = operation;
+        return this;
+    }
+    build() {
+        const closure = this;
+        let CommandRef;
+        return (CommandRef = class extends Command {
+            input;
+            static getEndpointParameterInstructions() {
+                return closure._ep;
+            }
+            constructor(...[input]) {
+                super();
+                this.input = input ?? {};
+                closure._init(this);
+                this.schema = closure._operationSchema;
+            }
+            resolveMiddleware(stack, configuration, options) {
+                const op = closure._operationSchema;
+                const input = op?.[4] ?? op?.input;
+                const output = op?.[5] ?? op?.output;
+                return this.resolveMiddlewareWithContext(stack, configuration, options, {
+                    CommandCtor: CommandRef,
+                    middlewareFn: closure._middlewareFn,
+                    clientName: closure._clientName,
+                    commandName: closure._commandName,
+                    inputFilterSensitiveLog: closure._inputFilterSensitiveLog ?? (op ? schemaLogFilter.bind(null, input) : (_) => _),
+                    outputFilterSensitiveLog: closure._outputFilterSensitiveLog ?? (op ? schemaLogFilter.bind(null, output) : (_) => _),
+                    smithyContext: closure._smithyContext,
+                    additionalContext: closure._additionalContext,
+                });
+            }
+            serialize = closure._serializer;
+            deserialize = closure._deserializer;
+        });
+    }
+}
+
+const SENSITIVE_STRING = "***SensitiveInformation***";
+
+const createAggregatedClient = (commands, Client, options) => {
+    for (const [command, CommandCtor] of Object.entries(commands)) {
+        const methodImpl = async function (args, optionsOrCb, cb) {
+            const command = new CommandCtor(args);
+            if (typeof optionsOrCb === "function") {
+                this.send(command, optionsOrCb);
+            }
+            else if (typeof cb === "function") {
+                if (typeof optionsOrCb !== "object")
+                    throw new Error(`Expected http options but got ${typeof optionsOrCb}`);
+                this.send(command, optionsOrCb || {}, cb);
+            }
+            else {
+                return this.send(command, optionsOrCb);
+            }
+        };
+        const methodName = (command[0].toLowerCase() + command.slice(1)).replace(/Command$/, "");
+        Client.prototype[methodName] = methodImpl;
+    }
+    const { paginators = {}, waiters = {} } = options ?? {};
+    for (const [paginatorName, paginatorFn] of Object.entries(paginators)) {
+        if (Client.prototype[paginatorName] === void 0) {
+            Client.prototype[paginatorName] = function (commandInput = {}, paginationConfiguration, ...rest) {
+                return paginatorFn({
+                    ...paginationConfiguration,
+                    client: this,
+                }, commandInput, ...rest);
+            };
+        }
+    }
+    for (const [waiterName, waiterFn] of Object.entries(waiters)) {
+        if (Client.prototype[waiterName] === void 0) {
+            Client.prototype[waiterName] = async function (commandInput = {}, waiterConfiguration, ...rest) {
+                let config = waiterConfiguration;
+                if (typeof waiterConfiguration === "number") {
+                    config = {
+                        maxWaitTime: waiterConfiguration,
+                    };
+                }
+                return waiterFn({
+                    ...config,
+                    client: this,
+                }, commandInput, ...rest);
+            };
+        }
+    }
+};
+
+class ServiceException extends Error {
+    $fault;
+    $response;
+    $retryable;
+    $metadata;
+    constructor(options) {
+        super(options.message);
+        Object.setPrototypeOf(this, Object.getPrototypeOf(this).constructor.prototype);
+        this.name = options.name;
+        this.$fault = options.$fault;
+        this.$metadata = options.$metadata;
+    }
+    static isInstance(value) {
+        if (!value)
+            return false;
+        const candidate = value;
+        return (ServiceException.prototype.isPrototypeOf(candidate) ||
+            (Boolean(candidate.$fault) &&
+                Boolean(candidate.$metadata) &&
+                (candidate.$fault === "client" || candidate.$fault === "server")));
+    }
+    static [Symbol.hasInstance](instance) {
+        if (!instance)
+            return false;
+        const candidate = instance;
+        if (this === ServiceException) {
+            return ServiceException.isInstance(instance);
+        }
+        if (ServiceException.isInstance(instance)) {
+            if (candidate.name && this.name) {
+                return this.prototype.isPrototypeOf(instance) || candidate.name === this.name;
+            }
+            return this.prototype.isPrototypeOf(instance);
+        }
+        return false;
+    }
+}
+const decorateServiceException = (exception, additions = {}) => {
+    Object.entries(additions)
+        .filter(([, v]) => v !== undefined)
+        .forEach(([k, v]) => {
+        if (exception[k] == undefined || exception[k] === "") {
+            exception[k] = v;
+        }
+    });
+    const message = exception.message || exception.Message || "UnknownError";
+    exception.message = message;
+    delete exception.Message;
+    return exception;
+};
+
+const throwDefaultError = ({ output, parsedBody, exceptionCtor, errorCode }) => {
+    const $metadata = deserializeMetadata(output);
+    const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+    const response = new exceptionCtor({
+        name: parsedBody?.code || parsedBody?.Code || errorCode || statusCode || "UnknownError",
+        $fault: "client",
+        $metadata,
+    });
+    throw decorateServiceException(response, parsedBody);
+};
+const withBaseException = (ExceptionCtor) => {
+    return ({ output, parsedBody, errorCode }) => {
+        throwDefaultError({ output, parsedBody, exceptionCtor: ExceptionCtor, errorCode });
+    };
+};
+const deserializeMetadata = (output) => ({
+    httpStatusCode: output.statusCode,
+    requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+    extendedRequestId: output.headers["x-amz-id-2"],
+    cfId: output.headers["x-amz-cf-id"],
+});
+
+const loadConfigsForDefaultMode = (mode) => {
+    switch (mode) {
+        case "standard":
+            return {
+                retryMode: "standard",
+                connectionTimeout: 3100,
+            };
+        case "in-region":
+            return {
+                retryMode: "standard",
+                connectionTimeout: 1100,
+            };
+        case "cross-region":
+            return {
+                retryMode: "standard",
+                connectionTimeout: 3100,
+            };
+        case "mobile":
+            return {
+                retryMode: "standard",
+                connectionTimeout: 30000,
+            };
+        default:
+            return {};
+    }
+};
+
+let warningEmitted = false;
+const emitWarningIfUnsupportedVersion = (version) => {
+    if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 16) {
+        warningEmitted = true;
+    }
+};
+
+const knownAlgorithms = Object.values(types.AlgorithmId);
+const getChecksumConfiguration = (runtimeConfig) => {
+    const checksumAlgorithms = [];
+    for (const id in types.AlgorithmId) {
+        const algorithmId = types.AlgorithmId[id];
+        if (runtimeConfig[algorithmId] === undefined) {
+            continue;
+        }
+        checksumAlgorithms.push({
+            algorithmId: () => algorithmId,
+            checksumConstructor: () => runtimeConfig[algorithmId],
+        });
+    }
+    for (const [id, ChecksumCtor] of Object.entries(runtimeConfig.checksumAlgorithms ?? {})) {
+        checksumAlgorithms.push({
+            algorithmId: () => id,
+            checksumConstructor: () => ChecksumCtor,
+        });
+    }
+    return {
+        addChecksumAlgorithm(algo) {
+            runtimeConfig.checksumAlgorithms = runtimeConfig.checksumAlgorithms ?? {};
+            const id = algo.algorithmId();
+            const ctor = algo.checksumConstructor();
+            if (knownAlgorithms.includes(id)) {
+                runtimeConfig.checksumAlgorithms[id.toUpperCase()] = ctor;
+            }
+            else {
+                runtimeConfig.checksumAlgorithms[id] = ctor;
+            }
+            checksumAlgorithms.push(algo);
+        },
+        checksumAlgorithms() {
+            return checksumAlgorithms;
+        },
+    };
+};
+const resolveChecksumRuntimeConfig = (clientConfig) => {
+    const runtimeConfig = {};
+    clientConfig.checksumAlgorithms().forEach((checksumAlgorithm) => {
+        const id = checksumAlgorithm.algorithmId();
+        if (knownAlgorithms.includes(id)) {
+            runtimeConfig[id] = checksumAlgorithm.checksumConstructor();
+        }
+    });
+    return runtimeConfig;
+};
+
+const getRetryConfiguration = (runtimeConfig) => {
+    return {
+        setRetryStrategy(retryStrategy) {
+            runtimeConfig.retryStrategy = retryStrategy;
+        },
+        retryStrategy() {
+            return runtimeConfig.retryStrategy;
+        },
+    };
+};
+const resolveRetryRuntimeConfig = (retryStrategyConfiguration) => {
+    const runtimeConfig = {};
+    runtimeConfig.retryStrategy = retryStrategyConfiguration.retryStrategy();
+    return runtimeConfig;
+};
+
+const getDefaultExtensionConfiguration = (runtimeConfig) => {
+    return Object.assign(getChecksumConfiguration(runtimeConfig), getRetryConfiguration(runtimeConfig));
+};
+const getDefaultClientConfiguration = getDefaultExtensionConfiguration;
+const resolveDefaultRuntimeConfig = (config) => {
+    return Object.assign(resolveChecksumRuntimeConfig(config), resolveRetryRuntimeConfig(config));
+};
+
+const getArrayIfSingleItem = (mayBeArray) => Array.isArray(mayBeArray) ? mayBeArray : [mayBeArray];
+
+const getValueFromTextNode = (obj) => {
+    const textNodeName = "#text";
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key) && obj[key][textNodeName] !== undefined) {
+            obj[key] = obj[key][textNodeName];
+        }
+        else if (typeof obj[key] === "object" && obj[key] !== null) {
+            obj[key] = getValueFromTextNode(obj[key]);
+        }
+    }
+    return obj;
+};
+
+const isSerializableHeaderValue = (value) => {
+    return value != null;
+};
+
+class NoOpLogger {
+    trace() { }
+    debug() { }
+    info() { }
+    warn() { }
+    error() { }
+}
+
+function map(arg0, arg1, arg2) {
+    let target;
+    let filter;
+    let instructions;
+    if (typeof arg1 === "undefined" && typeof arg2 === "undefined") {
+        target = {};
+        instructions = arg0;
+    }
+    else {
+        target = arg0;
+        if (typeof arg1 === "function") {
+            filter = arg1;
+            instructions = arg2;
+            return mapWithFilter(target, filter, instructions);
+        }
+        else {
+            instructions = arg1;
+        }
+    }
+    for (const key of Object.keys(instructions)) {
+        if (!Array.isArray(instructions[key])) {
+            target[key] = instructions[key];
+            continue;
+        }
+        applyInstruction(target, null, instructions, key);
+    }
+    return target;
+}
+const convertMap = (target) => {
+    const output = {};
+    for (const [k, v] of Object.entries(target || {})) {
+        output[k] = [, v];
+    }
+    return output;
+};
+const take = (source, instructions) => {
+    const out = {};
+    for (const key in instructions) {
+        applyInstruction(out, source, instructions, key);
+    }
+    return out;
+};
+const mapWithFilter = (target, filter, instructions) => {
+    return map(target, Object.entries(instructions).reduce((_instructions, [key, value]) => {
+        if (Array.isArray(value)) {
+            _instructions[key] = value;
+        }
+        else {
+            if (typeof value === "function") {
+                _instructions[key] = [filter, value()];
+            }
+            else {
+                _instructions[key] = [filter, value];
+            }
+        }
+        return _instructions;
+    }, {}));
+};
+const applyInstruction = (target, source, instructions, targetKey) => {
+    if (source !== null) {
+        let instruction = instructions[targetKey];
+        if (typeof instruction === "function") {
+            instruction = [, instruction];
+        }
+        const [filter = nonNullish, valueFn = pass, sourceKey = targetKey] = instruction;
+        if ((typeof filter === "function" && filter(source[sourceKey])) || (typeof filter !== "function" && !!filter)) {
+            target[targetKey] = valueFn(source[sourceKey]);
+        }
+        return;
+    }
+    let [filter, value] = instructions[targetKey];
+    if (typeof value === "function") {
+        let _value;
+        const defaultFilterPassed = filter === undefined && (_value = value()) != null;
+        const customFilterPassed = (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
+        if (defaultFilterPassed) {
+            target[targetKey] = _value;
+        }
+        else if (customFilterPassed) {
+            target[targetKey] = value();
+        }
+    }
+    else {
+        const defaultFilterPassed = filter === undefined && value != null;
+        const customFilterPassed = (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
+        if (defaultFilterPassed || customFilterPassed) {
+            target[targetKey] = value;
+        }
+    }
+};
+const nonNullish = (_) => _ != null;
+const pass = (_) => _;
+
+const serializeFloat = (value) => {
+    if (value !== value) {
+        return "NaN";
+    }
+    switch (value) {
+        case Infinity:
+            return "Infinity";
+        case -Infinity:
+            return "-Infinity";
+        default:
+            return value;
+    }
+};
+const serializeDateTime = (date) => date.toISOString().replace(".000Z", "Z");
+
+const _json = (obj) => {
+    if (obj == null) {
+        return {};
+    }
+    if (Array.isArray(obj)) {
+        return obj.filter((_) => _ != null).map(_json);
+    }
+    if (typeof obj === "object") {
+        const target = {};
+        for (const key of Object.keys(obj)) {
+            if (obj[key] == null) {
+                continue;
+            }
+            target[key] = _json(obj[key]);
+        }
+        return target;
+    }
+    return obj;
+};
+
+exports.AlgorithmId = types.AlgorithmId;
+exports.Client = Client;
+exports.Command = Command;
+exports.NoOpLogger = NoOpLogger;
+exports.SENSITIVE_STRING = SENSITIVE_STRING;
+exports.ServiceException = ServiceException;
+exports._json = _json;
+exports.checkExceptions = checkExceptions;
+exports.constructStack = constructStack;
+exports.convertMap = convertMap;
+exports.createAggregatedClient = createAggregatedClient;
+exports.createWaiter = createWaiter;
+exports.decorateServiceException = decorateServiceException;
+exports.emitWarningIfUnsupportedVersion = emitWarningIfUnsupportedVersion;
+exports.getArrayIfSingleItem = getArrayIfSingleItem;
+exports.getChecksumConfiguration = getChecksumConfiguration;
+exports.getDefaultClientConfiguration = getDefaultClientConfiguration;
+exports.getDefaultExtensionConfiguration = getDefaultExtensionConfiguration;
+exports.getRetryConfiguration = getRetryConfiguration;
+exports.getSmithyContext = getSmithyContext;
+exports.getValueFromTextNode = getValueFromTextNode;
+exports.invalidFunction = invalidFunction;
+exports.invalidProvider = invalidProvider;
+exports.isSerializableHeaderValue = isSerializableHeaderValue;
+exports.loadConfigsForDefaultMode = loadConfigsForDefaultMode;
+exports.map = map;
+exports.normalizeProvider = normalizeProvider;
+exports.resolveChecksumRuntimeConfig = resolveChecksumRuntimeConfig;
+exports.resolveDefaultRuntimeConfig = resolveDefaultRuntimeConfig;
+exports.resolveRetryRuntimeConfig = resolveRetryRuntimeConfig;
+exports.schemaLogFilter = schemaLogFilter;
+exports.serializeDateTime = serializeDateTime;
+exports.serializeFloat = serializeFloat;
+exports.take = take;
+exports.throwDefaultError = throwDefaultError;
+exports.waiterServiceDefaults = waiterServiceDefaults;
+exports.withBaseException = withBaseException;
+
+
+/***/ }),
+
+/***/ 8208:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+
+var node_os = __nccwpck_require__(8161);
+var node_path = __nccwpck_require__(6760);
+var node_crypto = __nccwpck_require__(7598);
+var promises = __nccwpck_require__(1455);
+var types = __nccwpck_require__(8362);
+var client = __nccwpck_require__(6045);
+var endpoints = __nccwpck_require__(7072);
+
+class ProviderError extends Error {
+    name = "ProviderError";
+    tryNextLink;
+    constructor(message, options = true) {
+        let logger;
+        let tryNextLink = true;
+        if (typeof options === "boolean") {
+            logger = undefined;
+            tryNextLink = options;
+        }
+        else if (options != null && typeof options === "object") {
+            logger = options.logger;
+            tryNextLink = options.tryNextLink ?? true;
+        }
+        super(message);
+        this.tryNextLink = tryNextLink;
+        Object.setPrototypeOf(this, ProviderError.prototype);
+        logger?.debug?.(`@smithy/property-provider ${tryNextLink ? "->" : "(!)"} ${message}`);
+    }
+    static from(error, options = true) {
+        return Object.assign(new this(error.message, options), error);
+    }
+}
+
+class CredentialsProviderError extends ProviderError {
+    name = "CredentialsProviderError";
+    constructor(message, options = true) {
+        super(message, options);
+        Object.setPrototypeOf(this, CredentialsProviderError.prototype);
+    }
+}
+
+class TokenProviderError extends ProviderError {
+    name = "TokenProviderError";
+    constructor(message, options = true) {
+        super(message, options);
+        Object.setPrototypeOf(this, TokenProviderError.prototype);
+    }
+}
+
+const chain = (...providers) => async () => {
+    if (providers.length === 0) {
+        throw new ProviderError("No providers in chain");
+    }
+    let lastProviderError;
+    for (const provider of providers) {
+        try {
+            const credentials = await provider();
+            return credentials;
+        }
+        catch (err) {
+            lastProviderError = err;
+            if (err?.tryNextLink) {
+                continue;
+            }
+            throw err;
+        }
+    }
+    throw lastProviderError;
+};
+
+const fromValue = (staticValue) => () => Promise.resolve(staticValue);
+
+const memoize = (provider, isExpired, requiresRefresh) => {
+    let resolved;
+    let pending;
+    let hasResult;
+    let isConstant = false;
+    const coalesceProvider = async () => {
+        if (!pending) {
+            pending = provider();
+        }
+        try {
+            resolved = await pending;
+            hasResult = true;
+            isConstant = false;
+        }
+        finally {
+            pending = undefined;
+        }
+        return resolved;
+    };
+    if (isExpired === undefined) {
+        return async (options) => {
+            if (!hasResult || options?.forceRefresh) {
+                resolved = await coalesceProvider();
+            }
+            return resolved;
+        };
+    }
+    return async (options) => {
+        if (!hasResult || options?.forceRefresh) {
+            resolved = await coalesceProvider();
+        }
+        if (isConstant) {
+            return resolved;
+        }
+        if (requiresRefresh && !requiresRefresh(resolved)) {
+            isConstant = true;
+            return resolved;
+        }
+        if (isExpired(resolved)) {
+            await coalesceProvider();
+            return resolved;
+        }
+        return resolved;
+    };
+};
+
+const booleanSelector = (obj, key, type) => {
+    if (!(key in obj))
+        return undefined;
+    if (obj[key] === "true")
+        return true;
+    if (obj[key] === "false")
+        return false;
+    throw new Error(`Cannot load ${type} "${key}". Expected "true" or "false", got ${obj[key]}.`);
+};
+
+const numberSelector = (obj, key, type) => {
+    if (!(key in obj))
+        return undefined;
+    const numberValue = parseInt(obj[key], 10);
+    if (Number.isNaN(numberValue)) {
+        throw new TypeError(`Cannot load ${type} '${key}'. Expected number, got '${obj[key]}'.`);
+    }
+    return numberValue;
+};
+
+exports.SelectorType = void 0;
+(function (SelectorType) {
+    SelectorType["ENV"] = "env";
+    SelectorType["CONFIG"] = "shared config entry";
+})(exports.SelectorType || (exports.SelectorType = {}));
+
+const homeDirCache = {};
+const getHomeDirCacheKey = () => {
+    if (process && process.geteuid) {
+        return `${process.geteuid()}`;
+    }
+    return "DEFAULT";
+};
+const getHomeDir = () => {
+    const { HOME, USERPROFILE, HOMEPATH, HOMEDRIVE = `C:${node_path.sep}` } = process.env;
+    if (HOME)
+        return HOME;
+    if (USERPROFILE)
+        return USERPROFILE;
+    if (HOMEPATH)
+        return `${HOMEDRIVE}${HOMEPATH}`;
+    const homeDirCacheKey = getHomeDirCacheKey();
+    if (!homeDirCache[homeDirCacheKey])
+        homeDirCache[homeDirCacheKey] = node_os.homedir();
+    return homeDirCache[homeDirCacheKey];
+};
+
+const ENV_PROFILE = "AWS_PROFILE";
+const DEFAULT_PROFILE = "default";
+const getProfileName = (init) => init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
+
+const getSSOTokenFilepath = (id) => {
+    const hasher = node_crypto.createHash("sha1");
+    const cacheName = hasher.update(id).digest("hex");
+    return node_path.join(getHomeDir(), ".aws", "sso", "cache", `${cacheName}.json`);
+};
+
+const tokenIntercept = {};
+const getSSOTokenFromFile = async (id) => {
+    if (tokenIntercept[id]) {
+        return tokenIntercept[id];
+    }
+    const ssoTokenFilepath = getSSOTokenFilepath(id);
+    const ssoTokenText = await promises.readFile(ssoTokenFilepath, "utf8");
+    return JSON.parse(ssoTokenText);
+};
+
+const CONFIG_PREFIX_SEPARATOR = ".";
+
+const getConfigData = (data) => Object.entries(data)
+    .filter(([key]) => {
+    const indexOfSeparator = key.indexOf(CONFIG_PREFIX_SEPARATOR);
+    if (indexOfSeparator === -1) {
+        return false;
+    }
+    return Object.values(types.IniSectionType).includes(key.substring(0, indexOfSeparator));
+})
+    .reduce((acc, [key, value]) => {
+    const indexOfSeparator = key.indexOf(CONFIG_PREFIX_SEPARATOR);
+    const updatedKey = key.substring(0, indexOfSeparator) === types.IniSectionType.PROFILE ? key.substring(indexOfSeparator + 1) : key;
+    acc[updatedKey] = value;
+    return acc;
+}, {
+    ...(data.default && { default: data.default }),
+});
+
+const ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
+const getConfigFilepath = () => process.env[ENV_CONFIG_PATH] || node_path.join(getHomeDir(), ".aws", "config");
+
+const ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
+const getCredentialsFilepath = () => process.env[ENV_CREDENTIALS_PATH] || node_path.join(getHomeDir(), ".aws", "credentials");
+
+const prefixKeyRegex = /^([\w-]+)\s(["'])?([\w-@\+\.%:/]+)\2$/;
+const profileNameBlockList = ["__proto__", "profile __proto__"];
+const parseIni = (iniData) => {
+    const map = {};
+    let currentSection;
+    let currentSubSection;
+    for (const iniLine of iniData.split(/\r?\n/)) {
+        const trimmedLine = iniLine.split(/(^|\s)[;#]/)[0].trim();
+        const isSection = trimmedLine[0] === "[" && trimmedLine[trimmedLine.length - 1] === "]";
+        if (isSection) {
+            currentSection = undefined;
+            currentSubSection = undefined;
+            const sectionName = trimmedLine.substring(1, trimmedLine.length - 1);
+            const matches = prefixKeyRegex.exec(sectionName);
+            if (matches) {
+                const [, prefix, , name] = matches;
+                if (Object.values(types.IniSectionType).includes(prefix)) {
+                    currentSection = [prefix, name].join(CONFIG_PREFIX_SEPARATOR);
+                }
+            }
+            else {
+                currentSection = sectionName;
+            }
+            if (profileNameBlockList.includes(sectionName)) {
+                throw new Error(`Found invalid profile name "${sectionName}"`);
+            }
+        }
+        else if (currentSection) {
+            const indexOfEqualsSign = trimmedLine.indexOf("=");
+            if (![0, -1].includes(indexOfEqualsSign)) {
+                const [name, value] = [
+                    trimmedLine.substring(0, indexOfEqualsSign).trim(),
+                    trimmedLine.substring(indexOfEqualsSign + 1).trim(),
+                ];
+                if (value === "") {
+                    currentSubSection = name;
+                }
+                else {
+                    if (currentSubSection && iniLine.trimStart() === iniLine) {
+                        currentSubSection = undefined;
+                    }
+                    map[currentSection] = map[currentSection] || {};
+                    const key = currentSubSection ? [currentSubSection, name].join(CONFIG_PREFIX_SEPARATOR) : name;
+                    map[currentSection][key] = value;
+                }
+            }
+        }
+    }
+    return map;
+};
+
+const filePromises = {};
+const fileIntercept = {};
+const readFile = (path, options) => {
+    if (fileIntercept[path] !== undefined) {
+        return fileIntercept[path];
+    }
+    if (!filePromises[path] || options?.ignoreCache) {
+        filePromises[path] = promises.readFile(path, "utf8");
+    }
+    return filePromises[path];
+};
+
+const swallowError$1 = () => ({});
+const loadSharedConfigFiles = async (init = {}) => {
+    const { filepath = getCredentialsFilepath(), configFilepath = getConfigFilepath() } = init;
+    const homeDir = getHomeDir();
+    const relativeHomeDirPrefix = "~/";
+    let resolvedFilepath = filepath;
+    if (filepath.startsWith(relativeHomeDirPrefix)) {
+        resolvedFilepath = node_path.join(homeDir, filepath.slice(2));
+    }
+    let resolvedConfigFilepath = configFilepath;
+    if (configFilepath.startsWith(relativeHomeDirPrefix)) {
+        resolvedConfigFilepath = node_path.join(homeDir, configFilepath.slice(2));
+    }
+    const parsedFiles = await Promise.all([
+        readFile(resolvedConfigFilepath, {
+            ignoreCache: init.ignoreCache,
+        })
+            .then(parseIni)
+            .then(getConfigData)
+            .catch(swallowError$1),
+        readFile(resolvedFilepath, {
+            ignoreCache: init.ignoreCache,
+        })
+            .then(parseIni)
+            .catch(swallowError$1),
+    ]);
+    return {
+        configFile: parsedFiles[0],
+        credentialsFile: parsedFiles[1],
+    };
+};
+
+const getSsoSessionData = (data) => Object.entries(data)
+    .filter(([key]) => key.startsWith(types.IniSectionType.SSO_SESSION + CONFIG_PREFIX_SEPARATOR))
+    .reduce((acc, [key, value]) => ({ ...acc, [key.substring(key.indexOf(CONFIG_PREFIX_SEPARATOR) + 1)]: value }), {});
+
+const swallowError = () => ({});
+const loadSsoSessionData = async (init = {}) => readFile(init.configFilepath ?? getConfigFilepath())
+    .then(parseIni)
+    .then(getSsoSessionData)
+    .catch(swallowError);
+
+const mergeConfigFiles = (...files) => {
+    const merged = {};
+    for (const file of files) {
+        for (const [key, values] of Object.entries(file)) {
+            if (merged[key] !== undefined) {
+                Object.assign(merged[key], values);
+            }
+            else {
+                merged[key] = values;
+            }
+        }
+    }
+    return merged;
+};
+
+const parseKnownFiles = async (init) => {
+    const parsedFiles = await loadSharedConfigFiles(init);
+    return mergeConfigFiles(parsedFiles.configFile, parsedFiles.credentialsFile);
+};
+
+const externalDataInterceptor = {
+    getFileRecord() {
+        return fileIntercept;
+    },
+    interceptFile(path, contents) {
+        fileIntercept[path] = Promise.resolve(contents);
+    },
+    getTokenRecord() {
+        return tokenIntercept;
+    },
+    interceptToken(id, contents) {
+        tokenIntercept[id] = contents;
+    },
+};
+
+function getSelectorName(functionString) {
+    try {
+        const constants = new Set(Array.from(functionString.match(/([A-Z_]){3,}/g) ?? []));
+        constants.delete("CONFIG");
+        constants.delete("CONFIG_PREFIX_SEPARATOR");
+        constants.delete("ENV");
+        return [...constants].join(", ");
+    }
+    catch (e) {
+        return functionString;
+    }
+}
+
+const fromEnv = (envVarSelector, options) => async () => {
+    try {
+        const config = envVarSelector(process.env, options);
+        if (config === undefined) {
+            throw new Error();
+        }
+        return config;
+    }
+    catch (e) {
+        throw new CredentialsProviderError(e.message || `Not found in ENV: ${getSelectorName(envVarSelector.toString())}`, { logger: options?.logger });
+    }
+};
+
+const fromSharedConfigFiles = (configSelector, { preferredFile = "config", ...init } = {}) => async () => {
+    const profile = getProfileName(init);
+    const { configFile, credentialsFile } = await loadSharedConfigFiles(init);
+    const profileFromCredentials = credentialsFile[profile] || {};
+    const profileFromConfig = configFile[profile] || {};
+    const mergedProfile = preferredFile === "config"
+        ? { ...profileFromCredentials, ...profileFromConfig }
+        : { ...profileFromConfig, ...profileFromCredentials };
+    try {
+        const cfgFile = preferredFile === "config" ? configFile : credentialsFile;
+        const configValue = configSelector(mergedProfile, cfgFile);
+        if (configValue === undefined) {
+            throw new Error();
+        }
+        return configValue;
+    }
+    catch (e) {
+        throw new CredentialsProviderError(e.message || `Not found in config files w/ profile [${profile}]: ${getSelectorName(configSelector.toString())}`, { logger: init.logger });
+    }
+};
+
+const isFunction = (func) => typeof func === "function";
+const fromStatic = (defaultValue) => isFunction(defaultValue) ? async () => await defaultValue() : fromValue(defaultValue);
+
+const loadConfig = ({ environmentVariableSelector, configFileSelector, default: defaultValue }, configuration = {}) => {
+    const { signingName, logger } = configuration;
+    const envOptions = { signingName, logger };
+    return memoize(chain(fromEnv(environmentVariableSelector, envOptions), fromSharedConfigFiles(configFileSelector, configuration), fromStatic(defaultValue)));
+};
+
+const ENV_USE_DUALSTACK_ENDPOINT = "AWS_USE_DUALSTACK_ENDPOINT";
+const CONFIG_USE_DUALSTACK_ENDPOINT = "use_dualstack_endpoint";
+const DEFAULT_USE_DUALSTACK_ENDPOINT = false;
+const NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS = {
+    environmentVariableSelector: (env) => booleanSelector(env, ENV_USE_DUALSTACK_ENDPOINT, exports.SelectorType.ENV),
+    configFileSelector: (profile) => booleanSelector(profile, CONFIG_USE_DUALSTACK_ENDPOINT, exports.SelectorType.CONFIG),
+    default: false,
+};
+const nodeDualstackConfigSelectors = {
+    environmentVariableSelector: (env) => booleanSelector(env, ENV_USE_DUALSTACK_ENDPOINT, exports.SelectorType.ENV),
+    configFileSelector: (profile) => booleanSelector(profile, CONFIG_USE_DUALSTACK_ENDPOINT, exports.SelectorType.CONFIG),
+    default: undefined,
+};
+
+const ENV_USE_FIPS_ENDPOINT = "AWS_USE_FIPS_ENDPOINT";
+const CONFIG_USE_FIPS_ENDPOINT = "use_fips_endpoint";
+const DEFAULT_USE_FIPS_ENDPOINT = false;
+const NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS = {
+    environmentVariableSelector: (env) => booleanSelector(env, ENV_USE_FIPS_ENDPOINT, exports.SelectorType.ENV),
+    configFileSelector: (profile) => booleanSelector(profile, CONFIG_USE_FIPS_ENDPOINT, exports.SelectorType.CONFIG),
+    default: false,
+};
+const nodeFipsConfigSelectors = {
+    environmentVariableSelector: (env) => booleanSelector(env, ENV_USE_FIPS_ENDPOINT, exports.SelectorType.ENV),
+    configFileSelector: (profile) => booleanSelector(profile, CONFIG_USE_FIPS_ENDPOINT, exports.SelectorType.CONFIG),
+    default: undefined,
+};
+
+const resolveCustomEndpointsConfig = (input) => {
+    const { tls, endpoint, urlParser, useDualstackEndpoint } = input;
+    return Object.assign(input, {
+        tls: tls ?? true,
+        endpoint: client.normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint),
+        isCustomEndpoint: true,
+        useDualstackEndpoint: client.normalizeProvider(useDualstackEndpoint ?? false),
+    });
+};
+
+const getEndpointFromRegion = async (input) => {
+    const { tls = true } = input;
+    const region = await input.region();
+    const dnsHostRegex = new RegExp(/^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])$/);
+    if (!dnsHostRegex.test(region)) {
+        throw new Error("Invalid region in client config");
+    }
+    const useDualstackEndpoint = await input.useDualstackEndpoint();
+    const useFipsEndpoint = await input.useFipsEndpoint();
+    const { hostname } = (await input.regionInfoProvider(region, { useDualstackEndpoint, useFipsEndpoint })) ?? {};
+    if (!hostname) {
+        throw new Error("Cannot resolve hostname from client config");
+    }
+    return input.urlParser(`${tls ? "https:" : "http:"}//${hostname}`);
+};
+
+const resolveEndpointsConfig = (input) => {
+    const useDualstackEndpoint = client.normalizeProvider(input.useDualstackEndpoint ?? false);
+    const { endpoint, useFipsEndpoint, urlParser, tls } = input;
+    return Object.assign(input, {
+        tls: tls ?? true,
+        endpoint: endpoint
+            ? client.normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint)
+            : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
+        isCustomEndpoint: !!endpoint,
+        useDualstackEndpoint,
+    });
+};
+
+const REGION_ENV_NAME = "AWS_REGION";
+const REGION_INI_NAME = "region";
+const NODE_REGION_CONFIG_OPTIONS = {
+    environmentVariableSelector: (env) => env[REGION_ENV_NAME],
+    configFileSelector: (profile) => profile[REGION_INI_NAME],
+    default: () => {
+        throw new Error("Region is missing");
+    },
+};
+const NODE_REGION_CONFIG_FILE_OPTIONS = {
+    preferredFile: "credentials",
+};
+
+const validRegions = new Set();
+const checkRegion = (region, check = endpoints.isValidHostLabel) => {
+    if (!validRegions.has(region) && !check(region)) {
+        if (region === "*") {
+            console.warn(`@smithy/config-resolver WARN - Please use the caller region instead of "*". See "sigv4a" in https://github.com/aws/aws-sdk-js-v3/blob/main/supplemental-docs/CLIENTS.md.`);
+        }
+        else {
+            throw new Error(`Region not accepted: region="${region}" is not a valid hostname component.`);
+        }
+    }
+    else {
+        validRegions.add(region);
+    }
+};
+
+const isFipsRegion = (region) => typeof region === "string" && (region.startsWith("fips-") || region.endsWith("-fips"));
+
+const getRealRegion = (region) => isFipsRegion(region)
+    ? ["fips-aws-global", "aws-fips"].includes(region)
+        ? "us-east-1"
+        : region.replace(/fips-(dkr-|prod-)?|-fips/, "")
+    : region;
+
+const resolveRegionConfig = (input) => {
+    const { region, useFipsEndpoint } = input;
+    if (!region) {
+        throw new Error("Region is missing");
+    }
+    return Object.assign(input, {
+        region: async () => {
+            const providedRegion = typeof region === "function" ? await region() : region;
+            const realRegion = getRealRegion(providedRegion);
+            checkRegion(realRegion);
+            return realRegion;
+        },
+        useFipsEndpoint: async () => {
+            const providedRegion = typeof region === "string" ? region : await region();
+            if (isFipsRegion(providedRegion)) {
+                return true;
+            }
+            return typeof useFipsEndpoint !== "function" ? Promise.resolve(!!useFipsEndpoint) : useFipsEndpoint();
+        },
+    });
+};
+
+const getHostnameFromVariants = (variants = [], { useFipsEndpoint, useDualstackEndpoint }) => variants.find(({ tags }) => useFipsEndpoint === tags.includes("fips") && useDualstackEndpoint === tags.includes("dualstack"))?.hostname;
+
+const getResolvedHostname = (resolvedRegion, { regionHostname, partitionHostname }) => regionHostname
+    ? regionHostname
+    : partitionHostname
+        ? partitionHostname.replace("{region}", resolvedRegion)
+        : undefined;
+
+const getResolvedPartition = (region, { partitionHash }) => Object.keys(partitionHash || {}).find((key) => partitionHash[key].regions.includes(region)) ?? "aws";
+
+const getResolvedSigningRegion = (hostname, { signingRegion, regionRegex, useFipsEndpoint }) => {
+    if (signingRegion) {
+        return signingRegion;
+    }
+    else if (useFipsEndpoint) {
+        const regionRegexJs = regionRegex.replace("\\\\", "\\").replace(/^\^/g, "\\.").replace(/\$$/g, "\\.");
+        const regionRegexmatchArray = hostname.match(regionRegexJs);
+        if (regionRegexmatchArray) {
+            return regionRegexmatchArray[0].slice(1, -1);
+        }
+    }
+};
+
+const getRegionInfo = (region, { useFipsEndpoint = false, useDualstackEndpoint = false, signingService, regionHash, partitionHash, }) => {
+    const partition = getResolvedPartition(region, { partitionHash });
+    const resolvedRegion = region in regionHash ? region : partitionHash[partition]?.endpoint ?? region;
+    const hostnameOptions = { useFipsEndpoint, useDualstackEndpoint };
+    const regionHostname = getHostnameFromVariants(regionHash[resolvedRegion]?.variants, hostnameOptions);
+    const partitionHostname = getHostnameFromVariants(partitionHash[partition]?.variants, hostnameOptions);
+    const hostname = getResolvedHostname(resolvedRegion, { regionHostname, partitionHostname });
+    if (hostname === undefined) {
+        throw new Error(`Endpoint resolution failed for: ${{ resolvedRegion, useFipsEndpoint, useDualstackEndpoint }}`);
+    }
+    const signingRegion = getResolvedSigningRegion(hostname, {
+        signingRegion: regionHash[resolvedRegion]?.signingRegion,
+        regionRegex: partitionHash[partition].regionRegex,
+        useFipsEndpoint,
+    });
+    return {
+        partition,
+        signingService,
+        hostname,
+        ...(signingRegion && { signingRegion }),
+        ...(regionHash[resolvedRegion]?.signingService && {
+            signingService: regionHash[resolvedRegion].signingService,
+        }),
+    };
+};
+
+const AWS_EXECUTION_ENV = "AWS_EXECUTION_ENV";
+const AWS_REGION_ENV = "AWS_REGION";
+const AWS_DEFAULT_REGION_ENV = "AWS_DEFAULT_REGION";
+const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
+const DEFAULTS_MODE_OPTIONS = ["in-region", "cross-region", "mobile", "standard", "legacy"];
+const IMDS_REGION_PATH = "/latest/meta-data/placement/region";
+
+const AWS_DEFAULTS_MODE_ENV = "AWS_DEFAULTS_MODE";
+const AWS_DEFAULTS_MODE_CONFIG = "defaults_mode";
+const NODE_DEFAULTS_MODE_CONFIG_OPTIONS = {
+    environmentVariableSelector: (env) => {
+        return env[AWS_DEFAULTS_MODE_ENV];
+    },
+    configFileSelector: (profile) => {
+        return profile[AWS_DEFAULTS_MODE_CONFIG];
+    },
+    default: "legacy",
+};
+
+const resolveDefaultsModeConfig = ({ region = loadConfig(NODE_REGION_CONFIG_OPTIONS), defaultsMode = loadConfig(NODE_DEFAULTS_MODE_CONFIG_OPTIONS), } = {}) => memoize(async () => {
+    const mode = typeof defaultsMode === "function" ? await defaultsMode() : defaultsMode;
+    switch (mode?.toLowerCase()) {
+        case "auto":
+            return resolveNodeDefaultsModeAuto(region);
+        case "in-region":
+        case "cross-region":
+        case "mobile":
+        case "standard":
+        case "legacy":
+            return Promise.resolve(mode?.toLocaleLowerCase());
+        case undefined:
+            return Promise.resolve("legacy");
+        default:
+            throw new Error(`Invalid parameter for "defaultsMode", expect ${DEFAULTS_MODE_OPTIONS.join(", ")}, got ${mode}`);
+    }
+});
+const resolveNodeDefaultsModeAuto = async (clientRegion) => {
+    if (clientRegion) {
+        const resolvedRegion = typeof clientRegion === "function" ? await clientRegion() : clientRegion;
+        const inferredRegion = await inferPhysicalRegion();
+        if (!inferredRegion) {
+            return "standard";
+        }
+        if (resolvedRegion === inferredRegion) {
+            return "in-region";
+        }
+        else {
+            return "cross-region";
+        }
+    }
+    return "standard";
+};
+const inferPhysicalRegion = async () => {
+    if (process.env[AWS_EXECUTION_ENV] && (process.env[AWS_REGION_ENV] || process.env[AWS_DEFAULT_REGION_ENV])) {
+        return process.env[AWS_REGION_ENV] ?? process.env[AWS_DEFAULT_REGION_ENV];
+    }
+    if (!process.env[ENV_IMDS_DISABLED]) {
+        try {
+            const endpoint = await getImdsEndpoint();
+            return (await imdsHttpGet({ hostname: endpoint.hostname, path: IMDS_REGION_PATH })).toString();
+        }
+        catch (e) {
+        }
+    }
+};
+const getImdsEndpoint = async () => {
+    const envEndpoint = process.env.AWS_EC2_METADATA_SERVICE_ENDPOINT;
+    if (envEndpoint) {
+        const url = new URL(envEndpoint);
+        return { hostname: url.hostname, path: url.pathname };
+    }
+    const envMode = process.env.AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE;
+    if (envMode === "IPv6") {
+        return { hostname: "fd00:ec2::254", path: "/" };
+    }
+    return { hostname: "169.254.169.254", path: "/" };
+};
+const imdsHttpGet = async ({ hostname, path }) => {
+    const { request } = await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 7067, 23));
+    return new Promise((resolve, reject) => {
+        const req = request({
+            method: "GET",
+            hostname: hostname.replace(/^\[(.+)]$/, "$1"),
+            path,
+            timeout: 1000,
+            signal: AbortSignal.timeout(1000),
+        });
+        req.on("error", (err) => {
+            reject(err);
+            req.destroy();
+        });
+        req.on("timeout", () => {
+            reject(new Error("TimeoutError from instance metadata service"));
+            req.destroy();
+        });
+        req.on("response", (res) => {
+            const { statusCode = 400 } = res;
+            if (statusCode < 200 || 300 <= statusCode) {
+                reject(Object.assign(new Error("Error response received from instance metadata service"), { statusCode }));
+                req.destroy();
+                return;
+            }
+            const chunks = [];
+            res.on("data", (chunk) => chunks.push(chunk));
+            res.on("end", () => {
+                resolve(Buffer.concat(chunks));
+                req.destroy();
+            });
+        });
+        req.end();
+    });
+};
+
+exports.CONFIG_PREFIX_SEPARATOR = CONFIG_PREFIX_SEPARATOR;
+exports.CONFIG_USE_DUALSTACK_ENDPOINT = CONFIG_USE_DUALSTACK_ENDPOINT;
+exports.CONFIG_USE_FIPS_ENDPOINT = CONFIG_USE_FIPS_ENDPOINT;
+exports.CredentialsProviderError = CredentialsProviderError;
+exports.DEFAULT_PROFILE = DEFAULT_PROFILE;
+exports.DEFAULT_USE_DUALSTACK_ENDPOINT = DEFAULT_USE_DUALSTACK_ENDPOINT;
+exports.DEFAULT_USE_FIPS_ENDPOINT = DEFAULT_USE_FIPS_ENDPOINT;
+exports.ENV_PROFILE = ENV_PROFILE;
+exports.ENV_USE_DUALSTACK_ENDPOINT = ENV_USE_DUALSTACK_ENDPOINT;
+exports.ENV_USE_FIPS_ENDPOINT = ENV_USE_FIPS_ENDPOINT;
+exports.NODE_REGION_CONFIG_FILE_OPTIONS = NODE_REGION_CONFIG_FILE_OPTIONS;
+exports.NODE_REGION_CONFIG_OPTIONS = NODE_REGION_CONFIG_OPTIONS;
+exports.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS = NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS;
+exports.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS = NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
+exports.ProviderError = ProviderError;
+exports.REGION_ENV_NAME = REGION_ENV_NAME;
+exports.REGION_INI_NAME = REGION_INI_NAME;
+exports.TokenProviderError = TokenProviderError;
+exports.booleanSelector = booleanSelector;
+exports.chain = chain;
+exports.externalDataInterceptor = externalDataInterceptor;
+exports.fromStatic = fromStatic;
+exports.fromValue = fromValue;
+exports.getHomeDir = getHomeDir;
+exports.getProfileName = getProfileName;
+exports.getRegionInfo = getRegionInfo;
+exports.getSSOTokenFilepath = getSSOTokenFilepath;
+exports.getSSOTokenFromFile = getSSOTokenFromFile;
+exports.loadConfig = loadConfig;
+exports.loadSharedConfigFiles = loadSharedConfigFiles;
+exports.loadSsoSessionData = loadSsoSessionData;
+exports.memoize = memoize;
+exports.nodeDualstackConfigSelectors = nodeDualstackConfigSelectors;
+exports.nodeFipsConfigSelectors = nodeFipsConfigSelectors;
+exports.numberSelector = numberSelector;
+exports.parseKnownFiles = parseKnownFiles;
+exports.readFile = readFile;
+exports.resolveCustomEndpointsConfig = resolveCustomEndpointsConfig;
+exports.resolveDefaultsModeConfig = resolveDefaultsModeConfig;
+exports.resolveEndpointsConfig = resolveEndpointsConfig;
+exports.resolveRegionConfig = resolveRegionConfig;
+
+
+/***/ }),
+
+/***/ 7072:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+
+var config = __nccwpck_require__(8208);
+var protocols = __nccwpck_require__(6051);
+var client = __nccwpck_require__(6045);
+var types = __nccwpck_require__(8362);
+
+const ENV_ENDPOINT_URL = "AWS_ENDPOINT_URL";
+const CONFIG_ENDPOINT_URL = "endpoint_url";
+const getEndpointUrlConfig = (serviceId) => ({
+    environmentVariableSelector: (env) => {
+        const serviceSuffixParts = serviceId.split(" ").map((w) => w.toUpperCase());
+        const serviceEndpointUrl = env[[ENV_ENDPOINT_URL, ...serviceSuffixParts].join("_")];
+        if (serviceEndpointUrl)
+            return serviceEndpointUrl;
+        const endpointUrl = env[ENV_ENDPOINT_URL];
+        if (endpointUrl)
+            return endpointUrl;
+        return undefined;
+    },
+    configFileSelector: (profile, config$1) => {
+        if (config$1 && profile.services) {
+            const servicesSection = config$1[["services", profile.services].join(config.CONFIG_PREFIX_SEPARATOR)];
+            if (servicesSection) {
+                const servicePrefixParts = serviceId.split(" ").map((w) => w.toLowerCase());
+                const endpointUrl = servicesSection[[servicePrefixParts.join("_"), CONFIG_ENDPOINT_URL].join(config.CONFIG_PREFIX_SEPARATOR)];
+                if (endpointUrl)
+                    return endpointUrl;
+            }
+        }
+        const endpointUrl = profile[CONFIG_ENDPOINT_URL];
+        if (endpointUrl)
+            return endpointUrl;
+        return undefined;
+    },
+    default: undefined,
+});
+
+const getEndpointFromConfig = async (serviceId) => config.loadConfig(getEndpointUrlConfig(serviceId ?? ""))();
+
+const resolveParamsForS3 = async (endpointParams) => {
+    const bucket = endpointParams?.Bucket || "";
+    if (typeof endpointParams.Bucket === "string") {
+        endpointParams.Bucket = bucket.replace(/#/g, encodeURIComponent("#")).replace(/\?/g, encodeURIComponent("?"));
+    }
+    if (isArnBucketName(bucket)) {
+        if (endpointParams.ForcePathStyle === true) {
+            throw new Error("Path-style addressing cannot be used with ARN buckets");
+        }
+    }
+    else if (!isDnsCompatibleBucketName(bucket) ||
+        (bucket.indexOf(".") !== -1 && !String(endpointParams.Endpoint).startsWith("http:")) ||
+        bucket.toLowerCase() !== bucket ||
+        bucket.length < 3) {
+        endpointParams.ForcePathStyle = true;
+    }
+    if (endpointParams.DisableMultiRegionAccessPoints) {
+        endpointParams.disableMultiRegionAccessPoints = true;
+        endpointParams.DisableMRAP = true;
+    }
+    return endpointParams;
+};
+const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;
+const IP_ADDRESS_PATTERN = /(\d+\.){3}\d+/;
+const DOTS_PATTERN = /\.\./;
+const isDnsCompatibleBucketName = (bucketName) => DOMAIN_PATTERN.test(bucketName) && !IP_ADDRESS_PATTERN.test(bucketName) && !DOTS_PATTERN.test(bucketName);
+const isArnBucketName = (bucketName) => {
+    const [arn, partition, service, , , bucket] = bucketName.split(":");
+    const isArn = arn === "arn" && bucketName.split(":").length >= 6;
+    const isValidArn = Boolean(isArn && partition && service && bucket);
+    if (isArn && !isValidArn) {
+        throw new Error(`Invalid ARN: ${bucketName} was an invalid ARN.`);
+    }
+    return isValidArn;
+};
+
+const createConfigValueProvider = (configKey, canonicalEndpointParamKey, config, isClientContextParam = false) => {
+    const configProvider = async () => {
+        let configValue;
+        if (isClientContextParam) {
+            const clientContextParams = config.clientContextParams;
+            const nestedValue = clientContextParams?.[configKey];
+            configValue = nestedValue ?? config[configKey] ?? config[canonicalEndpointParamKey];
+        }
+        else {
+            configValue = config[configKey] ?? config[canonicalEndpointParamKey];
+        }
+        if (typeof configValue === "function") {
+            return configValue();
+        }
+        return configValue;
+    };
+    if (configKey === "credentialScope" || canonicalEndpointParamKey === "CredentialScope") {
+        return async () => {
+            const credentials = typeof config.credentials === "function" ? await config.credentials() : config.credentials;
+            const configValue = credentials?.credentialScope ?? credentials?.CredentialScope;
+            return configValue;
+        };
+    }
+    if (configKey === "accountId" || canonicalEndpointParamKey === "AccountId") {
+        return async () => {
+            const credentials = typeof config.credentials === "function" ? await config.credentials() : config.credentials;
+            const configValue = credentials?.accountId ?? credentials?.AccountId;
+            return configValue;
+        };
+    }
+    if (configKey === "endpoint" || canonicalEndpointParamKey === "endpoint") {
+        return async () => {
+            if (config.isCustomEndpoint === false) {
+                return undefined;
+            }
+            const endpoint = await configProvider();
+            if (endpoint && typeof endpoint === "object") {
+                if ("url" in endpoint) {
+                    return endpoint.url.href;
+                }
+                if ("hostname" in endpoint) {
+                    const { protocol, hostname, port, path } = endpoint;
+                    return `${protocol}//${hostname}${port ? ":" + port : ""}${path}`;
+                }
+            }
+            return endpoint;
+        };
+    }
+    return configProvider;
+};
 
 const toEndpointV1 = (endpoint) => {
     if (typeof endpoint === "object") {
         if ("url" in endpoint) {
-            const v1Endpoint = urlParser.parseUrl(endpoint.url);
+            const v1Endpoint = protocols.parseUrl(endpoint.url);
             if (endpoint.headers) {
                 v1Endpoint.headers = {};
                 for (const name in endpoint.headers) {
@@ -12436,35 +13894,779 @@ const toEndpointV1 = (endpoint) => {
         }
         return endpoint;
     }
-    return urlParser.parseUrl(endpoint);
+    return protocols.parseUrl(endpoint);
 };
 
+function bindGetEndpointFromInstructions(getEndpointFromConfig) {
+    return async (commandInput, instructionsSupplier, clientConfig, context) => {
+        if (!clientConfig.isCustomEndpoint) {
+            let endpointFromConfig;
+            if (clientConfig.serviceConfiguredEndpoint) {
+                endpointFromConfig = await clientConfig.serviceConfiguredEndpoint();
+            }
+            else {
+                endpointFromConfig = await getEndpointFromConfig(clientConfig.serviceId);
+            }
+            if (endpointFromConfig) {
+                clientConfig.endpoint = () => Promise.resolve(toEndpointV1(endpointFromConfig));
+                clientConfig.isCustomEndpoint = true;
+            }
+        }
+        const endpointParams = await resolveParams(commandInput, instructionsSupplier, clientConfig);
+        if (typeof clientConfig.endpointProvider !== "function") {
+            throw new Error("config.endpointProvider is not set.");
+        }
+        const endpoint = clientConfig.endpointProvider(endpointParams, context);
+        if (clientConfig.isCustomEndpoint && clientConfig.endpoint) {
+            const customEndpoint = await clientConfig.endpoint();
+            if (customEndpoint?.headers) {
+                endpoint.headers ??= {};
+                for (const [name, value] of Object.entries(customEndpoint.headers)) {
+                    endpoint.headers[name] = Array.isArray(value) ? value : [value];
+                }
+            }
+        }
+        return endpoint;
+    };
+}
+const resolveParams = async (commandInput, instructionsSupplier, clientConfig) => {
+    const endpointParams = {};
+    const instructions = instructionsSupplier?.getEndpointParameterInstructions?.() || {};
+    for (const [name, instruction] of Object.entries(instructions)) {
+        switch (instruction.type) {
+            case "staticContextParams":
+                endpointParams[name] = instruction.value;
+                break;
+            case "contextParams":
+                endpointParams[name] = commandInput[instruction.name];
+                break;
+            case "clientContextParams":
+            case "builtInParams":
+                endpointParams[name] = await createConfigValueProvider(instruction.name, name, clientConfig, instruction.type !== "builtInParams")();
+                break;
+            case "operationContextParams":
+                endpointParams[name] = instruction.get(commandInput);
+                break;
+            default:
+                throw new Error("Unrecognized endpoint parameter instruction: " + JSON.stringify(instruction));
+        }
+    }
+    if (Object.keys(instructions).length === 0) {
+        Object.assign(endpointParams, clientConfig);
+    }
+    if (String(clientConfig.serviceId).toLowerCase() === "s3") {
+        await resolveParamsForS3(endpointParams);
+    }
+    return endpointParams;
+};
+
+function setFeature(context, feature, value) {
+    if (!context.__smithy_context) {
+        context.__smithy_context = { features: {} };
+    }
+    else if (!context.__smithy_context.features) {
+        context.__smithy_context.features = {};
+    }
+    context.__smithy_context.features[feature] = value;
+}
+function bindEndpointMiddleware(getEndpointFromConfig) {
+    const getEndpointFromInstructions = bindGetEndpointFromInstructions(getEndpointFromConfig);
+    return ({ config, instructions, }) => {
+        return (next, context) => async (args) => {
+            if (config.isCustomEndpoint) {
+                setFeature(context, "ENDPOINT_OVERRIDE", "N");
+            }
+            const endpoint = await getEndpointFromInstructions(args.input, {
+                getEndpointParameterInstructions() {
+                    return instructions;
+                },
+            }, { ...config }, context);
+            context.endpointV2 = endpoint;
+            context.authSchemes = endpoint.properties?.authSchemes;
+            const authScheme = context.authSchemes?.[0];
+            if (authScheme) {
+                context["signing_region"] = authScheme.signingRegion;
+                context["signing_service"] = authScheme.signingName;
+                const smithyContext = client.getSmithyContext(context);
+                const httpAuthOption = smithyContext?.selectedHttpAuthScheme?.httpAuthOption;
+                if (httpAuthOption) {
+                    httpAuthOption.signingProperties = Object.assign(httpAuthOption.signingProperties || {}, {
+                        signing_region: authScheme.signingRegion,
+                        signingRegion: authScheme.signingRegion,
+                        signing_service: authScheme.signingName,
+                        signingName: authScheme.signingName,
+                        signingRegionSet: authScheme.signingRegionSet,
+                    }, authScheme.properties);
+                }
+            }
+            return next({
+                ...args,
+            });
+        };
+    };
+}
+
+const serializerMiddlewareOption = {
+    name: "serializerMiddleware"};
+const endpointMiddlewareOptions = {
+    step: "serialize",
+    tags: ["ENDPOINT_PARAMETERS", "ENDPOINT_V2", "ENDPOINT"],
+    name: "endpointV2Middleware",
+    override: true,
+    relation: "before",
+    toMiddleware: serializerMiddlewareOption.name,
+};
+function bindGetEndpointPlugin(getEndpointFromConfig) {
+    const endpointMiddleware = bindEndpointMiddleware(getEndpointFromConfig);
+    return (config, instructions) => ({
+        applyToStack: (clientStack) => {
+            clientStack.addRelativeTo(endpointMiddleware({
+                config,
+                instructions,
+            }), endpointMiddlewareOptions);
+        },
+    });
+}
+
+function bindResolveEndpointConfig(getEndpointFromConfig) {
+    return (input) => {
+        const tls = input.tls ?? true;
+        const { endpoint, useDualstackEndpoint, useFipsEndpoint } = input;
+        const customEndpointProvider = endpoint != null ? async () => toEndpointV1(await client.normalizeProvider(endpoint)()) : undefined;
+        const isCustomEndpoint = !!endpoint;
+        const resolvedConfig = Object.assign(input, {
+            endpoint: customEndpointProvider,
+            tls,
+            isCustomEndpoint,
+            useDualstackEndpoint: client.normalizeProvider(useDualstackEndpoint ?? false),
+            useFipsEndpoint: client.normalizeProvider(useFipsEndpoint ?? false),
+        });
+        let configuredEndpointPromise = undefined;
+        resolvedConfig.serviceConfiguredEndpoint = async () => {
+            if (input.serviceId && !configuredEndpointPromise) {
+                configuredEndpointPromise = getEndpointFromConfig(input.serviceId);
+            }
+            return configuredEndpointPromise;
+        };
+        return resolvedConfig;
+    };
+}
+
+class BinaryDecisionDiagram {
+    nodes;
+    root;
+    conditions;
+    results;
+    constructor(bdd, root, conditions, results) {
+        this.nodes = bdd;
+        this.root = root;
+        this.conditions = conditions;
+        this.results = results;
+    }
+    static from(bdd, root, conditions, results) {
+        return new BinaryDecisionDiagram(bdd, root, conditions, results);
+    }
+}
+
+class EndpointCache {
+    capacity;
+    data = new Map();
+    parameters = [];
+    constructor({ size, params }) {
+        this.capacity = size ?? 50;
+        if (params) {
+            this.parameters = params;
+        }
+    }
+    get(endpointParams, resolver) {
+        const key = this.hash(endpointParams);
+        if (key === false) {
+            return resolver();
+        }
+        if (!this.data.has(key)) {
+            if (this.data.size > this.capacity + 10) {
+                const keys = this.data.keys();
+                let i = 0;
+                while (true) {
+                    const { value, done } = keys.next();
+                    this.data.delete(value);
+                    if (done || ++i > 10) {
+                        break;
+                    }
+                }
+            }
+            this.data.set(key, resolver());
+        }
+        return this.data.get(key);
+    }
+    size() {
+        return this.data.size;
+    }
+    hash(endpointParams) {
+        let buffer = "";
+        const { parameters } = this;
+        if (parameters.length === 0) {
+            return false;
+        }
+        for (const param of parameters) {
+            const val = String(endpointParams[param] ?? "");
+            if (val.includes("|;")) {
+                return false;
+            }
+            buffer += val + "|;";
+        }
+        return buffer;
+    }
+}
+
+class EndpointError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "EndpointError";
+    }
+}
+
+const debugId = "endpoints";
+
+function toDebugString(input) {
+    if (typeof input !== "object" || input == null) {
+        return input;
+    }
+    if ("ref" in input) {
+        return `$${toDebugString(input.ref)}`;
+    }
+    if ("fn" in input) {
+        return `${input.fn}(${(input.argv || []).map(toDebugString).join(", ")})`;
+    }
+    return JSON.stringify(input, null, 2);
+}
+
+const customEndpointFunctions = {};
+
+const booleanEquals = (value1, value2) => value1 === value2;
+
+function coalesce(...args) {
+    for (const arg of args) {
+        if (arg != null) {
+            return arg;
+        }
+    }
+    return undefined;
+}
+
+const getAttrPathList = (path) => {
+    const parts = path.split(".");
+    const pathList = [];
+    for (const part of parts) {
+        const squareBracketIndex = part.indexOf("[");
+        if (squareBracketIndex !== -1) {
+            if (part.indexOf("]") !== part.length - 1) {
+                throw new EndpointError(`Path: '${path}' does not end with ']'`);
+            }
+            const arrayIndex = part.slice(squareBracketIndex + 1, -1);
+            if (Number.isNaN(parseInt(arrayIndex))) {
+                throw new EndpointError(`Invalid array index: '${arrayIndex}' in path: '${path}'`);
+            }
+            if (squareBracketIndex !== 0) {
+                pathList.push(part.slice(0, squareBracketIndex));
+            }
+            pathList.push(arrayIndex);
+        }
+        else {
+            pathList.push(part);
+        }
+    }
+    return pathList;
+};
+
+const getAttr = (value, path) => getAttrPathList(path).reduce((acc, index) => {
+    if (typeof acc !== "object") {
+        throw new EndpointError(`Index '${index}' in '${path}' not found in '${JSON.stringify(value)}'`);
+    }
+    else if (Array.isArray(acc)) {
+        const i = parseInt(index);
+        return acc[i < 0 ? acc.length + i : i];
+    }
+    return acc[index];
+}, value);
+
+const isSet = (value) => value != null;
+
+const VALID_HOST_LABEL_REGEX = new RegExp(`^(?!.*-$)(?!-)[a-zA-Z0-9-]{1,63}$`);
+const isValidHostLabel = (value, allowSubDomains = false) => {
+    if (!allowSubDomains) {
+        return VALID_HOST_LABEL_REGEX.test(value);
+    }
+    const labels = value.split(".");
+    for (const label of labels) {
+        if (!isValidHostLabel(label)) {
+            return false;
+        }
+    }
+    return true;
+};
+
+function ite(condition, trueValue, falseValue) {
+    return condition ? trueValue : falseValue;
+}
+
+const not = (value) => !value;
+
+const IP_V4_REGEX = new RegExp(`^(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}$`);
+const isIpAddress = (value) => IP_V4_REGEX.test(value) || (value.startsWith("[") && value.endsWith("]"));
+
+const DEFAULT_PORTS = {
+    [types.EndpointURLScheme.HTTP]: 80,
+    [types.EndpointURLScheme.HTTPS]: 443,
+};
+const parseURL = (value) => {
+    const whatwgURL = (() => {
+        try {
+            if (value instanceof URL) {
+                return value;
+            }
+            if (typeof value === "object" && "hostname" in value) {
+                const { hostname, port, protocol = "", path = "", query = {} } = value;
+                const url = new URL(`${protocol}//${hostname}${port ? `:${port}` : ""}${path}`);
+                url.search = Object.entries(query)
+                    .map(([k, v]) => `${k}=${v}`)
+                    .join("&");
+                return url;
+            }
+            return new URL(value);
+        }
+        catch (error) {
+            return null;
+        }
+    })();
+    if (!whatwgURL) {
+        console.error(`Unable to parse ${JSON.stringify(value)} as a whatwg URL.`);
+        return null;
+    }
+    const urlString = whatwgURL.href;
+    const { host, hostname, pathname, protocol, search } = whatwgURL;
+    if (search) {
+        return null;
+    }
+    const scheme = protocol.slice(0, -1);
+    if (!Object.values(types.EndpointURLScheme).includes(scheme)) {
+        return null;
+    }
+    const isIp = isIpAddress(hostname);
+    const inputContainsDefaultPort = urlString.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ||
+        (typeof value === "string" && value.includes(`${host}:${DEFAULT_PORTS[scheme]}`));
+    const authority = `${host}${inputContainsDefaultPort ? `:${DEFAULT_PORTS[scheme]}` : ``}`;
+    return {
+        scheme,
+        authority,
+        path: pathname,
+        normalizedPath: pathname.endsWith("/") ? pathname : `${pathname}/`,
+        isIp,
+    };
+};
+
+function split(value, delimiter, limit) {
+    if (limit === 1) {
+        return [value];
+    }
+    if (value === "") {
+        return [""];
+    }
+    const parts = value.split(delimiter);
+    if (limit === 0) {
+        return parts;
+    }
+    return parts.slice(0, limit - 1).concat(parts.slice(1).join(delimiter));
+}
+
+const stringEquals = (value1, value2) => value1 === value2;
+
+const substring = (input, start, stop, reverse) => {
+    if (input == null || start >= stop || input.length < stop || /[^\u0000-\u007f]/.test(input)) {
+        return null;
+    }
+    if (!reverse) {
+        return input.substring(start, stop);
+    }
+    return input.substring(input.length - stop, input.length - start);
+};
+
+const uriEncode = (value) => encodeURIComponent(value).replace(/[!*'()]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
+
+const endpointFunctions = {
+    booleanEquals,
+    coalesce,
+    getAttr,
+    isSet,
+    isValidHostLabel,
+    ite,
+    not,
+    parseURL,
+    split,
+    stringEquals,
+    substring,
+    uriEncode,
+};
+
+const evaluateTemplate = (template, options) => {
+    const evaluatedTemplateArr = [];
+    const { referenceRecord, endpointParams } = options;
+    let currentIndex = 0;
+    while (currentIndex < template.length) {
+        const openingBraceIndex = template.indexOf("{", currentIndex);
+        if (openingBraceIndex === -1) {
+            evaluatedTemplateArr.push(template.slice(currentIndex));
+            break;
+        }
+        evaluatedTemplateArr.push(template.slice(currentIndex, openingBraceIndex));
+        const closingBraceIndex = template.indexOf("}", openingBraceIndex);
+        if (closingBraceIndex === -1) {
+            evaluatedTemplateArr.push(template.slice(openingBraceIndex));
+            break;
+        }
+        if (template[openingBraceIndex + 1] === "{" && template[closingBraceIndex + 1] === "}") {
+            evaluatedTemplateArr.push(template.slice(openingBraceIndex + 1, closingBraceIndex));
+            currentIndex = closingBraceIndex + 2;
+        }
+        const parameterName = template.substring(openingBraceIndex + 1, closingBraceIndex);
+        if (parameterName.includes("#")) {
+            const [refName, attrName] = parameterName.split("#");
+            evaluatedTemplateArr.push(getAttr((referenceRecord[refName] ?? endpointParams[refName]), attrName));
+        }
+        else {
+            evaluatedTemplateArr.push((referenceRecord[parameterName] ?? endpointParams[parameterName]));
+        }
+        currentIndex = closingBraceIndex + 1;
+    }
+    return evaluatedTemplateArr.join("");
+};
+
+const getReferenceValue = ({ ref }, options) => {
+    return options.referenceRecord[ref] ?? options.endpointParams[ref];
+};
+
+const evaluateExpression = (obj, keyName, options) => {
+    if (typeof obj === "string") {
+        return evaluateTemplate(obj, options);
+    }
+    else if (obj["fn"]) {
+        return group$2.callFunction(obj, options);
+    }
+    else if (obj["ref"]) {
+        return getReferenceValue(obj, options);
+    }
+    throw new EndpointError(`'${keyName}': ${String(obj)} is not a string, function or reference.`);
+};
+const callFunction = ({ fn, argv }, options) => {
+    const evaluatedArgs = Array(argv.length);
+    for (let i = 0; i < evaluatedArgs.length; ++i) {
+        const arg = argv[i];
+        if (typeof arg === "boolean" || typeof arg === "number") {
+            evaluatedArgs[i] = arg;
+        }
+        else {
+            evaluatedArgs[i] = group$2.evaluateExpression(arg, "arg", options);
+        }
+    }
+    const namespaceSeparatorIndex = fn.indexOf(".");
+    if (namespaceSeparatorIndex !== -1) {
+        const namespaceFunctions = customEndpointFunctions[fn.slice(0, namespaceSeparatorIndex)];
+        const customFunction = namespaceFunctions?.[fn.slice(namespaceSeparatorIndex + 1)];
+        if (typeof customFunction === "function") {
+            return customFunction(...evaluatedArgs);
+        }
+    }
+    const callable = endpointFunctions[fn];
+    if (typeof callable === "function") {
+        return callable(...evaluatedArgs);
+    }
+    throw new Error(`function ${fn} not loaded in endpointFunctions.`);
+};
+const group$2 = {
+    evaluateExpression,
+    callFunction,
+};
+
+const evaluateCondition = (condition, options) => {
+    const { assign } = condition;
+    if (assign && assign in options.referenceRecord) {
+        throw new EndpointError(`'${assign}' is already defined in Reference Record.`);
+    }
+    const value = callFunction(condition, options);
+    options.logger?.debug?.(`${debugId} evaluateCondition: ${toDebugString(condition)} = ${toDebugString(value)}`);
+    const result = value === "" ? true : !!value;
+    if (assign != null) {
+        return { result, toAssign: { name: assign, value } };
+    }
+    return { result };
+};
+
+const getEndpointHeaders = (headers, options) => Object.entries(headers ?? {}).reduce((acc, [headerKey, headerVal]) => {
+    acc[headerKey] = headerVal.map((headerValEntry) => {
+        const processedExpr = evaluateExpression(headerValEntry, "Header value entry", options);
+        if (typeof processedExpr !== "string") {
+            throw new EndpointError(`Header '${headerKey}' value '${processedExpr}' is not a string`);
+        }
+        return processedExpr;
+    });
+    return acc;
+}, {});
+
+const getEndpointProperties = (properties, options) => Object.entries(properties).reduce((acc, [propertyKey, propertyVal]) => {
+    acc[propertyKey] = group$1.getEndpointProperty(propertyVal, options);
+    return acc;
+}, {});
+const getEndpointProperty = (property, options) => {
+    if (Array.isArray(property)) {
+        return property.map((propertyEntry) => getEndpointProperty(propertyEntry, options));
+    }
+    switch (typeof property) {
+        case "string":
+            return evaluateTemplate(property, options);
+        case "object":
+            if (property === null) {
+                throw new EndpointError(`Unexpected endpoint property: ${property}`);
+            }
+            return group$1.getEndpointProperties(property, options);
+        case "boolean":
+            return property;
+        default:
+            throw new EndpointError(`Unexpected endpoint property type: ${typeof property}`);
+    }
+};
+const group$1 = {
+    getEndpointProperty,
+    getEndpointProperties,
+};
+
+const getEndpointUrl = (endpointUrl, options) => {
+    const expression = evaluateExpression(endpointUrl, "Endpoint URL", options);
+    if (typeof expression === "string") {
+        try {
+            return new URL(expression);
+        }
+        catch (error) {
+            console.error(`Failed to construct URL with ${expression}`, error);
+            throw error;
+        }
+    }
+    throw new EndpointError(`Endpoint URL must be a string, got ${typeof expression}`);
+};
+
+const RESULT = 100_000_000;
+const decideEndpoint = (bdd, options) => {
+    const { nodes, root, results, conditions } = bdd;
+    let ref = root;
+    const referenceRecord = {};
+    const closure = {
+        referenceRecord,
+        endpointParams: options.endpointParams,
+        logger: options.logger,
+    };
+    while (ref !== 1 && ref !== -1 && ref < RESULT) {
+        const node_i = 3 * (Math.abs(ref) - 1);
+        const [condition_i, highRef, lowRef] = [nodes[node_i], nodes[node_i + 1], nodes[node_i + 2]];
+        const [fn, argv, assign] = conditions[condition_i];
+        const evaluation = evaluateCondition({ fn, assign, argv }, closure);
+        if (evaluation.toAssign) {
+            const { name, value } = evaluation.toAssign;
+            referenceRecord[name] = value;
+        }
+        ref = ref >= 0 === evaluation.result ? highRef : lowRef;
+    }
+    if (ref >= RESULT) {
+        const result = results[ref - RESULT];
+        if (result[0] === -1) {
+            const [, errorExpression] = result;
+            throw new EndpointError(evaluateExpression(errorExpression, "Error", closure));
+        }
+        const [url, properties, headers] = result;
+        return {
+            url: getEndpointUrl(url, closure),
+            properties: getEndpointProperties(properties, closure),
+            headers: getEndpointHeaders(headers ?? {}, closure),
+        };
+    }
+    throw new EndpointError(`No matching endpoint.`);
+};
+
+const evaluateConditions = (conditions = [], options) => {
+    const conditionsReferenceRecord = {};
+    const conditionOptions = {
+        ...options,
+        referenceRecord: { ...options.referenceRecord },
+    };
+    let didAssign = false;
+    for (const condition of conditions) {
+        const { result, toAssign } = evaluateCondition(condition, conditionOptions);
+        if (!result) {
+            return { result };
+        }
+        if (toAssign) {
+            didAssign = true;
+            conditionsReferenceRecord[toAssign.name] = toAssign.value;
+            conditionOptions.referenceRecord[toAssign.name] = toAssign.value;
+            options.logger?.debug?.(`${debugId} assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`);
+        }
+    }
+    if (didAssign) {
+        return { result: true, referenceRecord: conditionsReferenceRecord };
+    }
+    return { result: true };
+};
+
+const evaluateEndpointRule = (endpointRule, options) => {
+    const { conditions, endpoint } = endpointRule;
+    const { result, referenceRecord } = evaluateConditions(conditions, options);
+    if (!result) {
+        return;
+    }
+    const endpointRuleOptions = referenceRecord
+        ? {
+            ...options,
+            referenceRecord: { ...options.referenceRecord, ...referenceRecord },
+        }
+        : options;
+    const { url, properties, headers } = endpoint;
+    options.logger?.debug?.(`${debugId} Resolving endpoint from template: ${toDebugString(endpoint)}`);
+    const endpointToReturn = { url: getEndpointUrl(url, endpointRuleOptions) };
+    if (headers != null) {
+        endpointToReturn.headers = getEndpointHeaders(headers, endpointRuleOptions);
+    }
+    if (properties != null) {
+        endpointToReturn.properties = getEndpointProperties(properties, endpointRuleOptions);
+    }
+    return endpointToReturn;
+};
+
+const evaluateErrorRule = (errorRule, options) => {
+    const { conditions, error } = errorRule;
+    const { result, referenceRecord } = evaluateConditions(conditions, options);
+    if (!result) {
+        return;
+    }
+    const errorRuleOptions = referenceRecord
+        ? {
+            ...options,
+            referenceRecord: { ...options.referenceRecord, ...referenceRecord },
+        }
+        : options;
+    throw new EndpointError(evaluateExpression(error, "Error", errorRuleOptions));
+};
+
+const evaluateRules = (rules, options) => {
+    for (const rule of rules) {
+        if (rule.type === "endpoint") {
+            const endpointOrUndefined = evaluateEndpointRule(rule, options);
+            if (endpointOrUndefined) {
+                return endpointOrUndefined;
+            }
+        }
+        else if (rule.type === "error") {
+            evaluateErrorRule(rule, options);
+        }
+        else if (rule.type === "tree") {
+            const endpointOrUndefined = group.evaluateTreeRule(rule, options);
+            if (endpointOrUndefined) {
+                return endpointOrUndefined;
+            }
+        }
+        else {
+            throw new EndpointError(`Unknown endpoint rule: ${rule}`);
+        }
+    }
+    throw new EndpointError(`Rules evaluation failed`);
+};
+const evaluateTreeRule = (treeRule, options) => {
+    const { conditions, rules } = treeRule;
+    const { result, referenceRecord } = evaluateConditions(conditions, options);
+    if (!result) {
+        return;
+    }
+    const treeRuleOptions = referenceRecord
+        ? { ...options, referenceRecord: { ...options.referenceRecord, ...referenceRecord } }
+        : options;
+    return group.evaluateRules(rules, treeRuleOptions);
+};
+const group = {
+    evaluateRules,
+    evaluateTreeRule,
+};
+
+const resolveEndpoint = (ruleSetObject, options) => {
+    const { endpointParams, logger } = options;
+    const { parameters, rules } = ruleSetObject;
+    options.logger?.debug?.(`${debugId} Initial EndpointParams: ${toDebugString(endpointParams)}`);
+    for (const paramKey in parameters) {
+        const parameter = parameters[paramKey];
+        const endpointParam = endpointParams[paramKey];
+        if (endpointParam == null && parameter.default != null) {
+            endpointParams[paramKey] = parameter.default;
+            continue;
+        }
+        if (parameter.required && endpointParam == null) {
+            throw new EndpointError(`Missing required parameter: '${paramKey}'`);
+        }
+    }
+    const endpoint = evaluateRules(rules, { endpointParams, logger, referenceRecord: {} });
+    options.logger?.debug?.(`${debugId} Resolved endpoint: ${toDebugString(endpoint)}`);
+    return endpoint;
+};
+
+const resolveEndpointRequiredConfig = (input) => {
+    const { endpoint } = input;
+    if (endpoint === undefined) {
+        input.endpoint = async () => {
+            throw new Error("@smithy/middleware-endpoint: (default endpointRuleSet) endpoint is not set - you must configure an endpoint.");
+        };
+    }
+    return input;
+};
+
+const getEndpointFromInstructions = bindGetEndpointFromInstructions(getEndpointFromConfig);
+const resolveEndpointConfig = bindResolveEndpointConfig(getEndpointFromConfig);
+const endpointMiddleware = bindEndpointMiddleware(getEndpointFromConfig);
+const getEndpointPlugin = bindGetEndpointPlugin(getEndpointFromConfig);
+
+exports.BinaryDecisionDiagram = BinaryDecisionDiagram;
+exports.EndpointCache = EndpointCache;
+exports.EndpointError = EndpointError;
+exports.customEndpointFunctions = customEndpointFunctions;
+exports.decideEndpoint = decideEndpoint;
+exports.endpointMiddleware = endpointMiddleware;
+exports.endpointMiddlewareOptions = endpointMiddlewareOptions;
+exports.getEndpointFromInstructions = getEndpointFromInstructions;
+exports.getEndpointPlugin = getEndpointPlugin;
+exports.isIpAddress = isIpAddress;
+exports.isValidHostLabel = isValidHostLabel;
+exports.middlewareEndpointToEndpointV1 = toEndpointV1;
+exports.resolveEndpoint = resolveEndpoint;
+exports.resolveEndpointConfig = resolveEndpointConfig;
+exports.resolveEndpointRequiredConfig = resolveEndpointRequiredConfig;
+exports.resolveParams = resolveParams;
 exports.toEndpointV1 = toEndpointV1;
 
 
 /***/ }),
 
-/***/ 7061:
+/***/ 6051:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var utilStream = __nccwpck_require__(3353);
-var schema = __nccwpck_require__(6519);
-var serde = __nccwpck_require__(9429);
-var protocolHttp = __nccwpck_require__(9526);
-var utilBase64 = __nccwpck_require__(3158);
-var utilUtf8 = __nccwpck_require__(8165);
+var serde = __nccwpck_require__(7643);
+var schema = __nccwpck_require__(7393);
+var types = __nccwpck_require__(8362);
 
 const collectBody = async (streamBody = new Uint8Array(), context) => {
     if (streamBody instanceof Uint8Array) {
-        return utilStream.Uint8ArrayBlobAdapter.mutate(streamBody);
+        return serde.Uint8ArrayBlobAdapter.mutate(streamBody);
     }
     if (!streamBody) {
-        return utilStream.Uint8ArrayBlobAdapter.mutate(new Uint8Array());
+        return serde.Uint8ArrayBlobAdapter.mutate(new Uint8Array());
     }
     const fromContext = context.streamCollector(streamBody);
-    return utilStream.Uint8ArrayBlobAdapter.mutate(await fromContext);
+    return serde.Uint8ArrayBlobAdapter.mutate(await fromContext);
 };
 
 function extendedEncodeURIComponent(str) {
@@ -12480,6 +14682,90 @@ class SerdeContext {
     }
 }
 
+class HttpRequest {
+    method;
+    protocol;
+    hostname;
+    port;
+    path;
+    query;
+    headers;
+    username;
+    password;
+    fragment;
+    body;
+    constructor(options) {
+        this.method = options.method || "GET";
+        this.hostname = options.hostname || "localhost";
+        this.port = options.port;
+        this.query = options.query || {};
+        this.headers = options.headers || {};
+        this.body = options.body;
+        this.protocol = options.protocol
+            ? options.protocol.slice(-1) !== ":"
+                ? `${options.protocol}:`
+                : options.protocol
+            : "https:";
+        this.path = options.path ? (options.path.charAt(0) !== "/" ? `/${options.path}` : options.path) : "/";
+        this.username = options.username;
+        this.password = options.password;
+        this.fragment = options.fragment;
+    }
+    static clone(request) {
+        const cloned = new HttpRequest({
+            ...request,
+            headers: { ...request.headers },
+        });
+        if (cloned.query) {
+            cloned.query = cloneQuery(cloned.query);
+        }
+        return cloned;
+    }
+    static isInstance(request) {
+        if (!request) {
+            return false;
+        }
+        const req = request;
+        return ("method" in req &&
+            "protocol" in req &&
+            "hostname" in req &&
+            "path" in req &&
+            typeof req["query"] === "object" &&
+            typeof req["headers"] === "object");
+    }
+    clone() {
+        return HttpRequest.clone(this);
+    }
+}
+function cloneQuery(query) {
+    return Object.keys(query).reduce((carry, paramName) => {
+        const param = query[paramName];
+        return {
+            ...carry,
+            [paramName]: Array.isArray(param) ? [...param] : param,
+        };
+    }, {});
+}
+
+class HttpResponse {
+    statusCode;
+    reason;
+    headers;
+    body;
+    constructor(options) {
+        this.statusCode = options.statusCode;
+        this.reason = options.reason;
+        this.headers = options.headers || {};
+        this.body = options.body;
+    }
+    static isInstance(response) {
+        if (!response)
+            return false;
+        const resp = response;
+        return typeof resp.statusCode === "number" && typeof resp.headers === "object";
+    }
+}
+
 class HttpProtocol extends SerdeContext {
     options;
     compositeErrorRegistry;
@@ -12492,10 +14778,10 @@ class HttpProtocol extends SerdeContext {
         }
     }
     getRequestType() {
-        return protocolHttp.HttpRequest;
+        return HttpRequest;
     }
     getResponseType() {
-        return protocolHttp.HttpResponse;
+        return HttpResponse;
     }
     setSerdeContext(serdeContext) {
         this.serdeContext = serdeContext;
@@ -12591,7 +14877,7 @@ class HttpProtocol extends SerdeContext {
         });
     }
     async loadEventStreamCapability() {
-        const { EventStreamSerde } = await __nccwpck_require__.e(/* import() */ 796).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1796, 19));
+        const { EventStreamSerde } = await __nccwpck_require__.e(/* import() */ 894).then(__nccwpck_require__.t.bind(__nccwpck_require__, 2894, 19));
         return new EventStreamSerde({
             marshaller: this.getEventStreamMarshaller(),
             serializer: this.serializer,
@@ -12627,7 +14913,7 @@ class HttpBindingProtocol extends HttpProtocol {
         const payloadMemberSchemas = [];
         let hasNonHttpBindingMember = false;
         let payload;
-        const request = new protocolHttp.HttpRequest({
+        const request = new HttpRequest({
             protocol: "",
             hostname: "",
             port: undefined,
@@ -12841,7 +15127,7 @@ class HttpBindingProtocol extends HttpProtocol {
                         });
                     }
                     else {
-                        dataObject[memberName] = utilStream.sdkStreamMixin(response.body);
+                        dataObject[memberName] = serde.sdkStreamMixin(response.body);
                     }
                 }
                 else if (response.body) {
@@ -12910,7 +15196,7 @@ class RpcProtocol extends HttpProtocol {
         const schema$1 = ns.getSchema();
         let payload;
         const input = _input && typeof _input === "object" ? _input : {};
-        const request = new protocolHttp.HttpRequest({
+        const request = new HttpRequest({
             protocol: "",
             hostname: "",
             port: undefined,
@@ -13031,7 +15317,7 @@ class RequestBuilder {
         for (const resolvePath of this.resolvePathStack) {
             resolvePath(this.path);
         }
-        return new protocolHttp.HttpRequest({
+        return new HttpRequest({
             protocol,
             hostname: this.hostname || hostname,
             port,
@@ -13108,7 +15394,7 @@ class FromStringShapeDeserializer extends SerdeContext {
             return serde.splitHeader(data).map((item) => this.read(ns.getValueSchema(), item));
         }
         if (ns.isBlobSchema()) {
-            return (this.serdeContext?.base64Decoder ?? utilBase64.fromBase64)(data);
+            return (this.serdeContext?.base64Decoder ?? serde.fromBase64)(data);
         }
         if (ns.isTimestampSchema()) {
             const format = determineTimestampFormat(ns, this.settings);
@@ -13153,7 +15439,7 @@ class FromStringShapeDeserializer extends SerdeContext {
         return data;
     }
     base64ToUtf8(base64String) {
-        return (this.serdeContext?.utf8Encoder ?? utilUtf8.toUtf8)((this.serdeContext?.base64Decoder ?? utilBase64.fromBase64)(base64String));
+        return (this.serdeContext?.utf8Encoder ?? serde.toUtf8)((this.serdeContext?.base64Decoder ?? serde.fromBase64)(base64String));
     }
 }
 
@@ -13173,13 +15459,13 @@ class HttpInterceptingShapeDeserializer extends SerdeContext {
     read(schema$1, data) {
         const ns = schema.NormalizedSchema.of(schema$1);
         const traits = ns.getMergedTraits();
-        const toString = this.serdeContext?.utf8Encoder ?? utilUtf8.toUtf8;
+        const toString = this.serdeContext?.utf8Encoder ?? serde.toUtf8;
         if (traits.httpHeader || traits.httpResponseCode) {
             return this.stringDeserializer.read(ns, toString(data));
         }
         if (traits.httpPayload) {
             if (ns.isBlobSchema()) {
-                const toBytes = this.serdeContext?.utf8Decoder ?? utilUtf8.fromUtf8;
+                const toBytes = this.serdeContext?.utf8Decoder ?? serde.fromUtf8;
                 if (typeof data === "string") {
                     return toBytes(data);
                 }
@@ -13233,7 +15519,7 @@ class ToStringShapeSerializer extends SerdeContext {
                     return;
                 }
                 if (ns.isBlobSchema() && "byteLength" in value) {
-                    this.stringBuffer = (this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(value);
+                    this.stringBuffer = (this.serdeContext?.base64Encoder ?? serde.toBase64)(value);
                     return;
                 }
                 if (ns.isListSchema() && Array.isArray(value)) {
@@ -13261,7 +15547,7 @@ class ToStringShapeSerializer extends SerdeContext {
                         intermediateValue = serde.LazyJsonString.from(intermediateValue);
                     }
                     if (ns.getMergedTraits().httpHeader) {
-                        this.stringBuffer = (this.serdeContext?.base64Encoder ?? utilBase64.toBase64)(intermediateValue.toString());
+                        this.stringBuffer = (this.serdeContext?.base64Encoder ?? serde.toBase64)(intermediateValue.toString());
                         return;
                     }
                 }
@@ -13315,32 +15601,1062 @@ class HttpInterceptingShapeSerializer {
     }
 }
 
+class Field {
+    name;
+    kind;
+    values;
+    constructor({ name, kind = types.FieldPosition.HEADER, values = [] }) {
+        this.name = name;
+        this.kind = kind;
+        this.values = values;
+    }
+    add(value) {
+        this.values.push(value);
+    }
+    set(values) {
+        this.values = values;
+    }
+    remove(value) {
+        this.values = this.values.filter((v) => v !== value);
+    }
+    toString() {
+        return this.values.map((v) => (v.includes(",") || v.includes(" ") ? `"${v}"` : v)).join(", ");
+    }
+    get() {
+        return this.values;
+    }
+}
+
+class Fields {
+    entries = {};
+    encoding;
+    constructor({ fields = [], encoding = "utf-8" }) {
+        fields.forEach(this.setField.bind(this));
+        this.encoding = encoding;
+    }
+    setField(field) {
+        this.entries[field.name.toLowerCase()] = field;
+    }
+    getField(name) {
+        return this.entries[name.toLowerCase()];
+    }
+    removeField(name) {
+        delete this.entries[name.toLowerCase()];
+    }
+    getByType(kind) {
+        return Object.values(this.entries).filter((field) => field.kind === kind);
+    }
+}
+
+function isValidHostname(hostname) {
+    const hostPattern = /^[a-z0-9][a-z0-9\.\-]*[a-z0-9]$/;
+    return hostPattern.test(hostname);
+}
+
+const getHttpHandlerExtensionConfiguration = (runtimeConfig) => {
+    return {
+        setHttpHandler(handler) {
+            runtimeConfig.httpHandler = handler;
+        },
+        httpHandler() {
+            return runtimeConfig.httpHandler;
+        },
+        updateHttpClientConfig(key, value) {
+            runtimeConfig.httpHandler?.updateHttpClientConfig(key, value);
+        },
+        httpHandlerConfigs() {
+            return runtimeConfig.httpHandler.httpHandlerConfigs();
+        },
+    };
+};
+const resolveHttpHandlerRuntimeConfig = (httpHandlerExtensionConfiguration) => {
+    return {
+        httpHandler: httpHandlerExtensionConfiguration.httpHandler(),
+    };
+};
+
+const CONTENT_LENGTH_HEADER = "content-length";
+function contentLengthMiddleware(bodyLengthChecker) {
+    return (next) => async (args) => {
+        const request = args.request;
+        if (HttpRequest.isInstance(request)) {
+            const { body, headers } = request;
+            if (body &&
+                Object.keys(headers)
+                    .map((str) => str.toLowerCase())
+                    .indexOf(CONTENT_LENGTH_HEADER) === -1) {
+                try {
+                    const length = bodyLengthChecker(body);
+                    request.headers = {
+                        ...request.headers,
+                        [CONTENT_LENGTH_HEADER]: String(length),
+                    };
+                }
+                catch (error) {
+                }
+            }
+        }
+        return next({
+            ...args,
+            request,
+        });
+    };
+}
+const contentLengthMiddlewareOptions = {
+    step: "build",
+    tags: ["SET_CONTENT_LENGTH", "CONTENT_LENGTH"],
+    name: "contentLengthMiddleware",
+    override: true,
+};
+const getContentLengthPlugin = (options) => ({
+    applyToStack: (clientStack) => {
+        clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), contentLengthMiddlewareOptions);
+    },
+});
+
+const escapeUri = (uri) => encodeURIComponent(uri).replace(/[!'()*]/g, hexEncode);
+const hexEncode = (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`;
+
+const escapeUriPath = (uri) => uri.split("/").map(escapeUri).join("/");
+
+function buildQueryString(query) {
+    const parts = [];
+    for (let key of Object.keys(query).sort()) {
+        const value = query[key];
+        key = escapeUri(key);
+        if (Array.isArray(value)) {
+            for (let i = 0, iLen = value.length; i < iLen; i++) {
+                parts.push(`${key}=${escapeUri(value[i])}`);
+            }
+        }
+        else {
+            let qsEntry = key;
+            if (value || typeof value === "string") {
+                qsEntry += `=${escapeUri(value)}`;
+            }
+            parts.push(qsEntry);
+        }
+    }
+    return parts.join("&");
+}
+
+function parseQueryString(querystring) {
+    const query = {};
+    querystring = querystring.replace(/^\?/, "");
+    if (querystring) {
+        for (const pair of querystring.split("&")) {
+            let [key, value = null] = pair.split("=");
+            key = decodeURIComponent(key);
+            if (value) {
+                value = decodeURIComponent(value);
+            }
+            if (!(key in query)) {
+                query[key] = value;
+            }
+            else if (Array.isArray(query[key])) {
+                query[key].push(value);
+            }
+            else {
+                query[key] = [query[key], value];
+            }
+        }
+    }
+    return query;
+}
+
+const parseUrl = (url) => {
+    if (typeof url === "string") {
+        return parseUrl(new URL(url));
+    }
+    const { hostname, pathname, port, protocol, search } = url;
+    let query;
+    if (search) {
+        query = parseQueryString(search);
+    }
+    return {
+        hostname,
+        port: port ? parseInt(port) : undefined,
+        protocol,
+        path: pathname,
+        query,
+    };
+};
+
+exports.Field = Field;
+exports.Fields = Fields;
 exports.FromStringShapeDeserializer = FromStringShapeDeserializer;
 exports.HttpBindingProtocol = HttpBindingProtocol;
 exports.HttpInterceptingShapeDeserializer = HttpInterceptingShapeDeserializer;
 exports.HttpInterceptingShapeSerializer = HttpInterceptingShapeSerializer;
 exports.HttpProtocol = HttpProtocol;
+exports.HttpRequest = HttpRequest;
+exports.HttpResponse = HttpResponse;
 exports.RequestBuilder = RequestBuilder;
 exports.RpcProtocol = RpcProtocol;
 exports.SerdeContext = SerdeContext;
 exports.ToStringShapeSerializer = ToStringShapeSerializer;
+exports.buildQueryString = buildQueryString;
 exports.collectBody = collectBody;
+exports.contentLengthMiddleware = contentLengthMiddleware;
+exports.contentLengthMiddlewareOptions = contentLengthMiddlewareOptions;
 exports.determineTimestampFormat = determineTimestampFormat;
+exports.escapeUri = escapeUri;
+exports.escapeUriPath = escapeUriPath;
 exports.extendedEncodeURIComponent = extendedEncodeURIComponent;
+exports.getContentLengthPlugin = getContentLengthPlugin;
+exports.getHttpHandlerExtensionConfiguration = getHttpHandlerExtensionConfiguration;
+exports.isValidHostname = isValidHostname;
+exports.parseQueryString = parseQueryString;
+exports.parseUrl = parseUrl;
 exports.requestBuilder = requestBuilder;
+exports.resolveHttpHandlerRuntimeConfig = resolveHttpHandlerRuntimeConfig;
 exports.resolvedPath = resolvedPath;
 
 
 /***/ }),
 
-/***/ 6519:
+/***/ 4684:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(9526);
-var utilMiddleware = __nccwpck_require__(5822);
-var endpoints = __nccwpck_require__(3330);
+var node_stream = __nccwpck_require__(7075);
+var client = __nccwpck_require__(6045);
+var protocols = __nccwpck_require__(6051);
+var serde = __nccwpck_require__(7643);
+
+const isStreamingPayload = (request) => request?.body instanceof node_stream.Readable ||
+    (typeof ReadableStream !== "undefined" && request?.body instanceof ReadableStream);
+
+const CLOCK_SKEW_ERROR_CODES = [
+    "AuthFailure",
+    "InvalidSignatureException",
+    "RequestExpired",
+    "RequestInTheFuture",
+    "RequestTimeTooSkewed",
+    "SignatureDoesNotMatch",
+];
+const THROTTLING_ERROR_CODES = [
+    "BandwidthLimitExceeded",
+    "EC2ThrottledException",
+    "LimitExceededException",
+    "PriorRequestNotComplete",
+    "ProvisionedThroughputExceededException",
+    "RequestLimitExceeded",
+    "RequestThrottled",
+    "RequestThrottledException",
+    "SlowDown",
+    "ThrottledException",
+    "Throttling",
+    "ThrottlingException",
+    "TooManyRequestsException",
+    "TransactionInProgressException",
+];
+const TRANSIENT_ERROR_CODES = ["TimeoutError", "RequestTimeout", "RequestTimeoutException"];
+const TRANSIENT_ERROR_STATUS_CODES = [500, 502, 503, 504];
+const NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT"];
+const NODEJS_NETWORK_ERROR_CODES = ["EHOSTUNREACH", "ENETUNREACH", "ENOTFOUND"];
+
+const isRetryableByTrait = (error) => error?.$retryable !== undefined;
+const isClockSkewError = (error) => CLOCK_SKEW_ERROR_CODES.includes(error.name);
+const isClockSkewCorrectedError = (error) => error.$metadata?.clockSkewCorrected;
+const isBrowserNetworkError = (error) => {
+    const errorMessages = new Set([
+        "Failed to fetch",
+        "NetworkError when attempting to fetch resource",
+        "The Internet connection appears to be offline",
+        "Load failed",
+        "Network request failed",
+    ]);
+    const isValid = error && error instanceof TypeError;
+    if (!isValid) {
+        return false;
+    }
+    return errorMessages.has(error.message);
+};
+const isThrottlingError = (error) => error.$metadata?.httpStatusCode === 429 ||
+    THROTTLING_ERROR_CODES.includes(error.name) ||
+    error.$retryable?.throttling == true;
+const isTransientError = (error, depth = 0) => isRetryableByTrait(error) ||
+    isClockSkewCorrectedError(error) ||
+    (error.name === "InvalidSignatureException" && error.message?.includes("Signature expired")) ||
+    TRANSIENT_ERROR_CODES.includes(error.name) ||
+    NODEJS_TIMEOUT_ERROR_CODES.includes(error?.code || "") ||
+    NODEJS_NETWORK_ERROR_CODES.includes(error?.code || "") ||
+    TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0) ||
+    isBrowserNetworkError(error) ||
+    isNodeJsHttp2TransientError(error) ||
+    (error.cause !== undefined && depth <= 10 && isTransientError(error.cause, depth + 1));
+const isServerError = (error) => {
+    if (error.$metadata?.httpStatusCode !== undefined) {
+        const statusCode = error.$metadata.httpStatusCode;
+        if (500 <= statusCode && statusCode <= 599 && !isTransientError(error)) {
+            return true;
+        }
+        return false;
+    }
+    return false;
+};
+function isNodeJsHttp2TransientError(error) {
+    return error.code === "ERR_HTTP2_STREAM_ERROR" && error.message.includes("NGHTTP2_REFUSED_STREAM");
+}
+
+const DEFAULT_RETRY_DELAY_BASE = 100;
+const MAXIMUM_RETRY_DELAY = 20 * 1000;
+const THROTTLING_RETRY_DELAY_BASE = 500;
+const INITIAL_RETRY_TOKENS = 500;
+const RETRY_COST = 5;
+const TIMEOUT_RETRY_COST = 10;
+const NO_RETRY_INCREMENT = 1;
+const INVOCATION_ID_HEADER = "amz-sdk-invocation-id";
+const REQUEST_HEADER = "amz-sdk-request";
+
+function parseRetryAfterHeader(response, logger) {
+    if (!protocols.HttpResponse.isInstance(response)) {
+        return;
+    }
+    for (const header of Object.keys(response.headers)) {
+        const h = header.toLowerCase();
+        if (h === "retry-after") {
+            const retryAfter = response.headers[header];
+            let retryAfterSeconds = NaN;
+            if (retryAfter.endsWith("GMT")) {
+                try {
+                    const date = serde.parseRfc7231DateTime(retryAfter);
+                    retryAfterSeconds = (date.getTime() - Date.now()) / 1000;
+                }
+                catch (e) {
+                    logger?.trace?.("Failed to parse retry-after header");
+                    logger?.trace?.(e);
+                }
+            }
+            else if (retryAfter.match(/ GMT, ((\d+)|(\d+\.\d+))$/)) {
+                retryAfterSeconds = Number(retryAfter.match(/ GMT, ([\d.]+)$/)?.[1]);
+            }
+            else if (retryAfter.match(/^((\d+)|(\d+\.\d+))$/)) {
+                retryAfterSeconds = Number(retryAfter);
+            }
+            else if (Date.parse(retryAfter) >= Date.now()) {
+                retryAfterSeconds = (Date.parse(retryAfter) - Date.now()) / 1000;
+            }
+            if (isNaN(retryAfterSeconds)) {
+                return;
+            }
+            return new Date(Date.now() + retryAfterSeconds * 1000);
+        }
+        else if (h === "x-amz-retry-after") {
+            const v = response.headers[header];
+            const backoffMilliseconds = Number(v);
+            if (isNaN(backoffMilliseconds)) {
+                logger?.trace?.(`Failed to parse x-amz-retry-after=${v}`);
+                return;
+            }
+            return new Date(Date.now() + backoffMilliseconds);
+        }
+    }
+}
+function getRetryAfterHint(response, logger) {
+    return parseRetryAfterHeader(response, logger);
+}
+
+const asSdkError = (error) => {
+    if (error instanceof Error)
+        return error;
+    if (error instanceof Object)
+        return Object.assign(new Error(), error);
+    if (typeof error === "string")
+        return new Error(error);
+    return new Error(`AWS SDK error wrapper for ${error}`);
+};
+
+function bindRetryMiddleware(isStreamingPayload) {
+    return (options) => (next, context) => async (args) => {
+        let retryStrategy = await options.retryStrategy();
+        const maxAttempts = await options.maxAttempts();
+        if (isRetryStrategyV2(retryStrategy)) {
+            retryStrategy = retryStrategy;
+            let retryToken = await retryStrategy.acquireInitialRetryToken((context["partition_id"] ?? "") + (context.__retryLongPoll ? ":longpoll" : ""));
+            let lastError = new Error();
+            let attempts = 0;
+            let totalRetryDelay = 0;
+            const { request } = args;
+            const isRequest = protocols.HttpRequest.isInstance(request);
+            if (isRequest) {
+                request.headers[INVOCATION_ID_HEADER] = serde.v4();
+            }
+            while (true) {
+                try {
+                    if (isRequest) {
+                        request.headers[REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
+                    }
+                    const { response, output } = await next(args);
+                    retryStrategy.recordSuccess(retryToken);
+                    output.$metadata.attempts = attempts + 1;
+                    output.$metadata.totalRetryDelay = totalRetryDelay;
+                    return { response, output };
+                }
+                catch (e) {
+                    const retryErrorInfo = getRetryErrorInfo(e, options.logger);
+                    lastError = asSdkError(e);
+                    if (isRequest && isStreamingPayload(request)) {
+                        (context.logger instanceof client.NoOpLogger ? console : context.logger)?.warn("An error was encountered in a non-retryable streaming request.");
+                        throw lastError;
+                    }
+                    try {
+                        retryToken = await retryStrategy.refreshRetryTokenForRetry(retryToken, retryErrorInfo);
+                    }
+                    catch (refreshError) {
+                        if (typeof refreshError.$backoff === "number") {
+                            await cooldown(refreshError.$backoff);
+                        }
+                        if (!lastError.$metadata) {
+                            lastError.$metadata = {};
+                        }
+                        lastError.$metadata.attempts = attempts + 1;
+                        lastError.$metadata.totalRetryDelay = totalRetryDelay;
+                        throw lastError;
+                    }
+                    attempts = retryToken.getRetryCount();
+                    const delay = retryToken.getRetryDelay();
+                    totalRetryDelay += delay;
+                    await cooldown(delay);
+                }
+            }
+        }
+        else {
+            retryStrategy = retryStrategy;
+            if (retryStrategy?.mode) {
+                context.userAgent = [...(context.userAgent || []), ["cfg/retry-mode", retryStrategy.mode]];
+            }
+            return retryStrategy.retry(next, args);
+        }
+    };
+}
+const cooldown = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const isRetryStrategyV2 = (retryStrategy) => typeof retryStrategy.acquireInitialRetryToken !== "undefined" &&
+    typeof retryStrategy.refreshRetryTokenForRetry !== "undefined" &&
+    typeof retryStrategy.recordSuccess !== "undefined";
+const getRetryErrorInfo = (error, logger) => {
+    const errorInfo = {
+        error,
+        errorType: getRetryErrorType(error),
+    };
+    const retryAfterHint = parseRetryAfterHeader(error.$response, logger);
+    if (retryAfterHint) {
+        errorInfo.retryAfterHint = retryAfterHint;
+    }
+    return errorInfo;
+};
+const getRetryErrorType = (error) => {
+    if (isThrottlingError(error))
+        return "THROTTLING";
+    if (isTransientError(error))
+        return "TRANSIENT";
+    if (isServerError(error))
+        return "SERVER_ERROR";
+    return "CLIENT_ERROR";
+};
+const retryMiddlewareOptions = {
+    name: "retryMiddleware",
+    tags: ["RETRY"],
+    step: "finalizeRequest",
+    priority: "high",
+    override: true,
+};
+function bindGetRetryPlugin(isStreamingPayload) {
+    const retryMiddleware = bindRetryMiddleware(isStreamingPayload);
+    return (options) => ({
+        applyToStack: (clientStack) => {
+            clientStack.add(retryMiddleware(options), retryMiddlewareOptions);
+        },
+    });
+}
+
+class DefaultRateLimiter {
+    static setTimeoutFn = setTimeout;
+    beta;
+    minCapacity;
+    minFillRate;
+    scaleConstant;
+    smooth;
+    enabled = false;
+    availableTokens = 0;
+    lastMaxRate = 0;
+    measuredTxRate = 0;
+    requestCount = 0;
+    fillRate;
+    lastThrottleTime;
+    lastTimestamp = 0;
+    lastTxRateBucket;
+    maxCapacity;
+    timeWindow = 0;
+    constructor(options) {
+        this.beta = options?.beta ?? 0.7;
+        this.minCapacity = options?.minCapacity ?? 1;
+        this.minFillRate = options?.minFillRate ?? 0.5;
+        this.scaleConstant = options?.scaleConstant ?? 0.4;
+        this.smooth = options?.smooth ?? 0.8;
+        this.lastThrottleTime = this.getCurrentTimeInSeconds();
+        this.lastTxRateBucket = Math.floor(this.getCurrentTimeInSeconds());
+        this.fillRate = this.minFillRate;
+        this.maxCapacity = this.minCapacity;
+    }
+    async getSendToken() {
+        return this.acquireTokenBucket(1);
+    }
+    updateClientSendingRate(response) {
+        let calculatedRate;
+        this.updateMeasuredRate();
+        const retryErrorInfo = response;
+        const isThrottling = retryErrorInfo?.errorType === "THROTTLING" || isThrottlingError(retryErrorInfo?.error ?? response);
+        if (isThrottling) {
+            const rateToUse = !this.enabled ? this.measuredTxRate : Math.min(this.measuredTxRate, this.fillRate);
+            this.lastMaxRate = rateToUse;
+            this.calculateTimeWindow();
+            this.lastThrottleTime = this.getCurrentTimeInSeconds();
+            calculatedRate = this.cubicThrottle(rateToUse);
+            this.enableTokenBucket();
+        }
+        else {
+            this.calculateTimeWindow();
+            calculatedRate = this.cubicSuccess(this.getCurrentTimeInSeconds());
+        }
+        const newRate = Math.min(calculatedRate, 2 * this.measuredTxRate);
+        this.updateTokenBucketRate(newRate);
+    }
+    getCurrentTimeInSeconds() {
+        return Date.now() / 1000;
+    }
+    async acquireTokenBucket(amount) {
+        if (!this.enabled) {
+            return;
+        }
+        this.refillTokenBucket();
+        while (amount > this.availableTokens) {
+            const delay = ((amount - this.availableTokens) / this.fillRate) * 1000;
+            await new Promise((resolve) => DefaultRateLimiter.setTimeoutFn(resolve, delay));
+            this.refillTokenBucket();
+        }
+        this.availableTokens = this.availableTokens - amount;
+    }
+    refillTokenBucket() {
+        const timestamp = this.getCurrentTimeInSeconds();
+        if (!this.lastTimestamp) {
+            this.lastTimestamp = timestamp;
+            return;
+        }
+        const fillAmount = (timestamp - this.lastTimestamp) * this.fillRate;
+        this.availableTokens = Math.min(this.maxCapacity, this.availableTokens + fillAmount);
+        this.lastTimestamp = timestamp;
+    }
+    calculateTimeWindow() {
+        this.timeWindow = this.getPrecise(Math.pow((this.lastMaxRate * (1 - this.beta)) / this.scaleConstant, 1 / 3));
+    }
+    cubicThrottle(rateToUse) {
+        return this.getPrecise(rateToUse * this.beta);
+    }
+    cubicSuccess(timestamp) {
+        return this.getPrecise(this.scaleConstant * Math.pow(timestamp - this.lastThrottleTime - this.timeWindow, 3) + this.lastMaxRate);
+    }
+    enableTokenBucket() {
+        this.enabled = true;
+    }
+    updateTokenBucketRate(newRate) {
+        this.refillTokenBucket();
+        this.fillRate = Math.max(newRate, this.minFillRate);
+        this.maxCapacity = Math.max(newRate, this.minCapacity);
+        this.availableTokens = Math.min(this.availableTokens, this.maxCapacity);
+    }
+    updateMeasuredRate() {
+        const t = this.getCurrentTimeInSeconds();
+        const timeBucket = Math.floor(t * 2) / 2;
+        this.requestCount++;
+        if (timeBucket > this.lastTxRateBucket) {
+            const currentRate = this.requestCount / (timeBucket - this.lastTxRateBucket);
+            this.measuredTxRate = this.getPrecise(currentRate * this.smooth + this.measuredTxRate * (1 - this.smooth));
+            this.requestCount = 0;
+            this.lastTxRateBucket = timeBucket;
+        }
+    }
+    getPrecise(num) {
+        return parseFloat(num.toFixed(8));
+    }
+}
+
+class Retry {
+    static v2026 = typeof process !== "undefined" && process.env?.SMITHY_NEW_RETRIES_2026 === "true";
+    static delay() {
+        return Retry.v2026 ? 50 : 100;
+    }
+    static throttlingDelay() {
+        return Retry.v2026 ? 1_000 : 500;
+    }
+    static cost() {
+        return Retry.v2026 ? 14 : 5;
+    }
+    static throttlingCost() {
+        return Retry.v2026 ? 5 : 10;
+    }
+    static modifiedCostType() {
+        return Retry.v2026 ? "THROTTLING" : "TRANSIENT";
+    }
+}
+
+class DefaultRetryBackoffStrategy {
+    x = Retry.delay();
+    computeNextBackoffDelay(i) {
+        const b = Math.random();
+        const r = 2;
+        const t_i = b * Math.min(this.x * r ** i, MAXIMUM_RETRY_DELAY);
+        return Math.floor(t_i);
+    }
+    setDelayBase(delay) {
+        this.x = delay;
+    }
+}
+
+class DefaultRetryToken {
+    delay;
+    count;
+    cost;
+    longPoll;
+    constructor(delay, count, cost, longPoll) {
+        this.delay = delay;
+        this.count = count;
+        this.cost = cost;
+        this.longPoll = longPoll;
+    }
+    getRetryCount() {
+        return this.count;
+    }
+    getRetryDelay() {
+        return Math.min(MAXIMUM_RETRY_DELAY, this.delay);
+    }
+    getRetryCost() {
+        return this.cost;
+    }
+    isLongPoll() {
+        return this.longPoll;
+    }
+}
+
+exports.RETRY_MODES = void 0;
+(function (RETRY_MODES) {
+    RETRY_MODES["STANDARD"] = "standard";
+    RETRY_MODES["ADAPTIVE"] = "adaptive";
+})(exports.RETRY_MODES || (exports.RETRY_MODES = {}));
+const DEFAULT_MAX_ATTEMPTS = 3;
+const DEFAULT_RETRY_MODE = exports.RETRY_MODES.STANDARD;
+
+const refusal = {
+    incompatible: 1,
+    attempts: 2,
+    capacity: 3,
+};
+let StandardRetryStrategy$1 = class StandardRetryStrategy {
+    mode = exports.RETRY_MODES.STANDARD;
+    capacity = INITIAL_RETRY_TOKENS;
+    retryBackoffStrategy;
+    maxAttemptsProvider;
+    baseDelay;
+    constructor(arg1) {
+        if (typeof arg1 === "number") {
+            this.maxAttemptsProvider = async () => arg1;
+        }
+        else if (typeof arg1 === "function") {
+            this.maxAttemptsProvider = arg1;
+        }
+        else if (arg1 && typeof arg1 === "object") {
+            this.maxAttemptsProvider = async () => arg1.maxAttempts;
+            this.baseDelay = arg1.baseDelay;
+            this.retryBackoffStrategy = arg1.backoff;
+        }
+        this.maxAttemptsProvider ??= async () => DEFAULT_MAX_ATTEMPTS;
+        this.baseDelay ??= Retry.delay();
+        this.retryBackoffStrategy ??= new DefaultRetryBackoffStrategy();
+    }
+    async acquireInitialRetryToken(retryTokenScope) {
+        return new DefaultRetryToken(Retry.delay(), 0, undefined, Retry.v2026 && retryTokenScope.includes(":longpoll"));
+    }
+    async refreshRetryTokenForRetry(token, errorInfo) {
+        const maxAttempts = await this.getMaxAttempts();
+        const retryCode = this.retryCode(token, errorInfo, maxAttempts);
+        const shouldRetry = retryCode === 0;
+        const isLongPoll = token.isLongPoll?.();
+        if (shouldRetry || isLongPoll) {
+            const errorType = errorInfo.errorType;
+            this.retryBackoffStrategy.setDelayBase(errorType === "THROTTLING" ? Retry.throttlingDelay() : this.baseDelay);
+            const delayFromErrorType = this.retryBackoffStrategy.computeNextBackoffDelay(token.getRetryCount());
+            let retryDelay = delayFromErrorType;
+            if (errorInfo.retryAfterHint instanceof Date) {
+                retryDelay = Math.max(delayFromErrorType, Math.min(errorInfo.retryAfterHint.getTime() - Date.now(), delayFromErrorType + 5_000));
+            }
+            if (!shouldRetry) {
+                throw Object.assign(new Error("No retry token available"), {
+                    $backoff: Retry.v2026 && retryCode === refusal.capacity && isLongPoll ? retryDelay : 0,
+                });
+            }
+            else {
+                const capacityCost = this.getCapacityCost(errorType);
+                this.capacity -= capacityCost;
+                return new DefaultRetryToken(retryDelay, token.getRetryCount() + 1, capacityCost, token.isLongPoll?.() ?? false);
+            }
+        }
+        throw new Error("No retry token available");
+    }
+    recordSuccess(token) {
+        this.capacity = Math.min(INITIAL_RETRY_TOKENS, this.capacity + (token.getRetryCost() ?? NO_RETRY_INCREMENT));
+    }
+    getCapacity() {
+        return this.capacity;
+    }
+    async maxAttempts() {
+        return this.maxAttemptsProvider();
+    }
+    async getMaxAttempts() {
+        try {
+            return await this.maxAttemptsProvider();
+        }
+        catch (error) {
+            console.warn(`Max attempts provider could not resolve. Using default of ${DEFAULT_MAX_ATTEMPTS}`);
+            return DEFAULT_MAX_ATTEMPTS;
+        }
+    }
+    retryCode(tokenToRenew, errorInfo, maxAttempts) {
+        const attempts = tokenToRenew.getRetryCount() + 1;
+        const retryableStatus = this.isRetryableError(errorInfo.errorType) ? 0 : refusal.incompatible;
+        const attemptStatus = attempts < maxAttempts ? 0 : refusal.attempts;
+        const capacityStatus = this.capacity >= this.getCapacityCost(errorInfo.errorType) ? 0 : refusal.capacity;
+        return retryableStatus || attemptStatus || capacityStatus;
+    }
+    getCapacityCost(errorType) {
+        return errorType === Retry.modifiedCostType() ? Retry.throttlingCost() : Retry.cost();
+    }
+    isRetryableError(errorType) {
+        return errorType === "THROTTLING" || errorType === "TRANSIENT";
+    }
+};
+
+let AdaptiveRetryStrategy$1 = class AdaptiveRetryStrategy {
+    mode = exports.RETRY_MODES.ADAPTIVE;
+    rateLimiter;
+    standardRetryStrategy;
+    constructor(maxAttemptsProvider, options) {
+        const { rateLimiter } = options ?? {};
+        this.rateLimiter = rateLimiter ?? new DefaultRateLimiter();
+        this.standardRetryStrategy = options
+            ? new StandardRetryStrategy$1({
+                maxAttempts: typeof maxAttemptsProvider === "number" ? maxAttemptsProvider : 3,
+                ...options,
+            })
+            : new StandardRetryStrategy$1(maxAttemptsProvider);
+    }
+    async acquireInitialRetryToken(retryTokenScope) {
+        const token = await this.standardRetryStrategy.acquireInitialRetryToken(retryTokenScope);
+        await this.rateLimiter.getSendToken();
+        return token;
+    }
+    async refreshRetryTokenForRetry(tokenToRenew, errorInfo) {
+        this.rateLimiter.updateClientSendingRate(errorInfo);
+        const token = await this.standardRetryStrategy.refreshRetryTokenForRetry(tokenToRenew, errorInfo);
+        await this.rateLimiter.getSendToken();
+        return token;
+    }
+    recordSuccess(token) {
+        this.rateLimiter.updateClientSendingRate({});
+        this.standardRetryStrategy.recordSuccess(token);
+    }
+    async maxAttemptsProvider() {
+        return this.standardRetryStrategy.maxAttempts();
+    }
+};
+
+class ConfiguredRetryStrategy extends StandardRetryStrategy$1 {
+    computeNextBackoffDelay;
+    constructor(maxAttempts, computeNextBackoffDelay = Retry.delay()) {
+        super(typeof maxAttempts === "function" ? maxAttempts : async () => maxAttempts);
+        if (typeof computeNextBackoffDelay === "number") {
+            this.computeNextBackoffDelay = () => computeNextBackoffDelay;
+        }
+        else {
+            this.computeNextBackoffDelay = computeNextBackoffDelay;
+        }
+    }
+    async refreshRetryTokenForRetry(tokenToRenew, errorInfo) {
+        const token = await super.refreshRetryTokenForRetry(tokenToRenew, errorInfo);
+        token.getRetryDelay = () => this.computeNextBackoffDelay(token.getRetryCount());
+        return token;
+    }
+}
+
+const getDefaultRetryQuota = (initialRetryTokens, options) => {
+    const MAX_CAPACITY = initialRetryTokens;
+    const noRetryIncrement = NO_RETRY_INCREMENT;
+    const retryCost = RETRY_COST;
+    const timeoutRetryCost = TIMEOUT_RETRY_COST;
+    let availableCapacity = initialRetryTokens;
+    const getCapacityAmount = (error) => (error.name === "TimeoutError" ? timeoutRetryCost : retryCost);
+    const hasRetryTokens = (error) => getCapacityAmount(error) <= availableCapacity;
+    const retrieveRetryTokens = (error) => {
+        if (!hasRetryTokens(error)) {
+            throw new Error("No retry token available");
+        }
+        const capacityAmount = getCapacityAmount(error);
+        availableCapacity -= capacityAmount;
+        return capacityAmount;
+    };
+    const releaseRetryTokens = (capacityReleaseAmount) => {
+        availableCapacity += capacityReleaseAmount ?? noRetryIncrement;
+        availableCapacity = Math.min(availableCapacity, MAX_CAPACITY);
+    };
+    return Object.freeze({
+        hasRetryTokens,
+        retrieveRetryTokens,
+        releaseRetryTokens,
+    });
+};
+
+const defaultDelayDecider = (delayBase, attempts) => Math.floor(Math.min(MAXIMUM_RETRY_DELAY, Math.random() * 2 ** attempts * delayBase));
+
+const defaultRetryDecider = (error) => {
+    if (!error) {
+        return false;
+    }
+    return isRetryableByTrait(error) || isClockSkewError(error) || isThrottlingError(error) || isTransientError(error);
+};
+
+class StandardRetryStrategy {
+    maxAttemptsProvider;
+    retryDecider;
+    delayDecider;
+    retryQuota;
+    mode = exports.RETRY_MODES.STANDARD;
+    constructor(maxAttemptsProvider, options) {
+        this.maxAttemptsProvider = maxAttemptsProvider;
+        this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
+        this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
+        this.retryQuota = options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
+    }
+    shouldRetry(error, attempts, maxAttempts) {
+        return attempts < maxAttempts && this.retryDecider(error) && this.retryQuota.hasRetryTokens(error);
+    }
+    async getMaxAttempts() {
+        let maxAttempts;
+        try {
+            maxAttempts = await this.maxAttemptsProvider();
+        }
+        catch (error) {
+            maxAttempts = DEFAULT_MAX_ATTEMPTS;
+        }
+        return maxAttempts;
+    }
+    async retry(next, args, options) {
+        let retryTokenAmount;
+        let attempts = 0;
+        let totalDelay = 0;
+        const maxAttempts = await this.getMaxAttempts();
+        const { request } = args;
+        if (protocols.HttpRequest.isInstance(request)) {
+            request.headers[INVOCATION_ID_HEADER] = serde.v4();
+        }
+        while (true) {
+            try {
+                if (protocols.HttpRequest.isInstance(request)) {
+                    request.headers[REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
+                }
+                if (options?.beforeRequest) {
+                    await options.beforeRequest();
+                }
+                const { response, output } = await next(args);
+                if (options?.afterRequest) {
+                    options.afterRequest(response);
+                }
+                this.retryQuota.releaseRetryTokens(retryTokenAmount);
+                output.$metadata.attempts = attempts + 1;
+                output.$metadata.totalRetryDelay = totalDelay;
+                return { response, output };
+            }
+            catch (e) {
+                const err = asSdkError(e);
+                attempts++;
+                if (this.shouldRetry(err, attempts, maxAttempts)) {
+                    retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
+                    const delayFromDecider = this.delayDecider(isThrottlingError(err) ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE, attempts);
+                    const delayFromResponse = getDelayFromRetryAfterHeader(err.$response);
+                    const delay = Math.max(delayFromResponse || 0, delayFromDecider);
+                    totalDelay += delay;
+                    await new Promise((resolve) => setTimeout(resolve, delay));
+                    continue;
+                }
+                if (!err.$metadata) {
+                    err.$metadata = {};
+                }
+                err.$metadata.attempts = attempts;
+                err.$metadata.totalRetryDelay = totalDelay;
+                throw err;
+            }
+        }
+    }
+}
+const getDelayFromRetryAfterHeader = (response) => {
+    if (!protocols.HttpResponse.isInstance(response))
+        return;
+    const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
+    if (!retryAfterHeaderName)
+        return;
+    const retryAfter = response.headers[retryAfterHeaderName];
+    const retryAfterSeconds = Number(retryAfter);
+    if (!Number.isNaN(retryAfterSeconds))
+        return retryAfterSeconds * 1000;
+    const retryAfterDate = new Date(retryAfter);
+    return retryAfterDate.getTime() - Date.now();
+};
+
+class AdaptiveRetryStrategy extends StandardRetryStrategy {
+    rateLimiter;
+    constructor(maxAttemptsProvider, options) {
+        const { rateLimiter, ...superOptions } = options ?? {};
+        super(maxAttemptsProvider, superOptions);
+        this.rateLimiter = rateLimiter ?? new DefaultRateLimiter();
+        this.mode = exports.RETRY_MODES.ADAPTIVE;
+    }
+    async retry(next, args) {
+        return super.retry(next, args, {
+            beforeRequest: async () => {
+                return this.rateLimiter.getSendToken();
+            },
+            afterRequest: (response) => {
+                this.rateLimiter.updateClientSendingRate(response);
+            },
+        });
+    }
+}
+
+const ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";
+const CONFIG_MAX_ATTEMPTS = "max_attempts";
+const NODE_MAX_ATTEMPT_CONFIG_OPTIONS = {
+    environmentVariableSelector: (env) => {
+        const value = env[ENV_MAX_ATTEMPTS];
+        if (!value)
+            return undefined;
+        const maxAttempt = parseInt(value);
+        if (Number.isNaN(maxAttempt)) {
+            throw new Error(`Environment variable ${ENV_MAX_ATTEMPTS} mast be a number, got "${value}"`);
+        }
+        return maxAttempt;
+    },
+    configFileSelector: (profile) => {
+        const value = profile[CONFIG_MAX_ATTEMPTS];
+        if (!value)
+            return undefined;
+        const maxAttempt = parseInt(value);
+        if (Number.isNaN(maxAttempt)) {
+            throw new Error(`Shared config file entry ${CONFIG_MAX_ATTEMPTS} mast be a number, got "${value}"`);
+        }
+        return maxAttempt;
+    },
+    default: DEFAULT_MAX_ATTEMPTS,
+};
+const resolveRetryConfig = (input) => {
+    const { retryStrategy, retryMode } = input;
+    const maxAttempts = client.normalizeProvider(input.maxAttempts ?? DEFAULT_MAX_ATTEMPTS);
+    let controller = retryStrategy
+        ? Promise.resolve(retryStrategy)
+        : undefined;
+    const getDefault = async () => (await client.normalizeProvider(retryMode)()) === exports.RETRY_MODES.ADAPTIVE
+        ? new AdaptiveRetryStrategy$1(maxAttempts)
+        : new StandardRetryStrategy$1(maxAttempts);
+    return Object.assign(input, {
+        maxAttempts,
+        retryStrategy: () => (controller ??= getDefault()),
+    });
+};
+const ENV_RETRY_MODE = "AWS_RETRY_MODE";
+const CONFIG_RETRY_MODE = "retry_mode";
+const NODE_RETRY_MODE_CONFIG_OPTIONS = {
+    environmentVariableSelector: (env) => env[ENV_RETRY_MODE],
+    configFileSelector: (profile) => profile[CONFIG_RETRY_MODE],
+    default: DEFAULT_RETRY_MODE,
+};
+
+const omitRetryHeadersMiddleware = () => (next) => async (args) => {
+    const { request } = args;
+    if (protocols.HttpRequest.isInstance(request)) {
+        delete request.headers[INVOCATION_ID_HEADER];
+        delete request.headers[REQUEST_HEADER];
+    }
+    return next(args);
+};
+const omitRetryHeadersMiddlewareOptions = {
+    name: "omitRetryHeadersMiddleware",
+    tags: ["RETRY", "HEADERS", "OMIT_RETRY_HEADERS"],
+    relation: "before",
+    toMiddleware: "awsAuthMiddleware",
+    override: true,
+};
+const getOmitRetryHeadersPlugin = (options) => ({
+    applyToStack: (clientStack) => {
+        clientStack.addRelativeTo(omitRetryHeadersMiddleware(), omitRetryHeadersMiddlewareOptions);
+    },
+});
+
+const retryMiddleware = bindRetryMiddleware(isStreamingPayload);
+const getRetryPlugin = bindGetRetryPlugin(isStreamingPayload);
+
+exports.AdaptiveRetryStrategy = AdaptiveRetryStrategy$1;
+exports.CONFIG_MAX_ATTEMPTS = CONFIG_MAX_ATTEMPTS;
+exports.CONFIG_RETRY_MODE = CONFIG_RETRY_MODE;
+exports.ConfiguredRetryStrategy = ConfiguredRetryStrategy;
+exports.DEFAULT_MAX_ATTEMPTS = DEFAULT_MAX_ATTEMPTS;
+exports.DEFAULT_RETRY_DELAY_BASE = DEFAULT_RETRY_DELAY_BASE;
+exports.DEFAULT_RETRY_MODE = DEFAULT_RETRY_MODE;
+exports.DefaultRateLimiter = DefaultRateLimiter;
+exports.DeprecatedAdaptiveRetryStrategy = AdaptiveRetryStrategy;
+exports.DeprecatedStandardRetryStrategy = StandardRetryStrategy;
+exports.ENV_MAX_ATTEMPTS = ENV_MAX_ATTEMPTS;
+exports.ENV_RETRY_MODE = ENV_RETRY_MODE;
+exports.INITIAL_RETRY_TOKENS = INITIAL_RETRY_TOKENS;
+exports.INVOCATION_ID_HEADER = INVOCATION_ID_HEADER;
+exports.MAXIMUM_RETRY_DELAY = MAXIMUM_RETRY_DELAY;
+exports.NODE_MAX_ATTEMPT_CONFIG_OPTIONS = NODE_MAX_ATTEMPT_CONFIG_OPTIONS;
+exports.NODE_RETRY_MODE_CONFIG_OPTIONS = NODE_RETRY_MODE_CONFIG_OPTIONS;
+exports.NO_RETRY_INCREMENT = NO_RETRY_INCREMENT;
+exports.REQUEST_HEADER = REQUEST_HEADER;
+exports.RETRY_COST = RETRY_COST;
+exports.Retry = Retry;
+exports.StandardRetryStrategy = StandardRetryStrategy$1;
+exports.THROTTLING_RETRY_DELAY_BASE = THROTTLING_RETRY_DELAY_BASE;
+exports.TIMEOUT_RETRY_COST = TIMEOUT_RETRY_COST;
+exports.defaultDelayDecider = defaultDelayDecider;
+exports.defaultRetryDecider = defaultRetryDecider;
+exports.getOmitRetryHeadersPlugin = getOmitRetryHeadersPlugin;
+exports.getRetryAfterHint = getRetryAfterHint;
+exports.getRetryPlugin = getRetryPlugin;
+exports.isBrowserNetworkError = isBrowserNetworkError;
+exports.isClockSkewCorrectedError = isClockSkewCorrectedError;
+exports.isClockSkewError = isClockSkewError;
+exports.isNodeJsHttp2TransientError = isNodeJsHttp2TransientError;
+exports.isRetryableByTrait = isRetryableByTrait;
+exports.isServerError = isServerError;
+exports.isThrottlingError = isThrottlingError;
+exports.isTransientError = isTransientError;
+exports.omitRetryHeadersMiddleware = omitRetryHeadersMiddleware;
+exports.omitRetryHeadersMiddlewareOptions = omitRetryHeadersMiddlewareOptions;
+exports.resolveRetryConfig = resolveRetryConfig;
+exports.retryMiddleware = retryMiddleware;
+exports.retryMiddlewareOptions = retryMiddlewareOptions;
+
+
+/***/ }),
+
+/***/ 7393:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+
+
+var client = __nccwpck_require__(6045);
+var protocols = __nccwpck_require__(6051);
+var endpoints = __nccwpck_require__(7072);
 
 const deref = (schemaRef) => {
     if (typeof schemaRef === "function") {
@@ -13359,7 +16675,7 @@ const operation = (namespace, name, traits, input, output) => ({
 
 const schemaDeserializationMiddleware = (config) => (next, context) => async (args) => {
     const { response } = await next(args);
-    const { operationSchema } = utilMiddleware.getSmithyContext(context);
+    const { operationSchema } = client.getSmithyContext(context);
     const [, ns, n, t, i, o] = operationSchema ?? [];
     try {
         const parsed = await config.protocol.deserializeResponse(operation(ns, n, t, i, o), {
@@ -13397,7 +16713,7 @@ const schemaDeserializationMiddleware = (config) => (next, context) => async (ar
                 }
             }
             try {
-                if (protocolHttp.HttpResponse.isInstance(response)) {
+                if (protocols.HttpResponse.isInstance(response)) {
                     const { headers = {} } = response;
                     const headerEntries = Object.entries(headers);
                     error.$metadata = {
@@ -13421,7 +16737,7 @@ const findHeader = (pattern, headers) => {
 };
 
 const schemaSerializationMiddleware = (config) => (next, context) => async (args) => {
-    const { operationSchema } = utilMiddleware.getSmithyContext(context);
+    const { operationSchema } = client.getSmithyContext(context);
     const [, ns, n, t, i, o] = operationSchema ?? [];
     const endpoint = context.endpointV2
         ? async () => endpoints.toEndpointV1(context.endpointV2)
@@ -13960,6 +17276,18 @@ class TypeRegistry {
     getSchema(shapeId) {
         const id = this.normalizeShapeId(shapeId);
         if (!this.schemas.has(id)) {
+            if (!shapeId.includes("#")) {
+                const suffix = "#" + shapeId;
+                const candidates = [];
+                for (const [shapeId, schema] of this.schemas.entries()) {
+                    if (shapeId.endsWith(suffix)) {
+                        candidates.push(schema);
+                    }
+                }
+                if (candidates.length === 1) {
+                    return candidates[0];
+                }
+            }
             throw new Error(`@smithy/core/schema - schema not found for ${id}`);
         }
         return this.schemas.get(id);
@@ -14043,12 +17371,130 @@ exports.translateTraits = translateTraits;
 
 /***/ }),
 
-/***/ 9429:
+/***/ 7643:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var uuid = __nccwpck_require__(8525);
+var node_crypto = __nccwpck_require__(7598);
+var node_fs = __nccwpck_require__(3024);
+var protocols = __nccwpck_require__(6051);
+var endpoints = __nccwpck_require__(7072);
+var node_stream = __nccwpck_require__(7075);
+
+const isArrayBuffer = (arg) => (typeof ArrayBuffer === "function" && arg instanceof ArrayBuffer) ||
+    Object.prototype.toString.call(arg) === "[object ArrayBuffer]";
+
+const fromArrayBuffer = (input, offset = 0, length = input.byteLength - offset) => {
+    if (!isArrayBuffer(input)) {
+        throw new TypeError(`The "input" argument must be ArrayBuffer. Received type ${typeof input} (${input})`);
+    }
+    return Buffer.from(input, offset, length);
+};
+const fromString = (input, encoding) => {
+    if (typeof input !== "string") {
+        throw new TypeError(`The "input" argument must be of type string. Received type ${typeof input} (${input})`);
+    }
+    return encoding ? Buffer.from(input, encoding) : Buffer.from(input);
+};
+
+const BASE64_REGEX = /^[A-Za-z0-9+/]*={0,2}$/;
+const fromBase64$1 = (input) => {
+    if ((input.length * 3) % 4 !== 0) {
+        throw new TypeError(`Incorrect padding on base64 string.`);
+    }
+    if (!BASE64_REGEX.exec(input)) {
+        throw new TypeError(`Invalid base64 string.`);
+    }
+    const buffer = fromString(input, "base64");
+    return new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength);
+};
+
+const fromUtf8$1 = (input) => {
+    const buf = fromString(input, "utf8");
+    return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength / Uint8Array.BYTES_PER_ELEMENT);
+};
+
+const toBase64$1 = (_input) => {
+    let input;
+    if (typeof _input === "string") {
+        input = fromUtf8$1(_input);
+    }
+    else {
+        input = _input;
+    }
+    if (typeof input !== "object" || typeof input.byteOffset !== "number" || typeof input.byteLength !== "number") {
+        throw new Error("@smithy/util-base64: toBase64 encoder function only accepts string | Uint8Array.");
+    }
+    return fromArrayBuffer(input.buffer, input.byteOffset, input.byteLength).toString("base64");
+};
+
+function bindUint8ArrayBlobAdapter(toUtf8, fromUtf8, toBase64, fromBase64) {
+    return class Uint8ArrayBlobAdapter extends Uint8Array {
+        static fromString(source, encoding = "utf-8") {
+            if (typeof source === "string") {
+                if (encoding === "base64") {
+                    return Uint8ArrayBlobAdapter.mutate(fromBase64(source));
+                }
+                return Uint8ArrayBlobAdapter.mutate(fromUtf8(source));
+            }
+            throw new Error(`Unsupported conversion from ${typeof source} to Uint8ArrayBlobAdapter.`);
+        }
+        static mutate(source) {
+            Object.setPrototypeOf(source, Uint8ArrayBlobAdapter.prototype);
+            return source;
+        }
+        transformToString(encoding = "utf-8") {
+            if (encoding === "base64") {
+                return toBase64(this);
+            }
+            return toUtf8(this);
+        }
+    };
+}
+
+const toUtf8$1 = (input) => {
+    if (typeof input === "string") {
+        return input;
+    }
+    if (typeof input !== "object" || typeof input.byteOffset !== "number" || typeof input.byteLength !== "number") {
+        throw new Error("@smithy/util-utf8: toUtf8 encoder function only accepts string | Uint8Array.");
+    }
+    return fromArrayBuffer(input.buffer, input.byteOffset, input.byteLength).toString("utf8");
+};
+
+const decimalToHex = Array.from({ length: 256 }, (_, i) => i.toString(16).padStart(2, "0"));
+function bindV4(getRandomValues) {
+    if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+        return () => crypto.randomUUID();
+    }
+    return () => {
+        const rnds = new Uint8Array(16);
+        getRandomValues(rnds);
+        rnds[6] = (rnds[6] & 0x0f) | 0x40;
+        rnds[8] = (rnds[8] & 0x3f) | 0x80;
+        return (decimalToHex[rnds[0]] +
+            decimalToHex[rnds[1]] +
+            decimalToHex[rnds[2]] +
+            decimalToHex[rnds[3]] +
+            "-" +
+            decimalToHex[rnds[4]] +
+            decimalToHex[rnds[5]] +
+            "-" +
+            decimalToHex[rnds[6]] +
+            decimalToHex[rnds[7]] +
+            "-" +
+            decimalToHex[rnds[8]] +
+            decimalToHex[rnds[9]] +
+            "-" +
+            decimalToHex[rnds[10]] +
+            decimalToHex[rnds[11]] +
+            decimalToHex[rnds[12]] +
+            decimalToHex[rnds[13]] +
+            decimalToHex[rnds[14]] +
+            decimalToHex[rnds[15]]);
+    };
+}
 
 const copyDocumentWithTransform = (source, schemaRef, transform = (_) => _) => source;
 
@@ -14701,1158 +18147,76 @@ function nv(input) {
     return new NumericValue(String(input), "bigDecimal");
 }
 
-exports.generateIdempotencyToken = uuid.v4;
-exports.LazyJsonString = LazyJsonString;
-exports.NumericValue = NumericValue;
-exports._parseEpochTimestamp = _parseEpochTimestamp;
-exports._parseRfc3339DateTimeWithOffset = _parseRfc3339DateTimeWithOffset;
-exports._parseRfc7231DateTime = _parseRfc7231DateTime;
-exports.copyDocumentWithTransform = copyDocumentWithTransform;
-exports.dateToUtcString = dateToUtcString;
-exports.expectBoolean = expectBoolean;
-exports.expectByte = expectByte;
-exports.expectFloat32 = expectFloat32;
-exports.expectInt = expectInt;
-exports.expectInt32 = expectInt32;
-exports.expectLong = expectLong;
-exports.expectNonNull = expectNonNull;
-exports.expectNumber = expectNumber;
-exports.expectObject = expectObject;
-exports.expectShort = expectShort;
-exports.expectString = expectString;
-exports.expectUnion = expectUnion;
-exports.handleFloat = handleFloat;
-exports.limitedParseDouble = limitedParseDouble;
-exports.limitedParseFloat = limitedParseFloat;
-exports.limitedParseFloat32 = limitedParseFloat32;
-exports.logger = logger;
-exports.nv = nv;
-exports.parseBoolean = parseBoolean;
-exports.parseEpochTimestamp = parseEpochTimestamp;
-exports.parseRfc3339DateTime = parseRfc3339DateTime;
-exports.parseRfc3339DateTimeWithOffset = parseRfc3339DateTimeWithOffset;
-exports.parseRfc7231DateTime = parseRfc7231DateTime;
-exports.quoteHeader = quoteHeader;
-exports.splitEvery = splitEvery;
-exports.splitHeader = splitHeader;
-exports.strictParseByte = strictParseByte;
-exports.strictParseDouble = strictParseDouble;
-exports.strictParseFloat = strictParseFloat;
-exports.strictParseFloat32 = strictParseFloat32;
-exports.strictParseInt = strictParseInt;
-exports.strictParseInt32 = strictParseInt32;
-exports.strictParseLong = strictParseLong;
-exports.strictParseShort = strictParseShort;
-
-
-/***/ }),
-
-/***/ 4497:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var protocolHttp = __nccwpck_require__(9526);
-var querystringBuilder = __nccwpck_require__(2986);
-var utilBase64 = __nccwpck_require__(3158);
-
-function createRequest(url, requestOptions) {
-    return new Request(url, requestOptions);
-}
-
-function requestTimeout(timeoutInMs = 0) {
-    return new Promise((resolve, reject) => {
-        if (timeoutInMs) {
-            setTimeout(() => {
-                const timeoutError = new Error(`Request did not complete within ${timeoutInMs} ms`);
-                timeoutError.name = "TimeoutError";
-                reject(timeoutError);
-            }, timeoutInMs);
-        }
-    });
-}
-
-const keepAliveSupport = {
-    supported: undefined,
-};
-class FetchHttpHandler {
-    config;
-    configProvider;
-    static create(instanceOrOptions) {
-        if (typeof instanceOrOptions?.handle === "function") {
-            return instanceOrOptions;
-        }
-        return new FetchHttpHandler(instanceOrOptions);
+const SHORT_TO_HEX = {};
+const HEX_TO_SHORT = {};
+for (let i = 0; i < 256; i++) {
+    let encodedByte = i.toString(16).toLowerCase();
+    if (encodedByte.length === 1) {
+        encodedByte = `0${encodedByte}`;
     }
-    constructor(options) {
-        if (typeof options === "function") {
-            this.configProvider = options().then((opts) => opts || {});
+    SHORT_TO_HEX[i] = encodedByte;
+    HEX_TO_SHORT[encodedByte] = i;
+}
+function fromHex(encoded) {
+    if (encoded.length % 2 !== 0) {
+        throw new Error("Hex encoded strings must have an even number length");
+    }
+    const out = new Uint8Array(encoded.length / 2);
+    for (let i = 0; i < encoded.length; i += 2) {
+        const encodedByte = encoded.slice(i, i + 2).toLowerCase();
+        if (encodedByte in HEX_TO_SHORT) {
+            out[i / 2] = HEX_TO_SHORT[encodedByte];
         }
         else {
-            this.config = options ?? {};
-            this.configProvider = Promise.resolve(this.config);
-        }
-        if (keepAliveSupport.supported === undefined) {
-            keepAliveSupport.supported = Boolean(typeof Request !== "undefined" && "keepalive" in createRequest("https://[::1]"));
+            throw new Error(`Cannot decode unrecognized sequence ${encodedByte} as hexadecimal`);
         }
     }
-    destroy() {
-    }
-    async handle(request, { abortSignal, requestTimeout: requestTimeout$1 } = {}) {
-        if (!this.config) {
-            this.config = await this.configProvider;
-        }
-        const requestTimeoutInMs = requestTimeout$1 ?? this.config.requestTimeout;
-        const keepAlive = this.config.keepAlive === true;
-        const credentials = this.config.credentials;
-        if (abortSignal?.aborted) {
-            const abortError = buildAbortError(abortSignal);
-            return Promise.reject(abortError);
-        }
-        let path = request.path;
-        const queryString = querystringBuilder.buildQueryString(request.query || {});
-        if (queryString) {
-            path += `?${queryString}`;
-        }
-        if (request.fragment) {
-            path += `#${request.fragment}`;
-        }
-        let auth = "";
-        if (request.username != null || request.password != null) {
-            const username = request.username ?? "";
-            const password = request.password ?? "";
-            auth = `${username}:${password}@`;
-        }
-        const { port, method } = request;
-        const url = `${request.protocol}//${auth}${request.hostname}${port ? `:${port}` : ""}${path}`;
-        const body = method === "GET" || method === "HEAD" ? undefined : request.body;
-        const requestOptions = {
-            body,
-            headers: new Headers(request.headers),
-            method: method,
-            credentials,
-        };
-        if (this.config?.cache) {
-            requestOptions.cache = this.config.cache;
-        }
-        if (body) {
-            requestOptions.duplex = "half";
-        }
-        if (typeof AbortController !== "undefined") {
-            requestOptions.signal = abortSignal;
-        }
-        if (keepAliveSupport.supported) {
-            requestOptions.keepalive = keepAlive;
-        }
-        if (typeof this.config.requestInit === "function") {
-            Object.assign(requestOptions, this.config.requestInit(request));
-        }
-        let removeSignalEventListener = () => { };
-        const fetchRequest = createRequest(url, requestOptions);
-        const raceOfPromises = [
-            fetch(fetchRequest).then((response) => {
-                const fetchHeaders = response.headers;
-                const transformedHeaders = {};
-                for (const pair of fetchHeaders.entries()) {
-                    transformedHeaders[pair[0]] = pair[1];
-                }
-                const hasReadableStream = response.body != undefined;
-                if (!hasReadableStream) {
-                    return response.blob().then((body) => ({
-                        response: new protocolHttp.HttpResponse({
-                            headers: transformedHeaders,
-                            reason: response.statusText,
-                            statusCode: response.status,
-                            body,
-                        }),
-                    }));
-                }
-                return {
-                    response: new protocolHttp.HttpResponse({
-                        headers: transformedHeaders,
-                        reason: response.statusText,
-                        statusCode: response.status,
-                        body: response.body,
-                    }),
-                };
-            }),
-            requestTimeout(requestTimeoutInMs),
-        ];
-        if (abortSignal) {
-            raceOfPromises.push(new Promise((resolve, reject) => {
-                const onAbort = () => {
-                    const abortError = buildAbortError(abortSignal);
-                    reject(abortError);
-                };
-                if (typeof abortSignal.addEventListener === "function") {
-                    const signal = abortSignal;
-                    signal.addEventListener("abort", onAbort, { once: true });
-                    removeSignalEventListener = () => signal.removeEventListener("abort", onAbort);
-                }
-                else {
-                    abortSignal.onabort = onAbort;
-                }
-            }));
-        }
-        return Promise.race(raceOfPromises).finally(removeSignalEventListener);
-    }
-    updateHttpClientConfig(key, value) {
-        this.config = undefined;
-        this.configProvider = this.configProvider.then((config) => {
-            config[key] = value;
-            return config;
-        });
-    }
-    httpHandlerConfigs() {
-        return this.config ?? {};
-    }
+    return out;
 }
-function buildAbortError(abortSignal) {
-    const reason = abortSignal && typeof abortSignal === "object" && "reason" in abortSignal
-        ? abortSignal.reason
-        : undefined;
-    if (reason) {
-        if (reason instanceof Error) {
-            const abortError = new Error("Request aborted");
-            abortError.name = "AbortError";
-            abortError.cause = reason;
-            return abortError;
-        }
-        const abortError = new Error(String(reason));
-        abortError.name = "AbortError";
-        return abortError;
+function toHex(bytes) {
+    let out = "";
+    for (let i = 0; i < bytes.byteLength; i++) {
+        out += SHORT_TO_HEX[bytes[i]];
     }
-    const abortError = new Error("Request aborted");
-    abortError.name = "AbortError";
-    return abortError;
+    return out;
 }
 
-const streamCollector = async (stream) => {
-    if ((typeof Blob === "function" && stream instanceof Blob) || stream.constructor?.name === "Blob") {
-        if (Blob.prototype.arrayBuffer !== undefined) {
-            return new Uint8Array(await stream.arrayBuffer());
+const calculateBodyLength = (body) => {
+    if (!body) {
+        return 0;
+    }
+    if (typeof body === "string") {
+        return Buffer.byteLength(body);
+    }
+    else if (typeof body.byteLength === "number") {
+        return body.byteLength;
+    }
+    else if (typeof body.size === "number") {
+        return body.size;
+    }
+    else if (typeof body.start === "number" && typeof body.end === "number") {
+        return body.end + 1 - body.start;
+    }
+    else if (body instanceof node_fs.ReadStream) {
+        if (body.path != null) {
+            return node_fs.lstatSync(body.path).size;
         }
-        return collectBlob(stream);
-    }
-    return collectStream(stream);
-};
-async function collectBlob(blob) {
-    const base64 = await readToBase64(blob);
-    const arrayBuffer = utilBase64.fromBase64(base64);
-    return new Uint8Array(arrayBuffer);
-}
-async function collectStream(stream) {
-    const chunks = [];
-    const reader = stream.getReader();
-    let isDone = false;
-    let length = 0;
-    while (!isDone) {
-        const { done, value } = await reader.read();
-        if (value) {
-            chunks.push(value);
-            length += value.length;
-        }
-        isDone = done;
-    }
-    const collected = new Uint8Array(length);
-    let offset = 0;
-    for (const chunk of chunks) {
-        collected.set(chunk, offset);
-        offset += chunk.length;
-    }
-    return collected;
-}
-function readToBase64(blob) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            if (reader.readyState !== 2) {
-                return reject(new Error("Reader aborted too early"));
-            }
-            const result = (reader.result ?? "");
-            const commaIndex = result.indexOf(",");
-            const dataOffset = commaIndex > -1 ? commaIndex + 1 : result.length;
-            resolve(result.substring(dataOffset));
-        };
-        reader.onabort = () => reject(new Error("Read aborted"));
-        reader.onerror = () => reject(reader.error);
-        reader.readAsDataURL(blob);
-    });
-}
-
-exports.FetchHttpHandler = FetchHttpHandler;
-exports.keepAliveSupport = keepAliveSupport;
-exports.streamCollector = streamCollector;
-
-
-/***/ }),
-
-/***/ 4550:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var utilBufferFrom = __nccwpck_require__(1643);
-var utilUtf8 = __nccwpck_require__(8165);
-var buffer = __nccwpck_require__(181);
-var crypto = __nccwpck_require__(6982);
-
-class Hash {
-    algorithmIdentifier;
-    secret;
-    hash;
-    constructor(algorithmIdentifier, secret) {
-        this.algorithmIdentifier = algorithmIdentifier;
-        this.secret = secret;
-        this.reset();
-    }
-    update(toHash, encoding) {
-        this.hash.update(utilUtf8.toUint8Array(castSourceData(toHash, encoding)));
-    }
-    digest() {
-        return Promise.resolve(this.hash.digest());
-    }
-    reset() {
-        this.hash = this.secret
-            ? crypto.createHmac(this.algorithmIdentifier, castSourceData(this.secret))
-            : crypto.createHash(this.algorithmIdentifier);
-    }
-}
-function castSourceData(toCast, encoding) {
-    if (buffer.Buffer.isBuffer(toCast)) {
-        return toCast;
-    }
-    if (typeof toCast === "string") {
-        return utilBufferFrom.fromString(toCast, encoding);
-    }
-    if (ArrayBuffer.isView(toCast)) {
-        return utilBufferFrom.fromArrayBuffer(toCast.buffer, toCast.byteOffset, toCast.byteLength);
-    }
-    return utilBufferFrom.fromArrayBuffer(toCast);
-}
-
-exports.Hash = Hash;
-
-
-/***/ }),
-
-/***/ 5031:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const isArrayBuffer = (arg) => (typeof ArrayBuffer === "function" && arg instanceof ArrayBuffer) ||
-    Object.prototype.toString.call(arg) === "[object ArrayBuffer]";
-
-exports.isArrayBuffer = isArrayBuffer;
-
-
-/***/ }),
-
-/***/ 762:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var protocolHttp = __nccwpck_require__(9526);
-
-const CONTENT_LENGTH_HEADER = "content-length";
-function contentLengthMiddleware(bodyLengthChecker) {
-    return (next) => async (args) => {
-        const request = args.request;
-        if (protocolHttp.HttpRequest.isInstance(request)) {
-            const { body, headers } = request;
-            if (body &&
-                Object.keys(headers)
-                    .map((str) => str.toLowerCase())
-                    .indexOf(CONTENT_LENGTH_HEADER) === -1) {
-                try {
-                    const length = bodyLengthChecker(body);
-                    request.headers = {
-                        ...request.headers,
-                        [CONTENT_LENGTH_HEADER]: String(length),
-                    };
-                }
-                catch (error) {
-                }
-            }
-        }
-        return next({
-            ...args,
-            request,
-        });
-    };
-}
-const contentLengthMiddlewareOptions = {
-    step: "build",
-    tags: ["SET_CONTENT_LENGTH", "CONTENT_LENGTH"],
-    name: "contentLengthMiddleware",
-    override: true,
-};
-const getContentLengthPlugin = (options) => ({
-    applyToStack: (clientStack) => {
-        clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), contentLengthMiddlewareOptions);
-    },
-});
-
-exports.contentLengthMiddleware = contentLengthMiddleware;
-exports.contentLengthMiddlewareOptions = contentLengthMiddlewareOptions;
-exports.getContentLengthPlugin = getContentLengthPlugin;
-
-
-/***/ }),
-
-/***/ 6932:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getEndpointFromConfig = void 0;
-const node_config_provider_1 = __nccwpck_require__(1275);
-const getEndpointUrlConfig_1 = __nccwpck_require__(4039);
-const getEndpointFromConfig = async (serviceId) => (0, node_config_provider_1.loadConfig)((0, getEndpointUrlConfig_1.getEndpointUrlConfig)(serviceId ?? ""))();
-exports.getEndpointFromConfig = getEndpointFromConfig;
-
-
-/***/ }),
-
-/***/ 4039:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getEndpointUrlConfig = void 0;
-const shared_ini_file_loader_1 = __nccwpck_require__(9498);
-const ENV_ENDPOINT_URL = "AWS_ENDPOINT_URL";
-const CONFIG_ENDPOINT_URL = "endpoint_url";
-const getEndpointUrlConfig = (serviceId) => ({
-    environmentVariableSelector: (env) => {
-        const serviceSuffixParts = serviceId.split(" ").map((w) => w.toUpperCase());
-        const serviceEndpointUrl = env[[ENV_ENDPOINT_URL, ...serviceSuffixParts].join("_")];
-        if (serviceEndpointUrl)
-            return serviceEndpointUrl;
-        const endpointUrl = env[ENV_ENDPOINT_URL];
-        if (endpointUrl)
-            return endpointUrl;
-        return undefined;
-    },
-    configFileSelector: (profile, config) => {
-        if (config && profile.services) {
-            const servicesSection = config[["services", profile.services].join(shared_ini_file_loader_1.CONFIG_PREFIX_SEPARATOR)];
-            if (servicesSection) {
-                const servicePrefixParts = serviceId.split(" ").map((w) => w.toLowerCase());
-                const endpointUrl = servicesSection[[servicePrefixParts.join("_"), CONFIG_ENDPOINT_URL].join(shared_ini_file_loader_1.CONFIG_PREFIX_SEPARATOR)];
-                if (endpointUrl)
-                    return endpointUrl;
-            }
-        }
-        const endpointUrl = profile[CONFIG_ENDPOINT_URL];
-        if (endpointUrl)
-            return endpointUrl;
-        return undefined;
-    },
-    default: undefined,
-});
-exports.getEndpointUrlConfig = getEndpointUrlConfig;
-
-
-/***/ }),
-
-/***/ 1896:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var core = __nccwpck_require__(9715);
-var utilMiddleware = __nccwpck_require__(5822);
-var getEndpointFromConfig = __nccwpck_require__(6932);
-var urlParser = __nccwpck_require__(948);
-var middlewareSerde = __nccwpck_require__(6719);
-
-const resolveParamsForS3 = async (endpointParams) => {
-    const bucket = endpointParams?.Bucket || "";
-    if (typeof endpointParams.Bucket === "string") {
-        endpointParams.Bucket = bucket.replace(/#/g, encodeURIComponent("#")).replace(/\?/g, encodeURIComponent("?"));
-    }
-    if (isArnBucketName(bucket)) {
-        if (endpointParams.ForcePathStyle === true) {
-            throw new Error("Path-style addressing cannot be used with ARN buckets");
+        else if (typeof body.fd === "number") {
+            return node_fs.fstatSync(body.fd).size;
         }
     }
-    else if (!isDnsCompatibleBucketName(bucket) ||
-        (bucket.indexOf(".") !== -1 && !String(endpointParams.Endpoint).startsWith("http:")) ||
-        bucket.toLowerCase() !== bucket ||
-        bucket.length < 3) {
-        endpointParams.ForcePathStyle = true;
-    }
-    if (endpointParams.DisableMultiRegionAccessPoints) {
-        endpointParams.disableMultiRegionAccessPoints = true;
-        endpointParams.DisableMRAP = true;
-    }
-    return endpointParams;
-};
-const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;
-const IP_ADDRESS_PATTERN = /(\d+\.){3}\d+/;
-const DOTS_PATTERN = /\.\./;
-const isDnsCompatibleBucketName = (bucketName) => DOMAIN_PATTERN.test(bucketName) && !IP_ADDRESS_PATTERN.test(bucketName) && !DOTS_PATTERN.test(bucketName);
-const isArnBucketName = (bucketName) => {
-    const [arn, partition, service, , , bucket] = bucketName.split(":");
-    const isArn = arn === "arn" && bucketName.split(":").length >= 6;
-    const isValidArn = Boolean(isArn && partition && service && bucket);
-    if (isArn && !isValidArn) {
-        throw new Error(`Invalid ARN: ${bucketName} was an invalid ARN.`);
-    }
-    return isValidArn;
+    throw new Error(`Body Length computation failed for ${body}`);
 };
 
-const createConfigValueProvider = (configKey, canonicalEndpointParamKey, config, isClientContextParam = false) => {
-    const configProvider = async () => {
-        let configValue;
-        if (isClientContextParam) {
-            const clientContextParams = config.clientContextParams;
-            const nestedValue = clientContextParams?.[configKey];
-            configValue = nestedValue ?? config[configKey] ?? config[canonicalEndpointParamKey];
-        }
-        else {
-            configValue = config[configKey] ?? config[canonicalEndpointParamKey];
-        }
-        if (typeof configValue === "function") {
-            return configValue();
-        }
-        return configValue;
-    };
-    if (configKey === "credentialScope" || canonicalEndpointParamKey === "CredentialScope") {
-        return async () => {
-            const credentials = typeof config.credentials === "function" ? await config.credentials() : config.credentials;
-            const configValue = credentials?.credentialScope ?? credentials?.CredentialScope;
-            return configValue;
-        };
+const toUint8Array = (data) => {
+    if (typeof data === "string") {
+        return fromUtf8$1(data);
     }
-    if (configKey === "accountId" || canonicalEndpointParamKey === "AccountId") {
-        return async () => {
-            const credentials = typeof config.credentials === "function" ? await config.credentials() : config.credentials;
-            const configValue = credentials?.accountId ?? credentials?.AccountId;
-            return configValue;
-        };
+    if (ArrayBuffer.isView(data)) {
+        return new Uint8Array(data.buffer, data.byteOffset, data.byteLength / Uint8Array.BYTES_PER_ELEMENT);
     }
-    if (configKey === "endpoint" || canonicalEndpointParamKey === "endpoint") {
-        return async () => {
-            if (config.isCustomEndpoint === false) {
-                return undefined;
-            }
-            const endpoint = await configProvider();
-            if (endpoint && typeof endpoint === "object") {
-                if ("url" in endpoint) {
-                    return endpoint.url.href;
-                }
-                if ("hostname" in endpoint) {
-                    const { protocol, hostname, port, path } = endpoint;
-                    return `${protocol}//${hostname}${port ? ":" + port : ""}${path}`;
-                }
-            }
-            return endpoint;
-        };
-    }
-    return configProvider;
+    return new Uint8Array(data);
 };
-
-const toEndpointV1 = (endpoint) => {
-    if (typeof endpoint === "object") {
-        if ("url" in endpoint) {
-            const v1Endpoint = urlParser.parseUrl(endpoint.url);
-            if (endpoint.headers) {
-                v1Endpoint.headers = {};
-                for (const [name, values] of Object.entries(endpoint.headers)) {
-                    v1Endpoint.headers[name.toLowerCase()] = values.join(", ");
-                }
-            }
-            return v1Endpoint;
-        }
-        return endpoint;
-    }
-    return urlParser.parseUrl(endpoint);
-};
-
-const getEndpointFromInstructions = async (commandInput, instructionsSupplier, clientConfig, context) => {
-    if (!clientConfig.isCustomEndpoint) {
-        let endpointFromConfig;
-        if (clientConfig.serviceConfiguredEndpoint) {
-            endpointFromConfig = await clientConfig.serviceConfiguredEndpoint();
-        }
-        else {
-            endpointFromConfig = await getEndpointFromConfig.getEndpointFromConfig(clientConfig.serviceId);
-        }
-        if (endpointFromConfig) {
-            clientConfig.endpoint = () => Promise.resolve(toEndpointV1(endpointFromConfig));
-            clientConfig.isCustomEndpoint = true;
-        }
-    }
-    const endpointParams = await resolveParams(commandInput, instructionsSupplier, clientConfig);
-    if (typeof clientConfig.endpointProvider !== "function") {
-        throw new Error("config.endpointProvider is not set.");
-    }
-    const endpoint = clientConfig.endpointProvider(endpointParams, context);
-    if (clientConfig.isCustomEndpoint && clientConfig.endpoint) {
-        const customEndpoint = await clientConfig.endpoint();
-        if (customEndpoint?.headers) {
-            endpoint.headers ??= {};
-            for (const [name, value] of Object.entries(customEndpoint.headers)) {
-                endpoint.headers[name] = Array.isArray(value) ? value : [value];
-            }
-        }
-    }
-    return endpoint;
-};
-const resolveParams = async (commandInput, instructionsSupplier, clientConfig) => {
-    const endpointParams = {};
-    const instructions = instructionsSupplier?.getEndpointParameterInstructions?.() || {};
-    for (const [name, instruction] of Object.entries(instructions)) {
-        switch (instruction.type) {
-            case "staticContextParams":
-                endpointParams[name] = instruction.value;
-                break;
-            case "contextParams":
-                endpointParams[name] = commandInput[instruction.name];
-                break;
-            case "clientContextParams":
-            case "builtInParams":
-                endpointParams[name] = await createConfigValueProvider(instruction.name, name, clientConfig, instruction.type !== "builtInParams")();
-                break;
-            case "operationContextParams":
-                endpointParams[name] = instruction.get(commandInput);
-                break;
-            default:
-                throw new Error("Unrecognized endpoint parameter instruction: " + JSON.stringify(instruction));
-        }
-    }
-    if (Object.keys(instructions).length === 0) {
-        Object.assign(endpointParams, clientConfig);
-    }
-    if (String(clientConfig.serviceId).toLowerCase() === "s3") {
-        await resolveParamsForS3(endpointParams);
-    }
-    return endpointParams;
-};
-
-const endpointMiddleware = ({ config, instructions, }) => {
-    return (next, context) => async (args) => {
-        if (config.isCustomEndpoint) {
-            core.setFeature(context, "ENDPOINT_OVERRIDE", "N");
-        }
-        const endpoint = await getEndpointFromInstructions(args.input, {
-            getEndpointParameterInstructions() {
-                return instructions;
-            },
-        }, { ...config }, context);
-        context.endpointV2 = endpoint;
-        context.authSchemes = endpoint.properties?.authSchemes;
-        const authScheme = context.authSchemes?.[0];
-        if (authScheme) {
-            context["signing_region"] = authScheme.signingRegion;
-            context["signing_service"] = authScheme.signingName;
-            const smithyContext = utilMiddleware.getSmithyContext(context);
-            const httpAuthOption = smithyContext?.selectedHttpAuthScheme?.httpAuthOption;
-            if (httpAuthOption) {
-                httpAuthOption.signingProperties = Object.assign(httpAuthOption.signingProperties || {}, {
-                    signing_region: authScheme.signingRegion,
-                    signingRegion: authScheme.signingRegion,
-                    signing_service: authScheme.signingName,
-                    signingName: authScheme.signingName,
-                    signingRegionSet: authScheme.signingRegionSet,
-                }, authScheme.properties);
-            }
-        }
-        return next({
-            ...args,
-        });
-    };
-};
-
-const endpointMiddlewareOptions = {
-    step: "serialize",
-    tags: ["ENDPOINT_PARAMETERS", "ENDPOINT_V2", "ENDPOINT"],
-    name: "endpointV2Middleware",
-    override: true,
-    relation: "before",
-    toMiddleware: middlewareSerde.serializerMiddlewareOption.name,
-};
-const getEndpointPlugin = (config, instructions) => ({
-    applyToStack: (clientStack) => {
-        clientStack.addRelativeTo(endpointMiddleware({
-            config,
-            instructions,
-        }), endpointMiddlewareOptions);
-    },
-});
-
-const resolveEndpointConfig = (input) => {
-    const tls = input.tls ?? true;
-    const { endpoint, useDualstackEndpoint, useFipsEndpoint } = input;
-    const customEndpointProvider = endpoint != null ? async () => toEndpointV1(await utilMiddleware.normalizeProvider(endpoint)()) : undefined;
-    const isCustomEndpoint = !!endpoint;
-    const resolvedConfig = Object.assign(input, {
-        endpoint: customEndpointProvider,
-        tls,
-        isCustomEndpoint,
-        useDualstackEndpoint: utilMiddleware.normalizeProvider(useDualstackEndpoint ?? false),
-        useFipsEndpoint: utilMiddleware.normalizeProvider(useFipsEndpoint ?? false),
-    });
-    let configuredEndpointPromise = undefined;
-    resolvedConfig.serviceConfiguredEndpoint = async () => {
-        if (input.serviceId && !configuredEndpointPromise) {
-            configuredEndpointPromise = getEndpointFromConfig.getEndpointFromConfig(input.serviceId);
-        }
-        return configuredEndpointPromise;
-    };
-    return resolvedConfig;
-};
-
-const resolveEndpointRequiredConfig = (input) => {
-    const { endpoint } = input;
-    if (endpoint === undefined) {
-        input.endpoint = async () => {
-            throw new Error("@smithy/middleware-endpoint: (default endpointRuleSet) endpoint is not set - you must configure an endpoint.");
-        };
-    }
-    return input;
-};
-
-exports.endpointMiddleware = endpointMiddleware;
-exports.endpointMiddlewareOptions = endpointMiddlewareOptions;
-exports.getEndpointFromInstructions = getEndpointFromInstructions;
-exports.getEndpointPlugin = getEndpointPlugin;
-exports.resolveEndpointConfig = resolveEndpointConfig;
-exports.resolveEndpointRequiredConfig = resolveEndpointRequiredConfig;
-exports.resolveParams = resolveParams;
-exports.toEndpointV1 = toEndpointV1;
-
-
-/***/ }),
-
-/***/ 7561:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var utilRetry = __nccwpck_require__(9600);
-var protocolHttp = __nccwpck_require__(9526);
-var serviceErrorClassification = __nccwpck_require__(9549);
-var uuid = __nccwpck_require__(8525);
-var utilMiddleware = __nccwpck_require__(5822);
-var smithyClient = __nccwpck_require__(3684);
-var isStreamingPayload = __nccwpck_require__(3936);
-var serde = __nccwpck_require__(9429);
-
-const asSdkError = (error) => {
-    if (error instanceof Error)
-        return error;
-    if (error instanceof Object)
-        return Object.assign(new Error(), error);
-    if (typeof error === "string")
-        return new Error(error);
-    return new Error(`AWS SDK error wrapper for ${error}`);
-};
-
-const getDefaultRetryQuota = (initialRetryTokens, options) => {
-    const MAX_CAPACITY = initialRetryTokens;
-    const noRetryIncrement = utilRetry.NO_RETRY_INCREMENT;
-    const retryCost = utilRetry.RETRY_COST;
-    const timeoutRetryCost = utilRetry.TIMEOUT_RETRY_COST;
-    let availableCapacity = initialRetryTokens;
-    const getCapacityAmount = (error) => (error.name === "TimeoutError" ? timeoutRetryCost : retryCost);
-    const hasRetryTokens = (error) => getCapacityAmount(error) <= availableCapacity;
-    const retrieveRetryTokens = (error) => {
-        if (!hasRetryTokens(error)) {
-            throw new Error("No retry token available");
-        }
-        const capacityAmount = getCapacityAmount(error);
-        availableCapacity -= capacityAmount;
-        return capacityAmount;
-    };
-    const releaseRetryTokens = (capacityReleaseAmount) => {
-        availableCapacity += capacityReleaseAmount ?? noRetryIncrement;
-        availableCapacity = Math.min(availableCapacity, MAX_CAPACITY);
-    };
-    return Object.freeze({
-        hasRetryTokens,
-        retrieveRetryTokens,
-        releaseRetryTokens,
-    });
-};
-
-const defaultDelayDecider = (delayBase, attempts) => Math.floor(Math.min(utilRetry.MAXIMUM_RETRY_DELAY, Math.random() * 2 ** attempts * delayBase));
-
-const defaultRetryDecider = (error) => {
-    if (!error) {
-        return false;
-    }
-    return serviceErrorClassification.isRetryableByTrait(error) || serviceErrorClassification.isClockSkewError(error) || serviceErrorClassification.isThrottlingError(error) || serviceErrorClassification.isTransientError(error);
-};
-
-class StandardRetryStrategy {
-    maxAttemptsProvider;
-    retryDecider;
-    delayDecider;
-    retryQuota;
-    mode = utilRetry.RETRY_MODES.STANDARD;
-    constructor(maxAttemptsProvider, options) {
-        this.maxAttemptsProvider = maxAttemptsProvider;
-        this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
-        this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
-        this.retryQuota = options?.retryQuota ?? getDefaultRetryQuota(utilRetry.INITIAL_RETRY_TOKENS);
-    }
-    shouldRetry(error, attempts, maxAttempts) {
-        return attempts < maxAttempts && this.retryDecider(error) && this.retryQuota.hasRetryTokens(error);
-    }
-    async getMaxAttempts() {
-        let maxAttempts;
-        try {
-            maxAttempts = await this.maxAttemptsProvider();
-        }
-        catch (error) {
-            maxAttempts = utilRetry.DEFAULT_MAX_ATTEMPTS;
-        }
-        return maxAttempts;
-    }
-    async retry(next, args, options) {
-        let retryTokenAmount;
-        let attempts = 0;
-        let totalDelay = 0;
-        const maxAttempts = await this.getMaxAttempts();
-        const { request } = args;
-        if (protocolHttp.HttpRequest.isInstance(request)) {
-            request.headers[utilRetry.INVOCATION_ID_HEADER] = uuid.v4();
-        }
-        while (true) {
-            try {
-                if (protocolHttp.HttpRequest.isInstance(request)) {
-                    request.headers[utilRetry.REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
-                }
-                if (options?.beforeRequest) {
-                    await options.beforeRequest();
-                }
-                const { response, output } = await next(args);
-                if (options?.afterRequest) {
-                    options.afterRequest(response);
-                }
-                this.retryQuota.releaseRetryTokens(retryTokenAmount);
-                output.$metadata.attempts = attempts + 1;
-                output.$metadata.totalRetryDelay = totalDelay;
-                return { response, output };
-            }
-            catch (e) {
-                const err = asSdkError(e);
-                attempts++;
-                if (this.shouldRetry(err, attempts, maxAttempts)) {
-                    retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
-                    const delayFromDecider = this.delayDecider(serviceErrorClassification.isThrottlingError(err) ? utilRetry.THROTTLING_RETRY_DELAY_BASE : utilRetry.DEFAULT_RETRY_DELAY_BASE, attempts);
-                    const delayFromResponse = getDelayFromRetryAfterHeader(err.$response);
-                    const delay = Math.max(delayFromResponse || 0, delayFromDecider);
-                    totalDelay += delay;
-                    await new Promise((resolve) => setTimeout(resolve, delay));
-                    continue;
-                }
-                if (!err.$metadata) {
-                    err.$metadata = {};
-                }
-                err.$metadata.attempts = attempts;
-                err.$metadata.totalRetryDelay = totalDelay;
-                throw err;
-            }
-        }
-    }
-}
-const getDelayFromRetryAfterHeader = (response) => {
-    if (!protocolHttp.HttpResponse.isInstance(response))
-        return;
-    const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
-    if (!retryAfterHeaderName)
-        return;
-    const retryAfter = response.headers[retryAfterHeaderName];
-    const retryAfterSeconds = Number(retryAfter);
-    if (!Number.isNaN(retryAfterSeconds))
-        return retryAfterSeconds * 1000;
-    const retryAfterDate = new Date(retryAfter);
-    return retryAfterDate.getTime() - Date.now();
-};
-
-class AdaptiveRetryStrategy extends StandardRetryStrategy {
-    rateLimiter;
-    constructor(maxAttemptsProvider, options) {
-        const { rateLimiter, ...superOptions } = options ?? {};
-        super(maxAttemptsProvider, superOptions);
-        this.rateLimiter = rateLimiter ?? new utilRetry.DefaultRateLimiter();
-        this.mode = utilRetry.RETRY_MODES.ADAPTIVE;
-    }
-    async retry(next, args) {
-        return super.retry(next, args, {
-            beforeRequest: async () => {
-                return this.rateLimiter.getSendToken();
-            },
-            afterRequest: (response) => {
-                this.rateLimiter.updateClientSendingRate(response);
-            },
-        });
-    }
-}
-
-const ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";
-const CONFIG_MAX_ATTEMPTS = "max_attempts";
-const NODE_MAX_ATTEMPT_CONFIG_OPTIONS = {
-    environmentVariableSelector: (env) => {
-        const value = env[ENV_MAX_ATTEMPTS];
-        if (!value)
-            return undefined;
-        const maxAttempt = parseInt(value);
-        if (Number.isNaN(maxAttempt)) {
-            throw new Error(`Environment variable ${ENV_MAX_ATTEMPTS} mast be a number, got "${value}"`);
-        }
-        return maxAttempt;
-    },
-    configFileSelector: (profile) => {
-        const value = profile[CONFIG_MAX_ATTEMPTS];
-        if (!value)
-            return undefined;
-        const maxAttempt = parseInt(value);
-        if (Number.isNaN(maxAttempt)) {
-            throw new Error(`Shared config file entry ${CONFIG_MAX_ATTEMPTS} mast be a number, got "${value}"`);
-        }
-        return maxAttempt;
-    },
-    default: utilRetry.DEFAULT_MAX_ATTEMPTS,
-};
-const resolveRetryConfig = (input) => {
-    const { retryStrategy, retryMode } = input;
-    const maxAttempts = utilMiddleware.normalizeProvider(input.maxAttempts ?? utilRetry.DEFAULT_MAX_ATTEMPTS);
-    let controller = retryStrategy
-        ? Promise.resolve(retryStrategy)
-        : undefined;
-    const getDefault = async () => (await utilMiddleware.normalizeProvider(retryMode)()) === utilRetry.RETRY_MODES.ADAPTIVE
-        ? new utilRetry.AdaptiveRetryStrategy(maxAttempts)
-        : new utilRetry.StandardRetryStrategy(maxAttempts);
-    return Object.assign(input, {
-        maxAttempts,
-        retryStrategy: () => (controller ??= getDefault()),
-    });
-};
-const ENV_RETRY_MODE = "AWS_RETRY_MODE";
-const CONFIG_RETRY_MODE = "retry_mode";
-const NODE_RETRY_MODE_CONFIG_OPTIONS = {
-    environmentVariableSelector: (env) => env[ENV_RETRY_MODE],
-    configFileSelector: (profile) => profile[CONFIG_RETRY_MODE],
-    default: utilRetry.DEFAULT_RETRY_MODE,
-};
-
-const omitRetryHeadersMiddleware = () => (next) => async (args) => {
-    const { request } = args;
-    if (protocolHttp.HttpRequest.isInstance(request)) {
-        delete request.headers[utilRetry.INVOCATION_ID_HEADER];
-        delete request.headers[utilRetry.REQUEST_HEADER];
-    }
-    return next(args);
-};
-const omitRetryHeadersMiddlewareOptions = {
-    name: "omitRetryHeadersMiddleware",
-    tags: ["RETRY", "HEADERS", "OMIT_RETRY_HEADERS"],
-    relation: "before",
-    toMiddleware: "awsAuthMiddleware",
-    override: true,
-};
-const getOmitRetryHeadersPlugin = (options) => ({
-    applyToStack: (clientStack) => {
-        clientStack.addRelativeTo(omitRetryHeadersMiddleware(), omitRetryHeadersMiddlewareOptions);
-    },
-});
-
-function parseRetryAfterHeader(response, logger) {
-    if (!protocolHttp.HttpResponse.isInstance(response)) {
-        return;
-    }
-    for (const header of Object.keys(response.headers)) {
-        const h = header.toLowerCase();
-        if (h === "retry-after") {
-            const retryAfter = response.headers[header];
-            let retryAfterSeconds = NaN;
-            if (retryAfter.endsWith("GMT")) {
-                try {
-                    const date = serde.parseRfc7231DateTime(retryAfter);
-                    retryAfterSeconds = (date.getTime() - Date.now()) / 1000;
-                }
-                catch (e) {
-                    logger?.trace?.("Failed to parse retry-after header");
-                    logger?.trace?.(e);
-                }
-            }
-            else if (retryAfter.match(/ GMT, ((\d+)|(\d+\.\d+))$/)) {
-                retryAfterSeconds = Number(retryAfter.match(/ GMT, ([\d.]+)$/)?.[1]);
-            }
-            else if (retryAfter.match(/^((\d+)|(\d+\.\d+))$/)) {
-                retryAfterSeconds = Number(retryAfter);
-            }
-            else if (Date.parse(retryAfter) >= Date.now()) {
-                retryAfterSeconds = (Date.parse(retryAfter) - Date.now()) / 1000;
-            }
-            if (isNaN(retryAfterSeconds)) {
-                return;
-            }
-            return new Date(Date.now() + retryAfterSeconds * 1000);
-        }
-        else if (h === "x-amz-retry-after") {
-            const v = response.headers[header];
-            const backoffMilliseconds = Number(v);
-            if (isNaN(backoffMilliseconds)) {
-                logger?.trace?.(`Failed to parse x-amz-retry-after=${v}`);
-                return;
-            }
-            return new Date(Date.now() + backoffMilliseconds);
-        }
-    }
-}
-function getRetryAfterHint(response, logger) {
-    return parseRetryAfterHeader(response, logger);
-}
-
-const retryMiddleware = (options) => (next, context) => async (args) => {
-    let retryStrategy = await options.retryStrategy();
-    const maxAttempts = await options.maxAttempts();
-    if (isRetryStrategyV2(retryStrategy)) {
-        retryStrategy = retryStrategy;
-        let retryToken = await retryStrategy.acquireInitialRetryToken((context["partition_id"] ?? "") + (context.__retryLongPoll ? ":longpoll" : ""));
-        let lastError = new Error();
-        let attempts = 0;
-        let totalRetryDelay = 0;
-        const { request } = args;
-        const isRequest = protocolHttp.HttpRequest.isInstance(request);
-        if (isRequest) {
-            request.headers[utilRetry.INVOCATION_ID_HEADER] = uuid.v4();
-        }
-        while (true) {
-            try {
-                if (isRequest) {
-                    request.headers[utilRetry.REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
-                }
-                const { response, output } = await next(args);
-                retryStrategy.recordSuccess(retryToken);
-                output.$metadata.attempts = attempts + 1;
-                output.$metadata.totalRetryDelay = totalRetryDelay;
-                return { response, output };
-            }
-            catch (e) {
-                const retryErrorInfo = getRetryErrorInfo(e, options.logger);
-                lastError = asSdkError(e);
-                if (isRequest && isStreamingPayload.isStreamingPayload(request)) {
-                    (context.logger instanceof smithyClient.NoOpLogger ? console : context.logger)?.warn("An error was encountered in a non-retryable streaming request.");
-                    throw lastError;
-                }
-                try {
-                    retryToken = await retryStrategy.refreshRetryTokenForRetry(retryToken, retryErrorInfo);
-                }
-                catch (refreshError) {
-                    if (typeof refreshError.$backoff === "number") {
-                        await cooldown(refreshError.$backoff);
-                    }
-                    if (!lastError.$metadata) {
-                        lastError.$metadata = {};
-                    }
-                    lastError.$metadata.attempts = attempts + 1;
-                    lastError.$metadata.totalRetryDelay = totalRetryDelay;
-                    throw lastError;
-                }
-                attempts = retryToken.getRetryCount();
-                const delay = retryToken.getRetryDelay();
-                totalRetryDelay += delay;
-                await cooldown(delay);
-            }
-        }
-    }
-    else {
-        retryStrategy = retryStrategy;
-        if (retryStrategy?.mode) {
-            context.userAgent = [...(context.userAgent || []), ["cfg/retry-mode", retryStrategy.mode]];
-        }
-        return retryStrategy.retry(next, args);
-    }
-};
-const cooldown = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const isRetryStrategyV2 = (retryStrategy) => typeof retryStrategy.acquireInitialRetryToken !== "undefined" &&
-    typeof retryStrategy.refreshRetryTokenForRetry !== "undefined" &&
-    typeof retryStrategy.recordSuccess !== "undefined";
-const getRetryErrorInfo = (error, logger) => {
-    const errorInfo = {
-        error,
-        errorType: getRetryErrorType(error),
-    };
-    const retryAfterHint = parseRetryAfterHeader(error.$response, logger);
-    if (retryAfterHint) {
-        errorInfo.retryAfterHint = retryAfterHint;
-    }
-    return errorInfo;
-};
-const getRetryErrorType = (error) => {
-    if (serviceErrorClassification.isThrottlingError(error))
-        return "THROTTLING";
-    if (serviceErrorClassification.isTransientError(error))
-        return "TRANSIENT";
-    if (serviceErrorClassification.isServerError(error))
-        return "SERVER_ERROR";
-    return "CLIENT_ERROR";
-};
-const retryMiddlewareOptions = {
-    name: "retryMiddleware",
-    tags: ["RETRY"],
-    step: "finalizeRequest",
-    priority: "high",
-    override: true,
-};
-const getRetryPlugin = (options) => ({
-    applyToStack: (clientStack) => {
-        clientStack.add(retryMiddleware(options), retryMiddlewareOptions);
-    },
-});
-
-exports.AdaptiveRetryStrategy = AdaptiveRetryStrategy;
-exports.CONFIG_MAX_ATTEMPTS = CONFIG_MAX_ATTEMPTS;
-exports.CONFIG_RETRY_MODE = CONFIG_RETRY_MODE;
-exports.ENV_MAX_ATTEMPTS = ENV_MAX_ATTEMPTS;
-exports.ENV_RETRY_MODE = ENV_RETRY_MODE;
-exports.NODE_MAX_ATTEMPT_CONFIG_OPTIONS = NODE_MAX_ATTEMPT_CONFIG_OPTIONS;
-exports.NODE_RETRY_MODE_CONFIG_OPTIONS = NODE_RETRY_MODE_CONFIG_OPTIONS;
-exports.StandardRetryStrategy = StandardRetryStrategy;
-exports.defaultDelayDecider = defaultDelayDecider;
-exports.defaultRetryDecider = defaultRetryDecider;
-exports.getOmitRetryHeadersPlugin = getOmitRetryHeadersPlugin;
-exports.getRetryAfterHint = getRetryAfterHint;
-exports.getRetryPlugin = getRetryPlugin;
-exports.omitRetryHeadersMiddleware = omitRetryHeadersMiddleware;
-exports.omitRetryHeadersMiddlewareOptions = omitRetryHeadersMiddlewareOptions;
-exports.resolveRetryConfig = resolveRetryConfig;
-exports.retryMiddleware = retryMiddleware;
-exports.retryMiddlewareOptions = retryMiddlewareOptions;
-
-
-/***/ }),
-
-/***/ 3936:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.isStreamingPayload = void 0;
-const stream_1 = __nccwpck_require__(2203);
-const isStreamingPayload = (request) => request?.body instanceof stream_1.Readable ||
-    (typeof ReadableStream !== "undefined" && request?.body instanceof ReadableStream);
-exports.isStreamingPayload = isStreamingPayload;
-
-
-/***/ }),
-
-/***/ 6719:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var protocolHttp = __nccwpck_require__(9526);
-var endpoints = __nccwpck_require__(3330);
 
 const deserializerMiddleware = (options, deserializer) => (next, context) => async (args) => {
     const { response } = await next(args);
@@ -15889,7 +18253,7 @@ const deserializerMiddleware = (options, deserializer) => (next, context) => asy
                 }
             }
             try {
-                if (protocolHttp.HttpResponse.isInstance(response)) {
+                if (protocols.HttpResponse.isInstance(response)) {
                     const { headers = {} } = response;
                     const headerEntries = Object.entries(headers);
                     error.$metadata = {
@@ -15948,384 +18312,868 @@ function getSerdePlugin(config, serializer, deserializer) {
     };
 }
 
-exports.deserializerMiddleware = deserializerMiddleware;
-exports.deserializerMiddlewareOption = deserializerMiddlewareOption;
-exports.getSerdePlugin = getSerdePlugin;
-exports.serializerMiddleware = serializerMiddleware;
-exports.serializerMiddlewareOption = serializerMiddlewareOption;
-
-
-/***/ }),
-
-/***/ 6332:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const getAllAliases = (name, aliases) => {
-    const _aliases = [];
-    if (name) {
-        _aliases.push(name);
+class Hash {
+    algorithmIdentifier;
+    secret;
+    hash;
+    constructor(algorithmIdentifier, secret) {
+        this.algorithmIdentifier = algorithmIdentifier;
+        this.secret = secret;
+        this.reset();
     }
-    if (aliases) {
-        for (const alias of aliases) {
-            _aliases.push(alias);
+    update(toHash, encoding) {
+        this.hash.update(toUint8Array(castSourceData(toHash, encoding)));
+    }
+    digest() {
+        return Promise.resolve(this.hash.digest());
+    }
+    reset() {
+        this.hash = this.secret
+            ? node_crypto.createHmac(this.algorithmIdentifier, castSourceData(this.secret))
+            : node_crypto.createHash(this.algorithmIdentifier);
+    }
+}
+function castSourceData(toCast, encoding) {
+    if (Buffer.isBuffer(toCast)) {
+        return toCast;
+    }
+    if (typeof toCast === "string") {
+        return fromString(toCast, encoding);
+    }
+    if (ArrayBuffer.isView(toCast)) {
+        return fromArrayBuffer(toCast.buffer, toCast.byteOffset, toCast.byteLength);
+    }
+    return fromArrayBuffer(toCast);
+}
+
+let ChecksumStream$1 = class ChecksumStream extends node_stream.Duplex {
+    expectedChecksum;
+    checksumSourceLocation;
+    checksum;
+    source;
+    base64Encoder;
+    pendingCallback = null;
+    constructor({ expectedChecksum, checksum, source, checksumSourceLocation, base64Encoder, }) {
+        super();
+        if (typeof source.pipe === "function") {
+            this.source = source;
+        }
+        else {
+            throw new Error(`@smithy/util-stream: unsupported source type ${source?.constructor?.name ?? source} in ChecksumStream.`);
+        }
+        this.base64Encoder = base64Encoder ?? toBase64$1;
+        this.expectedChecksum = expectedChecksum;
+        this.checksum = checksum;
+        this.checksumSourceLocation = checksumSourceLocation;
+        this.source.pipe(this);
+    }
+    _read(size) {
+        if (this.pendingCallback) {
+            const callback = this.pendingCallback;
+            this.pendingCallback = null;
+            callback();
         }
     }
-    return _aliases;
-};
-const getMiddlewareNameWithAliases = (name, aliases) => {
-    return `${name || "anonymous"}${aliases && aliases.length > 0 ? ` (a.k.a. ${aliases.join(",")})` : ""}`;
-};
-const constructStack = () => {
-    let absoluteEntries = [];
-    let relativeEntries = [];
-    let identifyOnResolve = false;
-    const entriesNameSet = new Set();
-    const sort = (entries) => entries.sort((a, b) => stepWeights[b.step] - stepWeights[a.step] ||
-        priorityWeights[b.priority || "normal"] - priorityWeights[a.priority || "normal"]);
-    const removeByName = (toRemove) => {
-        let isRemoved = false;
-        const filterCb = (entry) => {
-            const aliases = getAllAliases(entry.name, entry.aliases);
-            if (aliases.includes(toRemove)) {
-                isRemoved = true;
-                for (const alias of aliases) {
-                    entriesNameSet.delete(alias);
-                }
-                return false;
+    _write(chunk, encoding, callback) {
+        try {
+            this.checksum.update(chunk);
+            const canPushMore = this.push(chunk);
+            if (!canPushMore) {
+                this.pendingCallback = callback;
+                return;
             }
-            return true;
-        };
-        absoluteEntries = absoluteEntries.filter(filterCb);
-        relativeEntries = relativeEntries.filter(filterCb);
-        return isRemoved;
-    };
-    const removeByReference = (toRemove) => {
-        let isRemoved = false;
-        const filterCb = (entry) => {
-            if (entry.middleware === toRemove) {
-                isRemoved = true;
-                for (const alias of getAllAliases(entry.name, entry.aliases)) {
-                    entriesNameSet.delete(alias);
-                }
-                return false;
-            }
-            return true;
-        };
-        absoluteEntries = absoluteEntries.filter(filterCb);
-        relativeEntries = relativeEntries.filter(filterCb);
-        return isRemoved;
-    };
-    const cloneTo = (toStack) => {
-        absoluteEntries.forEach((entry) => {
-            toStack.add(entry.middleware, { ...entry });
-        });
-        relativeEntries.forEach((entry) => {
-            toStack.addRelativeTo(entry.middleware, { ...entry });
-        });
-        toStack.identifyOnResolve?.(stack.identifyOnResolve());
-        return toStack;
-    };
-    const expandRelativeMiddlewareList = (from) => {
-        const expandedMiddlewareList = [];
-        from.before.forEach((entry) => {
-            if (entry.before.length === 0 && entry.after.length === 0) {
-                expandedMiddlewareList.push(entry);
-            }
-            else {
-                expandedMiddlewareList.push(...expandRelativeMiddlewareList(entry));
-            }
-        });
-        expandedMiddlewareList.push(from);
-        from.after.reverse().forEach((entry) => {
-            if (entry.before.length === 0 && entry.after.length === 0) {
-                expandedMiddlewareList.push(entry);
-            }
-            else {
-                expandedMiddlewareList.push(...expandRelativeMiddlewareList(entry));
-            }
-        });
-        return expandedMiddlewareList;
-    };
-    const getMiddlewareList = (debug = false) => {
-        const normalizedAbsoluteEntries = [];
-        const normalizedRelativeEntries = [];
-        const normalizedEntriesNameMap = {};
-        absoluteEntries.forEach((entry) => {
-            const normalizedEntry = {
-                ...entry,
-                before: [],
-                after: [],
-            };
-            for (const alias of getAllAliases(normalizedEntry.name, normalizedEntry.aliases)) {
-                normalizedEntriesNameMap[alias] = normalizedEntry;
-            }
-            normalizedAbsoluteEntries.push(normalizedEntry);
-        });
-        relativeEntries.forEach((entry) => {
-            const normalizedEntry = {
-                ...entry,
-                before: [],
-                after: [],
-            };
-            for (const alias of getAllAliases(normalizedEntry.name, normalizedEntry.aliases)) {
-                normalizedEntriesNameMap[alias] = normalizedEntry;
-            }
-            normalizedRelativeEntries.push(normalizedEntry);
-        });
-        normalizedRelativeEntries.forEach((entry) => {
-            if (entry.toMiddleware) {
-                const toMiddleware = normalizedEntriesNameMap[entry.toMiddleware];
-                if (toMiddleware === undefined) {
-                    if (debug) {
-                        return;
-                    }
-                    throw new Error(`${entry.toMiddleware} is not found when adding ` +
-                        `${getMiddlewareNameWithAliases(entry.name, entry.aliases)} ` +
-                        `middleware ${entry.relation} ${entry.toMiddleware}`);
-                }
-                if (entry.relation === "after") {
-                    toMiddleware.after.push(entry);
-                }
-                if (entry.relation === "before") {
-                    toMiddleware.before.push(entry);
-                }
-            }
-        });
-        const mainChain = sort(normalizedAbsoluteEntries)
-            .map(expandRelativeMiddlewareList)
-            .reduce((wholeList, expandedMiddlewareList) => {
-            wholeList.push(...expandedMiddlewareList);
-            return wholeList;
-        }, []);
-        return mainChain;
-    };
-    const stack = {
-        add: (middleware, options = {}) => {
-            const { name, override, aliases: _aliases } = options;
-            const entry = {
-                step: "initialize",
-                priority: "normal",
-                middleware,
-                ...options,
-            };
-            const aliases = getAllAliases(name, _aliases);
-            if (aliases.length > 0) {
-                if (aliases.some((alias) => entriesNameSet.has(alias))) {
-                    if (!override)
-                        throw new Error(`Duplicate middleware name '${getMiddlewareNameWithAliases(name, _aliases)}'`);
-                    for (const alias of aliases) {
-                        const toOverrideIndex = absoluteEntries.findIndex((entry) => entry.name === alias || entry.aliases?.some((a) => a === alias));
-                        if (toOverrideIndex === -1) {
-                            continue;
-                        }
-                        const toOverride = absoluteEntries[toOverrideIndex];
-                        if (toOverride.step !== entry.step || entry.priority !== toOverride.priority) {
-                            throw new Error(`"${getMiddlewareNameWithAliases(toOverride.name, toOverride.aliases)}" middleware with ` +
-                                `${toOverride.priority} priority in ${toOverride.step} step cannot ` +
-                                `be overridden by "${getMiddlewareNameWithAliases(name, _aliases)}" middleware with ` +
-                                `${entry.priority} priority in ${entry.step} step.`);
-                        }
-                        absoluteEntries.splice(toOverrideIndex, 1);
-                    }
-                }
-                for (const alias of aliases) {
-                    entriesNameSet.add(alias);
-                }
-            }
-            absoluteEntries.push(entry);
-        },
-        addRelativeTo: (middleware, options) => {
-            const { name, override, aliases: _aliases } = options;
-            const entry = {
-                middleware,
-                ...options,
-            };
-            const aliases = getAllAliases(name, _aliases);
-            if (aliases.length > 0) {
-                if (aliases.some((alias) => entriesNameSet.has(alias))) {
-                    if (!override)
-                        throw new Error(`Duplicate middleware name '${getMiddlewareNameWithAliases(name, _aliases)}'`);
-                    for (const alias of aliases) {
-                        const toOverrideIndex = relativeEntries.findIndex((entry) => entry.name === alias || entry.aliases?.some((a) => a === alias));
-                        if (toOverrideIndex === -1) {
-                            continue;
-                        }
-                        const toOverride = relativeEntries[toOverrideIndex];
-                        if (toOverride.toMiddleware !== entry.toMiddleware || toOverride.relation !== entry.relation) {
-                            throw new Error(`"${getMiddlewareNameWithAliases(toOverride.name, toOverride.aliases)}" middleware ` +
-                                `${toOverride.relation} "${toOverride.toMiddleware}" middleware cannot be overridden ` +
-                                `by "${getMiddlewareNameWithAliases(name, _aliases)}" middleware ${entry.relation} ` +
-                                `"${entry.toMiddleware}" middleware.`);
-                        }
-                        relativeEntries.splice(toOverrideIndex, 1);
-                    }
-                }
-                for (const alias of aliases) {
-                    entriesNameSet.add(alias);
-                }
-            }
-            relativeEntries.push(entry);
-        },
-        clone: () => cloneTo(constructStack()),
-        use: (plugin) => {
-            plugin.applyToStack(stack);
-        },
-        remove: (toRemove) => {
-            if (typeof toRemove === "string")
-                return removeByName(toRemove);
-            else
-                return removeByReference(toRemove);
-        },
-        removeByTag: (toRemove) => {
-            let isRemoved = false;
-            const filterCb = (entry) => {
-                const { tags, name, aliases: _aliases } = entry;
-                if (tags && tags.includes(toRemove)) {
-                    const aliases = getAllAliases(name, _aliases);
-                    for (const alias of aliases) {
-                        entriesNameSet.delete(alias);
-                    }
-                    isRemoved = true;
-                    return false;
-                }
-                return true;
-            };
-            absoluteEntries = absoluteEntries.filter(filterCb);
-            relativeEntries = relativeEntries.filter(filterCb);
-            return isRemoved;
-        },
-        concat: (from) => {
-            const cloned = cloneTo(constructStack());
-            cloned.use(from);
-            cloned.identifyOnResolve(identifyOnResolve || cloned.identifyOnResolve() || (from.identifyOnResolve?.() ?? false));
-            return cloned;
-        },
-        applyToStack: cloneTo,
-        identify: () => {
-            return getMiddlewareList(true).map((mw) => {
-                const step = mw.step ??
-                    mw.relation +
-                        " " +
-                        mw.toMiddleware;
-                return getMiddlewareNameWithAliases(mw.name, mw.aliases) + " - " + step;
-            });
-        },
-        identifyOnResolve(toggle) {
-            if (typeof toggle === "boolean")
-                identifyOnResolve = toggle;
-            return identifyOnResolve;
-        },
-        resolve: (handler, context) => {
-            for (const middleware of getMiddlewareList()
-                .map((entry) => entry.middleware)
-                .reverse()) {
-                handler = middleware(handler, context);
-            }
-            if (identifyOnResolve) {
-                console.log(stack.identify());
-            }
-            return handler;
-        },
-    };
-    return stack;
-};
-const stepWeights = {
-    initialize: 5,
-    serialize: 4,
-    build: 3,
-    finalizeRequest: 2,
-    deserialize: 1,
-};
-const priorityWeights = {
-    high: 3,
-    normal: 2,
-    low: 1,
-};
-
-exports.constructStack = constructStack;
-
-
-/***/ }),
-
-/***/ 1275:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var propertyProvider = __nccwpck_require__(7930);
-var sharedIniFileLoader = __nccwpck_require__(9498);
-
-function getSelectorName(functionString) {
-    try {
-        const constants = new Set(Array.from(functionString.match(/([A-Z_]){3,}/g) ?? []));
-        constants.delete("CONFIG");
-        constants.delete("CONFIG_PREFIX_SEPARATOR");
-        constants.delete("ENV");
-        return [...constants].join(", ");
+        }
+        catch (e) {
+            return callback(e);
+        }
+        return callback();
     }
-    catch (e) {
-        return functionString;
+    async _final(callback) {
+        try {
+            const digest = await this.checksum.digest();
+            const received = this.base64Encoder(digest);
+            if (this.expectedChecksum !== received) {
+                return callback(new Error(`Checksum mismatch: expected "${this.expectedChecksum}" but received "${received}"` +
+                    ` in response header "${this.checksumSourceLocation}".`));
+            }
+        }
+        catch (e) {
+            return callback(e);
+        }
+        this.push(null);
+        return callback();
+    }
+};
+
+const isReadableStream = (stream) => typeof ReadableStream === "function" &&
+    (stream?.constructor?.name === ReadableStream.name || stream instanceof ReadableStream);
+const isBlob = (blob) => {
+    return typeof Blob === "function" && (blob?.constructor?.name === Blob.name || blob instanceof Blob);
+};
+
+const fromUtf8 = (input) => new TextEncoder().encode(input);
+
+const chars = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/`;
+const alphabetByEncoding = Object.entries(chars).reduce((acc, [i, c]) => {
+    acc[c] = Number(i);
+    return acc;
+}, {});
+const alphabetByValue = chars.split("");
+const bitsPerLetter = 6;
+const bitsPerByte = 8;
+const maxLetterValue = 0b111111;
+
+function toBase64(_input) {
+    let input;
+    if (typeof _input === "string") {
+        input = fromUtf8(_input);
+    }
+    else {
+        input = _input;
+    }
+    const isArrayLike = typeof input === "object" && typeof input.length === "number";
+    const isUint8Array = typeof input === "object" &&
+        typeof input.byteOffset === "number" &&
+        typeof input.byteLength === "number";
+    if (!isArrayLike && !isUint8Array) {
+        throw new Error("@smithy/util-base64: toBase64 encoder function only accepts string | Uint8Array.");
+    }
+    let str = "";
+    for (let i = 0; i < input.length; i += 3) {
+        let bits = 0;
+        let bitLength = 0;
+        for (let j = i, limit = Math.min(i + 3, input.length); j < limit; j++) {
+            bits |= input[j] << ((limit - j - 1) * bitsPerByte);
+            bitLength += bitsPerByte;
+        }
+        const bitClusterCount = Math.ceil(bitLength / bitsPerLetter);
+        bits <<= bitClusterCount * bitsPerLetter - bitLength;
+        for (let k = 1; k <= bitClusterCount; k++) {
+            const offset = (bitClusterCount - k) * bitsPerLetter;
+            str += alphabetByValue[(bits & (maxLetterValue << offset)) >> offset];
+        }
+        str += "==".slice(0, 4 - bitClusterCount);
+    }
+    return str;
+}
+
+const ReadableStreamRef = typeof ReadableStream === "function" ? ReadableStream : function () { };
+class ChecksumStream extends ReadableStreamRef {
+}
+
+const createChecksumStream$1 = ({ expectedChecksum, checksum, source, checksumSourceLocation, base64Encoder, }) => {
+    if (!isReadableStream(source)) {
+        throw new Error(`@smithy/util-stream: unsupported source type ${source?.constructor?.name ?? source} in ChecksumStream.`);
+    }
+    const encoder = base64Encoder ?? toBase64;
+    if (typeof TransformStream !== "function") {
+        throw new Error("@smithy/util-stream: unable to instantiate ChecksumStream because API unavailable: ReadableStream/TransformStream.");
+    }
+    const transform = new TransformStream({
+        start() { },
+        async transform(chunk, controller) {
+            checksum.update(chunk);
+            controller.enqueue(chunk);
+        },
+        async flush(controller) {
+            const digest = await checksum.digest();
+            const received = encoder(digest);
+            if (expectedChecksum !== received) {
+                const error = new Error(`Checksum mismatch: expected "${expectedChecksum}" but received "${received}"` +
+                    ` in response header "${checksumSourceLocation}".`);
+                controller.error(error);
+            }
+            else {
+                controller.terminate();
+            }
+        },
+    });
+    source.pipeThrough(transform);
+    const readable = transform.readable;
+    Object.setPrototypeOf(readable, ChecksumStream.prototype);
+    return readable;
+};
+
+function createChecksumStream(init) {
+    if (typeof ReadableStream === "function" && isReadableStream(init.source)) {
+        return createChecksumStream$1(init);
+    }
+    return new ChecksumStream$1(init);
+}
+
+class ByteArrayCollector {
+    allocByteArray;
+    byteLength = 0;
+    byteArrays = [];
+    constructor(allocByteArray) {
+        this.allocByteArray = allocByteArray;
+    }
+    push(byteArray) {
+        this.byteArrays.push(byteArray);
+        this.byteLength += byteArray.byteLength;
+    }
+    flush() {
+        if (this.byteArrays.length === 1) {
+            const bytes = this.byteArrays[0];
+            this.reset();
+            return bytes;
+        }
+        const aggregation = this.allocByteArray(this.byteLength);
+        let cursor = 0;
+        for (let i = 0; i < this.byteArrays.length; ++i) {
+            const bytes = this.byteArrays[i];
+            aggregation.set(bytes, cursor);
+            cursor += bytes.byteLength;
+        }
+        this.reset();
+        return aggregation;
+    }
+    reset() {
+        this.byteArrays = [];
+        this.byteLength = 0;
     }
 }
 
-const fromEnv = (envVarSelector, options) => async () => {
-    try {
-        const config = envVarSelector(process.env, options);
-        if (config === undefined) {
-            throw new Error();
+function createBufferedReadableStream(upstream, size, logger) {
+    const reader = upstream.getReader();
+    let streamBufferingLoggedWarning = false;
+    let bytesSeen = 0;
+    const buffers = ["", new ByteArrayCollector((size) => new Uint8Array(size))];
+    let mode = -1;
+    const pull = async (controller) => {
+        const { value, done } = await reader.read();
+        const chunk = value;
+        if (done) {
+            if (mode !== -1) {
+                const remainder = flush(buffers, mode);
+                if (sizeOf(remainder) > 0) {
+                    controller.enqueue(remainder);
+                }
+            }
+            controller.close();
         }
-        return config;
-    }
-    catch (e) {
-        throw new propertyProvider.CredentialsProviderError(e.message || `Not found in ENV: ${getSelectorName(envVarSelector.toString())}`, { logger: options?.logger });
-    }
-};
-
-const fromSharedConfigFiles = (configSelector, { preferredFile = "config", ...init } = {}) => async () => {
-    const profile = sharedIniFileLoader.getProfileName(init);
-    const { configFile, credentialsFile } = await sharedIniFileLoader.loadSharedConfigFiles(init);
-    const profileFromCredentials = credentialsFile[profile] || {};
-    const profileFromConfig = configFile[profile] || {};
-    const mergedProfile = preferredFile === "config"
-        ? { ...profileFromCredentials, ...profileFromConfig }
-        : { ...profileFromConfig, ...profileFromCredentials };
-    try {
-        const cfgFile = preferredFile === "config" ? configFile : credentialsFile;
-        const configValue = configSelector(mergedProfile, cfgFile);
-        if (configValue === undefined) {
-            throw new Error();
+        else {
+            const chunkMode = modeOf(chunk, false);
+            if (mode !== chunkMode) {
+                if (mode >= 0) {
+                    controller.enqueue(flush(buffers, mode));
+                }
+                mode = chunkMode;
+            }
+            if (mode === -1) {
+                controller.enqueue(chunk);
+                return;
+            }
+            const chunkSize = sizeOf(chunk);
+            bytesSeen += chunkSize;
+            const bufferSize = sizeOf(buffers[mode]);
+            if (chunkSize >= size && bufferSize === 0) {
+                controller.enqueue(chunk);
+            }
+            else {
+                const newSize = merge(buffers, mode, chunk);
+                if (!streamBufferingLoggedWarning && bytesSeen > size * 2) {
+                    streamBufferingLoggedWarning = true;
+                    logger?.warn(`@smithy/util-stream - stream chunk size ${chunkSize} is below threshold of ${size}, automatically buffering.`);
+                }
+                if (newSize >= size) {
+                    controller.enqueue(flush(buffers, mode));
+                }
+                else {
+                    await pull(controller);
+                }
+            }
         }
-        return configValue;
+    };
+    return new ReadableStream({
+        pull,
+    });
+}
+function merge(buffers, mode, chunk) {
+    switch (mode) {
+        case 0:
+            buffers[0] += chunk;
+            return sizeOf(buffers[0]);
+        case 1:
+        case 2:
+            buffers[mode].push(chunk);
+            return sizeOf(buffers[mode]);
     }
-    catch (e) {
-        throw new propertyProvider.CredentialsProviderError(e.message || `Not found in config files w/ profile [${profile}]: ${getSelectorName(configSelector.toString())}`, { logger: init.logger });
+}
+function flush(buffers, mode) {
+    switch (mode) {
+        case 0:
+            const s = buffers[0];
+            buffers[0] = "";
+            return s;
+        case 1:
+        case 2:
+            return buffers[mode].flush();
+    }
+    throw new Error(`@smithy/util-stream - invalid index ${mode} given to flush()`);
+}
+function sizeOf(chunk) {
+    return chunk?.byteLength ?? chunk?.length ?? 0;
+}
+function modeOf(chunk, allowBuffer = true) {
+    if (allowBuffer && typeof Buffer !== "undefined" && chunk instanceof Buffer) {
+        return 2;
+    }
+    if (chunk instanceof Uint8Array) {
+        return 1;
+    }
+    if (typeof chunk === "string") {
+        return 0;
+    }
+    return -1;
+}
+
+function createBufferedReadable(upstream, size, logger) {
+    if (isReadableStream(upstream)) {
+        return createBufferedReadableStream(upstream, size, logger);
+    }
+    const downstream = new node_stream.Readable({ read() { } });
+    let streamBufferingLoggedWarning = false;
+    let bytesSeen = 0;
+    const buffers = [
+        "",
+        new ByteArrayCollector((size) => new Uint8Array(size)),
+        new ByteArrayCollector((size) => Buffer.from(new Uint8Array(size))),
+    ];
+    let mode = -1;
+    upstream.on("data", (chunk) => {
+        const chunkMode = modeOf(chunk, true);
+        if (mode !== chunkMode) {
+            if (mode >= 0) {
+                downstream.push(flush(buffers, mode));
+            }
+            mode = chunkMode;
+        }
+        if (mode === -1) {
+            downstream.push(chunk);
+            return;
+        }
+        const chunkSize = sizeOf(chunk);
+        bytesSeen += chunkSize;
+        const bufferSize = sizeOf(buffers[mode]);
+        if (chunkSize >= size && bufferSize === 0) {
+            downstream.push(chunk);
+        }
+        else {
+            const newSize = merge(buffers, mode, chunk);
+            if (!streamBufferingLoggedWarning && bytesSeen > size * 2) {
+                streamBufferingLoggedWarning = true;
+                logger?.warn(`@smithy/util-stream - stream chunk size ${chunkSize} is below threshold of ${size}, automatically buffering.`);
+            }
+            if (newSize >= size) {
+                downstream.push(flush(buffers, mode));
+            }
+        }
+    });
+    upstream.on("end", () => {
+        if (mode !== -1) {
+            const remainder = flush(buffers, mode);
+            if (sizeOf(remainder) > 0) {
+                downstream.push(remainder);
+            }
+        }
+        downstream.push(null);
+    });
+    return downstream;
+}
+
+const getAwsChunkedEncodingStream$1 = (readableStream, options) => {
+    const { base64Encoder, bodyLengthChecker, checksumAlgorithmFn, checksumLocationName, streamHasher } = options;
+    const checksumRequired = base64Encoder !== undefined &&
+        bodyLengthChecker !== undefined &&
+        checksumAlgorithmFn !== undefined &&
+        checksumLocationName !== undefined &&
+        streamHasher !== undefined;
+    const digest = checksumRequired ? streamHasher(checksumAlgorithmFn, readableStream) : undefined;
+    const reader = readableStream.getReader();
+    return new ReadableStream({
+        async pull(controller) {
+            const { value, done } = await reader.read();
+            if (done) {
+                controller.enqueue(`0\r\n`);
+                if (checksumRequired) {
+                    const checksum = base64Encoder(await digest);
+                    controller.enqueue(`${checksumLocationName}:${checksum}\r\n`);
+                    controller.enqueue(`\r\n`);
+                }
+                controller.close();
+            }
+            else {
+                controller.enqueue(`${(bodyLengthChecker(value) || 0).toString(16)}\r\n${value}\r\n`);
+            }
+        },
+    });
+};
+
+function getAwsChunkedEncodingStream(stream, options) {
+    const readable = stream;
+    const readableStream = stream;
+    if (isReadableStream(readableStream)) {
+        return getAwsChunkedEncodingStream$1(readableStream, options);
+    }
+    const { base64Encoder, bodyLengthChecker, checksumAlgorithmFn, checksumLocationName, streamHasher } = options;
+    const checksumRequired = base64Encoder !== undefined &&
+        checksumAlgorithmFn !== undefined &&
+        checksumLocationName !== undefined &&
+        streamHasher !== undefined;
+    const digest = checksumRequired ? streamHasher(checksumAlgorithmFn, readable) : undefined;
+    const awsChunkedEncodingStream = new node_stream.Readable({
+        read: () => { },
+    });
+    readable.on("data", (data) => {
+        const length = bodyLengthChecker(data) || 0;
+        if (length === 0) {
+            return;
+        }
+        awsChunkedEncodingStream.push(`${length.toString(16)}\r\n`);
+        awsChunkedEncodingStream.push(data);
+        awsChunkedEncodingStream.push("\r\n");
+    });
+    readable.on("end", async () => {
+        awsChunkedEncodingStream.push(`0\r\n`);
+        if (checksumRequired) {
+            const checksum = base64Encoder(await digest);
+            awsChunkedEncodingStream.push(`${checksumLocationName}:${checksum}\r\n`);
+            awsChunkedEncodingStream.push(`\r\n`);
+        }
+        awsChunkedEncodingStream.push(null);
+    });
+    return awsChunkedEncodingStream;
+}
+
+async function headStream$1(stream, bytes) {
+    let byteLengthCounter = 0;
+    const chunks = [];
+    const reader = stream.getReader();
+    let isDone = false;
+    while (!isDone) {
+        const { done, value } = await reader.read();
+        if (value) {
+            chunks.push(value);
+            byteLengthCounter += value?.byteLength ?? 0;
+        }
+        if (byteLengthCounter >= bytes) {
+            break;
+        }
+        isDone = done;
+    }
+    reader.releaseLock();
+    const collected = new Uint8Array(Math.min(bytes, byteLengthCounter));
+    let offset = 0;
+    for (const chunk of chunks) {
+        if (chunk.byteLength > collected.byteLength - offset) {
+            collected.set(chunk.subarray(0, collected.byteLength - offset), offset);
+            break;
+        }
+        else {
+            collected.set(chunk, offset);
+        }
+        offset += chunk.length;
+    }
+    return collected;
+}
+
+const headStream = (stream, bytes) => {
+    if (isReadableStream(stream)) {
+        return headStream$1(stream, bytes);
+    }
+    return new Promise((resolve, reject) => {
+        const collector = new Collector$1();
+        collector.limit = bytes;
+        stream.pipe(collector);
+        stream.on("error", (err) => {
+            collector.end();
+            reject(err);
+        });
+        collector.on("error", reject);
+        collector.on("finish", function () {
+            const bytes = new Uint8Array(Buffer.concat(this.buffers));
+            resolve(bytes);
+        });
+    });
+};
+let Collector$1 = class Collector extends node_stream.Writable {
+    buffers = [];
+    limit = Infinity;
+    bytesBuffered = 0;
+    _write(chunk, encoding, callback) {
+        this.buffers.push(chunk);
+        this.bytesBuffered += chunk.byteLength ?? 0;
+        if (this.bytesBuffered >= this.limit) {
+            const excess = this.bytesBuffered - this.limit;
+            const tailBuffer = this.buffers[this.buffers.length - 1];
+            this.buffers[this.buffers.length - 1] = tailBuffer.subarray(0, tailBuffer.byteLength - excess);
+            this.emit("finish");
+        }
+        callback();
     }
 };
 
-const isFunction = (func) => typeof func === "function";
-const fromStatic = (defaultValue) => isFunction(defaultValue) ? async () => await defaultValue() : propertyProvider.fromStatic(defaultValue);
-
-const loadConfig = ({ environmentVariableSelector, configFileSelector, default: defaultValue }, configuration = {}) => {
-    const { signingName, logger } = configuration;
-    const envOptions = { signingName, logger };
-    return propertyProvider.memoize(propertyProvider.chain(fromEnv(environmentVariableSelector, envOptions), fromSharedConfigFiles(configFileSelector, configuration), fromStatic(defaultValue)));
+const toUtf8 = (input) => {
+    if (typeof input === "string") {
+        return input;
+    }
+    if (typeof input !== "object" || typeof input.byteOffset !== "number" || typeof input.byteLength !== "number") {
+        throw new Error("@smithy/util-utf8: toUtf8 encoder function only accepts string | Uint8Array.");
+    }
+    return new TextDecoder("utf-8").decode(input);
 };
 
-exports.loadConfig = loadConfig;
+const fromBase64 = (input) => {
+    let totalByteLength = (input.length / 4) * 3;
+    if (input.slice(-2) === "==") {
+        totalByteLength -= 2;
+    }
+    else if (input.slice(-1) === "=") {
+        totalByteLength--;
+    }
+    const out = new ArrayBuffer(totalByteLength);
+    const dataView = new DataView(out);
+    for (let i = 0; i < input.length; i += 4) {
+        let bits = 0;
+        let bitLength = 0;
+        for (let j = i, limit = i + 3; j <= limit; j++) {
+            if (input[j] !== "=") {
+                if (!(input[j] in alphabetByEncoding)) {
+                    throw new TypeError(`Invalid character ${input[j]} in base64 string.`);
+                }
+                bits |= alphabetByEncoding[input[j]] << ((limit - j) * bitsPerLetter);
+                bitLength += bitsPerLetter;
+            }
+            else {
+                bits >>= bitsPerLetter;
+            }
+        }
+        const chunkOffset = (i / 4) * 3;
+        bits >>= bitLength % bitsPerByte;
+        const byteLength = Math.floor(bitLength / bitsPerByte);
+        for (let k = 0; k < byteLength; k++) {
+            const offset = (byteLength - k - 1) * bitsPerByte;
+            dataView.setUint8(chunkOffset + k, (bits & (255 << offset)) >> offset);
+        }
+    }
+    return new Uint8Array(out);
+};
+
+const streamCollector$1 = async (stream) => {
+    if ((typeof Blob === "function" && stream instanceof Blob) || stream.constructor?.name === "Blob") {
+        if (Blob.prototype.arrayBuffer !== undefined) {
+            return new Uint8Array(await stream.arrayBuffer());
+        }
+        return collectBlob(stream);
+    }
+    return collectStream(stream);
+};
+async function collectBlob(blob) {
+    const base64 = await readToBase64(blob);
+    const arrayBuffer = fromBase64(base64);
+    return new Uint8Array(arrayBuffer);
+}
+async function collectStream(stream) {
+    const chunks = [];
+    const reader = stream.getReader();
+    let isDone = false;
+    let length = 0;
+    while (!isDone) {
+        const { done, value } = await reader.read();
+        if (value) {
+            chunks.push(value);
+            length += value.length;
+        }
+        isDone = done;
+    }
+    const collected = new Uint8Array(length);
+    let offset = 0;
+    for (const chunk of chunks) {
+        collected.set(chunk, offset);
+        offset += chunk.length;
+    }
+    return collected;
+}
+function readToBase64(blob) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            if (reader.readyState !== 2) {
+                return reject(new Error("Reader aborted too early"));
+            }
+            const result = (reader.result ?? "");
+            const commaIndex = result.indexOf(",");
+            const dataOffset = commaIndex > -1 ? commaIndex + 1 : result.length;
+            resolve(result.substring(dataOffset));
+        };
+        reader.onabort = () => reject(new Error("Read aborted"));
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(blob);
+    });
+}
+
+const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED$1 = "The stream has already been transformed.";
+const sdkStreamMixin$1 = (stream) => {
+    if (!isBlobInstance(stream) && !isReadableStream(stream)) {
+        const name = stream?.__proto__?.constructor?.name || stream;
+        throw new Error(`Unexpected stream implementation, expect Blob or ReadableStream, got ${name}`);
+    }
+    let transformed = false;
+    const transformToByteArray = async () => {
+        if (transformed) {
+            throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED$1);
+        }
+        transformed = true;
+        return await streamCollector$1(stream);
+    };
+    const blobToWebStream = (blob) => {
+        if (typeof blob.stream !== "function") {
+            throw new Error("Cannot transform payload Blob to web stream. Please make sure the Blob.stream() is polyfilled.\n" +
+                "If you are using React Native, this API is not yet supported, see: https://react-native.canny.io/feature-requests/p/fetch-streaming-body");
+        }
+        return blob.stream();
+    };
+    return Object.assign(stream, {
+        transformToByteArray: transformToByteArray,
+        transformToString: async (encoding) => {
+            const buf = await transformToByteArray();
+            if (encoding === "base64") {
+                return toBase64(buf);
+            }
+            else if (encoding === "hex") {
+                return toHex(buf);
+            }
+            else if (encoding === undefined || encoding === "utf8" || encoding === "utf-8") {
+                return toUtf8(buf);
+            }
+            else if (typeof TextDecoder === "function") {
+                return new TextDecoder(encoding).decode(buf);
+            }
+            else {
+                throw new Error("TextDecoder is not available, please make sure polyfill is provided.");
+            }
+        },
+        transformToWebStream: () => {
+            if (transformed) {
+                throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED$1);
+            }
+            transformed = true;
+            if (isBlobInstance(stream)) {
+                return blobToWebStream(stream);
+            }
+            else if (isReadableStream(stream)) {
+                return stream;
+            }
+            else {
+                throw new Error(`Cannot transform payload to web stream, got ${stream}`);
+            }
+        },
+    });
+};
+const isBlobInstance = (stream) => typeof Blob === "function" && stream instanceof Blob;
+
+class Collector extends node_stream.Writable {
+    bufferedBytes = [];
+    _write(chunk, encoding, callback) {
+        this.bufferedBytes.push(chunk);
+        callback();
+    }
+}
+const isReadableStreamInstance = (stream) => typeof ReadableStream === "function" && stream instanceof ReadableStream;
+async function collectReadableStream(stream) {
+    const chunks = [];
+    const reader = stream.getReader();
+    let isDone = false;
+    let length = 0;
+    while (!isDone) {
+        const { done, value } = await reader.read();
+        if (value) {
+            chunks.push(value);
+            length += value.length;
+        }
+        isDone = done;
+    }
+    const collected = new Uint8Array(length);
+    let offset = 0;
+    for (const chunk of chunks) {
+        collected.set(chunk, offset);
+        offset += chunk.length;
+    }
+    return collected;
+}
+const streamCollector = (stream) => {
+    if (isReadableStreamInstance(stream)) {
+        return collectReadableStream(stream);
+    }
+    return new Promise((resolve, reject) => {
+        const collector = new Collector();
+        stream.pipe(collector);
+        stream.on("error", (err) => {
+            collector.end();
+            reject(err);
+        });
+        collector.on("error", reject);
+        collector.on("finish", function () {
+            const bytes = new Uint8Array(Buffer.concat(this.bufferedBytes));
+            resolve(bytes);
+        });
+    });
+};
+
+const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
+const sdkStreamMixin = (stream) => {
+    if (!(stream instanceof node_stream.Readable)) {
+        try {
+            return sdkStreamMixin$1(stream);
+        }
+        catch (e) {
+            const name = stream?.__proto__?.constructor?.name || stream;
+            throw new Error(`Unexpected stream implementation, expect Stream.Readable instance, got ${name}`);
+        }
+    }
+    let transformed = false;
+    const transformToByteArray = async () => {
+        if (transformed) {
+            throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
+        }
+        transformed = true;
+        return await streamCollector(stream);
+    };
+    return Object.assign(stream, {
+        transformToByteArray,
+        transformToString: async (encoding) => {
+            const buf = await transformToByteArray();
+            if (encoding === undefined || Buffer.isEncoding(encoding)) {
+                return fromArrayBuffer(buf.buffer, buf.byteOffset, buf.byteLength).toString(encoding);
+            }
+            else {
+                const decoder = new TextDecoder(encoding);
+                return decoder.decode(buf);
+            }
+        },
+        transformToWebStream: () => {
+            if (transformed) {
+                throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
+            }
+            if (stream.readableFlowing !== null) {
+                throw new Error("The stream has been consumed by other callbacks.");
+            }
+            if (typeof node_stream.Readable.toWeb !== "function") {
+                throw new Error("Readable.toWeb() is not supported. Please ensure a polyfill is available.");
+            }
+            transformed = true;
+            return node_stream.Readable.toWeb(stream);
+        },
+    });
+};
+
+async function splitStream$1(stream) {
+    if (typeof stream.stream === "function") {
+        stream = stream.stream();
+    }
+    const readableStream = stream;
+    return readableStream.tee();
+}
+
+async function splitStream(stream) {
+    if (isReadableStream(stream) || isBlob(stream)) {
+        return splitStream$1(stream);
+    }
+    const stream1 = new node_stream.PassThrough();
+    const stream2 = new node_stream.PassThrough();
+    stream.pipe(stream1);
+    stream.pipe(stream2);
+    return [stream1, stream2];
+}
+
+class Uint8ArrayBlobAdapter extends bindUint8ArrayBlobAdapter(toUtf8$1, fromUtf8$1, toBase64$1, fromBase64$1) {
+}
+const _getRandomValues = node_crypto.getRandomValues;
+const v4 = bindV4(_getRandomValues);
+const generateIdempotencyToken = v4;
+
+exports.ChecksumStream = ChecksumStream$1;
+exports.Hash = Hash;
+exports.LazyJsonString = LazyJsonString;
+exports.NumericValue = NumericValue;
+exports.Uint8ArrayBlobAdapter = Uint8ArrayBlobAdapter;
+exports._parseEpochTimestamp = _parseEpochTimestamp;
+exports._parseRfc3339DateTimeWithOffset = _parseRfc3339DateTimeWithOffset;
+exports._parseRfc7231DateTime = _parseRfc7231DateTime;
+exports.calculateBodyLength = calculateBodyLength;
+exports.copyDocumentWithTransform = copyDocumentWithTransform;
+exports.createBufferedReadable = createBufferedReadable;
+exports.createChecksumStream = createChecksumStream;
+exports.dateToUtcString = dateToUtcString;
+exports.deserializerMiddleware = deserializerMiddleware;
+exports.deserializerMiddlewareOption = deserializerMiddlewareOption;
+exports.expectBoolean = expectBoolean;
+exports.expectByte = expectByte;
+exports.expectFloat32 = expectFloat32;
+exports.expectInt = expectInt;
+exports.expectInt32 = expectInt32;
+exports.expectLong = expectLong;
+exports.expectNonNull = expectNonNull;
+exports.expectNumber = expectNumber;
+exports.expectObject = expectObject;
+exports.expectShort = expectShort;
+exports.expectString = expectString;
+exports.expectUnion = expectUnion;
+exports.fromArrayBuffer = fromArrayBuffer;
+exports.fromBase64 = fromBase64$1;
+exports.fromHex = fromHex;
+exports.fromString = fromString;
+exports.fromUtf8 = fromUtf8$1;
+exports.generateIdempotencyToken = generateIdempotencyToken;
+exports.getAwsChunkedEncodingStream = getAwsChunkedEncodingStream;
+exports.getSerdePlugin = getSerdePlugin;
+exports.handleFloat = handleFloat;
+exports.headStream = headStream;
+exports.isArrayBuffer = isArrayBuffer;
+exports.isBlob = isBlob;
+exports.isReadableStream = isReadableStream;
+exports.limitedParseDouble = limitedParseDouble;
+exports.limitedParseFloat = limitedParseFloat;
+exports.limitedParseFloat32 = limitedParseFloat32;
+exports.logger = logger;
+exports.nv = nv;
+exports.parseBoolean = parseBoolean;
+exports.parseEpochTimestamp = parseEpochTimestamp;
+exports.parseRfc3339DateTime = parseRfc3339DateTime;
+exports.parseRfc3339DateTimeWithOffset = parseRfc3339DateTimeWithOffset;
+exports.parseRfc7231DateTime = parseRfc7231DateTime;
+exports.quoteHeader = quoteHeader;
+exports.sdkStreamMixin = sdkStreamMixin;
+exports.serializerMiddleware = serializerMiddleware;
+exports.serializerMiddlewareOption = serializerMiddlewareOption;
+exports.splitEvery = splitEvery;
+exports.splitHeader = splitHeader;
+exports.splitStream = splitStream;
+exports.strictParseByte = strictParseByte;
+exports.strictParseDouble = strictParseDouble;
+exports.strictParseFloat = strictParseFloat;
+exports.strictParseFloat32 = strictParseFloat32;
+exports.strictParseInt = strictParseInt;
+exports.strictParseInt32 = strictParseInt32;
+exports.strictParseLong = strictParseLong;
+exports.strictParseShort = strictParseShort;
+exports.toBase64 = toBase64$1;
+exports.toHex = toHex;
+exports.toUint8Array = toUint8Array;
+exports.toUtf8 = toUtf8$1;
+exports.v4 = v4;
 
 
 /***/ }),
 
-/***/ 6144:
+/***/ 3485:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var protocolHttp = __nccwpck_require__(9526);
-var querystringBuilder = __nccwpck_require__(2986);
 var node_https = __nccwpck_require__(4708);
+var protocols = __nccwpck_require__(6051);
 var node_stream = __nccwpck_require__(7075);
 var http2 = __nccwpck_require__(2467);
 
@@ -16353,7 +19201,7 @@ const NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "EPIPE", "ETIMEDOUT"];
 
 const getTransformedHeaders = (headers) => {
     const transformedHeaders = {};
-    for (const name of Object.keys(headers)) {
+    for (const name in headers) {
         const headerValues = headers[name];
         transformedHeaders[name] = Array.isArray(headerValues) ? headerValues.join(",") : headerValues;
     }
@@ -16469,8 +19317,8 @@ const setSocketTimeout = (request, reject, timeoutInMs = 0) => {
 
 const MIN_WAIT_TIME = 6_000;
 async function writeRequestBody(httpRequest, request, maxContinueTimeoutMs = MIN_WAIT_TIME, externalAgent = false) {
-    const headers = request.headers ?? {};
-    const expect = headers.Expect || headers.expect;
+    const headers = request.headers;
+    const expect = headers ? headers.Expect || headers.expect : undefined;
     let timeoutId = -1;
     let sendBody = true;
     if (!externalAgent && expect === "100-continue") {
@@ -16596,15 +19444,26 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
         }
         return new Promise((_resolve, _reject) => {
             let writeRequestBodyPromise = undefined;
-            const timeouts = [];
+            let socketWarningTimeoutId = -1;
+            let connectionTimeoutId = -1;
+            let requestTimeoutId = -1;
+            let socketTimeoutId = -1;
+            let keepAliveTimeoutId = -1;
+            const clearTimeouts = () => {
+                timing.clearTimeout(socketWarningTimeoutId);
+                timing.clearTimeout(connectionTimeoutId);
+                timing.clearTimeout(requestTimeoutId);
+                timing.clearTimeout(socketTimeoutId);
+                timing.clearTimeout(keepAliveTimeoutId);
+            };
             const resolve = async (arg) => {
                 await writeRequestBodyPromise;
-                timeouts.forEach(timing.clearTimeout);
+                clearTimeouts();
                 _resolve(arg);
             };
             const reject = async (arg) => {
                 await writeRequestBodyPromise;
-                timeouts.forEach(timing.clearTimeout);
+                clearTimeouts();
                 _reject(arg);
             };
             if (abortSignal?.aborted) {
@@ -16612,8 +19471,8 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
                 reject(abortError);
                 return;
             }
-            const headers = request.headers ?? {};
-            const expectContinue = (headers.Expect ?? headers.expect) === "100-continue";
+            const headers = request.headers;
+            const expectContinue = headers ? (headers.Expect ?? headers.expect) === "100-continue" : false;
             let agent = isSSL ? config.httpsAgent : config.httpAgent;
             if (expectContinue && !this.externalAgent) {
                 agent = new (isSSL ? node_https.Agent : hAgent)({
@@ -16621,10 +19480,10 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
                     maxSockets: Infinity,
                 });
             }
-            timeouts.push(timing.setTimeout(() => {
+            socketWarningTimeoutId = timing.setTimeout(() => {
                 this.socketWarningTimestamp = NodeHttpHandler.checkSocketUsage(agent, this.socketWarningTimestamp, config.logger);
-            }, config.socketAcquisitionWarningTimeout ?? (config.requestTimeout ?? 2000) + (config.connectionTimeout ?? 1000)));
-            const queryString = querystringBuilder.buildQueryString(request.query || {});
+            }, config.socketAcquisitionWarningTimeout ?? (config.requestTimeout ?? 2000) + (config.connectionTimeout ?? 1000));
+            const queryString = request.query ? protocols.buildQueryString(request.query) : "";
             let auth = undefined;
             if (request.username != null || request.password != null) {
                 const username = request.username ?? "";
@@ -16656,7 +19515,7 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
             };
             const requestFunc = isSSL ? node_https.request : hRequest;
             const req = requestFunc(nodeHttpsOptions, (res) => {
-                const httpResponse = new protocolHttp.HttpResponse({
+                const httpResponse = new protocols.HttpResponse({
                     statusCode: res.statusCode || -1,
                     reason: res.statusMessage,
                     headers: getTransformedHeaders(res.headers),
@@ -16688,18 +19547,18 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
                 }
             }
             const effectiveRequestTimeout = requestTimeout ?? config.requestTimeout;
-            timeouts.push(setConnectionTimeout(req, reject, config.connectionTimeout));
-            timeouts.push(setRequestTimeout(req, reject, effectiveRequestTimeout, config.throwOnRequestTimeout, config.logger ?? console));
-            timeouts.push(setSocketTimeout(req, reject, config.socketTimeout));
+            connectionTimeoutId = setConnectionTimeout(req, reject, config.connectionTimeout);
+            requestTimeoutId = setRequestTimeout(req, reject, effectiveRequestTimeout, config.throwOnRequestTimeout, config.logger ?? console);
+            socketTimeoutId = setSocketTimeout(req, reject, config.socketTimeout);
             const httpAgent = nodeHttpsOptions.agent;
             if (typeof httpAgent === "object" && "keepAlive" in httpAgent) {
-                timeouts.push(setSocketKeepAlive(req, {
+                keepAliveTimeoutId = setSocketKeepAlive(req, {
                     keepAlive: httpAgent.keepAlive,
                     keepAliveMsecs: httpAgent.keepAliveMsecs,
-                }));
+                });
             }
             writeRequestBodyPromise = writeRequestBody(req, request, effectiveRequestTimeout, this.externalAgent).catch((e) => {
-                timeouts.forEach(timing.clearTimeout);
+                clearTimeouts();
                 return _reject(e);
             });
         });
@@ -16847,6 +19706,7 @@ class NodeHttp2ConnectionPool {
 
 class NodeHttp2ConnectionManager {
     config;
+    connectOptions;
     connectionPools = new Map();
     constructor(config) {
         this.config = config;
@@ -16864,7 +19724,7 @@ class NodeHttp2ConnectionManager {
                 return available;
             }
         }
-        const ref = new ClientHttp2SessionRef(http2.connect(url));
+        const ref = new ClientHttp2SessionRef(this.connect(url));
         const session = ref.deref();
         if (this.config.maxConcurrency) {
             session.settings({ maxConcurrentStreams: this.config.maxConcurrency }, (err) => {
@@ -16898,7 +19758,7 @@ class NodeHttp2ConnectionManager {
     }
     createIsolatedSession(requestContext, connectionConfiguration) {
         const url = this.getUrlString(requestContext);
-        const ref = new ClientHttp2SessionRef(http2.connect(url));
+        const ref = new ClientHttp2SessionRef(this.connect(url));
         const session = ref.deref();
         session.settings({ maxConcurrentStreams: 1 });
         const ensureDestroyed = () => {
@@ -16932,6 +19792,9 @@ class NodeHttp2ConnectionManager {
     }
     setDisableConcurrentStreams(disableConcurrentStreams) {
         this.config.disableConcurrency = disableConcurrentStreams;
+    }
+    setNodeHttp2ConnectOptions(nodeHttp2ConnectOptions) {
+        this.connectOptions = nodeHttp2ConnectOptions;
     }
     debug() {
         const pools = {};
@@ -16970,6 +19833,9 @@ class NodeHttp2ConnectionManager {
     getUrlString(request) {
         return request.destination.toString();
     }
+    connect(url) {
+        return this.connectOptions === undefined ? http2.connect(url) : http2.connect(url, this.connectOptions);
+    }
 }
 
 class NodeHttp2Handler {
@@ -17003,10 +19869,13 @@ class NodeHttp2Handler {
     async handle(request, { abortSignal, requestTimeout, isEventStream } = {}) {
         if (!this.config) {
             this.config = await this.configProvider;
-            const { disableConcurrentStreams, maxConcurrentStreams } = this.config;
+            const { disableConcurrentStreams, maxConcurrentStreams, nodeHttp2ConnectOptions } = this.config;
             this.connectionManager.setDisableConcurrentStreams(disableConcurrentStreams ?? false);
             if (maxConcurrentStreams) {
                 this.connectionManager.setMaxConcurrentStreams(maxConcurrentStreams);
+            }
+            if (nodeHttp2ConnectOptions) {
+                this.connectionManager.setNodeHttp2ConnectOptions(nodeHttp2ConnectOptions);
             }
         }
         const { requestTimeout: configRequestTimeout, disableConcurrentStreams } = this.config;
@@ -17053,7 +19922,7 @@ class NodeHttp2Handler {
                 fulfilled = true;
                 reject(err);
             };
-            const queryString = querystringBuilder.buildQueryString(query ?? {});
+            const queryString = query ? protocols.buildQueryString(query) : "";
             let path = request.path;
             if (queryString) {
                 path += `?${queryString}`;
@@ -17097,7 +19966,7 @@ class NodeHttp2Handler {
                 rejectWithDestroy(new Error(`HTTP/2 stream is abnormally aborted in mid-communication with result code ${clientHttp2Stream.rstCode}.`));
             });
             clientHttp2Stream.on("response", (headers) => {
-                const httpResponse = new protocolHttp.HttpResponse({
+                const httpResponse = new protocols.HttpResponse({
                     statusCode: headers[":status"] ?? -1,
                     headers: getTransformedHeaders(headers),
                     body: clientHttp2Stream,
@@ -17193,892 +20062,20 @@ exports.streamCollector = streamCollector;
 
 /***/ }),
 
-/***/ 7930:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-class ProviderError extends Error {
-    name = "ProviderError";
-    tryNextLink;
-    constructor(message, options = true) {
-        let logger;
-        let tryNextLink = true;
-        if (typeof options === "boolean") {
-            logger = undefined;
-            tryNextLink = options;
-        }
-        else if (options != null && typeof options === "object") {
-            logger = options.logger;
-            tryNextLink = options.tryNextLink ?? true;
-        }
-        super(message);
-        this.tryNextLink = tryNextLink;
-        Object.setPrototypeOf(this, ProviderError.prototype);
-        logger?.debug?.(`@smithy/property-provider ${tryNextLink ? "->" : "(!)"} ${message}`);
-    }
-    static from(error, options = true) {
-        return Object.assign(new this(error.message, options), error);
-    }
-}
-
-class CredentialsProviderError extends ProviderError {
-    name = "CredentialsProviderError";
-    constructor(message, options = true) {
-        super(message, options);
-        Object.setPrototypeOf(this, CredentialsProviderError.prototype);
-    }
-}
-
-class TokenProviderError extends ProviderError {
-    name = "TokenProviderError";
-    constructor(message, options = true) {
-        super(message, options);
-        Object.setPrototypeOf(this, TokenProviderError.prototype);
-    }
-}
-
-const chain = (...providers) => async () => {
-    if (providers.length === 0) {
-        throw new ProviderError("No providers in chain");
-    }
-    let lastProviderError;
-    for (const provider of providers) {
-        try {
-            const credentials = await provider();
-            return credentials;
-        }
-        catch (err) {
-            lastProviderError = err;
-            if (err?.tryNextLink) {
-                continue;
-            }
-            throw err;
-        }
-    }
-    throw lastProviderError;
-};
-
-const fromStatic = (staticValue) => () => Promise.resolve(staticValue);
-
-const memoize = (provider, isExpired, requiresRefresh) => {
-    let resolved;
-    let pending;
-    let hasResult;
-    let isConstant = false;
-    const coalesceProvider = async () => {
-        if (!pending) {
-            pending = provider();
-        }
-        try {
-            resolved = await pending;
-            hasResult = true;
-            isConstant = false;
-        }
-        finally {
-            pending = undefined;
-        }
-        return resolved;
-    };
-    if (isExpired === undefined) {
-        return async (options) => {
-            if (!hasResult || options?.forceRefresh) {
-                resolved = await coalesceProvider();
-            }
-            return resolved;
-        };
-    }
-    return async (options) => {
-        if (!hasResult || options?.forceRefresh) {
-            resolved = await coalesceProvider();
-        }
-        if (isConstant) {
-            return resolved;
-        }
-        if (requiresRefresh && !requiresRefresh(resolved)) {
-            isConstant = true;
-            return resolved;
-        }
-        if (isExpired(resolved)) {
-            await coalesceProvider();
-            return resolved;
-        }
-        return resolved;
-    };
-};
-
-exports.CredentialsProviderError = CredentialsProviderError;
-exports.ProviderError = ProviderError;
-exports.TokenProviderError = TokenProviderError;
-exports.chain = chain;
-exports.fromStatic = fromStatic;
-exports.memoize = memoize;
-
-
-/***/ }),
-
-/***/ 9526:
+/***/ 1029:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 
-var types = __nccwpck_require__(8151);
-
-const getHttpHandlerExtensionConfiguration = (runtimeConfig) => {
-    return {
-        setHttpHandler(handler) {
-            runtimeConfig.httpHandler = handler;
-        },
-        httpHandler() {
-            return runtimeConfig.httpHandler;
-        },
-        updateHttpClientConfig(key, value) {
-            runtimeConfig.httpHandler?.updateHttpClientConfig(key, value);
-        },
-        httpHandlerConfigs() {
-            return runtimeConfig.httpHandler.httpHandlerConfigs();
-        },
-    };
-};
-const resolveHttpHandlerRuntimeConfig = (httpHandlerExtensionConfiguration) => {
-    return {
-        httpHandler: httpHandlerExtensionConfiguration.httpHandler(),
-    };
-};
-
-class Field {
-    name;
-    kind;
-    values;
-    constructor({ name, kind = types.FieldPosition.HEADER, values = [] }) {
-        this.name = name;
-        this.kind = kind;
-        this.values = values;
-    }
-    add(value) {
-        this.values.push(value);
-    }
-    set(values) {
-        this.values = values;
-    }
-    remove(value) {
-        this.values = this.values.filter((v) => v !== value);
-    }
-    toString() {
-        return this.values.map((v) => (v.includes(",") || v.includes(" ") ? `"${v}"` : v)).join(", ");
-    }
-    get() {
-        return this.values;
-    }
-}
-
-class Fields {
-    entries = {};
-    encoding;
-    constructor({ fields = [], encoding = "utf-8" }) {
-        fields.forEach(this.setField.bind(this));
-        this.encoding = encoding;
-    }
-    setField(field) {
-        this.entries[field.name.toLowerCase()] = field;
-    }
-    getField(name) {
-        return this.entries[name.toLowerCase()];
-    }
-    removeField(name) {
-        delete this.entries[name.toLowerCase()];
-    }
-    getByType(kind) {
-        return Object.values(this.entries).filter((field) => field.kind === kind);
-    }
-}
-
-class HttpRequest {
-    method;
-    protocol;
-    hostname;
-    port;
-    path;
-    query;
-    headers;
-    username;
-    password;
-    fragment;
-    body;
-    constructor(options) {
-        this.method = options.method || "GET";
-        this.hostname = options.hostname || "localhost";
-        this.port = options.port;
-        this.query = options.query || {};
-        this.headers = options.headers || {};
-        this.body = options.body;
-        this.protocol = options.protocol
-            ? options.protocol.slice(-1) !== ":"
-                ? `${options.protocol}:`
-                : options.protocol
-            : "https:";
-        this.path = options.path ? (options.path.charAt(0) !== "/" ? `/${options.path}` : options.path) : "/";
-        this.username = options.username;
-        this.password = options.password;
-        this.fragment = options.fragment;
-    }
-    static clone(request) {
-        const cloned = new HttpRequest({
-            ...request,
-            headers: { ...request.headers },
-        });
-        if (cloned.query) {
-            cloned.query = cloneQuery(cloned.query);
-        }
-        return cloned;
-    }
-    static isInstance(request) {
-        if (!request) {
-            return false;
-        }
-        const req = request;
-        return ("method" in req &&
-            "protocol" in req &&
-            "hostname" in req &&
-            "path" in req &&
-            typeof req["query"] === "object" &&
-            typeof req["headers"] === "object");
-    }
-    clone() {
-        return HttpRequest.clone(this);
-    }
-}
-function cloneQuery(query) {
-    return Object.keys(query).reduce((carry, paramName) => {
-        const param = query[paramName];
-        return {
-            ...carry,
-            [paramName]: Array.isArray(param) ? [...param] : param,
-        };
-    }, {});
-}
-
-class HttpResponse {
-    statusCode;
-    reason;
-    headers;
-    body;
-    constructor(options) {
-        this.statusCode = options.statusCode;
-        this.reason = options.reason;
-        this.headers = options.headers || {};
-        this.body = options.body;
-    }
-    static isInstance(response) {
-        if (!response)
-            return false;
-        const resp = response;
-        return typeof resp.statusCode === "number" && typeof resp.headers === "object";
-    }
-}
-
-function isValidHostname(hostname) {
-    const hostPattern = /^[a-z0-9][a-z0-9\.\-]*[a-z0-9]$/;
-    return hostPattern.test(hostname);
-}
-
-exports.Field = Field;
-exports.Fields = Fields;
-exports.HttpRequest = HttpRequest;
-exports.HttpResponse = HttpResponse;
-exports.getHttpHandlerExtensionConfiguration = getHttpHandlerExtensionConfiguration;
-exports.isValidHostname = isValidHostname;
-exports.resolveHttpHandlerRuntimeConfig = resolveHttpHandlerRuntimeConfig;
-
-
-/***/ }),
-
-/***/ 2986:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var utilUriEscape = __nccwpck_require__(7015);
-
-function buildQueryString(query) {
-    const parts = [];
-    for (let key of Object.keys(query).sort()) {
-        const value = query[key];
-        key = utilUriEscape.escapeUri(key);
-        if (Array.isArray(value)) {
-            for (let i = 0, iLen = value.length; i < iLen; i++) {
-                parts.push(`${key}=${utilUriEscape.escapeUri(value[i])}`);
-            }
-        }
-        else {
-            let qsEntry = key;
-            if (value || typeof value === "string") {
-                qsEntry += `=${utilUriEscape.escapeUri(value)}`;
-            }
-            parts.push(qsEntry);
-        }
-    }
-    return parts.join("&");
-}
-
-exports.buildQueryString = buildQueryString;
-
-
-/***/ }),
-
-/***/ 8104:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-function parseQueryString(querystring) {
-    const query = {};
-    querystring = querystring.replace(/^\?/, "");
-    if (querystring) {
-        for (const pair of querystring.split("&")) {
-            let [key, value = null] = pair.split("=");
-            key = decodeURIComponent(key);
-            if (value) {
-                value = decodeURIComponent(value);
-            }
-            if (!(key in query)) {
-                query[key] = value;
-            }
-            else if (Array.isArray(query[key])) {
-                query[key].push(value);
-            }
-            else {
-                query[key] = [query[key], value];
-            }
-        }
-    }
-    return query;
-}
-
-exports.parseQueryString = parseQueryString;
-
-
-/***/ }),
-
-/***/ 9549:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const CLOCK_SKEW_ERROR_CODES = [
-    "AuthFailure",
-    "InvalidSignatureException",
-    "RequestExpired",
-    "RequestInTheFuture",
-    "RequestTimeTooSkewed",
-    "SignatureDoesNotMatch",
-];
-const THROTTLING_ERROR_CODES = [
-    "BandwidthLimitExceeded",
-    "EC2ThrottledException",
-    "LimitExceededException",
-    "PriorRequestNotComplete",
-    "ProvisionedThroughputExceededException",
-    "RequestLimitExceeded",
-    "RequestThrottled",
-    "RequestThrottledException",
-    "SlowDown",
-    "ThrottledException",
-    "Throttling",
-    "ThrottlingException",
-    "TooManyRequestsException",
-    "TransactionInProgressException",
-];
-const TRANSIENT_ERROR_CODES = ["TimeoutError", "RequestTimeout", "RequestTimeoutException"];
-const TRANSIENT_ERROR_STATUS_CODES = [500, 502, 503, 504];
-const NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT"];
-const NODEJS_NETWORK_ERROR_CODES = ["EHOSTUNREACH", "ENETUNREACH", "ENOTFOUND"];
-
-const isRetryableByTrait = (error) => error?.$retryable !== undefined;
-const isClockSkewError = (error) => CLOCK_SKEW_ERROR_CODES.includes(error.name);
-const isClockSkewCorrectedError = (error) => error.$metadata?.clockSkewCorrected;
-const isBrowserNetworkError = (error) => {
-    const errorMessages = new Set([
-        "Failed to fetch",
-        "NetworkError when attempting to fetch resource",
-        "The Internet connection appears to be offline",
-        "Load failed",
-        "Network request failed",
-    ]);
-    const isValid = error && error instanceof TypeError;
-    if (!isValid) {
-        return false;
-    }
-    return errorMessages.has(error.message);
-};
-const isThrottlingError = (error) => error.$metadata?.httpStatusCode === 429 ||
-    THROTTLING_ERROR_CODES.includes(error.name) ||
-    error.$retryable?.throttling == true;
-const isTransientError = (error, depth = 0) => isRetryableByTrait(error) ||
-    isClockSkewCorrectedError(error) ||
-    (error.name === "InvalidSignatureException" && error.message?.includes("Signature expired")) ||
-    TRANSIENT_ERROR_CODES.includes(error.name) ||
-    NODEJS_TIMEOUT_ERROR_CODES.includes(error?.code || "") ||
-    NODEJS_NETWORK_ERROR_CODES.includes(error?.code || "") ||
-    TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0) ||
-    isBrowserNetworkError(error) ||
-    isNodeJsHttp2TransientError(error) ||
-    (error.cause !== undefined && depth <= 10 && isTransientError(error.cause, depth + 1));
-const isServerError = (error) => {
-    if (error.$metadata?.httpStatusCode !== undefined) {
-        const statusCode = error.$metadata.httpStatusCode;
-        if (500 <= statusCode && statusCode <= 599 && !isTransientError(error)) {
-            return true;
-        }
-        return false;
-    }
-    return false;
-};
-function isNodeJsHttp2TransientError(error) {
-    return error.code === "ERR_HTTP2_STREAM_ERROR" && error.message.includes("NGHTTP2_REFUSED_STREAM");
-}
-
-exports.isBrowserNetworkError = isBrowserNetworkError;
-exports.isClockSkewCorrectedError = isClockSkewCorrectedError;
-exports.isClockSkewError = isClockSkewError;
-exports.isNodeJsHttp2TransientError = isNodeJsHttp2TransientError;
-exports.isRetryableByTrait = isRetryableByTrait;
-exports.isServerError = isServerError;
-exports.isThrottlingError = isThrottlingError;
-exports.isTransientError = isTransientError;
-
-
-/***/ }),
-
-/***/ 4798:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getHomeDir = void 0;
-const os_1 = __nccwpck_require__(857);
-const path_1 = __nccwpck_require__(6928);
-const homeDirCache = {};
-const getHomeDirCacheKey = () => {
-    if (process && process.geteuid) {
-        return `${process.geteuid()}`;
-    }
-    return "DEFAULT";
-};
-const getHomeDir = () => {
-    const { HOME, USERPROFILE, HOMEPATH, HOMEDRIVE = `C:${path_1.sep}` } = process.env;
-    if (HOME)
-        return HOME;
-    if (USERPROFILE)
-        return USERPROFILE;
-    if (HOMEPATH)
-        return `${HOMEDRIVE}${HOMEPATH}`;
-    const homeDirCacheKey = getHomeDirCacheKey();
-    if (!homeDirCache[homeDirCacheKey])
-        homeDirCache[homeDirCacheKey] = (0, os_1.homedir)();
-    return homeDirCache[homeDirCacheKey];
-};
-exports.getHomeDir = getHomeDir;
-
-
-/***/ }),
-
-/***/ 8295:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getSSOTokenFilepath = void 0;
-const crypto_1 = __nccwpck_require__(6982);
-const path_1 = __nccwpck_require__(6928);
-const getHomeDir_1 = __nccwpck_require__(4798);
-const getSSOTokenFilepath = (id) => {
-    const hasher = (0, crypto_1.createHash)("sha1");
-    const cacheName = hasher.update(id).digest("hex");
-    return (0, path_1.join)((0, getHomeDir_1.getHomeDir)(), ".aws", "sso", "cache", `${cacheName}.json`);
-};
-exports.getSSOTokenFilepath = getSSOTokenFilepath;
-
-
-/***/ }),
-
-/***/ 5332:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getSSOTokenFromFile = exports.tokenIntercept = void 0;
-const promises_1 = __nccwpck_require__(1943);
-const getSSOTokenFilepath_1 = __nccwpck_require__(8295);
-exports.tokenIntercept = {};
-const getSSOTokenFromFile = async (id) => {
-    if (exports.tokenIntercept[id]) {
-        return exports.tokenIntercept[id];
-    }
-    const ssoTokenFilepath = (0, getSSOTokenFilepath_1.getSSOTokenFilepath)(id);
-    const ssoTokenText = await (0, promises_1.readFile)(ssoTokenFilepath, "utf8");
-    return JSON.parse(ssoTokenText);
-};
-exports.getSSOTokenFromFile = getSSOTokenFromFile;
-
-
-/***/ }),
-
-/***/ 9498:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var getHomeDir = __nccwpck_require__(4798);
-var getSSOTokenFilepath = __nccwpck_require__(8295);
-var getSSOTokenFromFile = __nccwpck_require__(5332);
-var path = __nccwpck_require__(6928);
-var types = __nccwpck_require__(8151);
-var readFile = __nccwpck_require__(6642);
-
-const ENV_PROFILE = "AWS_PROFILE";
-const DEFAULT_PROFILE = "default";
-const getProfileName = (init) => init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
-
-const CONFIG_PREFIX_SEPARATOR = ".";
-
-const getConfigData = (data) => Object.entries(data)
-    .filter(([key]) => {
-    const indexOfSeparator = key.indexOf(CONFIG_PREFIX_SEPARATOR);
-    if (indexOfSeparator === -1) {
-        return false;
-    }
-    return Object.values(types.IniSectionType).includes(key.substring(0, indexOfSeparator));
-})
-    .reduce((acc, [key, value]) => {
-    const indexOfSeparator = key.indexOf(CONFIG_PREFIX_SEPARATOR);
-    const updatedKey = key.substring(0, indexOfSeparator) === types.IniSectionType.PROFILE ? key.substring(indexOfSeparator + 1) : key;
-    acc[updatedKey] = value;
-    return acc;
-}, {
-    ...(data.default && { default: data.default }),
-});
-
-const ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
-const getConfigFilepath = () => process.env[ENV_CONFIG_PATH] || path.join(getHomeDir.getHomeDir(), ".aws", "config");
-
-const ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
-const getCredentialsFilepath = () => process.env[ENV_CREDENTIALS_PATH] || path.join(getHomeDir.getHomeDir(), ".aws", "credentials");
-
-const prefixKeyRegex = /^([\w-]+)\s(["'])?([\w-@\+\.%:/]+)\2$/;
-const profileNameBlockList = ["__proto__", "profile __proto__"];
-const parseIni = (iniData) => {
-    const map = {};
-    let currentSection;
-    let currentSubSection;
-    for (const iniLine of iniData.split(/\r?\n/)) {
-        const trimmedLine = iniLine.split(/(^|\s)[;#]/)[0].trim();
-        const isSection = trimmedLine[0] === "[" && trimmedLine[trimmedLine.length - 1] === "]";
-        if (isSection) {
-            currentSection = undefined;
-            currentSubSection = undefined;
-            const sectionName = trimmedLine.substring(1, trimmedLine.length - 1);
-            const matches = prefixKeyRegex.exec(sectionName);
-            if (matches) {
-                const [, prefix, , name] = matches;
-                if (Object.values(types.IniSectionType).includes(prefix)) {
-                    currentSection = [prefix, name].join(CONFIG_PREFIX_SEPARATOR);
-                }
-            }
-            else {
-                currentSection = sectionName;
-            }
-            if (profileNameBlockList.includes(sectionName)) {
-                throw new Error(`Found invalid profile name "${sectionName}"`);
-            }
-        }
-        else if (currentSection) {
-            const indexOfEqualsSign = trimmedLine.indexOf("=");
-            if (![0, -1].includes(indexOfEqualsSign)) {
-                const [name, value] = [
-                    trimmedLine.substring(0, indexOfEqualsSign).trim(),
-                    trimmedLine.substring(indexOfEqualsSign + 1).trim(),
-                ];
-                if (value === "") {
-                    currentSubSection = name;
-                }
-                else {
-                    if (currentSubSection && iniLine.trimStart() === iniLine) {
-                        currentSubSection = undefined;
-                    }
-                    map[currentSection] = map[currentSection] || {};
-                    const key = currentSubSection ? [currentSubSection, name].join(CONFIG_PREFIX_SEPARATOR) : name;
-                    map[currentSection][key] = value;
-                }
-            }
-        }
-    }
-    return map;
-};
-
-const swallowError$1 = () => ({});
-const loadSharedConfigFiles = async (init = {}) => {
-    const { filepath = getCredentialsFilepath(), configFilepath = getConfigFilepath() } = init;
-    const homeDir = getHomeDir.getHomeDir();
-    const relativeHomeDirPrefix = "~/";
-    let resolvedFilepath = filepath;
-    if (filepath.startsWith(relativeHomeDirPrefix)) {
-        resolvedFilepath = path.join(homeDir, filepath.slice(2));
-    }
-    let resolvedConfigFilepath = configFilepath;
-    if (configFilepath.startsWith(relativeHomeDirPrefix)) {
-        resolvedConfigFilepath = path.join(homeDir, configFilepath.slice(2));
-    }
-    const parsedFiles = await Promise.all([
-        readFile.readFile(resolvedConfigFilepath, {
-            ignoreCache: init.ignoreCache,
-        })
-            .then(parseIni)
-            .then(getConfigData)
-            .catch(swallowError$1),
-        readFile.readFile(resolvedFilepath, {
-            ignoreCache: init.ignoreCache,
-        })
-            .then(parseIni)
-            .catch(swallowError$1),
-    ]);
-    return {
-        configFile: parsedFiles[0],
-        credentialsFile: parsedFiles[1],
-    };
-};
-
-const getSsoSessionData = (data) => Object.entries(data)
-    .filter(([key]) => key.startsWith(types.IniSectionType.SSO_SESSION + CONFIG_PREFIX_SEPARATOR))
-    .reduce((acc, [key, value]) => ({ ...acc, [key.substring(key.indexOf(CONFIG_PREFIX_SEPARATOR) + 1)]: value }), {});
-
-const swallowError = () => ({});
-const loadSsoSessionData = async (init = {}) => readFile.readFile(init.configFilepath ?? getConfigFilepath())
-    .then(parseIni)
-    .then(getSsoSessionData)
-    .catch(swallowError);
-
-const mergeConfigFiles = (...files) => {
-    const merged = {};
-    for (const file of files) {
-        for (const [key, values] of Object.entries(file)) {
-            if (merged[key] !== undefined) {
-                Object.assign(merged[key], values);
-            }
-            else {
-                merged[key] = values;
-            }
-        }
-    }
-    return merged;
-};
-
-const parseKnownFiles = async (init) => {
-    const parsedFiles = await loadSharedConfigFiles(init);
-    return mergeConfigFiles(parsedFiles.configFile, parsedFiles.credentialsFile);
-};
-
-const externalDataInterceptor = {
-    getFileRecord() {
-        return readFile.fileIntercept;
-    },
-    interceptFile(path, contents) {
-        readFile.fileIntercept[path] = Promise.resolve(contents);
-    },
-    getTokenRecord() {
-        return getSSOTokenFromFile.tokenIntercept;
-    },
-    interceptToken(id, contents) {
-        getSSOTokenFromFile.tokenIntercept[id] = contents;
-    },
-};
-
-exports.getSSOTokenFromFile = getSSOTokenFromFile.getSSOTokenFromFile;
-exports.readFile = readFile.readFile;
-exports.CONFIG_PREFIX_SEPARATOR = CONFIG_PREFIX_SEPARATOR;
-exports.DEFAULT_PROFILE = DEFAULT_PROFILE;
-exports.ENV_PROFILE = ENV_PROFILE;
-exports.externalDataInterceptor = externalDataInterceptor;
-exports.getProfileName = getProfileName;
-exports.loadSharedConfigFiles = loadSharedConfigFiles;
-exports.loadSsoSessionData = loadSsoSessionData;
-exports.parseKnownFiles = parseKnownFiles;
-Object.prototype.hasOwnProperty.call(getHomeDir, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: getHomeDir['__proto__']
-    });
-
-Object.keys(getHomeDir).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = getHomeDir[k];
-});
-Object.prototype.hasOwnProperty.call(getSSOTokenFilepath, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: getSSOTokenFilepath['__proto__']
-    });
-
-Object.keys(getSSOTokenFilepath).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = getSSOTokenFilepath[k];
-});
-
-
-/***/ }),
-
-/***/ 6642:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.readFile = exports.fileIntercept = exports.filePromises = void 0;
-const promises_1 = __nccwpck_require__(1455);
-exports.filePromises = {};
-exports.fileIntercept = {};
-const readFile = (path, options) => {
-    if (exports.fileIntercept[path] !== undefined) {
-        return exports.fileIntercept[path];
-    }
-    if (!exports.filePromises[path] || options?.ignoreCache) {
-        exports.filePromises[path] = (0, promises_1.readFile)(path, "utf8");
-    }
-    return exports.filePromises[path];
-};
-exports.readFile = readFile;
-
-
-/***/ }),
-
-/***/ 8512:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var utilHexEncoding = __nccwpck_require__(7661);
-var utilUtf8 = __nccwpck_require__(8165);
-var isArrayBuffer = __nccwpck_require__(5031);
-var protocolHttp = __nccwpck_require__(9526);
-var utilMiddleware = __nccwpck_require__(5822);
-var utilUriEscape = __nccwpck_require__(7015);
-
-const ALGORITHM_QUERY_PARAM = "X-Amz-Algorithm";
-const CREDENTIAL_QUERY_PARAM = "X-Amz-Credential";
-const AMZ_DATE_QUERY_PARAM = "X-Amz-Date";
-const SIGNED_HEADERS_QUERY_PARAM = "X-Amz-SignedHeaders";
-const EXPIRES_QUERY_PARAM = "X-Amz-Expires";
-const SIGNATURE_QUERY_PARAM = "X-Amz-Signature";
-const TOKEN_QUERY_PARAM = "X-Amz-Security-Token";
-const REGION_SET_PARAM = "X-Amz-Region-Set";
-const AUTH_HEADER = "authorization";
-const AMZ_DATE_HEADER = AMZ_DATE_QUERY_PARAM.toLowerCase();
-const DATE_HEADER = "date";
-const GENERATED_HEADERS = [AUTH_HEADER, AMZ_DATE_HEADER, DATE_HEADER];
-const SIGNATURE_HEADER = SIGNATURE_QUERY_PARAM.toLowerCase();
-const SHA256_HEADER = "x-amz-content-sha256";
-const TOKEN_HEADER = TOKEN_QUERY_PARAM.toLowerCase();
-const HOST_HEADER = "host";
-const ALWAYS_UNSIGNABLE_HEADERS = {
-    authorization: true,
-    "cache-control": true,
-    connection: true,
-    expect: true,
-    from: true,
-    "keep-alive": true,
-    "max-forwards": true,
-    pragma: true,
-    referer: true,
-    te: true,
-    trailer: true,
-    "transfer-encoding": true,
-    upgrade: true,
-    "user-agent": true,
-    "x-amzn-trace-id": true,
-};
-const PROXY_HEADER_PATTERN = /^proxy-/;
-const SEC_HEADER_PATTERN = /^sec-/;
-const UNSIGNABLE_PATTERNS = [/^proxy-/i, /^sec-/i];
-const ALGORITHM_IDENTIFIER = "AWS4-HMAC-SHA256";
-const ALGORITHM_IDENTIFIER_V4A = "AWS4-ECDSA-P256-SHA256";
-const EVENT_ALGORITHM_IDENTIFIER = "AWS4-HMAC-SHA256-PAYLOAD";
-const UNSIGNED_PAYLOAD = "UNSIGNED-PAYLOAD";
-const MAX_CACHE_SIZE = 50;
-const KEY_TYPE_IDENTIFIER = "aws4_request";
-const MAX_PRESIGNED_TTL = 60 * 60 * 24 * 7;
-
-const signingKeyCache = {};
-const cacheQueue = [];
-const createScope = (shortDate, region, service) => `${shortDate}/${region}/${service}/${KEY_TYPE_IDENTIFIER}`;
-const getSigningKey = async (sha256Constructor, credentials, shortDate, region, service) => {
-    const credsHash = await hmac(sha256Constructor, credentials.secretAccessKey, credentials.accessKeyId);
-    const cacheKey = `${shortDate}:${region}:${service}:${utilHexEncoding.toHex(credsHash)}:${credentials.sessionToken}`;
-    if (cacheKey in signingKeyCache) {
-        return signingKeyCache[cacheKey];
-    }
-    cacheQueue.push(cacheKey);
-    while (cacheQueue.length > MAX_CACHE_SIZE) {
-        delete signingKeyCache[cacheQueue.shift()];
-    }
-    let key = `AWS4${credentials.secretAccessKey}`;
-    for (const signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
-        key = await hmac(sha256Constructor, key, signable);
-    }
-    return (signingKeyCache[cacheKey] = key);
-};
-const clearCredentialCache = () => {
-    cacheQueue.length = 0;
-    Object.keys(signingKeyCache).forEach((cacheKey) => {
-        delete signingKeyCache[cacheKey];
-    });
-};
-const hmac = (ctor, secret, data) => {
-    const hash = new ctor(secret);
-    hash.update(utilUtf8.toUint8Array(data));
-    return hash.digest();
-};
-
-const getCanonicalHeaders = ({ headers }, unsignableHeaders, signableHeaders) => {
-    const canonical = {};
-    for (const headerName of Object.keys(headers).sort()) {
-        if (headers[headerName] == undefined) {
-            continue;
-        }
-        const canonicalHeaderName = headerName.toLowerCase();
-        if (canonicalHeaderName in ALWAYS_UNSIGNABLE_HEADERS ||
-            unsignableHeaders?.has(canonicalHeaderName) ||
-            PROXY_HEADER_PATTERN.test(canonicalHeaderName) ||
-            SEC_HEADER_PATTERN.test(canonicalHeaderName)) {
-            if (!signableHeaders || (signableHeaders && !signableHeaders.has(canonicalHeaderName))) {
-                continue;
-            }
-        }
-        canonical[canonicalHeaderName] = headers[headerName].trim().replace(/\s+/g, " ");
-    }
-    return canonical;
-};
-
-const getPayloadHash = async ({ headers, body }, hashConstructor) => {
-    for (const headerName of Object.keys(headers)) {
-        if (headerName.toLowerCase() === SHA256_HEADER) {
-            return headers[headerName];
-        }
-    }
-    if (body == undefined) {
-        return "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
-    }
-    else if (typeof body === "string" || ArrayBuffer.isView(body) || isArrayBuffer.isArrayBuffer(body)) {
-        const hashCtor = new hashConstructor();
-        hashCtor.update(utilUtf8.toUint8Array(body));
-        return utilHexEncoding.toHex(await hashCtor.digest());
-    }
-    return UNSIGNED_PAYLOAD;
-};
+var serde = __nccwpck_require__(7643);
+var client = __nccwpck_require__(6045);
+var protocols = __nccwpck_require__(6051);
 
 class HeaderFormatter {
     format(headers) {
         const chunks = [];
         for (const headerName of Object.keys(headers)) {
-            const bytes = utilUtf8.fromUtf8(headerName);
+            const bytes = serde.fromUtf8(headerName);
             chunks.push(Uint8Array.from([bytes.byteLength]), bytes, this.formatHeaderValue(headers[headerName]));
         }
         const out = new Uint8Array(chunks.reduce((carry, bytes) => carry + bytes.byteLength, 0));
@@ -18118,7 +20115,7 @@ class HeaderFormatter {
                 binBytes.set(header.value, 3);
                 return binBytes;
             case "string":
-                const utf8Bytes = utilUtf8.fromUtf8(header.value);
+                const utf8Bytes = serde.fromUtf8(header.value);
                 const strView = new DataView(new ArrayBuffer(3 + utf8Bytes.byteLength));
                 strView.setUint8(0, 7);
                 strView.setUint16(1, utf8Bytes.byteLength, false);
@@ -18136,7 +20133,7 @@ class HeaderFormatter {
                 }
                 const uuidBytes = new Uint8Array(17);
                 uuidBytes[0] = 9;
-                uuidBytes.set(utilHexEncoding.fromHex(header.value.replace(/\-/g, "")), 1);
+                uuidBytes.set(serde.fromHex(header.value.replace(/\-/g, "")), 1);
                 return uuidBytes;
         }
     }
@@ -18182,7 +20179,7 @@ class Int64 {
         if (negative) {
             negate(bytes);
         }
-        return parseInt(utilHexEncoding.toHex(bytes), 16) * (negative ? -1 : 1);
+        return parseInt(serde.toHex(bytes), 16) * (negative ? -1 : 1);
     }
     toString() {
         return String(this.valueOf());
@@ -18199,42 +20196,49 @@ function negate(bytes) {
     }
 }
 
-const hasHeader = (soughtHeader, headers) => {
-    soughtHeader = soughtHeader.toLowerCase();
-    for (const headerName of Object.keys(headers)) {
-        if (soughtHeader === headerName.toLowerCase()) {
-            return true;
-        }
-    }
-    return false;
+const ALGORITHM_QUERY_PARAM = "X-Amz-Algorithm";
+const CREDENTIAL_QUERY_PARAM = "X-Amz-Credential";
+const AMZ_DATE_QUERY_PARAM = "X-Amz-Date";
+const SIGNED_HEADERS_QUERY_PARAM = "X-Amz-SignedHeaders";
+const EXPIRES_QUERY_PARAM = "X-Amz-Expires";
+const SIGNATURE_QUERY_PARAM = "X-Amz-Signature";
+const TOKEN_QUERY_PARAM = "X-Amz-Security-Token";
+const REGION_SET_PARAM = "X-Amz-Region-Set";
+const AUTH_HEADER = "authorization";
+const AMZ_DATE_HEADER = AMZ_DATE_QUERY_PARAM.toLowerCase();
+const DATE_HEADER = "date";
+const GENERATED_HEADERS = [AUTH_HEADER, AMZ_DATE_HEADER, DATE_HEADER];
+const SIGNATURE_HEADER = SIGNATURE_QUERY_PARAM.toLowerCase();
+const SHA256_HEADER = "x-amz-content-sha256";
+const TOKEN_HEADER = TOKEN_QUERY_PARAM.toLowerCase();
+const HOST_HEADER = "host";
+const ALWAYS_UNSIGNABLE_HEADERS = {
+    authorization: true,
+    "cache-control": true,
+    connection: true,
+    expect: true,
+    from: true,
+    "keep-alive": true,
+    "max-forwards": true,
+    pragma: true,
+    referer: true,
+    te: true,
+    trailer: true,
+    "transfer-encoding": true,
+    upgrade: true,
+    "user-agent": true,
+    "x-amzn-trace-id": true,
 };
-
-const moveHeadersToQuery = (request, options = {}) => {
-    const { headers, query = {} } = protocolHttp.HttpRequest.clone(request);
-    for (const name of Object.keys(headers)) {
-        const lname = name.toLowerCase();
-        if ((lname.slice(0, 6) === "x-amz-" && !options.unhoistableHeaders?.has(lname)) ||
-            options.hoistableHeaders?.has(lname)) {
-            query[name] = headers[name];
-            delete headers[name];
-        }
-    }
-    return {
-        ...request,
-        headers,
-        query,
-    };
-};
-
-const prepareRequest = (request) => {
-    request = protocolHttp.HttpRequest.clone(request);
-    for (const headerName of Object.keys(request.headers)) {
-        if (GENERATED_HEADERS.indexOf(headerName.toLowerCase()) > -1) {
-            delete request.headers[headerName];
-        }
-    }
-    return request;
-};
+const PROXY_HEADER_PATTERN = /^proxy-/;
+const SEC_HEADER_PATTERN = /^sec-/;
+const UNSIGNABLE_PATTERNS = [/^proxy-/i, /^sec-/i];
+const ALGORITHM_IDENTIFIER = "AWS4-HMAC-SHA256";
+const ALGORITHM_IDENTIFIER_V4A = "AWS4-ECDSA-P256-SHA256";
+const EVENT_ALGORITHM_IDENTIFIER = "AWS4-HMAC-SHA256-PAYLOAD";
+const UNSIGNED_PAYLOAD = "UNSIGNED-PAYLOAD";
+const MAX_CACHE_SIZE = 50;
+const KEY_TYPE_IDENTIFIER = "aws4_request";
+const MAX_PRESIGNED_TTL = 60 * 60 * 24 * 7;
 
 const getCanonicalQuery = ({ query = {} }) => {
     const keys = [];
@@ -18243,16 +20247,16 @@ const getCanonicalQuery = ({ query = {} }) => {
         if (key.toLowerCase() === SIGNATURE_HEADER) {
             continue;
         }
-        const encodedKey = utilUriEscape.escapeUri(key);
+        const encodedKey = protocols.escapeUri(key);
         keys.push(encodedKey);
         const value = query[key];
         if (typeof value === "string") {
-            serialized[encodedKey] = `${encodedKey}=${utilUriEscape.escapeUri(value)}`;
+            serialized[encodedKey] = `${encodedKey}=${protocols.escapeUri(value)}`;
         }
         else if (Array.isArray(value)) {
             serialized[encodedKey] = value
                 .slice(0)
-                .reduce((encoded, value) => encoded.concat([`${encodedKey}=${utilUriEscape.escapeUri(value)}`]), [])
+                .reduce((encoded, value) => encoded.concat([`${encodedKey}=${protocols.escapeUri(value)}`]), [])
                 .sort()
                 .join("&");
         }
@@ -18292,8 +20296,8 @@ class SignatureV4Base {
         this.sha256 = sha256;
         this.uriEscapePath = uriEscapePath;
         this.applyChecksum = typeof applyChecksum === "boolean" ? applyChecksum : true;
-        this.regionProvider = utilMiddleware.normalizeProvider(region);
-        this.credentialProvider = utilMiddleware.normalizeProvider(credentials);
+        this.regionProvider = client.normalizeProvider(region);
+        this.credentialProvider = client.normalizeProvider(credentials);
     }
     createCanonicalRequest(request, canonicalHeaders, payloadHash) {
         const sortedHeaders = Object.keys(canonicalHeaders).sort();
@@ -18307,12 +20311,12 @@ ${payloadHash}`;
     }
     async createStringToSign(longDate, credentialScope, canonicalRequest, algorithmIdentifier) {
         const hash = new this.sha256();
-        hash.update(utilUtf8.toUint8Array(canonicalRequest));
+        hash.update(serde.toUint8Array(canonicalRequest));
         const hashedRequest = await hash.digest();
         return `${algorithmIdentifier}
 ${longDate}
 ${credentialScope}
-${utilHexEncoding.toHex(hashedRequest)}`;
+${serde.toHex(hashedRequest)}`;
     }
     getCanonicalPath({ path }) {
         if (this.uriEscapePath) {
@@ -18330,7 +20334,7 @@ ${utilHexEncoding.toHex(hashedRequest)}`;
                 }
             }
             const normalizedPath = `${path?.startsWith("/") ? "/" : ""}${normalizedPathSegments.join("/")}${normalizedPathSegments.length > 0 && path?.endsWith("/") ? "/" : ""}`;
-            const doubleEncoded = utilUriEscape.escapeUri(normalizedPath);
+            const doubleEncoded = protocols.escapeUri(normalizedPath);
             return doubleEncoded.replace(/%2F/g, "/");
         }
         return path;
@@ -18353,6 +20357,111 @@ ${utilHexEncoding.toHex(hashedRequest)}`;
         return Object.keys(headers).sort().join(";");
     }
 }
+
+const signingKeyCache = {};
+const cacheQueue = [];
+const createScope = (shortDate, region, service) => `${shortDate}/${region}/${service}/${KEY_TYPE_IDENTIFIER}`;
+const getSigningKey = async (sha256Constructor, credentials, shortDate, region, service) => {
+    const credsHash = await hmac(sha256Constructor, credentials.secretAccessKey, credentials.accessKeyId);
+    const cacheKey = `${shortDate}:${region}:${service}:${serde.toHex(credsHash)}:${credentials.sessionToken}`;
+    if (cacheKey in signingKeyCache) {
+        return signingKeyCache[cacheKey];
+    }
+    cacheQueue.push(cacheKey);
+    while (cacheQueue.length > MAX_CACHE_SIZE) {
+        delete signingKeyCache[cacheQueue.shift()];
+    }
+    let key = `AWS4${credentials.secretAccessKey}`;
+    for (const signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
+        key = await hmac(sha256Constructor, key, signable);
+    }
+    return (signingKeyCache[cacheKey] = key);
+};
+const clearCredentialCache = () => {
+    cacheQueue.length = 0;
+    Object.keys(signingKeyCache).forEach((cacheKey) => {
+        delete signingKeyCache[cacheKey];
+    });
+};
+const hmac = (ctor, secret, data) => {
+    const hash = new ctor(secret);
+    hash.update(serde.toUint8Array(data));
+    return hash.digest();
+};
+
+const getCanonicalHeaders = ({ headers }, unsignableHeaders, signableHeaders) => {
+    const canonical = {};
+    for (const headerName of Object.keys(headers).sort()) {
+        if (headers[headerName] == undefined) {
+            continue;
+        }
+        const canonicalHeaderName = headerName.toLowerCase();
+        if (canonicalHeaderName in ALWAYS_UNSIGNABLE_HEADERS ||
+            unsignableHeaders?.has(canonicalHeaderName) ||
+            PROXY_HEADER_PATTERN.test(canonicalHeaderName) ||
+            SEC_HEADER_PATTERN.test(canonicalHeaderName)) {
+            if (!signableHeaders || (signableHeaders && !signableHeaders.has(canonicalHeaderName))) {
+                continue;
+            }
+        }
+        canonical[canonicalHeaderName] = headers[headerName].trim().replace(/\s+/g, " ");
+    }
+    return canonical;
+};
+
+const getPayloadHash = async ({ headers, body }, hashConstructor) => {
+    for (const headerName of Object.keys(headers)) {
+        if (headerName.toLowerCase() === SHA256_HEADER) {
+            return headers[headerName];
+        }
+    }
+    if (body == undefined) {
+        return "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+    }
+    else if (typeof body === "string" || ArrayBuffer.isView(body) || serde.isArrayBuffer(body)) {
+        const hashCtor = new hashConstructor();
+        hashCtor.update(serde.toUint8Array(body));
+        return serde.toHex(await hashCtor.digest());
+    }
+    return UNSIGNED_PAYLOAD;
+};
+
+const hasHeader = (soughtHeader, headers) => {
+    soughtHeader = soughtHeader.toLowerCase();
+    for (const headerName of Object.keys(headers)) {
+        if (soughtHeader === headerName.toLowerCase()) {
+            return true;
+        }
+    }
+    return false;
+};
+
+const moveHeadersToQuery = (request, options = {}) => {
+    const { headers, query = {} } = protocols.HttpRequest.clone(request);
+    for (const name of Object.keys(headers)) {
+        const lname = name.toLowerCase();
+        if ((lname.slice(0, 6) === "x-amz-" && !options.unhoistableHeaders?.has(lname)) ||
+            options.hoistableHeaders?.has(lname)) {
+            query[name] = headers[name];
+            delete headers[name];
+        }
+    }
+    return {
+        ...request,
+        headers,
+        query,
+    };
+};
+
+const prepareRequest = (request) => {
+    request = protocols.HttpRequest.clone(request);
+    for (const headerName of Object.keys(request.headers)) {
+        if (GENERATED_HEADERS.indexOf(headerName.toLowerCase()) > -1) {
+            delete request.headers[headerName];
+        }
+    }
+    return request;
+};
 
 class SignatureV4 extends SignatureV4Base {
     headerFormatter = new HeaderFormatter();
@@ -18410,7 +20519,7 @@ class SignatureV4 extends SignatureV4Base {
         const hashedPayload = await getPayloadHash({ headers: {}, body: payload }, this.sha256);
         const hash = new this.sha256();
         hash.update(headers);
-        const hashedHeaders = utilHexEncoding.toHex(await hash.digest());
+        const hashedHeaders = serde.toHex(await hash.digest());
         const stringToSign = [
             EVENT_ALGORITHM_IDENTIFIER,
             longDate,
@@ -18447,8 +20556,8 @@ class SignatureV4 extends SignatureV4Base {
         const region = signingRegion ?? (await this.regionProvider());
         const { shortDate } = this.formatDate(signingDate);
         const hash = new this.sha256(await this.getSigningKey(credentials, region, shortDate, signingService));
-        hash.update(utilUtf8.toUint8Array(stringToSign));
-        return utilHexEncoding.toHex(await hash.digest());
+        hash.update(serde.toUint8Array(stringToSign));
+        return serde.toHex(await hash.digest());
     }
     async signRequest(requestToSign, { signingDate = new Date(), signableHeaders, unsignableHeaders, signingRegion, signingService, } = {}) {
         const credentials = await this.credentialProvider();
@@ -18477,8 +20586,8 @@ class SignatureV4 extends SignatureV4Base {
     async getSignature(longDate, credentialScope, keyPromise, canonicalRequest) {
         const stringToSign = await this.createStringToSign(longDate, credentialScope, canonicalRequest, ALGORITHM_IDENTIFIER);
         const hash = new this.sha256(await keyPromise);
-        hash.update(utilUtf8.toUint8Array(stringToSign));
-        return utilHexEncoding.toHex(await hash.digest());
+        hash.update(serde.toUint8Array(stringToSign));
+        return serde.toHex(await hash.digest());
     }
     getSigningKey(credentials, region, shortDate, service) {
         return getSigningKey(this.sha256, credentials, shortDate, region, service || this.service);
@@ -18532,656 +20641,7 @@ exports.signatureV4aContainer = signatureV4aContainer;
 
 /***/ }),
 
-/***/ 3684:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var middlewareStack = __nccwpck_require__(6332);
-var types = __nccwpck_require__(8151);
-var schema = __nccwpck_require__(6519);
-var serde = __nccwpck_require__(9429);
-var protocols = __nccwpck_require__(7061);
-
-class Client {
-    config;
-    middlewareStack = middlewareStack.constructStack();
-    initConfig;
-    handlers;
-    constructor(config) {
-        this.config = config;
-        const { protocol, protocolSettings } = config;
-        if (protocolSettings) {
-            if (typeof protocol === "function") {
-                config.protocol = new protocol(protocolSettings);
-            }
-        }
-    }
-    send(command, optionsOrCb, cb) {
-        const options = typeof optionsOrCb !== "function" ? optionsOrCb : undefined;
-        const callback = typeof optionsOrCb === "function" ? optionsOrCb : cb;
-        const useHandlerCache = options === undefined && this.config.cacheMiddleware === true;
-        let handler;
-        if (useHandlerCache) {
-            if (!this.handlers) {
-                this.handlers = new WeakMap();
-            }
-            const handlers = this.handlers;
-            if (handlers.has(command.constructor)) {
-                handler = handlers.get(command.constructor);
-            }
-            else {
-                handler = command.resolveMiddleware(this.middlewareStack, this.config, options);
-                handlers.set(command.constructor, handler);
-            }
-        }
-        else {
-            delete this.handlers;
-            handler = command.resolveMiddleware(this.middlewareStack, this.config, options);
-        }
-        if (callback) {
-            handler(command)
-                .then((result) => callback(null, result.output), (err) => callback(err))
-                .catch(() => { });
-        }
-        else {
-            return handler(command).then((result) => result.output);
-        }
-    }
-    destroy() {
-        this.config?.requestHandler?.destroy?.();
-        delete this.handlers;
-    }
-}
-
-const SENSITIVE_STRING$1 = "***SensitiveInformation***";
-function schemaLogFilter(schema$1, data) {
-    if (data == null) {
-        return data;
-    }
-    const ns = schema.NormalizedSchema.of(schema$1);
-    if (ns.getMergedTraits().sensitive) {
-        return SENSITIVE_STRING$1;
-    }
-    if (ns.isListSchema()) {
-        const isSensitive = !!ns.getValueSchema().getMergedTraits().sensitive;
-        if (isSensitive) {
-            return SENSITIVE_STRING$1;
-        }
-    }
-    else if (ns.isMapSchema()) {
-        const isSensitive = !!ns.getKeySchema().getMergedTraits().sensitive || !!ns.getValueSchema().getMergedTraits().sensitive;
-        if (isSensitive) {
-            return SENSITIVE_STRING$1;
-        }
-    }
-    else if (ns.isStructSchema() && typeof data === "object") {
-        const object = data;
-        const newObject = {};
-        for (const [member, memberNs] of ns.structIterator()) {
-            if (object[member] != null) {
-                newObject[member] = schemaLogFilter(memberNs, object[member]);
-            }
-        }
-        return newObject;
-    }
-    return data;
-}
-
-class Command {
-    middlewareStack = middlewareStack.constructStack();
-    schema;
-    static classBuilder() {
-        return new ClassBuilder();
-    }
-    resolveMiddlewareWithContext(clientStack, configuration, options, { middlewareFn, clientName, commandName, inputFilterSensitiveLog, outputFilterSensitiveLog, smithyContext, additionalContext, CommandCtor, }) {
-        for (const mw of middlewareFn.bind(this)(CommandCtor, clientStack, configuration, options)) {
-            this.middlewareStack.use(mw);
-        }
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog,
-            outputFilterSensitiveLog,
-            [types.SMITHY_CONTEXT_KEY]: {
-                commandInstance: this,
-                ...smithyContext,
-            },
-            ...additionalContext,
-        };
-        const { requestHandler } = configuration;
-        let requestOptions = options ?? {};
-        if (smithyContext.eventStream) {
-            requestOptions = {
-                isEventStream: true,
-                ...requestOptions,
-            };
-        }
-        return stack.resolve((request) => requestHandler.handle(request.request, requestOptions), handlerExecutionContext);
-    }
-}
-class ClassBuilder {
-    _init = () => { };
-    _ep = {};
-    _middlewareFn = () => [];
-    _commandName = "";
-    _clientName = "";
-    _additionalContext = {};
-    _smithyContext = {};
-    _inputFilterSensitiveLog = undefined;
-    _outputFilterSensitiveLog = undefined;
-    _serializer = null;
-    _deserializer = null;
-    _operationSchema;
-    init(cb) {
-        this._init = cb;
-    }
-    ep(endpointParameterInstructions) {
-        this._ep = endpointParameterInstructions;
-        return this;
-    }
-    m(middlewareSupplier) {
-        this._middlewareFn = middlewareSupplier;
-        return this;
-    }
-    s(service, operation, smithyContext = {}) {
-        this._smithyContext = {
-            service,
-            operation,
-            ...smithyContext,
-        };
-        return this;
-    }
-    c(additionalContext = {}) {
-        this._additionalContext = additionalContext;
-        return this;
-    }
-    n(clientName, commandName) {
-        this._clientName = clientName;
-        this._commandName = commandName;
-        return this;
-    }
-    f(inputFilter = (_) => _, outputFilter = (_) => _) {
-        this._inputFilterSensitiveLog = inputFilter;
-        this._outputFilterSensitiveLog = outputFilter;
-        return this;
-    }
-    ser(serializer) {
-        this._serializer = serializer;
-        return this;
-    }
-    de(deserializer) {
-        this._deserializer = deserializer;
-        return this;
-    }
-    sc(operation) {
-        this._operationSchema = operation;
-        this._smithyContext.operationSchema = operation;
-        return this;
-    }
-    build() {
-        const closure = this;
-        let CommandRef;
-        return (CommandRef = class extends Command {
-            input;
-            static getEndpointParameterInstructions() {
-                return closure._ep;
-            }
-            constructor(...[input]) {
-                super();
-                this.input = input ?? {};
-                closure._init(this);
-                this.schema = closure._operationSchema;
-            }
-            resolveMiddleware(stack, configuration, options) {
-                const op = closure._operationSchema;
-                const input = op?.[4] ?? op?.input;
-                const output = op?.[5] ?? op?.output;
-                return this.resolveMiddlewareWithContext(stack, configuration, options, {
-                    CommandCtor: CommandRef,
-                    middlewareFn: closure._middlewareFn,
-                    clientName: closure._clientName,
-                    commandName: closure._commandName,
-                    inputFilterSensitiveLog: closure._inputFilterSensitiveLog ?? (op ? schemaLogFilter.bind(null, input) : (_) => _),
-                    outputFilterSensitiveLog: closure._outputFilterSensitiveLog ?? (op ? schemaLogFilter.bind(null, output) : (_) => _),
-                    smithyContext: closure._smithyContext,
-                    additionalContext: closure._additionalContext,
-                });
-            }
-            serialize = closure._serializer;
-            deserialize = closure._deserializer;
-        });
-    }
-}
-
-const SENSITIVE_STRING = "***SensitiveInformation***";
-
-const createAggregatedClient = (commands, Client, options) => {
-    for (const [command, CommandCtor] of Object.entries(commands)) {
-        const methodImpl = async function (args, optionsOrCb, cb) {
-            const command = new CommandCtor(args);
-            if (typeof optionsOrCb === "function") {
-                this.send(command, optionsOrCb);
-            }
-            else if (typeof cb === "function") {
-                if (typeof optionsOrCb !== "object")
-                    throw new Error(`Expected http options but got ${typeof optionsOrCb}`);
-                this.send(command, optionsOrCb || {}, cb);
-            }
-            else {
-                return this.send(command, optionsOrCb);
-            }
-        };
-        const methodName = (command[0].toLowerCase() + command.slice(1)).replace(/Command$/, "");
-        Client.prototype[methodName] = methodImpl;
-    }
-    const { paginators = {}, waiters = {} } = options ?? {};
-    for (const [paginatorName, paginatorFn] of Object.entries(paginators)) {
-        if (Client.prototype[paginatorName] === void 0) {
-            Client.prototype[paginatorName] = function (commandInput = {}, paginationConfiguration, ...rest) {
-                return paginatorFn({
-                    ...paginationConfiguration,
-                    client: this,
-                }, commandInput, ...rest);
-            };
-        }
-    }
-    for (const [waiterName, waiterFn] of Object.entries(waiters)) {
-        if (Client.prototype[waiterName] === void 0) {
-            Client.prototype[waiterName] = async function (commandInput = {}, waiterConfiguration, ...rest) {
-                let config = waiterConfiguration;
-                if (typeof waiterConfiguration === "number") {
-                    config = {
-                        maxWaitTime: waiterConfiguration,
-                    };
-                }
-                return waiterFn({
-                    ...config,
-                    client: this,
-                }, commandInput, ...rest);
-            };
-        }
-    }
-};
-
-class ServiceException extends Error {
-    $fault;
-    $response;
-    $retryable;
-    $metadata;
-    constructor(options) {
-        super(options.message);
-        Object.setPrototypeOf(this, Object.getPrototypeOf(this).constructor.prototype);
-        this.name = options.name;
-        this.$fault = options.$fault;
-        this.$metadata = options.$metadata;
-    }
-    static isInstance(value) {
-        if (!value)
-            return false;
-        const candidate = value;
-        return (ServiceException.prototype.isPrototypeOf(candidate) ||
-            (Boolean(candidate.$fault) &&
-                Boolean(candidate.$metadata) &&
-                (candidate.$fault === "client" || candidate.$fault === "server")));
-    }
-    static [Symbol.hasInstance](instance) {
-        if (!instance)
-            return false;
-        const candidate = instance;
-        if (this === ServiceException) {
-            return ServiceException.isInstance(instance);
-        }
-        if (ServiceException.isInstance(instance)) {
-            if (candidate.name && this.name) {
-                return this.prototype.isPrototypeOf(instance) || candidate.name === this.name;
-            }
-            return this.prototype.isPrototypeOf(instance);
-        }
-        return false;
-    }
-}
-const decorateServiceException = (exception, additions = {}) => {
-    Object.entries(additions)
-        .filter(([, v]) => v !== undefined)
-        .forEach(([k, v]) => {
-        if (exception[k] == undefined || exception[k] === "") {
-            exception[k] = v;
-        }
-    });
-    const message = exception.message || exception.Message || "UnknownError";
-    exception.message = message;
-    delete exception.Message;
-    return exception;
-};
-
-const throwDefaultError = ({ output, parsedBody, exceptionCtor, errorCode }) => {
-    const $metadata = deserializeMetadata(output);
-    const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-    const response = new exceptionCtor({
-        name: parsedBody?.code || parsedBody?.Code || errorCode || statusCode || "UnknownError",
-        $fault: "client",
-        $metadata,
-    });
-    throw decorateServiceException(response, parsedBody);
-};
-const withBaseException = (ExceptionCtor) => {
-    return ({ output, parsedBody, errorCode }) => {
-        throwDefaultError({ output, parsedBody, exceptionCtor: ExceptionCtor, errorCode });
-    };
-};
-const deserializeMetadata = (output) => ({
-    httpStatusCode: output.statusCode,
-    requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
-    extendedRequestId: output.headers["x-amz-id-2"],
-    cfId: output.headers["x-amz-cf-id"],
-});
-
-const loadConfigsForDefaultMode = (mode) => {
-    switch (mode) {
-        case "standard":
-            return {
-                retryMode: "standard",
-                connectionTimeout: 3100,
-            };
-        case "in-region":
-            return {
-                retryMode: "standard",
-                connectionTimeout: 1100,
-            };
-        case "cross-region":
-            return {
-                retryMode: "standard",
-                connectionTimeout: 3100,
-            };
-        case "mobile":
-            return {
-                retryMode: "standard",
-                connectionTimeout: 30000,
-            };
-        default:
-            return {};
-    }
-};
-
-let warningEmitted = false;
-const emitWarningIfUnsupportedVersion = (version) => {
-    if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 16) {
-        warningEmitted = true;
-    }
-};
-
-const knownAlgorithms = Object.values(types.AlgorithmId);
-const getChecksumConfiguration = (runtimeConfig) => {
-    const checksumAlgorithms = [];
-    for (const id in types.AlgorithmId) {
-        const algorithmId = types.AlgorithmId[id];
-        if (runtimeConfig[algorithmId] === undefined) {
-            continue;
-        }
-        checksumAlgorithms.push({
-            algorithmId: () => algorithmId,
-            checksumConstructor: () => runtimeConfig[algorithmId],
-        });
-    }
-    for (const [id, ChecksumCtor] of Object.entries(runtimeConfig.checksumAlgorithms ?? {})) {
-        checksumAlgorithms.push({
-            algorithmId: () => id,
-            checksumConstructor: () => ChecksumCtor,
-        });
-    }
-    return {
-        addChecksumAlgorithm(algo) {
-            runtimeConfig.checksumAlgorithms = runtimeConfig.checksumAlgorithms ?? {};
-            const id = algo.algorithmId();
-            const ctor = algo.checksumConstructor();
-            if (knownAlgorithms.includes(id)) {
-                runtimeConfig.checksumAlgorithms[id.toUpperCase()] = ctor;
-            }
-            else {
-                runtimeConfig.checksumAlgorithms[id] = ctor;
-            }
-            checksumAlgorithms.push(algo);
-        },
-        checksumAlgorithms() {
-            return checksumAlgorithms;
-        },
-    };
-};
-const resolveChecksumRuntimeConfig = (clientConfig) => {
-    const runtimeConfig = {};
-    clientConfig.checksumAlgorithms().forEach((checksumAlgorithm) => {
-        const id = checksumAlgorithm.algorithmId();
-        if (knownAlgorithms.includes(id)) {
-            runtimeConfig[id] = checksumAlgorithm.checksumConstructor();
-        }
-    });
-    return runtimeConfig;
-};
-
-const getRetryConfiguration = (runtimeConfig) => {
-    return {
-        setRetryStrategy(retryStrategy) {
-            runtimeConfig.retryStrategy = retryStrategy;
-        },
-        retryStrategy() {
-            return runtimeConfig.retryStrategy;
-        },
-    };
-};
-const resolveRetryRuntimeConfig = (retryStrategyConfiguration) => {
-    const runtimeConfig = {};
-    runtimeConfig.retryStrategy = retryStrategyConfiguration.retryStrategy();
-    return runtimeConfig;
-};
-
-const getDefaultExtensionConfiguration = (runtimeConfig) => {
-    return Object.assign(getChecksumConfiguration(runtimeConfig), getRetryConfiguration(runtimeConfig));
-};
-const getDefaultClientConfiguration = getDefaultExtensionConfiguration;
-const resolveDefaultRuntimeConfig = (config) => {
-    return Object.assign(resolveChecksumRuntimeConfig(config), resolveRetryRuntimeConfig(config));
-};
-
-const getArrayIfSingleItem = (mayBeArray) => Array.isArray(mayBeArray) ? mayBeArray : [mayBeArray];
-
-const getValueFromTextNode = (obj) => {
-    const textNodeName = "#text";
-    for (const key in obj) {
-        if (obj.hasOwnProperty(key) && obj[key][textNodeName] !== undefined) {
-            obj[key] = obj[key][textNodeName];
-        }
-        else if (typeof obj[key] === "object" && obj[key] !== null) {
-            obj[key] = getValueFromTextNode(obj[key]);
-        }
-    }
-    return obj;
-};
-
-const isSerializableHeaderValue = (value) => {
-    return value != null;
-};
-
-class NoOpLogger {
-    trace() { }
-    debug() { }
-    info() { }
-    warn() { }
-    error() { }
-}
-
-function map(arg0, arg1, arg2) {
-    let target;
-    let filter;
-    let instructions;
-    if (typeof arg1 === "undefined" && typeof arg2 === "undefined") {
-        target = {};
-        instructions = arg0;
-    }
-    else {
-        target = arg0;
-        if (typeof arg1 === "function") {
-            filter = arg1;
-            instructions = arg2;
-            return mapWithFilter(target, filter, instructions);
-        }
-        else {
-            instructions = arg1;
-        }
-    }
-    for (const key of Object.keys(instructions)) {
-        if (!Array.isArray(instructions[key])) {
-            target[key] = instructions[key];
-            continue;
-        }
-        applyInstruction(target, null, instructions, key);
-    }
-    return target;
-}
-const convertMap = (target) => {
-    const output = {};
-    for (const [k, v] of Object.entries(target || {})) {
-        output[k] = [, v];
-    }
-    return output;
-};
-const take = (source, instructions) => {
-    const out = {};
-    for (const key in instructions) {
-        applyInstruction(out, source, instructions, key);
-    }
-    return out;
-};
-const mapWithFilter = (target, filter, instructions) => {
-    return map(target, Object.entries(instructions).reduce((_instructions, [key, value]) => {
-        if (Array.isArray(value)) {
-            _instructions[key] = value;
-        }
-        else {
-            if (typeof value === "function") {
-                _instructions[key] = [filter, value()];
-            }
-            else {
-                _instructions[key] = [filter, value];
-            }
-        }
-        return _instructions;
-    }, {}));
-};
-const applyInstruction = (target, source, instructions, targetKey) => {
-    if (source !== null) {
-        let instruction = instructions[targetKey];
-        if (typeof instruction === "function") {
-            instruction = [, instruction];
-        }
-        const [filter = nonNullish, valueFn = pass, sourceKey = targetKey] = instruction;
-        if ((typeof filter === "function" && filter(source[sourceKey])) || (typeof filter !== "function" && !!filter)) {
-            target[targetKey] = valueFn(source[sourceKey]);
-        }
-        return;
-    }
-    let [filter, value] = instructions[targetKey];
-    if (typeof value === "function") {
-        let _value;
-        const defaultFilterPassed = filter === undefined && (_value = value()) != null;
-        const customFilterPassed = (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
-        if (defaultFilterPassed) {
-            target[targetKey] = _value;
-        }
-        else if (customFilterPassed) {
-            target[targetKey] = value();
-        }
-    }
-    else {
-        const defaultFilterPassed = filter === undefined && value != null;
-        const customFilterPassed = (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
-        if (defaultFilterPassed || customFilterPassed) {
-            target[targetKey] = value;
-        }
-    }
-};
-const nonNullish = (_) => _ != null;
-const pass = (_) => _;
-
-const serializeFloat = (value) => {
-    if (value !== value) {
-        return "NaN";
-    }
-    switch (value) {
-        case Infinity:
-            return "Infinity";
-        case -Infinity:
-            return "-Infinity";
-        default:
-            return value;
-    }
-};
-const serializeDateTime = (date) => date.toISOString().replace(".000Z", "Z");
-
-const _json = (obj) => {
-    if (obj == null) {
-        return {};
-    }
-    if (Array.isArray(obj)) {
-        return obj.filter((_) => _ != null).map(_json);
-    }
-    if (typeof obj === "object") {
-        const target = {};
-        for (const key of Object.keys(obj)) {
-            if (obj[key] == null) {
-                continue;
-            }
-            target[key] = _json(obj[key]);
-        }
-        return target;
-    }
-    return obj;
-};
-
-exports.collectBody = protocols.collectBody;
-exports.extendedEncodeURIComponent = protocols.extendedEncodeURIComponent;
-exports.resolvedPath = protocols.resolvedPath;
-exports.Client = Client;
-exports.Command = Command;
-exports.NoOpLogger = NoOpLogger;
-exports.SENSITIVE_STRING = SENSITIVE_STRING;
-exports.ServiceException = ServiceException;
-exports._json = _json;
-exports.convertMap = convertMap;
-exports.createAggregatedClient = createAggregatedClient;
-exports.decorateServiceException = decorateServiceException;
-exports.emitWarningIfUnsupportedVersion = emitWarningIfUnsupportedVersion;
-exports.getArrayIfSingleItem = getArrayIfSingleItem;
-exports.getDefaultClientConfiguration = getDefaultClientConfiguration;
-exports.getDefaultExtensionConfiguration = getDefaultExtensionConfiguration;
-exports.getValueFromTextNode = getValueFromTextNode;
-exports.isSerializableHeaderValue = isSerializableHeaderValue;
-exports.loadConfigsForDefaultMode = loadConfigsForDefaultMode;
-exports.map = map;
-exports.resolveDefaultRuntimeConfig = resolveDefaultRuntimeConfig;
-exports.serializeDateTime = serializeDateTime;
-exports.serializeFloat = serializeFloat;
-exports.take = take;
-exports.throwDefaultError = throwDefaultError;
-exports.withBaseException = withBaseException;
-Object.prototype.hasOwnProperty.call(serde, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: serde['__proto__']
-    });
-
-Object.keys(serde).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = serde[k];
-});
-
-
-/***/ }),
-
-/***/ 8151:
+/***/ 8362:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -19275,2517 +20735,6 @@ exports.RequestHandlerProtocol = void 0;
 exports.SMITHY_CONTEXT_KEY = SMITHY_CONTEXT_KEY;
 exports.getDefaultClientConfiguration = getDefaultClientConfiguration;
 exports.resolveDefaultRuntimeConfig = resolveDefaultRuntimeConfig;
-
-
-/***/ }),
-
-/***/ 948:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var querystringParser = __nccwpck_require__(8104);
-
-const parseUrl = (url) => {
-    if (typeof url === "string") {
-        return parseUrl(new URL(url));
-    }
-    const { hostname, pathname, port, protocol, search } = url;
-    let query;
-    if (search) {
-        query = querystringParser.parseQueryString(search);
-    }
-    return {
-        hostname,
-        port: port ? parseInt(port) : undefined,
-        protocol,
-        path: pathname,
-        query,
-    };
-};
-
-exports.parseUrl = parseUrl;
-
-
-/***/ }),
-
-/***/ 8667:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.fromBase64 = void 0;
-const util_buffer_from_1 = __nccwpck_require__(1643);
-const BASE64_REGEX = /^[A-Za-z0-9+/]*={0,2}$/;
-const fromBase64 = (input) => {
-    if ((input.length * 3) % 4 !== 0) {
-        throw new TypeError(`Incorrect padding on base64 string.`);
-    }
-    if (!BASE64_REGEX.exec(input)) {
-        throw new TypeError(`Invalid base64 string.`);
-    }
-    const buffer = (0, util_buffer_from_1.fromString)(input, "base64");
-    return new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength);
-};
-exports.fromBase64 = fromBase64;
-
-
-/***/ }),
-
-/***/ 3158:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var fromBase64 = __nccwpck_require__(8667);
-var toBase64 = __nccwpck_require__(846);
-
-
-
-Object.prototype.hasOwnProperty.call(fromBase64, '__proto__') &&
-	!Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-	Object.defineProperty(exports, '__proto__', {
-		enumerable: true,
-		value: fromBase64['__proto__']
-	});
-
-Object.keys(fromBase64).forEach(function (k) {
-	if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = fromBase64[k];
-});
-Object.prototype.hasOwnProperty.call(toBase64, '__proto__') &&
-	!Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-	Object.defineProperty(exports, '__proto__', {
-		enumerable: true,
-		value: toBase64['__proto__']
-	});
-
-Object.keys(toBase64).forEach(function (k) {
-	if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = toBase64[k];
-});
-
-
-/***/ }),
-
-/***/ 846:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.toBase64 = void 0;
-const util_buffer_from_1 = __nccwpck_require__(1643);
-const util_utf8_1 = __nccwpck_require__(8165);
-const toBase64 = (_input) => {
-    let input;
-    if (typeof _input === "string") {
-        input = (0, util_utf8_1.fromUtf8)(_input);
-    }
-    else {
-        input = _input;
-    }
-    if (typeof input !== "object" || typeof input.byteOffset !== "number" || typeof input.byteLength !== "number") {
-        throw new Error("@smithy/util-base64: toBase64 encoder function only accepts string | Uint8Array.");
-    }
-    return (0, util_buffer_from_1.fromArrayBuffer)(input.buffer, input.byteOffset, input.byteLength).toString("base64");
-};
-exports.toBase64 = toBase64;
-
-
-/***/ }),
-
-/***/ 3063:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const TEXT_ENCODER = typeof TextEncoder == "function" ? new TextEncoder() : null;
-const calculateBodyLength = (body) => {
-    if (typeof body === "string") {
-        if (TEXT_ENCODER) {
-            return TEXT_ENCODER.encode(body).byteLength;
-        }
-        let len = body.length;
-        for (let i = len - 1; i >= 0; i--) {
-            const code = body.charCodeAt(i);
-            if (code > 0x7f && code <= 0x7ff)
-                len++;
-            else if (code > 0x7ff && code <= 0xffff)
-                len += 2;
-            if (code >= 0xdc00 && code <= 0xdfff)
-                i--;
-        }
-        return len;
-    }
-    else if (typeof body.byteLength === "number") {
-        return body.byteLength;
-    }
-    else if (typeof body.size === "number") {
-        return body.size;
-    }
-    throw new Error(`Body Length computation failed for ${body}`);
-};
-
-exports.calculateBodyLength = calculateBodyLength;
-
-
-/***/ }),
-
-/***/ 6000:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var node_fs = __nccwpck_require__(3024);
-
-const calculateBodyLength = (body) => {
-    if (!body) {
-        return 0;
-    }
-    if (typeof body === "string") {
-        return Buffer.byteLength(body);
-    }
-    else if (typeof body.byteLength === "number") {
-        return body.byteLength;
-    }
-    else if (typeof body.size === "number") {
-        return body.size;
-    }
-    else if (typeof body.start === "number" && typeof body.end === "number") {
-        return body.end + 1 - body.start;
-    }
-    else if (body instanceof node_fs.ReadStream) {
-        if (body.path != null) {
-            return node_fs.lstatSync(body.path).size;
-        }
-        else if (typeof body.fd === "number") {
-            return node_fs.fstatSync(body.fd).size;
-        }
-    }
-    throw new Error(`Body Length computation failed for ${body}`);
-};
-
-exports.calculateBodyLength = calculateBodyLength;
-
-
-/***/ }),
-
-/***/ 1643:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var isArrayBuffer = __nccwpck_require__(5031);
-var buffer = __nccwpck_require__(181);
-
-const fromArrayBuffer = (input, offset = 0, length = input.byteLength - offset) => {
-    if (!isArrayBuffer.isArrayBuffer(input)) {
-        throw new TypeError(`The "input" argument must be ArrayBuffer. Received type ${typeof input} (${input})`);
-    }
-    return buffer.Buffer.from(input, offset, length);
-};
-const fromString = (input, encoding) => {
-    if (typeof input !== "string") {
-        throw new TypeError(`The "input" argument must be of type string. Received type ${typeof input} (${input})`);
-    }
-    return encoding ? buffer.Buffer.from(input, encoding) : buffer.Buffer.from(input);
-};
-
-exports.fromArrayBuffer = fromArrayBuffer;
-exports.fromString = fromString;
-
-
-/***/ }),
-
-/***/ 7883:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const booleanSelector = (obj, key, type) => {
-    if (!(key in obj))
-        return undefined;
-    if (obj[key] === "true")
-        return true;
-    if (obj[key] === "false")
-        return false;
-    throw new Error(`Cannot load ${type} "${key}". Expected "true" or "false", got ${obj[key]}.`);
-};
-
-const numberSelector = (obj, key, type) => {
-    if (!(key in obj))
-        return undefined;
-    const numberValue = parseInt(obj[key], 10);
-    if (Number.isNaN(numberValue)) {
-        throw new TypeError(`Cannot load ${type} '${key}'. Expected number, got '${obj[key]}'.`);
-    }
-    return numberValue;
-};
-
-exports.SelectorType = void 0;
-(function (SelectorType) {
-    SelectorType["ENV"] = "env";
-    SelectorType["CONFIG"] = "shared config entry";
-})(exports.SelectorType || (exports.SelectorType = {}));
-
-exports.booleanSelector = booleanSelector;
-exports.numberSelector = numberSelector;
-
-
-/***/ }),
-
-/***/ 2754:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var configResolver = __nccwpck_require__(9785);
-var nodeConfigProvider = __nccwpck_require__(1275);
-var propertyProvider = __nccwpck_require__(7930);
-
-const AWS_EXECUTION_ENV = "AWS_EXECUTION_ENV";
-const AWS_REGION_ENV = "AWS_REGION";
-const AWS_DEFAULT_REGION_ENV = "AWS_DEFAULT_REGION";
-const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
-const DEFAULTS_MODE_OPTIONS = ["in-region", "cross-region", "mobile", "standard", "legacy"];
-const IMDS_REGION_PATH = "/latest/meta-data/placement/region";
-
-const AWS_DEFAULTS_MODE_ENV = "AWS_DEFAULTS_MODE";
-const AWS_DEFAULTS_MODE_CONFIG = "defaults_mode";
-const NODE_DEFAULTS_MODE_CONFIG_OPTIONS = {
-    environmentVariableSelector: (env) => {
-        return env[AWS_DEFAULTS_MODE_ENV];
-    },
-    configFileSelector: (profile) => {
-        return profile[AWS_DEFAULTS_MODE_CONFIG];
-    },
-    default: "legacy",
-};
-
-const resolveDefaultsModeConfig = ({ region = nodeConfigProvider.loadConfig(configResolver.NODE_REGION_CONFIG_OPTIONS), defaultsMode = nodeConfigProvider.loadConfig(NODE_DEFAULTS_MODE_CONFIG_OPTIONS), } = {}) => propertyProvider.memoize(async () => {
-    const mode = typeof defaultsMode === "function" ? await defaultsMode() : defaultsMode;
-    switch (mode?.toLowerCase()) {
-        case "auto":
-            return resolveNodeDefaultsModeAuto(region);
-        case "in-region":
-        case "cross-region":
-        case "mobile":
-        case "standard":
-        case "legacy":
-            return Promise.resolve(mode?.toLocaleLowerCase());
-        case undefined:
-            return Promise.resolve("legacy");
-        default:
-            throw new Error(`Invalid parameter for "defaultsMode", expect ${DEFAULTS_MODE_OPTIONS.join(", ")}, got ${mode}`);
-    }
-});
-const resolveNodeDefaultsModeAuto = async (clientRegion) => {
-    if (clientRegion) {
-        const resolvedRegion = typeof clientRegion === "function" ? await clientRegion() : clientRegion;
-        const inferredRegion = await inferPhysicalRegion();
-        if (!inferredRegion) {
-            return "standard";
-        }
-        if (resolvedRegion === inferredRegion) {
-            return "in-region";
-        }
-        else {
-            return "cross-region";
-        }
-    }
-    return "standard";
-};
-const inferPhysicalRegion = async () => {
-    if (process.env[AWS_EXECUTION_ENV] && (process.env[AWS_REGION_ENV] || process.env[AWS_DEFAULT_REGION_ENV])) {
-        return process.env[AWS_REGION_ENV] ?? process.env[AWS_DEFAULT_REGION_ENV];
-    }
-    if (!process.env[ENV_IMDS_DISABLED]) {
-        try {
-            const { getInstanceMetadataEndpoint, httpRequest } = await __nccwpck_require__.e(/* import() */ 480).then(__nccwpck_require__.t.bind(__nccwpck_require__, 9480, 19));
-            const endpoint = await getInstanceMetadataEndpoint();
-            return (await httpRequest({ ...endpoint, path: IMDS_REGION_PATH })).toString();
-        }
-        catch (e) {
-        }
-    }
-};
-
-exports.resolveDefaultsModeConfig = resolveDefaultsModeConfig;
-
-
-/***/ }),
-
-/***/ 5606:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var types = __nccwpck_require__(8151);
-
-class BinaryDecisionDiagram {
-    nodes;
-    root;
-    conditions;
-    results;
-    constructor(bdd, root, conditions, results) {
-        this.nodes = bdd;
-        this.root = root;
-        this.conditions = conditions;
-        this.results = results;
-    }
-    static from(bdd, root, conditions, results) {
-        return new BinaryDecisionDiagram(bdd, root, conditions, results);
-    }
-}
-
-class EndpointCache {
-    capacity;
-    data = new Map();
-    parameters = [];
-    constructor({ size, params }) {
-        this.capacity = size ?? 50;
-        if (params) {
-            this.parameters = params;
-        }
-    }
-    get(endpointParams, resolver) {
-        const key = this.hash(endpointParams);
-        if (key === false) {
-            return resolver();
-        }
-        if (!this.data.has(key)) {
-            if (this.data.size > this.capacity + 10) {
-                const keys = this.data.keys();
-                let i = 0;
-                while (true) {
-                    const { value, done } = keys.next();
-                    this.data.delete(value);
-                    if (done || ++i > 10) {
-                        break;
-                    }
-                }
-            }
-            this.data.set(key, resolver());
-        }
-        return this.data.get(key);
-    }
-    size() {
-        return this.data.size;
-    }
-    hash(endpointParams) {
-        let buffer = "";
-        const { parameters } = this;
-        if (parameters.length === 0) {
-            return false;
-        }
-        for (const param of parameters) {
-            const val = String(endpointParams[param] ?? "");
-            if (val.includes("|;")) {
-                return false;
-            }
-            buffer += val + "|;";
-        }
-        return buffer;
-    }
-}
-
-class EndpointError extends Error {
-    constructor(message) {
-        super(message);
-        this.name = "EndpointError";
-    }
-}
-
-const debugId = "endpoints";
-
-function toDebugString(input) {
-    if (typeof input !== "object" || input == null) {
-        return input;
-    }
-    if ("ref" in input) {
-        return `$${toDebugString(input.ref)}`;
-    }
-    if ("fn" in input) {
-        return `${input.fn}(${(input.argv || []).map(toDebugString).join(", ")})`;
-    }
-    return JSON.stringify(input, null, 2);
-}
-
-const customEndpointFunctions = {};
-
-const booleanEquals = (value1, value2) => value1 === value2;
-
-function coalesce(...args) {
-    for (const arg of args) {
-        if (arg != null) {
-            return arg;
-        }
-    }
-    return undefined;
-}
-
-const getAttrPathList = (path) => {
-    const parts = path.split(".");
-    const pathList = [];
-    for (const part of parts) {
-        const squareBracketIndex = part.indexOf("[");
-        if (squareBracketIndex !== -1) {
-            if (part.indexOf("]") !== part.length - 1) {
-                throw new EndpointError(`Path: '${path}' does not end with ']'`);
-            }
-            const arrayIndex = part.slice(squareBracketIndex + 1, -1);
-            if (Number.isNaN(parseInt(arrayIndex))) {
-                throw new EndpointError(`Invalid array index: '${arrayIndex}' in path: '${path}'`);
-            }
-            if (squareBracketIndex !== 0) {
-                pathList.push(part.slice(0, squareBracketIndex));
-            }
-            pathList.push(arrayIndex);
-        }
-        else {
-            pathList.push(part);
-        }
-    }
-    return pathList;
-};
-
-const getAttr = (value, path) => getAttrPathList(path).reduce((acc, index) => {
-    if (typeof acc !== "object") {
-        throw new EndpointError(`Index '${index}' in '${path}' not found in '${JSON.stringify(value)}'`);
-    }
-    else if (Array.isArray(acc)) {
-        const i = parseInt(index);
-        return acc[i < 0 ? acc.length + i : i];
-    }
-    return acc[index];
-}, value);
-
-const isSet = (value) => value != null;
-
-const VALID_HOST_LABEL_REGEX = new RegExp(`^(?!.*-$)(?!-)[a-zA-Z0-9-]{1,63}$`);
-const isValidHostLabel = (value, allowSubDomains = false) => {
-    if (!allowSubDomains) {
-        return VALID_HOST_LABEL_REGEX.test(value);
-    }
-    const labels = value.split(".");
-    for (const label of labels) {
-        if (!isValidHostLabel(label)) {
-            return false;
-        }
-    }
-    return true;
-};
-
-function ite(condition, trueValue, falseValue) {
-    return condition ? trueValue : falseValue;
-}
-
-const not = (value) => !value;
-
-const IP_V4_REGEX = new RegExp(`^(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}$`);
-const isIpAddress = (value) => IP_V4_REGEX.test(value) || (value.startsWith("[") && value.endsWith("]"));
-
-const DEFAULT_PORTS = {
-    [types.EndpointURLScheme.HTTP]: 80,
-    [types.EndpointURLScheme.HTTPS]: 443,
-};
-const parseURL = (value) => {
-    const whatwgURL = (() => {
-        try {
-            if (value instanceof URL) {
-                return value;
-            }
-            if (typeof value === "object" && "hostname" in value) {
-                const { hostname, port, protocol = "", path = "", query = {} } = value;
-                const url = new URL(`${protocol}//${hostname}${port ? `:${port}` : ""}${path}`);
-                url.search = Object.entries(query)
-                    .map(([k, v]) => `${k}=${v}`)
-                    .join("&");
-                return url;
-            }
-            return new URL(value);
-        }
-        catch (error) {
-            return null;
-        }
-    })();
-    if (!whatwgURL) {
-        console.error(`Unable to parse ${JSON.stringify(value)} as a whatwg URL.`);
-        return null;
-    }
-    const urlString = whatwgURL.href;
-    const { host, hostname, pathname, protocol, search } = whatwgURL;
-    if (search) {
-        return null;
-    }
-    const scheme = protocol.slice(0, -1);
-    if (!Object.values(types.EndpointURLScheme).includes(scheme)) {
-        return null;
-    }
-    const isIp = isIpAddress(hostname);
-    const inputContainsDefaultPort = urlString.includes(`${host}:${DEFAULT_PORTS[scheme]}`) ||
-        (typeof value === "string" && value.includes(`${host}:${DEFAULT_PORTS[scheme]}`));
-    const authority = `${host}${inputContainsDefaultPort ? `:${DEFAULT_PORTS[scheme]}` : ``}`;
-    return {
-        scheme,
-        authority,
-        path: pathname,
-        normalizedPath: pathname.endsWith("/") ? pathname : `${pathname}/`,
-        isIp,
-    };
-};
-
-function split(value, delimiter, limit) {
-    if (limit === 1) {
-        return [value];
-    }
-    if (value === "") {
-        return [""];
-    }
-    const parts = value.split(delimiter);
-    if (limit === 0) {
-        return parts;
-    }
-    return parts.slice(0, limit - 1).concat(parts.slice(1).join(delimiter));
-}
-
-const stringEquals = (value1, value2) => value1 === value2;
-
-const substring = (input, start, stop, reverse) => {
-    if (input == null || start >= stop || input.length < stop || /[^\u0000-\u007f]/.test(input)) {
-        return null;
-    }
-    if (!reverse) {
-        return input.substring(start, stop);
-    }
-    return input.substring(input.length - stop, input.length - start);
-};
-
-const uriEncode = (value) => encodeURIComponent(value).replace(/[!*'()]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
-
-const endpointFunctions = {
-    booleanEquals,
-    coalesce,
-    getAttr,
-    isSet,
-    isValidHostLabel,
-    ite,
-    not,
-    parseURL,
-    split,
-    stringEquals,
-    substring,
-    uriEncode,
-};
-
-const evaluateTemplate = (template, options) => {
-    const evaluatedTemplateArr = [];
-    const { referenceRecord, endpointParams } = options;
-    let currentIndex = 0;
-    while (currentIndex < template.length) {
-        const openingBraceIndex = template.indexOf("{", currentIndex);
-        if (openingBraceIndex === -1) {
-            evaluatedTemplateArr.push(template.slice(currentIndex));
-            break;
-        }
-        evaluatedTemplateArr.push(template.slice(currentIndex, openingBraceIndex));
-        const closingBraceIndex = template.indexOf("}", openingBraceIndex);
-        if (closingBraceIndex === -1) {
-            evaluatedTemplateArr.push(template.slice(openingBraceIndex));
-            break;
-        }
-        if (template[openingBraceIndex + 1] === "{" && template[closingBraceIndex + 1] === "}") {
-            evaluatedTemplateArr.push(template.slice(openingBraceIndex + 1, closingBraceIndex));
-            currentIndex = closingBraceIndex + 2;
-        }
-        const parameterName = template.substring(openingBraceIndex + 1, closingBraceIndex);
-        if (parameterName.includes("#")) {
-            const [refName, attrName] = parameterName.split("#");
-            evaluatedTemplateArr.push(getAttr((referenceRecord[refName] ?? endpointParams[refName]), attrName));
-        }
-        else {
-            evaluatedTemplateArr.push((referenceRecord[parameterName] ?? endpointParams[parameterName]));
-        }
-        currentIndex = closingBraceIndex + 1;
-    }
-    return evaluatedTemplateArr.join("");
-};
-
-const getReferenceValue = ({ ref }, options) => {
-    return options.referenceRecord[ref] ?? options.endpointParams[ref];
-};
-
-const evaluateExpression = (obj, keyName, options) => {
-    if (typeof obj === "string") {
-        return evaluateTemplate(obj, options);
-    }
-    else if (obj["fn"]) {
-        return group$2.callFunction(obj, options);
-    }
-    else if (obj["ref"]) {
-        return getReferenceValue(obj, options);
-    }
-    throw new EndpointError(`'${keyName}': ${String(obj)} is not a string, function or reference.`);
-};
-const callFunction = ({ fn, argv }, options) => {
-    const evaluatedArgs = Array(argv.length);
-    for (let i = 0; i < evaluatedArgs.length; ++i) {
-        const arg = argv[i];
-        if (typeof arg === "boolean" || typeof arg === "number") {
-            evaluatedArgs[i] = arg;
-        }
-        else {
-            evaluatedArgs[i] = group$2.evaluateExpression(arg, "arg", options);
-        }
-    }
-    const namespaceSeparatorIndex = fn.indexOf(".");
-    if (namespaceSeparatorIndex !== -1) {
-        const namespaceFunctions = customEndpointFunctions[fn.slice(0, namespaceSeparatorIndex)];
-        const customFunction = namespaceFunctions?.[fn.slice(namespaceSeparatorIndex + 1)];
-        if (typeof customFunction === "function") {
-            return customFunction(...evaluatedArgs);
-        }
-    }
-    const callable = endpointFunctions[fn];
-    if (typeof callable === "function") {
-        return callable(...evaluatedArgs);
-    }
-    throw new Error(`function ${fn} not loaded in endpointFunctions.`);
-};
-const group$2 = {
-    evaluateExpression,
-    callFunction,
-};
-
-const evaluateCondition = (condition, options) => {
-    const { assign } = condition;
-    if (assign && assign in options.referenceRecord) {
-        throw new EndpointError(`'${assign}' is already defined in Reference Record.`);
-    }
-    const value = callFunction(condition, options);
-    options.logger?.debug?.(`${debugId} evaluateCondition: ${toDebugString(condition)} = ${toDebugString(value)}`);
-    const result = value === "" ? true : !!value;
-    if (assign != null) {
-        return { result, toAssign: { name: assign, value } };
-    }
-    return { result };
-};
-
-const getEndpointHeaders = (headers, options) => Object.entries(headers ?? {}).reduce((acc, [headerKey, headerVal]) => {
-    acc[headerKey] = headerVal.map((headerValEntry) => {
-        const processedExpr = evaluateExpression(headerValEntry, "Header value entry", options);
-        if (typeof processedExpr !== "string") {
-            throw new EndpointError(`Header '${headerKey}' value '${processedExpr}' is not a string`);
-        }
-        return processedExpr;
-    });
-    return acc;
-}, {});
-
-const getEndpointProperties = (properties, options) => Object.entries(properties).reduce((acc, [propertyKey, propertyVal]) => {
-    acc[propertyKey] = group$1.getEndpointProperty(propertyVal, options);
-    return acc;
-}, {});
-const getEndpointProperty = (property, options) => {
-    if (Array.isArray(property)) {
-        return property.map((propertyEntry) => getEndpointProperty(propertyEntry, options));
-    }
-    switch (typeof property) {
-        case "string":
-            return evaluateTemplate(property, options);
-        case "object":
-            if (property === null) {
-                throw new EndpointError(`Unexpected endpoint property: ${property}`);
-            }
-            return group$1.getEndpointProperties(property, options);
-        case "boolean":
-            return property;
-        default:
-            throw new EndpointError(`Unexpected endpoint property type: ${typeof property}`);
-    }
-};
-const group$1 = {
-    getEndpointProperty,
-    getEndpointProperties,
-};
-
-const getEndpointUrl = (endpointUrl, options) => {
-    const expression = evaluateExpression(endpointUrl, "Endpoint URL", options);
-    if (typeof expression === "string") {
-        try {
-            return new URL(expression);
-        }
-        catch (error) {
-            console.error(`Failed to construct URL with ${expression}`, error);
-            throw error;
-        }
-    }
-    throw new EndpointError(`Endpoint URL must be a string, got ${typeof expression}`);
-};
-
-const RESULT = 100_000_000;
-const decideEndpoint = (bdd, options) => {
-    const { nodes, root, results, conditions } = bdd;
-    let ref = root;
-    const referenceRecord = {};
-    const closure = {
-        referenceRecord,
-        endpointParams: options.endpointParams,
-        logger: options.logger,
-    };
-    while (ref !== 1 && ref !== -1 && ref < RESULT) {
-        const node_i = 3 * (Math.abs(ref) - 1);
-        const [condition_i, highRef, lowRef] = [nodes[node_i], nodes[node_i + 1], nodes[node_i + 2]];
-        const [fn, argv, assign] = conditions[condition_i];
-        const evaluation = evaluateCondition({ fn, assign, argv }, closure);
-        if (evaluation.toAssign) {
-            const { name, value } = evaluation.toAssign;
-            referenceRecord[name] = value;
-        }
-        ref = ref >= 0 === evaluation.result ? highRef : lowRef;
-    }
-    if (ref >= RESULT) {
-        const result = results[ref - RESULT];
-        if (result[0] === -1) {
-            const [, errorExpression] = result;
-            throw new EndpointError(evaluateExpression(errorExpression, "Error", closure));
-        }
-        const [url, properties, headers] = result;
-        return {
-            url: getEndpointUrl(url, closure),
-            properties: getEndpointProperties(properties, closure),
-            headers: getEndpointHeaders(headers ?? {}, closure),
-        };
-    }
-    throw new EndpointError(`No matching endpoint.`);
-};
-
-const evaluateConditions = (conditions = [], options) => {
-    const conditionsReferenceRecord = {};
-    const conditionOptions = {
-        ...options,
-        referenceRecord: { ...options.referenceRecord },
-    };
-    let didAssign = false;
-    for (const condition of conditions) {
-        const { result, toAssign } = evaluateCondition(condition, conditionOptions);
-        if (!result) {
-            return { result };
-        }
-        if (toAssign) {
-            didAssign = true;
-            conditionsReferenceRecord[toAssign.name] = toAssign.value;
-            conditionOptions.referenceRecord[toAssign.name] = toAssign.value;
-            options.logger?.debug?.(`${debugId} assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`);
-        }
-    }
-    if (didAssign) {
-        return { result: true, referenceRecord: conditionsReferenceRecord };
-    }
-    return { result: true };
-};
-
-const evaluateEndpointRule = (endpointRule, options) => {
-    const { conditions, endpoint } = endpointRule;
-    const { result, referenceRecord } = evaluateConditions(conditions, options);
-    if (!result) {
-        return;
-    }
-    const endpointRuleOptions = referenceRecord
-        ? {
-            ...options,
-            referenceRecord: { ...options.referenceRecord, ...referenceRecord },
-        }
-        : options;
-    const { url, properties, headers } = endpoint;
-    options.logger?.debug?.(`${debugId} Resolving endpoint from template: ${toDebugString(endpoint)}`);
-    const endpointToReturn = { url: getEndpointUrl(url, endpointRuleOptions) };
-    if (headers != null) {
-        endpointToReturn.headers = getEndpointHeaders(headers, endpointRuleOptions);
-    }
-    if (properties != null) {
-        endpointToReturn.properties = getEndpointProperties(properties, endpointRuleOptions);
-    }
-    return endpointToReturn;
-};
-
-const evaluateErrorRule = (errorRule, options) => {
-    const { conditions, error } = errorRule;
-    const { result, referenceRecord } = evaluateConditions(conditions, options);
-    if (!result) {
-        return;
-    }
-    const errorRuleOptions = referenceRecord
-        ? {
-            ...options,
-            referenceRecord: { ...options.referenceRecord, ...referenceRecord },
-        }
-        : options;
-    throw new EndpointError(evaluateExpression(error, "Error", errorRuleOptions));
-};
-
-const evaluateRules = (rules, options) => {
-    for (const rule of rules) {
-        if (rule.type === "endpoint") {
-            const endpointOrUndefined = evaluateEndpointRule(rule, options);
-            if (endpointOrUndefined) {
-                return endpointOrUndefined;
-            }
-        }
-        else if (rule.type === "error") {
-            evaluateErrorRule(rule, options);
-        }
-        else if (rule.type === "tree") {
-            const endpointOrUndefined = group.evaluateTreeRule(rule, options);
-            if (endpointOrUndefined) {
-                return endpointOrUndefined;
-            }
-        }
-        else {
-            throw new EndpointError(`Unknown endpoint rule: ${rule}`);
-        }
-    }
-    throw new EndpointError(`Rules evaluation failed`);
-};
-const evaluateTreeRule = (treeRule, options) => {
-    const { conditions, rules } = treeRule;
-    const { result, referenceRecord } = evaluateConditions(conditions, options);
-    if (!result) {
-        return;
-    }
-    const treeRuleOptions = referenceRecord
-        ? { ...options, referenceRecord: { ...options.referenceRecord, ...referenceRecord } }
-        : options;
-    return group.evaluateRules(rules, treeRuleOptions);
-};
-const group = {
-    evaluateRules,
-    evaluateTreeRule,
-};
-
-const resolveEndpoint = (ruleSetObject, options) => {
-    const { endpointParams, logger } = options;
-    const { parameters, rules } = ruleSetObject;
-    options.logger?.debug?.(`${debugId} Initial EndpointParams: ${toDebugString(endpointParams)}`);
-    for (const paramKey in parameters) {
-        const parameter = parameters[paramKey];
-        const endpointParam = endpointParams[paramKey];
-        if (endpointParam == null && parameter.default != null) {
-            endpointParams[paramKey] = parameter.default;
-            continue;
-        }
-        if (parameter.required && endpointParam == null) {
-            throw new EndpointError(`Missing required parameter: '${paramKey}'`);
-        }
-    }
-    const endpoint = evaluateRules(rules, { endpointParams, logger, referenceRecord: {} });
-    options.logger?.debug?.(`${debugId} Resolved endpoint: ${toDebugString(endpoint)}`);
-    return endpoint;
-};
-
-exports.BinaryDecisionDiagram = BinaryDecisionDiagram;
-exports.EndpointCache = EndpointCache;
-exports.EndpointError = EndpointError;
-exports.customEndpointFunctions = customEndpointFunctions;
-exports.decideEndpoint = decideEndpoint;
-exports.isIpAddress = isIpAddress;
-exports.isValidHostLabel = isValidHostLabel;
-exports.resolveEndpoint = resolveEndpoint;
-
-
-/***/ }),
-
-/***/ 7661:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const SHORT_TO_HEX = {};
-const HEX_TO_SHORT = {};
-for (let i = 0; i < 256; i++) {
-    let encodedByte = i.toString(16).toLowerCase();
-    if (encodedByte.length === 1) {
-        encodedByte = `0${encodedByte}`;
-    }
-    SHORT_TO_HEX[i] = encodedByte;
-    HEX_TO_SHORT[encodedByte] = i;
-}
-function fromHex(encoded) {
-    if (encoded.length % 2 !== 0) {
-        throw new Error("Hex encoded strings must have an even number length");
-    }
-    const out = new Uint8Array(encoded.length / 2);
-    for (let i = 0; i < encoded.length; i += 2) {
-        const encodedByte = encoded.slice(i, i + 2).toLowerCase();
-        if (encodedByte in HEX_TO_SHORT) {
-            out[i / 2] = HEX_TO_SHORT[encodedByte];
-        }
-        else {
-            throw new Error(`Cannot decode unrecognized sequence ${encodedByte} as hexadecimal`);
-        }
-    }
-    return out;
-}
-function toHex(bytes) {
-    let out = "";
-    for (let i = 0; i < bytes.byteLength; i++) {
-        out += SHORT_TO_HEX[bytes[i]];
-    }
-    return out;
-}
-
-exports.fromHex = fromHex;
-exports.toHex = toHex;
-
-
-/***/ }),
-
-/***/ 5822:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var types = __nccwpck_require__(8151);
-
-const getSmithyContext = (context) => context[types.SMITHY_CONTEXT_KEY] || (context[types.SMITHY_CONTEXT_KEY] = {});
-
-const normalizeProvider = (input) => {
-    if (typeof input === "function")
-        return input;
-    const promisified = Promise.resolve(input);
-    return () => promisified;
-};
-
-exports.getSmithyContext = getSmithyContext;
-exports.normalizeProvider = normalizeProvider;
-
-
-/***/ }),
-
-/***/ 9600:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var serviceErrorClassification = __nccwpck_require__(9549);
-
-exports.RETRY_MODES = void 0;
-(function (RETRY_MODES) {
-    RETRY_MODES["STANDARD"] = "standard";
-    RETRY_MODES["ADAPTIVE"] = "adaptive";
-})(exports.RETRY_MODES || (exports.RETRY_MODES = {}));
-const DEFAULT_MAX_ATTEMPTS = 3;
-const DEFAULT_RETRY_MODE = exports.RETRY_MODES.STANDARD;
-
-class DefaultRateLimiter {
-    static setTimeoutFn = setTimeout;
-    beta;
-    minCapacity;
-    minFillRate;
-    scaleConstant;
-    smooth;
-    enabled = false;
-    availableTokens = 0;
-    lastMaxRate = 0;
-    measuredTxRate = 0;
-    requestCount = 0;
-    fillRate;
-    lastThrottleTime;
-    lastTimestamp = 0;
-    lastTxRateBucket;
-    maxCapacity;
-    timeWindow = 0;
-    constructor(options) {
-        this.beta = options?.beta ?? 0.7;
-        this.minCapacity = options?.minCapacity ?? 1;
-        this.minFillRate = options?.minFillRate ?? 0.5;
-        this.scaleConstant = options?.scaleConstant ?? 0.4;
-        this.smooth = options?.smooth ?? 0.8;
-        this.lastThrottleTime = this.getCurrentTimeInSeconds();
-        this.lastTxRateBucket = Math.floor(this.getCurrentTimeInSeconds());
-        this.fillRate = this.minFillRate;
-        this.maxCapacity = this.minCapacity;
-    }
-    async getSendToken() {
-        return this.acquireTokenBucket(1);
-    }
-    updateClientSendingRate(response) {
-        let calculatedRate;
-        this.updateMeasuredRate();
-        const retryErrorInfo = response;
-        const isThrottling = retryErrorInfo?.errorType === "THROTTLING" || serviceErrorClassification.isThrottlingError(retryErrorInfo?.error ?? response);
-        if (isThrottling) {
-            const rateToUse = !this.enabled ? this.measuredTxRate : Math.min(this.measuredTxRate, this.fillRate);
-            this.lastMaxRate = rateToUse;
-            this.calculateTimeWindow();
-            this.lastThrottleTime = this.getCurrentTimeInSeconds();
-            calculatedRate = this.cubicThrottle(rateToUse);
-            this.enableTokenBucket();
-        }
-        else {
-            this.calculateTimeWindow();
-            calculatedRate = this.cubicSuccess(this.getCurrentTimeInSeconds());
-        }
-        const newRate = Math.min(calculatedRate, 2 * this.measuredTxRate);
-        this.updateTokenBucketRate(newRate);
-    }
-    getCurrentTimeInSeconds() {
-        return Date.now() / 1000;
-    }
-    async acquireTokenBucket(amount) {
-        if (!this.enabled) {
-            return;
-        }
-        this.refillTokenBucket();
-        while (amount > this.availableTokens) {
-            const delay = ((amount - this.availableTokens) / this.fillRate) * 1000;
-            await new Promise((resolve) => DefaultRateLimiter.setTimeoutFn(resolve, delay));
-            this.refillTokenBucket();
-        }
-        this.availableTokens = this.availableTokens - amount;
-    }
-    refillTokenBucket() {
-        const timestamp = this.getCurrentTimeInSeconds();
-        if (!this.lastTimestamp) {
-            this.lastTimestamp = timestamp;
-            return;
-        }
-        const fillAmount = (timestamp - this.lastTimestamp) * this.fillRate;
-        this.availableTokens = Math.min(this.maxCapacity, this.availableTokens + fillAmount);
-        this.lastTimestamp = timestamp;
-    }
-    calculateTimeWindow() {
-        this.timeWindow = this.getPrecise(Math.pow((this.lastMaxRate * (1 - this.beta)) / this.scaleConstant, 1 / 3));
-    }
-    cubicThrottle(rateToUse) {
-        return this.getPrecise(rateToUse * this.beta);
-    }
-    cubicSuccess(timestamp) {
-        return this.getPrecise(this.scaleConstant * Math.pow(timestamp - this.lastThrottleTime - this.timeWindow, 3) + this.lastMaxRate);
-    }
-    enableTokenBucket() {
-        this.enabled = true;
-    }
-    updateTokenBucketRate(newRate) {
-        this.refillTokenBucket();
-        this.fillRate = Math.max(newRate, this.minFillRate);
-        this.maxCapacity = Math.max(newRate, this.minCapacity);
-        this.availableTokens = Math.min(this.availableTokens, this.maxCapacity);
-    }
-    updateMeasuredRate() {
-        const t = this.getCurrentTimeInSeconds();
-        const timeBucket = Math.floor(t * 2) / 2;
-        this.requestCount++;
-        if (timeBucket > this.lastTxRateBucket) {
-            const currentRate = this.requestCount / (timeBucket - this.lastTxRateBucket);
-            this.measuredTxRate = this.getPrecise(currentRate * this.smooth + this.measuredTxRate * (1 - this.smooth));
-            this.requestCount = 0;
-            this.lastTxRateBucket = timeBucket;
-        }
-    }
-    getPrecise(num) {
-        return parseFloat(num.toFixed(8));
-    }
-}
-
-const DEFAULT_RETRY_DELAY_BASE = 100;
-const MAXIMUM_RETRY_DELAY = 20 * 1000;
-const THROTTLING_RETRY_DELAY_BASE = 500;
-const INITIAL_RETRY_TOKENS = 500;
-const RETRY_COST = 5;
-const TIMEOUT_RETRY_COST = 10;
-const NO_RETRY_INCREMENT = 1;
-const INVOCATION_ID_HEADER = "amz-sdk-invocation-id";
-const REQUEST_HEADER = "amz-sdk-request";
-
-class Retry {
-    static v2026 = typeof process !== "undefined" && process.env?.SMITHY_NEW_RETRIES_2026 === "true";
-    static delay() {
-        return Retry.v2026 ? 50 : 100;
-    }
-    static throttlingDelay() {
-        return Retry.v2026 ? 1_000 : 500;
-    }
-    static cost() {
-        return Retry.v2026 ? 14 : 5;
-    }
-    static throttlingCost() {
-        return Retry.v2026 ? 5 : 10;
-    }
-    static modifiedCostType() {
-        return Retry.v2026 ? "THROTTLING" : "TRANSIENT";
-    }
-}
-
-class DefaultRetryBackoffStrategy {
-    x = Retry.delay();
-    computeNextBackoffDelay(i) {
-        const b = Math.random();
-        const r = 2;
-        const t_i = b * Math.min(this.x * r ** i, MAXIMUM_RETRY_DELAY);
-        return Math.floor(t_i);
-    }
-    setDelayBase(delay) {
-        this.x = delay;
-    }
-}
-
-class DefaultRetryToken {
-    delay;
-    count;
-    cost;
-    longPoll;
-    constructor(delay, count, cost, longPoll) {
-        this.delay = delay;
-        this.count = count;
-        this.cost = cost;
-        this.longPoll = longPoll;
-    }
-    getRetryCount() {
-        return this.count;
-    }
-    getRetryDelay() {
-        return Math.min(MAXIMUM_RETRY_DELAY, this.delay);
-    }
-    getRetryCost() {
-        return this.cost;
-    }
-    isLongPoll() {
-        return this.longPoll;
-    }
-}
-
-const refusal = {
-    incompatible: 1,
-    attempts: 2,
-    capacity: 3,
-};
-class StandardRetryStrategy {
-    mode = exports.RETRY_MODES.STANDARD;
-    capacity = INITIAL_RETRY_TOKENS;
-    retryBackoffStrategy;
-    maxAttemptsProvider;
-    baseDelay;
-    constructor(arg1) {
-        if (typeof arg1 === "number") {
-            this.maxAttemptsProvider = async () => arg1;
-        }
-        else if (typeof arg1 === "function") {
-            this.maxAttemptsProvider = arg1;
-        }
-        else if (arg1 && typeof arg1 === "object") {
-            this.maxAttemptsProvider = async () => arg1.maxAttempts;
-            this.baseDelay = arg1.baseDelay;
-            this.retryBackoffStrategy = arg1.backoff;
-        }
-        this.maxAttemptsProvider ??= async () => DEFAULT_MAX_ATTEMPTS;
-        this.baseDelay ??= Retry.delay();
-        this.retryBackoffStrategy ??= new DefaultRetryBackoffStrategy();
-    }
-    async acquireInitialRetryToken(retryTokenScope) {
-        return new DefaultRetryToken(Retry.delay(), 0, undefined, Retry.v2026 && retryTokenScope.includes(":longpoll"));
-    }
-    async refreshRetryTokenForRetry(token, errorInfo) {
-        const maxAttempts = await this.getMaxAttempts();
-        const retryCode = this.retryCode(token, errorInfo, maxAttempts);
-        const shouldRetry = retryCode === 0;
-        const isLongPoll = token.isLongPoll?.();
-        if (shouldRetry || isLongPoll) {
-            const errorType = errorInfo.errorType;
-            this.retryBackoffStrategy.setDelayBase(errorType === "THROTTLING" ? Retry.throttlingDelay() : this.baseDelay);
-            const delayFromErrorType = this.retryBackoffStrategy.computeNextBackoffDelay(token.getRetryCount());
-            let retryDelay = delayFromErrorType;
-            if (errorInfo.retryAfterHint instanceof Date) {
-                retryDelay = Math.max(delayFromErrorType, Math.min(errorInfo.retryAfterHint.getTime() - Date.now(), delayFromErrorType + 5_000));
-            }
-            if (!shouldRetry) {
-                throw Object.assign(new Error("No retry token available"), {
-                    $backoff: Retry.v2026 && retryCode === refusal.capacity && isLongPoll ? retryDelay : 0,
-                });
-            }
-            else {
-                const capacityCost = this.getCapacityCost(errorType);
-                this.capacity -= capacityCost;
-                return new DefaultRetryToken(retryDelay, token.getRetryCount() + 1, capacityCost, token.isLongPoll?.() ?? false);
-            }
-        }
-        throw new Error("No retry token available");
-    }
-    recordSuccess(token) {
-        this.capacity = Math.min(INITIAL_RETRY_TOKENS, this.capacity + (token.getRetryCost() ?? NO_RETRY_INCREMENT));
-    }
-    getCapacity() {
-        return this.capacity;
-    }
-    async maxAttempts() {
-        return this.maxAttemptsProvider();
-    }
-    async getMaxAttempts() {
-        try {
-            return await this.maxAttemptsProvider();
-        }
-        catch (error) {
-            console.warn(`Max attempts provider could not resolve. Using default of ${DEFAULT_MAX_ATTEMPTS}`);
-            return DEFAULT_MAX_ATTEMPTS;
-        }
-    }
-    retryCode(tokenToRenew, errorInfo, maxAttempts) {
-        const attempts = tokenToRenew.getRetryCount() + 1;
-        const retryableStatus = this.isRetryableError(errorInfo.errorType) ? 0 : refusal.incompatible;
-        const attemptStatus = attempts < maxAttempts ? 0 : refusal.attempts;
-        const capacityStatus = this.capacity >= this.getCapacityCost(errorInfo.errorType) ? 0 : refusal.capacity;
-        return retryableStatus || attemptStatus || capacityStatus;
-    }
-    getCapacityCost(errorType) {
-        return errorType === Retry.modifiedCostType() ? Retry.throttlingCost() : Retry.cost();
-    }
-    isRetryableError(errorType) {
-        return errorType === "THROTTLING" || errorType === "TRANSIENT";
-    }
-}
-
-class AdaptiveRetryStrategy {
-    mode = exports.RETRY_MODES.ADAPTIVE;
-    rateLimiter;
-    standardRetryStrategy;
-    constructor(maxAttemptsProvider, options) {
-        const { rateLimiter } = options ?? {};
-        this.rateLimiter = rateLimiter ?? new DefaultRateLimiter();
-        this.standardRetryStrategy = options
-            ? new StandardRetryStrategy({
-                maxAttempts: typeof maxAttemptsProvider === "number" ? maxAttemptsProvider : 3,
-                ...options,
-            })
-            : new StandardRetryStrategy(maxAttemptsProvider);
-    }
-    async acquireInitialRetryToken(retryTokenScope) {
-        const token = await this.standardRetryStrategy.acquireInitialRetryToken(retryTokenScope);
-        await this.rateLimiter.getSendToken();
-        return token;
-    }
-    async refreshRetryTokenForRetry(tokenToRenew, errorInfo) {
-        this.rateLimiter.updateClientSendingRate(errorInfo);
-        const token = await this.standardRetryStrategy.refreshRetryTokenForRetry(tokenToRenew, errorInfo);
-        await this.rateLimiter.getSendToken();
-        return token;
-    }
-    recordSuccess(token) {
-        this.rateLimiter.updateClientSendingRate({});
-        this.standardRetryStrategy.recordSuccess(token);
-    }
-    async maxAttemptsProvider() {
-        return this.standardRetryStrategy.maxAttempts();
-    }
-}
-
-class ConfiguredRetryStrategy extends StandardRetryStrategy {
-    computeNextBackoffDelay;
-    constructor(maxAttempts, computeNextBackoffDelay = Retry.delay()) {
-        super(typeof maxAttempts === "function" ? maxAttempts : async () => maxAttempts);
-        if (typeof computeNextBackoffDelay === "number") {
-            this.computeNextBackoffDelay = () => computeNextBackoffDelay;
-        }
-        else {
-            this.computeNextBackoffDelay = computeNextBackoffDelay;
-        }
-    }
-    async refreshRetryTokenForRetry(tokenToRenew, errorInfo) {
-        const token = await super.refreshRetryTokenForRetry(tokenToRenew, errorInfo);
-        token.getRetryDelay = () => this.computeNextBackoffDelay(token.getRetryCount());
-        return token;
-    }
-}
-
-exports.AdaptiveRetryStrategy = AdaptiveRetryStrategy;
-exports.ConfiguredRetryStrategy = ConfiguredRetryStrategy;
-exports.DEFAULT_MAX_ATTEMPTS = DEFAULT_MAX_ATTEMPTS;
-exports.DEFAULT_RETRY_DELAY_BASE = DEFAULT_RETRY_DELAY_BASE;
-exports.DEFAULT_RETRY_MODE = DEFAULT_RETRY_MODE;
-exports.DefaultRateLimiter = DefaultRateLimiter;
-exports.INITIAL_RETRY_TOKENS = INITIAL_RETRY_TOKENS;
-exports.INVOCATION_ID_HEADER = INVOCATION_ID_HEADER;
-exports.MAXIMUM_RETRY_DELAY = MAXIMUM_RETRY_DELAY;
-exports.NO_RETRY_INCREMENT = NO_RETRY_INCREMENT;
-exports.REQUEST_HEADER = REQUEST_HEADER;
-exports.RETRY_COST = RETRY_COST;
-exports.Retry = Retry;
-exports.StandardRetryStrategy = StandardRetryStrategy;
-exports.THROTTLING_RETRY_DELAY_BASE = THROTTLING_RETRY_DELAY_BASE;
-exports.TIMEOUT_RETRY_COST = TIMEOUT_RETRY_COST;
-
-
-/***/ }),
-
-/***/ 511:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ByteArrayCollector = void 0;
-class ByteArrayCollector {
-    allocByteArray;
-    byteLength = 0;
-    byteArrays = [];
-    constructor(allocByteArray) {
-        this.allocByteArray = allocByteArray;
-    }
-    push(byteArray) {
-        this.byteArrays.push(byteArray);
-        this.byteLength += byteArray.byteLength;
-    }
-    flush() {
-        if (this.byteArrays.length === 1) {
-            const bytes = this.byteArrays[0];
-            this.reset();
-            return bytes;
-        }
-        const aggregation = this.allocByteArray(this.byteLength);
-        let cursor = 0;
-        for (let i = 0; i < this.byteArrays.length; ++i) {
-            const bytes = this.byteArrays[i];
-            aggregation.set(bytes, cursor);
-            cursor += bytes.byteLength;
-        }
-        this.reset();
-        return aggregation;
-    }
-    reset() {
-        this.byteArrays = [];
-        this.byteLength = 0;
-    }
-}
-exports.ByteArrayCollector = ByteArrayCollector;
-
-
-/***/ }),
-
-/***/ 2692:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ChecksumStream = void 0;
-const ReadableStreamRef = typeof ReadableStream === "function" ? ReadableStream : function () { };
-class ChecksumStream extends ReadableStreamRef {
-}
-exports.ChecksumStream = ChecksumStream;
-
-
-/***/ }),
-
-/***/ 5146:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ChecksumStream = void 0;
-const util_base64_1 = __nccwpck_require__(3158);
-const stream_1 = __nccwpck_require__(2203);
-class ChecksumStream extends stream_1.Duplex {
-    expectedChecksum;
-    checksumSourceLocation;
-    checksum;
-    source;
-    base64Encoder;
-    pendingCallback = null;
-    constructor({ expectedChecksum, checksum, source, checksumSourceLocation, base64Encoder, }) {
-        super();
-        if (typeof source.pipe === "function") {
-            this.source = source;
-        }
-        else {
-            throw new Error(`@smithy/util-stream: unsupported source type ${source?.constructor?.name ?? source} in ChecksumStream.`);
-        }
-        this.base64Encoder = base64Encoder ?? util_base64_1.toBase64;
-        this.expectedChecksum = expectedChecksum;
-        this.checksum = checksum;
-        this.checksumSourceLocation = checksumSourceLocation;
-        this.source.pipe(this);
-    }
-    _read(size) {
-        if (this.pendingCallback) {
-            const callback = this.pendingCallback;
-            this.pendingCallback = null;
-            callback();
-        }
-    }
-    _write(chunk, encoding, callback) {
-        try {
-            this.checksum.update(chunk);
-            const canPushMore = this.push(chunk);
-            if (!canPushMore) {
-                this.pendingCallback = callback;
-                return;
-            }
-        }
-        catch (e) {
-            return callback(e);
-        }
-        return callback();
-    }
-    async _final(callback) {
-        try {
-            const digest = await this.checksum.digest();
-            const received = this.base64Encoder(digest);
-            if (this.expectedChecksum !== received) {
-                return callback(new Error(`Checksum mismatch: expected "${this.expectedChecksum}" but received "${received}"` +
-                    ` in response header "${this.checksumSourceLocation}".`));
-            }
-        }
-        catch (e) {
-            return callback(e);
-        }
-        this.push(null);
-        return callback();
-    }
-}
-exports.ChecksumStream = ChecksumStream;
-
-
-/***/ }),
-
-/***/ 128:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createChecksumStream = void 0;
-const util_base64_1 = __nccwpck_require__(3158);
-const stream_type_check_1 = __nccwpck_require__(8039);
-const ChecksumStream_browser_1 = __nccwpck_require__(2692);
-const createChecksumStream = ({ expectedChecksum, checksum, source, checksumSourceLocation, base64Encoder, }) => {
-    if (!(0, stream_type_check_1.isReadableStream)(source)) {
-        throw new Error(`@smithy/util-stream: unsupported source type ${source?.constructor?.name ?? source} in ChecksumStream.`);
-    }
-    const encoder = base64Encoder ?? util_base64_1.toBase64;
-    if (typeof TransformStream !== "function") {
-        throw new Error("@smithy/util-stream: unable to instantiate ChecksumStream because API unavailable: ReadableStream/TransformStream.");
-    }
-    const transform = new TransformStream({
-        start() { },
-        async transform(chunk, controller) {
-            checksum.update(chunk);
-            controller.enqueue(chunk);
-        },
-        async flush(controller) {
-            const digest = await checksum.digest();
-            const received = encoder(digest);
-            if (expectedChecksum !== received) {
-                const error = new Error(`Checksum mismatch: expected "${expectedChecksum}" but received "${received}"` +
-                    ` in response header "${checksumSourceLocation}".`);
-                controller.error(error);
-            }
-            else {
-                controller.terminate();
-            }
-        },
-    });
-    source.pipeThrough(transform);
-    const readable = transform.readable;
-    Object.setPrototypeOf(readable, ChecksumStream_browser_1.ChecksumStream.prototype);
-    return readable;
-};
-exports.createChecksumStream = createChecksumStream;
-
-
-/***/ }),
-
-/***/ 5270:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createChecksumStream = createChecksumStream;
-const stream_type_check_1 = __nccwpck_require__(8039);
-const ChecksumStream_1 = __nccwpck_require__(5146);
-const createChecksumStream_browser_1 = __nccwpck_require__(128);
-function createChecksumStream(init) {
-    if (typeof ReadableStream === "function" && (0, stream_type_check_1.isReadableStream)(init.source)) {
-        return (0, createChecksumStream_browser_1.createChecksumStream)(init);
-    }
-    return new ChecksumStream_1.ChecksumStream(init);
-}
-
-
-/***/ }),
-
-/***/ 4698:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createBufferedReadable = createBufferedReadable;
-const node_stream_1 = __nccwpck_require__(7075);
-const ByteArrayCollector_1 = __nccwpck_require__(511);
-const createBufferedReadableStream_1 = __nccwpck_require__(2970);
-const stream_type_check_1 = __nccwpck_require__(8039);
-function createBufferedReadable(upstream, size, logger) {
-    if ((0, stream_type_check_1.isReadableStream)(upstream)) {
-        return (0, createBufferedReadableStream_1.createBufferedReadableStream)(upstream, size, logger);
-    }
-    const downstream = new node_stream_1.Readable({ read() { } });
-    let streamBufferingLoggedWarning = false;
-    let bytesSeen = 0;
-    const buffers = [
-        "",
-        new ByteArrayCollector_1.ByteArrayCollector((size) => new Uint8Array(size)),
-        new ByteArrayCollector_1.ByteArrayCollector((size) => Buffer.from(new Uint8Array(size))),
-    ];
-    let mode = -1;
-    upstream.on("data", (chunk) => {
-        const chunkMode = (0, createBufferedReadableStream_1.modeOf)(chunk, true);
-        if (mode !== chunkMode) {
-            if (mode >= 0) {
-                downstream.push((0, createBufferedReadableStream_1.flush)(buffers, mode));
-            }
-            mode = chunkMode;
-        }
-        if (mode === -1) {
-            downstream.push(chunk);
-            return;
-        }
-        const chunkSize = (0, createBufferedReadableStream_1.sizeOf)(chunk);
-        bytesSeen += chunkSize;
-        const bufferSize = (0, createBufferedReadableStream_1.sizeOf)(buffers[mode]);
-        if (chunkSize >= size && bufferSize === 0) {
-            downstream.push(chunk);
-        }
-        else {
-            const newSize = (0, createBufferedReadableStream_1.merge)(buffers, mode, chunk);
-            if (!streamBufferingLoggedWarning && bytesSeen > size * 2) {
-                streamBufferingLoggedWarning = true;
-                logger?.warn(`@smithy/util-stream - stream chunk size ${chunkSize} is below threshold of ${size}, automatically buffering.`);
-            }
-            if (newSize >= size) {
-                downstream.push((0, createBufferedReadableStream_1.flush)(buffers, mode));
-            }
-        }
-    });
-    upstream.on("end", () => {
-        if (mode !== -1) {
-            const remainder = (0, createBufferedReadableStream_1.flush)(buffers, mode);
-            if ((0, createBufferedReadableStream_1.sizeOf)(remainder) > 0) {
-                downstream.push(remainder);
-            }
-        }
-        downstream.push(null);
-    });
-    return downstream;
-}
-
-
-/***/ }),
-
-/***/ 2970:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createBufferedReadable = void 0;
-exports.createBufferedReadableStream = createBufferedReadableStream;
-exports.merge = merge;
-exports.flush = flush;
-exports.sizeOf = sizeOf;
-exports.modeOf = modeOf;
-const ByteArrayCollector_1 = __nccwpck_require__(511);
-function createBufferedReadableStream(upstream, size, logger) {
-    const reader = upstream.getReader();
-    let streamBufferingLoggedWarning = false;
-    let bytesSeen = 0;
-    const buffers = ["", new ByteArrayCollector_1.ByteArrayCollector((size) => new Uint8Array(size))];
-    let mode = -1;
-    const pull = async (controller) => {
-        const { value, done } = await reader.read();
-        const chunk = value;
-        if (done) {
-            if (mode !== -1) {
-                const remainder = flush(buffers, mode);
-                if (sizeOf(remainder) > 0) {
-                    controller.enqueue(remainder);
-                }
-            }
-            controller.close();
-        }
-        else {
-            const chunkMode = modeOf(chunk, false);
-            if (mode !== chunkMode) {
-                if (mode >= 0) {
-                    controller.enqueue(flush(buffers, mode));
-                }
-                mode = chunkMode;
-            }
-            if (mode === -1) {
-                controller.enqueue(chunk);
-                return;
-            }
-            const chunkSize = sizeOf(chunk);
-            bytesSeen += chunkSize;
-            const bufferSize = sizeOf(buffers[mode]);
-            if (chunkSize >= size && bufferSize === 0) {
-                controller.enqueue(chunk);
-            }
-            else {
-                const newSize = merge(buffers, mode, chunk);
-                if (!streamBufferingLoggedWarning && bytesSeen > size * 2) {
-                    streamBufferingLoggedWarning = true;
-                    logger?.warn(`@smithy/util-stream - stream chunk size ${chunkSize} is below threshold of ${size}, automatically buffering.`);
-                }
-                if (newSize >= size) {
-                    controller.enqueue(flush(buffers, mode));
-                }
-                else {
-                    await pull(controller);
-                }
-            }
-        }
-    };
-    return new ReadableStream({
-        pull,
-    });
-}
-exports.createBufferedReadable = createBufferedReadableStream;
-function merge(buffers, mode, chunk) {
-    switch (mode) {
-        case 0:
-            buffers[0] += chunk;
-            return sizeOf(buffers[0]);
-        case 1:
-        case 2:
-            buffers[mode].push(chunk);
-            return sizeOf(buffers[mode]);
-    }
-}
-function flush(buffers, mode) {
-    switch (mode) {
-        case 0:
-            const s = buffers[0];
-            buffers[0] = "";
-            return s;
-        case 1:
-        case 2:
-            return buffers[mode].flush();
-    }
-    throw new Error(`@smithy/util-stream - invalid index ${mode} given to flush()`);
-}
-function sizeOf(chunk) {
-    return chunk?.byteLength ?? chunk?.length ?? 0;
-}
-function modeOf(chunk, allowBuffer = true) {
-    if (allowBuffer && typeof Buffer !== "undefined" && chunk instanceof Buffer) {
-        return 2;
-    }
-    if (chunk instanceof Uint8Array) {
-        return 1;
-    }
-    if (typeof chunk === "string") {
-        return 0;
-    }
-    return -1;
-}
-
-
-/***/ }),
-
-/***/ 3513:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getAwsChunkedEncodingStream = void 0;
-const getAwsChunkedEncodingStream = (readableStream, options) => {
-    const { base64Encoder, bodyLengthChecker, checksumAlgorithmFn, checksumLocationName, streamHasher } = options;
-    const checksumRequired = base64Encoder !== undefined &&
-        bodyLengthChecker !== undefined &&
-        checksumAlgorithmFn !== undefined &&
-        checksumLocationName !== undefined &&
-        streamHasher !== undefined;
-    const digest = checksumRequired ? streamHasher(checksumAlgorithmFn, readableStream) : undefined;
-    const reader = readableStream.getReader();
-    return new ReadableStream({
-        async pull(controller) {
-            const { value, done } = await reader.read();
-            if (done) {
-                controller.enqueue(`0\r\n`);
-                if (checksumRequired) {
-                    const checksum = base64Encoder(await digest);
-                    controller.enqueue(`${checksumLocationName}:${checksum}\r\n`);
-                    controller.enqueue(`\r\n`);
-                }
-                controller.close();
-            }
-            else {
-                controller.enqueue(`${(bodyLengthChecker(value) || 0).toString(16)}\r\n${value}\r\n`);
-            }
-        },
-    });
-};
-exports.getAwsChunkedEncodingStream = getAwsChunkedEncodingStream;
-
-
-/***/ }),
-
-/***/ 543:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getAwsChunkedEncodingStream = getAwsChunkedEncodingStream;
-const node_stream_1 = __nccwpck_require__(7075);
-const getAwsChunkedEncodingStream_browser_1 = __nccwpck_require__(3513);
-const stream_type_check_1 = __nccwpck_require__(8039);
-function getAwsChunkedEncodingStream(stream, options) {
-    const readable = stream;
-    const readableStream = stream;
-    if ((0, stream_type_check_1.isReadableStream)(readableStream)) {
-        return (0, getAwsChunkedEncodingStream_browser_1.getAwsChunkedEncodingStream)(readableStream, options);
-    }
-    const { base64Encoder, bodyLengthChecker, checksumAlgorithmFn, checksumLocationName, streamHasher } = options;
-    const checksumRequired = base64Encoder !== undefined &&
-        checksumAlgorithmFn !== undefined &&
-        checksumLocationName !== undefined &&
-        streamHasher !== undefined;
-    const digest = checksumRequired ? streamHasher(checksumAlgorithmFn, readable) : undefined;
-    const awsChunkedEncodingStream = new node_stream_1.Readable({
-        read: () => { },
-    });
-    readable.on("data", (data) => {
-        const length = bodyLengthChecker(data) || 0;
-        if (length === 0) {
-            return;
-        }
-        awsChunkedEncodingStream.push(`${length.toString(16)}\r\n`);
-        awsChunkedEncodingStream.push(data);
-        awsChunkedEncodingStream.push("\r\n");
-    });
-    readable.on("end", async () => {
-        awsChunkedEncodingStream.push(`0\r\n`);
-        if (checksumRequired) {
-            const checksum = base64Encoder(await digest);
-            awsChunkedEncodingStream.push(`${checksumLocationName}:${checksum}\r\n`);
-            awsChunkedEncodingStream.push(`\r\n`);
-        }
-        awsChunkedEncodingStream.push(null);
-    });
-    return awsChunkedEncodingStream;
-}
-
-
-/***/ }),
-
-/***/ 3861:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.headStream = headStream;
-async function headStream(stream, bytes) {
-    let byteLengthCounter = 0;
-    const chunks = [];
-    const reader = stream.getReader();
-    let isDone = false;
-    while (!isDone) {
-        const { done, value } = await reader.read();
-        if (value) {
-            chunks.push(value);
-            byteLengthCounter += value?.byteLength ?? 0;
-        }
-        if (byteLengthCounter >= bytes) {
-            break;
-        }
-        isDone = done;
-    }
-    reader.releaseLock();
-    const collected = new Uint8Array(Math.min(bytes, byteLengthCounter));
-    let offset = 0;
-    for (const chunk of chunks) {
-        if (chunk.byteLength > collected.byteLength - offset) {
-            collected.set(chunk.subarray(0, collected.byteLength - offset), offset);
-            break;
-        }
-        else {
-            collected.set(chunk, offset);
-        }
-        offset += chunk.length;
-    }
-    return collected;
-}
-
-
-/***/ }),
-
-/***/ 9435:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.headStream = void 0;
-const stream_1 = __nccwpck_require__(2203);
-const headStream_browser_1 = __nccwpck_require__(3861);
-const stream_type_check_1 = __nccwpck_require__(8039);
-const headStream = (stream, bytes) => {
-    if ((0, stream_type_check_1.isReadableStream)(stream)) {
-        return (0, headStream_browser_1.headStream)(stream, bytes);
-    }
-    return new Promise((resolve, reject) => {
-        const collector = new Collector();
-        collector.limit = bytes;
-        stream.pipe(collector);
-        stream.on("error", (err) => {
-            collector.end();
-            reject(err);
-        });
-        collector.on("error", reject);
-        collector.on("finish", function () {
-            const bytes = new Uint8Array(Buffer.concat(this.buffers));
-            resolve(bytes);
-        });
-    });
-};
-exports.headStream = headStream;
-class Collector extends stream_1.Writable {
-    buffers = [];
-    limit = Infinity;
-    bytesBuffered = 0;
-    _write(chunk, encoding, callback) {
-        this.buffers.push(chunk);
-        this.bytesBuffered += chunk.byteLength ?? 0;
-        if (this.bytesBuffered >= this.limit) {
-            const excess = this.bytesBuffered - this.limit;
-            const tailBuffer = this.buffers[this.buffers.length - 1];
-            this.buffers[this.buffers.length - 1] = tailBuffer.subarray(0, tailBuffer.byteLength - excess);
-            this.emit("finish");
-        }
-        callback();
-    }
-}
-
-
-/***/ }),
-
-/***/ 3353:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var utilBase64 = __nccwpck_require__(3158);
-var utilUtf8 = __nccwpck_require__(8165);
-var ChecksumStream = __nccwpck_require__(5146);
-var createChecksumStream = __nccwpck_require__(5270);
-var createBufferedReadable = __nccwpck_require__(4698);
-var getAwsChunkedEncodingStream = __nccwpck_require__(543);
-var headStream = __nccwpck_require__(9435);
-var sdkStreamMixin = __nccwpck_require__(9746);
-var splitStream = __nccwpck_require__(7253);
-var streamTypeCheck = __nccwpck_require__(8039);
-
-class Uint8ArrayBlobAdapter extends Uint8Array {
-    static fromString(source, encoding = "utf-8") {
-        if (typeof source === "string") {
-            if (encoding === "base64") {
-                return Uint8ArrayBlobAdapter.mutate(utilBase64.fromBase64(source));
-            }
-            return Uint8ArrayBlobAdapter.mutate(utilUtf8.fromUtf8(source));
-        }
-        throw new Error(`Unsupported conversion from ${typeof source} to Uint8ArrayBlobAdapter.`);
-    }
-    static mutate(source) {
-        Object.setPrototypeOf(source, Uint8ArrayBlobAdapter.prototype);
-        return source;
-    }
-    transformToString(encoding = "utf-8") {
-        if (encoding === "base64") {
-            return utilBase64.toBase64(this);
-        }
-        return utilUtf8.toUtf8(this);
-    }
-}
-
-exports.isBlob = streamTypeCheck.isBlob;
-exports.isReadableStream = streamTypeCheck.isReadableStream;
-exports.Uint8ArrayBlobAdapter = Uint8ArrayBlobAdapter;
-Object.prototype.hasOwnProperty.call(ChecksumStream, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: ChecksumStream['__proto__']
-    });
-
-Object.keys(ChecksumStream).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = ChecksumStream[k];
-});
-Object.prototype.hasOwnProperty.call(createChecksumStream, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: createChecksumStream['__proto__']
-    });
-
-Object.keys(createChecksumStream).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = createChecksumStream[k];
-});
-Object.prototype.hasOwnProperty.call(createBufferedReadable, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: createBufferedReadable['__proto__']
-    });
-
-Object.keys(createBufferedReadable).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = createBufferedReadable[k];
-});
-Object.prototype.hasOwnProperty.call(getAwsChunkedEncodingStream, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: getAwsChunkedEncodingStream['__proto__']
-    });
-
-Object.keys(getAwsChunkedEncodingStream).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = getAwsChunkedEncodingStream[k];
-});
-Object.prototype.hasOwnProperty.call(headStream, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: headStream['__proto__']
-    });
-
-Object.keys(headStream).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = headStream[k];
-});
-Object.prototype.hasOwnProperty.call(sdkStreamMixin, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: sdkStreamMixin['__proto__']
-    });
-
-Object.keys(sdkStreamMixin).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = sdkStreamMixin[k];
-});
-Object.prototype.hasOwnProperty.call(splitStream, '__proto__') &&
-    !Object.prototype.hasOwnProperty.call(exports, '__proto__') &&
-    Object.defineProperty(exports, '__proto__', {
-        enumerable: true,
-        value: splitStream['__proto__']
-    });
-
-Object.keys(splitStream).forEach(function (k) {
-    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) exports[k] = splitStream[k];
-});
-
-
-/***/ }),
-
-/***/ 5084:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.sdkStreamMixin = void 0;
-const fetch_http_handler_1 = __nccwpck_require__(4497);
-const util_base64_1 = __nccwpck_require__(3158);
-const util_hex_encoding_1 = __nccwpck_require__(7661);
-const util_utf8_1 = __nccwpck_require__(8165);
-const stream_type_check_1 = __nccwpck_require__(8039);
-const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
-const sdkStreamMixin = (stream) => {
-    if (!isBlobInstance(stream) && !(0, stream_type_check_1.isReadableStream)(stream)) {
-        const name = stream?.__proto__?.constructor?.name || stream;
-        throw new Error(`Unexpected stream implementation, expect Blob or ReadableStream, got ${name}`);
-    }
-    let transformed = false;
-    const transformToByteArray = async () => {
-        if (transformed) {
-            throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
-        }
-        transformed = true;
-        return await (0, fetch_http_handler_1.streamCollector)(stream);
-    };
-    const blobToWebStream = (blob) => {
-        if (typeof blob.stream !== "function") {
-            throw new Error("Cannot transform payload Blob to web stream. Please make sure the Blob.stream() is polyfilled.\n" +
-                "If you are using React Native, this API is not yet supported, see: https://react-native.canny.io/feature-requests/p/fetch-streaming-body");
-        }
-        return blob.stream();
-    };
-    return Object.assign(stream, {
-        transformToByteArray: transformToByteArray,
-        transformToString: async (encoding) => {
-            const buf = await transformToByteArray();
-            if (encoding === "base64") {
-                return (0, util_base64_1.toBase64)(buf);
-            }
-            else if (encoding === "hex") {
-                return (0, util_hex_encoding_1.toHex)(buf);
-            }
-            else if (encoding === undefined || encoding === "utf8" || encoding === "utf-8") {
-                return (0, util_utf8_1.toUtf8)(buf);
-            }
-            else if (typeof TextDecoder === "function") {
-                return new TextDecoder(encoding).decode(buf);
-            }
-            else {
-                throw new Error("TextDecoder is not available, please make sure polyfill is provided.");
-            }
-        },
-        transformToWebStream: () => {
-            if (transformed) {
-                throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
-            }
-            transformed = true;
-            if (isBlobInstance(stream)) {
-                return blobToWebStream(stream);
-            }
-            else if ((0, stream_type_check_1.isReadableStream)(stream)) {
-                return stream;
-            }
-            else {
-                throw new Error(`Cannot transform payload to web stream, got ${stream}`);
-            }
-        },
-    });
-};
-exports.sdkStreamMixin = sdkStreamMixin;
-const isBlobInstance = (stream) => typeof Blob === "function" && stream instanceof Blob;
-
-
-/***/ }),
-
-/***/ 9746:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.sdkStreamMixin = void 0;
-const node_http_handler_1 = __nccwpck_require__(6144);
-const util_buffer_from_1 = __nccwpck_require__(1643);
-const stream_1 = __nccwpck_require__(2203);
-const sdk_stream_mixin_browser_1 = __nccwpck_require__(5084);
-const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
-const sdkStreamMixin = (stream) => {
-    if (!(stream instanceof stream_1.Readable)) {
-        try {
-            return (0, sdk_stream_mixin_browser_1.sdkStreamMixin)(stream);
-        }
-        catch (e) {
-            const name = stream?.__proto__?.constructor?.name || stream;
-            throw new Error(`Unexpected stream implementation, expect Stream.Readable instance, got ${name}`);
-        }
-    }
-    let transformed = false;
-    const transformToByteArray = async () => {
-        if (transformed) {
-            throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
-        }
-        transformed = true;
-        return await (0, node_http_handler_1.streamCollector)(stream);
-    };
-    return Object.assign(stream, {
-        transformToByteArray,
-        transformToString: async (encoding) => {
-            const buf = await transformToByteArray();
-            if (encoding === undefined || Buffer.isEncoding(encoding)) {
-                return (0, util_buffer_from_1.fromArrayBuffer)(buf.buffer, buf.byteOffset, buf.byteLength).toString(encoding);
-            }
-            else {
-                const decoder = new TextDecoder(encoding);
-                return decoder.decode(buf);
-            }
-        },
-        transformToWebStream: () => {
-            if (transformed) {
-                throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
-            }
-            if (stream.readableFlowing !== null) {
-                throw new Error("The stream has been consumed by other callbacks.");
-            }
-            if (typeof stream_1.Readable.toWeb !== "function") {
-                throw new Error("Readable.toWeb() is not supported. Please ensure a polyfill is available.");
-            }
-            transformed = true;
-            return stream_1.Readable.toWeb(stream);
-        },
-    });
-};
-exports.sdkStreamMixin = sdkStreamMixin;
-
-
-/***/ }),
-
-/***/ 8755:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.splitStream = splitStream;
-async function splitStream(stream) {
-    if (typeof stream.stream === "function") {
-        stream = stream.stream();
-    }
-    const readableStream = stream;
-    return readableStream.tee();
-}
-
-
-/***/ }),
-
-/***/ 7253:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.splitStream = splitStream;
-const stream_1 = __nccwpck_require__(2203);
-const splitStream_browser_1 = __nccwpck_require__(8755);
-const stream_type_check_1 = __nccwpck_require__(8039);
-async function splitStream(stream) {
-    if ((0, stream_type_check_1.isReadableStream)(stream) || (0, stream_type_check_1.isBlob)(stream)) {
-        return (0, splitStream_browser_1.splitStream)(stream);
-    }
-    const stream1 = new stream_1.PassThrough();
-    const stream2 = new stream_1.PassThrough();
-    stream.pipe(stream1);
-    stream.pipe(stream2);
-    return [stream1, stream2];
-}
-
-
-/***/ }),
-
-/***/ 8039:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.isBlob = exports.isReadableStream = void 0;
-const isReadableStream = (stream) => typeof ReadableStream === "function" &&
-    (stream?.constructor?.name === ReadableStream.name || stream instanceof ReadableStream);
-exports.isReadableStream = isReadableStream;
-const isBlob = (blob) => {
-    return typeof Blob === "function" && (blob?.constructor?.name === Blob.name || blob instanceof Blob);
-};
-exports.isBlob = isBlob;
-
-
-/***/ }),
-
-/***/ 7015:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const escapeUri = (uri) => encodeURIComponent(uri).replace(/[!'()*]/g, hexEncode);
-const hexEncode = (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`;
-
-const escapeUriPath = (uri) => uri.split("/").map(escapeUri).join("/");
-
-exports.escapeUri = escapeUri;
-exports.escapeUriPath = escapeUriPath;
-
-
-/***/ }),
-
-/***/ 8165:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var utilBufferFrom = __nccwpck_require__(1643);
-
-const fromUtf8 = (input) => {
-    const buf = utilBufferFrom.fromString(input, "utf8");
-    return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength / Uint8Array.BYTES_PER_ELEMENT);
-};
-
-const toUint8Array = (data) => {
-    if (typeof data === "string") {
-        return fromUtf8(data);
-    }
-    if (ArrayBuffer.isView(data)) {
-        return new Uint8Array(data.buffer, data.byteOffset, data.byteLength / Uint8Array.BYTES_PER_ELEMENT);
-    }
-    return new Uint8Array(data);
-};
-
-const toUtf8 = (input) => {
-    if (typeof input === "string") {
-        return input;
-    }
-    if (typeof input !== "object" || typeof input.byteOffset !== "number" || typeof input.byteLength !== "number") {
-        throw new Error("@smithy/util-utf8: toUtf8 encoder function only accepts string | Uint8Array.");
-    }
-    return utilBufferFrom.fromArrayBuffer(input.buffer, input.byteOffset, input.byteLength).toString("utf8");
-};
-
-exports.fromUtf8 = fromUtf8;
-exports.toUint8Array = toUint8Array;
-exports.toUtf8 = toUtf8;
-
-
-/***/ }),
-
-/***/ 2226:
-/***/ ((__unused_webpack_module, exports) => {
-
-
-
-const getCircularReplacer = () => {
-    const seen = new WeakSet();
-    return (key, value) => {
-        if (typeof value === "object" && value !== null) {
-            if (seen.has(value)) {
-                return "[Circular]";
-            }
-            seen.add(value);
-        }
-        return value;
-    };
-};
-
-const sleep = (seconds) => {
-    return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
-};
-
-const waiterServiceDefaults = {
-    minDelay: 2,
-    maxDelay: 120,
-};
-exports.WaiterState = void 0;
-(function (WaiterState) {
-    WaiterState["ABORTED"] = "ABORTED";
-    WaiterState["FAILURE"] = "FAILURE";
-    WaiterState["SUCCESS"] = "SUCCESS";
-    WaiterState["RETRY"] = "RETRY";
-    WaiterState["TIMEOUT"] = "TIMEOUT";
-})(exports.WaiterState || (exports.WaiterState = {}));
-const checkExceptions = (result) => {
-    if (result.state === exports.WaiterState.ABORTED) {
-        const abortError = new Error(`${JSON.stringify({
-            ...result,
-            reason: "Request was aborted",
-        }, getCircularReplacer())}`);
-        abortError.name = "AbortError";
-        throw abortError;
-    }
-    else if (result.state === exports.WaiterState.TIMEOUT) {
-        const timeoutError = new Error(`${JSON.stringify({
-            ...result,
-            reason: "Waiter has timed out",
-        }, getCircularReplacer())}`);
-        timeoutError.name = "TimeoutError";
-        throw timeoutError;
-    }
-    else if (result.state !== exports.WaiterState.SUCCESS) {
-        throw new Error(`${JSON.stringify(result, getCircularReplacer())}`);
-    }
-    return result;
-};
-
-const runPolling = async ({ minDelay, maxDelay, maxWaitTime, abortController, client, abortSignal }, input, acceptorChecks) => {
-    const observedResponses = {};
-    const [minDelayMs, maxDelayMs] = [minDelay * 1000, maxDelay * 1000];
-    let currentAttempt = 0;
-    const waitUntil = Date.now() + maxWaitTime * 1000;
-    const warn403Time = Date.now() + 60_000;
-    let didWarn403 = false;
-    while (true) {
-        if (currentAttempt > 0) {
-            const delayMs = exponentialBackoffWithJitter(minDelayMs, maxDelayMs, currentAttempt, waitUntil);
-            if (abortController?.signal?.aborted || abortSignal?.aborted) {
-                const message = "AbortController signal aborted.";
-                observedResponses[message] |= 0;
-                observedResponses[message] += 1;
-                return { state: exports.WaiterState.ABORTED, observedResponses };
-            }
-            if (Date.now() + delayMs > waitUntil) {
-                return { state: exports.WaiterState.TIMEOUT, observedResponses };
-            }
-            await sleep(delayMs / 1_000);
-        }
-        const { state, reason } = await acceptorChecks(client, input);
-        if (reason) {
-            const message = createMessageFromResponse(reason);
-            observedResponses[message] |= 0;
-            observedResponses[message] += 1;
-        }
-        if (state !== exports.WaiterState.RETRY) {
-            return { state, reason, final: reason, observedResponses };
-        }
-        currentAttempt += 1;
-        if (!didWarn403 && Date.now() >= warn403Time) {
-            checkWarn403(observedResponses, client);
-            didWarn403 = true;
-        }
-    }
-};
-const checkWarn403 = (observedResponses = {}, client) => {
-    const orderedErrors = Object.keys(observedResponses);
-    let count403 = 0;
-    for (const response of orderedErrors) {
-        const n = observedResponses[response] | 0;
-        if (response.startsWith("403:")) {
-            count403 += n;
-        }
-    }
-    const clientLogger = client?.config?.logger;
-    const warningLogger = typeof clientLogger?.warn === "function" && !clientLogger.constructor?.name?.includes?.("NoOpLogger")
-        ? clientLogger
-        : console;
-    if (count403 >= 3 || orderedErrors[orderedErrors.length - 1].startsWith("403:")) {
-        warningLogger.warn(`@smithy/util-waiter WARN - 403 status code encountered during waiter polling.`);
-    }
-};
-const createMessageFromResponse = (reason) => {
-    const status = reason?.$response?.statusCode ?? reason?.$metadata?.httpStatusCode;
-    if (reason?.$responseBodyText) {
-        return `${status ? status + ": " : ""}Deserialization error for body: ${reason.$responseBodyText}`;
-    }
-    if (status) {
-        if (reason?.$response || reason?.message) {
-            return `${status ?? "Unknown"}: ${reason?.message}`;
-        }
-        return `${status}: OK`;
-    }
-    return String(reason?.message ?? JSON.stringify(reason, getCircularReplacer()) ?? "Unknown");
-};
-const exponentialBackoffWithJitter = (minDelayMs, maxDelayMs, attempt, waitUntil) => {
-    const attemptCountCeiling = Math.log(maxDelayMs / minDelayMs) / Math.log(2) + 1;
-    if (attempt > attemptCountCeiling) {
-        return maxDelayMs;
-    }
-    const delay = minDelayMs * 2 ** (attempt - 1);
-    const capped = Math.min(delay, maxDelayMs);
-    const waitFor = randomInRange(minDelayMs, capped);
-    if (Date.now() + waitFor > waitUntil) {
-        const timeRemaining = waitUntil - Date.now();
-        return Math.max(0, timeRemaining - 500);
-    }
-    return waitFor;
-};
-const randomInRange = (min, max) => min + Math.random() * (max - min);
-
-const validateWaiterOptions = (options) => {
-    if (options.maxWaitTime <= 0) {
-        throw new Error(`WaiterConfiguration.maxWaitTime must be greater than 0`);
-    }
-    else if (options.minDelay <= 0) {
-        throw new Error(`WaiterConfiguration.minDelay must be greater than 0`);
-    }
-    else if (options.maxDelay <= 0) {
-        throw new Error(`WaiterConfiguration.maxDelay must be greater than 0`);
-    }
-    else if (options.maxWaitTime <= options.minDelay) {
-        throw new Error(`WaiterConfiguration.maxWaitTime [${options.maxWaitTime}] must be greater than WaiterConfiguration.minDelay [${options.minDelay}] for this waiter`);
-    }
-    else if (options.maxDelay < options.minDelay) {
-        throw new Error(`WaiterConfiguration.maxDelay [${options.maxDelay}] must be greater than WaiterConfiguration.minDelay [${options.minDelay}] for this waiter`);
-    }
-};
-
-const abortTimeout = (abortSignal) => {
-    let onAbort;
-    const promise = new Promise((resolve) => {
-        onAbort = () => resolve({ state: exports.WaiterState.ABORTED });
-        if (typeof abortSignal.addEventListener === "function") {
-            abortSignal.addEventListener("abort", onAbort);
-        }
-        else {
-            abortSignal.onabort = onAbort;
-        }
-    });
-    return {
-        clearListener() {
-            if (typeof abortSignal.removeEventListener === "function") {
-                abortSignal.removeEventListener("abort", onAbort);
-            }
-        },
-        aborted: promise,
-    };
-};
-const createWaiter = async (options, input, acceptorChecks) => {
-    const params = {
-        ...waiterServiceDefaults,
-        ...options,
-    };
-    validateWaiterOptions(params);
-    const exitConditions = [runPolling(params, input, acceptorChecks)];
-    const finalize = [];
-    if (options.abortSignal) {
-        const { aborted, clearListener } = abortTimeout(options.abortSignal);
-        finalize.push(clearListener);
-        exitConditions.push(aborted);
-    }
-    if (options.abortController?.signal) {
-        const { aborted, clearListener } = abortTimeout(options.abortController.signal);
-        finalize.push(clearListener);
-        exitConditions.push(aborted);
-    }
-    return Promise.race(exitConditions).then((result) => {
-        for (const fn of finalize) {
-            fn();
-        }
-        return result;
-    });
-};
-
-exports.checkExceptions = checkExceptions;
-exports.createWaiter = createWaiter;
-exports.waiterServiceDefaults = waiterServiceDefaults;
-
-
-/***/ }),
-
-/***/ 8525:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-
-var randomUUID = __nccwpck_require__(7177);
-
-const decimalToHex = Array.from({ length: 256 }, (_, i) => i.toString(16).padStart(2, "0"));
-const v4 = () => {
-    if (randomUUID.randomUUID) {
-        return randomUUID.randomUUID();
-    }
-    const rnds = new Uint8Array(16);
-    crypto.getRandomValues(rnds);
-    rnds[6] = (rnds[6] & 0x0f) | 0x40;
-    rnds[8] = (rnds[8] & 0x3f) | 0x80;
-    return (decimalToHex[rnds[0]] +
-        decimalToHex[rnds[1]] +
-        decimalToHex[rnds[2]] +
-        decimalToHex[rnds[3]] +
-        "-" +
-        decimalToHex[rnds[4]] +
-        decimalToHex[rnds[5]] +
-        "-" +
-        decimalToHex[rnds[6]] +
-        decimalToHex[rnds[7]] +
-        "-" +
-        decimalToHex[rnds[8]] +
-        decimalToHex[rnds[9]] +
-        "-" +
-        decimalToHex[rnds[10]] +
-        decimalToHex[rnds[11]] +
-        decimalToHex[rnds[12]] +
-        decimalToHex[rnds[13]] +
-        decimalToHex[rnds[14]] +
-        decimalToHex[rnds[15]]);
-};
-
-exports.v4 = v4;
-
-
-/***/ }),
-
-/***/ 7177:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.randomUUID = void 0;
-const tslib_1 = __nccwpck_require__(7892);
-const crypto_1 = tslib_1.__importDefault(__nccwpck_require__(6982));
-exports.randomUUID = crypto_1.default.randomUUID.bind(crypto_1.default);
 
 
 /***/ }),
@@ -50001,24 +48950,10 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("buffer");
 
 /***/ }),
 
-/***/ 6982:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("crypto");
-
-/***/ }),
-
 /***/ 4434:
 /***/ ((module) => {
 
 module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("events");
-
-/***/ }),
-
-/***/ 1943:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs/promises");
 
 /***/ }),
 
@@ -50232,27 +49167,6 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:zlib");
 
 /***/ }),
 
-/***/ 857:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
-
-/***/ }),
-
-/***/ 6928:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("path");
-
-/***/ }),
-
-/***/ 2203:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("stream");
-
-/***/ }),
-
 /***/ 3193:
 /***/ ((module) => {
 
@@ -50267,13 +49181,6 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("tls");
 
 /***/ }),
 
-/***/ 7016:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("url");
-
-/***/ }),
-
 /***/ 9023:
 /***/ ((module) => {
 
@@ -50281,17 +49188,17 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 
 /***/ }),
 
-/***/ 7416:
+/***/ 8139:
 /***/ ((module) => {
 
-(()=>{"use strict";var t={d:(e,n)=>{for(var i in n)t.o(n,i)&&!t.o(e,i)&&Object.defineProperty(e,i,{enumerable:!0,get:n[i]})},o:(t,e)=>Object.prototype.hasOwnProperty.call(t,e),r:t=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})}},e={};t.r(e),t.d(e,{XMLBuilder:()=>Bt,XMLParser:()=>Tt,XMLValidator:()=>Ut});const n=":A-Za-z_\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD",i=new RegExp("^["+n+"]["+n+"\\-.\\d\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$");function s(t,e){const n=[];let i=e.exec(t);for(;i;){const s=[];s.startIndex=e.lastIndex-i[0].length;const r=i.length;for(let t=0;t<r;t++)s.push(i[t]);n.push(s),i=e.exec(t)}return n}const r=function(t){return!(null==i.exec(t))},o=["hasOwnProperty","toString","valueOf","__defineGetter__","__defineSetter__","__lookupGetter__","__lookupSetter__"],a=["__proto__","constructor","prototype"],h={allowBooleanAttributes:!1,unpairedTags:[]};function l(t,e){e=Object.assign({},h,e);const n=[];let i=!1,s=!1;"\ufeff"===t[0]&&(t=t.substr(1));for(let r=0;r<t.length;r++)if("<"===t[r]&&"?"===t[r+1]){if(r+=2,r=p(t,r),r.err)return r}else{if("<"!==t[r]){if(u(t[r]))continue;return b("InvalidChar","char '"+t[r]+"' is not expected.",w(t,r))}{let o=r;if(r++,"!"===t[r]){r=c(t,r);continue}{let a=!1;"/"===t[r]&&(a=!0,r++);let h="";for(;r<t.length&&">"!==t[r]&&" "!==t[r]&&"\t"!==t[r]&&"\n"!==t[r]&&"\r"!==t[r];r++)h+=t[r];if(h=h.trim(),"/"===h[h.length-1]&&(h=h.substring(0,h.length-1),r--),!E(h)){let e;return e=0===h.trim().length?"Invalid space after '<'.":"Tag '"+h+"' is an invalid name.",b("InvalidTag",e,w(t,r))}const l=g(t,r);if(!1===l)return b("InvalidAttr","Attributes for '"+h+"' have open quote.",w(t,r));let d=l.value;if(r=l.index,"/"===d[d.length-1]){const n=r-d.length;d=d.substring(0,d.length-1);const s=x(d,e);if(!0!==s)return b(s.err.code,s.err.msg,w(t,n+s.err.line));i=!0}else if(a){if(!l.tagClosed)return b("InvalidTag","Closing tag '"+h+"' doesn't have proper closing.",w(t,r));if(d.trim().length>0)return b("InvalidTag","Closing tag '"+h+"' can't have attributes or invalid starting.",w(t,o));if(0===n.length)return b("InvalidTag","Closing tag '"+h+"' has not been opened.",w(t,o));{const e=n.pop();if(h!==e.tagName){let n=w(t,e.tagStartPos);return b("InvalidTag","Expected closing tag '"+e.tagName+"' (opened in line "+n.line+", col "+n.col+") instead of closing tag '"+h+"'.",w(t,o))}0==n.length&&(s=!0)}}else{const a=x(d,e);if(!0!==a)return b(a.err.code,a.err.msg,w(t,r-d.length+a.err.line));if(!0===s)return b("InvalidXml","Multiple possible root nodes found.",w(t,r));-1!==e.unpairedTags.indexOf(h)||n.push({tagName:h,tagStartPos:o}),i=!0}for(r++;r<t.length;r++)if("<"===t[r]){if("!"===t[r+1]){r++,r=c(t,r);continue}if("?"!==t[r+1])break;if(r=p(t,++r),r.err)return r}else if("&"===t[r]){const e=N(t,r);if(-1==e)return b("InvalidChar","char '&' is not expected.",w(t,r));r=e}else if(!0===s&&!u(t[r]))return b("InvalidXml","Extra text at the end",w(t,r));"<"===t[r]&&r--}}}return i?1==n.length?b("InvalidTag","Unclosed tag '"+n[0].tagName+"'.",w(t,n[0].tagStartPos)):!(n.length>0)||b("InvalidXml","Invalid '"+JSON.stringify(n.map(t=>t.tagName),null,4).replace(/\r?\n/g,"")+"' found.",{line:1,col:1}):b("InvalidXml","Start tag expected.",1)}function u(t){return" "===t||"\t"===t||"\n"===t||"\r"===t}function p(t,e){const n=e;for(;e<t.length;e++)if("?"==t[e]||" "==t[e]){const i=t.substr(n,e-n);if(e>5&&"xml"===i)return b("InvalidXml","XML declaration allowed only at the start of the document.",w(t,e));if("?"==t[e]&&">"==t[e+1]){e++;break}continue}return e}function c(t,e){if(t.length>e+5&&"-"===t[e+1]&&"-"===t[e+2]){for(e+=3;e<t.length;e++)if("-"===t[e]&&"-"===t[e+1]&&">"===t[e+2]){e+=2;break}}else if(t.length>e+8&&"D"===t[e+1]&&"O"===t[e+2]&&"C"===t[e+3]&&"T"===t[e+4]&&"Y"===t[e+5]&&"P"===t[e+6]&&"E"===t[e+7]){let n=1;for(e+=8;e<t.length;e++)if("<"===t[e])n++;else if(">"===t[e]&&(n--,0===n))break}else if(t.length>e+9&&"["===t[e+1]&&"C"===t[e+2]&&"D"===t[e+3]&&"A"===t[e+4]&&"T"===t[e+5]&&"A"===t[e+6]&&"["===t[e+7])for(e+=8;e<t.length;e++)if("]"===t[e]&&"]"===t[e+1]&&">"===t[e+2]){e+=2;break}return e}const d='"',f="'";function g(t,e){let n="",i="",s=!1;for(;e<t.length;e++){if(t[e]===d||t[e]===f)""===i?i=t[e]:i!==t[e]||(i="");else if(">"===t[e]&&""===i){s=!0;break}n+=t[e]}return""===i&&{value:n,index:e,tagClosed:s}}const m=new RegExp("(\\s*)([^\\s=]+)(\\s*=)?(\\s*(['\"])(([\\s\\S])*?)\\5)?","g");function x(t,e){const n=s(t,m),i={};for(let t=0;t<n.length;t++){if(0===n[t][1].length)return b("InvalidAttr","Attribute '"+n[t][2]+"' has no space in starting.",v(n[t]));if(void 0!==n[t][3]&&void 0===n[t][4])return b("InvalidAttr","Attribute '"+n[t][2]+"' is without value.",v(n[t]));if(void 0===n[t][3]&&!e.allowBooleanAttributes)return b("InvalidAttr","boolean attribute '"+n[t][2]+"' is not allowed.",v(n[t]));const s=n[t][2];if(!y(s))return b("InvalidAttr","Attribute '"+s+"' is an invalid name.",v(n[t]));if(Object.prototype.hasOwnProperty.call(i,s))return b("InvalidAttr","Attribute '"+s+"' is repeated.",v(n[t]));i[s]=1}return!0}function N(t,e){if(";"===t[++e])return-1;if("#"===t[e])return function(t,e){let n=/\d/;for("x"===t[e]&&(e++,n=/[\da-fA-F]/);e<t.length;e++){if(";"===t[e])return e;if(!t[e].match(n))break}return-1}(t,++e);let n=0;for(;e<t.length;e++,n++)if(!(t[e].match(/\w/)&&n<20)){if(";"===t[e])break;return-1}return e}function b(t,e,n){return{err:{code:t,msg:e,line:n.line||n,col:n.col}}}function y(t){return r(t)}function E(t){return r(t)}function w(t,e){const n=t.substring(0,e).split(/\r?\n/);return{line:n.length,col:n[n.length-1].length+1}}function v(t){return t.startIndex+t[1].length}const S=t=>o.includes(t)?"__"+t:t,_={preserveOrder:!1,attributeNamePrefix:"@_",attributesGroupName:!1,textNodeName:"#text",ignoreAttributes:!0,removeNSPrefix:!1,allowBooleanAttributes:!1,parseTagValue:!0,parseAttributeValue:!1,trimValues:!0,cdataPropName:!1,numberParseOptions:{hex:!0,leadingZeros:!0,eNotation:!0},tagValueProcessor:function(t,e){return e},attributeValueProcessor:function(t,e){return e},stopNodes:[],alwaysCreateTextNode:!1,isArray:()=>!1,commentPropName:!1,unpairedTags:[],processEntities:!0,htmlEntities:!1,entityDecoder:null,ignoreDeclaration:!1,ignorePiTags:!1,transformTagName:!1,transformAttributeName:!1,updateTag:function(t,e,n){return t},captureMetaData:!1,maxNestedTags:100,strictReservedNames:!0,jPath:!0,onDangerousProperty:S};function A(t,e){if("string"!=typeof t)return;const n=t.toLowerCase();if(o.some(t=>n===t.toLowerCase()))throw new Error(`[SECURITY] Invalid ${e}: "${t}" is a reserved JavaScript keyword that could cause prototype pollution`);if(a.some(t=>n===t.toLowerCase()))throw new Error(`[SECURITY] Invalid ${e}: "${t}" is a reserved JavaScript keyword that could cause prototype pollution`)}function T(t,e){return"boolean"==typeof t?{enabled:t,maxEntitySize:1e4,maxExpansionDepth:1e4,maxTotalExpansions:1/0,maxExpandedLength:1e5,maxEntityCount:1e3,allowedTags:null,tagFilter:null,appliesTo:"all"}:"object"==typeof t&&null!==t?{enabled:!1!==t.enabled,maxEntitySize:Math.max(1,t.maxEntitySize??1e4),maxExpansionDepth:Math.max(1,t.maxExpansionDepth??1e4),maxTotalExpansions:Math.max(1,t.maxTotalExpansions??1/0),maxExpandedLength:Math.max(1,t.maxExpandedLength??1e5),maxEntityCount:Math.max(1,t.maxEntityCount??1e3),allowedTags:t.allowedTags??null,tagFilter:t.tagFilter??null,appliesTo:t.appliesTo??"all"}:T(!0)}const C=function(t){const e=Object.assign({},_,t),n=[{value:e.attributeNamePrefix,name:"attributeNamePrefix"},{value:e.attributesGroupName,name:"attributesGroupName"},{value:e.textNodeName,name:"textNodeName"},{value:e.cdataPropName,name:"cdataPropName"},{value:e.commentPropName,name:"commentPropName"}];for(const{value:t,name:e}of n)t&&A(t,e);return null===e.onDangerousProperty&&(e.onDangerousProperty=S),e.processEntities=T(e.processEntities,e.htmlEntities),e.unpairedTagsSet=new Set(e.unpairedTags),e.stopNodes&&Array.isArray(e.stopNodes)&&(e.stopNodes=e.stopNodes.map(t=>"string"==typeof t&&t.startsWith("*.")?".."+t.substring(2):t)),e};let P;P="function"!=typeof Symbol?"@@xmlMetadata":Symbol("XML Node Metadata");class O{constructor(t){this.tagname=t,this.child=[],this[":@"]=Object.create(null)}add(t,e){"__proto__"===t&&(t="#__proto__"),this.child.push({[t]:e})}addChild(t,e){"__proto__"===t.tagname&&(t.tagname="#__proto__"),t[":@"]&&Object.keys(t[":@"]).length>0?this.child.push({[t.tagname]:t.child,":@":t[":@"]}):this.child.push({[t.tagname]:t.child}),void 0!==e&&(this.child[this.child.length-1][P]={startIndex:e})}static getMetaDataSymbol(){return P}}class ${constructor(t){this.suppressValidationErr=!t,this.options=t}readDocType(t,e){const n=Object.create(null);let i=0;if("O"!==t[e+3]||"C"!==t[e+4]||"T"!==t[e+5]||"Y"!==t[e+6]||"P"!==t[e+7]||"E"!==t[e+8])throw new Error("Invalid Tag instead of DOCTYPE");{e+=9;let s=1,r=!1,o=!1,a="";for(;e<t.length;e++)if("<"!==t[e]||o)if(">"===t[e]){if(o?"-"===t[e-1]&&"-"===t[e-2]&&(o=!1,s--):s--,0===s)break}else"["===t[e]?r=!0:a+=t[e];else{if(r&&D(t,"!ENTITY",e)){let s,r;if(e+=7,[s,r,e]=this.readEntityExp(t,e+1,this.suppressValidationErr),-1===r.indexOf("&")){if(!1!==this.options.enabled&&null!=this.options.maxEntityCount&&i>=this.options.maxEntityCount)throw new Error(`Entity count (${i+1}) exceeds maximum allowed (${this.options.maxEntityCount})`);n[s]=r,i++}}else if(r&&D(t,"!ELEMENT",e)){e+=8;const{index:n}=this.readElementExp(t,e+1);e=n}else if(r&&D(t,"!ATTLIST",e))e+=8;else if(r&&D(t,"!NOTATION",e)){e+=9;const{index:n}=this.readNotationExp(t,e+1,this.suppressValidationErr);e=n}else{if(!D(t,"!--",e))throw new Error("Invalid DOCTYPE");o=!0}s++,a=""}if(0!==s)throw new Error("Unclosed DOCTYPE")}return{entities:n,i:e}}readEntityExp(t,e){const n=e=I(t,e);for(;e<t.length&&!/\s/.test(t[e])&&'"'!==t[e]&&"'"!==t[e];)e++;let i=t.substring(n,e);if(M(i),e=I(t,e),!this.suppressValidationErr){if("SYSTEM"===t.substring(e,e+6).toUpperCase())throw new Error("External entities are not supported");if("%"===t[e])throw new Error("Parameter entities are not supported")}let s="";if([e,s]=this.readIdentifierVal(t,e,"entity"),!1!==this.options.enabled&&null!=this.options.maxEntitySize&&s.length>this.options.maxEntitySize)throw new Error(`Entity "${i}" size (${s.length}) exceeds maximum allowed size (${this.options.maxEntitySize})`);return[i,s,--e]}readNotationExp(t,e){const n=e=I(t,e);for(;e<t.length&&!/\s/.test(t[e]);)e++;let i=t.substring(n,e);!this.suppressValidationErr&&M(i),e=I(t,e);const s=t.substring(e,e+6).toUpperCase();if(!this.suppressValidationErr&&"SYSTEM"!==s&&"PUBLIC"!==s)throw new Error(`Expected SYSTEM or PUBLIC, found "${s}"`);e+=s.length,e=I(t,e);let r=null,o=null;if("PUBLIC"===s)[e,r]=this.readIdentifierVal(t,e,"publicIdentifier"),'"'!==t[e=I(t,e)]&&"'"!==t[e]||([e,o]=this.readIdentifierVal(t,e,"systemIdentifier"));else if("SYSTEM"===s&&([e,o]=this.readIdentifierVal(t,e,"systemIdentifier"),!this.suppressValidationErr&&!o))throw new Error("Missing mandatory system identifier for SYSTEM notation");return{notationName:i,publicIdentifier:r,systemIdentifier:o,index:--e}}readIdentifierVal(t,e,n){let i="";const s=t[e];if('"'!==s&&"'"!==s)throw new Error(`Expected quoted string, found "${s}"`);const r=++e;for(;e<t.length&&t[e]!==s;)e++;if(i=t.substring(r,e),t[e]!==s)throw new Error(`Unterminated ${n} value`);return[++e,i]}readElementExp(t,e){const n=e=I(t,e);for(;e<t.length&&!/\s/.test(t[e]);)e++;let i=t.substring(n,e);if(!this.suppressValidationErr&&!r(i))throw new Error(`Invalid element name: "${i}"`);let s="";if("E"===t[e=I(t,e)]&&D(t,"MPTY",e))e+=4;else if("A"===t[e]&&D(t,"NY",e))e+=2;else if("("===t[e]){const n=++e;for(;e<t.length&&")"!==t[e];)e++;if(s=t.substring(n,e),")"!==t[e])throw new Error("Unterminated content model")}else if(!this.suppressValidationErr)throw new Error(`Invalid Element Expression, found "${t[e]}"`);return{elementName:i,contentModel:s.trim(),index:e}}readAttlistExp(t,e){let n=e=I(t,e);for(;e<t.length&&!/\s/.test(t[e]);)e++;let i=t.substring(n,e);for(M(i),n=e=I(t,e);e<t.length&&!/\s/.test(t[e]);)e++;let s=t.substring(n,e);if(!M(s))throw new Error(`Invalid attribute name: "${s}"`);e=I(t,e);let r="";if("NOTATION"===t.substring(e,e+8).toUpperCase()){if(r="NOTATION","("!==t[e=I(t,e+=8)])throw new Error(`Expected '(', found "${t[e]}"`);e++;let n=[];for(;e<t.length&&")"!==t[e];){const i=e;for(;e<t.length&&"|"!==t[e]&&")"!==t[e];)e++;let s=t.substring(i,e);if(s=s.trim(),!M(s))throw new Error(`Invalid notation name: "${s}"`);n.push(s),"|"===t[e]&&(e++,e=I(t,e))}if(")"!==t[e])throw new Error("Unterminated list of notations");e++,r+=" ("+n.join("|")+")"}else{const n=e;for(;e<t.length&&!/\s/.test(t[e]);)e++;r+=t.substring(n,e);const i=["CDATA","ID","IDREF","IDREFS","ENTITY","ENTITIES","NMTOKEN","NMTOKENS"];if(!this.suppressValidationErr&&!i.includes(r.toUpperCase()))throw new Error(`Invalid attribute type: "${r}"`)}e=I(t,e);let o="";return"#REQUIRED"===t.substring(e,e+8).toUpperCase()?(o="#REQUIRED",e+=8):"#IMPLIED"===t.substring(e,e+7).toUpperCase()?(o="#IMPLIED",e+=7):[e,o]=this.readIdentifierVal(t,e,"ATTLIST"),{elementName:i,attributeName:s,attributeType:r,defaultValue:o,index:e}}}const I=(t,e)=>{for(;e<t.length&&/\s/.test(t[e]);)e++;return e};function D(t,e,n){for(let i=0;i<e.length;i++)if(e[i]!==t[n+i+1])return!1;return!0}function M(t){if(r(t))return t;throw new Error(`Invalid entity name ${t}`)}const j=/^[-+]?0x[a-fA-F0-9]+$/,V=/^([\-\+])?(0*)([0-9]*(\.[0-9]*)?)$/,L={hex:!0,leadingZeros:!0,decimalPoint:".",eNotation:!0,infinity:"original"};const k=/^([-+])?(0*)(\d*(\.\d*)?[eE][-\+]?\d+)$/;class F{constructor(t){this._matcher=t}get separator(){return this._matcher.separator}getCurrentTag(){const t=this._matcher.path;return t.length>0?t[t.length-1].tag:void 0}getCurrentNamespace(){const t=this._matcher.path;return t.length>0?t[t.length-1].namespace:void 0}getAttrValue(t){const e=this._matcher.path;if(0!==e.length)return e[e.length-1].values?.[t]}hasAttr(t){const e=this._matcher.path;if(0===e.length)return!1;const n=e[e.length-1];return void 0!==n.values&&t in n.values}getPosition(){const t=this._matcher.path;return 0===t.length?-1:t[t.length-1].position??0}getCounter(){const t=this._matcher.path;return 0===t.length?-1:t[t.length-1].counter??0}getIndex(){return this.getPosition()}getDepth(){return this._matcher.path.length}toString(t,e=!0){return this._matcher.toString(t,e)}toArray(){return this._matcher.path.map(t=>t.tag)}matches(t){return this._matcher.matches(t)}matchesAny(t){return t.matchesAny(this._matcher)}}class R{constructor(t={}){this.separator=t.separator||".",this.path=[],this.siblingStacks=[],this._pathStringCache=null,this._view=new F(this)}push(t,e=null,n=null){this._pathStringCache=null,this.path.length>0&&(this.path[this.path.length-1].values=void 0);const i=this.path.length;this.siblingStacks[i]||(this.siblingStacks[i]=new Map);const s=this.siblingStacks[i],r=n?`${n}:${t}`:t,o=s.get(r)||0;let a=0;for(const t of s.values())a+=t;s.set(r,o+1);const h={tag:t,position:a,counter:o};null!=n&&(h.namespace=n),null!=e&&(h.values=e),this.path.push(h)}pop(){if(0===this.path.length)return;this._pathStringCache=null;const t=this.path.pop();return this.siblingStacks.length>this.path.length+1&&(this.siblingStacks.length=this.path.length+1),t}updateCurrent(t){if(this.path.length>0){const e=this.path[this.path.length-1];null!=t&&(e.values=t)}}getCurrentTag(){return this.path.length>0?this.path[this.path.length-1].tag:void 0}getCurrentNamespace(){return this.path.length>0?this.path[this.path.length-1].namespace:void 0}getAttrValue(t){if(0!==this.path.length)return this.path[this.path.length-1].values?.[t]}hasAttr(t){if(0===this.path.length)return!1;const e=this.path[this.path.length-1];return void 0!==e.values&&t in e.values}getPosition(){return 0===this.path.length?-1:this.path[this.path.length-1].position??0}getCounter(){return 0===this.path.length?-1:this.path[this.path.length-1].counter??0}getIndex(){return this.getPosition()}getDepth(){return this.path.length}toString(t,e=!0){const n=t||this.separator;if(n===this.separator&&!0===e){if(null!==this._pathStringCache)return this._pathStringCache;const t=this.path.map(t=>t.namespace?`${t.namespace}:${t.tag}`:t.tag).join(n);return this._pathStringCache=t,t}return this.path.map(t=>e&&t.namespace?`${t.namespace}:${t.tag}`:t.tag).join(n)}toArray(){return this.path.map(t=>t.tag)}reset(){this._pathStringCache=null,this.path=[],this.siblingStacks=[]}matches(t){const e=t.segments;return 0!==e.length&&(t.hasDeepWildcard()?this._matchWithDeepWildcard(e):this._matchSimple(e))}_matchSimple(t){if(this.path.length!==t.length)return!1;for(let e=0;e<t.length;e++)if(!this._matchSegment(t[e],this.path[e],e===this.path.length-1))return!1;return!0}_matchWithDeepWildcard(t){let e=this.path.length-1,n=t.length-1;for(;n>=0&&e>=0;){const i=t[n];if("deep-wildcard"===i.type){if(n--,n<0)return!0;const i=t[n];let s=!1;for(let t=e;t>=0;t--)if(this._matchSegment(i,this.path[t],t===this.path.length-1)){e=t-1,n--,s=!0;break}if(!s)return!1}else{if(!this._matchSegment(i,this.path[e],e===this.path.length-1))return!1;e--,n--}}return n<0}_matchSegment(t,e,n){if("*"!==t.tag&&t.tag!==e.tag)return!1;if(void 0!==t.namespace&&"*"!==t.namespace&&t.namespace!==e.namespace)return!1;if(void 0!==t.attrName){if(!n)return!1;if(!e.values||!(t.attrName in e.values))return!1;if(void 0!==t.attrValue&&String(e.values[t.attrName])!==String(t.attrValue))return!1}if(void 0!==t.position){if(!n)return!1;const i=e.counter??0;if("first"===t.position&&0!==i)return!1;if("odd"===t.position&&i%2!=1)return!1;if("even"===t.position&&i%2!=0)return!1;if("nth"===t.position&&i!==t.positionValue)return!1}return!0}matchesAny(t){return t.matchesAny(this)}snapshot(){return{path:this.path.map(t=>({...t})),siblingStacks:this.siblingStacks.map(t=>new Map(t))}}restore(t){this._pathStringCache=null,this.path=t.path.map(t=>({...t})),this.siblingStacks=t.siblingStacks.map(t=>new Map(t))}readOnly(){return this._view}}class G{constructor(t,e={},n){this.pattern=t,this.separator=e.separator||".",this.segments=this._parse(t),this.data=n,this._hasDeepWildcard=this.segments.some(t=>"deep-wildcard"===t.type),this._hasAttributeCondition=this.segments.some(t=>void 0!==t.attrName),this._hasPositionSelector=this.segments.some(t=>void 0!==t.position)}_parse(t){const e=[];let n=0,i="";for(;n<t.length;)t[n]===this.separator?n+1<t.length&&t[n+1]===this.separator?(i.trim()&&(e.push(this._parseSegment(i.trim())),i=""),e.push({type:"deep-wildcard"}),n+=2):(i.trim()&&e.push(this._parseSegment(i.trim())),i="",n++):(i+=t[n],n++);return i.trim()&&e.push(this._parseSegment(i.trim())),e}_parseSegment(t){const e={type:"tag"};let n=null,i=t;const s=t.match(/^([^\[]+)(\[[^\]]*\])(.*)$/);if(s&&(i=s[1]+s[3],s[2])){const t=s[2].slice(1,-1);t&&(n=t)}let r,o,a=i;if(i.includes("::")){const e=i.indexOf("::");if(r=i.substring(0,e).trim(),a=i.substring(e+2).trim(),!r)throw new Error(`Invalid namespace in pattern: ${t}`)}let h=null;if(a.includes(":")){const t=a.lastIndexOf(":"),e=a.substring(0,t).trim(),n=a.substring(t+1).trim();["first","last","odd","even"].includes(n)||/^nth\(\d+\)$/.test(n)?(o=e,h=n):o=a}else o=a;if(!o)throw new Error(`Invalid segment pattern: ${t}`);if(e.tag=o,r&&(e.namespace=r),n)if(n.includes("=")){const t=n.indexOf("=");e.attrName=n.substring(0,t).trim(),e.attrValue=n.substring(t+1).trim()}else e.attrName=n.trim();if(h){const t=h.match(/^nth\((\d+)\)$/);t?(e.position="nth",e.positionValue=parseInt(t[1],10)):e.position=h}return e}get length(){return this.segments.length}hasDeepWildcard(){return this._hasDeepWildcard}hasAttributeCondition(){return this._hasAttributeCondition}hasPositionSelector(){return this._hasPositionSelector}toString(){return this.pattern}}class B{constructor(){this._byDepthAndTag=new Map,this._wildcardByDepth=new Map,this._deepWildcards=[],this._patterns=new Set,this._sealed=!1}add(t){if(this._sealed)throw new TypeError("ExpressionSet is sealed. Create a new ExpressionSet to add more expressions.");if(this._patterns.has(t.pattern))return this;if(this._patterns.add(t.pattern),t.hasDeepWildcard())return this._deepWildcards.push(t),this;const e=t.length,n=t.segments[t.segments.length-1],i=n?.tag;if(i&&"*"!==i){const n=`${e}:${i}`;this._byDepthAndTag.has(n)||this._byDepthAndTag.set(n,[]),this._byDepthAndTag.get(n).push(t)}else this._wildcardByDepth.has(e)||this._wildcardByDepth.set(e,[]),this._wildcardByDepth.get(e).push(t);return this}addAll(t){for(const e of t)this.add(e);return this}has(t){return this._patterns.has(t.pattern)}get size(){return this._patterns.size}seal(){return this._sealed=!0,this}get isSealed(){return this._sealed}matchesAny(t){return null!==this.findMatch(t)}findMatch(t){const e=t.getDepth(),n=`${e}:${t.getCurrentTag()}`,i=this._byDepthAndTag.get(n);if(i)for(let e=0;e<i.length;e++)if(t.matches(i[e]))return i[e];const s=this._wildcardByDepth.get(e);if(s)for(let e=0;e<s.length;e++)if(t.matches(s[e]))return s[e];for(let e=0;e<this._deepWildcards.length;e++)if(t.matches(this._deepWildcards[e]))return this._deepWildcards[e];return null}}const U={cent:"¢",pound:"£",curren:"¤",yen:"¥",euro:"€",dollar:"$",euro:"€",fnof:"ƒ",inr:"₹",af:"؋",birr:"ብር",peso:"₱",rub:"₽",won:"₩",yuan:"¥",cedil:"¸"},W={amp:"&",apos:"'",gt:">",lt:"<",quot:'"'},X={nbsp:" ",copy:"©",reg:"®",trade:"™",mdash:"—",ndash:"–",hellip:"…",laquo:"«",raquo:"»",lsquo:"‘",rsquo:"’",ldquo:"“",rdquo:"”",bull:"•",para:"¶",sect:"§",deg:"°",frac12:"½",frac14:"¼",frac34:"¾"},Y=new Set("!?\\\\/[]$%{}^&*()<>|+");function z(t){if("#"===t[0])throw new Error(`[EntityReplacer] Invalid character '#' in entity name: "${t}"`);for(const e of t)if(Y.has(e))throw new Error(`[EntityReplacer] Invalid character '${e}' in entity name: "${t}"`);return t}function q(...t){const e=Object.create(null);for(const n of t)if(n)for(const t of Object.keys(n)){const i=n[t];if("string"==typeof i)e[t]=i;else if(i&&"object"==typeof i&&void 0!==i.val){const n=i.val;"string"==typeof n&&(e[t]=n)}}return e}const Z="external",J="base",K="all",Q=Object.freeze({allow:0,leave:1,remove:2,throw:3}),H=new Set([9,10,13]);class tt{constructor(t={}){var e;this._limit=t.limit||{},this._maxTotalExpansions=this._limit.maxTotalExpansions||0,this._maxExpandedLength=this._limit.maxExpandedLength||0,this._postCheck="function"==typeof t.postCheck?t.postCheck:t=>t,this._limitTiers=(e=this._limit.applyLimitsTo??Z)&&e!==Z?e===K?new Set([K]):e===J?new Set([J]):Array.isArray(e)?new Set(e):new Set([Z]):new Set([Z]),this._numericAllowed=t.numericAllowed??!0,this._baseMap=q(W,t.namedEntities||null),this._externalMap=Object.create(null),this._inputMap=Object.create(null),this._totalExpansions=0,this._expandedLength=0,this._removeSet=new Set(t.remove&&Array.isArray(t.remove)?t.remove:[]),this._leaveSet=new Set(t.leave&&Array.isArray(t.leave)?t.leave:[]);const n=function(t){if(!t)return{xmlVersion:1,onLevel:Q.allow,nullLevel:Q.remove};const e=1.1===t.xmlVersion?1.1:1,n=Q[t.onNCR]??Q.allow,i=Q[t.nullNCR]??Q.remove;return{xmlVersion:e,onLevel:n,nullLevel:Math.max(i,Q.remove)}}(t.ncr);this._ncrXmlVersion=n.xmlVersion,this._ncrOnLevel=n.onLevel,this._ncrNullLevel=n.nullLevel}setExternalEntities(t){if(t)for(const e of Object.keys(t))z(e);this._externalMap=q(t)}addExternalEntity(t,e){z(t),"string"==typeof e&&-1===e.indexOf("&")&&(this._externalMap[t]=e)}addInputEntities(t){this._totalExpansions=0,this._expandedLength=0,this._inputMap=q(t)}reset(){return this._inputMap=Object.create(null),this._totalExpansions=0,this._expandedLength=0,this}setXmlVersion(t){this._ncrXmlVersion=1.1===t?1.1:1}decode(t){if("string"!=typeof t||0===t.length)return t;const e=t,n=[],i=t.length;let s=0,r=0;const o=this._maxTotalExpansions>0,a=this._maxExpandedLength>0,h=o||a;for(;r<i;){if(38!==t.charCodeAt(r)){r++;continue}let e=r+1;for(;e<i&&59!==t.charCodeAt(e)&&e-r<=32;)e++;if(e>=i||59!==t.charCodeAt(e)){r++;continue}const l=t.slice(r+1,e);if(0===l.length){r++;continue}let u,p;if(this._removeSet.has(l))u="",void 0===p&&(p=Z);else{if(this._leaveSet.has(l)){r++;continue}if(35===l.charCodeAt(0)){const t=this._resolveNCR(l);if(void 0===t){r++;continue}u=t,p=J}else{const t=this._resolveName(l);u=t?.value,p=t?.tier}}if(void 0!==u){if(r>s&&n.push(t.slice(s,r)),n.push(u),s=e+1,r=s,h&&this._tierCounts(p)){if(o&&(this._totalExpansions++,this._totalExpansions>this._maxTotalExpansions))throw new Error(`[EntityReplacer] Entity expansion count limit exceeded: ${this._totalExpansions} > ${this._maxTotalExpansions}`);if(a){const t=u.length-(l.length+2);if(t>0&&(this._expandedLength+=t,this._expandedLength>this._maxExpandedLength))throw new Error(`[EntityReplacer] Expanded content length limit exceeded: ${this._expandedLength} > ${this._maxExpandedLength}`)}}}else r++}s<i&&n.push(t.slice(s));const l=0===n.length?t:n.join("");return this._postCheck(l,e)}_tierCounts(t){return!!this._limitTiers.has(K)||this._limitTiers.has(t)}_resolveName(t){return t in this._inputMap?{value:this._inputMap[t],tier:Z}:t in this._externalMap?{value:this._externalMap[t],tier:Z}:t in this._baseMap?{value:this._baseMap[t],tier:J}:void 0}_classifyNCR(t){return 0===t?this._ncrNullLevel:t>=55296&&t<=57343||1===this._ncrXmlVersion&&t>=1&&t<=31&&!H.has(t)?Q.remove:-1}_applyNCRAction(t,e,n){switch(t){case Q.allow:return String.fromCodePoint(n);case Q.remove:return"";case Q.leave:return;case Q.throw:throw new Error(`[EntityDecoder] Prohibited numeric character reference &${e}; (U+${n.toString(16).toUpperCase().padStart(4,"0")})`);default:return String.fromCodePoint(n)}}_resolveNCR(t){const e=t.charCodeAt(1);let n;if(n=120===e||88===e?parseInt(t.slice(2),16):parseInt(t.slice(1),10),Number.isNaN(n)||n<0||n>1114111)return;const i=this._classifyNCR(n);if(!this._numericAllowed&&i<Q.remove)return;const s=-1===i?this._ncrOnLevel:Math.max(this._ncrOnLevel,i);return this._applyNCRAction(s,t,n)}}function et(t,e){if(!t)return{};const n=e.attributesGroupName?t[e.attributesGroupName]:t;if(!n)return{};const i={};for(const t in n)t.startsWith(e.attributeNamePrefix)?i[t.substring(e.attributeNamePrefix.length)]=n[t]:i[t]=n[t];return i}function nt(t){if(!t||"string"!=typeof t)return;const e=t.indexOf(":");if(-1!==e&&e>0){const n=t.substring(0,e);if("xmlns"!==n)return n}}class it{constructor(t,e){var n;this.options=t,this.currentNode=null,this.tagsNodeStack=[],this.parseXml=ht,this.parseTextData=st,this.resolveNameSpace=rt,this.buildAttributesMap=at,this.isItStopNode=ct,this.replaceEntitiesValue=ut,this.readStopNodeData=mt,this.saveTextToParentTag=pt,this.addChild=lt,this.ignoreAttributesFn="function"==typeof(n=this.options.ignoreAttributes)?n:Array.isArray(n)?t=>{for(const e of n){if("string"==typeof e&&t===e)return!0;if(e instanceof RegExp&&e.test(t))return!0}}:()=>!1,this.entityExpansionCount=0,this.currentExpandedLength=0;let i={...W};this.options.entityDecoder?this.entityDecoder=this.options.entityDecoder:("object"==typeof this.options.htmlEntities?i=this.options.htmlEntities:!0===this.options.htmlEntities&&(i={...X,...U}),this.entityDecoder=new tt({namedEntities:{...i,...e},numericAllowed:this.options.htmlEntities,limit:{maxTotalExpansions:this.options.processEntities.maxTotalExpansions,maxExpandedLength:this.options.processEntities.maxExpandedLength,applyLimitsTo:this.options.processEntities.appliesTo}})),this.matcher=new R,this.readonlyMatcher=this.matcher.readOnly(),this.isCurrentNodeStopNode=!1,this.stopNodeExpressionsSet=new B;const s=this.options.stopNodes;if(s&&s.length>0){for(let t=0;t<s.length;t++){const e=s[t];"string"==typeof e?this.stopNodeExpressionsSet.add(new G(e)):e instanceof G&&this.stopNodeExpressionsSet.add(e)}this.stopNodeExpressionsSet.seal()}}}function st(t,e,n,i,s,r,o){const a=this.options;if(void 0!==t&&(a.trimValues&&!i&&(t=t.trim()),t.length>0)){o||(t=this.replaceEntitiesValue(t,e,n));const i=a.jPath?n.toString():n,h=a.tagValueProcessor(e,t,i,s,r);return null==h?t:typeof h!=typeof t||h!==t?h:a.trimValues||t.trim()===t?xt(t,a.parseTagValue,a.numberParseOptions):t}}function rt(t){if(this.options.removeNSPrefix){const e=t.split(":"),n="/"===t.charAt(0)?"/":"";if("xmlns"===e[0])return"";2===e.length&&(t=n+e[1])}return t}const ot=new RegExp("([^\\s=]+)\\s*(=\\s*(['\"])([\\s\\S]*?)\\3)?","gm");function at(t,e,n,i=!1){const r=this.options;if(!0===i||!0!==r.ignoreAttributes&&"string"==typeof t){const i=s(t,ot),o=i.length,a={},h=new Array(o);let l=!1;const u={};for(let t=0;t<o;t++){const e=this.resolveNameSpace(i[t][1]),s=i[t][4];if(e.length&&void 0!==s){let i=s;r.trimValues&&(i=i.trim()),i=this.replaceEntitiesValue(i,n,this.readonlyMatcher),h[t]=i,u[e]=i,l=!0}}l&&"object"==typeof e&&e.updateCurrent&&e.updateCurrent(u);const p=r.jPath?e.toString():this.readonlyMatcher;let c=!1;for(let t=0;t<o;t++){const e=this.resolveNameSpace(i[t][1]);if(this.ignoreAttributesFn(e,p))continue;let n=r.attributeNamePrefix+e;if(e.length)if(r.transformAttributeName&&(n=r.transformAttributeName(n)),n=bt(n,r),void 0!==i[t][4]){const i=h[t],s=r.attributeValueProcessor(e,i,p);a[n]=null==s?i:typeof s!=typeof i||s!==i?s:xt(i,r.parseAttributeValue,r.numberParseOptions),c=!0}else r.allowBooleanAttributes&&(a[n]=!0,c=!0)}if(!c)return;if(r.attributesGroupName&&!r.preserveOrder){const t={};return t[r.attributesGroupName]=a,t}return a}}const ht=function(t){t=t.replace(/\r\n?/g,"\n");const e=new O("!xml");let n=e,i="";this.matcher.reset(),this.entityDecoder.reset(),this.entityExpansionCount=0,this.currentExpandedLength=0;const s=this.options,r=new $(s.processEntities),o=t.length;for(let a=0;a<o;a++)if("<"===t[a]){const h=t.charCodeAt(a+1);if(47===h){const e=dt(t,">",a,"Closing Tag is not closed.");let r=t.substring(a+2,e).trim();if(s.removeNSPrefix){const t=r.indexOf(":");-1!==t&&(r=r.substr(t+1))}r=Nt(s.transformTagName,r,"",s).tagName,n&&(i=this.saveTextToParentTag(i,n,this.readonlyMatcher));const o=this.matcher.getCurrentTag();if(r&&s.unpairedTagsSet.has(r))throw new Error(`Unpaired tag can not be used as closing tag: </${r}>`);o&&s.unpairedTagsSet.has(o)&&(this.matcher.pop(),this.tagsNodeStack.pop()),this.matcher.pop(),this.isCurrentNodeStopNode=!1,n=this.tagsNodeStack.pop(),i="",a=e}else if(63===h){let e=gt(t,a,!1,"?>");if(!e)throw new Error("Pi Tag is not closed.");i=this.saveTextToParentTag(i,n,this.readonlyMatcher);const r=this.buildAttributesMap(e.tagExp,this.matcher,e.tagName,!0);if(r){const t=r[this.options.attributeNamePrefix+"version"];this.entityDecoder.setXmlVersion(Number(t)||1)}if(s.ignoreDeclaration&&"?xml"===e.tagName||s.ignorePiTags);else{const t=new O(e.tagName);t.add(s.textNodeName,""),e.tagName!==e.tagExp&&e.attrExpPresent&&!0!==s.ignoreAttributes&&(t[":@"]=r),this.addChild(n,t,this.readonlyMatcher,a)}a=e.closeIndex+1}else if(33===h&&45===t.charCodeAt(a+2)&&45===t.charCodeAt(a+3)){const e=dt(t,"--\x3e",a+4,"Comment is not closed.");if(s.commentPropName){const r=t.substring(a+4,e-2);i=this.saveTextToParentTag(i,n,this.readonlyMatcher),n.add(s.commentPropName,[{[s.textNodeName]:r}])}a=e}else if(33===h&&68===t.charCodeAt(a+2)){const e=r.readDocType(t,a);this.entityDecoder.addInputEntities(e.entities),a=e.i}else if(33===h&&91===t.charCodeAt(a+2)){const e=dt(t,"]]>",a,"CDATA is not closed.")-2,r=t.substring(a+9,e);i=this.saveTextToParentTag(i,n,this.readonlyMatcher);let o=this.parseTextData(r,n.tagname,this.readonlyMatcher,!0,!1,!0,!0);null==o&&(o=""),s.cdataPropName?n.add(s.cdataPropName,[{[s.textNodeName]:r}]):n.add(s.textNodeName,o),a=e+2}else{let r=gt(t,a,s.removeNSPrefix);if(!r){const e=t.substring(Math.max(0,a-50),Math.min(o,a+50));throw new Error(`readTagExp returned undefined at position ${a}. Context: "${e}"`)}let h=r.tagName;const l=r.rawTagName;let u=r.tagExp,p=r.attrExpPresent,c=r.closeIndex;if(({tagName:h,tagExp:u}=Nt(s.transformTagName,h,u,s)),s.strictReservedNames&&(h===s.commentPropName||h===s.cdataPropName||h===s.textNodeName||h===s.attributesGroupName))throw new Error(`Invalid tag name: ${h}`);n&&i&&"!xml"!==n.tagname&&(i=this.saveTextToParentTag(i,n,this.readonlyMatcher,!1));const d=n;d&&s.unpairedTagsSet.has(d.tagname)&&(n=this.tagsNodeStack.pop(),this.matcher.pop());let f=!1;u.length>0&&u.lastIndexOf("/")===u.length-1&&(f=!0,"/"===h[h.length-1]?(h=h.substr(0,h.length-1),u=h):u=u.substr(0,u.length-1),p=h!==u);let g,m=null,x={};g=nt(l),h!==e.tagname&&this.matcher.push(h,{},g),h!==u&&p&&(m=this.buildAttributesMap(u,this.matcher,h),m&&(x=et(m,s))),h!==e.tagname&&(this.isCurrentNodeStopNode=this.isItStopNode());const N=a;if(this.isCurrentNodeStopNode){let e="";if(f)a=r.closeIndex;else if(s.unpairedTagsSet.has(h))a=r.closeIndex;else{const n=this.readStopNodeData(t,l,c+1);if(!n)throw new Error(`Unexpected end of ${l}`);a=n.i,e=n.tagContent}const i=new O(h);m&&(i[":@"]=m),i.add(s.textNodeName,e),this.matcher.pop(),this.isCurrentNodeStopNode=!1,this.addChild(n,i,this.readonlyMatcher,N)}else{if(f){({tagName:h,tagExp:u}=Nt(s.transformTagName,h,u,s));const t=new O(h);m&&(t[":@"]=m),this.addChild(n,t,this.readonlyMatcher,N),this.matcher.pop(),this.isCurrentNodeStopNode=!1}else{if(s.unpairedTagsSet.has(h)){const t=new O(h);m&&(t[":@"]=m),this.addChild(n,t,this.readonlyMatcher,N),this.matcher.pop(),this.isCurrentNodeStopNode=!1,a=r.closeIndex;continue}{const t=new O(h);if(this.tagsNodeStack.length>s.maxNestedTags)throw new Error("Maximum nested tags exceeded");this.tagsNodeStack.push(n),m&&(t[":@"]=m),this.addChild(n,t,this.readonlyMatcher,N),n=t}}i="",a=c}}}else i+=t[a];return e.child};function lt(t,e,n,i){this.options.captureMetaData||(i=void 0);const s=this.options.jPath?n.toString():n,r=this.options.updateTag(e.tagname,s,e[":@"]);!1===r||("string"==typeof r?(e.tagname=r,t.addChild(e,i)):t.addChild(e,i))}function ut(t,e,n){const i=this.options.processEntities;if(!i||!i.enabled)return t;if(i.allowedTags){const s=this.options.jPath?n.toString():n;if(!(Array.isArray(i.allowedTags)?i.allowedTags.includes(e):i.allowedTags(e,s)))return t}if(i.tagFilter){const s=this.options.jPath?n.toString():n;if(!i.tagFilter(e,s))return t}return this.entityDecoder.decode(t)}function pt(t,e,n,i){return t&&(void 0===i&&(i=0===e.child.length),void 0!==(t=this.parseTextData(t,e.tagname,n,!1,!!e[":@"]&&0!==Object.keys(e[":@"]).length,i))&&""!==t&&e.add(this.options.textNodeName,t),t=""),t}function ct(){return 0!==this.stopNodeExpressionsSet.size&&this.matcher.matchesAny(this.stopNodeExpressionsSet)}function dt(t,e,n,i){const s=t.indexOf(e,n);if(-1===s)throw new Error(i);return s+e.length-1}function ft(t,e,n,i){const s=t.indexOf(e,n);if(-1===s)throw new Error(i);return s}function gt(t,e,n,i=">"){const s=function(t,e,n=">"){let i=0;const s=t.length,r=n.charCodeAt(0),o=n.length>1?n.charCodeAt(1):-1;let a="",h=e;for(let n=e;n<s;n++){const e=t.charCodeAt(n);if(i)e===i&&(i=0);else if(34===e||39===e)i=e;else if(e===r){if(-1===o)return a+=t.substring(h,n),{data:a,index:n};if(t.charCodeAt(n+1)===o)return a+=t.substring(h,n),{data:a,index:n}}else 9!==e||i||(a+=t.substring(h,n)+" ",h=n+1)}}(t,e+1,i);if(!s)return;let r=s.data;const o=s.index,a=r.search(/\s/);let h=r,l=!0;-1!==a&&(h=r.substring(0,a),r=r.substring(a+1).trimStart());const u=h;if(n){const t=h.indexOf(":");-1!==t&&(h=h.substr(t+1),l=h!==s.data.substr(t+1))}return{tagName:h,tagExp:r,closeIndex:o,attrExpPresent:l,rawTagName:u}}function mt(t,e,n){const i=n;let s=1;const r=t.length;for(;n<r;n++)if("<"===t[n]){const r=t.charCodeAt(n+1);if(47===r){const r=ft(t,">",n,`${e} is not closed`);if(t.substring(n+2,r).trim()===e&&(s--,0===s))return{tagContent:t.substring(i,n),i:r};n=r}else if(63===r)n=dt(t,"?>",n+1,"StopNode is not closed.");else if(33===r&&45===t.charCodeAt(n+2)&&45===t.charCodeAt(n+3))n=dt(t,"--\x3e",n+3,"StopNode is not closed.");else if(33===r&&91===t.charCodeAt(n+2))n=dt(t,"]]>",n,"StopNode is not closed.")-2;else{const i=gt(t,n,">");i&&((i&&i.tagName)===e&&"/"!==i.tagExp[i.tagExp.length-1]&&s++,n=i.closeIndex)}}}function xt(t,e,n){if(e&&"string"==typeof t){const e=t.trim();return"true"===e||"false"!==e&&function(t,e={}){if(e=Object.assign({},L,e),!t||"string"!=typeof t)return t;let n=t.trim();if(0===n.length)return t;if(void 0!==e.skipLike&&e.skipLike.test(n))return t;if("0"===n)return 0;if(e.hex&&j.test(n))return function(t){if(parseInt)return parseInt(t,16);if(Number.parseInt)return Number.parseInt(t,16);if(window&&window.parseInt)return window.parseInt(t,16);throw new Error("parseInt, Number.parseInt, window.parseInt are not supported")}(n);if(isFinite(n)){if(n.includes("e")||n.includes("E"))return function(t,e,n){if(!n.eNotation)return t;const i=e.match(k);if(i){let s=i[1]||"";const r=-1===i[3].indexOf("e")?"E":"e",o=i[2],a=s?t[o.length+1]===r:t[o.length]===r;return o.length>1&&a?t:(1!==o.length||!i[3].startsWith(`.${r}`)&&i[3][0]!==r)&&o.length>0?n.leadingZeros&&!a?(e=(i[1]||"")+i[3],Number(e)):t:Number(e)}return t}(t,n,e);{const s=V.exec(n);if(s){const r=s[1]||"",o=s[2];let a=(i=s[3])&&-1!==i.indexOf(".")?("."===(i=i.replace(/0+$/,""))?i="0":"."===i[0]?i="0"+i:"."===i[i.length-1]&&(i=i.substring(0,i.length-1)),i):i;const h=r?"."===t[o.length+1]:"."===t[o.length];if(!e.leadingZeros&&(o.length>1||1===o.length&&!h))return t;{const i=Number(n),s=String(i);if(0===i)return i;if(-1!==s.search(/[eE]/))return e.eNotation?i:t;if(-1!==n.indexOf("."))return"0"===s||s===a||s===`${r}${a}`?i:t;let h=o?a:n;return o?h===s||r+h===s?i:t:h===s||h===r+s?i:t}}return t}}var i;return function(t,e,n){const i=e===1/0;switch(n.infinity.toLowerCase()){case"null":return null;case"infinity":return e;case"string":return i?"Infinity":"-Infinity";default:return t}}(t,Number(n),e)}(t,n)}return void 0!==t?t:""}function Nt(t,e,n,i){if(t){const i=t(e);n===e&&(n=i),e=i}return{tagName:e=bt(e,i),tagExp:n}}function bt(t,e){if(a.includes(t))throw new Error(`[SECURITY] Invalid name: "${t}" is a reserved JavaScript keyword that could cause prototype pollution`);return o.includes(t)?e.onDangerousProperty(t):t}const yt=O.getMetaDataSymbol();function Et(t,e){if(!t||"object"!=typeof t)return{};if(!e)return t;const n={};for(const i in t)i.startsWith(e)?n[i.substring(e.length)]=t[i]:n[i]=t[i];return n}function wt(t,e,n,i){return vt(t,e,n,i)}function vt(t,e,n,i){let s;const r={};for(let o=0;o<t.length;o++){const a=t[o],h=St(a);if(void 0!==h&&h!==e.textNodeName){const t=Et(a[":@"]||{},e.attributeNamePrefix);n.push(h,t)}if(h===e.textNodeName)void 0===s?s=a[h]:s+=""+a[h];else{if(void 0===h)continue;if(a[h]){let t=vt(a[h],e,n,i);const s=At(t,e);if(a[":@"]?_t(t,a[":@"],i,e):1!==Object.keys(t).length||void 0===t[e.textNodeName]||e.alwaysCreateTextNode?0===Object.keys(t).length&&(e.alwaysCreateTextNode?t[e.textNodeName]="":t=""):t=t[e.textNodeName],void 0!==a[yt]&&"object"==typeof t&&null!==t&&(t[yt]=a[yt]),void 0!==r[h]&&Object.prototype.hasOwnProperty.call(r,h))Array.isArray(r[h])||(r[h]=[r[h]]),r[h].push(t);else{const n=e.jPath?i.toString():i;e.isArray(h,n,s)?r[h]=[t]:r[h]=t}void 0!==h&&h!==e.textNodeName&&n.pop()}}}return"string"==typeof s?s.length>0&&(r[e.textNodeName]=s):void 0!==s&&(r[e.textNodeName]=s),r}function St(t){const e=Object.keys(t);for(let t=0;t<e.length;t++){const n=e[t];if(":@"!==n)return n}}function _t(t,e,n,i){if(e){const s=Object.keys(e),r=s.length;for(let o=0;o<r;o++){const r=s[o],a=r.startsWith(i.attributeNamePrefix)?r.substring(i.attributeNamePrefix.length):r,h=i.jPath?n.toString()+"."+a:n;i.isArray(r,h,!0,!0)?t[r]=[e[r]]:t[r]=e[r]}}}function At(t,e){const{textNodeName:n}=e,i=Object.keys(t).length;return 0===i||!(1!==i||!t[n]&&"boolean"!=typeof t[n]&&0!==t[n])}class Tt{constructor(t){this.externalEntities={},this.options=C(t)}parse(t,e){if("string"!=typeof t&&t.toString)t=t.toString();else if("string"!=typeof t)throw new Error("XML data is accepted in String or Bytes[] form.");if(e){!0===e&&(e={});const n=l(t,e);if(!0!==n)throw Error(`${n.err.msg}:${n.err.line}:${n.err.col}`)}const n=new it(this.options,this.externalEntities),i=n.parseXml(t);return this.options.preserveOrder||void 0===i?i:wt(i,this.options,n.matcher,n.readonlyMatcher)}addEntity(t,e){if(-1!==e.indexOf("&"))throw new Error("Entity value can't have '&'");if(-1!==t.indexOf("&")||-1!==t.indexOf(";"))throw new Error("An entity must be set without '&' and ';'. Eg. use '#xD' for '&#xD;'");if("&"===e)throw new Error("An entity with value '&' is not permitted");this.externalEntities[t]=e}static getMetaDataSymbol(){return O.getMetaDataSymbol()}}function Ct(t,e){let n="";e.format&&e.indentBy.length>0&&(n="\n");const i=[];if(e.stopNodes&&Array.isArray(e.stopNodes))for(let t=0;t<e.stopNodes.length;t++){const n=e.stopNodes[t];"string"==typeof n?i.push(new G(n)):n instanceof G&&i.push(n)}return Pt(t,e,n,new R,i)}function Pt(t,e,n,i,s){let r="",o=!1;if(e.maxNestedTags&&i.getDepth()>e.maxNestedTags)throw new Error("Maximum nested tags exceeded");if(!Array.isArray(t)){if(null!=t){let n=t.toString();return n=Vt(n,e),n}return""}for(let a=0;a<t.length;a++){const h=t[a],l=Dt(h);if(void 0===l)continue;const u=Ot(h[":@"],e);i.push(l,u);const p=jt(i,s);if(l===e.textNodeName){let t=h[l];p||(t=e.tagValueProcessor(l,t),t=Vt(t,e)),o&&(r+=n),r+=t,o=!1,i.pop();continue}if(l===e.cdataPropName){o&&(r+=n);const t=h[l][0][e.textNodeName];r+=`<![CDATA[${String(t).replace(/\]\]>/g,"]]]]><![CDATA[>")}]]>`,o=!1,i.pop();continue}if(l===e.commentPropName){const t=h[l][0][e.textNodeName];r+=n+`\x3c!--${String(t).replace(/--/g,"- -").replace(/-$/,"- ")}--\x3e`,o=!0,i.pop();continue}if("?"===l[0]){const t=Mt(h[":@"],e,p),s="?xml"===l?"":n;let a=h[l][0][e.textNodeName];a=0!==a.length?" "+a:"",r+=s+`<${l}${a}${t}?>`,o=!0,i.pop();continue}let c=n;""!==c&&(c+=e.indentBy);const d=n+`<${l}${Mt(h[":@"],e,p)}`;let f;f=p?$t(h[l],e):Pt(h[l],e,c,i,s),-1!==e.unpairedTags.indexOf(l)?e.suppressUnpairedNode?r+=d+">":r+=d+"/>":f&&0!==f.length||!e.suppressEmptyNode?f&&f.endsWith(">")?r+=d+`>${f}${n}</${l}>`:(r+=d+">",f&&""!==n&&(f.includes("/>")||f.includes("</"))?r+=n+e.indentBy+f+n:r+=f,r+=`</${l}>`):r+=d+"/>",o=!0,i.pop()}return r}function Ot(t,e){if(!t||e.ignoreAttributes)return null;const n={};let i=!1;for(let s in t)Object.prototype.hasOwnProperty.call(t,s)&&(n[s.startsWith(e.attributeNamePrefix)?s.substr(e.attributeNamePrefix.length):s]=t[s],i=!0);return i?n:null}function $t(t,e){if(!Array.isArray(t))return null!=t?t.toString():"";let n="";for(let i=0;i<t.length;i++){const s=t[i],r=Dt(s);if(r===e.textNodeName)n+=s[r];else if(r===e.cdataPropName)n+=s[r][0][e.textNodeName];else if(r===e.commentPropName)n+=s[r][0][e.textNodeName];else{if(r&&"?"===r[0])continue;if(r){const t=It(s[":@"],e),i=$t(s[r],e);i&&0!==i.length?n+=`<${r}${t}>${i}</${r}>`:n+=`<${r}${t}/>`}}}return n}function It(t,e){let n="";if(t&&!e.ignoreAttributes)for(let i in t){if(!Object.prototype.hasOwnProperty.call(t,i))continue;let s=t[i];!0===s&&e.suppressBooleanAttributes?n+=` ${i.substr(e.attributeNamePrefix.length)}`:n+=` ${i.substr(e.attributeNamePrefix.length)}="${s}"`}return n}function Dt(t){const e=Object.keys(t);for(let n=0;n<e.length;n++){const i=e[n];if(Object.prototype.hasOwnProperty.call(t,i)&&":@"!==i)return i}}function Mt(t,e,n){let i="";if(t&&!e.ignoreAttributes)for(let s in t){if(!Object.prototype.hasOwnProperty.call(t,s))continue;let r;n?r=t[s]:(r=e.attributeValueProcessor(s,t[s]),r=Vt(r,e)),!0===r&&e.suppressBooleanAttributes?i+=` ${s.substr(e.attributeNamePrefix.length)}`:i+=` ${s.substr(e.attributeNamePrefix.length)}="${r}"`}return i}function jt(t,e){if(!e||0===e.length)return!1;for(let n=0;n<e.length;n++)if(t.matches(e[n]))return!0;return!1}function Vt(t,e){if(t&&t.length>0&&e.processEntities)for(let n=0;n<e.entities.length;n++){const i=e.entities[n];t=t.replace(i.regex,i.val)}return t}const Lt={attributeNamePrefix:"@_",attributesGroupName:!1,textNodeName:"#text",ignoreAttributes:!0,cdataPropName:!1,format:!1,indentBy:"  ",suppressEmptyNode:!1,suppressUnpairedNode:!0,suppressBooleanAttributes:!0,tagValueProcessor:function(t,e){return e},attributeValueProcessor:function(t,e){return e},preserveOrder:!1,commentPropName:!1,unpairedTags:[],entities:[{regex:new RegExp("&","g"),val:"&amp;"},{regex:new RegExp(">","g"),val:"&gt;"},{regex:new RegExp("<","g"),val:"&lt;"},{regex:new RegExp("'","g"),val:"&apos;"},{regex:new RegExp('"',"g"),val:"&quot;"}],processEntities:!0,stopNodes:[],oneListGroup:!1,maxNestedTags:100,jPath:!0};function kt(t){if(this.options=Object.assign({},Lt,t),this.options.stopNodes&&Array.isArray(this.options.stopNodes)&&(this.options.stopNodes=this.options.stopNodes.map(t=>"string"==typeof t&&t.startsWith("*.")?".."+t.substring(2):t)),this.stopNodeExpressions=[],this.options.stopNodes&&Array.isArray(this.options.stopNodes))for(let t=0;t<this.options.stopNodes.length;t++){const e=this.options.stopNodes[t];"string"==typeof e?this.stopNodeExpressions.push(new G(e)):e instanceof G&&this.stopNodeExpressions.push(e)}var e;!0===this.options.ignoreAttributes||this.options.attributesGroupName?this.isAttribute=function(){return!1}:(this.ignoreAttributesFn="function"==typeof(e=this.options.ignoreAttributes)?e:Array.isArray(e)?t=>{for(const n of e){if("string"==typeof n&&t===n)return!0;if(n instanceof RegExp&&n.test(t))return!0}}:()=>!1,this.attrPrefixLen=this.options.attributeNamePrefix.length,this.isAttribute=Gt),this.processTextOrObjNode=Ft,this.options.format?(this.indentate=Rt,this.tagEndChar=">\n",this.newLine="\n"):(this.indentate=function(){return""},this.tagEndChar=">",this.newLine="")}function Ft(t,e,n,i){const s=this.extractAttributes(t);if(i.push(e,s),this.checkStopNode(i)){const s=this.buildRawContent(t),r=this.buildAttributesForStopNode(t);return i.pop(),this.buildObjectNode(s,e,r,n)}const r=this.j2x(t,n+1,i);return i.pop(),void 0!==t[this.options.textNodeName]&&1===Object.keys(t).length?this.buildTextValNode(t[this.options.textNodeName],e,r.attrStr,n,i):this.buildObjectNode(r.val,e,r.attrStr,n)}function Rt(t){return this.options.indentBy.repeat(t)}function Gt(t){return!(!t.startsWith(this.options.attributeNamePrefix)||t===this.options.textNodeName)&&t.substr(this.attrPrefixLen)}kt.prototype.build=function(t){if(this.options.preserveOrder)return Ct(t,this.options);{Array.isArray(t)&&this.options.arrayNodeName&&this.options.arrayNodeName.length>1&&(t={[this.options.arrayNodeName]:t});const e=new R;return this.j2x(t,0,e).val}},kt.prototype.j2x=function(t,e,n){let i="",s="";if(this.options.maxNestedTags&&n.getDepth()>=this.options.maxNestedTags)throw new Error("Maximum nested tags exceeded");const r=this.options.jPath?n.toString():n,o=this.checkStopNode(n);for(let a in t)if(Object.prototype.hasOwnProperty.call(t,a))if(void 0===t[a])this.isAttribute(a)&&(s+="");else if(null===t[a])this.isAttribute(a)||a===this.options.cdataPropName?s+="":"?"===a[0]?s+=this.indentate(e)+"<"+a+"?"+this.tagEndChar:s+=this.indentate(e)+"<"+a+"/"+this.tagEndChar;else if(t[a]instanceof Date)s+=this.buildTextValNode(t[a],a,"",e,n);else if("object"!=typeof t[a]){const h=this.isAttribute(a);if(h&&!this.ignoreAttributesFn(h,r))i+=this.buildAttrPairStr(h,""+t[a],o);else if(!h)if(a===this.options.textNodeName){let e=this.options.tagValueProcessor(a,""+t[a]);s+=this.replaceEntitiesValue(e)}else{n.push(a);const i=this.checkStopNode(n);if(n.pop(),i){const n=""+t[a];s+=""===n?this.indentate(e)+"<"+a+this.closeTag(a)+this.tagEndChar:this.indentate(e)+"<"+a+">"+n+"</"+a+this.tagEndChar}else s+=this.buildTextValNode(t[a],a,"",e,n)}}else if(Array.isArray(t[a])){const i=t[a].length;let r="",o="";for(let h=0;h<i;h++){const i=t[a][h];if(void 0===i);else if(null===i)"?"===a[0]?s+=this.indentate(e)+"<"+a+"?"+this.tagEndChar:s+=this.indentate(e)+"<"+a+"/"+this.tagEndChar;else if("object"==typeof i)if(this.options.oneListGroup){n.push(a);const t=this.j2x(i,e+1,n);n.pop(),r+=t.val,this.options.attributesGroupName&&i.hasOwnProperty(this.options.attributesGroupName)&&(o+=t.attrStr)}else r+=this.processTextOrObjNode(i,a,e,n);else if(this.options.oneListGroup){let t=this.options.tagValueProcessor(a,i);t=this.replaceEntitiesValue(t),r+=t}else{n.push(a);const t=this.checkStopNode(n);if(n.pop(),t){const t=""+i;r+=""===t?this.indentate(e)+"<"+a+this.closeTag(a)+this.tagEndChar:this.indentate(e)+"<"+a+">"+t+"</"+a+this.tagEndChar}else r+=this.buildTextValNode(i,a,"",e,n)}}this.options.oneListGroup&&(r=this.buildObjectNode(r,a,o,e)),s+=r}else if(this.options.attributesGroupName&&a===this.options.attributesGroupName){const e=Object.keys(t[a]),n=e.length;for(let s=0;s<n;s++)i+=this.buildAttrPairStr(e[s],""+t[a][e[s]],o)}else s+=this.processTextOrObjNode(t[a],a,e,n);return{attrStr:i,val:s}},kt.prototype.buildAttrPairStr=function(t,e,n){return n||(e=this.options.attributeValueProcessor(t,""+e),e=this.replaceEntitiesValue(e)),this.options.suppressBooleanAttributes&&"true"===e?" "+t:" "+t+'="'+e+'"'},kt.prototype.extractAttributes=function(t){if(!t||"object"!=typeof t)return null;const e={};let n=!1;if(this.options.attributesGroupName&&t[this.options.attributesGroupName]){const i=t[this.options.attributesGroupName];for(let t in i)Object.prototype.hasOwnProperty.call(i,t)&&(e[t.startsWith(this.options.attributeNamePrefix)?t.substring(this.options.attributeNamePrefix.length):t]=i[t],n=!0)}else for(let i in t){if(!Object.prototype.hasOwnProperty.call(t,i))continue;const s=this.isAttribute(i);s&&(e[s]=t[i],n=!0)}return n?e:null},kt.prototype.buildRawContent=function(t){if("string"==typeof t)return t;if("object"!=typeof t||null===t)return String(t);if(void 0!==t[this.options.textNodeName])return t[this.options.textNodeName];let e="";for(let n in t){if(!Object.prototype.hasOwnProperty.call(t,n))continue;if(this.isAttribute(n))continue;if(this.options.attributesGroupName&&n===this.options.attributesGroupName)continue;const i=t[n];if(n===this.options.textNodeName)e+=i;else if(Array.isArray(i)){for(let t of i)if("string"==typeof t||"number"==typeof t)e+=`<${n}>${t}</${n}>`;else if("object"==typeof t&&null!==t){const i=this.buildRawContent(t),s=this.buildAttributesForStopNode(t);e+=""===i?`<${n}${s}/>`:`<${n}${s}>${i}</${n}>`}}else if("object"==typeof i&&null!==i){const t=this.buildRawContent(i),s=this.buildAttributesForStopNode(i);e+=""===t?`<${n}${s}/>`:`<${n}${s}>${t}</${n}>`}else e+=`<${n}>${i}</${n}>`}return e},kt.prototype.buildAttributesForStopNode=function(t){if(!t||"object"!=typeof t)return"";let e="";if(this.options.attributesGroupName&&t[this.options.attributesGroupName]){const n=t[this.options.attributesGroupName];for(let t in n){if(!Object.prototype.hasOwnProperty.call(n,t))continue;const i=t.startsWith(this.options.attributeNamePrefix)?t.substring(this.options.attributeNamePrefix.length):t,s=n[t];!0===s&&this.options.suppressBooleanAttributes?e+=" "+i:e+=" "+i+'="'+s+'"'}}else for(let n in t){if(!Object.prototype.hasOwnProperty.call(t,n))continue;const i=this.isAttribute(n);if(i){const s=t[n];!0===s&&this.options.suppressBooleanAttributes?e+=" "+i:e+=" "+i+'="'+s+'"'}}return e},kt.prototype.buildObjectNode=function(t,e,n,i){if(""===t)return"?"===e[0]?this.indentate(i)+"<"+e+n+"?"+this.tagEndChar:this.indentate(i)+"<"+e+n+this.closeTag(e)+this.tagEndChar;{let s="</"+e+this.tagEndChar,r="";return"?"===e[0]&&(r="?",s=""),!n&&""!==n||-1!==t.indexOf("<")?!1!==this.options.commentPropName&&e===this.options.commentPropName&&0===r.length?this.indentate(i)+`\x3c!--${t}--\x3e`+this.newLine:this.indentate(i)+"<"+e+n+r+this.tagEndChar+t+this.indentate(i)+s:this.indentate(i)+"<"+e+n+r+">"+t+s}},kt.prototype.closeTag=function(t){let e="";return-1!==this.options.unpairedTags.indexOf(t)?this.options.suppressUnpairedNode||(e="/"):e=this.options.suppressEmptyNode?"/":`></${t}`,e},kt.prototype.checkStopNode=function(t){if(!this.stopNodeExpressions||0===this.stopNodeExpressions.length)return!1;for(let e=0;e<this.stopNodeExpressions.length;e++)if(t.matches(this.stopNodeExpressions[e]))return!0;return!1},kt.prototype.buildTextValNode=function(t,e,n,i,s){if(!1!==this.options.cdataPropName&&e===this.options.cdataPropName){const e=String(t).replace(/\]\]>/g,"]]]]><![CDATA[>");return this.indentate(i)+`<![CDATA[${e}]]>`+this.newLine}if(!1!==this.options.commentPropName&&e===this.options.commentPropName){const e=String(t).replace(/--/g,"- -").replace(/-$/,"- ");return this.indentate(i)+`\x3c!--${e}--\x3e`+this.newLine}if("?"===e[0])return this.indentate(i)+"<"+e+n+"?"+this.tagEndChar;{let s=this.options.tagValueProcessor(e,t);return s=this.replaceEntitiesValue(s),""===s?this.indentate(i)+"<"+e+n+this.closeTag(e)+this.tagEndChar:this.indentate(i)+"<"+e+n+">"+s+"</"+e+this.tagEndChar}},kt.prototype.replaceEntitiesValue=function(t){if(t&&t.length>0&&this.options.processEntities)for(let e=0;e<this.options.entities.length;e++){const n=this.options.entities[e];t=t.replace(n.regex,n.val)}return t};const Bt=kt,Ut={validate:l};module.exports=e})();
+(()=>{"use strict";var t={d:(e,n)=>{for(var i in n)t.o(n,i)&&!t.o(e,i)&&Object.defineProperty(e,i,{enumerable:!0,get:n[i]})},o:(t,e)=>Object.prototype.hasOwnProperty.call(t,e),r:t=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})}},e={};t.r(e),t.d(e,{XMLBuilder:()=>Xt,XMLParser:()=>Tt,XMLValidator:()=>Yt});const n=":A-Za-z_\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD",i=new RegExp("^["+n+"]["+n+"\\-.\\d\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$");function s(t,e){const n=[];let i=e.exec(t);for(;i;){const s=[];s.startIndex=e.lastIndex-i[0].length;const r=i.length;for(let t=0;t<r;t++)s.push(i[t]);n.push(s),i=e.exec(t)}return n}const r=function(t){return!(null==i.exec(t))},o=["hasOwnProperty","toString","valueOf","__defineGetter__","__defineSetter__","__lookupGetter__","__lookupSetter__"],a=["__proto__","constructor","prototype"],h={allowBooleanAttributes:!1,unpairedTags:[]};function l(t,e){e=Object.assign({},h,e);const n=[];let i=!1,s=!1;"\ufeff"===t[0]&&(t=t.substr(1));for(let r=0;r<t.length;r++)if("<"===t[r]&&"?"===t[r+1]){if(r+=2,r=p(t,r),r.err)return r}else{if("<"!==t[r]){if(u(t[r]))continue;return b("InvalidChar","char '"+t[r]+"' is not expected.",w(t,r))}{let o=r;if(r++,"!"===t[r]){r=c(t,r);continue}{let a=!1;"/"===t[r]&&(a=!0,r++);let h="";for(;r<t.length&&">"!==t[r]&&" "!==t[r]&&"\t"!==t[r]&&"\n"!==t[r]&&"\r"!==t[r];r++)h+=t[r];if(h=h.trim(),"/"===h[h.length-1]&&(h=h.substring(0,h.length-1),r--),!E(h)){let e;return e=0===h.trim().length?"Invalid space after '<'.":"Tag '"+h+"' is an invalid name.",b("InvalidTag",e,w(t,r))}const l=g(t,r);if(!1===l)return b("InvalidAttr","Attributes for '"+h+"' have open quote.",w(t,r));let d=l.value;if(r=l.index,"/"===d[d.length-1]){const n=r-d.length;d=d.substring(0,d.length-1);const s=x(d,e);if(!0!==s)return b(s.err.code,s.err.msg,w(t,n+s.err.line));i=!0}else if(a){if(!l.tagClosed)return b("InvalidTag","Closing tag '"+h+"' doesn't have proper closing.",w(t,r));if(d.trim().length>0)return b("InvalidTag","Closing tag '"+h+"' can't have attributes or invalid starting.",w(t,o));if(0===n.length)return b("InvalidTag","Closing tag '"+h+"' has not been opened.",w(t,o));{const e=n.pop();if(h!==e.tagName){let n=w(t,e.tagStartPos);return b("InvalidTag","Expected closing tag '"+e.tagName+"' (opened in line "+n.line+", col "+n.col+") instead of closing tag '"+h+"'.",w(t,o))}0==n.length&&(s=!0)}}else{const a=x(d,e);if(!0!==a)return b(a.err.code,a.err.msg,w(t,r-d.length+a.err.line));if(!0===s)return b("InvalidXml","Multiple possible root nodes found.",w(t,r));-1!==e.unpairedTags.indexOf(h)||n.push({tagName:h,tagStartPos:o}),i=!0}for(r++;r<t.length;r++)if("<"===t[r]){if("!"===t[r+1]){r++,r=c(t,r);continue}if("?"!==t[r+1])break;if(r=p(t,++r),r.err)return r}else if("&"===t[r]){const e=N(t,r);if(-1==e)return b("InvalidChar","char '&' is not expected.",w(t,r));r=e}else if(!0===s&&!u(t[r]))return b("InvalidXml","Extra text at the end",w(t,r));"<"===t[r]&&r--}}}return i?1==n.length?b("InvalidTag","Unclosed tag '"+n[0].tagName+"'.",w(t,n[0].tagStartPos)):!(n.length>0)||b("InvalidXml","Invalid '"+JSON.stringify(n.map(t=>t.tagName),null,4).replace(/\r?\n/g,"")+"' found.",{line:1,col:1}):b("InvalidXml","Start tag expected.",1)}function u(t){return" "===t||"\t"===t||"\n"===t||"\r"===t}function p(t,e){const n=e;for(;e<t.length;e++)if("?"==t[e]||" "==t[e]){const i=t.substr(n,e-n);if(e>5&&"xml"===i)return b("InvalidXml","XML declaration allowed only at the start of the document.",w(t,e));if("?"==t[e]&&">"==t[e+1]){e++;break}continue}return e}function c(t,e){if(t.length>e+5&&"-"===t[e+1]&&"-"===t[e+2]){for(e+=3;e<t.length;e++)if("-"===t[e]&&"-"===t[e+1]&&">"===t[e+2]){e+=2;break}}else if(t.length>e+8&&"D"===t[e+1]&&"O"===t[e+2]&&"C"===t[e+3]&&"T"===t[e+4]&&"Y"===t[e+5]&&"P"===t[e+6]&&"E"===t[e+7]){let n=1;for(e+=8;e<t.length;e++)if("<"===t[e])n++;else if(">"===t[e]&&(n--,0===n))break}else if(t.length>e+9&&"["===t[e+1]&&"C"===t[e+2]&&"D"===t[e+3]&&"A"===t[e+4]&&"T"===t[e+5]&&"A"===t[e+6]&&"["===t[e+7])for(e+=8;e<t.length;e++)if("]"===t[e]&&"]"===t[e+1]&&">"===t[e+2]){e+=2;break}return e}const d='"',f="'";function g(t,e){let n="",i="",s=!1;for(;e<t.length;e++){if(t[e]===d||t[e]===f)""===i?i=t[e]:i!==t[e]||(i="");else if(">"===t[e]&&""===i){s=!0;break}n+=t[e]}return""===i&&{value:n,index:e,tagClosed:s}}const m=new RegExp("(\\s*)([^\\s=]+)(\\s*=)?(\\s*(['\"])(([\\s\\S])*?)\\5)?","g");function x(t,e){const n=s(t,m),i={};for(let t=0;t<n.length;t++){if(0===n[t][1].length)return b("InvalidAttr","Attribute '"+n[t][2]+"' has no space in starting.",v(n[t]));if(void 0!==n[t][3]&&void 0===n[t][4])return b("InvalidAttr","Attribute '"+n[t][2]+"' is without value.",v(n[t]));if(void 0===n[t][3]&&!e.allowBooleanAttributes)return b("InvalidAttr","boolean attribute '"+n[t][2]+"' is not allowed.",v(n[t]));const s=n[t][2];if(!y(s))return b("InvalidAttr","Attribute '"+s+"' is an invalid name.",v(n[t]));if(Object.prototype.hasOwnProperty.call(i,s))return b("InvalidAttr","Attribute '"+s+"' is repeated.",v(n[t]));i[s]=1}return!0}function N(t,e){if(";"===t[++e])return-1;if("#"===t[e])return function(t,e){let n=/\d/;for("x"===t[e]&&(e++,n=/[\da-fA-F]/);e<t.length;e++){if(";"===t[e])return e;if(!t[e].match(n))break}return-1}(t,++e);let n=0;for(;e<t.length;e++,n++)if(!(t[e].match(/\w/)&&n<20)){if(";"===t[e])break;return-1}return e}function b(t,e,n){return{err:{code:t,msg:e,line:n.line||n,col:n.col}}}function y(t){return r(t)}function E(t){return r(t)}function w(t,e){const n=t.substring(0,e).split(/\r?\n/);return{line:n.length,col:n[n.length-1].length+1}}function v(t){return t.startIndex+t[1].length}const S=t=>o.includes(t)?"__"+t:t,_={preserveOrder:!1,attributeNamePrefix:"@_",attributesGroupName:!1,textNodeName:"#text",ignoreAttributes:!0,removeNSPrefix:!1,allowBooleanAttributes:!1,parseTagValue:!0,parseAttributeValue:!1,trimValues:!0,cdataPropName:!1,numberParseOptions:{hex:!0,leadingZeros:!0,eNotation:!0},tagValueProcessor:function(t,e){return e},attributeValueProcessor:function(t,e){return e},stopNodes:[],alwaysCreateTextNode:!1,isArray:()=>!1,commentPropName:!1,unpairedTags:[],processEntities:!0,htmlEntities:!1,entityDecoder:null,ignoreDeclaration:!1,ignorePiTags:!1,transformTagName:!1,transformAttributeName:!1,updateTag:function(t,e,n){return t},captureMetaData:!1,maxNestedTags:100,strictReservedNames:!0,jPath:!0,onDangerousProperty:S};function A(t,e){if("string"!=typeof t)return;const n=t.toLowerCase();if(o.some(t=>n===t.toLowerCase()))throw new Error(`[SECURITY] Invalid ${e}: "${t}" is a reserved JavaScript keyword that could cause prototype pollution`);if(a.some(t=>n===t.toLowerCase()))throw new Error(`[SECURITY] Invalid ${e}: "${t}" is a reserved JavaScript keyword that could cause prototype pollution`)}function T(t,e){return"boolean"==typeof t?{enabled:t,maxEntitySize:1e4,maxExpansionDepth:1e4,maxTotalExpansions:1/0,maxExpandedLength:1e5,maxEntityCount:1e3,allowedTags:null,tagFilter:null,appliesTo:"all"}:"object"==typeof t&&null!==t?{enabled:!1!==t.enabled,maxEntitySize:Math.max(1,t.maxEntitySize??1e4),maxExpansionDepth:Math.max(1,t.maxExpansionDepth??1e4),maxTotalExpansions:Math.max(1,t.maxTotalExpansions??1/0),maxExpandedLength:Math.max(1,t.maxExpandedLength??1e5),maxEntityCount:Math.max(1,t.maxEntityCount??1e3),allowedTags:t.allowedTags??null,tagFilter:t.tagFilter??null,appliesTo:t.appliesTo??"all"}:T(!0)}const C=function(t){const e=Object.assign({},_,t),n=[{value:e.attributeNamePrefix,name:"attributeNamePrefix"},{value:e.attributesGroupName,name:"attributesGroupName"},{value:e.textNodeName,name:"textNodeName"},{value:e.cdataPropName,name:"cdataPropName"},{value:e.commentPropName,name:"commentPropName"}];for(const{value:t,name:e}of n)t&&A(t,e);return null===e.onDangerousProperty&&(e.onDangerousProperty=S),e.processEntities=T(e.processEntities,e.htmlEntities),e.unpairedTagsSet=new Set(e.unpairedTags),e.stopNodes&&Array.isArray(e.stopNodes)&&(e.stopNodes=e.stopNodes.map(t=>"string"==typeof t&&t.startsWith("*.")?".."+t.substring(2):t)),e};let P;P="function"!=typeof Symbol?"@@xmlMetadata":Symbol("XML Node Metadata");class O{constructor(t){this.tagname=t,this.child=[],this[":@"]=Object.create(null)}add(t,e){"__proto__"===t&&(t="#__proto__"),this.child.push({[t]:e})}addChild(t,e){"__proto__"===t.tagname&&(t.tagname="#__proto__"),t[":@"]&&Object.keys(t[":@"]).length>0?this.child.push({[t.tagname]:t.child,":@":t[":@"]}):this.child.push({[t.tagname]:t.child}),void 0!==e&&(this.child[this.child.length-1][P]={startIndex:e})}static getMetaDataSymbol(){return P}}class ${constructor(t){this.suppressValidationErr=!t,this.options=t}readDocType(t,e){const n=Object.create(null);let i=0;if("O"!==t[e+3]||"C"!==t[e+4]||"T"!==t[e+5]||"Y"!==t[e+6]||"P"!==t[e+7]||"E"!==t[e+8])throw new Error("Invalid Tag instead of DOCTYPE");{e+=9;let s=1,r=!1,o=!1,a="";for(;e<t.length;e++)if("<"!==t[e]||o)if(">"===t[e]){if(o?"-"===t[e-1]&&"-"===t[e-2]&&(o=!1,s--):s--,0===s)break}else"["===t[e]?r=!0:a+=t[e];else{if(r&&D(t,"!ENTITY",e)){let s,r;if(e+=7,[s,r,e]=this.readEntityExp(t,e+1,this.suppressValidationErr),-1===r.indexOf("&")){if(!1!==this.options.enabled&&null!=this.options.maxEntityCount&&i>=this.options.maxEntityCount)throw new Error(`Entity count (${i+1}) exceeds maximum allowed (${this.options.maxEntityCount})`);n[s]=r,i++}}else if(r&&D(t,"!ELEMENT",e)){e+=8;const{index:n}=this.readElementExp(t,e+1);e=n}else if(r&&D(t,"!ATTLIST",e))e+=8;else if(r&&D(t,"!NOTATION",e)){e+=9;const{index:n}=this.readNotationExp(t,e+1,this.suppressValidationErr);e=n}else{if(!D(t,"!--",e))throw new Error("Invalid DOCTYPE");o=!0}s++,a=""}if(0!==s)throw new Error("Unclosed DOCTYPE")}return{entities:n,i:e}}readEntityExp(t,e){const n=e=I(t,e);for(;e<t.length&&!/\s/.test(t[e])&&'"'!==t[e]&&"'"!==t[e];)e++;let i=t.substring(n,e);if(M(i),e=I(t,e),!this.suppressValidationErr){if("SYSTEM"===t.substring(e,e+6).toUpperCase())throw new Error("External entities are not supported");if("%"===t[e])throw new Error("Parameter entities are not supported")}let s="";if([e,s]=this.readIdentifierVal(t,e,"entity"),!1!==this.options.enabled&&null!=this.options.maxEntitySize&&s.length>this.options.maxEntitySize)throw new Error(`Entity "${i}" size (${s.length}) exceeds maximum allowed size (${this.options.maxEntitySize})`);return[i,s,--e]}readNotationExp(t,e){const n=e=I(t,e);for(;e<t.length&&!/\s/.test(t[e]);)e++;let i=t.substring(n,e);!this.suppressValidationErr&&M(i),e=I(t,e);const s=t.substring(e,e+6).toUpperCase();if(!this.suppressValidationErr&&"SYSTEM"!==s&&"PUBLIC"!==s)throw new Error(`Expected SYSTEM or PUBLIC, found "${s}"`);e+=s.length,e=I(t,e);let r=null,o=null;if("PUBLIC"===s)[e,r]=this.readIdentifierVal(t,e,"publicIdentifier"),'"'!==t[e=I(t,e)]&&"'"!==t[e]||([e,o]=this.readIdentifierVal(t,e,"systemIdentifier"));else if("SYSTEM"===s&&([e,o]=this.readIdentifierVal(t,e,"systemIdentifier"),!this.suppressValidationErr&&!o))throw new Error("Missing mandatory system identifier for SYSTEM notation");return{notationName:i,publicIdentifier:r,systemIdentifier:o,index:--e}}readIdentifierVal(t,e,n){let i="";const s=t[e];if('"'!==s&&"'"!==s)throw new Error(`Expected quoted string, found "${s}"`);const r=++e;for(;e<t.length&&t[e]!==s;)e++;if(i=t.substring(r,e),t[e]!==s)throw new Error(`Unterminated ${n} value`);return[++e,i]}readElementExp(t,e){const n=e=I(t,e);for(;e<t.length&&!/\s/.test(t[e]);)e++;let i=t.substring(n,e);if(!this.suppressValidationErr&&!r(i))throw new Error(`Invalid element name: "${i}"`);let s="";if("E"===t[e=I(t,e)]&&D(t,"MPTY",e))e+=4;else if("A"===t[e]&&D(t,"NY",e))e+=2;else if("("===t[e]){const n=++e;for(;e<t.length&&")"!==t[e];)e++;if(s=t.substring(n,e),")"!==t[e])throw new Error("Unterminated content model")}else if(!this.suppressValidationErr)throw new Error(`Invalid Element Expression, found "${t[e]}"`);return{elementName:i,contentModel:s.trim(),index:e}}readAttlistExp(t,e){let n=e=I(t,e);for(;e<t.length&&!/\s/.test(t[e]);)e++;let i=t.substring(n,e);for(M(i),n=e=I(t,e);e<t.length&&!/\s/.test(t[e]);)e++;let s=t.substring(n,e);if(!M(s))throw new Error(`Invalid attribute name: "${s}"`);e=I(t,e);let r="";if("NOTATION"===t.substring(e,e+8).toUpperCase()){if(r="NOTATION","("!==t[e=I(t,e+=8)])throw new Error(`Expected '(', found "${t[e]}"`);e++;let n=[];for(;e<t.length&&")"!==t[e];){const i=e;for(;e<t.length&&"|"!==t[e]&&")"!==t[e];)e++;let s=t.substring(i,e);if(s=s.trim(),!M(s))throw new Error(`Invalid notation name: "${s}"`);n.push(s),"|"===t[e]&&(e++,e=I(t,e))}if(")"!==t[e])throw new Error("Unterminated list of notations");e++,r+=" ("+n.join("|")+")"}else{const n=e;for(;e<t.length&&!/\s/.test(t[e]);)e++;r+=t.substring(n,e);const i=["CDATA","ID","IDREF","IDREFS","ENTITY","ENTITIES","NMTOKEN","NMTOKENS"];if(!this.suppressValidationErr&&!i.includes(r.toUpperCase()))throw new Error(`Invalid attribute type: "${r}"`)}e=I(t,e);let o="";return"#REQUIRED"===t.substring(e,e+8).toUpperCase()?(o="#REQUIRED",e+=8):"#IMPLIED"===t.substring(e,e+7).toUpperCase()?(o="#IMPLIED",e+=7):[e,o]=this.readIdentifierVal(t,e,"ATTLIST"),{elementName:i,attributeName:s,attributeType:r,defaultValue:o,index:e}}}const I=(t,e)=>{for(;e<t.length&&/\s/.test(t[e]);)e++;return e};function D(t,e,n){for(let i=0;i<e.length;i++)if(e[i]!==t[n+i+1])return!1;return!0}function M(t){if(r(t))return t;throw new Error(`Invalid entity name ${t}`)}const j=/^[-+]?0x[a-fA-F0-9]+$/,V=/^([\-\+])?(0*)([0-9]*(\.[0-9]*)?)$/,L={hex:!0,leadingZeros:!0,decimalPoint:".",eNotation:!0,infinity:"original"};const k=/^([-+])?(0*)(\d*(\.\d*)?[eE][-\+]?\d+)$/;class F{constructor(t){this._matcher=t}get separator(){return this._matcher.separator}getCurrentTag(){const t=this._matcher.path;return t.length>0?t[t.length-1].tag:void 0}getCurrentNamespace(){const t=this._matcher.path;return t.length>0?t[t.length-1].namespace:void 0}getAttrValue(t){const e=this._matcher.path;if(0!==e.length)return e[e.length-1].values?.[t]}hasAttr(t){const e=this._matcher.path;if(0===e.length)return!1;const n=e[e.length-1];return void 0!==n.values&&t in n.values}getPosition(){const t=this._matcher.path;return 0===t.length?-1:t[t.length-1].position??0}getCounter(){const t=this._matcher.path;return 0===t.length?-1:t[t.length-1].counter??0}getIndex(){return this.getPosition()}getDepth(){return this._matcher.path.length}toString(t,e=!0){return this._matcher.toString(t,e)}toArray(){return this._matcher.path.map(t=>t.tag)}matches(t){return this._matcher.matches(t)}matchesAny(t){return t.matchesAny(this._matcher)}}class R{constructor(t={}){this.separator=t.separator||".",this.path=[],this.siblingStacks=[],this._pathStringCache=null,this._view=new F(this)}push(t,e=null,n=null){this._pathStringCache=null,this.path.length>0&&(this.path[this.path.length-1].values=void 0);const i=this.path.length;this.siblingStacks[i]||(this.siblingStacks[i]=new Map);const s=this.siblingStacks[i],r=n?`${n}:${t}`:t,o=s.get(r)||0;let a=0;for(const t of s.values())a+=t;s.set(r,o+1);const h={tag:t,position:a,counter:o};null!=n&&(h.namespace=n),null!=e&&(h.values=e),this.path.push(h)}pop(){if(0===this.path.length)return;this._pathStringCache=null;const t=this.path.pop();return this.siblingStacks.length>this.path.length+1&&(this.siblingStacks.length=this.path.length+1),t}updateCurrent(t){if(this.path.length>0){const e=this.path[this.path.length-1];null!=t&&(e.values=t)}}getCurrentTag(){return this.path.length>0?this.path[this.path.length-1].tag:void 0}getCurrentNamespace(){return this.path.length>0?this.path[this.path.length-1].namespace:void 0}getAttrValue(t){if(0!==this.path.length)return this.path[this.path.length-1].values?.[t]}hasAttr(t){if(0===this.path.length)return!1;const e=this.path[this.path.length-1];return void 0!==e.values&&t in e.values}getPosition(){return 0===this.path.length?-1:this.path[this.path.length-1].position??0}getCounter(){return 0===this.path.length?-1:this.path[this.path.length-1].counter??0}getIndex(){return this.getPosition()}getDepth(){return this.path.length}toString(t,e=!0){const n=t||this.separator;if(n===this.separator&&!0===e){if(null!==this._pathStringCache)return this._pathStringCache;const t=this.path.map(t=>t.namespace?`${t.namespace}:${t.tag}`:t.tag).join(n);return this._pathStringCache=t,t}return this.path.map(t=>e&&t.namespace?`${t.namespace}:${t.tag}`:t.tag).join(n)}toArray(){return this.path.map(t=>t.tag)}reset(){this._pathStringCache=null,this.path=[],this.siblingStacks=[]}matches(t){const e=t.segments;return 0!==e.length&&(t.hasDeepWildcard()?this._matchWithDeepWildcard(e):this._matchSimple(e))}_matchSimple(t){if(this.path.length!==t.length)return!1;for(let e=0;e<t.length;e++)if(!this._matchSegment(t[e],this.path[e],e===this.path.length-1))return!1;return!0}_matchWithDeepWildcard(t){let e=this.path.length-1,n=t.length-1;for(;n>=0&&e>=0;){const i=t[n];if("deep-wildcard"===i.type){if(n--,n<0)return!0;const i=t[n];let s=!1;for(let t=e;t>=0;t--)if(this._matchSegment(i,this.path[t],t===this.path.length-1)){e=t-1,n--,s=!0;break}if(!s)return!1}else{if(!this._matchSegment(i,this.path[e],e===this.path.length-1))return!1;e--,n--}}return n<0}_matchSegment(t,e,n){if("*"!==t.tag&&t.tag!==e.tag)return!1;if(void 0!==t.namespace&&"*"!==t.namespace&&t.namespace!==e.namespace)return!1;if(void 0!==t.attrName){if(!n)return!1;if(!e.values||!(t.attrName in e.values))return!1;if(void 0!==t.attrValue&&String(e.values[t.attrName])!==String(t.attrValue))return!1}if(void 0!==t.position){if(!n)return!1;const i=e.counter??0;if("first"===t.position&&0!==i)return!1;if("odd"===t.position&&i%2!=1)return!1;if("even"===t.position&&i%2!=0)return!1;if("nth"===t.position&&i!==t.positionValue)return!1}return!0}matchesAny(t){return t.matchesAny(this)}snapshot(){return{path:this.path.map(t=>({...t})),siblingStacks:this.siblingStacks.map(t=>new Map(t))}}restore(t){this._pathStringCache=null,this.path=t.path.map(t=>({...t})),this.siblingStacks=t.siblingStacks.map(t=>new Map(t))}readOnly(){return this._view}}class G{constructor(t,e={},n){this.pattern=t,this.separator=e.separator||".",this.segments=this._parse(t),this.data=n,this._hasDeepWildcard=this.segments.some(t=>"deep-wildcard"===t.type),this._hasAttributeCondition=this.segments.some(t=>void 0!==t.attrName),this._hasPositionSelector=this.segments.some(t=>void 0!==t.position)}_parse(t){const e=[];let n=0,i="";for(;n<t.length;)t[n]===this.separator?n+1<t.length&&t[n+1]===this.separator?(i.trim()&&(e.push(this._parseSegment(i.trim())),i=""),e.push({type:"deep-wildcard"}),n+=2):(i.trim()&&e.push(this._parseSegment(i.trim())),i="",n++):(i+=t[n],n++);return i.trim()&&e.push(this._parseSegment(i.trim())),e}_parseSegment(t){const e={type:"tag"};let n=null,i=t;const s=t.match(/^([^\[]+)(\[[^\]]*\])(.*)$/);if(s&&(i=s[1]+s[3],s[2])){const t=s[2].slice(1,-1);t&&(n=t)}let r,o,a=i;if(i.includes("::")){const e=i.indexOf("::");if(r=i.substring(0,e).trim(),a=i.substring(e+2).trim(),!r)throw new Error(`Invalid namespace in pattern: ${t}`)}let h=null;if(a.includes(":")){const t=a.lastIndexOf(":"),e=a.substring(0,t).trim(),n=a.substring(t+1).trim();["first","last","odd","even"].includes(n)||/^nth\(\d+\)$/.test(n)?(o=e,h=n):o=a}else o=a;if(!o)throw new Error(`Invalid segment pattern: ${t}`);if(e.tag=o,r&&(e.namespace=r),n)if(n.includes("=")){const t=n.indexOf("=");e.attrName=n.substring(0,t).trim(),e.attrValue=n.substring(t+1).trim()}else e.attrName=n.trim();if(h){const t=h.match(/^nth\((\d+)\)$/);t?(e.position="nth",e.positionValue=parseInt(t[1],10)):e.position=h}return e}get length(){return this.segments.length}hasDeepWildcard(){return this._hasDeepWildcard}hasAttributeCondition(){return this._hasAttributeCondition}hasPositionSelector(){return this._hasPositionSelector}toString(){return this.pattern}}class B{constructor(){this._byDepthAndTag=new Map,this._wildcardByDepth=new Map,this._deepWildcards=[],this._patterns=new Set,this._sealed=!1}add(t){if(this._sealed)throw new TypeError("ExpressionSet is sealed. Create a new ExpressionSet to add more expressions.");if(this._patterns.has(t.pattern))return this;if(this._patterns.add(t.pattern),t.hasDeepWildcard())return this._deepWildcards.push(t),this;const e=t.length,n=t.segments[t.segments.length-1],i=n?.tag;if(i&&"*"!==i){const n=`${e}:${i}`;this._byDepthAndTag.has(n)||this._byDepthAndTag.set(n,[]),this._byDepthAndTag.get(n).push(t)}else this._wildcardByDepth.has(e)||this._wildcardByDepth.set(e,[]),this._wildcardByDepth.get(e).push(t);return this}addAll(t){for(const e of t)this.add(e);return this}has(t){return this._patterns.has(t.pattern)}get size(){return this._patterns.size}seal(){return this._sealed=!0,this}get isSealed(){return this._sealed}matchesAny(t){return null!==this.findMatch(t)}findMatch(t){const e=t.getDepth(),n=`${e}:${t.getCurrentTag()}`,i=this._byDepthAndTag.get(n);if(i)for(let e=0;e<i.length;e++)if(t.matches(i[e]))return i[e];const s=this._wildcardByDepth.get(e);if(s)for(let e=0;e<s.length;e++)if(t.matches(s[e]))return s[e];for(let e=0;e<this._deepWildcards.length;e++)if(t.matches(this._deepWildcards[e]))return this._deepWildcards[e];return null}}const U={cent:"¢",pound:"£",curren:"¤",yen:"¥",euro:"€",dollar:"$",euro:"€",fnof:"ƒ",inr:"₹",af:"؋",birr:"ብር",peso:"₱",rub:"₽",won:"₩",yuan:"¥",cedil:"¸"},W={amp:"&",apos:"'",gt:">",lt:"<",quot:'"'},X={nbsp:" ",copy:"©",reg:"®",trade:"™",mdash:"—",ndash:"–",hellip:"…",laquo:"«",raquo:"»",lsquo:"‘",rsquo:"’",ldquo:"“",rdquo:"”",bull:"•",para:"¶",sect:"§",deg:"°",frac12:"½",frac14:"¼",frac34:"¾"},Y=new Set("!?\\\\/[]$%{}^&*()<>|+");function z(t){if("#"===t[0])throw new Error(`[EntityReplacer] Invalid character '#' in entity name: "${t}"`);for(const e of t)if(Y.has(e))throw new Error(`[EntityReplacer] Invalid character '${e}' in entity name: "${t}"`);return t}function q(...t){const e=Object.create(null);for(const n of t)if(n)for(const t of Object.keys(n)){const i=n[t];if("string"==typeof i)e[t]=i;else if(i&&"object"==typeof i&&void 0!==i.val){const n=i.val;"string"==typeof n&&(e[t]=n)}}return e}const Z="external",J="base",K="all",Q=Object.freeze({allow:0,leave:1,remove:2,throw:3}),H=new Set([9,10,13]);class tt{constructor(t={}){var e;this._limit=t.limit||{},this._maxTotalExpansions=this._limit.maxTotalExpansions||0,this._maxExpandedLength=this._limit.maxExpandedLength||0,this._postCheck="function"==typeof t.postCheck?t.postCheck:t=>t,this._limitTiers=(e=this._limit.applyLimitsTo??Z)&&e!==Z?e===K?new Set([K]):e===J?new Set([J]):Array.isArray(e)?new Set(e):new Set([Z]):new Set([Z]),this._numericAllowed=t.numericAllowed??!0,this._baseMap=q(W,t.namedEntities||null),this._externalMap=Object.create(null),this._inputMap=Object.create(null),this._totalExpansions=0,this._expandedLength=0,this._removeSet=new Set(t.remove&&Array.isArray(t.remove)?t.remove:[]),this._leaveSet=new Set(t.leave&&Array.isArray(t.leave)?t.leave:[]);const n=function(t){if(!t)return{xmlVersion:1,onLevel:Q.allow,nullLevel:Q.remove};const e=1.1===t.xmlVersion?1.1:1,n=Q[t.onNCR]??Q.allow,i=Q[t.nullNCR]??Q.remove;return{xmlVersion:e,onLevel:n,nullLevel:Math.max(i,Q.remove)}}(t.ncr);this._ncrXmlVersion=n.xmlVersion,this._ncrOnLevel=n.onLevel,this._ncrNullLevel=n.nullLevel}setExternalEntities(t){if(t)for(const e of Object.keys(t))z(e);this._externalMap=q(t)}addExternalEntity(t,e){z(t),"string"==typeof e&&-1===e.indexOf("&")&&(this._externalMap[t]=e)}addInputEntities(t){this._totalExpansions=0,this._expandedLength=0,this._inputMap=q(t)}reset(){return this._inputMap=Object.create(null),this._totalExpansions=0,this._expandedLength=0,this}setXmlVersion(t){this._ncrXmlVersion=1.1===t?1.1:1}decode(t){if("string"!=typeof t||0===t.length)return t;const e=t,n=[],i=t.length;let s=0,r=0;const o=this._maxTotalExpansions>0,a=this._maxExpandedLength>0,h=o||a;for(;r<i;){if(38!==t.charCodeAt(r)){r++;continue}let e=r+1;for(;e<i&&59!==t.charCodeAt(e)&&e-r<=32;)e++;if(e>=i||59!==t.charCodeAt(e)){r++;continue}const l=t.slice(r+1,e);if(0===l.length){r++;continue}let u,p;if(this._removeSet.has(l))u="",void 0===p&&(p=Z);else{if(this._leaveSet.has(l)){r++;continue}if(35===l.charCodeAt(0)){const t=this._resolveNCR(l);if(void 0===t){r++;continue}u=t,p=J}else{const t=this._resolveName(l);u=t?.value,p=t?.tier}}if(void 0!==u){if(r>s&&n.push(t.slice(s,r)),n.push(u),s=e+1,r=s,h&&this._tierCounts(p)){if(o&&(this._totalExpansions++,this._totalExpansions>this._maxTotalExpansions))throw new Error(`[EntityReplacer] Entity expansion count limit exceeded: ${this._totalExpansions} > ${this._maxTotalExpansions}`);if(a){const t=u.length-(l.length+2);if(t>0&&(this._expandedLength+=t,this._expandedLength>this._maxExpandedLength))throw new Error(`[EntityReplacer] Expanded content length limit exceeded: ${this._expandedLength} > ${this._maxExpandedLength}`)}}}else r++}s<i&&n.push(t.slice(s));const l=0===n.length?t:n.join("");return this._postCheck(l,e)}_tierCounts(t){return!!this._limitTiers.has(K)||this._limitTiers.has(t)}_resolveName(t){return t in this._inputMap?{value:this._inputMap[t],tier:Z}:t in this._externalMap?{value:this._externalMap[t],tier:Z}:t in this._baseMap?{value:this._baseMap[t],tier:J}:void 0}_classifyNCR(t){return 0===t?this._ncrNullLevel:t>=55296&&t<=57343||1===this._ncrXmlVersion&&t>=1&&t<=31&&!H.has(t)?Q.remove:-1}_applyNCRAction(t,e,n){switch(t){case Q.allow:return String.fromCodePoint(n);case Q.remove:return"";case Q.leave:return;case Q.throw:throw new Error(`[EntityDecoder] Prohibited numeric character reference &${e}; (U+${n.toString(16).toUpperCase().padStart(4,"0")})`);default:return String.fromCodePoint(n)}}_resolveNCR(t){const e=t.charCodeAt(1);let n;if(n=120===e||88===e?parseInt(t.slice(2),16):parseInt(t.slice(1),10),Number.isNaN(n)||n<0||n>1114111)return;const i=this._classifyNCR(n);if(!this._numericAllowed&&i<Q.remove)return;const s=-1===i?this._ncrOnLevel:Math.max(this._ncrOnLevel,i);return this._applyNCRAction(s,t,n)}}function et(t,e){if(!t)return{};const n=e.attributesGroupName?t[e.attributesGroupName]:t;if(!n)return{};const i={};for(const t in n)t.startsWith(e.attributeNamePrefix)?i[t.substring(e.attributeNamePrefix.length)]=n[t]:i[t]=n[t];return i}function nt(t){if(!t||"string"!=typeof t)return;const e=t.indexOf(":");if(-1!==e&&e>0){const n=t.substring(0,e);if("xmlns"!==n)return n}}class it{constructor(t,e){var n;this.options=t,this.currentNode=null,this.tagsNodeStack=[],this.parseXml=ht,this.parseTextData=st,this.resolveNameSpace=rt,this.buildAttributesMap=at,this.isItStopNode=ct,this.replaceEntitiesValue=ut,this.readStopNodeData=mt,this.saveTextToParentTag=pt,this.addChild=lt,this.ignoreAttributesFn="function"==typeof(n=this.options.ignoreAttributes)?n:Array.isArray(n)?t=>{for(const e of n){if("string"==typeof e&&t===e)return!0;if(e instanceof RegExp&&e.test(t))return!0}}:()=>!1,this.entityExpansionCount=0,this.currentExpandedLength=0;let i={...W};this.options.entityDecoder?this.entityDecoder=this.options.entityDecoder:("object"==typeof this.options.htmlEntities?i=this.options.htmlEntities:!0===this.options.htmlEntities&&(i={...X,...U}),this.entityDecoder=new tt({namedEntities:{...i,...e},numericAllowed:this.options.htmlEntities,limit:{maxTotalExpansions:this.options.processEntities.maxTotalExpansions,maxExpandedLength:this.options.processEntities.maxExpandedLength,applyLimitsTo:this.options.processEntities.appliesTo}})),this.matcher=new R,this.readonlyMatcher=this.matcher.readOnly(),this.isCurrentNodeStopNode=!1,this.stopNodeExpressionsSet=new B;const s=this.options.stopNodes;if(s&&s.length>0){for(let t=0;t<s.length;t++){const e=s[t];"string"==typeof e?this.stopNodeExpressionsSet.add(new G(e)):e instanceof G&&this.stopNodeExpressionsSet.add(e)}this.stopNodeExpressionsSet.seal()}}}function st(t,e,n,i,s,r,o){const a=this.options;if(void 0!==t&&(a.trimValues&&!i&&(t=t.trim()),t.length>0)){o||(t=this.replaceEntitiesValue(t,e,n));const i=a.jPath?n.toString():n,h=a.tagValueProcessor(e,t,i,s,r);return null==h?t:typeof h!=typeof t||h!==t?h:a.trimValues||t.trim()===t?xt(t,a.parseTagValue,a.numberParseOptions):t}}function rt(t){if(this.options.removeNSPrefix){const e=t.split(":"),n="/"===t.charAt(0)?"/":"";if("xmlns"===e[0])return"";2===e.length&&(t=n+e[1])}return t}const ot=new RegExp("([^\\s=]+)\\s*(=\\s*(['\"])([\\s\\S]*?)\\3)?","gm");function at(t,e,n,i=!1){const r=this.options;if(!0===i||!0!==r.ignoreAttributes&&"string"==typeof t){const i=s(t,ot),o=i.length,a={},h=new Array(o);let l=!1;const u={};for(let t=0;t<o;t++){const e=this.resolveNameSpace(i[t][1]),s=i[t][4];if(e.length&&void 0!==s){let i=s;r.trimValues&&(i=i.trim()),i=this.replaceEntitiesValue(i,n,this.readonlyMatcher),h[t]=i,u[e]=i,l=!0}}l&&"object"==typeof e&&e.updateCurrent&&e.updateCurrent(u);const p=r.jPath?e.toString():this.readonlyMatcher;let c=!1;for(let t=0;t<o;t++){const e=this.resolveNameSpace(i[t][1]);if(this.ignoreAttributesFn(e,p))continue;let n=r.attributeNamePrefix+e;if(e.length)if(r.transformAttributeName&&(n=r.transformAttributeName(n)),n=bt(n,r),void 0!==i[t][4]){const i=h[t],s=r.attributeValueProcessor(e,i,p);a[n]=null==s?i:typeof s!=typeof i||s!==i?s:xt(i,r.parseAttributeValue,r.numberParseOptions),c=!0}else r.allowBooleanAttributes&&(a[n]=!0,c=!0)}if(!c)return;if(r.attributesGroupName&&!r.preserveOrder){const t={};return t[r.attributesGroupName]=a,t}return a}}const ht=function(t){t=t.replace(/\r\n?/g,"\n");const e=new O("!xml");let n=e,i="";this.matcher.reset(),this.entityDecoder.reset(),this.entityExpansionCount=0,this.currentExpandedLength=0;const s=this.options,r=new $(s.processEntities),o=t.length;for(let a=0;a<o;a++)if("<"===t[a]){const h=t.charCodeAt(a+1);if(47===h){const e=dt(t,">",a,"Closing Tag is not closed.");let r=t.substring(a+2,e).trim();if(s.removeNSPrefix){const t=r.indexOf(":");-1!==t&&(r=r.substr(t+1))}r=Nt(s.transformTagName,r,"",s).tagName,n&&(i=this.saveTextToParentTag(i,n,this.readonlyMatcher));const o=this.matcher.getCurrentTag();if(r&&s.unpairedTagsSet.has(r))throw new Error(`Unpaired tag can not be used as closing tag: </${r}>`);o&&s.unpairedTagsSet.has(o)&&(this.matcher.pop(),this.tagsNodeStack.pop()),this.matcher.pop(),this.isCurrentNodeStopNode=!1,n=this.tagsNodeStack.pop(),i="",a=e}else if(63===h){let e=gt(t,a,!1,"?>");if(!e)throw new Error("Pi Tag is not closed.");i=this.saveTextToParentTag(i,n,this.readonlyMatcher);const r=this.buildAttributesMap(e.tagExp,this.matcher,e.tagName,!0);if(r){const t=r[this.options.attributeNamePrefix+"version"];this.entityDecoder.setXmlVersion(Number(t)||1)}if(s.ignoreDeclaration&&"?xml"===e.tagName||s.ignorePiTags);else{const t=new O(e.tagName);t.add(s.textNodeName,""),e.tagName!==e.tagExp&&e.attrExpPresent&&!0!==s.ignoreAttributes&&(t[":@"]=r),this.addChild(n,t,this.readonlyMatcher,a)}a=e.closeIndex+1}else if(33===h&&45===t.charCodeAt(a+2)&&45===t.charCodeAt(a+3)){const e=dt(t,"--\x3e",a+4,"Comment is not closed.");if(s.commentPropName){const r=t.substring(a+4,e-2);i=this.saveTextToParentTag(i,n,this.readonlyMatcher),n.add(s.commentPropName,[{[s.textNodeName]:r}])}a=e}else if(33===h&&68===t.charCodeAt(a+2)){const e=r.readDocType(t,a);this.entityDecoder.addInputEntities(e.entities),a=e.i}else if(33===h&&91===t.charCodeAt(a+2)){const e=dt(t,"]]>",a,"CDATA is not closed.")-2,r=t.substring(a+9,e);i=this.saveTextToParentTag(i,n,this.readonlyMatcher);let o=this.parseTextData(r,n.tagname,this.readonlyMatcher,!0,!1,!0,!0);null==o&&(o=""),s.cdataPropName?n.add(s.cdataPropName,[{[s.textNodeName]:r}]):n.add(s.textNodeName,o),a=e+2}else{let r=gt(t,a,s.removeNSPrefix);if(!r){const e=t.substring(Math.max(0,a-50),Math.min(o,a+50));throw new Error(`readTagExp returned undefined at position ${a}. Context: "${e}"`)}let h=r.tagName;const l=r.rawTagName;let u=r.tagExp,p=r.attrExpPresent,c=r.closeIndex;if(({tagName:h,tagExp:u}=Nt(s.transformTagName,h,u,s)),s.strictReservedNames&&(h===s.commentPropName||h===s.cdataPropName||h===s.textNodeName||h===s.attributesGroupName))throw new Error(`Invalid tag name: ${h}`);n&&i&&"!xml"!==n.tagname&&(i=this.saveTextToParentTag(i,n,this.readonlyMatcher,!1));const d=n;d&&s.unpairedTagsSet.has(d.tagname)&&(n=this.tagsNodeStack.pop(),this.matcher.pop());let f=!1;u.length>0&&u.lastIndexOf("/")===u.length-1&&(f=!0,"/"===h[h.length-1]?(h=h.substr(0,h.length-1),u=h):u=u.substr(0,u.length-1),p=h!==u);let g,m=null,x={};g=nt(l),h!==e.tagname&&this.matcher.push(h,{},g),h!==u&&p&&(m=this.buildAttributesMap(u,this.matcher,h),m&&(x=et(m,s))),h!==e.tagname&&(this.isCurrentNodeStopNode=this.isItStopNode());const N=a;if(this.isCurrentNodeStopNode){let e="";if(f)a=r.closeIndex;else if(s.unpairedTagsSet.has(h))a=r.closeIndex;else{const n=this.readStopNodeData(t,l,c+1);if(!n)throw new Error(`Unexpected end of ${l}`);a=n.i,e=n.tagContent}const i=new O(h);m&&(i[":@"]=m),i.add(s.textNodeName,e),this.matcher.pop(),this.isCurrentNodeStopNode=!1,this.addChild(n,i,this.readonlyMatcher,N)}else{if(f){({tagName:h,tagExp:u}=Nt(s.transformTagName,h,u,s));const t=new O(h);m&&(t[":@"]=m),this.addChild(n,t,this.readonlyMatcher,N),this.matcher.pop(),this.isCurrentNodeStopNode=!1}else{if(s.unpairedTagsSet.has(h)){const t=new O(h);m&&(t[":@"]=m),this.addChild(n,t,this.readonlyMatcher,N),this.matcher.pop(),this.isCurrentNodeStopNode=!1,a=r.closeIndex;continue}{const t=new O(h);if(this.tagsNodeStack.length>s.maxNestedTags)throw new Error("Maximum nested tags exceeded");this.tagsNodeStack.push(n),m&&(t[":@"]=m),this.addChild(n,t,this.readonlyMatcher,N),n=t}}i="",a=c}}}else i+=t[a];return e.child};function lt(t,e,n,i){this.options.captureMetaData||(i=void 0);const s=this.options.jPath?n.toString():n,r=this.options.updateTag(e.tagname,s,e[":@"]);!1===r||("string"==typeof r?(e.tagname=r,t.addChild(e,i)):t.addChild(e,i))}function ut(t,e,n){const i=this.options.processEntities;if(!i||!i.enabled)return t;if(i.allowedTags){const s=this.options.jPath?n.toString():n;if(!(Array.isArray(i.allowedTags)?i.allowedTags.includes(e):i.allowedTags(e,s)))return t}if(i.tagFilter){const s=this.options.jPath?n.toString():n;if(!i.tagFilter(e,s))return t}return this.entityDecoder.decode(t)}function pt(t,e,n,i){return t&&(void 0===i&&(i=0===e.child.length),void 0!==(t=this.parseTextData(t,e.tagname,n,!1,!!e[":@"]&&0!==Object.keys(e[":@"]).length,i))&&""!==t&&e.add(this.options.textNodeName,t),t=""),t}function ct(){return 0!==this.stopNodeExpressionsSet.size&&this.matcher.matchesAny(this.stopNodeExpressionsSet)}function dt(t,e,n,i){const s=t.indexOf(e,n);if(-1===s)throw new Error(i);return s+e.length-1}function ft(t,e,n,i){const s=t.indexOf(e,n);if(-1===s)throw new Error(i);return s}function gt(t,e,n,i=">"){const s=function(t,e,n=">"){let i=0;const s=t.length,r=n.charCodeAt(0),o=n.length>1?n.charCodeAt(1):-1;let a="",h=e;for(let n=e;n<s;n++){const e=t.charCodeAt(n);if(i)e===i&&(i=0);else if(34===e||39===e)i=e;else if(e===r){if(-1===o)return a+=t.substring(h,n),{data:a,index:n};if(t.charCodeAt(n+1)===o)return a+=t.substring(h,n),{data:a,index:n}}else 9!==e||i||(a+=t.substring(h,n)+" ",h=n+1)}}(t,e+1,i);if(!s)return;let r=s.data;const o=s.index,a=r.search(/\s/);let h=r,l=!0;-1!==a&&(h=r.substring(0,a),r=r.substring(a+1).trimStart());const u=h;if(n){const t=h.indexOf(":");-1!==t&&(h=h.substr(t+1),l=h!==s.data.substr(t+1))}return{tagName:h,tagExp:r,closeIndex:o,attrExpPresent:l,rawTagName:u}}function mt(t,e,n){const i=n;let s=1;const r=t.length;for(;n<r;n++)if("<"===t[n]){const r=t.charCodeAt(n+1);if(47===r){const r=ft(t,">",n,`${e} is not closed`);if(t.substring(n+2,r).trim()===e&&(s--,0===s))return{tagContent:t.substring(i,n),i:r};n=r}else if(63===r)n=dt(t,"?>",n+1,"StopNode is not closed.");else if(33===r&&45===t.charCodeAt(n+2)&&45===t.charCodeAt(n+3))n=dt(t,"--\x3e",n+3,"StopNode is not closed.");else if(33===r&&91===t.charCodeAt(n+2))n=dt(t,"]]>",n,"StopNode is not closed.")-2;else{const i=gt(t,n,!1);i&&((i&&i.tagName)===e&&"/"!==i.tagExp[i.tagExp.length-1]&&s++,n=i.closeIndex)}}}function xt(t,e,n){if(e&&"string"==typeof t){const e=t.trim();return"true"===e||"false"!==e&&function(t,e={}){if(e=Object.assign({},L,e),!t||"string"!=typeof t)return t;let n=t.trim();if(0===n.length)return t;if(void 0!==e.skipLike&&e.skipLike.test(n))return t;if("0"===n)return 0;if(e.hex&&j.test(n))return function(t){if(parseInt)return parseInt(t,16);if(Number.parseInt)return Number.parseInt(t,16);if(window&&window.parseInt)return window.parseInt(t,16);throw new Error("parseInt, Number.parseInt, window.parseInt are not supported")}(n);if(isFinite(n)){if(n.includes("e")||n.includes("E"))return function(t,e,n){if(!n.eNotation)return t;const i=e.match(k);if(i){let s=i[1]||"";const r=-1===i[3].indexOf("e")?"E":"e",o=i[2],a=s?t[o.length+1]===r:t[o.length]===r;return o.length>1&&a?t:(1!==o.length||!i[3].startsWith(`.${r}`)&&i[3][0]!==r)&&o.length>0?n.leadingZeros&&!a?(e=(i[1]||"")+i[3],Number(e)):t:Number(e)}return t}(t,n,e);{const s=V.exec(n);if(s){const r=s[1]||"",o=s[2];let a=(i=s[3])&&-1!==i.indexOf(".")?("."===(i=i.replace(/0+$/,""))?i="0":"."===i[0]?i="0"+i:"."===i[i.length-1]&&(i=i.substring(0,i.length-1)),i):i;const h=r?"."===t[o.length+1]:"."===t[o.length];if(!e.leadingZeros&&(o.length>1||1===o.length&&!h))return t;{const i=Number(n),s=String(i);if(0===i)return i;if(-1!==s.search(/[eE]/))return e.eNotation?i:t;if(-1!==n.indexOf("."))return"0"===s||s===a||s===`${r}${a}`?i:t;let h=o?a:n;return o?h===s||r+h===s?i:t:h===s||h===r+s?i:t}}return t}}var i;return function(t,e,n){const i=e===1/0;switch(n.infinity.toLowerCase()){case"null":return null;case"infinity":return e;case"string":return i?"Infinity":"-Infinity";default:return t}}(t,Number(n),e)}(t,n)}return void 0!==t?t:""}function Nt(t,e,n,i){if(t){const i=t(e);n===e&&(n=i),e=i}return{tagName:e=bt(e,i),tagExp:n}}function bt(t,e){if(a.includes(t))throw new Error(`[SECURITY] Invalid name: "${t}" is a reserved JavaScript keyword that could cause prototype pollution`);return o.includes(t)?e.onDangerousProperty(t):t}const yt=O.getMetaDataSymbol();function Et(t,e){if(!t||"object"!=typeof t)return{};if(!e)return t;const n={};for(const i in t)i.startsWith(e)?n[i.substring(e.length)]=t[i]:n[i]=t[i];return n}function wt(t,e,n,i){return vt(t,e,n,i)}function vt(t,e,n,i){let s;const r={};for(let o=0;o<t.length;o++){const a=t[o],h=St(a);if(void 0!==h&&h!==e.textNodeName){const t=Et(a[":@"]||{},e.attributeNamePrefix);n.push(h,t)}if(h===e.textNodeName)void 0===s?s=a[h]:s+=""+a[h];else{if(void 0===h)continue;if(a[h]){let t=vt(a[h],e,n,i);const s=At(t,e);if(0===Object.keys(t).length&&e.alwaysCreateTextNode&&(t[e.textNodeName]=""),a[":@"]?_t(t,a[":@"],i,e):1!==Object.keys(t).length||void 0===t[e.textNodeName]||e.alwaysCreateTextNode?0===Object.keys(t).length&&(e.alwaysCreateTextNode?t[e.textNodeName]="":t=""):t=t[e.textNodeName],void 0!==a[yt]&&"object"==typeof t&&null!==t&&(t[yt]=a[yt]),void 0!==r[h]&&Object.prototype.hasOwnProperty.call(r,h))Array.isArray(r[h])||(r[h]=[r[h]]),r[h].push(t);else{const n=e.jPath?i.toString():i;e.isArray(h,n,s)?r[h]=[t]:r[h]=t}void 0!==h&&h!==e.textNodeName&&n.pop()}}}return"string"==typeof s?s.length>0&&(r[e.textNodeName]=s):void 0!==s&&(r[e.textNodeName]=s),r}function St(t){const e=Object.keys(t);for(let t=0;t<e.length;t++){const n=e[t];if(":@"!==n)return n}}function _t(t,e,n,i){if(e){const s=Object.keys(e),r=s.length;for(let o=0;o<r;o++){const r=s[o],a=r.startsWith(i.attributeNamePrefix)?r.substring(i.attributeNamePrefix.length):r,h=i.jPath?n.toString()+"."+a:n;i.isArray(r,h,!0,!0)?t[r]=[e[r]]:t[r]=e[r]}}}function At(t,e){const{textNodeName:n}=e,i=Object.keys(t).length;return 0===i||!(1!==i||!t[n]&&"boolean"!=typeof t[n]&&0!==t[n])}class Tt{constructor(t){this.externalEntities={},this.options=C(t)}parse(t,e){if("string"!=typeof t&&t.toString)t=t.toString();else if("string"!=typeof t)throw new Error("XML data is accepted in String or Bytes[] form.");if(e){!0===e&&(e={});const n=l(t,e);if(!0!==n)throw Error(`${n.err.msg}:${n.err.line}:${n.err.col}`)}const n=new it(this.options,this.externalEntities),i=n.parseXml(t);return this.options.preserveOrder||void 0===i?i:wt(i,this.options,n.matcher,n.readonlyMatcher)}addEntity(t,e){if(-1!==e.indexOf("&"))throw new Error("Entity value can't have '&'");if(-1!==t.indexOf("&")||-1!==t.indexOf(";"))throw new Error("An entity must be set without '&' and ';'. Eg. use '#xD' for '&#xD;'");if("&"===e)throw new Error("An entity with value '&' is not permitted");this.externalEntities[t]=e}static getMetaDataSymbol(){return O.getMetaDataSymbol()}}function Ct(t){return String(t).replace(/--/g,"- -").replace(/--/g,"- -").replace(/-$/,"- ")}function Pt(t){return String(t).replace(/\]\]>/g,"]]]]><![CDATA[>")}function Ot(t){return String(t).replace(/"/g,"&quot;").replace(/'/g,"&apos;")}function $t(t,e){let n="";e.format&&e.indentBy.length>0&&(n="\n");const i=[];if(e.stopNodes&&Array.isArray(e.stopNodes))for(let t=0;t<e.stopNodes.length;t++){const n=e.stopNodes[t];"string"==typeof n?i.push(new G(n)):n instanceof G&&i.push(n)}return It(t,e,n,new R,i)}function It(t,e,n,i,s){let r="",o=!1;if(e.maxNestedTags&&i.getDepth()>e.maxNestedTags)throw new Error("Maximum nested tags exceeded");if(!Array.isArray(t)){if(null!=t){let n=t.toString();return n=Ft(n,e),n}return""}for(let a=0;a<t.length;a++){const h=t[a],l=Vt(h);if(void 0===l)continue;const u=Dt(h[":@"],e);i.push(l,u);const p=kt(i,s);if(l===e.textNodeName){let t=h[l];p||(t=e.tagValueProcessor(l,t),t=Ft(t,e)),o&&(r+=n),r+=t,o=!1,i.pop();continue}if(l===e.cdataPropName){o&&(r+=n),r+=`<![CDATA[${Pt(h[l][0][e.textNodeName])}]]>`,o=!1,i.pop();continue}if(l===e.commentPropName){r+=n+`\x3c!--${Ct(h[l][0][e.textNodeName])}--\x3e`,o=!0,i.pop();continue}if("?"===l[0]){const t=Lt(h[":@"],e,p),s="?xml"===l?"":n;let a=h[l][0][e.textNodeName];a=0!==a.length?" "+a:"",r+=s+`<${l}${a}${t}?>`,o=!0,i.pop();continue}let c=n;""!==c&&(c+=e.indentBy);const d=n+`<${l}${Lt(h[":@"],e,p)}`;let f;f=p?Mt(h[l],e):It(h[l],e,c,i,s),-1!==e.unpairedTags.indexOf(l)?e.suppressUnpairedNode?r+=d+">":r+=d+"/>":f&&0!==f.length||!e.suppressEmptyNode?f&&f.endsWith(">")?r+=d+`>${f}${n}</${l}>`:(r+=d+">",f&&""!==n&&(f.includes("/>")||f.includes("</"))?r+=n+e.indentBy+f+n:r+=f,r+=`</${l}>`):r+=d+"/>",o=!0,i.pop()}return r}function Dt(t,e){if(!t||e.ignoreAttributes)return null;const n={};let i=!1;for(let s in t)Object.prototype.hasOwnProperty.call(t,s)&&(n[s.startsWith(e.attributeNamePrefix)?s.substr(e.attributeNamePrefix.length):s]=Ot(t[s]),i=!0);return i?n:null}function Mt(t,e){if(!Array.isArray(t))return null!=t?t.toString():"";let n="";for(let i=0;i<t.length;i++){const s=t[i],r=Vt(s);if(r===e.textNodeName)n+=s[r];else if(r===e.cdataPropName)n+=s[r][0][e.textNodeName];else if(r===e.commentPropName)n+=s[r][0][e.textNodeName];else{if(r&&"?"===r[0])continue;if(r){const t=jt(s[":@"],e),i=Mt(s[r],e);i&&0!==i.length?n+=`<${r}${t}>${i}</${r}>`:n+=`<${r}${t}/>`}}}return n}function jt(t,e){let n="";if(t&&!e.ignoreAttributes)for(let i in t){if(!Object.prototype.hasOwnProperty.call(t,i))continue;let s=t[i];!0===s&&e.suppressBooleanAttributes?n+=` ${i.substr(e.attributeNamePrefix.length)}`:n+=` ${i.substr(e.attributeNamePrefix.length)}="${Ot(s)}"`}return n}function Vt(t){const e=Object.keys(t);for(let n=0;n<e.length;n++){const i=e[n];if(Object.prototype.hasOwnProperty.call(t,i)&&":@"!==i)return i}}function Lt(t,e,n){let i="";if(t&&!e.ignoreAttributes)for(let s in t){if(!Object.prototype.hasOwnProperty.call(t,s))continue;let r;n?r=t[s]:(r=e.attributeValueProcessor(s,t[s]),r=Ft(r,e)),!0===r&&e.suppressBooleanAttributes?i+=` ${s.substr(e.attributeNamePrefix.length)}`:i+=` ${s.substr(e.attributeNamePrefix.length)}="${Ot(r)}"`}return i}function kt(t,e){if(!e||0===e.length)return!1;for(let n=0;n<e.length;n++)if(t.matches(e[n]))return!0;return!1}function Ft(t,e){if(t&&t.length>0&&e.processEntities)for(let n=0;n<e.entities.length;n++){const i=e.entities[n];t=t.replace(i.regex,i.val)}return t}const Rt={attributeNamePrefix:"@_",attributesGroupName:!1,textNodeName:"#text",ignoreAttributes:!0,cdataPropName:!1,format:!1,indentBy:"  ",suppressEmptyNode:!1,suppressUnpairedNode:!0,suppressBooleanAttributes:!0,tagValueProcessor:function(t,e){return e},attributeValueProcessor:function(t,e){return e},preserveOrder:!1,commentPropName:!1,unpairedTags:[],entities:[{regex:new RegExp("&","g"),val:"&amp;"},{regex:new RegExp(">","g"),val:"&gt;"},{regex:new RegExp("<","g"),val:"&lt;"},{regex:new RegExp("'","g"),val:"&apos;"},{regex:new RegExp('"',"g"),val:"&quot;"}],processEntities:!0,stopNodes:[],oneListGroup:!1,maxNestedTags:100,jPath:!0};function Gt(t){if(this.options=Object.assign({},Rt,t),this.options.stopNodes&&Array.isArray(this.options.stopNodes)&&(this.options.stopNodes=this.options.stopNodes.map(t=>"string"==typeof t&&t.startsWith("*.")?".."+t.substring(2):t)),this.stopNodeExpressions=[],this.options.stopNodes&&Array.isArray(this.options.stopNodes))for(let t=0;t<this.options.stopNodes.length;t++){const e=this.options.stopNodes[t];"string"==typeof e?this.stopNodeExpressions.push(new G(e)):e instanceof G&&this.stopNodeExpressions.push(e)}var e;!0===this.options.ignoreAttributes||this.options.attributesGroupName?this.isAttribute=function(){return!1}:(this.ignoreAttributesFn="function"==typeof(e=this.options.ignoreAttributes)?e:Array.isArray(e)?t=>{for(const n of e){if("string"==typeof n&&t===n)return!0;if(n instanceof RegExp&&n.test(t))return!0}}:()=>!1,this.attrPrefixLen=this.options.attributeNamePrefix.length,this.isAttribute=Wt),this.processTextOrObjNode=Bt,this.options.format?(this.indentate=Ut,this.tagEndChar=">\n",this.newLine="\n"):(this.indentate=function(){return""},this.tagEndChar=">",this.newLine="")}function Bt(t,e,n,i){const s=this.extractAttributes(t);if(i.push(e,s),this.checkStopNode(i)){const s=this.buildRawContent(t),r=this.buildAttributesForStopNode(t);return i.pop(),this.buildObjectNode(s,e,r,n)}const r=this.j2x(t,n+1,i);return i.pop(),void 0!==t[this.options.textNodeName]&&1===Object.keys(t).length?this.buildTextValNode(t[this.options.textNodeName],e,r.attrStr,n,i):this.buildObjectNode(r.val,e,r.attrStr,n)}function Ut(t){return this.options.indentBy.repeat(t)}function Wt(t){return!(!t.startsWith(this.options.attributeNamePrefix)||t===this.options.textNodeName)&&t.substr(this.attrPrefixLen)}Gt.prototype.build=function(t){if(this.options.preserveOrder)return $t(t,this.options);{Array.isArray(t)&&this.options.arrayNodeName&&this.options.arrayNodeName.length>1&&(t={[this.options.arrayNodeName]:t});const e=new R;return this.j2x(t,0,e).val}},Gt.prototype.j2x=function(t,e,n){let i="",s="";if(this.options.maxNestedTags&&n.getDepth()>=this.options.maxNestedTags)throw new Error("Maximum nested tags exceeded");const r=this.options.jPath?n.toString():n,o=this.checkStopNode(n);for(let a in t)if(Object.prototype.hasOwnProperty.call(t,a))if(void 0===t[a])this.isAttribute(a)&&(s+="");else if(null===t[a])this.isAttribute(a)||a===this.options.cdataPropName||a===this.options.commentPropName?s+="":"?"===a[0]?s+=this.indentate(e)+"<"+a+"?"+this.tagEndChar:s+=this.indentate(e)+"<"+a+"/"+this.tagEndChar;else if(t[a]instanceof Date)s+=this.buildTextValNode(t[a],a,"",e,n);else if("object"!=typeof t[a]){const h=this.isAttribute(a);if(h&&!this.ignoreAttributesFn(h,r))i+=this.buildAttrPairStr(h,""+t[a],o);else if(!h)if(a===this.options.textNodeName){let e=this.options.tagValueProcessor(a,""+t[a]);s+=this.replaceEntitiesValue(e)}else{n.push(a);const i=this.checkStopNode(n);if(n.pop(),i){const n=""+t[a];s+=""===n?this.indentate(e)+"<"+a+this.closeTag(a)+this.tagEndChar:this.indentate(e)+"<"+a+">"+n+"</"+a+this.tagEndChar}else s+=this.buildTextValNode(t[a],a,"",e,n)}}else if(Array.isArray(t[a])){const i=t[a].length;let r="",o="";for(let h=0;h<i;h++){const i=t[a][h];if(void 0===i);else if(null===i)"?"===a[0]?s+=this.indentate(e)+"<"+a+"?"+this.tagEndChar:s+=this.indentate(e)+"<"+a+"/"+this.tagEndChar;else if("object"==typeof i)if(this.options.oneListGroup){n.push(a);const t=this.j2x(i,e+1,n);n.pop(),r+=t.val,this.options.attributesGroupName&&i.hasOwnProperty(this.options.attributesGroupName)&&(o+=t.attrStr)}else r+=this.processTextOrObjNode(i,a,e,n);else if(this.options.oneListGroup){let t=this.options.tagValueProcessor(a,i);t=this.replaceEntitiesValue(t),r+=t}else{n.push(a);const t=this.checkStopNode(n);if(n.pop(),t){const t=""+i;r+=""===t?this.indentate(e)+"<"+a+this.closeTag(a)+this.tagEndChar:this.indentate(e)+"<"+a+">"+t+"</"+a+this.tagEndChar}else r+=this.buildTextValNode(i,a,"",e,n)}}this.options.oneListGroup&&(r=this.buildObjectNode(r,a,o,e)),s+=r}else if(this.options.attributesGroupName&&a===this.options.attributesGroupName){const e=Object.keys(t[a]),n=e.length;for(let s=0;s<n;s++)i+=this.buildAttrPairStr(e[s],""+t[a][e[s]],o)}else s+=this.processTextOrObjNode(t[a],a,e,n);return{attrStr:i,val:s}},Gt.prototype.buildAttrPairStr=function(t,e,n){return n||(e=this.options.attributeValueProcessor(t,""+e),e=this.replaceEntitiesValue(e)),this.options.suppressBooleanAttributes&&"true"===e?" "+t:" "+t+'="'+Ot(e)+'"'},Gt.prototype.extractAttributes=function(t){if(!t||"object"!=typeof t)return null;const e={};let n=!1;if(this.options.attributesGroupName&&t[this.options.attributesGroupName]){const i=t[this.options.attributesGroupName];for(let t in i)Object.prototype.hasOwnProperty.call(i,t)&&(e[t.startsWith(this.options.attributeNamePrefix)?t.substring(this.options.attributeNamePrefix.length):t]=Ot(i[t]),n=!0)}else for(let i in t){if(!Object.prototype.hasOwnProperty.call(t,i))continue;const s=this.isAttribute(i);s&&(e[s]=Ot(t[i]),n=!0)}return n?e:null},Gt.prototype.buildRawContent=function(t){if("string"==typeof t)return t;if("object"!=typeof t||null===t)return String(t);if(void 0!==t[this.options.textNodeName])return t[this.options.textNodeName];let e="";for(let n in t){if(!Object.prototype.hasOwnProperty.call(t,n))continue;if(this.isAttribute(n))continue;if(this.options.attributesGroupName&&n===this.options.attributesGroupName)continue;const i=t[n];if(n===this.options.textNodeName)e+=i;else if(Array.isArray(i)){for(let t of i)if("string"==typeof t||"number"==typeof t)e+=`<${n}>${t}</${n}>`;else if("object"==typeof t&&null!==t){const i=this.buildRawContent(t),s=this.buildAttributesForStopNode(t);e+=""===i?`<${n}${s}/>`:`<${n}${s}>${i}</${n}>`}}else if("object"==typeof i&&null!==i){const t=this.buildRawContent(i),s=this.buildAttributesForStopNode(i);e+=""===t?`<${n}${s}/>`:`<${n}${s}>${t}</${n}>`}else e+=`<${n}>${i}</${n}>`}return e},Gt.prototype.buildAttributesForStopNode=function(t){if(!t||"object"!=typeof t)return"";let e="";if(this.options.attributesGroupName&&t[this.options.attributesGroupName]){const n=t[this.options.attributesGroupName];for(let t in n){if(!Object.prototype.hasOwnProperty.call(n,t))continue;const i=t.startsWith(this.options.attributeNamePrefix)?t.substring(this.options.attributeNamePrefix.length):t,s=n[t];!0===s&&this.options.suppressBooleanAttributes?e+=" "+i:e+=" "+i+'="'+s+'"'}}else for(let n in t){if(!Object.prototype.hasOwnProperty.call(t,n))continue;const i=this.isAttribute(n);if(i){const s=t[n];!0===s&&this.options.suppressBooleanAttributes?e+=" "+i:e+=" "+i+'="'+s+'"'}}return e},Gt.prototype.buildObjectNode=function(t,e,n,i){if(""===t)return"?"===e[0]?this.indentate(i)+"<"+e+n+"?"+this.tagEndChar:this.indentate(i)+"<"+e+n+this.closeTag(e)+this.tagEndChar;{let s="</"+e+this.tagEndChar,r="";return"?"===e[0]&&(r="?",s=""),!n&&""!==n||-1!==t.indexOf("<")?!1!==this.options.commentPropName&&e===this.options.commentPropName&&0===r.length?this.indentate(i)+`\x3c!--${t}--\x3e`+this.newLine:this.indentate(i)+"<"+e+n+r+this.tagEndChar+t+this.indentate(i)+s:this.indentate(i)+"<"+e+n+r+">"+t+s}},Gt.prototype.closeTag=function(t){let e="";return-1!==this.options.unpairedTags.indexOf(t)?this.options.suppressUnpairedNode||(e="/"):e=this.options.suppressEmptyNode?"/":`></${t}`,e},Gt.prototype.checkStopNode=function(t){if(!this.stopNodeExpressions||0===this.stopNodeExpressions.length)return!1;for(let e=0;e<this.stopNodeExpressions.length;e++)if(t.matches(this.stopNodeExpressions[e]))return!0;return!1},Gt.prototype.buildTextValNode=function(t,e,n,i,s){if(!1!==this.options.cdataPropName&&e===this.options.cdataPropName){const e=Pt(t);return this.indentate(i)+`<![CDATA[${e}]]>`+this.newLine}if(!1!==this.options.commentPropName&&e===this.options.commentPropName){const e=Ct(t);return this.indentate(i)+`\x3c!--${e}--\x3e`+this.newLine}if("?"===e[0])return this.indentate(i)+"<"+e+n+"?"+this.tagEndChar;{let s=this.options.tagValueProcessor(e,t);return s=this.replaceEntitiesValue(s),""===s?this.indentate(i)+"<"+e+n+this.closeTag(e)+this.tagEndChar:this.indentate(i)+"<"+e+n+">"+s+"</"+e+this.tagEndChar}},Gt.prototype.replaceEntitiesValue=function(t){if(t&&t.length>0&&this.options.processEntities)for(let e=0;e<this.options.entities.length;e++){const n=this.options.entities[e];t=t.replace(n.regex,n.val)}return t};const Xt=Gt,Yt={validate:l};module.exports=e})();
 
 /***/ }),
 
-/***/ 3943:
+/***/ 5424:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.1041.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"^3.974.8","@aws-sdk/credential-provider-node":"^3.972.39","@aws-sdk/middleware-host-header":"^3.972.10","@aws-sdk/middleware-logger":"^3.972.10","@aws-sdk/middleware-recursion-detection":"^3.972.11","@aws-sdk/middleware-user-agent":"^3.972.38","@aws-sdk/region-config-resolver":"^3.972.13","@aws-sdk/types":"^3.973.8","@aws-sdk/util-endpoints":"^3.996.8","@aws-sdk/util-user-agent-browser":"^3.972.10","@aws-sdk/util-user-agent-node":"^3.973.24","@smithy/config-resolver":"^4.4.17","@smithy/core":"^3.23.17","@smithy/fetch-http-handler":"^5.3.17","@smithy/hash-node":"^4.2.14","@smithy/invalid-dependency":"^4.2.14","@smithy/middleware-content-length":"^4.2.14","@smithy/middleware-endpoint":"^4.4.32","@smithy/middleware-retry":"^4.5.7","@smithy/middleware-serde":"^4.2.20","@smithy/middleware-stack":"^4.2.14","@smithy/node-config-provider":"^4.3.14","@smithy/node-http-handler":"^4.6.1","@smithy/protocol-http":"^5.3.14","@smithy/smithy-client":"^4.12.13","@smithy/types":"^4.14.1","@smithy/url-parser":"^4.2.14","@smithy/util-base64":"^4.3.2","@smithy/util-body-length-browser":"^4.2.2","@smithy/util-body-length-node":"^4.2.3","@smithy/util-defaults-mode-browser":"^4.3.49","@smithy/util-defaults-mode-node":"^4.2.54","@smithy/util-endpoints":"^3.4.2","@smithy/util-middleware":"^4.2.14","@smithy/util-retry":"^4.3.6","@smithy/util-utf8":"^4.2.2","@smithy/util-waiter":"^4.3.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node20":"20.1.8","@types/node":"^20.14.8","concurrently":"7.0.0","downlevel-dts":"0.10.1","premove":"4.0.0","typescript":"~5.8.3"},"engines":{"node":">=20.0.0"},"typesVersions":{"<4.5":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.1048.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"^3.974.11","@aws-sdk/credential-provider-node":"^3.972.42","@aws-sdk/types":"^3.973.8","@smithy/core":"^3.24.2","@smithy/fetch-http-handler":"^5.4.2","@smithy/node-http-handler":"^4.7.2","@smithy/types":"^4.14.1","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node20":"20.1.8","@types/node":"^20.14.8","concurrently":"7.0.0","downlevel-dts":"0.10.1","premove":"4.0.0","typescript":"~5.8.3"},"engines":{"node":">=20.0.0"},"typesVersions":{"<4.5":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -50481,8 +49388,8 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /************************************************************************/
 var __webpack_exports__ = {};
 
-// EXTERNAL MODULE: external "os"
-var external_os_ = __nccwpck_require__(857);
+;// CONCATENATED MODULE: external "os"
+const external_os_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/utils.js
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -50557,7 +49464,7 @@ function utils_toCommandProperties(annotationProperties) {
  */
 function command_issueCommand(command, properties, message) {
     const cmd = new Command(command, properties, message);
-    process.stdout.write(cmd.toString() + external_os_.EOL);
+    process.stdout.write(cmd.toString() + external_os_namespaceObject.EOL);
 }
 function command_issue(name, message = '') {
     command_issueCommand(name, {}, message);
@@ -50611,8 +49518,8 @@ function escapeProperty(s) {
         .replace(/,/g, '%2C');
 }
 //# sourceMappingURL=command.js.map
-// EXTERNAL MODULE: external "crypto"
-var external_crypto_ = __nccwpck_require__(6982);
+;// CONCATENATED MODULE: external "crypto"
+const external_crypto_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("crypto");
 ;// CONCATENATED MODULE: external "fs"
 const external_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/file-command.js
@@ -50631,12 +49538,12 @@ function file_command_issueFileCommand(command, message) {
     if (!external_fs_namespaceObject.existsSync(filePath)) {
         throw new Error(`Missing file at path: ${filePath}`);
     }
-    external_fs_namespaceObject.appendFileSync(filePath, `${utils_toCommandValue(message)}${external_os_.EOL}`, {
+    external_fs_namespaceObject.appendFileSync(filePath, `${utils_toCommandValue(message)}${external_os_namespaceObject.EOL}`, {
         encoding: 'utf8'
     });
 }
 function file_command_prepareKeyValueMessage(key, value) {
-    const delimiter = `ghadelimiter_${external_crypto_.randomUUID()}`;
+    const delimiter = `ghadelimiter_${external_crypto_namespaceObject.randomUUID()}`;
     const convertedValue = utils_toCommandValue(value);
     // These should realistically never happen, but just in case someone finds a
     // way to exploit uuid generation let's not allow keys or values that contain
@@ -50647,11 +49554,11 @@ function file_command_prepareKeyValueMessage(key, value) {
     if (convertedValue.includes(delimiter)) {
         throw new Error(`Unexpected input: value should not contain the delimiter "${delimiter}"`);
     }
-    return `${key}<<${delimiter}${external_os_.EOL}${convertedValue}${external_os_.EOL}${delimiter}`;
+    return `${key}<<${delimiter}${external_os_namespaceObject.EOL}${convertedValue}${external_os_namespaceObject.EOL}${delimiter}`;
 }
 //# sourceMappingURL=file-command.js.map
-// EXTERNAL MODULE: external "path"
-var external_path_ = __nccwpck_require__(6928);
+;// CONCATENATED MODULE: external "path"
+const external_path_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("path");
 // EXTERNAL MODULE: external "http"
 var external_http_ = __nccwpck_require__(8611);
 // EXTERNAL MODULE: external "https"
@@ -50797,11 +49704,11 @@ var HttpCodes;
     HttpCodes[HttpCodes["ServiceUnavailable"] = 503] = "ServiceUnavailable";
     HttpCodes[HttpCodes["GatewayTimeout"] = 504] = "GatewayTimeout";
 })(HttpCodes || (HttpCodes = {}));
-var main_Headers;
+var Headers;
 (function (Headers) {
     Headers["Accept"] = "accept";
     Headers["ContentType"] = "content-type";
-})(main_Headers || (main_Headers = {}));
+})(Headers || (Headers = {}));
 var MediaTypes;
 (function (MediaTypes) {
     MediaTypes["ApplicationJson"] = "application/json";
@@ -50956,7 +49863,7 @@ class lib_HttpClient {
      */
     getJson(requestUrl_1) {
         return __awaiter(this, arguments, void 0, function* (requestUrl, additionalHeaders = {}) {
-            additionalHeaders[main_Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, main_Headers.Accept, MediaTypes.ApplicationJson);
+            additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
             const res = yield this.get(requestUrl, additionalHeaders);
             return this._processResponse(res, this.requestOptions);
         });
@@ -50964,8 +49871,8 @@ class lib_HttpClient {
     postJson(requestUrl_1, obj_1) {
         return __awaiter(this, arguments, void 0, function* (requestUrl, obj, additionalHeaders = {}) {
             const data = JSON.stringify(obj, null, 2);
-            additionalHeaders[main_Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, main_Headers.Accept, MediaTypes.ApplicationJson);
-            additionalHeaders[main_Headers.ContentType] =
+            additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
+            additionalHeaders[Headers.ContentType] =
                 this._getExistingOrDefaultContentTypeHeader(additionalHeaders, MediaTypes.ApplicationJson);
             const res = yield this.post(requestUrl, data, additionalHeaders);
             return this._processResponse(res, this.requestOptions);
@@ -50974,8 +49881,8 @@ class lib_HttpClient {
     putJson(requestUrl_1, obj_1) {
         return __awaiter(this, arguments, void 0, function* (requestUrl, obj, additionalHeaders = {}) {
             const data = JSON.stringify(obj, null, 2);
-            additionalHeaders[main_Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, main_Headers.Accept, MediaTypes.ApplicationJson);
-            additionalHeaders[main_Headers.ContentType] =
+            additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
+            additionalHeaders[Headers.ContentType] =
                 this._getExistingOrDefaultContentTypeHeader(additionalHeaders, MediaTypes.ApplicationJson);
             const res = yield this.put(requestUrl, data, additionalHeaders);
             return this._processResponse(res, this.requestOptions);
@@ -50984,8 +49891,8 @@ class lib_HttpClient {
     patchJson(requestUrl_1, obj_1) {
         return __awaiter(this, arguments, void 0, function* (requestUrl, obj, additionalHeaders = {}) {
             const data = JSON.stringify(obj, null, 2);
-            additionalHeaders[main_Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, main_Headers.Accept, MediaTypes.ApplicationJson);
-            additionalHeaders[main_Headers.ContentType] =
+            additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
+            additionalHeaders[Headers.ContentType] =
                 this._getExistingOrDefaultContentTypeHeader(additionalHeaders, MediaTypes.ApplicationJson);
             const res = yield this.patch(requestUrl, data, additionalHeaders);
             return this._processResponse(res, this.requestOptions);
@@ -51252,7 +50159,7 @@ class lib_HttpClient {
     _getExistingOrDefaultContentTypeHeader(additionalHeaders, _default) {
         let clientHeader;
         if (this.requestOptions && this.requestOptions.headers) {
-            const headerValue = lowercaseKeys(this.requestOptions.headers)[main_Headers.ContentType];
+            const headerValue = lowercaseKeys(this.requestOptions.headers)[Headers.ContentType];
             if (headerValue) {
                 if (typeof headerValue === 'number') {
                     clientHeader = String(headerValue);
@@ -51265,7 +50172,7 @@ class lib_HttpClient {
                 }
             }
         }
-        const additionalValue = additionalHeaders[main_Headers.ContentType];
+        const additionalValue = additionalHeaders[Headers.ContentType];
         // Return the first non-undefined value, converting numbers or arrays to strings if necessary
         if (additionalValue !== undefined) {
             if (typeof additionalValue === 'number') {
@@ -51729,7 +50636,7 @@ class Summary {
      * @returns {Summary} summary instance
      */
     addEOL() {
-        return this.addRaw(external_os_.EOL);
+        return this.addRaw(external_os_namespaceObject.EOL);
     }
     /**
      * Adds an HTML codeblock to the summary buffer
@@ -52018,7 +50925,7 @@ function tryGetExecutablePath(filePath, extensions) {
         if (stats && stats.isFile()) {
             if (IS_WINDOWS) {
                 // on Windows, test for valid extension
-                const upperExt = external_path_.extname(filePath).toUpperCase();
+                const upperExt = external_path_namespaceObject.extname(filePath).toUpperCase();
                 if (extensions.some(validExt => validExt.toUpperCase() === upperExt)) {
                     return filePath;
                 }
@@ -52047,11 +50954,11 @@ function tryGetExecutablePath(filePath, extensions) {
                 if (IS_WINDOWS) {
                     // preserve the case of the actual file (since an extension was appended)
                     try {
-                        const directory = external_path_.dirname(filePath);
-                        const upperName = external_path_.basename(filePath).toUpperCase();
+                        const directory = external_path_namespaceObject.dirname(filePath);
+                        const upperName = external_path_namespaceObject.basename(filePath).toUpperCase();
                         for (const actualName of yield readdir(directory)) {
                             if (upperName === actualName.toUpperCase()) {
-                                filePath = external_path_.join(directory, actualName);
+                                filePath = external_path_namespaceObject.join(directory, actualName);
                                 break;
                             }
                         }
@@ -52271,7 +51178,7 @@ function findInPath(tool) {
         // build the list of extensions to try
         const extensions = [];
         if (IS_WINDOWS && process.env['PATHEXT']) {
-            for (const extension of process.env['PATHEXT'].split(external_path_.delimiter)) {
+            for (const extension of process.env['PATHEXT'].split(external_path_namespaceObject.delimiter)) {
                 if (extension) {
                     extensions.push(extension);
                 }
@@ -52286,7 +51193,7 @@ function findInPath(tool) {
             return [];
         }
         // if any path separators, return empty
-        if (tool.includes(external_path_.sep)) {
+        if (tool.includes(external_path_namespaceObject.sep)) {
             return [];
         }
         // build the list of directories
@@ -52297,7 +51204,7 @@ function findInPath(tool) {
         // across platforms.
         const directories = [];
         if (process.env.PATH) {
-            for (const p of process.env.PATH.split(external_path_.delimiter)) {
+            for (const p of process.env.PATH.split(external_path_namespaceObject.delimiter)) {
                 if (p) {
                     directories.push(p);
                 }
@@ -52306,7 +51213,7 @@ function findInPath(tool) {
         // find all matches
         const matches = [];
         for (const directory of directories) {
-            const filePath = yield tryGetExecutablePath(external_path_.join(directory, tool), extensions);
+            const filePath = yield tryGetExecutablePath(external_path_namespaceObject.join(directory, tool), extensions);
             if (filePath) {
                 matches.push(filePath);
             }
@@ -52453,13 +51360,13 @@ class ToolRunner extends external_events_.EventEmitter {
     _processLineBuffer(data, strBuffer, onLine) {
         try {
             let s = strBuffer + data.toString();
-            let n = s.indexOf(external_os_.EOL);
+            let n = s.indexOf(external_os_namespaceObject.EOL);
             while (n > -1) {
                 const line = s.substring(0, n);
                 onLine(line);
                 // the rest of the string ...
-                s = s.substring(n + external_os_.EOL.length);
-                n = s.indexOf(external_os_.EOL);
+                s = s.substring(n + external_os_namespaceObject.EOL.length);
+                n = s.indexOf(external_os_namespaceObject.EOL);
             }
             return s;
         }
@@ -52737,7 +51644,7 @@ class ToolRunner extends external_events_.EventEmitter {
                 (this.toolPath.includes('/') ||
                     (toolrunner_IS_WINDOWS && this.toolPath.includes('\\')))) {
                 // prefer options.cwd if it is specified, however options.cwd may also need to be rooted
-                this.toolPath = external_path_.resolve(process.cwd(), this.options.cwd || process.cwd(), this.toolPath);
+                this.toolPath = external_path_namespaceObject.resolve(process.cwd(), this.options.cwd || process.cwd(), this.toolPath);
             }
             // if the tool is only a file name, then resolve it from the PATH
             // otherwise verify it exists (add extension on Windows if necessary)
@@ -52750,7 +51657,7 @@ class ToolRunner extends external_events_.EventEmitter {
                 }
                 const optionsNonNull = this._cloneExecOptions(this.options);
                 if (!optionsNonNull.silent && optionsNonNull.outStream) {
-                    optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + external_os_.EOL);
+                    optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + external_os_namespaceObject.EOL);
                 }
                 const state = new ExecState(optionsNonNull, this.toolPath);
                 state.on('debug', (message) => {
@@ -53089,8 +51996,8 @@ const getLinuxInfo = () => platform_awaiter(void 0, void 0, void 0, function* ()
         version
     };
 });
-const platform = external_os_.platform();
-const arch = external_os_.arch();
+const platform = external_os_namespaceObject.platform();
+const arch = external_os_namespaceObject.arch();
 const isWindows = platform === 'win32';
 const isMacOS = platform === 'darwin';
 const isLinux = platform === 'linux';
@@ -53271,7 +52178,7 @@ function setOutput(name, value) {
     if (filePath) {
         return file_command_issueFileCommand('OUTPUT', file_command_prepareKeyValueMessage(name, value));
     }
-    process.stdout.write(external_os_.EOL);
+    process.stdout.write(external_os_namespaceObject.EOL);
     command_issueCommand('set-output', { name }, utils_toCommandValue(value));
 }
 /**
@@ -53426,8 +52333,8 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1041.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
-var dist_cjs = __nccwpck_require__(9768);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1048.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
+var dist_cjs = __nccwpck_require__(8085);
 ;// CONCATENATED MODULE: ./dist/main.js
 
 

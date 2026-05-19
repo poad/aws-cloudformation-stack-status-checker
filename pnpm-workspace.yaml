@@ -2,6 +2,9 @@ packages:
   - .
   - test
 
+allowBuilds:
+  unrs-resolver: false
+
 enablePrePostScripts: false
 
 minimumReleaseAge: 1440
