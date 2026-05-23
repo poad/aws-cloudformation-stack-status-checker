@@ -26,14 +26,14 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",
-    "@aws-sdk/client-cloudformation": "^3.1051.0"
+    "@aws-sdk/client-cloudformation": "^3.1052.0"
   },
   "devDependencies": {
     "@eslint/compat": "^2.1.0",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "@types/node": "^25.8.0",
+    "@types/node": "^24.12.4",
     "@vercel/ncc": "^0.38.4",
     "@vitest/coverage-v8": "^4.1.7",
     "eslint": "^10.4.0",
@@ -48,5 +48,5 @@
     "vite": "^8.0.14",
     "vitest": "^4.1.7"
   },
-  "packageManager": "pnpm@11.2.1"
+  "packageManager": "pnpm@11.2.2"
 }
