@@ -127,7 +127,7 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 9007:
+/***/ 9850:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -180,7 +180,7 @@ exports.resolveHttpAuthSchemeConfig = resolveHttpAuthSchemeConfig;
 
 /***/ }),
 
-/***/ 5686:
+/***/ 8273:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -239,7 +239,7 @@ exports.bdd = endpoints_1.BinaryDecisionDiagram.from(nodes, root, _data.conditio
 
 /***/ }),
 
-/***/ 4985:
+/***/ 884:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -247,7 +247,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defaultEndpointResolver = void 0;
 const client_1 = __nccwpck_require__(846);
 const endpoints_1 = __nccwpck_require__(7353);
-const bdd_1 = __nccwpck_require__(5686);
+const bdd_1 = __nccwpck_require__(8273);
 const cache = new endpoints_1.EndpointCache({
     size: 50,
     params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
@@ -264,7 +264,7 @@ endpoints_1.customEndpointFunctions.aws = client_1.awsEndpointFunctions;
 
 /***/ }),
 
-/***/ 1260:
+/***/ 6241:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -277,11 +277,11 @@ var endpoints = __nccwpck_require__(7353);
 var protocols = __nccwpck_require__(9642);
 var retry = __nccwpck_require__(6733);
 var schema = __nccwpck_require__(406);
-var httpAuthSchemeProvider = __nccwpck_require__(9007);
-var runtimeConfig = __nccwpck_require__(9262);
-var schemas_0 = __nccwpck_require__(3768);
-var errors = __nccwpck_require__(2012);
-var CloudFormationServiceException = __nccwpck_require__(4499);
+var httpAuthSchemeProvider = __nccwpck_require__(9850);
+var runtimeConfig = __nccwpck_require__(7899);
+var schemas_0 = __nccwpck_require__(6537);
+var errors = __nccwpck_require__(1069);
+var CloudFormationServiceException = __nccwpck_require__(9906);
 
 const resolveClientEndpointParameters = (options) => {
     return Object.assign(options, {
@@ -3293,7 +3293,7 @@ Object.keys(errors).forEach(function (k) {
 
 /***/ }),
 
-/***/ 4499:
+/***/ 9906:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3312,13 +3312,13 @@ exports.CloudFormationServiceException = CloudFormationServiceException;
 
 /***/ }),
 
-/***/ 2012:
+/***/ 1069:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ResourceScanLimitExceededException = exports.OperationStatusCheckFailedException = exports.InvalidStateTransitionException = exports.ResourceScanInProgressException = exports.StackNotFoundException = exports.HookResultNotFoundException = exports.StackRefactorNotFoundException = exports.StackInstanceNotFoundException = exports.ResourceScanNotFoundException = exports.StackSetNotEmptyException = exports.GeneratedTemplateNotFoundException = exports.InvalidChangeSetStatusException = exports.NameAlreadyExistsException = exports.CreatedButModifiedException = exports.StaleRequestException = exports.StackSetNotFoundException = exports.OperationInProgressException = exports.OperationIdAlreadyExistsException = exports.ConcurrentResourcesLimitExceededException = exports.LimitExceededException = exports.InsufficientCapabilitiesException = exports.ChangeSetNotFoundException = exports.TokenAlreadyExistsException = exports.TypeConfigurationNotFoundException = exports.AlreadyExistsException = exports.TypeNotFoundException = exports.CFNRegistryException = exports.OperationNotFoundException = exports.InvalidOperationException = void 0;
-const CloudFormationServiceException_1 = __nccwpck_require__(4499);
+const CloudFormationServiceException_1 = __nccwpck_require__(9906);
 class InvalidOperationException extends CloudFormationServiceException_1.CloudFormationServiceException {
     name = "InvalidOperationException";
     $fault = "client";
@@ -3758,14 +3758,14 @@ exports.ResourceScanLimitExceededException = ResourceScanLimitExceededException;
 
 /***/ }),
 
-/***/ 9262:
+/***/ 7899:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRuntimeConfig = void 0;
 const tslib_1 = __nccwpck_require__(7892);
-const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(1895));
+const package_json_1 = tslib_1.__importDefault(__nccwpck_require__(5560));
 const client_1 = __nccwpck_require__(846);
 const httpAuthSchemes_1 = __nccwpck_require__(9993);
 const credential_provider_node_1 = __nccwpck_require__(7548);
@@ -3774,7 +3774,7 @@ const config_1 = __nccwpck_require__(727);
 const retry_1 = __nccwpck_require__(6733);
 const serde_1 = __nccwpck_require__(2074);
 const node_http_handler_1 = __nccwpck_require__(7024);
-const runtimeConfig_shared_1 = __nccwpck_require__(8423);
+const runtimeConfig_shared_1 = __nccwpck_require__(7288);
 const getRuntimeConfig = (config) => {
     (0, client_2.emitWarningIfUnsupportedVersion)(process.version);
     const defaultsMode = (0, config_1.resolveDefaultsModeConfig)(config);
@@ -3814,7 +3814,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 8423:
+/***/ 7288:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -3825,9 +3825,9 @@ const protocols_1 = __nccwpck_require__(250);
 const client_1 = __nccwpck_require__(8046);
 const protocols_2 = __nccwpck_require__(9642);
 const serde_1 = __nccwpck_require__(2074);
-const httpAuthSchemeProvider_1 = __nccwpck_require__(9007);
-const endpointResolver_1 = __nccwpck_require__(4985);
-const schemas_0_1 = __nccwpck_require__(3768);
+const httpAuthSchemeProvider_1 = __nccwpck_require__(9850);
+const endpointResolver_1 = __nccwpck_require__(884);
+const schemas_0_1 = __nccwpck_require__(6537);
 const getRuntimeConfig = (config) => {
     return {
         apiVersion: "2010-05-15",
@@ -3864,7 +3864,7 @@ exports.getRuntimeConfig = getRuntimeConfig;
 
 /***/ }),
 
-/***/ 3768:
+/***/ 6537:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -4649,8 +4649,8 @@ const _hE = "httpError";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudformation";
 const n0 = "com.amazonaws.cloudformation";
 const schema_1 = __nccwpck_require__(406);
-const CloudFormationServiceException_1 = __nccwpck_require__(4499);
-const errors_1 = __nccwpck_require__(2012);
+const CloudFormationServiceException_1 = __nccwpck_require__(9906);
+const errors_1 = __nccwpck_require__(1069);
 const _s_registry = schema_1.TypeRegistry.for(_s);
 exports.CloudFormationServiceException$ = [-3, _s, "CloudFormationServiceException", 0, [], []];
 _s_registry.registerError(exports.CloudFormationServiceException$, CloudFormationServiceException_1.CloudFormationServiceException);
@@ -49195,10 +49195,10 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 
 /***/ }),
 
-/***/ 1895:
+/***/ 5560:
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.1052.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"^3.974.13","@aws-sdk/credential-provider-node":"^3.972.44","@aws-sdk/types":"^3.973.9","@smithy/core":"^3.24.3","@smithy/fetch-http-handler":"^5.4.3","@smithy/node-http-handler":"^4.7.3","@smithy/types":"^4.14.2","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node20":"20.1.8","@types/node":"^20.14.8","concurrently":"7.0.0","downlevel-dts":"0.10.1","premove":"4.0.0","typescript":"~5.8.3"},"engines":{"node":">=20.0.0"},"typesVersions":{"<4.5":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.1053.0","scripts":{"build":"concurrently \'yarn:build:types\' \'yarn:build:es\' && yarn build:cjs","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"yarn g:turbo run build -F=\\"$npm_package_name\\"","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation","test:e2e":"yarn g:vitest run -c vitest.config.e2e.mts","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.mts","test:index":"tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"^3.974.13","@aws-sdk/credential-provider-node":"^3.972.44","@aws-sdk/types":"^3.973.9","@smithy/core":"^3.24.3","@smithy/fetch-http-handler":"^5.4.3","@smithy/node-http-handler":"^4.7.3","@smithy/types":"^4.14.2","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node20":"20.1.8","@types/node":"^20.14.8","concurrently":"7.0.0","downlevel-dts":"0.10.1","premove":"4.0.0","typescript":"~5.8.3"},"engines":{"node":">=20.0.0"},"typesVersions":{"<4.5":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ })
 
@@ -52333,8 +52333,8 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1052.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
-var dist_cjs = __nccwpck_require__(1260);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1053.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
+var dist_cjs = __nccwpck_require__(6241);
 ;// CONCATENATED MODULE: ./dist/main.js
 
 
