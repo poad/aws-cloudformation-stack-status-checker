@@ -11,9 +11,4 @@ minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - pnpm@11.9.0
 
-overrides:
-  fast-xml-parser@<5.7.0: '>=5.7.0'
-
-  '@types/node': ^24
-
 strictPeerDependencies: false
