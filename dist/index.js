@@ -127,11 +127,11 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 966:
+/***/ 403:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(4144);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(9751);
 const { getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin, createPaginator } = __nccwpck_require__(4774);
 const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createWaiter, checkExceptions, WaiterState, createAggregatedClient } = __nccwpck_require__(1278);
 __webpack_unused_export__ = Command;
@@ -141,11 +141,12 @@ const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunc
 const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
 const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
 const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2307);
-const { defaultProvider } = __nccwpck_require__(9214);
-const { toUtf8, fromUtf8, toBase64, fromBase64, Hash, calculateBodyLength } = __nccwpck_require__(8666);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
+const { defaultProvider } = __nccwpck_require__(5342);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsQueryProtocol } = __nccwpck_require__(9288);
+const { AwsQueryProtocol } = __nccwpck_require__(857);
+const { Sha256 } = __nccwpck_require__(5418);
 
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -200,7 +201,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.1075.0";
+var version = "3.1076.0";
 var packageInfo = {
 	version: version};
 
@@ -783,6 +784,7 @@ const _D = "Description";
 const _DAL = "DescribeAccountLimits";
 const _DALI = "DescribeAccountLimitsInput";
 const _DALO = "DescribeAccountLimitsOutput";
+const _DC = "DeploymentConfig";
 const _DCS = "DeleteChangeSet";
 const _DCSH = "DescribeChangeSetHooks";
 const _DCSHI = "DescribeChangeSetHooksInput";
@@ -893,8 +895,9 @@ const _DTer = "DeregisterType";
 const _DTes = "DescribeType";
 const _DTi = "DifferenceType";
 const _DU = "DocumentationUrl";
-const _DV = "DefaultValue";
+const _DV = "DisableValidation";
 const _DVI = "DefaultVersionId";
+const _DVe = "DefaultValue";
 const _De = "Details";
 const _Des = "Destination";
 const _Det = "Detection";
@@ -1082,6 +1085,7 @@ const _MR = "MaxResults";
 const _MTIM = "MonitoringTimeInMinutes";
 const _MV = "MajorVersion";
 const _Me = "Metadata";
+const _Mo = "Mode";
 const _N = "Name";
 const _NAEE = "NameAlreadyExistsException";
 const _NARN = "NotificationARNs";
@@ -1729,8 +1733,8 @@ var ContinueUpdateRollbackOutput$ = [3, n0, _CURO,
 ];
 var CreateChangeSetInput$ = [3, n0, _CCSI,
     0,
-    [_SN, _CSN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
-    [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0], 2
+    [_SN, _CSN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM, _DC, _DV],
+    [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0, () => DeploymentConfig$, 2], 2
 ];
 var CreateChangeSetOutput$ = [3, n0, _CCSO,
     0,
@@ -1749,8 +1753,8 @@ var CreateGeneratedTemplateOutput$ = [3, n0, _CGTO,
 ];
 var CreateStackInput$ = [3, n0, _CSIr,
     0,
-    [_SN, _TB, _TURL, _P, _DR, _RCo, _TIM, _NARN, _Ca, _RTe, _RARN, _OF, _SPB, _SPURL, _Ta, _CRT, _ETP, _REOC],
-    [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2], 1
+    [_SN, _TB, _TURL, _P, _DR, _RCo, _TIM, _NARN, _Ca, _RTe, _RARN, _OF, _SPB, _SPURL, _Ta, _CRT, _ETP, _REOC, _DC, _DV],
+    [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2, () => DeploymentConfig$, 2], 1
 ];
 var CreateStackInstancesInput$ = [3, n0, _CSII,
     0,
@@ -1824,8 +1828,8 @@ var DeleteGeneratedTemplateInput$ = [3, n0, _DGTI,
 ];
 var DeleteStackInput$ = [3, n0, _DSI,
     0,
-    [_SN, _RR, _RARN, _CRT, _DMe],
-    [0, 64 | 0, 0, 0, 0], 1
+    [_SN, _RR, _RARN, _CRT, _DMe, _DC],
+    [0, 64 | 0, 0, 0, 0, () => DeploymentConfig$], 1
 ];
 var DeleteStackInstancesInput$ = [3, n0, _DSII,
     0,
@@ -1846,6 +1850,11 @@ var DeleteStackSetOutput$ = [3, n0, _DSSO,
     0,
     [],
     []
+];
+var DeploymentConfig$ = [3, n0, _DC,
+    0,
+    [_Mo, _DR],
+    [0, 2]
 ];
 var DeploymentTargets$ = [3, n0, _DT,
     0,
@@ -1889,8 +1898,8 @@ var DescribeChangeSetInput$ = [3, n0, _DCSIe,
 ];
 var DescribeChangeSetOutput$ = [3, n0, _DCSOe,
     0,
-    [_CSN, _CSI, _SI, _SN, _D, _P, _CT, _ES, _S, _SR, _SDS, _NARN, _RCo, _Ca, _Ta, _Ch, _NT, _INS, _PCSI, _RCSI, _OSF, _IER, _DM],
-    [0, 0, 0, 0, 0, () => _Parameters, 4, 0, 0, 0, 0, 64 | 0, () => RollbackConfiguration$, 64 | 0, () => Tags, () => Changes, 0, 2, 0, 0, 0, 2, 0]
+    [_CSN, _CSI, _SI, _SN, _D, _P, _CT, _ES, _S, _SR, _SDS, _NARN, _RCo, _Ca, _Ta, _Ch, _NT, _INS, _PCSI, _RCSI, _OSF, _IER, _DM, _DC],
+    [0, 0, 0, 0, 0, () => _Parameters, 4, 0, 0, 0, 0, 64 | 0, () => RollbackConfiguration$, 64 | 0, () => Tags, () => Changes, 0, 2, 0, 0, 0, 2, 0, () => DeploymentConfig$]
 ];
 var DescribeEventsInput$ = [3, n0, _DEI,
     0,
@@ -2459,7 +2468,7 @@ var ParameterConstraints$ = [3, n0, _PCa,
 ];
 var ParameterDeclaration$ = [3, n0, _PD,
     0,
-    [_PK, _DV, _PTa, _NE, _D, _PCa],
+    [_PK, _DVe, _PTa, _NE, _D, _PCa],
     [0, 0, 0, 2, 0, () => ParameterConstraints$]
 ];
 var PhysicalResourceIdContextKeyValuePair$ = [3, n0, _PRICKVP,
@@ -2579,8 +2588,8 @@ var RollbackConfiguration$ = [3, n0, _RCo,
 ];
 var RollbackStackInput$ = [3, n0, _RSIo,
     0,
-    [_SN, _RARN, _CRT, _REOC],
-    [0, 0, 0, 2], 1
+    [_SN, _RARN, _CRT, _REOC, _DC],
+    [0, 0, 0, 2, () => DeploymentConfig$], 1
 ];
 var RollbackStackOutput$ = [3, n0, _RSO,
     0,
@@ -2639,8 +2648,8 @@ var SignalResourceInput$ = [3, n0, _SRIi,
 ];
 var Stack$ = [3, n0, _Sta,
     0,
-    [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
-    [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations], 3
+    [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _DC, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
+    [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, () => DeploymentConfig$, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations], 3
 ];
 var StackDefinition$ = [3, n0, _SDt,
     0,
@@ -2809,7 +2818,7 @@ var TemplateConfiguration$ = [3, n0, _TCe,
 ];
 var TemplateParameter$ = [3, n0, _TP,
     0,
-    [_PK, _DV, _NE, _D],
+    [_PK, _DVe, _NE, _D],
     [0, 0, 2, 0]
 ];
 var TemplateProgress$ = [3, n0, _TPe,
@@ -2874,8 +2883,8 @@ var UpdateGeneratedTemplateOutput$ = [3, n0, _UGTO,
 ];
 var UpdateStackInput$ = [3, n0, _USI,
     0,
-    [_SN, _TB, _TURL, _UPT, _SPDUB, _SPDUURL, _P, _Ca, _RTe, _RARN, _RCo, _SPB, _SPURL, _NARN, _Ta, _DR, _CRT, _REOC],
-    [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2], 1
+    [_SN, _TB, _TURL, _UPT, _SPDUB, _SPDUURL, _P, _Ca, _RTe, _RARN, _RCo, _SPB, _SPURL, _NARN, _Ta, _DR, _CRT, _REOC, _DC, _DV],
+    [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2, () => DeploymentConfig$, 2], 1
 ];
 var UpdateStackInstancesInput$ = [3, n0, _USII,
     0,
@@ -3406,6 +3415,7 @@ const getRuntimeConfig$1 = (config) => {
             serviceTarget: "CloudFormation",
         },
         serviceId: config?.serviceId ?? "CloudFormation",
+        sha256: config?.sha256 ?? Sha256,
         urlParser: config?.urlParser ?? parseUrl,
         utf8Decoder: config?.utf8Decoder ?? fromUtf8,
         utf8Encoder: config?.utf8Encoder ?? toUtf8,
@@ -3439,7 +3449,6 @@ const getRuntimeConfig = (config) => {
                 ...NODE_RETRY_MODE_CONFIG_OPTIONS,
                 default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
             }, config),
-        sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
         streamCollector: config?.streamCollector ?? streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? loadConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
         useFipsEndpoint: config?.useFipsEndpoint ?? loadConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
@@ -5839,6 +5848,10 @@ const ChangeSetType = {
     IMPORT: "IMPORT",
     UPDATE: "UPDATE",
 };
+const DeploymentConfigMode = {
+    EXPRESS: "EXPRESS",
+    STANDARD: "STANDARD",
+};
 const DeploymentMode = {
     REVERT_DRIFT: "REVERT_DRIFT",
 };
@@ -6307,6 +6320,8 @@ __webpack_unused_export__ = DeleteStackSetCommand;
 __webpack_unused_export__ = DeleteStackSetInput$;
 __webpack_unused_export__ = DeleteStackSetOutput$;
 __webpack_unused_export__ = DeletionMode;
+__webpack_unused_export__ = DeploymentConfig$;
+__webpack_unused_export__ = DeploymentConfigMode;
 __webpack_unused_export__ = DeploymentMode;
 __webpack_unused_export__ = DeploymentTargets$;
 __webpack_unused_export__ = DeprecatedStatus;
@@ -6832,7 +6847,7 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 4144:
+/***/ 9751:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { Retry, RETRY_MODES } = __nccwpck_require__(3981);
@@ -7909,13 +7924,13 @@ exports.userAgentMiddleware = userAgentMiddleware;
 
 /***/ }),
 
-/***/ 2307:
+/***/ 2962:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { HttpResponse, HttpRequest } = __nccwpck_require__(5850);
 const { normalizeProvider, memoizeIdentityProvider, isIdentityExpired, doesIdentityRequireRefresh } = __nccwpck_require__(4774);
 const { ProviderError } = __nccwpck_require__(6791);
-const { setCredentialFeature } = __nccwpck_require__(4144);
+const { setCredentialFeature } = __nccwpck_require__(9751);
 const { SignatureV4 } = __nccwpck_require__(9440);
 
 const getDateHeader = (response) => HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : undefined;
@@ -8227,7 +8242,7 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 9288:
+/***/ 857:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { SmithyRpcV2CborProtocol, loadSmithyRpcV2CborErrorCode } = __nccwpck_require__(1833);
@@ -10148,10 +10163,10 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 2345:
+/***/ 4:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(4144);
+const { setCredentialFeature } = __nccwpck_require__(9751);
 const { CredentialsProviderError } = __nccwpck_require__(6791);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
@@ -10194,10 +10209,10 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 6459:
+/***/ 2051:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(4144);
+const { setCredentialFeature } = __nccwpck_require__(9751);
 const { CredentialsProviderError } = __nccwpck_require__(6791);
 const { NodeHttpHandler } = __nccwpck_require__(9305);
 const fs = __nccwpck_require__(1455);
@@ -10374,17 +10389,17 @@ exports.fromHttp = fromHttp;
 
 /***/ }),
 
-/***/ 7500:
+/***/ 9895:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { CredentialsProviderError, chain, getProfileName, parseKnownFiles } = __nccwpck_require__(6791);
-const { setCredentialFeature } = __nccwpck_require__(4144);
-const { fromLoginCredentials } = __nccwpck_require__(5903);
+const { setCredentialFeature } = __nccwpck_require__(9751);
+const { fromLoginCredentials } = __nccwpck_require__(194);
 
 const resolveCredentialSource = (credentialSource, profileName, logger) => {
     const sourceProvidersMap = {
         EcsContainer: async (options) => {
-            const { fromHttp } = __nccwpck_require__(6459);
+            const { fromHttp } = __nccwpck_require__(2051);
             const { fromContainerMetadata } = __nccwpck_require__(855);
             logger?.debug("@aws-sdk/credential-provider-ini - credential_source is EcsContainer");
             return async () => chain(fromHttp(options ?? {}), fromContainerMetadata(options))().then(setNamedProvider);
@@ -10396,7 +10411,7 @@ const resolveCredentialSource = (credentialSource, profileName, logger) => {
         },
         Environment: async (options) => {
             logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
-            const { fromEnv } = __nccwpck_require__(2345);
+            const { fromEnv } = __nccwpck_require__(4);
             return async () => fromEnv(options)().then(setNamedProvider);
         },
     };
@@ -10438,7 +10453,7 @@ const resolveAssumeRoleCredentials = async (profileName, profiles, options, call
     const profileData = profiles[profileName];
     const { source_profile, region } = profileData;
     if (!options.roleAssumer) {
-        const { getDefaultRoleAssumer } = __nccwpck_require__(4994);
+        const { getDefaultRoleAssumer } = __nccwpck_require__(1395);
         options.roleAssumer = getDefaultRoleAssumer({
             ...options.clientConfig,
             credentialProviderLogger: options.logger,
@@ -10500,7 +10515,7 @@ const resolveLoginCredentials = async (profileName, options, callerClientConfig)
 
 const isProcessProfile = (arg) => Boolean(arg) && typeof arg === "object" && typeof arg.credential_process === "string";
 const resolveProcessCredentials = async (options, profile) => {
-    const { fromProcess } = __nccwpck_require__(137);
+    const { fromProcess } = __nccwpck_require__(8252);
     const credentials = await fromProcess({
         ...options,
         profile,
@@ -10509,7 +10524,7 @@ const resolveProcessCredentials = async (options, profile) => {
 };
 
 const resolveSsoCredentials = async (profile, profileData, options = {}, callerClientConfig) => {
-    const { fromSSO } = __nccwpck_require__(5575);
+    const { fromSSO } = __nccwpck_require__(982);
     return fromSSO({
         profile,
         logger: options.logger,
@@ -10557,7 +10572,7 @@ const isWebIdentityProfile = (arg) => Boolean(arg) &&
     typeof arg.role_arn === "string" &&
     ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1;
 const resolveWebIdentityCredentials = async (profile, options, callerClientConfig) => {
-    const { fromTokenFile } = __nccwpck_require__(7727);
+    const { fromTokenFile } = __nccwpck_require__(9024);
     const credentials = await fromTokenFile({
         webIdentityTokenFile: profile.web_identity_token_file,
         roleArn: profile.role_arn,
@@ -10610,10 +10625,10 @@ exports.fromIni = fromIni;
 
 /***/ }),
 
-/***/ 5903:
+/***/ 194:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(4144);
+const { setCredentialFeature } = __nccwpck_require__(9751);
 const { CredentialsProviderError, readFile, parseKnownFiles, getProfileName } = __nccwpck_require__(6791);
 const { HttpRequest } = __nccwpck_require__(5850);
 const { createHash, createPrivateKey, createPublicKey, sign } = __nccwpck_require__(7598);
@@ -10658,7 +10673,7 @@ class LoginCredentialsFetcher {
         return this.profileData.login_session;
     }
     async refresh(token) {
-        const { SigninClient, CreateOAuth2TokenCommand } = __nccwpck_require__(7400);
+        const { SigninClient, CreateOAuth2TokenCommand } = __nccwpck_require__(8699);
         const { logger, userAgentAppId } = this.callerClientConfig ?? {};
         const isH2 = (requestHandler) => {
             return requestHandler?.metadata?.handlerProtocol === "h2";
@@ -10900,10 +10915,10 @@ exports.fromLoginCredentials = fromLoginCredentials;
 
 /***/ }),
 
-/***/ 9214:
+/***/ 5342:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { ENV_KEY, ENV_SECRET, fromEnv } = __nccwpck_require__(2345);
+const { ENV_KEY, ENV_SECRET, fromEnv } = __nccwpck_require__(4);
 const { chain, CredentialsProviderError, ENV_PROFILE } = __nccwpck_require__(6791);
 
 const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
@@ -10911,7 +10926,7 @@ const remoteProvider = async (init) => {
     const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = __nccwpck_require__(855);
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = __nccwpck_require__(6459);
+        const { fromHttp } = __nccwpck_require__(2051);
         return chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -11032,22 +11047,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = __nccwpck_require__(5575);
+        const { fromSSO } = __nccwpck_require__(982);
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = __nccwpck_require__(7500);
+        const { fromIni } = __nccwpck_require__(9895);
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = __nccwpck_require__(137);
+        const { fromProcess } = __nccwpck_require__(8252);
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = __nccwpck_require__(7727);
+        const { fromTokenFile } = __nccwpck_require__(9024);
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -11071,13 +11086,13 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 137:
+/***/ 8252:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { externalDataInterceptor, CredentialsProviderError, parseKnownFiles, getProfileName } = __nccwpck_require__(6791);
 const { exec } = __nccwpck_require__(1421);
 const { promisify } = __nccwpck_require__(7975);
-const { setCredentialFeature } = __nccwpck_require__(4144);
+const { setCredentialFeature } = __nccwpck_require__(9751);
 
 const getValidatedProcessCredentials = (profileName, data, profiles) => {
     if (data.Version !== 1) {
@@ -11154,12 +11169,12 @@ exports.fromProcess = fromProcess;
 
 /***/ }),
 
-/***/ 5575:
+/***/ 982:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { CredentialsProviderError, getSSOTokenFromFile, getProfileName, parseKnownFiles, loadSsoSessionData } = __nccwpck_require__(6791);
-const { setCredentialFeature } = __nccwpck_require__(4144);
-const { fromSso } = __nccwpck_require__(3154);
+const { setCredentialFeature } = __nccwpck_require__(9751);
+const { fromSso } = __nccwpck_require__(2163);
 
 const isSsoProfile = (arg) => arg &&
     (typeof arg.sso_start_url === "string" ||
@@ -11213,7 +11228,7 @@ const resolveSSOCredentials = async ({ ssoStartUrl, ssoSession, ssoAccountId, ss
         });
     }
     const { accessToken } = token;
-    const { SSOClient, GetRoleCredentialsCommand } = __nccwpck_require__(8032);
+    const { SSOClient, GetRoleCredentialsCommand } = __nccwpck_require__(2155);
     const sso = ssoClient ||
         new SSOClient(Object.assign({}, clientConfig ?? {}, {
             logger: clientConfig?.logger ?? callerClientConfig?.logger ?? parentClientConfig?.logger,
@@ -11353,20 +11368,20 @@ exports.validateSsoProfile = validateSsoProfile;
 
 /***/ }),
 
-/***/ 8032:
+/***/ 2155:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { GetRoleCredentialsCommand, SSOClient } = __nccwpck_require__(9377);
+const { GetRoleCredentialsCommand, SSOClient } = __nccwpck_require__(2328);
 exports.GetRoleCredentialsCommand = GetRoleCredentialsCommand;
 exports.SSOClient = SSOClient;
 
 
 /***/ }),
 
-/***/ 7727:
+/***/ 9024:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(4144);
+const { setCredentialFeature } = __nccwpck_require__(9751);
 const { CredentialsProviderError, externalDataInterceptor } = __nccwpck_require__(6791);
 const { readFileSync } = __nccwpck_require__(3024);
 
@@ -11375,7 +11390,7 @@ const fromWebToken = (init) => async (awsIdentityProperties) => {
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
     let { roleAssumerWithWebIdentity } = init;
     if (!roleAssumerWithWebIdentity) {
-        const { getDefaultRoleAssumerWithWebIdentity } = __nccwpck_require__(4994);
+        const { getDefaultRoleAssumerWithWebIdentity } = __nccwpck_require__(1395);
         roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({
             ...init.clientConfig,
             credentialProviderLogger: init.logger,
@@ -11428,10 +11443,10 @@ exports.fromWebToken = fromWebToken;
 
 /***/ }),
 
-/***/ 7400:
+/***/ 8699:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(4144);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(9751);
 const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(4774);
 const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createAggregatedClient } = __nccwpck_require__(1278);
 exports.$Command = Command;
@@ -11441,10 +11456,11 @@ const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunc
 const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
 const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
 const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2307);
-const { toUtf8, fromUtf8, toBase64, fromBase64, Hash, calculateBodyLength } = __nccwpck_require__(8666);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsRestJsonProtocol } = __nccwpck_require__(9288);
+const { AwsRestJsonProtocol } = __nccwpck_require__(857);
+const { Sha256 } = __nccwpck_require__(5418);
 
 const defaultSigninHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -11508,7 +11524,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.997.23";
+var version = "3.997.24";
 var packageInfo = {
 	version: version};
 
@@ -11805,6 +11821,7 @@ const getRuntimeConfig$1 = (config) => {
             serviceTarget: "Signin",
         },
         serviceId: config?.serviceId ?? "Signin",
+        sha256: config?.sha256 ?? Sha256,
         urlParser: config?.urlParser ?? parseUrl,
         utf8Decoder: config?.utf8Decoder ?? fromUtf8,
         utf8Encoder: config?.utf8Encoder ?? toUtf8,
@@ -11837,7 +11854,6 @@ const getRuntimeConfig = (config) => {
                 ...NODE_RETRY_MODE_CONFIG_OPTIONS,
                 default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
             }, config),
-        sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
         streamCollector: config?.streamCollector ?? streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? loadConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
         useFipsEndpoint: config?.useFipsEndpoint ?? loadConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
@@ -11984,10 +12000,10 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 1165:
+/***/ 9950:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(4144);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(9751);
 const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(4774);
 const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createAggregatedClient } = __nccwpck_require__(1278);
 exports.$Command = Command;
@@ -11997,10 +12013,11 @@ const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunc
 const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
 const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
 const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2307);
-const { toUtf8, fromUtf8, toBase64, fromBase64, Hash, calculateBodyLength } = __nccwpck_require__(8666);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsRestJsonProtocol } = __nccwpck_require__(9288);
+const { AwsRestJsonProtocol } = __nccwpck_require__(857);
+const { Sha256 } = __nccwpck_require__(5418);
 
 const defaultSSOOIDCHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -12064,7 +12081,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.997.23";
+var version = "3.997.24";
 var packageInfo = {
 	version: version};
 
@@ -12481,6 +12498,7 @@ const getRuntimeConfig$1 = (config) => {
             serviceTarget: "AWSSSOOIDCService",
         },
         serviceId: config?.serviceId ?? "SSO OIDC",
+        sha256: config?.sha256 ?? Sha256,
         urlParser: config?.urlParser ?? parseUrl,
         utf8Decoder: config?.utf8Decoder ?? fromUtf8,
         utf8Encoder: config?.utf8Encoder ?? toUtf8,
@@ -12513,7 +12531,6 @@ const getRuntimeConfig = (config) => {
                 ...NODE_RETRY_MODE_CONFIG_OPTIONS,
                 default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
             }, config),
-        sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
         streamCollector: config?.streamCollector ?? streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? loadConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
         useFipsEndpoint: config?.useFipsEndpoint ?? loadConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
@@ -12667,10 +12684,10 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 9377:
+/***/ 2328:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(4144);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(9751);
 const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(4774);
 const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createAggregatedClient } = __nccwpck_require__(1278);
 exports.$Command = Command;
@@ -12680,10 +12697,11 @@ const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunc
 const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
 const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
 const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2307);
-const { toUtf8, fromUtf8, toBase64, fromBase64, Hash, calculateBodyLength } = __nccwpck_require__(8666);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsRestJsonProtocol } = __nccwpck_require__(9288);
+const { AwsRestJsonProtocol } = __nccwpck_require__(857);
+const { Sha256 } = __nccwpck_require__(5418);
 
 const defaultSSOHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -12747,7 +12765,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.997.23";
+var version = "3.997.24";
 var packageInfo = {
 	version: version};
 
@@ -12983,6 +13001,7 @@ const getRuntimeConfig$1 = (config) => {
             serviceTarget: "SWBPortalService",
         },
         serviceId: config?.serviceId ?? "SSO",
+        sha256: config?.sha256 ?? Sha256,
         urlParser: config?.urlParser ?? parseUrl,
         utf8Decoder: config?.utf8Decoder ?? fromUtf8,
         utf8Encoder: config?.utf8Encoder ?? toUtf8,
@@ -13015,7 +13034,6 @@ const getRuntimeConfig = (config) => {
                 ...NODE_RETRY_MODE_CONFIG_OPTIONS,
                 default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
             }, config),
-        sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
         streamCollector: config?.streamCollector ?? streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? loadConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
         useFipsEndpoint: config?.useFipsEndpoint ?? loadConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
@@ -13144,10 +13162,10 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 4994:
+/***/ 1395:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin, setCredentialFeature, stsRegionDefaultResolver } = __nccwpck_require__(4144);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin, setCredentialFeature, stsRegionDefaultResolver } = __nccwpck_require__(9751);
 const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(4774);
 const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createAggregatedClient } = __nccwpck_require__(1278);
 exports.$Command = Command;
@@ -13157,11 +13175,12 @@ const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunc
 const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
 const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
 const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, resolveAwsSdkSigV4AConfig, AwsSdkSigV4Signer, AwsSdkSigV4ASigner, NODE_SIGV4A_CONFIG_OPTIONS, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2307);
-const { SignatureV4MultiRegion } = __nccwpck_require__(6981);
-const { toUtf8, fromUtf8, toBase64, fromBase64, Hash, calculateBodyLength } = __nccwpck_require__(8666);
+const { resolveAwsSdkSigV4Config, resolveAwsSdkSigV4AConfig, AwsSdkSigV4Signer, AwsSdkSigV4ASigner, NODE_SIGV4A_CONFIG_OPTIONS, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
+const { SignatureV4MultiRegion } = __nccwpck_require__(9272);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsQueryProtocol } = __nccwpck_require__(9288);
+const { AwsQueryProtocol } = __nccwpck_require__(857);
+const { Sha256 } = __nccwpck_require__(5418);
 
 const q = "ref";
 const a = -1, b = true, c = "isSet", d = "PartitionResult", e = "booleanEquals", f = "stringEquals", g = "getAttr", h = "us-east-1", i = "sigv4", j = "sts", k = "https://sts.{Region}.{PartitionResult#dnsSuffix}", l = { [q]: "Endpoint" }, m = { [q]: "Region" }, n = { [q]: d }, o = {}, p = [m];
@@ -13405,7 +13424,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.997.23";
+var version = "3.997.24";
 var packageInfo = {
 	version: version};
 
@@ -13710,6 +13729,7 @@ const getRuntimeConfig$1 = (config) => {
             serviceTarget: "AWSSecurityTokenServiceV20110615",
         },
         serviceId: config?.serviceId ?? "STS",
+        sha256: config?.sha256 ?? Sha256,
         signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
         urlParser: config?.urlParser ?? parseUrl,
         utf8Decoder: config?.utf8Decoder ?? fromUtf8,
@@ -13760,7 +13780,6 @@ const getRuntimeConfig = (config) => {
                 ...NODE_RETRY_MODE_CONFIG_OPTIONS,
                 default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
             }, config),
-        sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
         sigv4aSigningRegionSet: config?.sigv4aSigningRegionSet ?? loadConfig(NODE_SIGV4A_CONFIG_OPTIONS, loaderConfig),
         streamCollector: config?.streamCollector ?? streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? loadConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
@@ -14041,7 +14060,7 @@ exports.getDefaultRoleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdent
 
 /***/ }),
 
-/***/ 6981:
+/***/ 9272:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { SignatureV4, signatureV4aContainer } = __nccwpck_require__(9440);
@@ -14203,11 +14222,11 @@ exports.signatureV4CrtContainer = signatureV4CrtContainer;
 
 /***/ }),
 
-/***/ 3154:
+/***/ 2163:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setTokenFeature } = __nccwpck_require__(4144);
-const { getBearerTokenEnvKey } = __nccwpck_require__(2307);
+const { setTokenFeature } = __nccwpck_require__(9751);
+const { getBearerTokenEnvKey } = __nccwpck_require__(2962);
 const { TokenProviderError, getSSOTokenFilepath, parseKnownFiles, getProfileName, loadSsoSessionData, getSSOTokenFromFile, memoize, chain } = __nccwpck_require__(6791);
 const { promises } = __nccwpck_require__(3024);
 
@@ -14229,7 +14248,7 @@ const EXPIRE_WINDOW_MS = 5 * 60 * 1000;
 const REFRESH_MESSAGE = `To refresh this SSO session run 'aws sso login' with the corresponding profile.`;
 
 const getSsoOidcClient = async (ssoRegion, init = {}, callerClientConfig) => {
-    const { SSOOIDCClient } = __nccwpck_require__(1165);
+    const { SSOOIDCClient } = __nccwpck_require__(9950);
     const coalesce = (prop) => init.clientConfig?.[prop] ?? init.parentClientConfig?.[prop] ?? callerClientConfig?.[prop];
     const ssoOidcClient = new SSOOIDCClient(Object.assign({}, init.clientConfig ?? {}, {
         region: ssoRegion ?? init.clientConfig?.region,
@@ -14240,7 +14259,7 @@ const getSsoOidcClient = async (ssoRegion, init = {}, callerClientConfig) => {
 };
 
 const getNewSsoOidcToken = async (ssoToken, ssoRegion, init = {}, callerClientConfig) => {
-    const { CreateTokenCommand } = __nccwpck_require__(1165);
+    const { CreateTokenCommand } = __nccwpck_require__(9950);
     const ssoOidcClient = await getSsoOidcClient(ssoRegion, init, callerClientConfig);
     return ssoOidcClient.send(new CreateTokenCommand({
         clientId: ssoToken.clientId,
@@ -58227,8 +58246,8 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1076.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
-var dist_cjs = __nccwpck_require__(966);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1077.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
+var dist_cjs = __nccwpck_require__(403);
 ;// CONCATENATED MODULE: ./dist/main.js
 
 
