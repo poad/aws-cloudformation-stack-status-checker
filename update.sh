@@ -22,7 +22,8 @@ fi
 echo ""
 pwd
 
-if ! (pnx -y pnpm@latest self-update && pnpm install && pnpm up && pnpm audit --fix override && pnpm up && rm -rf dist && pnpm lint && pnpm build && pnpm package); then
+# if ! (pnpm self-update && pnpm install && pnpm up && pnpm audit --fix override && pnpm up && rm -rf dist && pnpm lint && pnpm build && pnpm package); then
+if ! (pnpm install && pnpm up && pnpm audit --fix override && pnpm up && rm -rf dist && pnpm lint && pnpm build && pnpm package); then
   cd "${CUR}" || exit
   exit 1
 fi

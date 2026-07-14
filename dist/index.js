@@ -1,7 +1,7 @@
 import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
 /******/ var __webpack_modules__ = ({
 
-/***/ 2017:
+/***/ 3434:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -10,6 +10,9 @@ const PROTECTED_KEYS = {
     REQUEST_ID: Symbol.for("_AWS_LAMBDA_REQUEST_ID"),
     X_RAY_TRACE_ID: Symbol.for("_AWS_LAMBDA_X_RAY_TRACE_ID"),
     TENANT_ID: Symbol.for("_AWS_LAMBDA_TENANT_ID"),
+    TRACEPARENT: Symbol.for("_AWS_LAMBDA_TRACEPARENT"),
+    TRACESTATE: Symbol.for("_AWS_LAMBDA_TRACESTATE"),
+    BAGGAGE: Symbol.for("_AWS_LAMBDA_BAGGAGE"),
 };
 const NO_GLOBAL_AWS_LAMBDA = ["true", "1"].includes(process.env?.AWS_LAMBDA_NODEJS_NO_GLOBAL_AWSLAMBDA ?? "");
 if (!NO_GLOBAL_AWS_LAMBDA) {
@@ -28,6 +31,15 @@ class InvokeStoreBase {
     }
     getTenantId() {
         return this.get(PROTECTED_KEYS.TENANT_ID);
+    }
+    getTraceparent() {
+        return this.get(PROTECTED_KEYS.TRACEPARENT);
+    }
+    getTracestate() {
+        return this.get(PROTECTED_KEYS.TRACESTATE);
+    }
+    getBaggage() {
+        return this.get(PROTECTED_KEYS.BAGGAGE);
     }
 }
 class InvokeStoreSingle extends InvokeStoreBase {
@@ -127,26 +139,27 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 403:
+/***/ 8635:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(9751);
-const { getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin, createPaginator } = __nccwpck_require__(4774);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createWaiter, checkExceptions, WaiterState, createAggregatedClient } = __nccwpck_require__(1278);
-__webpack_unused_export__ = Command;
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(2514);
+const { getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin, createPaginator } = __nccwpck_require__(7300);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createWaiter, checkExceptions, WaiterState, createAggregatedClient } = __nccwpck_require__(8012);
+const { Command: $Command } = __nccwpck_require__(8012);
+__webpack_unused_export__ = $Command;
 __webpack_unused_export__ = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6791);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(9321);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
-const { defaultProvider } = __nccwpck_require__(5342);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
-const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsQueryProtocol } = __nccwpck_require__(857);
-const { Sha256 } = __nccwpck_require__(5418);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6065);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(291);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(8084);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(8071);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(2156);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4637);
+const { defaultProvider } = __nccwpck_require__(8219);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(7484);
+const { streamCollector, NodeHttpHandler } = __nccwpck_require__(7781);
+const { AwsQueryProtocol } = __nccwpck_require__(2046);
+const { Sha256 } = __nccwpck_require__(7856);
 
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -201,7 +214,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.1076.0";
+var version = "3.1085.0";
 var packageInfo = {
 	version: version};
 
@@ -3536,1084 +3549,278 @@ class CloudFormationClient extends Client {
     }
 }
 
-class ActivateOrganizationsAccessCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ActivateOrganizationsAccess", {})
-    .n("CloudFormationClient", "ActivateOrganizationsAccessCommand")
-    .sc(ActivateOrganizationsAccess$)
-    .build() {
-}
-
-class ActivateTypeCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ActivateType", {})
-    .n("CloudFormationClient", "ActivateTypeCommand")
-    .sc(ActivateType$)
-    .build() {
-}
-
-class BatchDescribeTypeConfigurationsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "BatchDescribeTypeConfigurations", {})
-    .n("CloudFormationClient", "BatchDescribeTypeConfigurationsCommand")
-    .sc(BatchDescribeTypeConfigurations$)
-    .build() {
-}
-
-class CancelUpdateStackCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "CancelUpdateStack", {})
-    .n("CloudFormationClient", "CancelUpdateStackCommand")
-    .sc(CancelUpdateStack$)
-    .build() {
-}
-
-class ContinueUpdateRollbackCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ContinueUpdateRollback", {})
-    .n("CloudFormationClient", "ContinueUpdateRollbackCommand")
-    .sc(ContinueUpdateRollback$)
-    .build() {
-}
-
-class CreateChangeSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "CreateChangeSet", {})
-    .n("CloudFormationClient", "CreateChangeSetCommand")
-    .sc(CreateChangeSet$)
-    .build() {
-}
-
-class CreateGeneratedTemplateCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "CreateGeneratedTemplate", {})
-    .n("CloudFormationClient", "CreateGeneratedTemplateCommand")
-    .sc(CreateGeneratedTemplate$)
-    .build() {
-}
-
-class CreateStackCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "CreateStack", {})
-    .n("CloudFormationClient", "CreateStackCommand")
-    .sc(CreateStack$)
-    .build() {
-}
-
-class CreateStackInstancesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "CreateStackInstances", {})
-    .n("CloudFormationClient", "CreateStackInstancesCommand")
-    .sc(CreateStackInstances$)
-    .build() {
-}
-
-class CreateStackRefactorCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "CreateStackRefactor", {})
-    .n("CloudFormationClient", "CreateStackRefactorCommand")
-    .sc(CreateStackRefactor$)
-    .build() {
-}
-
-class CreateStackSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "CreateStackSet", {})
-    .n("CloudFormationClient", "CreateStackSetCommand")
-    .sc(CreateStackSet$)
-    .build() {
-}
-
-class DeactivateOrganizationsAccessCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DeactivateOrganizationsAccess", {})
-    .n("CloudFormationClient", "DeactivateOrganizationsAccessCommand")
-    .sc(DeactivateOrganizationsAccess$)
-    .build() {
-}
-
-class DeactivateTypeCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DeactivateType", {})
-    .n("CloudFormationClient", "DeactivateTypeCommand")
-    .sc(DeactivateType$)
-    .build() {
-}
-
-class DeleteChangeSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DeleteChangeSet", {})
-    .n("CloudFormationClient", "DeleteChangeSetCommand")
-    .sc(DeleteChangeSet$)
-    .build() {
-}
-
-class DeleteGeneratedTemplateCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DeleteGeneratedTemplate", {})
-    .n("CloudFormationClient", "DeleteGeneratedTemplateCommand")
-    .sc(DeleteGeneratedTemplate$)
-    .build() {
-}
-
-class DeleteStackCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DeleteStack", {})
-    .n("CloudFormationClient", "DeleteStackCommand")
-    .sc(DeleteStack$)
-    .build() {
-}
-
-class DeleteStackInstancesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DeleteStackInstances", {})
-    .n("CloudFormationClient", "DeleteStackInstancesCommand")
-    .sc(DeleteStackInstances$)
-    .build() {
-}
-
-class DeleteStackSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DeleteStackSet", {})
-    .n("CloudFormationClient", "DeleteStackSetCommand")
-    .sc(DeleteStackSet$)
-    .build() {
-}
-
-class DeregisterTypeCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DeregisterType", {})
-    .n("CloudFormationClient", "DeregisterTypeCommand")
-    .sc(DeregisterType$)
-    .build() {
-}
-
-class DescribeAccountLimitsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeAccountLimits", {})
-    .n("CloudFormationClient", "DescribeAccountLimitsCommand")
-    .sc(DescribeAccountLimits$)
-    .build() {
-}
-
-class DescribeChangeSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeChangeSet", {})
-    .n("CloudFormationClient", "DescribeChangeSetCommand")
-    .sc(DescribeChangeSet$)
-    .build() {
-}
-
-class DescribeChangeSetHooksCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeChangeSetHooks", {})
-    .n("CloudFormationClient", "DescribeChangeSetHooksCommand")
-    .sc(DescribeChangeSetHooks$)
-    .build() {
-}
-
-class DescribeEventsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeEvents", {})
-    .n("CloudFormationClient", "DescribeEventsCommand")
-    .sc(DescribeEvents$)
-    .build() {
-}
-
-class DescribeGeneratedTemplateCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeGeneratedTemplate", {})
-    .n("CloudFormationClient", "DescribeGeneratedTemplateCommand")
-    .sc(DescribeGeneratedTemplate$)
-    .build() {
-}
-
-class DescribeOrganizationsAccessCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeOrganizationsAccess", {})
-    .n("CloudFormationClient", "DescribeOrganizationsAccessCommand")
-    .sc(DescribeOrganizationsAccess$)
-    .build() {
-}
-
-class DescribePublisherCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribePublisher", {})
-    .n("CloudFormationClient", "DescribePublisherCommand")
-    .sc(DescribePublisher$)
-    .build() {
-}
-
-class DescribeResourceScanCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeResourceScan", {})
-    .n("CloudFormationClient", "DescribeResourceScanCommand")
-    .sc(DescribeResourceScan$)
-    .build() {
-}
-
-class DescribeStackDriftDetectionStatusCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackDriftDetectionStatus", {})
-    .n("CloudFormationClient", "DescribeStackDriftDetectionStatusCommand")
-    .sc(DescribeStackDriftDetectionStatus$)
-    .build() {
-}
-
-class DescribeStackEventsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackEvents", {})
-    .n("CloudFormationClient", "DescribeStackEventsCommand")
-    .sc(DescribeStackEvents$)
-    .build() {
-}
-
-class DescribeStackInstanceCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackInstance", {})
-    .n("CloudFormationClient", "DescribeStackInstanceCommand")
-    .sc(DescribeStackInstance$)
-    .build() {
-}
-
-class DescribeStackRefactorCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackRefactor", {})
-    .n("CloudFormationClient", "DescribeStackRefactorCommand")
-    .sc(DescribeStackRefactor$)
-    .build() {
-}
-
-class DescribeStackResourceCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackResource", {})
-    .n("CloudFormationClient", "DescribeStackResourceCommand")
-    .sc(DescribeStackResource$)
-    .build() {
-}
-
-class DescribeStackResourceDriftsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackResourceDrifts", {})
-    .n("CloudFormationClient", "DescribeStackResourceDriftsCommand")
-    .sc(DescribeStackResourceDrifts$)
-    .build() {
-}
-
-class DescribeStackResourcesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackResources", {})
-    .n("CloudFormationClient", "DescribeStackResourcesCommand")
-    .sc(DescribeStackResources$)
-    .build() {
-}
-
-class DescribeStacksCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStacks", {})
-    .n("CloudFormationClient", "DescribeStacksCommand")
-    .sc(DescribeStacks$)
-    .build() {
-}
-
-class DescribeStackSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackSet", {})
-    .n("CloudFormationClient", "DescribeStackSetCommand")
-    .sc(DescribeStackSet$)
-    .build() {
-}
-
-class DescribeStackSetOperationCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeStackSetOperation", {})
-    .n("CloudFormationClient", "DescribeStackSetOperationCommand")
-    .sc(DescribeStackSetOperation$)
-    .build() {
-}
-
-class DescribeTypeCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeType", {})
-    .n("CloudFormationClient", "DescribeTypeCommand")
-    .sc(DescribeType$)
-    .build() {
-}
-
-class DescribeTypeRegistrationCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DescribeTypeRegistration", {})
-    .n("CloudFormationClient", "DescribeTypeRegistrationCommand")
-    .sc(DescribeTypeRegistration$)
-    .build() {
-}
-
-class DetectStackDriftCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DetectStackDrift", {})
-    .n("CloudFormationClient", "DetectStackDriftCommand")
-    .sc(DetectStackDrift$)
-    .build() {
-}
-
-class DetectStackResourceDriftCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DetectStackResourceDrift", {})
-    .n("CloudFormationClient", "DetectStackResourceDriftCommand")
-    .sc(DetectStackResourceDrift$)
-    .build() {
-}
-
-class DetectStackSetDriftCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "DetectStackSetDrift", {})
-    .n("CloudFormationClient", "DetectStackSetDriftCommand")
-    .sc(DetectStackSetDrift$)
-    .build() {
-}
-
-class EstimateTemplateCostCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "EstimateTemplateCost", {})
-    .n("CloudFormationClient", "EstimateTemplateCostCommand")
-    .sc(EstimateTemplateCost$)
-    .build() {
-}
-
-class ExecuteChangeSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ExecuteChangeSet", {})
-    .n("CloudFormationClient", "ExecuteChangeSetCommand")
-    .sc(ExecuteChangeSet$)
-    .build() {
-}
-
-class ExecuteStackRefactorCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ExecuteStackRefactor", {})
-    .n("CloudFormationClient", "ExecuteStackRefactorCommand")
-    .sc(ExecuteStackRefactor$)
-    .build() {
-}
-
-class GetGeneratedTemplateCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "GetGeneratedTemplate", {})
-    .n("CloudFormationClient", "GetGeneratedTemplateCommand")
-    .sc(GetGeneratedTemplate$)
-    .build() {
-}
-
-class GetHookResultCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "GetHookResult", {})
-    .n("CloudFormationClient", "GetHookResultCommand")
-    .sc(GetHookResult$)
-    .build() {
-}
-
-class GetStackPolicyCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "GetStackPolicy", {})
-    .n("CloudFormationClient", "GetStackPolicyCommand")
-    .sc(GetStackPolicy$)
-    .build() {
-}
-
-class GetTemplateCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "GetTemplate", {})
-    .n("CloudFormationClient", "GetTemplateCommand")
-    .sc(GetTemplate$)
-    .build() {
-}
-
-class GetTemplateSummaryCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "GetTemplateSummary", {})
-    .n("CloudFormationClient", "GetTemplateSummaryCommand")
-    .sc(GetTemplateSummary$)
-    .build() {
-}
-
-class ImportStacksToStackSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ImportStacksToStackSet", {})
-    .n("CloudFormationClient", "ImportStacksToStackSetCommand")
-    .sc(ImportStacksToStackSet$)
-    .build() {
-}
-
-class ListChangeSetsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListChangeSets", {})
-    .n("CloudFormationClient", "ListChangeSetsCommand")
-    .sc(ListChangeSets$)
-    .build() {
-}
-
-class ListExportsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListExports", {})
-    .n("CloudFormationClient", "ListExportsCommand")
-    .sc(ListExports$)
-    .build() {
-}
-
-class ListGeneratedTemplatesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListGeneratedTemplates", {})
-    .n("CloudFormationClient", "ListGeneratedTemplatesCommand")
-    .sc(ListGeneratedTemplates$)
-    .build() {
-}
-
-class ListHookResultsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListHookResults", {})
-    .n("CloudFormationClient", "ListHookResultsCommand")
-    .sc(ListHookResults$)
-    .build() {
-}
-
-class ListImportsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListImports", {})
-    .n("CloudFormationClient", "ListImportsCommand")
-    .sc(ListImports$)
-    .build() {
-}
-
-class ListResourceScanRelatedResourcesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListResourceScanRelatedResources", {})
-    .n("CloudFormationClient", "ListResourceScanRelatedResourcesCommand")
-    .sc(ListResourceScanRelatedResources$)
-    .build() {
-}
-
-class ListResourceScanResourcesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListResourceScanResources", {})
-    .n("CloudFormationClient", "ListResourceScanResourcesCommand")
-    .sc(ListResourceScanResources$)
-    .build() {
-}
-
-class ListResourceScansCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListResourceScans", {})
-    .n("CloudFormationClient", "ListResourceScansCommand")
-    .sc(ListResourceScans$)
-    .build() {
-}
-
-class ListStackInstanceResourceDriftsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackInstanceResourceDrifts", {})
-    .n("CloudFormationClient", "ListStackInstanceResourceDriftsCommand")
-    .sc(ListStackInstanceResourceDrifts$)
-    .build() {
-}
-
-class ListStackInstancesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackInstances", {})
-    .n("CloudFormationClient", "ListStackInstancesCommand")
-    .sc(ListStackInstances$)
-    .build() {
-}
-
-class ListStackRefactorActionsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackRefactorActions", {})
-    .n("CloudFormationClient", "ListStackRefactorActionsCommand")
-    .sc(ListStackRefactorActions$)
-    .build() {
-}
-
-class ListStackRefactorsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackRefactors", {})
-    .n("CloudFormationClient", "ListStackRefactorsCommand")
-    .sc(ListStackRefactors$)
-    .build() {
-}
-
-class ListStackResourcesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackResources", {})
-    .n("CloudFormationClient", "ListStackResourcesCommand")
-    .sc(ListStackResources$)
-    .build() {
-}
-
-class ListStacksCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStacks", {})
-    .n("CloudFormationClient", "ListStacksCommand")
-    .sc(ListStacks$)
-    .build() {
-}
-
-class ListStackSetAutoDeploymentTargetsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackSetAutoDeploymentTargets", {})
-    .n("CloudFormationClient", "ListStackSetAutoDeploymentTargetsCommand")
-    .sc(ListStackSetAutoDeploymentTargets$)
-    .build() {
-}
-
-class ListStackSetOperationResultsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackSetOperationResults", {})
-    .n("CloudFormationClient", "ListStackSetOperationResultsCommand")
-    .sc(ListStackSetOperationResults$)
-    .build() {
-}
-
-class ListStackSetOperationsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackSetOperations", {})
-    .n("CloudFormationClient", "ListStackSetOperationsCommand")
-    .sc(ListStackSetOperations$)
-    .build() {
-}
-
-class ListStackSetsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListStackSets", {})
-    .n("CloudFormationClient", "ListStackSetsCommand")
-    .sc(ListStackSets$)
-    .build() {
-}
-
-class ListTypeRegistrationsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListTypeRegistrations", {})
-    .n("CloudFormationClient", "ListTypeRegistrationsCommand")
-    .sc(ListTypeRegistrations$)
-    .build() {
-}
-
-class ListTypesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListTypes", {})
-    .n("CloudFormationClient", "ListTypesCommand")
-    .sc(ListTypes$)
-    .build() {
-}
-
-class ListTypeVersionsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ListTypeVersions", {})
-    .n("CloudFormationClient", "ListTypeVersionsCommand")
-    .sc(ListTypeVersions$)
-    .build() {
-}
-
-class PublishTypeCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "PublishType", {})
-    .n("CloudFormationClient", "PublishTypeCommand")
-    .sc(PublishType$)
-    .build() {
-}
-
-class RecordHandlerProgressCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "RecordHandlerProgress", {})
-    .n("CloudFormationClient", "RecordHandlerProgressCommand")
-    .sc(RecordHandlerProgress$)
-    .build() {
-}
-
-class RegisterPublisherCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "RegisterPublisher", {})
-    .n("CloudFormationClient", "RegisterPublisherCommand")
-    .sc(RegisterPublisher$)
-    .build() {
-}
-
-class RegisterTypeCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "RegisterType", {})
-    .n("CloudFormationClient", "RegisterTypeCommand")
-    .sc(RegisterType$)
-    .build() {
-}
-
-class RollbackStackCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "RollbackStack", {})
-    .n("CloudFormationClient", "RollbackStackCommand")
-    .sc(RollbackStack$)
-    .build() {
-}
-
-class SetStackPolicyCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "SetStackPolicy", {})
-    .n("CloudFormationClient", "SetStackPolicyCommand")
-    .sc(SetStackPolicy$)
-    .build() {
-}
-
-class SetTypeConfigurationCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "SetTypeConfiguration", {})
-    .n("CloudFormationClient", "SetTypeConfigurationCommand")
-    .sc(SetTypeConfiguration$)
-    .build() {
-}
-
-class SetTypeDefaultVersionCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "SetTypeDefaultVersion", {})
-    .n("CloudFormationClient", "SetTypeDefaultVersionCommand")
-    .sc(SetTypeDefaultVersion$)
-    .build() {
-}
-
-class SignalResourceCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "SignalResource", {})
-    .n("CloudFormationClient", "SignalResourceCommand")
-    .sc(SignalResource$)
-    .build() {
-}
-
-class StartResourceScanCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "StartResourceScan", {})
-    .n("CloudFormationClient", "StartResourceScanCommand")
-    .sc(StartResourceScan$)
-    .build() {
-}
-
-class StopStackSetOperationCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "StopStackSetOperation", {})
-    .n("CloudFormationClient", "StopStackSetOperationCommand")
-    .sc(StopStackSetOperation$)
-    .build() {
-}
-
-class TestTypeCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "TestType", {})
-    .n("CloudFormationClient", "TestTypeCommand")
-    .sc(TestType$)
-    .build() {
-}
-
-class UpdateGeneratedTemplateCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "UpdateGeneratedTemplate", {})
-    .n("CloudFormationClient", "UpdateGeneratedTemplateCommand")
-    .sc(UpdateGeneratedTemplate$)
-    .build() {
-}
-
-class UpdateStackCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "UpdateStack", {})
-    .n("CloudFormationClient", "UpdateStackCommand")
-    .sc(UpdateStack$)
-    .build() {
-}
-
-class UpdateStackInstancesCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "UpdateStackInstances", {})
-    .n("CloudFormationClient", "UpdateStackInstancesCommand")
-    .sc(UpdateStackInstances$)
-    .build() {
-}
-
-class UpdateStackSetCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "UpdateStackSet", {})
-    .n("CloudFormationClient", "UpdateStackSetCommand")
-    .sc(UpdateStackSet$)
-    .build() {
-}
-
-class UpdateTerminationProtectionCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "UpdateTerminationProtection", {})
-    .n("CloudFormationClient", "UpdateTerminationProtectionCommand")
-    .sc(UpdateTerminationProtection$)
-    .build() {
-}
-
-class ValidateTemplateCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("CloudFormation", "ValidateTemplate", {})
-    .n("CloudFormationClient", "ValidateTemplateCommand")
-    .sc(ValidateTemplate$)
-    .build() {
+const command = makeBuilder(commonParams, "CloudFormation", "CloudFormationClient", getEndpointPlugin);
+const _ep0 = {};
+const _mw0 = (Command, cs, config, o) => [];
+
+class ActivateOrganizationsAccessCommand extends command(_ep0, _mw0, "ActivateOrganizationsAccess", ActivateOrganizationsAccess$) {
+}
+
+class ActivateTypeCommand extends command(_ep0, _mw0, "ActivateType", ActivateType$) {
+}
+
+class BatchDescribeTypeConfigurationsCommand extends command(_ep0, _mw0, "BatchDescribeTypeConfigurations", BatchDescribeTypeConfigurations$) {
+}
+
+class CancelUpdateStackCommand extends command(_ep0, _mw0, "CancelUpdateStack", CancelUpdateStack$) {
+}
+
+class ContinueUpdateRollbackCommand extends command(_ep0, _mw0, "ContinueUpdateRollback", ContinueUpdateRollback$) {
+}
+
+class CreateChangeSetCommand extends command(_ep0, _mw0, "CreateChangeSet", CreateChangeSet$) {
+}
+
+class CreateGeneratedTemplateCommand extends command(_ep0, _mw0, "CreateGeneratedTemplate", CreateGeneratedTemplate$) {
+}
+
+class CreateStackCommand extends command(_ep0, _mw0, "CreateStack", CreateStack$) {
+}
+
+class CreateStackInstancesCommand extends command(_ep0, _mw0, "CreateStackInstances", CreateStackInstances$) {
+}
+
+class CreateStackRefactorCommand extends command(_ep0, _mw0, "CreateStackRefactor", CreateStackRefactor$) {
+}
+
+class CreateStackSetCommand extends command(_ep0, _mw0, "CreateStackSet", CreateStackSet$) {
+}
+
+class DeactivateOrganizationsAccessCommand extends command(_ep0, _mw0, "DeactivateOrganizationsAccess", DeactivateOrganizationsAccess$) {
+}
+
+class DeactivateTypeCommand extends command(_ep0, _mw0, "DeactivateType", DeactivateType$) {
+}
+
+class DeleteChangeSetCommand extends command(_ep0, _mw0, "DeleteChangeSet", DeleteChangeSet$) {
+}
+
+class DeleteGeneratedTemplateCommand extends command(_ep0, _mw0, "DeleteGeneratedTemplate", DeleteGeneratedTemplate$) {
+}
+
+class DeleteStackCommand extends command(_ep0, _mw0, "DeleteStack", DeleteStack$) {
+}
+
+class DeleteStackInstancesCommand extends command(_ep0, _mw0, "DeleteStackInstances", DeleteStackInstances$) {
+}
+
+class DeleteStackSetCommand extends command(_ep0, _mw0, "DeleteStackSet", DeleteStackSet$) {
+}
+
+class DeregisterTypeCommand extends command(_ep0, _mw0, "DeregisterType", DeregisterType$) {
+}
+
+class DescribeAccountLimitsCommand extends command(_ep0, _mw0, "DescribeAccountLimits", DescribeAccountLimits$) {
+}
+
+class DescribeChangeSetCommand extends command(_ep0, _mw0, "DescribeChangeSet", DescribeChangeSet$) {
+}
+
+class DescribeChangeSetHooksCommand extends command(_ep0, _mw0, "DescribeChangeSetHooks", DescribeChangeSetHooks$) {
+}
+
+class DescribeEventsCommand extends command(_ep0, _mw0, "DescribeEvents", DescribeEvents$) {
+}
+
+class DescribeGeneratedTemplateCommand extends command(_ep0, _mw0, "DescribeGeneratedTemplate", DescribeGeneratedTemplate$) {
+}
+
+class DescribeOrganizationsAccessCommand extends command(_ep0, _mw0, "DescribeOrganizationsAccess", DescribeOrganizationsAccess$) {
+}
+
+class DescribePublisherCommand extends command(_ep0, _mw0, "DescribePublisher", DescribePublisher$) {
+}
+
+class DescribeResourceScanCommand extends command(_ep0, _mw0, "DescribeResourceScan", DescribeResourceScan$) {
+}
+
+class DescribeStackDriftDetectionStatusCommand extends command(_ep0, _mw0, "DescribeStackDriftDetectionStatus", DescribeStackDriftDetectionStatus$) {
+}
+
+class DescribeStackEventsCommand extends command(_ep0, _mw0, "DescribeStackEvents", DescribeStackEvents$) {
+}
+
+class DescribeStackInstanceCommand extends command(_ep0, _mw0, "DescribeStackInstance", DescribeStackInstance$) {
+}
+
+class DescribeStackRefactorCommand extends command(_ep0, _mw0, "DescribeStackRefactor", DescribeStackRefactor$) {
+}
+
+class DescribeStackResourceCommand extends command(_ep0, _mw0, "DescribeStackResource", DescribeStackResource$) {
+}
+
+class DescribeStackResourceDriftsCommand extends command(_ep0, _mw0, "DescribeStackResourceDrifts", DescribeStackResourceDrifts$) {
+}
+
+class DescribeStackResourcesCommand extends command(_ep0, _mw0, "DescribeStackResources", DescribeStackResources$) {
+}
+
+class DescribeStacksCommand extends command(_ep0, _mw0, "DescribeStacks", DescribeStacks$) {
+}
+
+class DescribeStackSetCommand extends command(_ep0, _mw0, "DescribeStackSet", DescribeStackSet$) {
+}
+
+class DescribeStackSetOperationCommand extends command(_ep0, _mw0, "DescribeStackSetOperation", DescribeStackSetOperation$) {
+}
+
+class DescribeTypeCommand extends command(_ep0, _mw0, "DescribeType", DescribeType$) {
+}
+
+class DescribeTypeRegistrationCommand extends command(_ep0, _mw0, "DescribeTypeRegistration", DescribeTypeRegistration$) {
+}
+
+class DetectStackDriftCommand extends command(_ep0, _mw0, "DetectStackDrift", DetectStackDrift$) {
+}
+
+class DetectStackResourceDriftCommand extends command(_ep0, _mw0, "DetectStackResourceDrift", DetectStackResourceDrift$) {
+}
+
+class DetectStackSetDriftCommand extends command(_ep0, _mw0, "DetectStackSetDrift", DetectStackSetDrift$) {
+}
+
+class EstimateTemplateCostCommand extends command(_ep0, _mw0, "EstimateTemplateCost", EstimateTemplateCost$) {
+}
+
+class ExecuteChangeSetCommand extends command(_ep0, _mw0, "ExecuteChangeSet", ExecuteChangeSet$) {
+}
+
+class ExecuteStackRefactorCommand extends command(_ep0, _mw0, "ExecuteStackRefactor", ExecuteStackRefactor$) {
+}
+
+class GetGeneratedTemplateCommand extends command(_ep0, _mw0, "GetGeneratedTemplate", GetGeneratedTemplate$) {
+}
+
+class GetHookResultCommand extends command(_ep0, _mw0, "GetHookResult", GetHookResult$) {
+}
+
+class GetStackPolicyCommand extends command(_ep0, _mw0, "GetStackPolicy", GetStackPolicy$) {
+}
+
+class GetTemplateCommand extends command(_ep0, _mw0, "GetTemplate", GetTemplate$) {
+}
+
+class GetTemplateSummaryCommand extends command(_ep0, _mw0, "GetTemplateSummary", GetTemplateSummary$) {
+}
+
+class ImportStacksToStackSetCommand extends command(_ep0, _mw0, "ImportStacksToStackSet", ImportStacksToStackSet$) {
+}
+
+class ListChangeSetsCommand extends command(_ep0, _mw0, "ListChangeSets", ListChangeSets$) {
+}
+
+class ListExportsCommand extends command(_ep0, _mw0, "ListExports", ListExports$) {
+}
+
+class ListGeneratedTemplatesCommand extends command(_ep0, _mw0, "ListGeneratedTemplates", ListGeneratedTemplates$) {
+}
+
+class ListHookResultsCommand extends command(_ep0, _mw0, "ListHookResults", ListHookResults$) {
+}
+
+class ListImportsCommand extends command(_ep0, _mw0, "ListImports", ListImports$) {
+}
+
+class ListResourceScanRelatedResourcesCommand extends command(_ep0, _mw0, "ListResourceScanRelatedResources", ListResourceScanRelatedResources$) {
+}
+
+class ListResourceScanResourcesCommand extends command(_ep0, _mw0, "ListResourceScanResources", ListResourceScanResources$) {
+}
+
+class ListResourceScansCommand extends command(_ep0, _mw0, "ListResourceScans", ListResourceScans$) {
+}
+
+class ListStackInstanceResourceDriftsCommand extends command(_ep0, _mw0, "ListStackInstanceResourceDrifts", ListStackInstanceResourceDrifts$) {
+}
+
+class ListStackInstancesCommand extends command(_ep0, _mw0, "ListStackInstances", ListStackInstances$) {
+}
+
+class ListStackRefactorActionsCommand extends command(_ep0, _mw0, "ListStackRefactorActions", ListStackRefactorActions$) {
+}
+
+class ListStackRefactorsCommand extends command(_ep0, _mw0, "ListStackRefactors", ListStackRefactors$) {
+}
+
+class ListStackResourcesCommand extends command(_ep0, _mw0, "ListStackResources", ListStackResources$) {
+}
+
+class ListStacksCommand extends command(_ep0, _mw0, "ListStacks", ListStacks$) {
+}
+
+class ListStackSetAutoDeploymentTargetsCommand extends command(_ep0, _mw0, "ListStackSetAutoDeploymentTargets", ListStackSetAutoDeploymentTargets$) {
+}
+
+class ListStackSetOperationResultsCommand extends command(_ep0, _mw0, "ListStackSetOperationResults", ListStackSetOperationResults$) {
+}
+
+class ListStackSetOperationsCommand extends command(_ep0, _mw0, "ListStackSetOperations", ListStackSetOperations$) {
+}
+
+class ListStackSetsCommand extends command(_ep0, _mw0, "ListStackSets", ListStackSets$) {
+}
+
+class ListTypeRegistrationsCommand extends command(_ep0, _mw0, "ListTypeRegistrations", ListTypeRegistrations$) {
+}
+
+class ListTypesCommand extends command(_ep0, _mw0, "ListTypes", ListTypes$) {
+}
+
+class ListTypeVersionsCommand extends command(_ep0, _mw0, "ListTypeVersions", ListTypeVersions$) {
+}
+
+class PublishTypeCommand extends command(_ep0, _mw0, "PublishType", PublishType$) {
+}
+
+class RecordHandlerProgressCommand extends command(_ep0, _mw0, "RecordHandlerProgress", RecordHandlerProgress$) {
+}
+
+class RegisterPublisherCommand extends command(_ep0, _mw0, "RegisterPublisher", RegisterPublisher$) {
+}
+
+class RegisterTypeCommand extends command(_ep0, _mw0, "RegisterType", RegisterType$) {
+}
+
+class RollbackStackCommand extends command(_ep0, _mw0, "RollbackStack", RollbackStack$) {
+}
+
+class SetStackPolicyCommand extends command(_ep0, _mw0, "SetStackPolicy", SetStackPolicy$) {
+}
+
+class SetTypeConfigurationCommand extends command(_ep0, _mw0, "SetTypeConfiguration", SetTypeConfiguration$) {
+}
+
+class SetTypeDefaultVersionCommand extends command(_ep0, _mw0, "SetTypeDefaultVersion", SetTypeDefaultVersion$) {
+}
+
+class SignalResourceCommand extends command(_ep0, _mw0, "SignalResource", SignalResource$) {
+}
+
+class StartResourceScanCommand extends command(_ep0, _mw0, "StartResourceScan", StartResourceScan$) {
+}
+
+class StopStackSetOperationCommand extends command(_ep0, _mw0, "StopStackSetOperation", StopStackSetOperation$) {
+}
+
+class TestTypeCommand extends command(_ep0, _mw0, "TestType", TestType$) {
+}
+
+class UpdateGeneratedTemplateCommand extends command(_ep0, _mw0, "UpdateGeneratedTemplate", UpdateGeneratedTemplate$) {
+}
+
+class UpdateStackCommand extends command(_ep0, _mw0, "UpdateStack", UpdateStack$) {
+}
+
+class UpdateStackInstancesCommand extends command(_ep0, _mw0, "UpdateStackInstances", UpdateStackInstances$) {
+}
+
+class UpdateStackSetCommand extends command(_ep0, _mw0, "UpdateStackSet", UpdateStackSet$) {
+}
+
+class UpdateTerminationProtectionCommand extends command(_ep0, _mw0, "UpdateTerminationProtection", UpdateTerminationProtection$) {
+}
+
+class ValidateTemplateCommand extends command(_ep0, _mw0, "ValidateTemplate", ValidateTemplate$) {
 }
 
 const paginateDescribeAccountLimits = createPaginator(CloudFormationClient, DescribeAccountLimitsCommand, "NextToken", "NextToken", "");
@@ -6847,29 +6054,27 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 9751:
+/***/ 2514:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { Retry, RETRY_MODES } = __nccwpck_require__(3981);
-const { HttpRequest, parseUrl } = __nccwpck_require__(5850);
-const { InvokeStore } = __nccwpck_require__(2017);
-const { normalizeProvider } = __nccwpck_require__(4774);
+const { Retry, RETRY_MODES } = __nccwpck_require__(8071);
+const { HttpRequest, parseUrl } = __nccwpck_require__(8084);
+const { InvokeStore } = __nccwpck_require__(3434);
+const { normalizeProvider } = __nccwpck_require__(7300);
 const { platform, release } = __nccwpck_require__(8161);
 const { versions, env } = __nccwpck_require__(1708);
-const { booleanSelector, SelectorType, loadConfig, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS } = __nccwpck_require__(6791);
-const { REGION_ENV_NAME, REGION_INI_NAME, resolveRegionConfig } = __nccwpck_require__(6791);
+const { isValidHostLabel, isIpAddress, customEndpointFunctions } = __nccwpck_require__(291);
+const { EndpointError, resolveEndpoint } = __nccwpck_require__(291);
+exports.EndpointError = EndpointError;
+exports.isIpAddress = isIpAddress;
+exports.resolveEndpoint = resolveEndpoint;
+const { loadConfig, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS } = __nccwpck_require__(6065);
+const { REGION_ENV_NAME, REGION_INI_NAME, resolveRegionConfig } = __nccwpck_require__(6065);
 exports.NODE_REGION_CONFIG_FILE_OPTIONS = NODE_REGION_CONFIG_FILE_OPTIONS;
 exports.NODE_REGION_CONFIG_OPTIONS = NODE_REGION_CONFIG_OPTIONS;
 exports.REGION_ENV_NAME = REGION_ENV_NAME;
 exports.REGION_INI_NAME = REGION_INI_NAME;
 exports.resolveRegionConfig = resolveRegionConfig;
-const { readFile } = __nccwpck_require__(1455);
-const { normalize, sep, join } = __nccwpck_require__(6760);
-const { isValidHostLabel, isIpAddress, customEndpointFunctions } = __nccwpck_require__(9321);
-const { EndpointError, resolveEndpoint } = __nccwpck_require__(9321);
-exports.EndpointError = EndpointError;
-exports.isIpAddress = isIpAddress;
-exports.resolveEndpoint = resolveEndpoint;
 
 const state = {
     warningEmitted: false,
@@ -7019,39 +6224,68 @@ const getLoggerPlugin = (options) => ({
 
 const recursionDetectionMiddlewareOptions = {
     step: "build",
-    tags: ["RECURSION_DETECTION"],
+    tags: ["RECURSION_DETECTION", "TRACE_CONTEXT_PROPAGATION"],
     name: "recursionDetectionMiddleware",
     override: true,
     priority: "low",
 };
 
-const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
-const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
-const ENV_TRACE_ID = "_X_AMZN_TRACE_ID";
+const AWS_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
+const _X_AMZN_TRACE_ID = "_X_AMZN_TRACE_ID";
+const X_AMZN_TRACE_ID = "X-Amzn-Trace-Id";
+const TRACEPARENT = "traceparent";
+const TRACESTATE = "tracestate";
+const BAGGAGE = "baggage";
 const recursionDetectionMiddleware = () => (next) => async (args) => {
     const { request } = args;
     if (!HttpRequest.isInstance(request)) {
         return next(args);
     }
-    const traceIdHeader = Object.keys(request.headers ?? {}).find((h) => h.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()) ??
-        TRACE_ID_HEADER_NAME;
-    if (request.headers.hasOwnProperty(traceIdHeader)) {
-        return next(args);
+    let invokeStore;
+    {
+        const traceIdHeader = Object.keys(request.headers ?? {}).find((h) => h.toLowerCase() === X_AMZN_TRACE_ID.toLowerCase()) ??
+            X_AMZN_TRACE_ID;
+        if (!request.headers.hasOwnProperty(traceIdHeader)) {
+            const functionName = process.env[AWS_LAMBDA_FUNCTION_NAME];
+            const traceIdFromEnv = process.env[_X_AMZN_TRACE_ID];
+            invokeStore ??= await InvokeStore.getInstanceAsync();
+            const traceIdFromInvokeStore = invokeStore?.getXRayTraceId();
+            const traceId = traceIdFromInvokeStore ?? traceIdFromEnv;
+            const nonEmptyString = (str) => typeof str === "string" && str.length > 0;
+            if (nonEmptyString(functionName) && nonEmptyString(traceId)) {
+                request.headers[X_AMZN_TRACE_ID] = traceId;
+            }
+        }
     }
-    const functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
-    const traceIdFromEnv = process.env[ENV_TRACE_ID];
-    const invokeStore = await InvokeStore.getInstanceAsync();
-    const traceIdFromInvokeStore = invokeStore?.getXRayTraceId();
-    const traceId = traceIdFromInvokeStore ?? traceIdFromEnv;
-    const nonEmptyString = (str) => typeof str === "string" && str.length > 0;
-    if (nonEmptyString(functionName) && nonEmptyString(traceId)) {
-        request.headers[TRACE_ID_HEADER_NAME] = traceId;
+    {
+        sanitizeTraceHeaders(request.headers);
+        const existingTraceparent = request.headers[TRACEPARENT];
+        if (!existingTraceparent) {
+            const traceparent = (invokeStore ??= await InvokeStore.getInstanceAsync())?.getTraceparent?.();
+            if (traceparent) {
+                request.headers[TRACEPARENT] = traceparent;
+                const tracestate = invokeStore?.getTracestate?.();
+                if (tracestate) {
+                    request.headers[TRACESTATE] = tracestate;
+                }
+                const baggage = invokeStore?.getBaggage?.();
+                if (baggage) {
+                    request.headers[BAGGAGE] = baggage;
+                }
+            }
+        }
     }
-    return next({
-        ...args,
-        request,
-    });
+    return next(args);
 };
+function sanitizeTraceHeaders(headers) {
+    for (const header of Object.keys(headers)) {
+        const lower = header.toLowerCase();
+        if (header !== lower && (lower === TRACEPARENT || lower === TRACESTATE || lower === BAGGAGE)) {
+            headers[lower] = headers[header];
+            delete headers[header];
+        }
+    }
+}
 
 const getRecursionDetectionPlugin = (options) => ({
     applyToStack: (clientStack) => {
@@ -7568,115 +6802,6 @@ const getRuntimeUserAgentPair = () => {
     return ["md/nodejs", versions.node];
 };
 
-const getNodeModulesParentDirs = (dirname) => {
-    const cwd = process.cwd();
-    if (!dirname) {
-        return [cwd];
-    }
-    const normalizedPath = normalize(dirname);
-    const parts = normalizedPath.split(sep);
-    const nodeModulesIndex = parts.indexOf("node_modules");
-    const parentDir = nodeModulesIndex !== -1 ? parts.slice(0, nodeModulesIndex).join(sep) : normalizedPath;
-    if (cwd === parentDir) {
-        return [cwd];
-    }
-    return [parentDir, cwd];
-};
-
-const SEMVER_REGEX = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*)?$/;
-const getSanitizedTypeScriptVersion = (version = "") => {
-    const match = version.match(SEMVER_REGEX);
-    if (!match) {
-        return undefined;
-    }
-    const [major, minor, patch, prerelease] = [match[1], match[2], match[3], match[4]];
-    return prerelease ? `${major}.${minor}.${patch}-${prerelease}` : `${major}.${minor}.${patch}`;
-};
-
-const ALLOWED_PREFIXES = ["^", "~", ">=", "<=", ">", "<"];
-const ALLOWED_DIST_TAGS = ["latest", "beta", "dev", "rc", "insiders", "next"];
-const getSanitizedDevTypeScriptVersion = (version = "") => {
-    if (ALLOWED_DIST_TAGS.includes(version)) {
-        return version;
-    }
-    const prefix = ALLOWED_PREFIXES.find((p) => version.startsWith(p)) ?? "";
-    const sanitizedTypeScriptVersion = getSanitizedTypeScriptVersion(version.slice(prefix.length));
-    if (!sanitizedTypeScriptVersion) {
-        return undefined;
-    }
-    return `${prefix}${sanitizedTypeScriptVersion}`;
-};
-
-let tscVersion;
-const TS_PACKAGE_JSON = join("node_modules", "typescript", "package.json");
-const getTypeScriptUserAgentPair = async () => {
-    if (tscVersion === null) {
-        return undefined;
-    }
-    else if (typeof tscVersion === "string") {
-        return ["md/tsc", tscVersion];
-    }
-    let isTypeScriptDetectionDisabled = false;
-    try {
-        isTypeScriptDetectionDisabled =
-            booleanSelector(process.env, "AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED", SelectorType.ENV) || false;
-    }
-    catch { }
-    if (isTypeScriptDetectionDisabled) {
-        tscVersion = null;
-        return undefined;
-    }
-    const dirname = typeof __dirname !== "undefined" ? __dirname : undefined;
-    const nodeModulesParentDirs = getNodeModulesParentDirs(dirname);
-    let versionFromApp;
-    for (const nodeModulesParentDir of nodeModulesParentDirs) {
-        try {
-            const appPackageJsonPath = join(nodeModulesParentDir, "package.json");
-            const packageJson = await readFile(appPackageJsonPath, "utf-8");
-            const { dependencies, devDependencies } = JSON.parse(packageJson);
-            const version = devDependencies?.typescript ?? dependencies?.typescript;
-            if (typeof version !== "string") {
-                continue;
-            }
-            versionFromApp = version;
-            break;
-        }
-        catch {
-        }
-    }
-    if (!versionFromApp) {
-        tscVersion = null;
-        return undefined;
-    }
-    let versionFromNodeModules;
-    for (const nodeModulesParentDir of nodeModulesParentDirs) {
-        try {
-            const tsPackageJsonPath = join(nodeModulesParentDir, TS_PACKAGE_JSON);
-            const packageJson = await readFile(tsPackageJsonPath, "utf-8");
-            const { version } = JSON.parse(packageJson);
-            const sanitizedVersion = getSanitizedTypeScriptVersion(version);
-            if (typeof sanitizedVersion !== "string") {
-                continue;
-            }
-            versionFromNodeModules = sanitizedVersion;
-            break;
-        }
-        catch {
-        }
-    }
-    if (versionFromNodeModules) {
-        tscVersion = versionFromNodeModules;
-        return ["md/tsc", tscVersion];
-    }
-    const sanitizedVersion = getSanitizedDevTypeScriptVersion(versionFromApp);
-    if (typeof sanitizedVersion !== "string") {
-        tscVersion = null;
-        return undefined;
-    }
-    tscVersion = `dev_${sanitizedVersion}`;
-    return ["md/tsc", tscVersion];
-};
-
 const crtAvailability = {
     isCrtAvailable: false,
 };
@@ -7698,10 +6823,6 @@ const createDefaultUserAgentProvider = ({ serviceId, clientVersion }) => {
             ["lang/js"],
             runtimeUserAgentPair,
         ];
-        const typescriptUserAgentPair = await getTypeScriptUserAgentPair();
-        if (typescriptUserAgentPair) {
-            sections.push(typescriptUserAgentPair);
-        }
         const crtAvailable = isCrtAvailable();
         if (crtAvailable) {
             sections.push(crtAvailable);
@@ -7924,14 +7045,14 @@ exports.userAgentMiddleware = userAgentMiddleware;
 
 /***/ }),
 
-/***/ 2962:
+/***/ 4637:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { HttpResponse, HttpRequest } = __nccwpck_require__(5850);
-const { normalizeProvider, memoizeIdentityProvider, isIdentityExpired, doesIdentityRequireRefresh } = __nccwpck_require__(4774);
-const { ProviderError } = __nccwpck_require__(6791);
-const { setCredentialFeature } = __nccwpck_require__(9751);
-const { SignatureV4 } = __nccwpck_require__(9440);
+const { HttpResponse, HttpRequest } = __nccwpck_require__(8084);
+const { normalizeProvider, memoizeIdentityProvider, isIdentityExpired, doesIdentityRequireRefresh } = __nccwpck_require__(7300);
+const { ProviderError } = __nccwpck_require__(6065);
+const { setCredentialFeature } = __nccwpck_require__(2514);
+const { SignatureV4 } = __nccwpck_require__(2740);
 
 const getDateHeader = (response) => HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : undefined;
 
@@ -8242,15 +7363,15 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 857:
+/***/ 2046:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { SmithyRpcV2CborProtocol, loadSmithyRpcV2CborErrorCode } = __nccwpck_require__(1833);
-const { TypeRegistry, NormalizedSchema, deref } = __nccwpck_require__(4006);
-const { decorateServiceException, getValueFromTextNode } = __nccwpck_require__(1278);
-const { collectBody, determineTimestampFormat, RpcProtocol, HttpBindingProtocol, HttpInterceptingShapeSerializer, HttpInterceptingShapeDeserializer, FromStringShapeDeserializer, extendedEncodeURIComponent } = __nccwpck_require__(5850);
-const { NumericValue, toUtf8, fromBase64, LazyJsonString, parseEpochTimestamp, parseRfc7231DateTime, parseRfc3339DateTimeWithOffset, toBase64, dateToUtcString, generateIdempotencyToken, expectUnion } = __nccwpck_require__(8666);
-const { parseXML, XmlNode, XmlText } = __nccwpck_require__(4289);
+const { SmithyRpcV2CborProtocol, loadSmithyRpcV2CborErrorCode } = __nccwpck_require__(1847);
+const { TypeRegistry, NormalizedSchema, deref } = __nccwpck_require__(2156);
+const { decorateServiceException, getValueFromTextNode } = __nccwpck_require__(8012);
+const { collectBody, determineTimestampFormat, RpcProtocol, HttpBindingProtocol, HttpInterceptingShapeSerializer, HttpInterceptingShapeDeserializer, FromStringShapeDeserializer, extendedEncodeURIComponent } = __nccwpck_require__(8084);
+const { NumericValue, toUtf8, fromBase64, LazyJsonString, parseEpochTimestamp, parseRfc7231DateTime, parseRfc3339DateTimeWithOffset, toBase64, dateToUtcString, generateIdempotencyToken, expectUnion } = __nccwpck_require__(7484);
+const { parseXML, XmlNode, XmlText } = __nccwpck_require__(6571);
 
 class ProtocolLib {
     queryCompat;
@@ -10163,11 +9284,11 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 4:
+/***/ 7330:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(9751);
-const { CredentialsProviderError } = __nccwpck_require__(6791);
+const { setCredentialFeature } = __nccwpck_require__(2514);
+const { CredentialsProviderError } = __nccwpck_require__(6065);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
 const ENV_SECRET = "AWS_SECRET_ACCESS_KEY";
@@ -10209,15 +9330,15 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 2051:
+/***/ 2318:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(9751);
-const { CredentialsProviderError } = __nccwpck_require__(6791);
-const { NodeHttpHandler } = __nccwpck_require__(9305);
+const { setCredentialFeature } = __nccwpck_require__(2514);
+const { CredentialsProviderError } = __nccwpck_require__(6065);
+const { NodeHttpHandler } = __nccwpck_require__(7781);
 const fs = __nccwpck_require__(1455);
-const { HttpRequest } = __nccwpck_require__(5850);
-const { sdkStreamMixin, parseRfc3339DateTime } = __nccwpck_require__(8666);
+const { HttpRequest } = __nccwpck_require__(8084);
+const { sdkStreamMixin, parseRfc3339DateTime } = __nccwpck_require__(7484);
 
 const ECS_CONTAINER_HOST = "169.254.170.2";
 const EKS_CONTAINER_HOST_IPv4 = "169.254.170.23";
@@ -10337,18 +9458,18 @@ const fromHttp = (options = {}) => {
     if (relative && full) {
         warn("@aws-sdk/credential-provider-http: " +
             "you have set both awsContainerCredentialsRelativeUri and awsContainerCredentialsFullUri.");
-        warn("awsContainerCredentialsFullUri will take precedence.");
+        warn("awsContainerCredentialsRelativeUri will take precedence.");
     }
     if (token && tokenFile) {
         warn("@aws-sdk/credential-provider-http: " +
             "you have set both awsContainerAuthorizationToken and awsContainerAuthorizationTokenFile.");
-        warn("awsContainerAuthorizationToken will take precedence.");
+        warn("awsContainerAuthorizationTokenFile will take precedence.");
     }
-    if (full) {
-        host = full;
-    }
-    else if (relative) {
+    if (relative) {
         host = `${DEFAULT_LINK_LOCAL_HOST}${relative}`;
+    }
+    else if (full) {
+        host = full;
     }
     else {
         throw new CredentialsProviderError(`No HTTP credential provider host provided.
@@ -10360,11 +9481,11 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
     const requestTimeout = options.timeout ?? 1000;
     const provider = retryWrapper(async () => {
         const request = createGetRequest(url);
-        if (token) {
-            request.headers.Authorization = token;
+        if (tokenFile) {
+            request.headers.Authorization = validateToken((await fs.readFile(tokenFile)).toString());
         }
-        else if (tokenFile) {
-            request.headers.Authorization = (await fs.readFile(tokenFile)).toString();
+        else if (token) {
+            request.headers.Authorization = validateToken(token);
         }
         try {
             const result = await requestHandler.handle(request, { requestTimeout });
@@ -10383,35 +9504,40 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
         }
     };
 };
+const validateToken = (token) => {
+    if (token.includes("\r\n")) {
+        throw new CredentialsProviderError("Authorization token contains invalid \\r\\n sequence.");
+    }
+    return token;
+};
 
 exports.fromHttp = fromHttp;
 
 
 /***/ }),
 
-/***/ 9895:
+/***/ 22:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { CredentialsProviderError, chain, getProfileName, parseKnownFiles } = __nccwpck_require__(6791);
-const { setCredentialFeature } = __nccwpck_require__(9751);
-const { fromLoginCredentials } = __nccwpck_require__(194);
+const { CredentialsProviderError, chain, getProfileName, parseKnownFiles } = __nccwpck_require__(6065);
+const { setCredentialFeature } = __nccwpck_require__(2514);
 
 const resolveCredentialSource = (credentialSource, profileName, logger) => {
     const sourceProvidersMap = {
         EcsContainer: async (options) => {
-            const { fromHttp } = __nccwpck_require__(2051);
-            const { fromContainerMetadata } = __nccwpck_require__(855);
+            const { fromHttp } = __nccwpck_require__(2318);
+            const { fromContainerMetadata } = __nccwpck_require__(8523);
             logger?.debug("@aws-sdk/credential-provider-ini - credential_source is EcsContainer");
             return async () => chain(fromHttp(options ?? {}), fromContainerMetadata(options))().then(setNamedProvider);
         },
         Ec2InstanceMetadata: async (options) => {
             logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Ec2InstanceMetadata");
-            const { fromInstanceMetadata } = __nccwpck_require__(855);
+            const { fromInstanceMetadata } = __nccwpck_require__(8523);
             return async () => fromInstanceMetadata(options)().then(setNamedProvider);
         },
         Environment: async (options) => {
             logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
-            const { fromEnv } = __nccwpck_require__(4);
+            const { fromEnv } = __nccwpck_require__(7330);
             return async () => fromEnv(options)().then(setNamedProvider);
         },
     };
@@ -10453,7 +9579,7 @@ const resolveAssumeRoleCredentials = async (profileName, profiles, options, call
     const profileData = profiles[profileName];
     const { source_profile, region } = profileData;
     if (!options.roleAssumer) {
-        const { getDefaultRoleAssumer } = __nccwpck_require__(1395);
+        const { getDefaultRoleAssumer } = __nccwpck_require__(4268);
         options.roleAssumer = getDefaultRoleAssumer({
             ...options.clientConfig,
             credentialProviderLogger: options.logger,
@@ -10506,6 +9632,7 @@ const isLoginProfile = (data) => {
     return Boolean(data && data.login_session);
 };
 const resolveLoginCredentials = async (profileName, options, callerClientConfig) => {
+    const { fromLoginCredentials } = __nccwpck_require__(7651);
     const credentials = await fromLoginCredentials({
         ...options,
         profile: profileName,
@@ -10515,7 +9642,7 @@ const resolveLoginCredentials = async (profileName, options, callerClientConfig)
 
 const isProcessProfile = (arg) => Boolean(arg) && typeof arg === "object" && typeof arg.credential_process === "string";
 const resolveProcessCredentials = async (options, profile) => {
-    const { fromProcess } = __nccwpck_require__(8252);
+    const { fromProcess } = __nccwpck_require__(9626);
     const credentials = await fromProcess({
         ...options,
         profile,
@@ -10524,7 +9651,7 @@ const resolveProcessCredentials = async (options, profile) => {
 };
 
 const resolveSsoCredentials = async (profile, profileData, options = {}, callerClientConfig) => {
-    const { fromSSO } = __nccwpck_require__(982);
+    const { fromSSO } = __nccwpck_require__(3098);
     return fromSSO({
         profile,
         logger: options.logger,
@@ -10572,7 +9699,7 @@ const isWebIdentityProfile = (arg) => Boolean(arg) &&
     typeof arg.role_arn === "string" &&
     ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1;
 const resolveWebIdentityCredentials = async (profile, options, callerClientConfig) => {
-    const { fromTokenFile } = __nccwpck_require__(9024);
+    const { fromTokenFile } = __nccwpck_require__(7575);
     const credentials = await fromTokenFile({
         webIdentityTokenFile: profile.web_identity_token_file,
         roleArn: profile.role_arn,
@@ -10625,12 +9752,12 @@ exports.fromIni = fromIni;
 
 /***/ }),
 
-/***/ 194:
+/***/ 7651:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(9751);
-const { CredentialsProviderError, readFile, parseKnownFiles, getProfileName } = __nccwpck_require__(6791);
-const { HttpRequest } = __nccwpck_require__(5850);
+const { setCredentialFeature } = __nccwpck_require__(2514);
+const { CredentialsProviderError, readFile, parseKnownFiles, getProfileName } = __nccwpck_require__(6065);
+const { HttpRequest } = __nccwpck_require__(8084);
 const { createHash, createPrivateKey, createPublicKey, sign } = __nccwpck_require__(7598);
 const { promises } = __nccwpck_require__(3024);
 const { homedir } = __nccwpck_require__(8161);
@@ -10673,7 +9800,7 @@ class LoginCredentialsFetcher {
         return this.profileData.login_session;
     }
     async refresh(token) {
-        const { SigninClient, CreateOAuth2TokenCommand } = __nccwpck_require__(8699);
+        const { SigninClient, CreateOAuth2TokenCommand } = __nccwpck_require__(8582);
         const { logger, userAgentAppId } = this.callerClientConfig ?? {};
         const isH2 = (requestHandler) => {
             return requestHandler?.metadata?.handlerProtocol === "h2";
@@ -10915,18 +10042,18 @@ exports.fromLoginCredentials = fromLoginCredentials;
 
 /***/ }),
 
-/***/ 5342:
+/***/ 8219:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { ENV_KEY, ENV_SECRET, fromEnv } = __nccwpck_require__(4);
-const { chain, CredentialsProviderError, ENV_PROFILE } = __nccwpck_require__(6791);
+const { ENV_KEY, ENV_SECRET, fromEnv } = __nccwpck_require__(7330);
+const { chain, CredentialsProviderError, ENV_PROFILE } = __nccwpck_require__(6065);
 
 const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 const remoteProvider = async (init) => {
-    const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = __nccwpck_require__(855);
+    const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = __nccwpck_require__(8523);
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = __nccwpck_require__(2051);
+        const { fromHttp } = __nccwpck_require__(2318);
         return chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -11047,22 +10174,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = __nccwpck_require__(982);
+        const { fromSSO } = __nccwpck_require__(3098);
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = __nccwpck_require__(9895);
+        const { fromIni } = __nccwpck_require__(22);
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = __nccwpck_require__(8252);
+        const { fromProcess } = __nccwpck_require__(9626);
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = __nccwpck_require__(9024);
+        const { fromTokenFile } = __nccwpck_require__(7575);
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -11086,13 +10213,13 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 8252:
+/***/ 9626:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { externalDataInterceptor, CredentialsProviderError, parseKnownFiles, getProfileName } = __nccwpck_require__(6791);
+const { externalDataInterceptor, CredentialsProviderError, parseKnownFiles, getProfileName } = __nccwpck_require__(6065);
 const { exec } = __nccwpck_require__(1421);
 const { promisify } = __nccwpck_require__(7975);
-const { setCredentialFeature } = __nccwpck_require__(9751);
+const { setCredentialFeature } = __nccwpck_require__(2514);
 
 const getValidatedProcessCredentials = (profileName, data, profiles) => {
     if (data.Version !== 1) {
@@ -11169,12 +10296,12 @@ exports.fromProcess = fromProcess;
 
 /***/ }),
 
-/***/ 982:
+/***/ 3098:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { CredentialsProviderError, getSSOTokenFromFile, getProfileName, parseKnownFiles, loadSsoSessionData } = __nccwpck_require__(6791);
-const { setCredentialFeature } = __nccwpck_require__(9751);
-const { fromSso } = __nccwpck_require__(2163);
+const { CredentialsProviderError, getSSOTokenFromFile, getProfileName, parseKnownFiles, loadSsoSessionData } = __nccwpck_require__(6065);
+const { setCredentialFeature } = __nccwpck_require__(2514);
+const { fromSso } = __nccwpck_require__(3942);
 
 const isSsoProfile = (arg) => arg &&
     (typeof arg.sso_start_url === "string" ||
@@ -11228,7 +10355,7 @@ const resolveSSOCredentials = async ({ ssoStartUrl, ssoSession, ssoAccountId, ss
         });
     }
     const { accessToken } = token;
-    const { SSOClient, GetRoleCredentialsCommand } = __nccwpck_require__(2155);
+    const { SSOClient, GetRoleCredentialsCommand } = __nccwpck_require__(919);
     const sso = ssoClient ||
         new SSOClient(Object.assign({}, clientConfig ?? {}, {
             logger: clientConfig?.logger ?? callerClientConfig?.logger ?? parentClientConfig?.logger,
@@ -11368,21 +10495,21 @@ exports.validateSsoProfile = validateSsoProfile;
 
 /***/ }),
 
-/***/ 2155:
+/***/ 919:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { GetRoleCredentialsCommand, SSOClient } = __nccwpck_require__(2328);
+const { GetRoleCredentialsCommand, SSOClient } = __nccwpck_require__(8767);
 exports.GetRoleCredentialsCommand = GetRoleCredentialsCommand;
 exports.SSOClient = SSOClient;
 
 
 /***/ }),
 
-/***/ 9024:
+/***/ 7575:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(9751);
-const { CredentialsProviderError, externalDataInterceptor } = __nccwpck_require__(6791);
+const { setCredentialFeature } = __nccwpck_require__(2514);
+const { CredentialsProviderError, externalDataInterceptor } = __nccwpck_require__(6065);
 const { readFileSync } = __nccwpck_require__(3024);
 
 const fromWebToken = (init) => async (awsIdentityProperties) => {
@@ -11390,7 +10517,7 @@ const fromWebToken = (init) => async (awsIdentityProperties) => {
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
     let { roleAssumerWithWebIdentity } = init;
     if (!roleAssumerWithWebIdentity) {
-        const { getDefaultRoleAssumerWithWebIdentity } = __nccwpck_require__(1395);
+        const { getDefaultRoleAssumerWithWebIdentity } = __nccwpck_require__(4268);
         roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({
             ...init.clientConfig,
             credentialProviderLogger: init.logger,
@@ -11443,24 +10570,25 @@ exports.fromWebToken = fromWebToken;
 
 /***/ }),
 
-/***/ 8699:
+/***/ 8582:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(9751);
-const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(4774);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createAggregatedClient } = __nccwpck_require__(1278);
-exports.$Command = Command;
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(2514);
+const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(7300);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(8012);
+const { Command: $Command } = __nccwpck_require__(8012);
+exports.$Command = $Command;
 exports.__Client = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6791);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(9321);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
-const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsRestJsonProtocol } = __nccwpck_require__(857);
-const { Sha256 } = __nccwpck_require__(5418);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6065);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(291);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(8084);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(8071);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(2156);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4637);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(7484);
+const { streamCollector, NodeHttpHandler } = __nccwpck_require__(7781);
+const { AwsRestJsonProtocol } = __nccwpck_require__(2046);
+const { Sha256 } = __nccwpck_require__(7856);
 
 const defaultSigninHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -11524,7 +10652,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.997.24";
+var version = "3.997.30";
 var packageInfo = {
 	version: version};
 
@@ -11941,19 +11069,13 @@ class SigninClient extends Client {
     }
 }
 
-class CreateOAuth2TokenCommand extends Command
-    .classBuilder()
-    .ep({
-    ...commonParams,
+const command = makeBuilder(commonParams, "Signin", "SigninClient", getEndpointPlugin);
+const _ep0 = {
     IsControlPlane: { type: "staticContextParams", value: false },
-})
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("Signin", "CreateOAuth2Token", {})
-    .n("SigninClient", "CreateOAuth2TokenCommand")
-    .sc(CreateOAuth2Token$)
-    .build() {
+};
+const _mw0 = (Command, cs, config, o) => [];
+
+class CreateOAuth2TokenCommand extends command(_ep0, _mw0, "CreateOAuth2Token", CreateOAuth2Token$) {
 }
 
 const commands = {
@@ -12000,24 +11122,25 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 9950:
+/***/ 668:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(9751);
-const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(4774);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createAggregatedClient } = __nccwpck_require__(1278);
-exports.$Command = Command;
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(2514);
+const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(7300);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(8012);
+const { Command: $Command } = __nccwpck_require__(8012);
+exports.$Command = $Command;
 exports.__Client = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6791);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(9321);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
-const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsRestJsonProtocol } = __nccwpck_require__(857);
-const { Sha256 } = __nccwpck_require__(5418);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6065);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(291);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(8084);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(8071);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(2156);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4637);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(7484);
+const { streamCollector, NodeHttpHandler } = __nccwpck_require__(7781);
+const { AwsRestJsonProtocol } = __nccwpck_require__(2046);
+const { Sha256 } = __nccwpck_require__(7856);
 
 const defaultSSOOIDCHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -12081,7 +11204,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.997.24";
+var version = "3.997.30";
 var packageInfo = {
 	version: version};
 
@@ -12618,16 +11741,11 @@ class SSOOIDCClient extends Client {
     }
 }
 
-class CreateTokenCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("AWSSSOOIDCService", "CreateToken", {})
-    .n("SSOOIDCClient", "CreateTokenCommand")
-    .sc(CreateToken$)
-    .build() {
+const command = makeBuilder(commonParams, "AWSSSOOIDCService", "SSOOIDCClient", getEndpointPlugin);
+const _ep0 = {};
+const _mw0 = (Command, cs, config, o) => [];
+
+class CreateTokenCommand extends command(_ep0, _mw0, "CreateToken", CreateToken$) {
 }
 
 const commands = {
@@ -12684,24 +11802,25 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 2328:
+/***/ 8767:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(9751);
-const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(4774);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createAggregatedClient } = __nccwpck_require__(1278);
-exports.$Command = Command;
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(2514);
+const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(7300);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(8012);
+const { Command: $Command } = __nccwpck_require__(8012);
+exports.$Command = $Command;
 exports.__Client = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6791);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(9321);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
-const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsRestJsonProtocol } = __nccwpck_require__(857);
-const { Sha256 } = __nccwpck_require__(5418);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6065);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(291);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(8084);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(8071);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(2156);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4637);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(7484);
+const { streamCollector, NodeHttpHandler } = __nccwpck_require__(7781);
+const { AwsRestJsonProtocol } = __nccwpck_require__(2046);
+const { Sha256 } = __nccwpck_require__(7856);
 
 const defaultSSOHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -12765,7 +11884,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.997.24";
+var version = "3.997.30";
 var packageInfo = {
 	version: version};
 
@@ -13121,16 +12240,11 @@ class SSOClient extends Client {
     }
 }
 
-class GetRoleCredentialsCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("SWBPortalService", "GetRoleCredentials", {})
-    .n("SSOClient", "GetRoleCredentialsCommand")
-    .sc(GetRoleCredentials$)
-    .build() {
+const command = makeBuilder(commonParams, "SWBPortalService", "SSOClient", getEndpointPlugin);
+const _ep0 = {};
+const _mw0 = (Command, cs, config, o) => [];
+
+class GetRoleCredentialsCommand extends command(_ep0, _mw0, "GetRoleCredentials", GetRoleCredentials$) {
 }
 
 const commands = {
@@ -13162,25 +12276,26 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 1395:
+/***/ 4268:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin, setCredentialFeature, stsRegionDefaultResolver } = __nccwpck_require__(9751);
-const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(4774);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, Command, createAggregatedClient } = __nccwpck_require__(1278);
-exports.$Command = Command;
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin, setCredentialFeature, stsRegionDefaultResolver } = __nccwpck_require__(2514);
+const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(7300);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(8012);
+const { Command: $Command } = __nccwpck_require__(8012);
+exports.$Command = $Command;
 exports.__Client = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6791);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveParams, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(9321);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(5850);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(3981);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(4006);
-const { resolveAwsSdkSigV4Config, resolveAwsSdkSigV4AConfig, AwsSdkSigV4Signer, AwsSdkSigV4ASigner, NODE_SIGV4A_CONFIG_OPTIONS, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(2962);
-const { SignatureV4MultiRegion } = __nccwpck_require__(9272);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(8666);
-const { streamCollector, NodeHttpHandler } = __nccwpck_require__(9305);
-const { AwsQueryProtocol } = __nccwpck_require__(857);
-const { Sha256 } = __nccwpck_require__(5418);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(6065);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveParams, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(291);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(8084);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(8071);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(2156);
+const { resolveAwsSdkSigV4Config, resolveAwsSdkSigV4AConfig, AwsSdkSigV4Signer, AwsSdkSigV4ASigner, NODE_SIGV4A_CONFIG_OPTIONS, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4637);
+const { SignatureV4MultiRegion } = __nccwpck_require__(922);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(7484);
+const { streamCollector, NodeHttpHandler } = __nccwpck_require__(7781);
+const { AwsQueryProtocol } = __nccwpck_require__(2046);
+const { Sha256 } = __nccwpck_require__(7856);
 
 const q = "ref";
 const a = -1, b = true, c = "isSet", d = "PartitionResult", e = "booleanEquals", f = "stringEquals", g = "getAttr", h = "us-east-1", i = "sigv4", j = "sts", k = "https://sts.{Region}.{PartitionResult#dnsSuffix}", l = { [q]: "Endpoint" }, m = { [q]: "Region" }, n = { [q]: d }, o = {}, p = [m];
@@ -13424,7 +12539,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.997.24";
+var version = "3.997.30";
 var packageInfo = {
 	version: version};
 
@@ -13869,28 +12984,14 @@ class STSClient extends Client {
     }
 }
 
-class AssumeRoleCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("AWSSecurityTokenServiceV20110615", "AssumeRole", {})
-    .n("STSClient", "AssumeRoleCommand")
-    .sc(AssumeRole$)
-    .build() {
+const command = makeBuilder(commonParams, "AWSSecurityTokenServiceV20110615", "STSClient", getEndpointPlugin);
+const _ep0 = {};
+const _mw0 = (Command, cs, config, o) => [];
+
+class AssumeRoleCommand extends command(_ep0, _mw0, "AssumeRole", AssumeRole$) {
 }
 
-class AssumeRoleWithWebIdentityCommand extends Command
-    .classBuilder()
-    .ep(commonParams)
-    .m(function (Command, cs, config, o) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-})
-    .s("AWSSecurityTokenServiceV20110615", "AssumeRoleWithWebIdentity", {})
-    .n("STSClient", "AssumeRoleWithWebIdentityCommand")
-    .sc(AssumeRoleWithWebIdentity$)
-    .build() {
+class AssumeRoleWithWebIdentityCommand extends command(_ep0, _mw0, "AssumeRoleWithWebIdentity", AssumeRoleWithWebIdentity$) {
 }
 
 const commands = {
@@ -14060,10 +13161,10 @@ exports.getDefaultRoleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdent
 
 /***/ }),
 
-/***/ 9272:
+/***/ 922:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { SignatureV4, signatureV4aContainer } = __nccwpck_require__(9440);
+const { SignatureV4, signatureV4aContainer } = __nccwpck_require__(2740);
 
 const signatureV4CrtContainer = {
     CrtSignerV4: null,
@@ -14222,12 +13323,12 @@ exports.signatureV4CrtContainer = signatureV4CrtContainer;
 
 /***/ }),
 
-/***/ 2163:
+/***/ 3942:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setTokenFeature } = __nccwpck_require__(9751);
-const { getBearerTokenEnvKey } = __nccwpck_require__(2962);
-const { TokenProviderError, getSSOTokenFilepath, parseKnownFiles, getProfileName, loadSsoSessionData, getSSOTokenFromFile, memoize, chain } = __nccwpck_require__(6791);
+const { setTokenFeature } = __nccwpck_require__(2514);
+const { getBearerTokenEnvKey } = __nccwpck_require__(4637);
+const { TokenProviderError, getSSOTokenFilepath, parseKnownFiles, getProfileName, loadSsoSessionData, getSSOTokenFromFile, memoize, chain } = __nccwpck_require__(6065);
 const { promises } = __nccwpck_require__(3024);
 
 const fromEnvSigningName = ({ logger, signingName } = {}) => async () => {
@@ -14248,7 +13349,7 @@ const EXPIRE_WINDOW_MS = 5 * 60 * 1000;
 const REFRESH_MESSAGE = `To refresh this SSO session run 'aws sso login' with the corresponding profile.`;
 
 const getSsoOidcClient = async (ssoRegion, init = {}, callerClientConfig) => {
-    const { SSOOIDCClient } = __nccwpck_require__(9950);
+    const { SSOOIDCClient } = __nccwpck_require__(668);
     const coalesce = (prop) => init.clientConfig?.[prop] ?? init.parentClientConfig?.[prop] ?? callerClientConfig?.[prop];
     const ssoOidcClient = new SSOOIDCClient(Object.assign({}, init.clientConfig ?? {}, {
         region: ssoRegion ?? init.clientConfig?.region,
@@ -14259,7 +13360,7 @@ const getSsoOidcClient = async (ssoRegion, init = {}, callerClientConfig) => {
 };
 
 const getNewSsoOidcToken = async (ssoToken, ssoRegion, init = {}, callerClientConfig) => {
-    const { CreateTokenCommand } = __nccwpck_require__(9950);
+    const { CreateTokenCommand } = __nccwpck_require__(668);
     const ssoOidcClient = await getSsoOidcClient(ssoRegion, init, callerClientConfig);
     return ssoOidcClient.send(new CreateTokenCommand({
         clientId: ssoToken.clientId,
@@ -14383,7 +13484,7 @@ exports.nodeProvider = nodeProvider;
 
 /***/ }),
 
-/***/ 4289:
+/***/ 6571:
 /***/ ((__unused_webpack_module, exports) => {
 
 const ATTR_ESCAPE_RE = /[&<>"]/g;
@@ -14752,15 +13853,15 @@ exports.parseXML = parseXML;
 
 /***/ }),
 
-/***/ 4774:
+/***/ 7300:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { getSmithyContext } = __nccwpck_require__(2762);
+const { getSmithyContext } = __nccwpck_require__(8912);
 exports.getSmithyContext = getSmithyContext;
-const { HttpRequest } = __nccwpck_require__(5850);
-const { requestBuilder } = __nccwpck_require__(5850);
+const { HttpRequest } = __nccwpck_require__(8084);
+const { requestBuilder } = __nccwpck_require__(8084);
 exports.requestBuilder = requestBuilder;
-const { HttpApiKeyAuthLocation } = __nccwpck_require__(7747);
+const { HttpApiKeyAuthLocation } = __nccwpck_require__(6921);
 
 const resolveAuthOptions = (candidateAuthOptions, authSchemePreference) => {
     if (!authSchemePreference || authSchemePreference.length === 0) {
@@ -15101,13 +14202,13 @@ exports.setFeature = setFeature;
 
 /***/ }),
 
-/***/ 1833:
+/***/ 1847:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { nv, NumericValue, calculateBodyLength, _parseEpochTimestamp, fromBase64, generateIdempotencyToken } = __nccwpck_require__(8666);
-const { HttpRequest, collectBody, SerdeContext, RpcProtocol } = __nccwpck_require__(5850);
-const { NormalizedSchema, deref, TypeRegistry } = __nccwpck_require__(4006);
-const { getSmithyContext } = __nccwpck_require__(2762);
+const { nv, NumericValue, calculateBodyLength, _parseEpochTimestamp, fromBase64, generateIdempotencyToken } = __nccwpck_require__(7484);
+const { HttpRequest, collectBody, SerdeContext, RpcProtocol } = __nccwpck_require__(8084);
+const { NormalizedSchema, deref, TypeRegistry } = __nccwpck_require__(2156);
+const { getSmithyContext } = __nccwpck_require__(8912);
 
 const majorUint64 = 0;
 const majorNegativeInt64 = 1;
@@ -16363,12 +15464,12 @@ exports.tagSymbol = tagSymbol;
 
 /***/ }),
 
-/***/ 5418:
+/***/ 7856:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { createReadStream } = __nccwpck_require__(3024);
 const { Writable } = __nccwpck_require__(7075);
-const { toUint8Array, concatBytes } = __nccwpck_require__(8666);
+const { toUint8Array, concatBytes } = __nccwpck_require__(7484);
 const { createHash, createHmac } = __nccwpck_require__(7598);
 const zlib = __nccwpck_require__(8522);
 
@@ -16947,15 +16048,15 @@ exports.readableStreamHasher = readableStreamHasher;
 
 /***/ }),
 
-/***/ 1278:
+/***/ 8012:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { getSmithyContext, normalizeProvider } = __nccwpck_require__(2762);
+const { getSmithyContext, normalizeProvider } = __nccwpck_require__(8912);
 exports.getSmithyContext = getSmithyContext;
 exports.normalizeProvider = normalizeProvider;
-const { SMITHY_CONTEXT_KEY, AlgorithmId } = __nccwpck_require__(7747);
+const { SMITHY_CONTEXT_KEY, AlgorithmId } = __nccwpck_require__(6921);
 exports.AlgorithmId = AlgorithmId;
-const { NormalizedSchema } = __nccwpck_require__(4006);
+const { NormalizedSchema } = __nccwpck_require__(2156);
 
 const getAllAliases = (name, aliases) => {
     const _aliases = [];
@@ -18042,6 +17143,23 @@ const _json = (obj) => {
     return obj;
 };
 
+function makeBuilder(common, service, name, ep) {
+    return function makeCommand(added, plugins, op, $, smithyContext = {}) {
+        const epMerged = Object.assign({}, common, added);
+        return Command.classBuilder()
+            .ep(epMerged)
+            .m(function (CommandCtor, clientStack, config, options) {
+            const list = plugins.call(this, CommandCtor, clientStack, config, options);
+            list.unshift(ep(config, CommandCtor.getEndpointParameterInstructions()));
+            return list;
+        })
+            .s(service, op, smithyContext)
+            .n(name, op.charAt(0).toUpperCase() + op.slice(1) + "Command")
+            .sc($)
+            .build();
+    };
+}
+
 exports.Client = Client;
 exports.Command = Command;
 exports.NoOpLogger = NoOpLogger;
@@ -18066,6 +17184,7 @@ exports.invalidFunction = invalidFunction;
 exports.invalidProvider = invalidProvider;
 exports.isSerializableHeaderValue = isSerializableHeaderValue;
 exports.loadConfigsForDefaultMode = loadConfigsForDefaultMode;
+exports.makeBuilder = makeBuilder;
 exports.map = map;
 exports.resolveChecksumRuntimeConfig = resolveChecksumRuntimeConfig;
 exports.resolveDefaultRuntimeConfig = resolveDefaultRuntimeConfig;
@@ -18081,16 +17200,16 @@ exports.withBaseException = withBaseException;
 
 /***/ }),
 
-/***/ 6791:
+/***/ 6065:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { homedir } = __nccwpck_require__(8161);
 const { sep, join } = __nccwpck_require__(6760);
 const { createHash } = __nccwpck_require__(7598);
 const { readFile: readFile$1 } = __nccwpck_require__(1455);
-const { IniSectionType } = __nccwpck_require__(7747);
-const { normalizeProvider } = __nccwpck_require__(1278);
-const { isValidHostLabel } = __nccwpck_require__(2762);
+const { IniSectionType } = __nccwpck_require__(6921);
+const { normalizeProvider } = __nccwpck_require__(8012);
+const { isValidHostLabel } = __nccwpck_require__(8912);
 
 class ProviderError extends Error {
     name = "ProviderError";
@@ -18867,15 +17986,15 @@ exports.resolveRegionConfig = resolveRegionConfig;
 
 /***/ }),
 
-/***/ 9321:
+/***/ 291:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { CONFIG_PREFIX_SEPARATOR, loadConfig } = __nccwpck_require__(6791);
-const { toEndpointV1, getSmithyContext, normalizeProvider, isValidHostLabel } = __nccwpck_require__(2762);
+const { CONFIG_PREFIX_SEPARATOR, loadConfig } = __nccwpck_require__(6065);
+const { toEndpointV1, getSmithyContext, normalizeProvider, isValidHostLabel } = __nccwpck_require__(8912);
 exports.isValidHostLabel = isValidHostLabel;
 exports.middlewareEndpointToEndpointV1 = toEndpointV1;
 exports.toEndpointV1 = toEndpointV1;
-const { EndpointURLScheme } = __nccwpck_require__(7747);
+const { EndpointURLScheme } = __nccwpck_require__(6921);
 
 const ENV_ENDPOINT_URL = "AWS_ENDPOINT_URL";
 const CONFIG_ENDPOINT_URL = "endpoint_url";
@@ -19732,11 +18851,11 @@ exports.resolveParams = resolveParams;
 
 /***/ }),
 
-/***/ 1551:
+/***/ 3605:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { Crc32 } = __nccwpck_require__(5418);
-const { toHex, fromHex, toUtf8, fromUtf8 } = __nccwpck_require__(8666);
+const { Crc32 } = __nccwpck_require__(7856);
+const { toHex, fromHex, toUtf8, fromUtf8 } = __nccwpck_require__(7484);
 const { Readable } = __nccwpck_require__(7075);
 
 class Int64 {
@@ -20631,19 +19750,19 @@ exports.universalEventStreamSerdeProvider = eventStreamSerdeProvider$1;
 
 /***/ }),
 
-/***/ 5850:
+/***/ 8084:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { Uint8ArrayBlobAdapter, sdkStreamMixin, splitEvery, splitHeader, fromBase64, _parseEpochTimestamp, _parseRfc7231DateTime, _parseRfc3339DateTimeWithOffset, LazyJsonString, NumericValue, toUtf8, fromUtf8, generateIdempotencyToken, toBase64, dateToUtcString, quoteHeader } = __nccwpck_require__(8666);
-const { TypeRegistry, NormalizedSchema, translateTraits } = __nccwpck_require__(4006);
-const { HttpRequest, HttpResponse, isValidHostname } = __nccwpck_require__(2762);
-const { parseQueryString, parseUrl } = __nccwpck_require__(2762);
+const { Uint8ArrayBlobAdapter, sdkStreamMixin, splitEvery, splitHeader, fromBase64, _parseEpochTimestamp, _parseRfc7231DateTime, _parseRfc3339DateTimeWithOffset, LazyJsonString, NumericValue, toUtf8, fromUtf8, generateIdempotencyToken, toBase64, dateToUtcString, quoteHeader } = __nccwpck_require__(7484);
+const { TypeRegistry, NormalizedSchema, translateTraits } = __nccwpck_require__(2156);
+const { HttpRequest, HttpResponse, isValidHostname } = __nccwpck_require__(8912);
+const { parseQueryString, parseUrl } = __nccwpck_require__(8912);
 exports.HttpRequest = HttpRequest;
 exports.HttpResponse = HttpResponse;
 exports.isValidHostname = isValidHostname;
 exports.parseQueryString = parseQueryString;
 exports.parseUrl = parseUrl;
-const { FieldPosition } = __nccwpck_require__(7747);
+const { FieldPosition } = __nccwpck_require__(6921);
 
 const collectBody = async (streamBody = new Uint8Array(), context) => {
     if (streamBody instanceof Uint8Array) {
@@ -20783,7 +19902,7 @@ class HttpProtocol extends SerdeContext {
         });
     }
     async loadEventStreamCapability() {
-        const { EventStreamSerde, eventStreamSerdeProvider } = __nccwpck_require__(1551);
+        const { EventStreamSerde, eventStreamSerdeProvider } = __nccwpck_require__(3605);
         const marshaller = this.resolveEventStreamMarshaller(eventStreamSerdeProvider);
         return new EventStreamSerde({
             marshaller,
@@ -21677,13 +20796,13 @@ exports.resolvedPath = resolvedPath;
 
 /***/ }),
 
-/***/ 3981:
+/***/ 8071:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { Readable } = __nccwpck_require__(7075);
-const { NoOpLogger, normalizeProvider } = __nccwpck_require__(1278);
-const { HttpResponse, HttpRequest } = __nccwpck_require__(5850);
-const { parseRfc7231DateTime, v4 } = __nccwpck_require__(8666);
+const { NoOpLogger, normalizeProvider } = __nccwpck_require__(8012);
+const { HttpResponse, HttpRequest } = __nccwpck_require__(8084);
+const { parseRfc7231DateTime, v4 } = __nccwpck_require__(7484);
 
 const isStreamingPayload = (request) => request?.body instanceof Readable ||
     (typeof ReadableStream !== "undefined" && request?.body instanceof ReadableStream);
@@ -22527,10 +21646,10 @@ exports.retryMiddlewareOptions = retryMiddlewareOptions;
 
 /***/ }),
 
-/***/ 4006:
+/***/ 2156:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { getSmithyContext, HttpResponse, toEndpointV1 } = __nccwpck_require__(2762);
+const { getSmithyContext, HttpResponse, toEndpointV1 } = __nccwpck_require__(8912);
 
 const deref = (schemaRef) => {
     if (typeof schemaRef === "function") {
@@ -23245,14 +22364,14 @@ exports.translateTraits = translateTraits;
 
 /***/ }),
 
-/***/ 8666:
+/***/ 7484:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { createHmac, createHash, getRandomValues } = __nccwpck_require__(7598);
 const { ReadStream, lstatSync, fstatSync } = __nccwpck_require__(3024);
-const { HttpResponse } = __nccwpck_require__(2762);
-const { toEndpointV1 } = __nccwpck_require__(9321);
-const { Duplex, Readable, Writable, PassThrough } = __nccwpck_require__(7075);
+const { HttpResponse } = __nccwpck_require__(8912);
+const { toEndpointV1 } = __nccwpck_require__(291);
+const { Readable, Writable, PassThrough } = __nccwpck_require__(7075);
 
 const isArrayBuffer = (arg) => (typeof ArrayBuffer === "function" && arg instanceof ArrayBuffer) ||
     Object.prototype.toString.call(arg) === "[object ArrayBuffer]";
@@ -24237,62 +23356,66 @@ function castSourceData(toCast, encoding) {
     return fromArrayBuffer(toCast);
 }
 
-let ChecksumStream$1 = class ChecksumStream extends Duplex {
+let ChecksumStream$1 = class ChecksumStream extends Readable {
     expectedChecksum;
     checksumSourceLocation;
     checksum;
     source;
     base64Encoder;
-    pendingCallback = null;
     constructor({ expectedChecksum, checksum, source, checksumSourceLocation, base64Encoder, }) {
         super();
-        if (typeof source.pipe === "function") {
-            this.source = source;
-        }
-        else {
+        if (typeof source.pipe !== "function") {
             throw new Error(`@smithy/util-stream: unsupported source type ${source?.constructor?.name ?? source} in ChecksumStream.`);
         }
+        this.source = source;
         this.base64Encoder = base64Encoder ?? toBase64$1;
         this.expectedChecksum = expectedChecksum;
         this.checksum = checksum;
         this.checksumSourceLocation = checksumSourceLocation;
-        this.source.pipe(this);
+        this.source.on("data", this.onSourceData);
+        this.source.on("end", this.onSourceEnd);
+        this.source.on("error", this.onSourceError);
+        this.source.pause();
     }
-    _read(size) {
-        if (this.pendingCallback) {
-            const callback = this.pendingCallback;
-            this.pendingCallback = null;
-            callback();
+    onSourceData = (chunk) => {
+        if (this.destroyed) {
+            return;
         }
-    }
-    _write(chunk, encoding, callback) {
         try {
             this.checksum.update(chunk);
-            const canPushMore = this.push(chunk);
-            if (!canPushMore) {
-                this.pendingCallback = callback;
-                return;
-            }
         }
         catch (e) {
-            return callback(e);
+            this.destroy(e);
+            return;
         }
-        return callback();
-    }
-    async _final(callback) {
+        if (!this.push(chunk)) {
+            this.source.pause();
+        }
+    };
+    onSourceEnd = async () => {
+        if (this.destroyed) {
+            return;
+        }
         try {
             const digest = await this.checksum.digest();
             const received = this.base64Encoder(digest);
             if (this.expectedChecksum !== received) {
-                return callback(new Error(`Checksum mismatch: expected "${this.expectedChecksum}" but received "${received}"` +
+                this.destroy(new Error(`Checksum mismatch: expected "${this.expectedChecksum}" but received "${received}"` +
                     ` in response header "${this.checksumSourceLocation}".`));
+                return;
             }
         }
         catch (e) {
-            return callback(e);
+            this.destroy(e);
+            return;
         }
         this.push(null);
-        return callback();
+    };
+    onSourceError = (error) => {
+        this.destroy(error);
+    };
+    _read(size) {
+        this.source.resume();
     }
     _destroy(error, callback) {
         this.source?.destroy();
@@ -24983,10 +24106,10 @@ exports.v4 = v4;
 
 /***/ }),
 
-/***/ 2762:
+/***/ 8912:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { SMITHY_CONTEXT_KEY } = __nccwpck_require__(7747);
+const { SMITHY_CONTEXT_KEY } = __nccwpck_require__(6921);
 
 const getSmithyContext = (context) => context[SMITHY_CONTEXT_KEY] || (context[SMITHY_CONTEXT_KEY] = {});
 
@@ -25172,12 +24295,12 @@ exports.toEndpointV1 = toEndpointV1;
 
 /***/ }),
 
-/***/ 855:
+/***/ 8523:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { ProviderError, CredentialsProviderError, loadConfig } = __nccwpck_require__(6791);
+const { ProviderError, CredentialsProviderError, loadConfig } = __nccwpck_require__(6065);
 const node_http = __nccwpck_require__(7067);
-const { parseUrl } = __nccwpck_require__(5850);
+const { parseUrl } = __nccwpck_require__(8084);
 
 const isImdsCredentials = (arg) => Boolean(arg) &&
     typeof arg === "object" &&
@@ -25549,14 +24672,14 @@ exports.providerConfigFromInit = providerConfigFromInit;
 
 /***/ }),
 
-/***/ 9305:
+/***/ 7781:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { buildQueryString, HttpResponse } = __nccwpck_require__(5850);
+const { buildQueryString, HttpResponse } = __nccwpck_require__(8084);
 const node_https = __nccwpck_require__(4708);
 const { Readable } = __nccwpck_require__(7075);
 const http2 = __nccwpck_require__(2467);
-const { streamCollector } = __nccwpck_require__(8666);
+const { streamCollector } = __nccwpck_require__(7484);
 exports.streamCollector = streamCollector;
 
 function buildAbortError(abortSignal) {
@@ -26396,12 +25519,12 @@ exports.NodeHttpHandler = NodeHttpHandler;
 
 /***/ }),
 
-/***/ 9440:
+/***/ 2740:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { fromUtf8, fromHex, toHex, toUint8Array, isArrayBuffer } = __nccwpck_require__(8666);
-const { normalizeProvider } = __nccwpck_require__(1278);
-const { escapeUri, HttpRequest } = __nccwpck_require__(5850);
+const { fromUtf8, fromHex, toHex, toUint8Array, isArrayBuffer } = __nccwpck_require__(7484);
+const { normalizeProvider } = __nccwpck_require__(8012);
+const { escapeUri, HttpRequest } = __nccwpck_require__(8084);
 
 class HeaderFormatter {
     format(headers) {
@@ -26973,7 +26096,7 @@ exports.signatureV4aContainer = signatureV4aContainer;
 
 /***/ }),
 
-/***/ 7747:
+/***/ 6921:
 /***/ ((__unused_webpack_module, exports) => {
 
 var HttpAuthLocation;
@@ -58246,8 +57369,8 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1077.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
-var dist_cjs = __nccwpck_require__(403);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1086.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
+var dist_cjs = __nccwpck_require__(8635);
 ;// CONCATENATED MODULE: ./dist/main.js
 
 
