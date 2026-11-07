@@ -3,9 +3,6 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig, includeIgnoreFile } from 'eslint/config';
 import eslint from '@eslint/js';
 import { configs, parser } from 'typescript-eslint';
-import stylistic from '@stylistic/eslint-plugin';
-import { importX, createNodeResolver } from 'eslint-plugin-import-x';
-import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 
 // // @ts-expect-error ignore type errors
 // import github from 'eslint-plugin-github';
@@ -28,7 +25,6 @@ export default defineConfig(
   },
   eslint.configs.recommended,
   ...configs.strict,
-  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   // github.getFlatConfigs().typescript,
   {
@@ -43,45 +39,6 @@ export default defineConfig(
         },
         tsconfigRootDir: __dirname,
       },
-    },
-    plugins: {
-      'import-x': importX,
-      '@stylistic': stylistic,
-    },
-    extends: [
-      'import-x/flat/recommended',
-    ],
-    settings: {
-      'import-x/resolver-next': [
-        createTypeScriptImportResolver({
-          alwaysTryTypes: true,
-        }),
-        createNodeResolver(),
-      ],
-    },
-    rules: {
-      '@stylistic/semi': ['error', 'always'],
-      '@stylistic/indent': ['error', 2],
-      '@stylistic/max-len': ['error', 80],
-      '@stylistic/comma-dangle': ['error', 'always-multiline'],
-      '@stylistic/quotes': ['error', 'single'],
-
-      'import-x/order': [
-        'error',
-        {
-          'groups': [
-            // Imports of builtins are first
-            'builtin',
-            // Then sibling and parent imports. They can be mingled together
-            ['sibling', 'parent'],
-            // Then index file imports
-            'index',
-            // Then any arcane TypeScript imports
-            'object',
-            // Then the omitted imports: internal, external, type, unknown
-          ],
-        },
-      ],
     },
   },
 );

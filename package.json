@@ -8,8 +8,8 @@
   "scripts": {
     "build": "tsc -p tsconfig-build.json",
     "clean": "rm -rf dist",
-    "lint-fix": "eslint src/**/*.ts --fix",
-    "lint": "eslint src/**/*.ts",
+    "lint-fix": "oxfmt --write src/ && oxlint --fix src/",
+    "lint": "oxfmt --check src/ && oxlint src/",
     "package": "ncc build --license licenses.txt --target es2022",
     "all": "pnpm clean && pnpm build && pnpm lint-fix && pnpm package"
   },
@@ -26,36 +26,35 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",
-    "@aws-sdk/client-cloudformation": "^3.1123.0"
+    "@aws-sdk/client-cloudformation": "^3.1163.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.6",
+    "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
-    "@stylistic/eslint-plugin": "^5.10.0",
-    "@types/node": "^24.13.3",
-    "@vercel/ncc": "^0.44.1",
-    "@vitest/coverage-v8": "^4.1.11",
-    "eslint": "^10.9.1",
-    "eslint-import-resolver-typescript": "^4.4.5",
+    "@types/node": "^26.6.6",
+    "@vercel/ncc": "^0.45.0",
+    "@vitest/coverage-v8": "^5.1.0",
+    "eslint": "^10.14.0",
     "eslint-plugin-github": "^6.1.2",
-    "eslint-plugin-import-x": "^4.17.1",
     "eslint-plugin-promise": "^7.3.0",
     "jiti": "^2.7.0",
-    "js-yaml": "^4.3.2",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.69.0",
+    "js-yaml": "^5.5.0",
+    "oxfmt": "^0.76.0",
+    "oxlint": "^1.91.0",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.72.1",
     "vite": "^8.3.6",
-    "vitest": "^4.1.11"
+    "vitest": "^5.1.0"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "~12.2.1",
+      "version": "~12.18.0",
       "onFail": "download"
     },
     "runtime": {
       "name": "node",
-      "version": "^24.20.0",
+      "version": "^26.13.0",
       "onFail": "download"
     }
   }

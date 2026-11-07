@@ -6,10 +6,10 @@ import {
 
 async function run(): Promise<void> {
   try {
-    const StackName: string = core.getInput('stack-name', {required: true});
-    const region = core.getInput('region', {required: false});
+    const StackName: string = core.getInput('stack-name', { required: true });
+    const region = core.getInput('region', { required: false });
     const client = new CloudFormationClient(
-      region && region.length > 0 ? {region} : {},
+      region && region.length > 0 ? { region } : {},
     );
     const resp = await client.send(
       new DescribeStacksCommand({
