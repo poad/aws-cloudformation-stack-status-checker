@@ -26,17 +26,17 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",
-    "@aws-sdk/client-cloudformation": "^3.1163.0"
+    "@aws-sdk/client-cloudformation": "^3.1166.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
     "@vercel/ncc": "^0.45.0",
     "@vitest/coverage-v8": "^5.1.0",
     "js-yaml": "^5.5.0",
-    "oxfmt": "^0.76.0",
-    "oxlint": "^1.91.0",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
     "typescript": "^7.0.2",
-    "vite": "^8.3.6",
+    "vite": "^8.3.7",
     "vitest": "^5.1.0"
   },
   "devEngines": {
@@ -47,7 +47,7 @@
     },
     "runtime": {
       "name": "node",
-      "version": "^26.13.0",
+      "version": "^26.13.1",
       "onFail": "download"
     }
   }
