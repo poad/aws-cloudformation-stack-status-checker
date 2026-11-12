@@ -10,14 +10,24 @@ enablePrePostScripts: false
 minimumReleaseAge: 1440
 
 minimumReleaseAgeExclude:
-  - aws-cdk-lib@2.260.0
-  - brace-expansion@5.0.8
-
-  - pnpm@12.2.1
+  - pnpm@12.20.0
+  - '@pnpm/exe.android-arm64@12.20.0'
+  - '@pnpm/exe.android-x64@12.20.0'
+  - '@pnpm/exe.darwin-arm64@12.20.0'
+  - '@pnpm/exe.darwin-x64@12.20.0'
+  - '@pnpm/exe.freebsd-x64@12.20.0'
+  - '@pnpm/exe.linux-arm64-musl@12.20.0'
+  - '@pnpm/exe.linux-arm64@12.20.0'
+  - '@pnpm/exe.linux-ppc64@12.20.0'
+  - '@pnpm/exe.linux-riscv64@12.20.0'
+  - '@pnpm/exe.linux-s390x@12.20.0'
+  - '@pnpm/exe.linux-x64-musl@12.20.0'
+  - '@pnpm/exe.linux-x64@12.20.0'
+  - '@pnpm/exe.netbsd-x64@12.20.0'
+  - '@pnpm/exe.win32-arm64@12.20.0'
+  - '@pnpm/exe.win32-x64@12.20.0'
 
 overrides:
-  aws-cdk-lib@<2.260.0: ^2.260.0
-  brace-expansion@<=5.0.7: ^5.0.8
   minimatch@>=7.0.0 <11.0.1: ^11.0.1
 
 strictPeerDependencies: false
