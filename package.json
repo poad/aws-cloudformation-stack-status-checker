@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig-build.json",
-    "clean": "rm -rf dist",
+    "build:clean": "rm -rf dist",
     "lint-fix": "oxfmt --write src/ && oxlint --fix src/",
     "lint": "oxfmt --check src/ && oxlint src/",
     "package": "ncc build --license licenses.txt --target es2022",
@@ -26,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",
-    "@aws-sdk/client-cloudformation": "^3.1166.0"
+    "@aws-sdk/client-cloudformation": "^3.1169.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
@@ -42,7 +42,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "12.20.0",
+      "version": "12.21.0",
       "onFail": "download"
     },
     "runtime": {

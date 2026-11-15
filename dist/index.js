@@ -139,7 +139,7 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 5768:
+/***/ 7767:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
@@ -155,7 +155,7 @@ const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntim
 const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(4015);
 const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(5172);
 const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(1301);
-const { defaultProvider } = __nccwpck_require__(4619);
+const { defaultProvider } = __nccwpck_require__(9572);
 const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5159);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(6858);
 const { AwsQueryProtocol } = __nccwpck_require__(5126);
@@ -214,7 +214,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.1165.0";
+var version = "3.1168.0";
 var packageInfo = {
 	version: version};
 
@@ -735,6 +735,7 @@ const _ALL = "AccountLimitList";
 const _ALc = "AccountLimits";
 const _ALn = "AnnotationList";
 const _AN = "AnnotationName";
+const _ANl = "AliasName";
 const _AOA = "ActivateOrganizationsAccess";
 const _AOAI = "ActivateOrganizationsAccessInput";
 const _AOAO = "ActivateOrganizationsAccessOutput";
@@ -1199,10 +1200,12 @@ const _Pr = "Progress";
 const _Pro = "Properties";
 const _R = "Resources";
 const _RA = "ResourceAction";
+const _RAI = "RemoveAliasInput";
 const _RAR = "RefreshAllResources";
 const _RARN = "RoleARN";
 const _RAT = "RequiredActivatedTypes";
 const _RATe = "RequiredActivatedType";
+const _RAe = "RemoveAlias";
 const _RC = "ResourceChange";
 const _RCD = "ResourceChangeDetail";
 const _RCDe = "ResourceChangeDetails";
@@ -1283,6 +1286,8 @@ const _Rep = "Replacement";
 const _Req = "Required";
 const _S = "Status";
 const _SA = "StagesAvailable";
+const _SAI = "SetAliasInput";
+const _SAe = "SetAlias";
 const _SD = "StackDefinitions";
 const _SDDI = "StackDriftDetectionId";
 const _SDI = "StackDriftInformation";
@@ -2565,6 +2570,11 @@ var RegisterTypeOutput$ = [3, n0, _RTO,
     [_RTeg],
     [0]
 ];
+var RemoveAliasInput$ = [3, n0, _RAI,
+    0,
+    [_ANl],
+    [0], 1
+];
 var RequiredActivatedType$ = [3, n0, _RATe,
     0,
     [_TNA, _OTN, _PI, _SMV],
@@ -2660,6 +2670,11 @@ var ScannedResourceIdentifier$ = [3, n0, _SRIc,
     [_RT, _RI],
     [0, 128 | 0], 2
 ];
+var SetAliasInput$ = [3, n0, _SAI,
+    0,
+    [_SN, _ANl],
+    [0, 0], 2
+];
 var SetStackPolicyInput$ = [3, n0, _SSPI,
     0,
     [_SN, _SPB, _SPURL],
@@ -2692,8 +2707,8 @@ var SignalResourceInput$ = [3, n0, _SRIi,
 ];
 var Stack$ = [3, n0, _Sta,
     0,
-    [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _DC, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
-    [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, () => DeploymentConfig$, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations], 3
+    [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _DC, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO, _ANl],
+    [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, () => DeploymentConfig$, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations, 0], 3
 ];
 var StackDefinition$ = [3, n0, _SDt,
     0,
@@ -3390,8 +3405,14 @@ var RegisterPublisher$ = [9, n0, _RPeg,
 var RegisterType$ = [9, n0, _RTegi,
     2, () => RegisterTypeInput$, () => RegisterTypeOutput$
 ];
+var RemoveAlias$ = [9, n0, _RAe,
+    0, () => RemoveAliasInput$, () => __Unit
+];
 var RollbackStack$ = [9, n0, _RSo,
     0, () => RollbackStackInput$, () => RollbackStackOutput$
+];
+var SetAlias$ = [9, n0, _SAe,
+    0, () => SetAliasInput$, () => __Unit
 ];
 var SetStackPolicy$ = [9, n0, _SSP,
     0, () => SetStackPolicyInput$, () => __Unit
@@ -3813,7 +3834,13 @@ class RegisterPublisherCommand extends command(_ep0, _mw0, "RegisterPublisher", 
 class RegisterTypeCommand extends command(_ep0, _mw0, "RegisterType", RegisterType$) {
 }
 
+class RemoveAliasCommand extends command(_ep0, _mw0, "RemoveAlias", RemoveAlias$) {
+}
+
 class RollbackStackCommand extends command(_ep0, _mw0, "RollbackStack", RollbackStack$) {
+}
+
+class SetAliasCommand extends command(_ep0, _mw0, "SetAlias", SetAlias$) {
 }
 
 class SetStackPolicyCommand extends command(_ep0, _mw0, "SetStackPolicy", SetStackPolicy$) {
@@ -4865,7 +4892,9 @@ const commands = {
     RecordHandlerProgressCommand,
     RegisterPublisherCommand,
     RegisterTypeCommand,
+    RemoveAliasCommand,
     RollbackStackCommand,
+    SetAliasCommand,
     SetStackPolicyCommand,
     SetTypeConfigurationCommand,
     SetTypeDefaultVersionCommand,
@@ -5868,6 +5897,9 @@ __webpack_unused_export__ = RegisterTypeInput$;
 __webpack_unused_export__ = RegisterTypeOutput$;
 __webpack_unused_export__ = RegistrationStatus;
 __webpack_unused_export__ = RegistryType;
+__webpack_unused_export__ = RemoveAlias$;
+__webpack_unused_export__ = RemoveAliasCommand;
+__webpack_unused_export__ = RemoveAliasInput$;
 __webpack_unused_export__ = Replacement;
 __webpack_unused_export__ = RequiredActivatedType$;
 __webpack_unused_export__ = RequiresRecreation;
@@ -5902,6 +5934,9 @@ __webpack_unused_export__ = ScanFilter$;
 __webpack_unused_export__ = ScanType;
 __webpack_unused_export__ = ScannedResource$;
 __webpack_unused_export__ = ScannedResourceIdentifier$;
+__webpack_unused_export__ = SetAlias$;
+__webpack_unused_export__ = SetAliasCommand;
+__webpack_unused_export__ = SetAliasInput$;
 __webpack_unused_export__ = SetStackPolicy$;
 __webpack_unused_export__ = SetStackPolicyCommand;
 __webpack_unused_export__ = SetStackPolicyInput$;
@@ -9219,7 +9254,7 @@ exports.fromHttp = fromHttp;
 
 /***/ }),
 
-/***/ 8384:
+/***/ 9514:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { CredentialsProviderError, chain, getProfileName, parseKnownFiles } = __nccwpck_require__(5913);
@@ -9335,7 +9370,7 @@ const isLoginProfile = (data) => {
     return Boolean(data && data.login_session);
 };
 const resolveLoginCredentials = async (profileName, options, callerClientConfig) => {
-    const { fromLoginCredentials } = __nccwpck_require__(5244);
+    const { fromLoginCredentials } = __nccwpck_require__(7811);
     const credentials = await fromLoginCredentials({
         ...options,
         profile: profileName,
@@ -9455,7 +9490,7 @@ exports.fromIni = fromIni;
 
 /***/ }),
 
-/***/ 5244:
+/***/ 7811:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { setCredentialFeature } = __nccwpck_require__(2298);
@@ -9523,7 +9558,10 @@ class LoginCredentialsFetcher {
         const requestHandler = isH2(this.callerClientConfig?.requestHandler)
             ? undefined
             : this.callerClientConfig?.requestHandler;
-        const region = this.profileData.region ?? (await this.callerClientConfig?.region?.()) ?? process.env.AWS_REGION;
+        const signInRegion = typeof freshToken.signInRegion === "string" && freshToken.signInRegion.length > 0
+            ? freshToken.signInRegion
+            : undefined;
+        const region = signInRegion ?? this.profileData.region ?? (await this.callerClientConfig?.region?.()) ?? process.env.AWS_REGION;
         const client = new SigninClient({
             credentials: {
                 accessKeyId: "",
@@ -9534,6 +9572,7 @@ class LoginCredentialsFetcher {
             logger,
             userAgentAppId,
             ...this.init?.clientConfig,
+            ...(signInRegion && { region: signInRegion }),
         });
         this.createDPoPInterceptor(client.middlewareStack);
         const commandInput = {
@@ -9752,7 +9791,7 @@ exports.fromLoginCredentials = fromLoginCredentials;
 
 /***/ }),
 
-/***/ 4619:
+/***/ 9572:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { ENV_KEY, ENV_SECRET, fromEnv } = __nccwpck_require__(8586);
@@ -9891,7 +9930,7 @@ const defaultProvider = (init = {}) => memoizeChain([
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = __nccwpck_require__(8384);
+        const { fromIni } = __nccwpck_require__(9514);
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
@@ -61149,8 +61188,8 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1166.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
-var dist_cjs = __nccwpck_require__(5768);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1169.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
+var dist_cjs = __nccwpck_require__(7767);
 ;// CONCATENATED MODULE: ./dist/main.js
 
 
