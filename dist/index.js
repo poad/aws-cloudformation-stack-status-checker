@@ -139,27 +139,27 @@ exports.InvokeStoreBase = InvokeStoreBase;
 
 /***/ }),
 
-/***/ 7767:
+/***/ 7580:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 var __webpack_unused_export__;
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(2298);
-const { getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin, createPaginator } = __nccwpck_require__(9420);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createWaiter, checkExceptions, WaiterState, createAggregatedClient } = __nccwpck_require__(948);
-const { Command: $Command } = __nccwpck_require__(948);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(7505);
+const { getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin, createPaginator } = __nccwpck_require__(8305);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createWaiter, checkExceptions, WaiterState, createAggregatedClient } = __nccwpck_require__(4713);
+const { Command: $Command } = __nccwpck_require__(4713);
 __webpack_unused_export__ = $Command;
 __webpack_unused_export__ = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5913);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(4283);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(1212);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(4015);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(5172);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(1301);
-const { defaultProvider } = __nccwpck_require__(9572);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5159);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5164);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(5812);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(4047);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(5200);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(9469);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4836);
+const { defaultProvider } = __nccwpck_require__(6133);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5975);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(6858);
-const { AwsQueryProtocol } = __nccwpck_require__(5126);
-const { Sha256 } = __nccwpck_require__(9816);
+const { AwsQueryProtocol } = __nccwpck_require__(4791);
+const { Sha256 } = __nccwpck_require__(501);
 
 const defaultCloudFormationHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -214,7 +214,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.1168.0";
+var version = "3.1174.0";
 var packageInfo = {
 	version: version};
 
@@ -771,6 +771,7 @@ const _BV = "BeforeValue";
 const _BVF = "BeforeValueFrom";
 const _C = "Change";
 const _CA = "CallAs";
+const _CAC = "CompletedAccountsCount";
 const _CAo = "ConnectionArn";
 const _CAon = "ConfigurationAlias";
 const _CAonf = "ConfigurationArn";
@@ -794,6 +795,8 @@ const _CSHRTD = "ChangeSetHookResourceTargetDetails";
 const _CSHTD = "ChangeSetHookTargetDetails";
 const _CSHh = "ChangeSetHooks";
 const _CSI = "ChangeSetId";
+const _CSIC = "CompletedStackInstancesCount";
+const _CSICa = "CancelledStackInstancesCount";
 const _CSII = "CreateStackInstancesInput";
 const _CSIO = "CreateStackInstancesOutput";
 const _CSIr = "CreateStackInput";
@@ -958,6 +961,8 @@ const _EN = "ExportName";
 const _EP = "ExpectedProperties";
 const _ERA = "ExecutionRoleArn";
 const _ERN = "ExecutionRoleName";
+const _ERTB = "ExecutionRoleTemplateBody";
+const _ERTU = "ExecutionRoleTemplateUrl";
 const _ES = "ExecutionStatus";
 const _ESC = "EnableStackCreation";
 const _ESF = "ExecutionStatusFilter";
@@ -979,6 +984,7 @@ const _Ev = "Evaluation";
 const _Ex = "Export";
 const _Exp = "Exports";
 const _F = "Filters";
+const _FAC = "FailedAccountsCount";
 const _FE = "FailedEvents";
 const _FM = "FailureMode";
 const _FR = "ForceRollback";
@@ -1163,6 +1169,7 @@ const _OV = "OutputValue";
 const _Ou = "Outputs";
 const _P = "Parameters";
 const _PA = "PolicyAction";
+const _PAC = "PendingAccountsCount";
 const _PC = "PercentageCompleted";
 const _PCSI = "ParentChangeSetId";
 const _PCa = "ParameterConstraints";
@@ -1184,6 +1191,7 @@ const _PRI = "PhysicalResourceId";
 const _PRIC = "PhysicalResourceIdContext";
 const _PRICKVP = "PhysicalResourceIdContextKeyValuePair";
 const _PS = "PublisherStatus";
+const _PSIC = "PendingStackInstancesCount";
 const _PSr = "ProgressStatus";
 const _PT = "ProvisioningType";
 const _PTA = "PublicTypeArn";
@@ -1242,14 +1250,18 @@ const _RPO = "RegisterPublisherOutput";
 const _RPe = "ResourcesProcessing";
 const _RPeg = "RegisterPublisher";
 const _RPes = "ResourcesPending";
+const _RPo = "RoleProvisioning";
 const _RR = "RetainResources";
 const _RRe = "ResourcesRead";
 const _RRel = "RelatedResources";
 const _RRem = "RemoveResources";
 const _RReq = "RequiresRecreation";
 const _RS = "RetainStacks";
+const _RSD = "RegionalStatusDetail";
+const _RSDe = "RegionalStatusDetails";
 const _RSF = "RegistrationStatusFilter";
 const _RSI = "ResourceScanId";
+const _RSID = "RegionalStackInstancesDeployment";
 const _RSIPE = "ResourceScanInProgressException";
 const _RSIo = "RollbackStackInput";
 const _RSLEE = "ResourceScanLimitExceededException";
@@ -1260,6 +1272,7 @@ const _RSR = "ResourceStatusReason";
 const _RSS = "ResourceScanSummaries";
 const _RSSe = "ResourceScanSummary";
 const _RSe = "ResourcesScanned";
+const _RSeg = "RegionalStages";
 const _RSes = "ResourceStatus";
 const _RSeso = "ResourcesSucceeded";
 const _RSo = "RollbackStack";
@@ -1286,6 +1299,7 @@ const _Rep = "Replacement";
 const _Req = "Required";
 const _S = "Status";
 const _SA = "StagesAvailable";
+const _SAC = "SucceededAccountsCount";
 const _SAI = "SetAliasInput";
 const _SAe = "SetAlias";
 const _SD = "StackDefinitions";
@@ -1303,6 +1317,7 @@ const _SHP = "SchemaHandlerPackage";
 const _SI = "StackId";
 const _SIA = "StackInstanceAccount";
 const _SICS = "StackInstanceComprehensiveStatus";
+const _SID = "StackInstancesDeployment";
 const _SIF = "StackInstanceFilter";
 const _SIFt = "StackInstanceFilters";
 const _SINFE = "StackInstanceNotFoundException";
@@ -1361,10 +1376,14 @@ const _SSARN = "StackSetARN";
 const _SSDDD = "StackSetDriftDetectionDetails";
 const _SSF = "StackStatusFilter";
 const _SSI = "StackSetId";
+const _SSIC = "SucceededStackInstancesCount";
+const _SSICk = "SkippedStackInstancesCount";
 const _SSN = "StackSetName";
 const _SSNEE = "StackSetNotEmptyException";
 const _SSNFE = "StackSetNotFoundException";
 const _SSO = "StackSetOperation";
+const _SSOB = "StackSetOutputBucket";
+const _SSOBP = "StackSetOutputBucketPath";
 const _SSOP = "StackSetOperationPreferences";
 const _SSORS = "StackSetOperationResultSummary";
 const _SSORSt = "StackSetOperationResultSummaries";
@@ -1396,10 +1415,12 @@ const _Sc = "Schema";
 const _Sco = "Scope";
 const _So = "Source";
 const _St = "Stacks";
-const _Sta = "Stack";
+const _Sta = "Stages";
+const _Stac = "Stack";
 const _Su = "Summaries";
 const _T = "Type";
 const _TA = "TypeArn";
+const _TAC = "TotalAccountsCount";
 const _TAEE = "TokenAlreadyExistsException";
 const _TB = "TemplateBody";
 const _TC = "TypeConfigurations";
@@ -1456,6 +1477,7 @@ const _Tar = "Target";
 const _Ti = "Timestamp";
 const _Ty = "Types";
 const _U = "Url";
+const _UAER = "UseAdminExecutionRole";
 const _UGT = "UpdateGeneratedTemplate";
 const _UGTI = "UpdateGeneratedTemplateInput";
 const _UGTO = "UpdateGeneratedTemplateOutput";
@@ -1832,8 +1854,8 @@ var CreateStackRefactorOutput$ = [3, n0, _CSRO,
 ];
 var CreateStackSetInput$ = [3, n0, _CSSI,
     0,
-    [_SSN, _D, _TB, _TURL, _SI, _P, _Ca, _Ta, _ARARN, _ERN, _PM, _AD, _CA, _CRT, _ME],
-    [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$], 1
+    [_SSN, _D, _TB, _TURL, _SI, _P, _Ca, _Ta, _ARARN, _ERN, _PM, _AD, _CA, _CRT, _ME, _ERTB, _ERTU, _SSOB],
+    [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$, 0, 0, 0], 1
 ];
 var CreateStackSetOutput$ = [3, n0, _CSSO,
     0,
@@ -2550,6 +2572,21 @@ var RecordHandlerProgressOutput$ = [3, n0, _RHPO,
     [],
     []
 ];
+var RegionalStackInstancesDeployment$ = [3, n0, _RSID,
+    0,
+    [_S, _SSIC, _FSIC, _CSIC, _PSIC, _CSICa, _SSICk, _TSIC, _PC],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+var RegionalStages$ = [3, n0, _RSeg,
+    0,
+    [_RSID],
+    [() => RegionalStackInstancesDeployment$]
+];
+var RegionalStatusDetail$ = [3, n0, _RSD,
+    0,
+    [_Sta],
+    [() => RegionalStages$]
+];
 var RegisterPublisherInput$ = [3, n0, _RPI,
     0,
     [_ATAC, _CAo],
@@ -2635,6 +2672,11 @@ var ResourceToImport$ = [3, n0, _RTIes,
     [_RT, _LRI, _RI],
     [0, 0, 128 | 0], 3
 ];
+var RoleProvisioning$ = [3, n0, _RPo,
+    0,
+    [_S, _SAC, _FAC, _CAC, _PAC, _PC],
+    [0, 1, 1, 1, 1, 1]
+];
 var RollbackConfiguration$ = [3, n0, _RCo,
     0,
     [_RTo, _MTIM],
@@ -2705,7 +2747,7 @@ var SignalResourceInput$ = [3, n0, _SRIi,
     [_SN, _LRI, _UI, _S],
     [0, 0, 0, 0], 4
 ];
-var Stack$ = [3, n0, _Sta,
+var Stack$ = [3, n0, _Stac,
     0,
     [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _DC, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO, _ANl],
     [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, () => DeploymentConfig$, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations, 0], 3
@@ -2749,6 +2791,11 @@ var StackInstanceResourceDriftsSummary$ = [3, n0, _SIRDSt,
     0,
     [_SI, _LRI, _RT, _SRDS, _Ti, _PRI, _PRIC, _PDro],
     [0, 0, 0, 0, 4, 0, () => PhysicalResourceIdContext, () => PropertyDifferences], 5
+];
+var StackInstancesDeployment$ = [3, n0, _SID,
+    0,
+    [_S, _SSIC, _FSIC, _CSIC, _PSIC, _CSICa, _SSICk, _PC],
+    [0, 1, 1, 1, 1, 1, 1, 1]
 ];
 var StackInstanceSummary$ = [3, n0, _SISt,
     0,
@@ -2797,8 +2844,8 @@ var StackResourceSummary$ = [3, n0, _SRStac,
 ];
 var StackSet$ = [3, n0, _SS,
     0,
-    [_SSN, _SSI, _D, _S, _TB, _P, _Ca, _Ta, _SSARN, _ARARN, _ERN, _SSDDD, _AD, _PM, _OUI, _ME, _Re],
-    [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => StackSetDriftDetectionDetails$, () => AutoDeployment$, 0, 64 | 0, () => ManagedExecution$, 64 | 0]
+    [_SSN, _SSI, _D, _S, _TB, _P, _Ca, _Ta, _SSARN, _ARARN, _ERN, _SSDDD, _AD, _PM, _OUI, _ME, _Re, _SSOBP],
+    [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => StackSetDriftDetectionDetails$, () => AutoDeployment$, 0, 64 | 0, () => ManagedExecution$, 64 | 0, 0]
 ];
 var StackSetAutoDeploymentTargetSummary$ = [3, n0, _SSADTS,
     0,
@@ -2812,8 +2859,8 @@ var StackSetDriftDetectionDetails$ = [3, n0, _SSDDD,
 ];
 var StackSetOperation$ = [3, n0, _SSO,
     0,
-    [_OI, _SSI, _Act, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta],
-    [0, 0, 0, 0, () => StackSetOperationPreferences$, 2, 0, 0, 4, 4, () => DeploymentTargets$, () => StackSetDriftDetectionDetails$, 0, () => StackSetOperationStatusDetails$]
+    [_OI, _SSI, _Act, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta, _RSDe],
+    [0, 0, 0, 0, () => StackSetOperationPreferences$, 2, 0, 0, 4, 4, () => DeploymentTargets$, () => StackSetDriftDetectionDetails$, 0, () => StackSetOperationStatusDetails$, () => RegionalStatusDetails]
 ];
 var StackSetOperationPreferences$ = [3, n0, _SSOP,
     0,
@@ -2827,8 +2874,8 @@ var StackSetOperationResultSummary$ = [3, n0, _SSORS,
 ];
 var StackSetOperationStatusDetails$ = [3, n0, _SSOSD,
     0,
-    [_FSIC],
-    [1]
+    [_Sta, _TAC, _TSIC, _FSIC],
+    [() => Stages$, 1, 1, 1]
 ];
 var StackSetOperationSummary$ = [3, n0, _SSOS,
     0,
@@ -2844,6 +2891,11 @@ var StackSummary$ = [3, n0, _SStac,
     0,
     [_SN, _CT, _SSta, _SI, _TDe, _LUT, _DTel, _SSR, _PIa, _RIo, _DI, _LO],
     [0, 4, 0, 0, 0, 4, 4, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations], 3
+];
+var Stages$ = [3, n0, _Sta,
+    0,
+    [_RPo, _SID],
+    [() => RoleProvisioning$, () => StackInstancesDeployment$]
 ];
 var StartResourceScanInput$ = [3, n0, _SRSI,
     0,
@@ -2962,8 +3014,8 @@ var UpdateStackOutput$ = [3, n0, _USO,
 ];
 var UpdateStackSetInput$ = [3, n0, _USSI,
     0,
-    [_SSN, _D, _TB, _TURL, _UPT, _P, _Ca, _Ta, _OP, _ARARN, _ERN, _DT, _PM, _AD, _OI, _Ac, _Re, _CA, _ME],
-    [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$], 1
+    [_SSN, _D, _TB, _TURL, _UPT, _P, _Ca, _Ta, _OP, _ARARN, _ERN, _DT, _PM, _AD, _OI, _Ac, _Re, _CA, _ME, _ERTB, _ERTU, _UAER, _SSOB],
+    [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$, 0, 0, 2, 0], 1
 ];
 var UpdateStackSetOutput$ = [3, n0, _USSO,
     0,
@@ -3176,6 +3228,9 @@ var WarningDetails = [1, n0, _WDa,
 ];
 var WarningProperties = [1, n0, _WPa,
     0, () => WarningProperty$
+];
+var RegionalStatusDetails = [2, n0, _RSDe,
+    0, 0, () => RegionalStatusDetail$
 ];
 var ActivateOrganizationsAccess$ = [9, n0, _AOA,
     0, () => ActivateOrganizationsAccessInput$, () => ActivateOrganizationsAccessOutput$
@@ -5362,6 +5417,15 @@ const StackSetOperationAction = {
     DETECT_DRIFT: "DETECT_DRIFT",
     UPDATE: "UPDATE",
 };
+const StageStatus = {
+    FAILED: "FAILED",
+    IN_PROGRESS: "IN_PROGRESS",
+    NOT_APPLICABLE: "NOT_APPLICABLE",
+    NOT_STARTED: "NOT_STARTED",
+    PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+    PENDING: "PENDING",
+    SUCCEEDED: "SUCCEEDED",
+};
 const StackSetOperationStatus = {
     FAILED: "FAILED",
     QUEUED: "QUEUED",
@@ -5887,6 +5951,9 @@ __webpack_unused_export__ = RecordHandlerProgressCommand;
 __webpack_unused_export__ = RecordHandlerProgressInput$;
 __webpack_unused_export__ = RecordHandlerProgressOutput$;
 __webpack_unused_export__ = RegionConcurrencyType;
+__webpack_unused_export__ = RegionalStackInstancesDeployment$;
+__webpack_unused_export__ = RegionalStages$;
+__webpack_unused_export__ = RegionalStatusDetail$;
 __webpack_unused_export__ = RegisterPublisher$;
 __webpack_unused_export__ = RegisterPublisherCommand;
 __webpack_unused_export__ = RegisterPublisherInput$;
@@ -5924,6 +5991,7 @@ __webpack_unused_export__ = ResourceSignalStatus;
 __webpack_unused_export__ = ResourceStatus;
 __webpack_unused_export__ = ResourceTargetDefinition$;
 __webpack_unused_export__ = ResourceToImport$;
+__webpack_unused_export__ = RoleProvisioning$;
 __webpack_unused_export__ = RollbackConfiguration$;
 __webpack_unused_export__ = RollbackStack$;
 __webpack_unused_export__ = RollbackStackCommand;
@@ -5968,6 +6036,7 @@ __webpack_unused_export__ = StackInstanceNotFoundException$;
 __webpack_unused_export__ = StackInstanceResourceDriftsSummary$;
 __webpack_unused_export__ = StackInstanceStatus;
 __webpack_unused_export__ = StackInstanceSummary$;
+__webpack_unused_export__ = StackInstancesDeployment$;
 __webpack_unused_export__ = StackNotFoundException;
 __webpack_unused_export__ = StackNotFoundException$;
 __webpack_unused_export__ = StackRefactorAction$;
@@ -6007,6 +6076,8 @@ __webpack_unused_export__ = StackSetStatus;
 __webpack_unused_export__ = StackSetSummary$;
 __webpack_unused_export__ = StackStatus;
 __webpack_unused_export__ = StackSummary$;
+__webpack_unused_export__ = StageStatus;
+__webpack_unused_export__ = Stages$;
 __webpack_unused_export__ = StaleRequestException;
 __webpack_unused_export__ = StaleRequestException$;
 __webpack_unused_export__ = StartResourceScan$;
@@ -6122,22 +6193,23 @@ __webpack_unused_export__ = waitUntilTypeRegistrationComplete;
 
 /***/ }),
 
-/***/ 2298:
+/***/ 7505:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { HttpRequest, parseUrl } = __nccwpck_require__(1212);
+const { HttpRequest, parseUrl } = __nccwpck_require__(4047);
+const { NoOpLogger } = __nccwpck_require__(4713);
 const { InvokeStore } = __nccwpck_require__(14);
-const { normalizeProvider } = __nccwpck_require__(9420);
-const { RETRY_MODES } = __nccwpck_require__(4015);
+const { normalizeProvider } = __nccwpck_require__(8305);
+const { RETRY_MODES } = __nccwpck_require__(5200);
 const { platform, release } = __nccwpck_require__(8161);
 const { versions, env } = __nccwpck_require__(1708);
-const { isValidHostLabel, isIpAddress, customEndpointFunctions } = __nccwpck_require__(4283);
-const { EndpointError, resolveEndpoint } = __nccwpck_require__(4283);
+const { isValidHostLabel, isIpAddress, customEndpointFunctions } = __nccwpck_require__(5812);
+const { EndpointError, resolveEndpoint } = __nccwpck_require__(5812);
 exports.EndpointError = EndpointError;
 exports.isIpAddress = isIpAddress;
 exports.resolveEndpoint = resolveEndpoint;
-const { loadConfig, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS } = __nccwpck_require__(5913);
-const { REGION_ENV_NAME, REGION_INI_NAME, resolveRegionConfig } = __nccwpck_require__(5913);
+const { loadConfig, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS } = __nccwpck_require__(5164);
+const { REGION_ENV_NAME, REGION_INI_NAME, resolveRegionConfig } = __nccwpck_require__(5164);
 exports.NODE_REGION_CONFIG_FILE_OPTIONS = NODE_REGION_CONFIG_FILE_OPTIONS;
 exports.NODE_REGION_CONFIG_OPTIONS = NODE_REGION_CONFIG_OPTIONS;
 exports.REGION_ENV_NAME = REGION_ENV_NAME;
@@ -6262,18 +6334,22 @@ const getHostHeaderPlugin = (options) => ({
 const loggerMiddleware = () => (next, context) => async (args) => {
     try {
         const response = await next(args);
-        const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
-        const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
-        const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
-        const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog ?? context.outputFilterSensitiveLog;
-        const { $metadata, ...outputWithoutMetadata } = response.output;
-        logger?.info?.({
-            clientName,
-            commandName,
-            input: inputFilterSensitiveLog(args.input),
-            output: outputFilterSensitiveLog(outputWithoutMetadata),
-            metadata: $metadata,
-        });
+        const { logger } = context;
+        const isNoOpLogger = logger instanceof NoOpLogger;
+        if (logger && !isNoOpLogger) {
+            const { clientName, commandName, dynamoDbDocumentClientOptions = {} } = context;
+            const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
+            const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
+            const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog ?? context.outputFilterSensitiveLog;
+            const { $metadata, ...outputWithoutMetadata } = response.output;
+            logger.info?.({
+                clientName,
+                commandName,
+                input: inputFilterSensitiveLog(args.input),
+                output: outputFilterSensitiveLog(outputWithoutMetadata),
+                metadata: $metadata,
+            });
+        }
         return response;
     }
     catch (error) {
@@ -6936,7 +7012,7 @@ const NODE_APP_ID_CONFIG_OPTIONS = {
 };
 
 const createUserAgentStringParsingProvider = ({ serviceId, clientVersion }) => async (config) => {
-    const module = __nccwpck_require__(8470);
+    const module = __nccwpck_require__(7141);
     const parse = module.parse ?? module.default.parse ?? (() => "");
     const parsedUA = typeof window !== "undefined" && window?.navigator?.userAgent ? parse(window.navigator.userAgent) : undefined;
     const sections = [
@@ -7143,14 +7219,14 @@ exports.userAgentMiddleware = userAgentMiddleware;
 
 /***/ }),
 
-/***/ 1301:
+/***/ 4836:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { ProviderError, booleanSelector, SelectorType, loadConfig } = __nccwpck_require__(5913);
-const { setCredentialFeature } = __nccwpck_require__(2298);
-const { normalizeProvider, memoizeIdentityProvider, isIdentityExpired, doesIdentityRequireRefresh } = __nccwpck_require__(9420);
+const { ProviderError, booleanSelector, SelectorType, loadConfig } = __nccwpck_require__(5164);
+const { setCredentialFeature } = __nccwpck_require__(7505);
+const { normalizeProvider, memoizeIdentityProvider, isIdentityExpired, doesIdentityRequireRefresh } = __nccwpck_require__(8305);
 const { SignatureV4 } = __nccwpck_require__(1596);
-const { HttpResponse, HttpRequest } = __nccwpck_require__(1212);
+const { HttpResponse, HttpRequest } = __nccwpck_require__(4047);
 const { SMITHY_CONTEXT_KEY } = __nccwpck_require__(4563);
 
 const getDateHeader = (response) => HttpResponse.isInstance(response) ? (response.headers?.date ?? response.headers?.Date) : undefined;
@@ -7511,14 +7587,14 @@ exports.validateSigningProperties = validateSigningProperties;
 
 /***/ }),
 
-/***/ 5126:
+/***/ 4791:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { SmithyRpcV2CborProtocol, loadSmithyRpcV2CborErrorCode } = __nccwpck_require__(8319);
-const { TypeRegistry, NormalizedSchema, deref } = __nccwpck_require__(5172);
-const { decorateServiceException, getValueFromTextNode } = __nccwpck_require__(948);
-const { RpcProtocol, JsonCodec2, loadJsonRpcErrorCode, HttpBindingProtocol, HttpInterceptingShapeSerializer, HttpInterceptingShapeDeserializer, loadRestJsonErrorCode, SmithyRpcV2JsonProtocol, loadSmithyRpcV2JsonErrorCode, FromStringShapeDeserializer, determineTimestampFormat, extendedEncodeURIComponent, collectBody } = __nccwpck_require__(1212);
-const { JsonCodec, JsonShapeDeserializer, JsonShapeDeserializer2, JsonShapeSerializer, JsonShapeSerializer2, parseJsonBody, parseJsonErrorBody } = __nccwpck_require__(1212);
+const { SmithyRpcV2CborProtocol, loadSmithyRpcV2CborErrorCode } = __nccwpck_require__(7286);
+const { TypeRegistry, NormalizedSchema, deref } = __nccwpck_require__(9469);
+const { decorateServiceException, getValueFromTextNode } = __nccwpck_require__(4713);
+const { RpcProtocol, JsonCodec2, loadJsonRpcErrorCode, HttpBindingProtocol, HttpInterceptingShapeSerializer, HttpInterceptingShapeDeserializer, loadRestJsonErrorCode, SmithyRpcV2JsonProtocol, loadSmithyRpcV2JsonErrorCode, FromStringShapeDeserializer, determineTimestampFormat, extendedEncodeURIComponent, collectBody } = __nccwpck_require__(4047);
+const { JsonCodec, JsonShapeDeserializer, JsonShapeDeserializer2, JsonShapeSerializer, JsonShapeSerializer2, parseJsonBody, parseJsonErrorBody } = __nccwpck_require__(4047);
 exports.JsonCodec = JsonCodec;
 exports.JsonCodec2 = JsonCodec2;
 exports.JsonShapeDeserializer = JsonShapeDeserializer;
@@ -7530,7 +7606,7 @@ exports.loadRestJsonErrorCode = loadRestJsonErrorCode;
 exports.parseJsonBody = parseJsonBody;
 exports.parseJsonErrorBody = parseJsonErrorBody;
 const { parseXML, XmlNode, XmlText } = __nccwpck_require__(1017);
-const { toUtf8, toBase64, generateIdempotencyToken, NumericValue, dateToUtcString, fromBase64, expectUnion } = __nccwpck_require__(5159);
+const { toUtf8, toBase64, generateIdempotencyToken, NumericValue, dateToUtcString, fromBase64, expectUnion } = __nccwpck_require__(5975);
 
 class ProtocolLib {
     queryCompat;
@@ -9022,11 +9098,11 @@ exports.parseXmlErrorBody = parseXmlErrorBody;
 
 /***/ }),
 
-/***/ 8586:
+/***/ 5159:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(2298);
-const { CredentialsProviderError } = __nccwpck_require__(5913);
+const { setCredentialFeature } = __nccwpck_require__(7505);
+const { CredentialsProviderError } = __nccwpck_require__(5164);
 
 const ENV_KEY = "AWS_ACCESS_KEY_ID";
 const ENV_SECRET = "AWS_SECRET_ACCESS_KEY";
@@ -9068,15 +9144,15 @@ exports.fromEnv = fromEnv;
 
 /***/ }),
 
-/***/ 5506:
+/***/ 5810:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(2298);
-const { CredentialsProviderError } = __nccwpck_require__(5913);
+const { setCredentialFeature } = __nccwpck_require__(7505);
+const { CredentialsProviderError } = __nccwpck_require__(5164);
 const { NodeHttpHandler } = __nccwpck_require__(6858);
 const fs = __nccwpck_require__(1455);
-const { HttpRequest } = __nccwpck_require__(1212);
-const { sdkStreamMixin, parseRfc3339DateTime } = __nccwpck_require__(5159);
+const { HttpRequest } = __nccwpck_require__(4047);
+const { sdkStreamMixin, parseRfc3339DateTime } = __nccwpck_require__(5975);
 
 const ECS_CONTAINER_HOST = "169.254.170.2";
 const EKS_CONTAINER_HOST_IPv4 = "169.254.170.23";
@@ -9254,16 +9330,16 @@ exports.fromHttp = fromHttp;
 
 /***/ }),
 
-/***/ 9514:
+/***/ 751:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { CredentialsProviderError, chain, getProfileName, parseKnownFiles } = __nccwpck_require__(5913);
-const { setCredentialFeature } = __nccwpck_require__(2298);
+const { CredentialsProviderError, chain, getProfileName, parseKnownFiles } = __nccwpck_require__(5164);
+const { setCredentialFeature } = __nccwpck_require__(7505);
 
 const resolveCredentialSource = (credentialSource, profileName, logger) => {
     const sourceProvidersMap = {
         EcsContainer: async (options) => {
-            const { fromHttp } = __nccwpck_require__(5506);
+            const { fromHttp } = __nccwpck_require__(5810);
             const { fromContainerMetadata } = __nccwpck_require__(1812);
             logger?.debug("@aws-sdk/credential-provider-ini - credential_source is EcsContainer");
             return async () => chain(fromHttp(options ?? {}), fromContainerMetadata(options))().then(setNamedProvider);
@@ -9275,7 +9351,7 @@ const resolveCredentialSource = (credentialSource, profileName, logger) => {
         },
         Environment: async (options) => {
             logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
-            const { fromEnv } = __nccwpck_require__(8586);
+            const { fromEnv } = __nccwpck_require__(5159);
             return async () => fromEnv(options)().then(setNamedProvider);
         },
     };
@@ -9317,7 +9393,7 @@ const resolveAssumeRoleCredentials = async (profileName, profiles, options, call
     const profileData = profiles[profileName];
     const { source_profile, region } = profileData;
     if (!options.roleAssumer) {
-        const { getDefaultRoleAssumer } = __nccwpck_require__(5040);
+        const { getDefaultRoleAssumer } = __nccwpck_require__(4779);
         options.roleAssumer = getDefaultRoleAssumer({
             ...options.clientConfig,
             credentialProviderLogger: options.logger,
@@ -9370,7 +9446,7 @@ const isLoginProfile = (data) => {
     return Boolean(data && data.login_session);
 };
 const resolveLoginCredentials = async (profileName, options, callerClientConfig) => {
-    const { fromLoginCredentials } = __nccwpck_require__(7811);
+    const { fromLoginCredentials } = __nccwpck_require__(742);
     const credentials = await fromLoginCredentials({
         ...options,
         profile: profileName,
@@ -9380,7 +9456,7 @@ const resolveLoginCredentials = async (profileName, options, callerClientConfig)
 
 const isProcessProfile = (arg) => Boolean(arg) && typeof arg === "object" && typeof arg.credential_process === "string";
 const resolveProcessCredentials = async (options, profile) => {
-    const { fromProcess } = __nccwpck_require__(742);
+    const { fromProcess } = __nccwpck_require__(7123);
     const credentials = await fromProcess({
         ...options,
         profile,
@@ -9389,7 +9465,7 @@ const resolveProcessCredentials = async (options, profile) => {
 };
 
 const resolveSsoCredentials = async (profile, profileData, options = {}, callerClientConfig) => {
-    const { fromSSO } = __nccwpck_require__(9183);
+    const { fromSSO } = __nccwpck_require__(3774);
     return fromSSO({
         profile,
         logger: options.logger,
@@ -9437,7 +9513,7 @@ const isWebIdentityProfile = (arg) => Boolean(arg) &&
     typeof arg.role_arn === "string" &&
     ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1;
 const resolveWebIdentityCredentials = async (profile, options, callerClientConfig) => {
-    const { fromTokenFile } = __nccwpck_require__(897);
+    const { fromTokenFile } = __nccwpck_require__(6090);
     const credentials = await fromTokenFile({
         webIdentityTokenFile: profile.web_identity_token_file,
         roleArn: profile.role_arn,
@@ -9490,12 +9566,12 @@ exports.fromIni = fromIni;
 
 /***/ }),
 
-/***/ 7811:
+/***/ 742:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(2298);
-const { CredentialsProviderError, parseKnownFiles, getProfileName } = __nccwpck_require__(5913);
-const { HttpRequest } = __nccwpck_require__(1212);
+const { setCredentialFeature } = __nccwpck_require__(7505);
+const { CredentialsProviderError, parseKnownFiles, getProfileName } = __nccwpck_require__(5164);
+const { HttpRequest } = __nccwpck_require__(4047);
 const { createHash, createPrivateKey, createPublicKey, sign } = __nccwpck_require__(7598);
 const { promises } = __nccwpck_require__(3024);
 const { homedir } = __nccwpck_require__(8161);
@@ -9550,7 +9626,7 @@ class LoginCredentialsFetcher {
         if (freshExpiry - Date.now() > LoginCredentialsFetcher.REFRESH_THRESHOLD) {
             return this.toCredentials(freshToken.accessToken);
         }
-        const { SigninClient, CreateOAuth2TokenCommand } = __nccwpck_require__(1842);
+        const { SigninClient, CreateOAuth2TokenCommand } = __nccwpck_require__(1811);
         const { logger, userAgentAppId } = this.callerClientConfig ?? {};
         const isH2 = (requestHandler) => {
             return requestHandler?.metadata?.handlerProtocol === "h2";
@@ -9791,18 +9867,18 @@ exports.fromLoginCredentials = fromLoginCredentials;
 
 /***/ }),
 
-/***/ 9572:
+/***/ 6133:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { ENV_KEY, ENV_SECRET, fromEnv } = __nccwpck_require__(8586);
-const { chain, CredentialsProviderError, ENV_PROFILE } = __nccwpck_require__(5913);
+const { ENV_KEY, ENV_SECRET, fromEnv } = __nccwpck_require__(5159);
+const { chain, CredentialsProviderError, ENV_PROFILE } = __nccwpck_require__(5164);
 
 const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 const remoteProvider = async (init) => {
     const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = __nccwpck_require__(1812);
     if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
         init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
-        const { fromHttp } = __nccwpck_require__(5506);
+        const { fromHttp } = __nccwpck_require__(5810);
         return chain(fromHttp(init), fromContainerMetadata(init));
     }
     if (process.env[ENV_IMDS_DISABLED] && process.env[ENV_IMDS_DISABLED] !== "false") {
@@ -9925,22 +10001,22 @@ const defaultProvider = (init = {}) => memoizeChain([
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
             throw new CredentialsProviderError("Skipping SSO provider in default chain (inputs do not include SSO fields).", { logger: init.logger });
         }
-        const { fromSSO } = __nccwpck_require__(9183);
+        const { fromSSO } = __nccwpck_require__(3774);
         return fromSSO(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
-        const { fromIni } = __nccwpck_require__(9514);
+        const { fromIni } = __nccwpck_require__(751);
         return fromIni(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
-        const { fromProcess } = __nccwpck_require__(742);
+        const { fromProcess } = __nccwpck_require__(7123);
         return fromProcess(init)(awsIdentityProperties);
     },
     async (awsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
-        const { fromTokenFile } = __nccwpck_require__(897);
+        const { fromTokenFile } = __nccwpck_require__(6090);
         return fromTokenFile(init)(awsIdentityProperties);
     },
     async () => {
@@ -9964,13 +10040,13 @@ exports.defaultProvider = defaultProvider;
 
 /***/ }),
 
-/***/ 742:
+/***/ 7123:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { externalDataInterceptor, CredentialsProviderError, parseKnownFiles, getProfileName } = __nccwpck_require__(5913);
+const { externalDataInterceptor, CredentialsProviderError, parseKnownFiles, getProfileName } = __nccwpck_require__(5164);
 const { exec } = __nccwpck_require__(1421);
 const { promisify } = __nccwpck_require__(7975);
-const { setCredentialFeature } = __nccwpck_require__(2298);
+const { setCredentialFeature } = __nccwpck_require__(7505);
 
 const getValidatedProcessCredentials = (profileName, data, profiles) => {
     if (data.Version !== 1) {
@@ -10047,12 +10123,12 @@ exports.fromProcess = fromProcess;
 
 /***/ }),
 
-/***/ 9183:
+/***/ 3774:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { CredentialsProviderError, getSSOTokenFromFile, getProfileName, parseKnownFiles, loadSsoSessionData } = __nccwpck_require__(5913);
-const { setCredentialFeature } = __nccwpck_require__(2298);
-const { fromSso } = __nccwpck_require__(184);
+const { CredentialsProviderError, getSSOTokenFromFile, getProfileName, parseKnownFiles, loadSsoSessionData } = __nccwpck_require__(5164);
+const { setCredentialFeature } = __nccwpck_require__(7505);
+const { fromSso } = __nccwpck_require__(2108);
 
 const isSsoProfile = (arg) => arg &&
     (typeof arg.sso_start_url === "string" ||
@@ -10106,7 +10182,7 @@ const resolveSSOCredentials = async ({ ssoStartUrl, ssoSession, ssoAccountId, ss
         });
     }
     const { accessToken } = token;
-    const { SSOClient, GetRoleCredentialsCommand } = __nccwpck_require__(8344);
+    const { SSOClient, GetRoleCredentialsCommand } = __nccwpck_require__(6931);
     const sso = ssoClient ||
         new SSOClient(Object.assign({}, clientConfig ?? {}, {
             logger: clientConfig?.logger ?? callerClientConfig?.logger ?? parentClientConfig?.logger,
@@ -10246,21 +10322,21 @@ exports.validateSsoProfile = validateSsoProfile;
 
 /***/ }),
 
-/***/ 8344:
+/***/ 6931:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { GetRoleCredentialsCommand, SSOClient } = __nccwpck_require__(131);
+const { GetRoleCredentialsCommand, SSOClient } = __nccwpck_require__(6768);
 exports.GetRoleCredentialsCommand = GetRoleCredentialsCommand;
 exports.SSOClient = SSOClient;
 
 
 /***/ }),
 
-/***/ 897:
+/***/ 6090:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setCredentialFeature } = __nccwpck_require__(2298);
-const { CredentialsProviderError, externalDataInterceptor } = __nccwpck_require__(5913);
+const { setCredentialFeature } = __nccwpck_require__(7505);
+const { CredentialsProviderError, externalDataInterceptor } = __nccwpck_require__(5164);
 const { readFileSync } = __nccwpck_require__(3024);
 
 const fromWebToken = (init) => async (awsIdentityProperties) => {
@@ -10268,7 +10344,7 @@ const fromWebToken = (init) => async (awsIdentityProperties) => {
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
     let { roleAssumerWithWebIdentity } = init;
     if (!roleAssumerWithWebIdentity) {
-        const { getDefaultRoleAssumerWithWebIdentity } = __nccwpck_require__(5040);
+        const { getDefaultRoleAssumerWithWebIdentity } = __nccwpck_require__(4779);
         roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({
             ...init.clientConfig,
             credentialProviderLogger: init.logger,
@@ -10321,25 +10397,25 @@ exports.fromWebToken = fromWebToken;
 
 /***/ }),
 
-/***/ 1842:
+/***/ 1811:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(2298);
-const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(9420);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(948);
-const { Command: $Command } = __nccwpck_require__(948);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(7505);
+const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(8305);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(4713);
+const { Command: $Command } = __nccwpck_require__(4713);
 exports.$Command = $Command;
 exports.__Client = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5913);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(4283);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(1212);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(4015);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(5172);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(1301);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5159);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5164);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(5812);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(4047);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(5200);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(9469);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4836);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5975);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(6858);
-const { AwsRestJsonProtocol } = __nccwpck_require__(5126);
-const { Sha256 } = __nccwpck_require__(9816);
+const { AwsRestJsonProtocol } = __nccwpck_require__(4791);
+const { Sha256 } = __nccwpck_require__(501);
 
 const defaultSigninHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -10404,7 +10480,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.998.2";
+var version = "3.998.3";
 var packageInfo = {
 	version: version};
 
@@ -10931,25 +11007,25 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 5811:
+/***/ 2438:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(2298);
-const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(9420);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(948);
-const { Command: $Command } = __nccwpck_require__(948);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(7505);
+const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(8305);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(4713);
+const { Command: $Command } = __nccwpck_require__(4713);
 exports.$Command = $Command;
 exports.__Client = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5913);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(4283);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(1212);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(4015);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(5172);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(1301);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5159);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5164);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(5812);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(4047);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(5200);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(9469);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4836);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5975);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(6858);
-const { AwsRestJsonProtocol } = __nccwpck_require__(5126);
-const { Sha256 } = __nccwpck_require__(9816);
+const { AwsRestJsonProtocol } = __nccwpck_require__(4791);
+const { Sha256 } = __nccwpck_require__(501);
 
 const defaultSSOOIDCHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -11014,7 +11090,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.998.2";
+var version = "3.998.3";
 var packageInfo = {
 	version: version};
 
@@ -11625,25 +11701,25 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 131:
+/***/ 6768:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(2298);
-const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(9420);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(948);
-const { Command: $Command } = __nccwpck_require__(948);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin } = __nccwpck_require__(7505);
+const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(8305);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(4713);
+const { Command: $Command } = __nccwpck_require__(4713);
 exports.$Command = $Command;
 exports.__Client = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5913);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(4283);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(1212);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(4015);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(5172);
-const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(1301);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5159);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5164);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(5812);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(4047);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(5200);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(9469);
+const { resolveAwsSdkSigV4Config, AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4836);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5975);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(6858);
-const { AwsRestJsonProtocol } = __nccwpck_require__(5126);
-const { Sha256 } = __nccwpck_require__(9816);
+const { AwsRestJsonProtocol } = __nccwpck_require__(4791);
+const { Sha256 } = __nccwpck_require__(501);
 
 const defaultSSOHttpAuthSchemeParametersProvider = async (config, context, input) => {
     return {
@@ -11708,7 +11784,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.998.2";
+var version = "3.998.3";
 var packageInfo = {
 	version: version};
 
@@ -12106,26 +12182,26 @@ exports.errorTypeRegistries = errorTypeRegistries;
 
 /***/ }),
 
-/***/ 5040:
+/***/ 4779:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin, setCredentialFeature, stsRegionDefaultResolver } = __nccwpck_require__(2298);
-const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(9420);
-const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(948);
-const { Command: $Command } = __nccwpck_require__(948);
+const { awsEndpointFunctions, emitWarningIfUnsupportedVersion: emitWarningIfUnsupportedVersion$1, createDefaultUserAgentProvider, getDefaultSocketTimeout, NODE_APP_ID_CONFIG_OPTIONS, getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration, resolveUserAgentConfig, resolveHostHeaderConfig, getUserAgentPlugin, getHostHeaderPlugin, getLoggerPlugin, getRecursionDetectionPlugin, setCredentialFeature, stsRegionDefaultResolver } = __nccwpck_require__(7505);
+const { NoAuthSigner, getHttpAuthSchemeEndpointRuleSetPlugin, DefaultIdentityProviderConfig, getHttpSigningPlugin } = __nccwpck_require__(8305);
+const { normalizeProvider, getSmithyContext, ServiceException, NoOpLogger, emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode, getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig, Client, makeBuilder, createAggregatedClient } = __nccwpck_require__(4713);
+const { Command: $Command } = __nccwpck_require__(4713);
 exports.$Command = $Command;
 exports.__Client = Client;
-const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5913);
-const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveParams, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(4283);
-const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(1212);
-const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(4015);
-const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(5172);
-const { resolveAwsSdkSigV4Config, resolveAwsSdkSigV4AConfig, AwsSdkSigV4Signer, AwsSdkSigV4ASigner, NODE_SIGV4A_CONFIG_OPTIONS, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(1301);
+const { resolveDefaultsModeConfig, loadConfig, NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS, resolveRegionConfig } = __nccwpck_require__(5164);
+const { BinaryDecisionDiagram, EndpointCache, decideEndpoint, customEndpointFunctions, resolveParams, resolveEndpointConfig, getEndpointPlugin } = __nccwpck_require__(5812);
+const { parseUrl, getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig, getContentLengthPlugin } = __nccwpck_require__(4047);
+const { DEFAULT_RETRY_MODE, NODE_RETRY_MODE_CONFIG_OPTIONS, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, resolveRetryConfig, getRetryPlugin } = __nccwpck_require__(5200);
+const { TypeRegistry, getSchemaSerdePlugin } = __nccwpck_require__(9469);
+const { resolveAwsSdkSigV4Config, resolveAwsSdkSigV4AConfig, AwsSdkSigV4Signer, AwsSdkSigV4ASigner, NODE_SIGV4A_CONFIG_OPTIONS, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } = __nccwpck_require__(4836);
 const { SignatureV4MultiRegion } = __nccwpck_require__(2091);
-const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5159);
+const { toUtf8, fromUtf8, toBase64, fromBase64, calculateBodyLength } = __nccwpck_require__(5975);
 const { streamCollector, NodeHttpHandler } = __nccwpck_require__(6858);
-const { AwsQueryProtocol } = __nccwpck_require__(5126);
-const { Sha256 } = __nccwpck_require__(9816);
+const { AwsQueryProtocol } = __nccwpck_require__(4791);
+const { Sha256 } = __nccwpck_require__(501);
 
 const q = "ref";
 const a = -1, b = true, c = "isSet", d = "PartitionResult", e = "booleanEquals", f = "stringEquals", g = "getAttr", h = "us-east-1", i = "sigv4", j = "sts", k = "https://sts.{Region}.{PartitionResult#dnsSuffix}", l = { [q]: "Endpoint" }, m = { [q]: "Region" }, n = { [q]: d }, o = {}, p = [m];
@@ -12369,7 +12445,7 @@ const commonParams = {
     UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 };
 
-var version = "3.998.2";
+var version = "3.998.3";
 var packageInfo = {
 	version: version};
 
@@ -13165,12 +13241,12 @@ exports.signatureV4CrtContainer = signatureV4CrtContainer;
 
 /***/ }),
 
-/***/ 184:
+/***/ 2108:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { setTokenFeature } = __nccwpck_require__(2298);
-const { getBearerTokenEnvKey } = __nccwpck_require__(1301);
-const { TokenProviderError, getSSOTokenFilepath, parseKnownFiles, getProfileName, loadSsoSessionData, getSSOTokenFromFile, memoize, chain } = __nccwpck_require__(5913);
+const { setTokenFeature } = __nccwpck_require__(7505);
+const { getBearerTokenEnvKey } = __nccwpck_require__(4836);
+const { TokenProviderError, getSSOTokenFilepath, parseKnownFiles, getProfileName, loadSsoSessionData, getSSOTokenFromFile, memoize, chain } = __nccwpck_require__(5164);
 const { promises } = __nccwpck_require__(3024);
 
 const fromEnvSigningName = ({ logger, signingName } = {}) => async () => {
@@ -13191,7 +13267,7 @@ const EXPIRE_WINDOW_MS = 5 * 60 * 1000;
 const REFRESH_MESSAGE = `To refresh this SSO session run 'aws sso login' with the corresponding profile.`;
 
 const getSsoOidcClient = async (ssoRegion, init = {}, callerClientConfig) => {
-    const { SSOOIDCClient } = __nccwpck_require__(5811);
+    const { SSOOIDCClient } = __nccwpck_require__(2438);
     const coalesce = (prop) => init.clientConfig?.[prop] ?? init.parentClientConfig?.[prop] ?? callerClientConfig?.[prop];
     const ssoOidcClient = new SSOOIDCClient(Object.assign({}, init.clientConfig ?? {}, {
         region: ssoRegion ?? init.clientConfig?.region,
@@ -13202,7 +13278,7 @@ const getSsoOidcClient = async (ssoRegion, init = {}, callerClientConfig) => {
 };
 
 const getNewSsoOidcToken = async (ssoToken, ssoRegion, init = {}, callerClientConfig) => {
-    const { CreateTokenCommand } = __nccwpck_require__(5811);
+    const { CreateTokenCommand } = __nccwpck_require__(2438);
     const ssoOidcClient = await getSsoOidcClient(ssoRegion, init, callerClientConfig);
     return ssoOidcClient.send(new CreateTokenCommand({
         clientId: ssoToken.clientId,
@@ -13727,13 +13803,13 @@ exports.parseXML = parseXML;
 
 /***/ }),
 
-/***/ 9420:
+/***/ 8305:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { getSmithyContext, hasOwn } = __nccwpck_require__(856);
+const { getSmithyContext, hasOwn } = __nccwpck_require__(7603);
 exports.getSmithyContext = getSmithyContext;
-const { HttpRequest } = __nccwpck_require__(1212);
-const { requestBuilder } = __nccwpck_require__(1212);
+const { HttpRequest } = __nccwpck_require__(4047);
+const { requestBuilder } = __nccwpck_require__(4047);
 exports.requestBuilder = requestBuilder;
 const { HttpApiKeyAuthLocation } = __nccwpck_require__(4563);
 
@@ -14080,13 +14156,13 @@ exports.setFeature = setFeature;
 
 /***/ }),
 
-/***/ 8319:
+/***/ 7286:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { nv, NumericValue, calculateBodyLength, generateIdempotencyToken, fromBase64, _parseEpochTimestamp } = __nccwpck_require__(5159);
-const { hasOwn } = __nccwpck_require__(856);
-const { HttpRequest, collectBody, SerdeContext, AbstractRpcV2Protocol } = __nccwpck_require__(1212);
-const { NormalizedSchema, TypeRegistry } = __nccwpck_require__(5172);
+const { nv, NumericValue, calculateBodyLength, generateIdempotencyToken, fromBase64, _parseEpochTimestamp } = __nccwpck_require__(5975);
+const { hasOwn } = __nccwpck_require__(7603);
+const { HttpRequest, collectBody, SerdeContext, AbstractRpcV2Protocol } = __nccwpck_require__(4047);
+const { NormalizedSchema, TypeRegistry } = __nccwpck_require__(9469);
 
 const majorUint64 = 0;
 const majorNegativeInt64 = 1;
@@ -16629,12 +16705,12 @@ exports.tagSymbol = tagSymbol;
 
 /***/ }),
 
-/***/ 9816:
+/***/ 501:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { createReadStream } = __nccwpck_require__(3024);
 const { Writable } = __nccwpck_require__(7075);
-const { toUint8Array, concatBytes } = __nccwpck_require__(5159);
+const { toUint8Array, concatBytes } = __nccwpck_require__(5975);
 const { createHash, createHmac } = __nccwpck_require__(7598);
 const zlib = __nccwpck_require__(8522);
 
@@ -17213,16 +17289,16 @@ exports.readableStreamHasher = readableStreamHasher;
 
 /***/ }),
 
-/***/ 948:
+/***/ 4713:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { hasOwn } = __nccwpck_require__(856);
-const { getSmithyContext, normalizeProvider } = __nccwpck_require__(856);
+const { hasOwn } = __nccwpck_require__(7603);
+const { getSmithyContext, normalizeProvider } = __nccwpck_require__(7603);
 exports.getSmithyContext = getSmithyContext;
 exports.normalizeProvider = normalizeProvider;
 const { SMITHY_CONTEXT_KEY, AlgorithmId } = __nccwpck_require__(4563);
 exports.AlgorithmId = AlgorithmId;
-const { NormalizedSchema } = __nccwpck_require__(5172);
+const { NormalizedSchema } = __nccwpck_require__(9469);
 
 const getAllAliases = (name, aliases) => {
     const _aliases = [];
@@ -18453,7 +18529,7 @@ exports.withBaseException = withBaseException;
 
 /***/ }),
 
-/***/ 5913:
+/***/ 5164:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { homedir } = __nccwpck_require__(8161);
@@ -18461,8 +18537,8 @@ const { sep, join } = __nccwpck_require__(6760);
 const { createHash } = __nccwpck_require__(7598);
 const { readFile: readFile$1 } = __nccwpck_require__(1455);
 const { IniSectionType } = __nccwpck_require__(4563);
-const { normalizeProvider } = __nccwpck_require__(948);
-const { isValidHostLabel } = __nccwpck_require__(856);
+const { normalizeProvider } = __nccwpck_require__(4713);
+const { isValidHostLabel } = __nccwpck_require__(7603);
 
 class ProviderError extends Error {
     name = "ProviderError";
@@ -19247,11 +19323,11 @@ exports.resolveRegionConfig = resolveRegionConfig;
 
 /***/ }),
 
-/***/ 4283:
+/***/ 5812:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { CONFIG_PREFIX_SEPARATOR, booleanSelector, SelectorType, loadConfig } = __nccwpck_require__(5913);
-const { toEndpointV1, getSmithyContext, normalizeProvider, isValidHostLabel, hasOwn } = __nccwpck_require__(856);
+const { CONFIG_PREFIX_SEPARATOR, booleanSelector, SelectorType, loadConfig } = __nccwpck_require__(5164);
+const { toEndpointV1, getSmithyContext, normalizeProvider, isValidHostLabel, hasOwn } = __nccwpck_require__(7603);
 exports.isValidHostLabel = isValidHostLabel;
 exports.middlewareEndpointToEndpointV1 = toEndpointV1;
 exports.toEndpointV1 = toEndpointV1;
@@ -20138,14 +20214,14 @@ exports.resolveParams = resolveParams;
 
 /***/ }),
 
-/***/ 5197:
+/***/ 7786:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { Crc32 } = __nccwpck_require__(9816);
-const { hasOwn } = __nccwpck_require__(856);
-const { toHex, fromHex, toUtf8, fromUtf8 } = __nccwpck_require__(5159);
+const { Crc32 } = __nccwpck_require__(501);
+const { hasOwn } = __nccwpck_require__(7603);
+const { toHex, fromHex, toUtf8, fromUtf8 } = __nccwpck_require__(5975);
 const { Readable } = __nccwpck_require__(7075);
-const { TypeRegistry } = __nccwpck_require__(5172);
+const { TypeRegistry } = __nccwpck_require__(9469);
 
 class Int64 {
     bytes;
@@ -21088,18 +21164,18 @@ exports.universalEventStreamSerdeProvider = eventStreamSerdeProvider$1;
 
 /***/ }),
 
-/***/ 1212:
+/***/ 4047:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { Uint8ArrayBlobAdapter, sdkStreamMixin, splitEvery, splitHeader, fromBase64, _parseEpochTimestamp, _parseRfc7231DateTime, _parseRfc3339DateTimeWithOffset, LazyJsonString, NumericValue, toUtf8, fromUtf8, generateIdempotencyToken, toBase64, dateToUtcString, quoteHeader, writeKey, parseEpochTimestamp, parseRfc7231DateTime, parseRfc3339DateTimeWithOffset } = __nccwpck_require__(5159);
-const { HttpRequest, HttpResponse, hasOwn, isValidHostname, getSmithyContext } = __nccwpck_require__(856);
-const { parseQueryString, parseUrl } = __nccwpck_require__(856);
+const { Uint8ArrayBlobAdapter, writeKey, sdkStreamMixin, splitEvery, splitHeader, NumericValue, toUtf8, fromBase64, LazyJsonString, _parseEpochTimestamp, _parseRfc7231DateTime, _parseRfc3339DateTimeWithOffset, fromUtf8, generateIdempotencyToken, toBase64, dateToUtcString, quoteHeader, parseEpochTimestamp, parseRfc7231DateTime, parseRfc3339DateTimeWithOffset } = __nccwpck_require__(5975);
+const { HttpRequest, HttpResponse, hasOwn, isValidHostname, getSmithyContext } = __nccwpck_require__(7603);
+const { parseQueryString, parseUrl } = __nccwpck_require__(7603);
 exports.HttpRequest = HttpRequest;
 exports.HttpResponse = HttpResponse;
 exports.isValidHostname = isValidHostname;
 exports.parseQueryString = parseQueryString;
 exports.parseUrl = parseUrl;
-const { TypeRegistry, NormalizedSchema, translateTraits, deref } = __nccwpck_require__(5172);
+const { NormalizedSchema, translateTraits, TypeRegistry, deref } = __nccwpck_require__(9469);
 const { FieldPosition } = __nccwpck_require__(4563);
 
 const collectBody = async (streamBody = new Uint8Array(), context) => {
@@ -21114,10 +21190,227 @@ const collectBody = async (streamBody = new Uint8Array(), context) => {
 };
 
 function extendedEncodeURIComponent(str) {
+    if (/^[\w.~-]+$/.test(str)) {
+        return str;
+    }
     return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
         return "%" + c.charCodeAt(0).toString(16).toUpperCase();
     });
 }
+
+const HTTP_BINDINGS = Symbol.for("@smithy/schema-x");
+class HttpBindingNormalizedSchema extends NormalizedSchema {
+    static identity = Symbol.for("@smithy/HttpBindingNormalizedSchema");
+    identity = HttpBindingNormalizedSchema.identity;
+    bindings;
+    constructor(schema) {
+        super(schema);
+    }
+    static of(schema) {
+        const ns = NormalizedSchema.of(schema);
+        if (ns.identity === HttpBindingNormalizedSchema.identity) {
+            return ns;
+        }
+        const schemaCache = ns.isMemberSchema() ? ns : ns.getSchema();
+        const cache = typeof schemaCache === "object" && schemaCache !== null ? schemaCache : ns;
+        return (cache[HTTP_BINDINGS] ??= new HttpBindingNormalizedSchema(ns));
+    }
+    getHttpBindingLocation(traits) {
+        if (traits.httpPayload) {
+            return 0b100_100;
+        }
+        if (traits.httpLabel) {
+            return 0b100_001;
+        }
+        if (traits.httpHeader) {
+            return 0b100_110;
+        }
+        if (typeof traits.httpPrefixHeaders === "string") {
+            return 0b100_111;
+        }
+        if (traits.httpQuery) {
+            return 0b100_010;
+        }
+        if (traits.httpQueryParams) {
+            return 0b100_011;
+        }
+        if (traits.httpResponseCode) {
+            return 0b100_101;
+        }
+        return 0b100_000;
+    }
+    getHttpBindingValue(location, traits, nested = false) {
+        const raw = this.getSchema();
+        const type = typeof raw === "number" ? raw & 0xff : this.isListSchema() ? 0b0100_0000 : 0xff;
+        const slot = location & 0b111;
+        const media = (traits.mediaType ? (traits.mediaType === "application/json" || traits.mediaType.endsWith("+json") ? 2 : 1) : 0);
+        const stream = (traits.streaming || type === 42 ? (this.isStructSchema() ? 2 : 1) : 0);
+        const timestamp = (type >= 4 && type <= 7
+            ? slot >= 6
+                ? 2
+                : slot > 0 && slot < 4
+                    ? 1
+                    : 0
+            : 0);
+        let flags = type |
+            (media << 8) |
+            ((traits.idempotencyToken ? 1 : 0) << 10) |
+            (stream << 11) |
+            ((traits.sparse ? 1 : 0) << 13) |
+            (timestamp << 14) |
+            ((traits.hostLabel ? 1 : 0) << 17) |
+            ((location === 0b100_100 && typeof raw !== "object" ? 1 : 0) << 18);
+        const category = type & 0b1100_0000;
+        const collectionValue = slot & 0b010 && (category === 0b0100_0000 || (!nested && slot & 1))
+            ? this.getHttpBindingCollectionValue(location, traits)
+            : undefined;
+        const valueType = (collectionValue?.[1] ?? 0) & 0xff;
+        flags |=
+            (slot >= 6 &&
+                (valueType === 4 || valueType === 6)
+                ? 1
+                : 0) << 16;
+        return [this, flags, collectionValue];
+    }
+    getHttpBindingCollectionValue(location, traits = this.getMergedTraits()) {
+        const valueSchema = HttpBindingNormalizedSchema.of(this.getValueSchema());
+        return valueSchema.getHttpBindingValue(location, { ...valueSchema.getMergedTraits(), ...traits }, true);
+    }
+    getHttpBindings() {
+        const source = this.getSchema();
+        return typeof source !== "object" || source === null ? EMPTY_BINDINGS : (this.bindings ??= buildHttpBindings(this));
+    }
+}
+const buildHttpBindings = (schema) => {
+    const bodyMemberNames = [];
+    const bodyMemberSchemas = [];
+    const requestBodyMemberNames = [];
+    const requestBodyMemberSchemas = [];
+    const memberBindings = [];
+    const byName = {};
+    const headers = {};
+    const prefixHeaders = [];
+    const responseBindings = { headers, prefixHeaders };
+    const bindings = {
+        request: { memberBindings, byName },
+        response: {
+            bodyMemberNames,
+            bindings: responseBindings,
+        },
+    };
+    const { request, response } = bindings;
+    for (const [name, member] of schema.structIterator()) {
+        const bindingSchema = HttpBindingNormalizedSchema.of(member);
+        const traits = bindingSchema.getMergedTraits();
+        const location = bindingSchema.getHttpBindingLocation(traits);
+        const wireName = traits.httpHeader?.toLowerCase() ?? traits.httpPrefixHeaders?.toLowerCase() ?? traits.httpQuery;
+        const value = bindingSchema.getHttpBindingValue(location, traits);
+        const binding = [name, value, location, wireName];
+        if (name === "__proto__") {
+            writeKey(byName);
+        }
+        byName[name] = binding;
+        if ((value[1] >> 10) & 1) {
+            request.hasIdempotency = true;
+        }
+        memberBindings.push(binding);
+        const slot = location & 0b111;
+        if (slot === 0) {
+            requestBodyMemberNames.push(name);
+            requestBodyMemberSchemas.push(member);
+        }
+        if ((slot & 0b100) === 0) {
+            bodyMemberNames.push(name);
+            bodyMemberSchemas.push(member);
+        }
+        else if ((slot & 0b110) === 0b100) {
+            if (slot & 0b001) {
+                responseBindings.statusCode = binding;
+            }
+            else {
+                responseBindings.payload = binding;
+                const type = value[1] & 0xff;
+                request.contentTypeInstruction =
+                    traits.mediaType ??
+                        (type === 0
+                            ? "text/plain"
+                            : type === 21 || type === 42
+                                ? "application/octet-stream"
+                                : null);
+            }
+        }
+        else if (slot & 0b001) {
+            request.hasPrefixHeaders = true;
+            prefixHeaders.push(binding);
+        }
+        else {
+            if (wireName === "__proto__") {
+                writeKey(headers);
+            }
+            headers[wireName] = binding;
+        }
+    }
+    if (request.contentTypeInstruction === undefined && requestBodyMemberNames.length) {
+        request.contentTypeInstruction = null;
+    }
+    request.syntheticBodySchema = createBodySchema(schema, requestBodyMemberNames, requestBodyMemberSchemas);
+    response.syntheticBodySchema = createBodySchema(schema, bodyMemberNames, bodyMemberSchemas);
+    return bindings;
+};
+const buildPathSegments = (path) => {
+    const segments = [];
+    let offset = 0;
+    for (const match of path.matchAll(/\{([^{}+]+)(\+)?\}/g)) {
+        if (match.index > offset) {
+            segments.push([path.slice(offset, match.index), 0]);
+        }
+        segments.push([match[1], match[2] ? 2 : 1]);
+        offset = match.index + match[0].length;
+    }
+    if (segments.length && offset < path.length) {
+        segments.push([path.slice(offset), 0]);
+    }
+    return segments.length ? segments : undefined;
+};
+const buildHttpOperationBindings = (schema) => {
+    const { http, endpoint } = translateTraits(schema.traits ?? {});
+    const [path, search] = http?.[1].split("?") ?? [];
+    return [
+        http?.[0],
+        path,
+        search ? [...new URLSearchParams(search)] : [],
+        path ? buildPathSegments(path) : undefined,
+        endpoint?.[0],
+    ];
+};
+const EMPTY_BINDINGS = {
+    request: { memberBindings: [], byName: {} },
+    response: {
+        bodyMemberNames: [],
+        bindings: { headers: {}, prefixHeaders: [] },
+    },
+};
+const getHttpOperationBindings = (schema) => (schema[HTTP_BINDINGS] ??= buildHttpOperationBindings(schema));
+const createBodySchema = (schema, memberNames, memberSchemas) => {
+    if (!memberNames.length) {
+        return undefined;
+    }
+    const source = schema.getSchema();
+    const body = [
+        3,
+        source[1],
+        source[2],
+        schema.getMergedTraits(),
+        memberNames,
+        memberSchemas,
+    ];
+    const required = source[6];
+    const bodyRequired = required && memberNames.reduce((count, name) => count + (source[4].indexOf(name) < required ? 1 : 0), 0);
+    if (bodyRequired) {
+        body[6] = bodyRequired;
+    }
+    return body;
+};
 
 class SerdeContext {
     serdeContext;
@@ -21195,30 +21488,29 @@ class HttpProtocol extends SerdeContext {
             return request;
         }
     }
-    setHostPrefix(request, operationSchema, input) {
+    setHostPrefix(request, operationSchema, input, operation = getHttpOperationBindings(operationSchema)) {
         if (this.serdeContext?.disableHostPrefix) {
             return;
         }
-        const inputNs = NormalizedSchema.of(operationSchema.input);
-        const opTraits = translateTraits(operationSchema.traits ?? {});
-        if (opTraits.endpoint) {
-            let hostPrefix = opTraits.endpoint?.[0];
-            if (typeof hostPrefix === "string") {
-                for (const [name, member] of inputNs.structIterator()) {
-                    if (!member.getMergedTraits().hostLabel) {
-                        continue;
-                    }
-                    const replacement = input[name];
-                    if (typeof replacement !== "string") {
-                        throw new Error(`@smithy/core/schema - ${name} in input must be a string as hostLabel.`);
-                    }
-                    hostPrefix = hostPrefix.replace(`{${name}}`, replacement);
-                }
-                request.hostname = hostPrefix + request.hostname;
-                if (!isValidHostname(request.hostname)) {
-                    throw new Error(`[${request.hostname}] is not a valid hostname.`);
-                }
+        const hostPrefix = operation[4];
+        if (typeof hostPrefix !== "string") {
+            return;
+        }
+        let resolvedHostPrefix = hostPrefix;
+        for (const [name, [, flags]] of HttpBindingNormalizedSchema.of(operationSchema.input).getHttpBindings().request
+            .memberBindings) {
+            if (!((flags >> 17) & 1)) {
+                continue;
             }
+            const replacement = input[name];
+            if (typeof replacement !== "string") {
+                throw new Error(`@smithy/core/schema - ${name} in input must be a string as hostLabel.`);
+            }
+            resolvedHostPrefix = resolvedHostPrefix.replace(`{${name}}`, replacement);
+        }
+        request.hostname = resolvedHostPrefix + request.hostname;
+        if (!isValidHostname(request.hostname)) {
+            throw new Error(`[${request.hostname}] is not a valid hostname.`);
         }
     }
     deserializeMetadata(output) {
@@ -21287,7 +21579,7 @@ class HttpProtocol extends SerdeContext {
         });
     }
     async loadEventStreamCapability() {
-        const { EventStreamSerde, eventStreamSerdeProvider } = __nccwpck_require__(5197);
+        const { EventStreamSerde, eventStreamSerdeProvider } = __nccwpck_require__(7786);
         const marshaller = this.resolveEventStreamMarshaller(eventStreamSerdeProvider);
         return new EventStreamSerde({
             marshaller,
@@ -21323,177 +21615,214 @@ class HttpProtocol extends SerdeContext {
 class HttpBindingProtocol extends HttpProtocol {
     async serializeRequest(operationSchema, _input, context) {
         const input = _input && typeof _input === "object" ? _input : {};
-        const serializer = this.serializer;
         const query = {};
         const headers = {};
         const endpoint = await context.endpoint();
-        const ns = NormalizedSchema.of(operationSchema?.input);
-        const payloadMemberNames = [];
-        const payloadMemberSchemas = [];
-        let hasNonHttpBindingMember = false;
-        let payload;
-        const request = new HttpRequest({
-            protocol: "",
-            hostname: "",
-            port: undefined,
-            path: "",
-            fragment: undefined,
-            query: query,
-            headers: headers,
-            body: undefined,
-        });
+        const ns = HttpBindingNormalizedSchema.of(operationSchema?.input);
+        const bindings = ns.getHttpBindings().request;
+        const operation = getHttpOperationBindings(operationSchema);
+        const request = new HttpRequest({ query, headers });
         if (endpoint) {
             this.updateServiceEndpoint(request, endpoint);
-            this.setHostPrefix(request, operationSchema, input);
-            const opTraits = translateTraits(operationSchema.traits);
-            if (opTraits.http) {
-                request.method = opTraits.http[0];
-                const [path, search] = opTraits.http[1].split("?");
-                if (request.path == "/") {
-                    request.path = path;
-                }
-                else {
-                    request.path += path;
-                }
-                const traitSearchParams = new URLSearchParams(search ?? "");
-                for (const [key, value] of traitSearchParams) {
+            this.setHostPrefix(request, operationSchema, input, operation);
+            const [method, path, staticQuery] = operation;
+            if (method) {
+                request.method = method;
+                request.path = request.path === "/" ? path : request.path + path;
+                for (const [key, value] of staticQuery) {
                     query[key] = value;
                 }
             }
         }
-        for (const [memberName, memberNs] of ns.structIterator()) {
-            const memberTraits = memberNs.getMergedTraits() ?? {};
-            const inputMemberValue = input[memberName];
-            if (inputMemberValue == null && !memberNs.isIdempotencyToken()) {
-                if (memberTraits.httpLabel) {
-                    if (request.path.includes(`{${memberName}+}`) || request.path.includes(`{${memberName}}`)) {
-                        throw new Error(`No value provided for input HTTP label: ${memberName}.`);
-                    }
-                }
+        request.query = query;
+        const eventStream = this.serializeHttpBindings(input, request, bindings, operation);
+        if (eventStream) {
+            request.body = await this.serializeEventStream({ eventStream, requestSchema: ns });
+        }
+        return request;
+    }
+    serializeHttpBindings(input, request, bindings, operation) {
+        const serializer = this.serializer;
+        const directSerializer = typeof serializer.writeCodec === "function"
+            ? serializer
+            : undefined;
+        const query = request.query;
+        const headers = request.headers;
+        const bodySchema = bindings.syntheticBodySchema;
+        let hasBodyValue = false;
+        let payload;
+        let eventStream;
+        let labels;
+        const names = Object.getOwnPropertyNames(input);
+        const prototype = Object.getPrototypeOf(input);
+        const sparse = (prototype === Object.prototype || prototype === null) &&
+            !bindings.hasIdempotency &&
+            !bindings.hasPrefixHeaders &&
+            names.length * 2 < bindings.memberBindings.length;
+        const length = sparse ? names.length : bindings.memberBindings.length;
+        for (let i = 0; i < length; ++i) {
+            const binding = sparse
+                ? hasOwn(bindings.byName, names[i])
+                    ? bindings.byName[names[i]]
+                    : undefined
+                : bindings.memberBindings[i];
+            if (!binding) {
                 continue;
             }
-            if (memberTraits.httpPayload) {
-                const isStreaming = memberNs.isStreaming();
-                if (isStreaming) {
-                    const isEventStream = memberNs.isStructSchema();
-                    if (isEventStream) {
-                        if (input[memberName]) {
-                            payload = await this.serializeEventStream({
-                                eventStream: input[memberName],
-                                requestSchema: ns,
-                            });
-                        }
+            const value = binding[1];
+            const memberName = binding[0];
+            const memberNs = value[0];
+            const flags = value[1];
+            const collectionValue = value[2];
+            const location = binding[2];
+            const wireName = binding[3];
+            const inputMemberValue = input[memberName];
+            if (inputMemberValue == null && !((flags >> 10) & 1)) {
+                continue;
+            }
+            if (location === 0b100_100) {
+                const stream = (flags >> 11) & 0b11;
+                if (stream) {
+                    if (stream === 2) {
+                        eventStream = inputMemberValue || undefined;
                     }
                     else {
                         payload = inputMemberValue;
                     }
                 }
                 else {
-                    serializer.write(memberNs, inputMemberValue);
+                    if (directSerializer) {
+                        directSerializer.writeCodec(memberNs, inputMemberValue);
+                    }
+                    else {
+                        serializer.write(memberNs, inputMemberValue);
+                    }
                     payload = serializer.flush();
                 }
             }
-            else if (memberTraits.httpLabel) {
-                serializer.write(memberNs, inputMemberValue);
-                const replacement = serializer.flush();
-                if (request.path.includes(`{${memberName}+}`)) {
-                    request.path = request.path.replace(`{${memberName}+}`, replacement.split("/").map(extendedEncodeURIComponent).join("/"));
+            else if (location === 0b100_001 || location === 0b100_110) {
+                const serialized = this.serializeHttpValue(value, inputMemberValue, location, directSerializer);
+                if (location === 0b100_001) {
+                    (labels ??= Object.create(null))[memberName] = serialized;
                 }
-                else if (request.path.includes(`{${memberName}}`)) {
-                    request.path = request.path.replace(`{${memberName}}`, extendedEncodeURIComponent(replacement));
+                else {
+                    headers[wireName] = serialized;
                 }
             }
-            else if (memberTraits.httpHeader) {
-                serializer.write(memberNs, inputMemberValue);
-                headers[memberTraits.httpHeader.toLowerCase()] = String(serializer.flush());
-            }
-            else if (typeof memberTraits.httpPrefixHeaders === "string") {
+            else if (location === 0b100_111) {
                 for (const key in inputMemberValue) {
                     if (!hasOwn(inputMemberValue, key)) {
                         continue;
                     }
-                    const val = inputMemberValue[key];
-                    const amalgam = memberTraits.httpPrefixHeaders + key;
-                    serializer.write([memberNs.getValueSchema(), { httpHeader: amalgam }], val);
-                    headers[amalgam.toLowerCase()] = serializer.flush();
+                    const amalgam = wireName + key;
+                    headers[amalgam.toLowerCase()] = this.serializeHttpValue(collectionValue, inputMemberValue[key], 0b100_110, directSerializer, directSerializer ? collectionValue[0] : [collectionValue[0], { httpHeader: amalgam }]);
                 }
             }
-            else if (memberTraits.httpQuery || memberTraits.httpQueryParams) {
-                this.serializeQuery(memberNs, inputMemberValue, query);
+            else if ((location & 0b111_110) === 0b100_010) {
+                this.serializeQuery(value, inputMemberValue, wireName, query, directSerializer);
             }
             else {
-                hasNonHttpBindingMember = true;
-                payloadMemberNames.push(memberName);
-                payloadMemberSchemas.push(memberNs);
+                hasBodyValue = true;
             }
         }
-        if (hasNonHttpBindingMember && input) {
-            const [namespace, name] = (ns.getName(true) ?? "#Unknown").split("#");
-            const requiredMembers = ns.getSchema()[6];
-            const payloadSchema = [
-                3,
-                namespace,
-                name,
-                ns.getMergedTraits(),
-                payloadMemberNames,
-                payloadMemberSchemas,
-                undefined,
-            ];
-            if (requiredMembers) {
-                payloadSchema[6] = requiredMembers;
+        const operationPath = operation[1];
+        const pathSegments = operation[3];
+        if (operationPath && pathSegments && request.path.endsWith(operationPath)) {
+            request.path = request.path.slice(0, -operationPath.length) + this.serializePath(pathSegments, labels, bindings);
+        }
+        if (hasBodyValue && bodySchema) {
+            if (directSerializer) {
+                directSerializer.writeCodec(bodySchema, input);
             }
             else {
-                payloadSchema.pop();
+                serializer.write(bodySchema, input);
             }
-            serializer.write(payloadSchema, input);
             payload = serializer.flush();
         }
-        request.headers = headers;
-        request.query = query;
         request.body = payload;
-        return request;
+        return eventStream;
     }
-    serializeQuery(ns, data, query) {
-        const serializer = this.serializer;
-        const traits = ns.getMergedTraits();
-        if (traits.httpQueryParams) {
+    serializeQuery(value, data, wireName, query, directSerializer) {
+        const [ns, flags, collectionValue] = value;
+        const traits = directSerializer ? undefined : ns.getMergedTraits();
+        if (wireName === undefined) {
             for (const key in data) {
-                if (!hasOwn(data, key)) {
+                if (!hasOwn(data, key) || key in query) {
                     continue;
                 }
-                if (!(key in query)) {
-                    const val = data[key];
-                    const valueSchema = ns.getValueSchema();
-                    Object.assign(valueSchema.getMergedTraits(), {
+                if (!directSerializer) {
+                    Object.assign(collectionValue[0].getMergedTraits(), {
                         ...traits,
                         httpQuery: key,
                         httpQueryParams: undefined,
                     });
-                    this.serializeQuery(valueSchema, val, query);
                 }
+                this.serializeQuery(collectionValue, data[key], key, query, directSerializer);
             }
             return;
         }
-        if (ns.isListSchema()) {
-            const sparse = !!ns.getMergedTraits().sparse;
+        if ((flags & 0b1100_0000) === 0b0100_0000) {
             const buffer = [];
             for (const item of data) {
-                serializer.write([ns.getValueSchema(), traits], item);
-                const serializable = serializer.flush();
-                if (sparse || serializable !== undefined) {
-                    buffer.push(serializable);
+                const serialized = this.serializeHttpValue(collectionValue, item, 0b100_010, directSerializer, directSerializer ? collectionValue[0] : [collectionValue[0], traits]);
+                if ((flags >> 13) & 1 || serialized !== undefined) {
+                    buffer.push(serialized);
                 }
             }
-            query[traits.httpQuery] = buffer;
+            query[wireName] = buffer;
         }
         else {
-            serializer.write([ns, traits], data);
-            query[traits.httpQuery] = serializer.flush();
+            query[wireName] = this.serializeHttpValue(value, data, 0b100_010, directSerializer, directSerializer ? ns : [ns, traits]);
         }
+    }
+    serializeHttpValue(value, data, location, directSerializer, schema = value[0]) {
+        const flags = value[1];
+        const type = flags & 0xff;
+        if (directSerializer &&
+            !(flags & 0x700) &&
+            (type <= 2 ||
+                type === 17 ||
+                type === 19)) {
+            return String(data);
+        }
+        if (directSerializer) {
+            directSerializer.writeHttpBinding(value, data, location);
+        }
+        else {
+            this.serializer.write(schema, data);
+        }
+        return this.serializer.flush();
+    }
+    serializePath(segments, labels, bindings) {
+        let path = "";
+        for (const [value, kind] of segments) {
+            if (kind === 0) {
+                path += value;
+                continue;
+            }
+            const replacement = labels?.[value];
+            if (replacement === undefined) {
+                if (hasOwn(bindings.byName, value) && bindings.byName[value][2] === 0b100_001) {
+                    throw new Error(`No value provided for input HTTP label: ${value}.`);
+                }
+                path += `{${value}${kind === 2 ? "+" : ""}}`;
+            }
+            else {
+                path +=
+                    kind === 2
+                        ? replacement.split("/").map(extendedEncodeURIComponent).join("/")
+                        : extendedEncodeURIComponent(replacement);
+            }
+        }
+        return path;
     }
     async deserializeResponse(operationSchema, context, response) {
         const deserializer = this.deserializer;
-        const ns = NormalizedSchema.of(operationSchema.output);
+        const directDeserializer = typeof deserializer.readCodec === "function"
+            ? deserializer
+            : undefined;
+        const ns = HttpBindingNormalizedSchema.of(operationSchema.output);
+        const responseBindings = ns.getHttpBindings().response;
         const dataObject = {};
         if (response.statusCode >= 300) {
             const bytes = await collectBody(response.body, context);
@@ -21503,19 +21832,13 @@ class HttpBindingProtocol extends HttpProtocol {
             await this.handleError(operationSchema, context, response, dataObject, this.deserializeMetadata(response));
             throw new Error("@smithy/core/protocols - HTTP Protocol error handler failed to throw.");
         }
-        for (const header in response.headers) {
-            if (!hasOwn(response.headers, header)) {
-                continue;
-            }
-            const value = response.headers[header];
-            delete response.headers[header];
-            response.headers[header.toLowerCase()] = value;
-        }
         const nonHttpBindingMembers = await this.deserializeHttpMessage(ns, context, response, dataObject);
         if (nonHttpBindingMembers.length) {
             const bytes = await collectBody(response.body, context);
             if (bytes.byteLength > 0) {
-                const dataFromBody = await deserializer.read(ns, bytes);
+                const dataFromBody = await (directDeserializer
+                    ? directDeserializer.readCodec(responseBindings.syntheticBodySchema, bytes)
+                    : deserializer.read(responseBindings.syntheticBodySchema, bytes));
                 for (const member of nonHttpBindingMembers) {
                     if (dataFromBody[member] != null) {
                         dataObject[member] = dataFromBody[member];
@@ -21523,97 +21846,95 @@ class HttpBindingProtocol extends HttpProtocol {
                 }
             }
         }
-        else if (nonHttpBindingMembers.discardResponseBody) {
+        else if (!responseBindings.bindings.payload) {
             await collectBody(response.body, context);
         }
         dataObject.$metadata = this.deserializeMetadata(response);
         return dataObject;
     }
     async deserializeHttpMessage(schema, context, response, arg4, arg5) {
-        let dataObject;
-        if (arg4 instanceof Set) {
-            dataObject = arg5;
-        }
-        else {
-            dataObject = arg4;
-        }
-        let discardResponseBody = true;
+        const dataObject = arg4 instanceof Set ? arg5 : arg4;
         const deserializer = this.deserializer;
-        const ns = NormalizedSchema.of(schema);
-        const nonHttpBindingMembers = [];
-        for (const [memberName, memberSchema] of ns.structIterator()) {
-            const memberTraits = memberSchema.getMemberTraits();
-            if (memberTraits.httpPayload) {
-                discardResponseBody = false;
-                const isStreaming = memberSchema.isStreaming();
-                if (isStreaming) {
-                    const isEventStream = memberSchema.isStructSchema();
-                    if (isEventStream) {
-                        dataObject[memberName] = await this.deserializeEventStream({
-                            response,
-                            responseSchema: ns,
-                        });
-                    }
-                    else {
-                        dataObject[memberName] = sdkStreamMixin(response.body);
-                    }
+        const directDeserializer = typeof deserializer.readCodec === "function"
+            ? deserializer
+            : undefined;
+        const ns = HttpBindingNormalizedSchema.of(schema);
+        const { bodyMemberNames, bindings: { payload, statusCode, headers: responseHeaders, prefixHeaders }, } = ns.getHttpBindings().response;
+        const headers = response.headers;
+        if (payload) {
+            const [memberName, value] = payload;
+            const [memberSchema, flags] = value;
+            const stream = (flags >> 11) & 0b11;
+            if (stream) {
+                if (stream === 2) {
+                    dataObject[memberName] = await this.deserializeEventStream({
+                        response,
+                        responseSchema: ns,
+                    });
                 }
-                else if (response.body) {
-                    const bytes = await collectBody(response.body, context);
-                    if (bytes.byteLength > 0) {
-                        dataObject[memberName] = await deserializer.read(memberSchema, bytes);
-                    }
+                else {
+                    dataObject[memberName] = sdkStreamMixin(response.body);
                 }
             }
-            else if (memberTraits.httpHeader) {
-                const key = String(memberTraits.httpHeader).toLowerCase();
-                const value = response.headers[key];
-                if (null != value) {
-                    if (memberSchema.isListSchema()) {
-                        const headerListValueSchema = memberSchema.getValueSchema();
-                        headerListValueSchema.getMergedTraits().httpHeader = key;
-                        let sections;
-                        if (headerListValueSchema.isTimestampSchema() &&
-                            headerListValueSchema.getSchema() === 4) {
-                            sections = splitEvery(value, ",", 2);
-                        }
-                        else {
-                            sections = splitHeader(value);
-                        }
-                        const list = [];
-                        for (const section of sections) {
-                            list.push(await deserializer.read(headerListValueSchema, section.trim()));
-                        }
-                        dataObject[memberName] = list;
-                    }
-                    else {
-                        dataObject[memberName] = await deserializer.read(memberSchema, value);
-                    }
+            else if (response.body) {
+                const bytes = await collectBody(response.body, context);
+                if (bytes.byteLength > 0) {
+                    dataObject[memberName] = await (directDeserializer
+                        ? directDeserializer.readPayload(value, bytes)
+                        : deserializer.read(memberSchema, bytes));
                 }
             }
-            else if (memberTraits.httpPrefixHeaders !== undefined) {
-                dataObject[memberName] = {};
-                for (const header in response.headers) {
-                    if (!hasOwn(response.headers, header)) {
-                        continue;
-                    }
-                    if (header.startsWith(memberTraits.httpPrefixHeaders)) {
-                        const value = response.headers[header];
-                        const valueSchema = memberSchema.getValueSchema();
-                        valueSchema.getMergedTraits().httpHeader = header;
-                        dataObject[memberName][header.slice(memberTraits.httpPrefixHeaders.length)] = await deserializer.read(valueSchema, value);
-                    }
-                }
+        }
+        for (const header in headers) {
+            if (!hasOwn(headers, header)) {
+                continue;
             }
-            else if (memberTraits.httpResponseCode) {
-                dataObject[memberName] = response.statusCode;
+            const lower = header.toLowerCase();
+            const headerValue = headers[header];
+            if (lower !== header) {
+                delete headers[header];
+                headers[lower] = headerValue;
+            }
+            const binding = hasOwn(responseHeaders, lower) ? responseHeaders[lower] : undefined;
+            if (!binding) {
+                continue;
+            }
+            const [memberName, [memberSchema, flags, collectionValue], , wireName] = binding;
+            if (collectionValue) {
+                const sections = (flags >> 16) & 1 ? splitEvery(headerValue, ",", 2) : splitHeader(headerValue);
+                const list = [];
+                for (const section of sections) {
+                    list.push(directDeserializer
+                        ? directDeserializer.readHttpBinding(collectionValue, section.trim(), 0b100_110)
+                        : await deserializer.read([collectionValue[0], { httpHeader: wireName }], section.trim()));
+                }
+                dataObject[memberName] = list;
             }
             else {
-                nonHttpBindingMembers.push(memberName);
+                dataObject[memberName] = directDeserializer
+                    ? directDeserializer.readHttpBinding(binding[1], headerValue, 0b100_110)
+                    : await deserializer.read(memberSchema, headerValue);
             }
         }
-        nonHttpBindingMembers.discardResponseBody = discardResponseBody;
-        return nonHttpBindingMembers;
+        for (const [memberName, [, , collectionValue], , wireName] of prefixHeaders) {
+            dataObject[memberName] = {};
+            for (const header in headers) {
+                if (!hasOwn(headers, header)) {
+                    continue;
+                }
+                if (!header.startsWith(wireName)) {
+                    continue;
+                }
+                const headerValue = headers[header];
+                dataObject[memberName][header.slice(wireName.length)] = directDeserializer
+                    ? directDeserializer.readHttpBinding(collectionValue, headerValue, 0b100_110)
+                    : await deserializer.read([collectionValue[0], { httpHeader: header }], headerValue);
+            }
+        }
+        if (statusCode) {
+            dataObject[statusCode[0]] = response.statusCode;
+        }
+        return bodyMemberNames;
     }
 }
 
@@ -21831,26 +22152,6 @@ class RequestBuilder {
     }
 }
 
-function determineTimestampFormat(ns, settings) {
-    if (settings.timestampFormat.useTrait) {
-        if (ns.isTimestampSchema() &&
-            (ns.getSchema() === 5 ||
-                ns.getSchema() === 6 ||
-                ns.getSchema() === 7)) {
-            return ns.getSchema();
-        }
-    }
-    const { httpLabel, httpPrefixHeaders, httpHeader, httpQuery } = ns.getMergedTraits();
-    const bindingFormat = settings.httpBindings
-        ? typeof httpPrefixHeaders === "string" || Boolean(httpHeader)
-            ? 6
-            : Boolean(httpQuery) || Boolean(httpLabel)
-                ? 5
-                : undefined
-        : undefined;
-    return bindingFormat ?? settings.timestampFormat.default;
-}
-
 class FromStringShapeDeserializer extends SerdeContext {
     settings;
     constructor(settings) {
@@ -21858,57 +22159,65 @@ class FromStringShapeDeserializer extends SerdeContext {
         this.settings = settings;
     }
     read(_schema, data) {
-        const ns = NormalizedSchema.of(_schema);
-        if (ns.isListSchema()) {
-            return splitHeader(data).map((item) => this.read(ns.getValueSchema(), item));
-        }
-        if (ns.isBlobSchema()) {
-            return (this.serdeContext?.base64Decoder ?? fromBase64)(data);
-        }
-        if (ns.isTimestampSchema()) {
-            const format = determineTimestampFormat(ns, this.settings);
-            switch (format) {
-                case 5:
-                    return _parseRfc3339DateTimeWithOffset(data);
-                case 6:
-                    return _parseRfc7231DateTime(data);
-                case 7:
-                    return _parseEpochTimestamp(data);
-                default:
-                    console.warn("Missing timestamp format, parsing value with Date constructor:", data);
-                    return new Date(data);
-            }
-        }
-        if (ns.isStringSchema()) {
-            const mediaType = ns.getMergedTraits().mediaType;
-            let intermediateValue = data;
-            if (mediaType) {
-                if (ns.getMergedTraits().httpHeader) {
-                    intermediateValue = this.base64ToUtf8(intermediateValue);
-                }
-                const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
-                if (isJson) {
-                    intermediateValue = LazyJsonString.from(intermediateValue);
-                }
-                return intermediateValue;
-            }
-        }
-        if (ns.isNumericSchema()) {
-            return Number(data);
-        }
-        if (ns.isBigIntegerSchema()) {
-            return BigInt(data);
-        }
-        if (ns.isBigDecimalSchema()) {
-            return new NumericValue(data, "bigDecimal");
-        }
-        if (ns.isBooleanSchema()) {
-            return String(data).toLowerCase() === "true";
-        }
-        return data;
+        const ns = HttpBindingNormalizedSchema.of(_schema);
+        const traits = ns.getMergedTraits();
+        const location = ns.getHttpBindingLocation(traits);
+        return this.readHttpBinding(ns.getHttpBindingValue(location, traits), data, location);
     }
-    base64ToUtf8(base64String) {
-        return (this.serdeContext?.utf8Encoder ?? toUtf8)((this.serdeContext?.base64Decoder ?? fromBase64)(base64String));
+    readHttpBinding([ns, flags, collectionValue], data, location) {
+        const schema = flags & 0xff;
+        if ((schema & 0b1100_0000) === 0b0100_0000) {
+            collectionValue ??= ns.getHttpBindingCollectionValue(location);
+            return splitHeader(data).map((item) => this.readHttpBinding(collectionValue, item, location));
+        }
+        switch (schema) {
+            case 21:
+            case 42:
+                return (this.serdeContext?.base64Decoder ?? fromBase64)(data);
+            case 4:
+            case 5:
+            case 6:
+            case 7: {
+                const bindingFormat = this.settings.httpBindings ? (flags >> 14) & 0b11 : 0;
+                const format = this.settings.timestampFormat.useTrait && schema > 4
+                    ? schema
+                    : bindingFormat
+                        ? bindingFormat + 4
+                        : this.settings.timestampFormat.default;
+                switch (format) {
+                    case 5:
+                        return _parseRfc3339DateTimeWithOffset(data);
+                    case 6:
+                        return _parseRfc7231DateTime(data);
+                    case 7:
+                        return _parseEpochTimestamp(data);
+                    default:
+                        console.warn("Missing timestamp format, parsing value with Date constructor:", data);
+                        return new Date(data);
+                }
+            }
+            case 0: {
+                const media = (flags >> 8) & 0b11;
+                if (!media) {
+                    return data;
+                }
+                let intermediateValue = data;
+                if ((location & 0b110) === 0b110) {
+                    intermediateValue = (this.serdeContext?.utf8Encoder ?? toUtf8)((this.serdeContext?.base64Decoder ?? fromBase64)(intermediateValue));
+                }
+                return media === 2 ? LazyJsonString.from(intermediateValue) : intermediateValue;
+            }
+            case 1:
+                return Number(data);
+            case 2:
+                return data.toLowerCase() === "true";
+            case 17:
+                return BigInt(data);
+            case 19:
+                return new NumericValue(data, "bigDecimal");
+            default:
+                return data;
+        }
     }
 }
 
@@ -21926,28 +22235,33 @@ class HttpInterceptingShapeDeserializer extends SerdeContext {
         this.serdeContext = serdeContext;
     }
     read(schema, data) {
-        const ns = NormalizedSchema.of(schema);
+        const ns = HttpBindingNormalizedSchema.of(schema);
         const traits = ns.getMergedTraits();
-        const toString = this.serdeContext?.utf8Encoder ?? toUtf8;
         if (traits.httpHeader || traits.httpResponseCode) {
-            return this.stringDeserializer.read(ns, toString(data));
+            const value = ns.getHttpBindingValue(0b100_110, traits);
+            return this.readHttpBinding(value, data, 0b100_110);
         }
         if (traits.httpPayload) {
-            if (ns.isBlobSchema()) {
-                const toBytes = this.serdeContext?.utf8Decoder ?? fromUtf8;
-                if (typeof data === "string") {
-                    return toBytes(data);
-                }
-                return data;
-            }
-            else if (ns.isStringSchema()) {
-                if ("byteLength" in data) {
-                    return toString(data);
-                }
-                return data;
-            }
+            return this.readPayload(ns.getHttpBindingValue(0b100_100, traits), data);
         }
-        return this.codecDeserializer.read(ns, data);
+        return this.readCodec(ns, data);
+    }
+    readHttpBinding(binding, data, location) {
+        const value = typeof data === "string" ? data : (this.serdeContext?.utf8Encoder ?? toUtf8)(data);
+        return this.stringDeserializer.readHttpBinding(binding, value, location);
+    }
+    readPayload([schema, flags], data) {
+        const type = flags & 0xff;
+        if (type === 21 || type === 42) {
+            return typeof data === "string" ? (this.serdeContext?.utf8Decoder ?? fromUtf8)(data) : data;
+        }
+        if (type === 0) {
+            return typeof data === "string" ? data : (this.serdeContext?.utf8Encoder ?? toUtf8)(data);
+        }
+        return this.readCodec(schema, data);
+    }
+    readCodec(schema, data) {
+        return this.codecDeserializer.read(schema, data);
     }
 }
 
@@ -21959,18 +22273,29 @@ class ToStringShapeSerializer extends SerdeContext {
         this.settings = settings;
     }
     write(schema, value) {
-        const ns = NormalizedSchema.of(schema);
+        const ns = HttpBindingNormalizedSchema.of(schema);
+        const traits = ns.getMergedTraits();
+        const location = ns.getHttpBindingLocation(traits);
+        this.writeHttpBinding(ns.getHttpBindingValue(location, traits), value, location);
+    }
+    writeHttpBinding([ns, flags, collectionValue], value, location) {
+        const schema = flags & 0xff;
         switch (typeof value) {
             case "object":
                 if (value === null) {
                     this.stringBuffer = "null";
                     return;
                 }
-                if (ns.isTimestampSchema()) {
+                if (schema >= 4 && schema <= 7) {
                     if (!(value instanceof Date)) {
                         throw new Error(`@smithy/core/protocols - received non-Date value ${value} when schema expected Date in ${ns.getName(true)}`);
                     }
-                    const format = determineTimestampFormat(ns, this.settings);
+                    const bindingFormat = this.settings.httpBindings ? (flags >> 14) & 0b11 : 0;
+                    const format = this.settings.timestampFormat.useTrait && schema > 4
+                        ? schema
+                        : bindingFormat
+                            ? bindingFormat + 4
+                            : this.settings.timestampFormat.default;
                     switch (format) {
                         case 5:
                             this.stringBuffer = value.toISOString().replace(".000Z", "Z");
@@ -21987,20 +22312,24 @@ class ToStringShapeSerializer extends SerdeContext {
                     }
                     return;
                 }
-                if (ns.isBlobSchema() && "byteLength" in value) {
+                if ((schema === 21 || schema === 42) &&
+                    "byteLength" in value) {
                     this.stringBuffer = (this.serdeContext?.base64Encoder ?? toBase64)(value);
                     return;
                 }
-                if (ns.isListSchema() && Array.isArray(value)) {
+                if ((schema & 0b1100_0000) === 0b0100_0000 && Array.isArray(value)) {
+                    collectionValue ??= ns.getHttpBindingCollectionValue(location);
+                    const valueSchemaType = collectionValue[1] & 0xff;
+                    const isTimestamp = valueSchemaType >= 4 &&
+                        valueSchemaType <= 7;
                     let buffer = "";
                     for (const item of value) {
-                        this.write([ns.getValueSchema(), ns.getMergedTraits()], item);
+                        this.writeHttpBinding(collectionValue, item, location);
                         const headerItem = this.flush();
-                        const serialized = ns.getValueSchema().isTimestampSchema() ? headerItem : quoteHeader(headerItem);
-                        if (buffer !== "") {
+                        if (buffer) {
                             buffer += ", ";
                         }
-                        buffer += serialized;
+                        buffer += isTimestamp ? headerItem : quoteHeader(headerItem);
                     }
                     this.stringBuffer = buffer;
                     return;
@@ -22008,27 +22337,19 @@ class ToStringShapeSerializer extends SerdeContext {
                 this.stringBuffer = JSON.stringify(value, null, 2);
                 break;
             case "string":
-                const mediaType = ns.getMergedTraits().mediaType;
+                const media = (flags >> 8) & 0b11;
                 let intermediateValue = value;
-                if (mediaType) {
-                    const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
-                    if (isJson) {
-                        intermediateValue = LazyJsonString.from(intermediateValue);
-                    }
-                    if (ns.getMergedTraits().httpHeader) {
-                        this.stringBuffer = (this.serdeContext?.base64Encoder ?? toBase64)(intermediateValue.toString());
-                        return;
-                    }
+                if (media === 2) {
+                    intermediateValue = LazyJsonString.from(intermediateValue);
+                }
+                if (media && (location & 0b110) === 0b110) {
+                    this.stringBuffer = (this.serdeContext?.base64Encoder ?? toBase64)(intermediateValue.toString());
+                    return;
                 }
                 this.stringBuffer = value;
                 break;
             default:
-                if (ns.isIdempotencyToken()) {
-                    this.stringBuffer = generateIdempotencyToken();
-                }
-                else {
-                    this.stringBuffer = String(value);
-                }
+                this.stringBuffer = (flags >> 10) & 1 ? generateIdempotencyToken() : String(value);
         }
     }
     flush() {
@@ -22051,14 +22372,21 @@ class HttpInterceptingShapeSerializer {
         this.stringSerializer.setSerdeContext(serdeContext);
     }
     write(schema, value) {
-        const ns = NormalizedSchema.of(schema);
+        const ns = HttpBindingNormalizedSchema.of(schema);
         const traits = ns.getMergedTraits();
         if (traits.httpHeader || traits.httpLabel || traits.httpQuery) {
-            this.stringSerializer.write(ns, value);
-            this.buffer = this.stringSerializer.flush();
+            const location = ns.getHttpBindingLocation(traits);
+            this.writeHttpBinding(ns.getHttpBindingValue(location, traits), value, location);
             return;
         }
-        return this.codecSerializer.write(ns, value);
+        this.writeCodec(ns, value);
+    }
+    writeHttpBinding(binding, value, location) {
+        this.stringSerializer.writeHttpBinding(binding, value, location);
+        this.buffer = this.stringSerializer.flush();
+    }
+    writeCodec(schema, value) {
+        this.codecSerializer.write(schema, value);
     }
     flush() {
         if (this.buffer !== undefined) {
@@ -22068,6 +22396,26 @@ class HttpInterceptingShapeSerializer {
         }
         return this.codecSerializer.flush();
     }
+}
+
+function determineTimestampFormat(ns, settings) {
+    if (settings.timestampFormat.useTrait) {
+        const schema = ns.getSchema();
+        if (schema === 5 ||
+            schema === 6 ||
+            schema === 7) {
+            return schema;
+        }
+    }
+    const { httpLabel, httpPrefixHeaders, httpHeader, httpQuery } = ns.getMergedTraits();
+    const bindingFormat = settings.httpBindings
+        ? typeof httpPrefixHeaders === "string" || Boolean(httpHeader)
+            ? 6
+            : Boolean(httpQuery) || Boolean(httpLabel)
+                ? 5
+                : undefined
+        : undefined;
+    return bindingFormat ?? settings.timestampFormat.default;
 }
 
 class Field {
@@ -23919,15 +24267,15 @@ exports.resolvedPath = resolvedPath;
 
 /***/ }),
 
-/***/ 4015:
+/***/ 5200:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { Readable } = __nccwpck_require__(7075);
-const { NoOpLogger, normalizeProvider } = __nccwpck_require__(948);
-const { HttpResponse, HttpRequest } = __nccwpck_require__(1212);
-const { parseRfc7231DateTime, v4 } = __nccwpck_require__(5159);
+const { NoOpLogger, normalizeProvider } = __nccwpck_require__(4713);
+const { HttpResponse, HttpRequest } = __nccwpck_require__(4047);
+const { parseRfc7231DateTime, v4 } = __nccwpck_require__(5975);
 const { SMITHY_CONTEXT_KEY } = __nccwpck_require__(4563);
-const { hasOwn } = __nccwpck_require__(856);
+const { hasOwn } = __nccwpck_require__(7603);
 
 const isStreamingPayload = (request) => request?.body instanceof Readable ||
     (typeof ReadableStream !== "undefined" && request?.body instanceof ReadableStream);
@@ -24814,10 +25162,10 @@ exports.retryMiddlewareOptions = retryMiddlewareOptions;
 
 /***/ }),
 
-/***/ 5172:
+/***/ 9469:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { getSmithyContext, HttpResponse, toEndpointV1 } = __nccwpck_require__(856);
+const { getSmithyContext, HttpResponse, toEndpointV1 } = __nccwpck_require__(7603);
 
 const deref = (schemaRef) => {
     if (typeof schemaRef === "function") {
@@ -25530,14 +25878,14 @@ exports.translateTraits = translateTraits;
 
 /***/ }),
 
-/***/ 5159:
+/***/ 5975:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { createHmac, createHash, getRandomValues } = __nccwpck_require__(7598);
-const { hasOwn, HttpResponse } = __nccwpck_require__(856);
+const { hasOwn, HttpResponse } = __nccwpck_require__(7603);
 exports.hasOwn = hasOwn;
 const { ReadStream, lstatSync, fstatSync } = __nccwpck_require__(3024);
-const { toEndpointV1 } = __nccwpck_require__(4283);
+const { toEndpointV1 } = __nccwpck_require__(5812);
 const { Readable, Writable, PassThrough } = __nccwpck_require__(7075);
 
 const isArrayBuffer = (arg) => (typeof ArrayBuffer === "function" && arg instanceof ArrayBuffer) ||
@@ -26110,7 +26458,7 @@ LazyJsonString.fromObject = LazyJsonString.from;
 
 function quoteHeader(part) {
     if (part.includes(",") || part.includes('"')) {
-        part = `"${part.replace(/"/g, '\\"')}"`;
+        part = `"${part.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
     }
     return part;
 }
@@ -26121,6 +26469,7 @@ const time = `(\\d?\\d):(\\d{2}):(\\d{2})(?:\\.(\\d+))?`;
 const date = `(\\d?\\d)`;
 const year = `(\\d{4})`;
 const RFC3339_WITH_OFFSET = new RegExp(/^(\d{4})-(\d\d)-(\d\d)[tT](\d\d):(\d\d):(\d\d)(\.(\d+))?(([-+]\d\d:\d\d)|[zZ])$/);
+const IMF_FIXDATE_NATIVE = /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (?:0[1-9]|[12]\d|3[01]) (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [1-9]\d{3} (?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d GMT$/;
 const IMF_FIXDATE = new RegExp(`^${ddd}, ${date} ${mmm} ${year} ${time} GMT$`);
 const RFC_850_DATE = new RegExp(`^${ddd}, ${date}-${mmm}-(\\d\\d) ${time} GMT$`);
 const ASC_TIME = new RegExp(`^${ddd} ${mmm} ( [1-9]|\\d\\d) ${time} ${year}$`);
@@ -26179,6 +26528,9 @@ const _parseRfc7231DateTime = (value) => {
     }
     if (typeof value !== "string") {
         throw new TypeError("RFC7231 timestamps must be strings.");
+    }
+    if (IMF_FIXDATE_NATIVE.test(value)) {
+        return new Date(value);
     }
     let day;
     let month;
@@ -26249,13 +26601,13 @@ const splitHeader = (value) => {
     const z = value.length;
     const values = [];
     let withinQuotes = false;
-    let prevChar = undefined;
+    let escaped = false;
     let anchor = 0;
     for (let i = 0; i < z; ++i) {
         const char = value[i];
         switch (char) {
             case `"`:
-                if (prevChar !== "\\") {
+                if (!escaped) {
                     withinQuotes = !withinQuotes;
                 }
                 break;
@@ -26266,7 +26618,7 @@ const splitHeader = (value) => {
                 }
                 break;
         }
-        prevChar = char;
+        escaped = char === "\\" && !escaped;
     }
     values.push(value.slice(anchor));
     return values.map((v) => {
@@ -26277,6 +26629,7 @@ const splitHeader = (value) => {
         }
         if (v[0] === `"` && v[z - 1] === `"`) {
             v = v.slice(1, z - 1);
+            return v.replace(/\\(["\\])/g, "$1");
         }
         return v.replace(/\\"/g, '"');
     });
@@ -27308,7 +27661,7 @@ exports.writeKey = writeKey;
 
 /***/ }),
 
-/***/ 856:
+/***/ 7603:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 const { SMITHY_CONTEXT_KEY } = __nccwpck_require__(4563);
@@ -27510,9 +27863,9 @@ exports.toEndpointV1 = toEndpointV1;
 /***/ 1812:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { ProviderError, CredentialsProviderError, loadConfig } = __nccwpck_require__(5913);
+const { ProviderError, CredentialsProviderError, loadConfig } = __nccwpck_require__(5164);
 const node_http = __nccwpck_require__(7067);
-const { parseUrl } = __nccwpck_require__(1212);
+const { parseUrl } = __nccwpck_require__(4047);
 
 const isImdsCredentials = (arg) => Boolean(arg) &&
     typeof arg === "object" &&
@@ -27887,10 +28240,10 @@ exports.providerConfigFromInit = providerConfigFromInit;
 /***/ 6858:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { hasOwn } = __nccwpck_require__(5159);
-const { streamCollector } = __nccwpck_require__(5159);
+const { hasOwn } = __nccwpck_require__(5975);
+const { streamCollector } = __nccwpck_require__(5975);
 exports.streamCollector = streamCollector;
-const { buildQueryString, HttpResponse } = __nccwpck_require__(1212);
+const { buildQueryString, HttpResponse } = __nccwpck_require__(4047);
 const node_https = __nccwpck_require__(4708);
 const { Readable } = __nccwpck_require__(7075);
 const http2 = __nccwpck_require__(2467);
@@ -28808,9 +29161,9 @@ exports.NodeHttpHandler = NodeHttpHandler;
 /***/ 1596:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
-const { hasOwn, fromUtf8, fromHex, toHex, toUint8Array, writeKey, isArrayBuffer } = __nccwpck_require__(5159);
-const { normalizeProvider } = __nccwpck_require__(948);
-const { escapeUri, HttpRequest } = __nccwpck_require__(1212);
+const { hasOwn, fromUtf8, fromHex, toHex, toUint8Array, writeKey, isArrayBuffer } = __nccwpck_require__(5975);
+const { normalizeProvider } = __nccwpck_require__(4713);
+const { escapeUri, HttpRequest } = __nccwpck_require__(4047);
 
 class HeaderFormatter {
     format(headers) {
@@ -29512,7 +29865,7 @@ exports.resolveDefaultRuntimeConfig = resolveDefaultRuntimeConfig;
 
 /***/ }),
 
-/***/ 8470:
+/***/ 7141:
 /***/ (function(module) {
 
 /*!
@@ -29521,14 +29874,14 @@ exports.resolveDefaultRuntimeConfig = resolveDefaultRuntimeConfig;
  * MIT License | (c) Dustin Diaz 2012-2015
  * MIT License | (c) Denis Demchenko 2015-2026
  */
-!function(e,t){ true?module.exports=t():0}(this,function(){var e={AmazonBot:"amazonbot","Amazon Silk":"amazon_silk","Android Browser":"android",BaiduSpider:"baiduspider",Bada:"bada",BingCrawler:"bingcrawler",Brave:"brave",BlackBerry:"blackberry","ChatGPT-User":"chatgpt_user",Chrome:"chrome",ClaudeBot:"claudebot",Chromium:"chromium",Diffbot:"diffbot",DuckDuckBot:"duckduckbot",DuckDuckGo:"duckduckgo",Electron:"electron",Epiphany:"epiphany",FacebookExternalHit:"facebookexternalhit",Firefox:"firefox",Focus:"focus",Generic:"generic","Google Search":"google_search",Googlebot:"googlebot",GPTBot:"gptbot","HeyTap Browser":"heytap","Internet Explorer":"ie",InternetArchiveCrawler:"internetarchivecrawler","K-Meleon":"k_meleon",Ladybird:"ladybird",LibreWolf:"librewolf",Linespider:"linespider",Maxthon:"maxthon","Meta-ExternalAds":"meta_externalads","Meta-ExternalAgent":"meta_externalagent","Meta-ExternalFetcher":"meta_externalfetcher","Meta-WebIndexer":"meta_webindexer","Microsoft Edge":"edge","MZ Browser":"mz","NAVER Whale Browser":"naver","OAI-SearchBot":"oai_searchbot",Omgilibot:"omgilibot",Opera:"opera","Opera Coast":"opera_coast","Pale Moon":"pale_moon",PerplexityBot:"perplexitybot","Perplexity-User":"perplexity_user",PhantomJS:"phantomjs",PingdomBot:"pingdombot",Puffin:"puffin",QQ:"qq",QQLite:"qqlite",QupZilla:"qupzilla",Roku:"roku",Safari:"safari",Sailfish:"sailfish","Samsung Internet for Android":"samsung_internet",SlackBot:"slackbot",SeaMonkey:"seamonkey",Sleipnir:"sleipnir","Sogou Browser":"sogou",Swing:"swing",Tizen:"tizen","UC Browser":"uc","Vivo Browser":"vivo",Vivaldi:"vivaldi","WebOS Browser":"webos",WeChat:"wechat",YahooSlurp:"yahooslurp","Yandex Browser":"yandex",YandexBot:"yandexbot",YouBot:"youbot"},t={amazonbot:"AmazonBot",amazon_silk:"Amazon Silk",android:"Android Browser",baiduspider:"BaiduSpider",bada:"Bada",bingcrawler:"BingCrawler",blackberry:"BlackBerry",brave:"Brave",chatgpt_user:"ChatGPT-User",chrome:"Chrome",claudebot:"ClaudeBot",chromium:"Chromium",diffbot:"Diffbot",duckduckbot:"DuckDuckBot",duckduckgo:"DuckDuckGo",edge:"Microsoft Edge",electron:"Electron",epiphany:"Epiphany",facebookexternalhit:"FacebookExternalHit",firefox:"Firefox",focus:"Focus",generic:"Generic",google_search:"Google Search",googlebot:"Googlebot",gptbot:"GPTBot",heytap:"HeyTap Browser",ie:"Internet Explorer",internetarchivecrawler:"InternetArchiveCrawler",k_meleon:"K-Meleon",ladybird:"Ladybird",librewolf:"LibreWolf",linespider:"Linespider",maxthon:"Maxthon",meta_externalads:"Meta-ExternalAds",meta_externalagent:"Meta-ExternalAgent",meta_externalfetcher:"Meta-ExternalFetcher",meta_webindexer:"Meta-WebIndexer",mz:"MZ Browser",naver:"NAVER Whale Browser",oai_searchbot:"OAI-SearchBot",omgilibot:"Omgilibot",opera:"Opera",opera_coast:"Opera Coast",pale_moon:"Pale Moon",perplexitybot:"PerplexityBot",perplexity_user:"Perplexity-User",phantomjs:"PhantomJS",pingdombot:"PingdomBot",puffin:"Puffin",qq:"QQ Browser",qqlite:"QQ Browser Lite",qupzilla:"QupZilla",roku:"Roku",safari:"Safari",sailfish:"Sailfish",samsung_internet:"Samsung Internet for Android",seamonkey:"SeaMonkey",slackbot:"SlackBot",sleipnir:"Sleipnir",sogou:"Sogou Browser",swing:"Swing",tizen:"Tizen",uc:"UC Browser",vivo:"Vivo Browser",vivaldi:"Vivaldi",webos:"WebOS Browser",wechat:"WeChat",yahooslurp:"YahooSlurp",yandex:"Yandex Browser",yandexbot:"YandexBot",youbot:"YouBot"},r={bot:"bot",desktop:"desktop",mobile:"mobile",tablet:"tablet",tv:"tv"},i={Android:"Android",Bada:"Bada",BlackBerry:"BlackBerry",ChromeOS:"Chrome OS",HarmonyOS:"HarmonyOS",iOS:"iOS",Linux:"Linux",MacOS:"macOS",PlayStation4:"PlayStation 4",Roku:"Roku",Tizen:"Tizen",WebOS:"WebOS",Windows:"Windows",WindowsPhone:"Windows Phone"},n={Blink:"Blink",EdgeHTML:"EdgeHTML",Gecko:"Gecko",LibWeb:"LibWeb",Presto:"Presto",Trident:"Trident",WebKit:"WebKit"},s=function(){function r(){}return r.getFirstMatch=function(e,t){var r=t.match(e);return r&&r.length>0&&r[1]||""},r.getSecondMatch=function(e,t){var r=t.match(e);return r&&r.length>1&&r[2]||""},r.matchAndReturnConst=function(e,t,r){if(e.test(t))return r},r.isFirefoxOnIpad=function(e){var t=e.indexOf("Macintosh");if(-1===t)return!1;var r=e.indexOf(" FxiOS",t+9);return-1!==r&&-1!==e.indexOf("/",r+6)},r.getWindowsVersionName=function(e){switch(e){case"NT":return"NT";case"XP":case"NT 5.1":return"XP";case"NT 5.0":return"2000";case"NT 5.2":return"2003";case"NT 6.0":return"Vista";case"NT 6.1":return"7";case"NT 6.2":return"8";case"NT 6.3":return"8.1";case"NT 10.0":return"10";default:return}},r.getMacOSVersionName=function(e){var t=e.split(".").splice(0,2).map(function(e){return parseInt(e,10)||0});t.push(0);var r=t[0],i=t[1];if(10===r)switch(i){case 5:return"Leopard";case 6:return"Snow Leopard";case 7:return"Lion";case 8:return"Mountain Lion";case 9:return"Mavericks";case 10:return"Yosemite";case 11:return"El Capitan";case 12:return"Sierra";case 13:return"High Sierra";case 14:return"Mojave";case 15:return"Catalina";default:return}switch(r){case 11:return"Big Sur";case 12:return"Monterey";case 13:return"Ventura";case 14:return"Sonoma";case 15:return"Sequoia";default:return}},r.getAndroidVersionName=function(e){var t=e.split(".").splice(0,2).map(function(e){return parseInt(e,10)||0});if(t.push(0),!(1===t[0]&&t[1]<5))return 1===t[0]&&t[1]<6?"Cupcake":1===t[0]&&t[1]>=6?"Donut":2===t[0]&&t[1]<2?"Eclair":2===t[0]&&2===t[1]?"Froyo":2===t[0]&&t[1]>2?"Gingerbread":3===t[0]?"Honeycomb":4===t[0]&&t[1]<1?"Ice Cream Sandwich":4===t[0]&&t[1]<4?"Jelly Bean":4===t[0]&&t[1]>=4?"KitKat":5===t[0]?"Lollipop":6===t[0]?"Marshmallow":7===t[0]?"Nougat":8===t[0]?"Oreo":9===t[0]?"Pie":void 0},r.getVersionPrecision=function(e){return e.split(".").length},r.compareVersions=function(e,t,i){void 0===i&&(i=!1);var n=r.getVersionPrecision(e),s=r.getVersionPrecision(t),o=Math.max(n,s),a=0,c=r.map([e,t],function(e){var t=o-r.getVersionPrecision(e),i=e+new Array(t+1).join(".0");return r.map(i.split("."),function(e){return new Array(20-e.length).join("0")+e}).reverse()});for(i&&(a=o-Math.min(n,s)),o-=1;o>=a;){if(c[0][o]>c[1][o])return 1;if(c[0][o]===c[1][o]){if(o===a)return 0;o-=1}else if(c[0][o]<c[1][o])return-1}},r.map=function(e,t){var r,i=[];if(Array.prototype.map)return Array.prototype.map.call(e,t);for(r=0;r<e.length;r+=1)i.push(t(e[r]));return i},r.find=function(e,t){var r,i;if(Array.prototype.find)return Array.prototype.find.call(e,t);for(r=0,i=e.length;r<i;r+=1){var n=e[r];if(t(n,r))return n}},r.assign=function(e){for(var t,r,i=e,n=arguments.length,s=new Array(n>1?n-1:0),o=1;o<n;o++)s[o-1]=arguments[o];if(Object.assign)return Object.assign.apply(Object,[e].concat(s));var a=function(){var e=s[t];"object"==typeof e&&null!==e&&Object.keys(e).forEach(function(t){i[t]=e[t]})};for(t=0,r=s.length;t<r;t+=1)a();return e},r.getBrowserAlias=function(t){return e[t]},r.getBrowserTypeByAlias=function(e){return t[e]||""},r}(),o=/version\/(\d+(\.?_?\d+)+)/i,a=[{test:[/gptbot/i],describe:function(e){var t={name:"GPTBot"},r=s.getFirstMatch(/gptbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/chatgpt-user/i],describe:function(e){var t={name:"ChatGPT-User"},r=s.getFirstMatch(/chatgpt-user\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/oai-searchbot/i],describe:function(e){var t={name:"OAI-SearchBot"},r=s.getFirstMatch(/oai-searchbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/claudebot/i,/claude-web/i,/claude-user/i,/claude-searchbot/i],describe:function(e){var t={name:"ClaudeBot"},r=s.getFirstMatch(/(?:claudebot|claude-web|claude-user|claude-searchbot)\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/omgilibot/i,/webzio-extended/i],describe:function(e){var t={name:"Omgilibot"},r=s.getFirstMatch(/(?:omgilibot|webzio-extended)\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/diffbot/i],describe:function(e){var t={name:"Diffbot"},r=s.getFirstMatch(/diffbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/perplexitybot/i],describe:function(e){var t={name:"PerplexityBot"},r=s.getFirstMatch(/perplexitybot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/perplexity-user/i],describe:function(e){var t={name:"Perplexity-User"},r=s.getFirstMatch(/perplexity-user\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/youbot/i],describe:function(e){var t={name:"YouBot"},r=s.getFirstMatch(/youbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/meta-webindexer/i],describe:function(e){var t={name:"Meta-WebIndexer"},r=s.getFirstMatch(/meta-webindexer\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/meta-externalads/i],describe:function(e){var t={name:"Meta-ExternalAds"},r=s.getFirstMatch(/meta-externalads\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/meta-externalagent/i],describe:function(e){var t={name:"Meta-ExternalAgent"},r=s.getFirstMatch(/meta-externalagent\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/meta-externalfetcher/i],describe:function(e){var t={name:"Meta-ExternalFetcher"},r=s.getFirstMatch(/meta-externalfetcher\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/googlebot/i],describe:function(e){var t={name:"Googlebot"},r=s.getFirstMatch(/googlebot\/(\d+(\.\d+))/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/linespider/i],describe:function(e){var t={name:"Linespider"},r=s.getFirstMatch(/(?:linespider)(?:-[-\w]{1,64})?[\s/](\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/amazonbot/i],describe:function(e){var t={name:"AmazonBot"},r=s.getFirstMatch(/amazonbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/bingbot/i],describe:function(e){var t={name:"BingCrawler"},r=s.getFirstMatch(/bingbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/baiduspider/i],describe:function(e){var t={name:"BaiduSpider"},r=s.getFirstMatch(/baiduspider\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/duckduckbot/i],describe:function(e){var t={name:"DuckDuckBot"},r=s.getFirstMatch(/duckduckbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/ia_archiver/i],describe:function(e){var t={name:"InternetArchiveCrawler"},r=s.getFirstMatch(/ia_archiver\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/facebookexternalhit/i,/facebookcatalog/i],describe:function(){return{name:"FacebookExternalHit"}}},{test:[/slackbot/i,/slack-imgProxy/i],describe:function(e){var t={name:"SlackBot"},r=s.getFirstMatch(/(?:slackbot|slack-imgproxy)(?:-[-\w]{1,64})?[\s/](\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/yahoo!?[\s/]*slurp/i],describe:function(){return{name:"YahooSlurp"}}},{test:[/yandexbot/i,/yandexmobilebot/i],describe:function(){return{name:"YandexBot"}}},{test:[/pingdom/i],describe:function(){return{name:"PingdomBot"}}},{test:[/opera/i],describe:function(e){var t={name:"Opera"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:opera)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/opr\/|opios/i],describe:function(e){var t={name:"Opera"},r=s.getFirstMatch(/(?:opr|opios)[\s/](\S+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/SamsungBrowser/i],describe:function(e){var t={name:"Samsung Internet for Android"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:SamsungBrowser)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/Whale/i],describe:function(e){var t={name:"NAVER Whale Browser"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:whale)[\s/](\d+(?:\.\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/PaleMoon/i],describe:function(e){var t={name:"Pale Moon"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:PaleMoon)[\s/](\d+(?:\.\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/HeyTapBrowser/i],describe:function(e){var t={name:"HeyTap Browser"},r=s.getFirstMatch(/(?:HeyTapBrowser)[\s/](\d+(?:\.\d+)*)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/VivoBrowser/i],describe:function(e){var t={name:"Vivo Browser"},r=s.getFirstMatch(/(?:VivoBrowser)[\s/](\d+(?:\.\d+)*)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/MZBrowser/i],describe:function(e){var t={name:"MZ Browser"},r=s.getFirstMatch(/(?:MZBrowser)[\s/](\d+(?:\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/focus/i],describe:function(e){var t={name:"Focus"},r=s.getFirstMatch(/(?:focus)[\s/](\d+(?:\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/swing/i],describe:function(e){var t={name:"Swing"},r=s.getFirstMatch(/(?:swing)[\s/](\d+(?:\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/coast/i],describe:function(e){var t={name:"Opera Coast"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:coast)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/opt\/\d+(?:.?_?\d+)+/i],describe:function(e){var t={name:"Opera Touch"},r=s.getFirstMatch(/(?:opt)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/yabrowser/i],describe:function(e){var t={name:"Yandex Browser"},r=s.getFirstMatch(/(?:yabrowser)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/ucbrowser/i],describe:function(e){var t={name:"UC Browser"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:ucbrowser)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/Maxthon|mxios/i],describe:function(e){var t={name:"Maxthon"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:Maxthon|mxios)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/epiphany/i],describe:function(e){var t={name:"Epiphany"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:epiphany)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/puffin/i],describe:function(e){var t={name:"Puffin"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:puffin)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/sleipnir/i],describe:function(e){var t={name:"Sleipnir"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:sleipnir)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/k-meleon/i],describe:function(e){var t={name:"K-Meleon"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:k-meleon)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/micromessenger/i],describe:function(e){var t={name:"WeChat"},r=s.getFirstMatch(/(?:micromessenger)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/qqbrowser/i],describe:function(e){var t={name:/qqbrowserlite/i.test(e)?"QQ Browser Lite":"QQ Browser"},r=s.getFirstMatch(/(?:qqbrowserlite|qqbrowser)[/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/msie|trident/i],describe:function(e){var t={name:"Internet Explorer"},r=s.getFirstMatch(/(?:msie |rv:)(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/\sedg\//i],describe:function(e){var t={name:"Microsoft Edge"},r=s.getFirstMatch(/\sedg\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/edg([ea]|ios)\//i],describe:function(e){var t={name:"Microsoft Edge"},r=s.getSecondMatch(/edg([ea]|ios)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){return!!e.hasBrand("Vivaldi")||e.test(/vivaldi/i)},describe:function(e,t){var r={name:"Vivaldi"};if(t){var i=t.getBrandVersion("Vivaldi");if(i)return r.version=i,r}var n=s.getFirstMatch(/vivaldi\/(\d+(\.?_?\d+)+)/i,e);return n&&(r.version=n),r}},{test:[/seamonkey/i],describe:function(e){var t={name:"SeaMonkey"},r=s.getFirstMatch(/seamonkey\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/sailfish/i],describe:function(e){var t={name:"Sailfish"},r=s.getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i,e);return r&&(t.version=r),t}},{test:[/silk/i],describe:function(e){var t={name:"Amazon Silk"},r=s.getFirstMatch(/silk\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/phantom/i],describe:function(e){var t={name:"PhantomJS"},r=s.getFirstMatch(/phantomjs\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/slimerjs/i],describe:function(e){var t={name:"SlimerJS"},r=s.getFirstMatch(/slimerjs\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/blackberry|\bbb\d+/i,/rim\stablet/i],describe:function(e){var t={name:"BlackBerry"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/blackberry[\d]+\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/(web|hpw)[o0]s/i],describe:function(e){var t={name:"WebOS Browser"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/w(?:eb)?[o0]sbrowser\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/bada/i],describe:function(e){var t={name:"Bada"},r=s.getFirstMatch(/dolfin\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/tizen/i],describe:function(e){var t={name:"Tizen"},r=s.getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/qupzilla/i],describe:function(e){var t={name:"QupZilla"},r=s.getFirstMatch(/(?:qupzilla)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/librewolf/i],describe:function(e){var t={name:"LibreWolf"},r=s.getFirstMatch(/(?:librewolf)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/firefox|iceweasel|fxios/i],describe:function(e){var t={name:"Firefox"},r=s.getFirstMatch(/(?:firefox|iceweasel|fxios)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/electron/i],describe:function(e){var t={name:"Electron"},r=s.getFirstMatch(/(?:electron)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/sogoumobilebrowser/i,/metasr/i,/se 2\.[x]/i],describe:function(e){var t={name:"Sogou Browser"},r=s.getFirstMatch(/(?:sogoumobilebrowser)[\s/](\d+(\.?_?\d+)+)/i,e),i=s.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i,e),n=s.getFirstMatch(/se ([\d.]+)x/i,e),o=r||i||n;return o&&(t.version=o),t}},{test:[/MiuiBrowser/i],describe:function(e){var t={name:"Miui"},r=s.getFirstMatch(/(?:MiuiBrowser)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){return!!e.hasBrand("DuckDuckGo")||e.test(/\sDdg\/[\d.]+$/i)},describe:function(e,t){var r={name:"DuckDuckGo"};if(t){var i=t.getBrandVersion("DuckDuckGo");if(i)return r.version=i,r}var n=s.getFirstMatch(/\sDdg\/([\d.]+)$/i,e);return n&&(r.version=n),r}},{test:function(e){return e.hasBrand("Brave")},describe:function(e,t){var r={name:"Brave"};if(t){var i=t.getBrandVersion("Brave");if(i)return r.version=i,r}return r}},{test:[/chromium/i],describe:function(e){var t={name:"Chromium"},r=s.getFirstMatch(/(?:chromium)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/ladybird/i],describe:function(e){var t={name:"Ladybird"},r=s.getFirstMatch(/ladybird\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/chrome|crios|crmo/i],describe:function(e){var t={name:"Chrome"},r=s.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/GSA/i],describe:function(e){var t={name:"Google Search"},r=s.getFirstMatch(/(?:GSA)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){var t=!e.test(/like android/i),r=e.test(/android/i);return t&&r},describe:function(e){var t={name:"Android Browser"},r=s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/playstation 4/i],describe:function(e){var t={name:"PlayStation 4"},r=s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/safari|applewebkit/i],describe:function(e){var t={name:"Safari"},r=s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/.*/i],describe:function(e){var t=-1!==e.search("\\(")?/^(.*)\/([^/]*)[ \t]\((.*)/:/^(.*)\/([^/]*) /;return{name:s.getFirstMatch(t,e),version:s.getSecondMatch(t,e)}}}],c=[{test:[/Roku\/DVP/],describe:function(e){var t=s.getFirstMatch(/Roku\/DVP-(\d+\.\d+)/i,e);return{name:i.Roku,version:t}}},{test:[/windows phone/i],describe:function(e){var t=s.getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i,e);return{name:i.WindowsPhone,version:t}}},{test:[/windows /i],describe:function(e){var t=s.getFirstMatch(/Windows ((NT|XP)( \d\d?.\d)?)/i,e),r=s.getWindowsVersionName(t);return{name:i.Windows,version:t,versionName:r}}},{test:function(e){return s.isFirefoxOnIpad(e.getUA())},describe:function(e){var t={name:i.iOS},r=s.getSecondMatch(/(Version\/)(\d[\d.]+)/,e);return r&&(t.version=r),t}},{test:[/macintosh/i],describe:function(e){var t=s.getFirstMatch(/mac os x (\d+(\.?_?\d+)+)/i,e).replace(/[_\s]/g,"."),r=s.getMacOSVersionName(t),n={name:i.MacOS,version:t};return r&&(n.versionName=r),n}},{test:[/(ipod|iphone|ipad)/i],describe:function(e){var t=s.getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i,e).replace(/[_\s]/g,".");return{name:i.iOS,version:t}}},{test:[/OpenHarmony/i],describe:function(e){var t=s.getFirstMatch(/OpenHarmony\s+(\d+(\.\d+)*)/i,e);return{name:i.HarmonyOS,version:t}}},{test:function(e){var t=!e.test(/like android/i),r=e.test(/android/i);return t&&r},describe:function(e){var t=s.getFirstMatch(/android[\s/-](\d+(\.\d+)*)/i,e),r=s.getAndroidVersionName(t),n={name:i.Android,version:t};return r&&(n.versionName=r),n}},{test:[/(web|hpw)[o0]s/i],describe:function(e){var t=s.getFirstMatch(/(?:web|hpw)[o0]s\/(\d+(\.\d+)*)/i,e),r={name:i.WebOS};return t&&t.length&&(r.version=t),r}},{test:[/blackberry|\bbb\d+/i,/rim\stablet/i],describe:function(e){var t=s.getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i,e)||s.getFirstMatch(/blackberry\d+\/(\d+([_\s]\d+)*)/i,e)||s.getFirstMatch(/\bbb(\d+)/i,e);return{name:i.BlackBerry,version:t}}},{test:[/bada/i],describe:function(e){var t=s.getFirstMatch(/bada\/(\d+(\.\d+)*)/i,e);return{name:i.Bada,version:t}}},{test:[/tizen/i],describe:function(e){var t=s.getFirstMatch(/tizen[/\s](\d+(\.\d+)*)/i,e);return{name:i.Tizen,version:t}}},{test:[/linux/i],describe:function(){return{name:i.Linux}}},{test:[/CrOS/],describe:function(){return{name:i.ChromeOS}}},{test:[/PlayStation 4/],describe:function(e){var t=s.getFirstMatch(/PlayStation 4[/\s](\d+(\.\d+)*)/i,e);return{name:i.PlayStation4,version:t}}}],u=[{test:[/googlebot/i],describe:function(){return{type:r.bot,vendor:"Google"}}},{test:[/linespider/i],describe:function(){return{type:r.bot,vendor:"Line"}}},{test:[/amazonbot/i],describe:function(){return{type:r.bot,vendor:"Amazon"}}},{test:[/gptbot/i],describe:function(){return{type:r.bot,vendor:"OpenAI"}}},{test:[/chatgpt-user/i],describe:function(){return{type:r.bot,vendor:"OpenAI"}}},{test:[/oai-searchbot/i],describe:function(){return{type:r.bot,vendor:"OpenAI"}}},{test:[/baiduspider/i],describe:function(){return{type:r.bot,vendor:"Baidu"}}},{test:[/bingbot/i],describe:function(){return{type:r.bot,vendor:"Bing"}}},{test:[/duckduckbot/i],describe:function(){return{type:r.bot,vendor:"DuckDuckGo"}}},{test:[/claudebot/i,/claude-web/i,/claude-user/i,/claude-searchbot/i],describe:function(){return{type:r.bot,vendor:"Anthropic"}}},{test:[/omgilibot/i,/webzio-extended/i],describe:function(){return{type:r.bot,vendor:"Webz.io"}}},{test:[/diffbot/i],describe:function(){return{type:r.bot,vendor:"Diffbot"}}},{test:[/perplexitybot/i],describe:function(){return{type:r.bot,vendor:"Perplexity AI"}}},{test:[/perplexity-user/i],describe:function(){return{type:r.bot,vendor:"Perplexity AI"}}},{test:[/youbot/i],describe:function(){return{type:r.bot,vendor:"You.com"}}},{test:[/ia_archiver/i],describe:function(){return{type:r.bot,vendor:"Internet Archive"}}},{test:[/meta-webindexer/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/meta-externalads/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/meta-externalagent/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/meta-externalfetcher/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/facebookexternalhit/i,/facebookcatalog/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/slackbot/i,/slack-imgProxy/i],describe:function(){return{type:r.bot,vendor:"Slack"}}},{test:[/yahoo/i],describe:function(){return{type:r.bot,vendor:"Yahoo"}}},{test:[/yandexbot/i,/yandexmobilebot/i],describe:function(){return{type:r.bot,vendor:"Yandex"}}},{test:[/pingdom/i],describe:function(){return{type:r.bot,vendor:"Pingdom"}}},{test:[/huawei/i],describe:function(e){var t=s.getFirstMatch(/(can-l01)/i,e)&&"Nova",i={type:r.mobile,vendor:"Huawei"};return t&&(i.model=t),i}},{test:[/nexus\s*(?:7|8|9|10).*/i],describe:function(){return{type:r.tablet,vendor:"Nexus"}}},{test:[/ipad/i],describe:function(){return{type:r.tablet,vendor:"Apple",model:"iPad"}}},{test:function(e){return s.isFirefoxOnIpad(e.getUA())},describe:function(){return{type:r.tablet,vendor:"Apple",model:"iPad"}}},{test:[/kftt build/i],describe:function(){return{type:r.tablet,vendor:"Amazon",model:"Kindle Fire HD 7"}}},{test:[/silk/i],describe:function(){return{type:r.tablet,vendor:"Amazon"}}},{test:[/tablet(?! pc)/i],describe:function(){return{type:r.tablet}}},{test:function(e){var t=e.test(/ipod|iphone/i),r=e.test(/like (ipod|iphone)/i);return t&&!r},describe:function(e){var t=s.getFirstMatch(/(ipod|iphone)/i,e);return{type:r.mobile,vendor:"Apple",model:t}}},{test:[/nexus\s*[0-6].*/i,/galaxy nexus/i],describe:function(){return{type:r.mobile,vendor:"Nexus"}}},{test:[/Nokia/i],describe:function(e){var t=s.getFirstMatch(/Nokia\s+([0-9]+(\.[0-9]+)?)/i,e),i={type:r.mobile,vendor:"Nokia"};return t&&(i.model=t),i}},{test:[/[^-]mobi/i],describe:function(){return{type:r.mobile}}},{test:function(e){return"blackberry"===e.getBrowserName(!0)},describe:function(){return{type:r.mobile,vendor:"BlackBerry"}}},{test:function(e){return"bada"===e.getBrowserName(!0)},describe:function(){return{type:r.mobile}}},{test:function(e){return"windows phone"===e.getBrowserName()},describe:function(){return{type:r.mobile,vendor:"Microsoft"}}},{test:function(e){var t=Number(String(e.getOSVersion()).split(".")[0]);return"android"===e.getOSName(!0)&&t>=3},describe:function(){return{type:r.tablet}}},{test:function(e){return"android"===e.getOSName(!0)},describe:function(){return{type:r.mobile}}},{test:[/smart-?tv|smarttv/i],describe:function(){return{type:r.tv}}},{test:[/netcast/i],describe:function(){return{type:r.tv}}},{test:function(e){return"macos"===e.getOSName(!0)},describe:function(){return{type:r.desktop,vendor:"Apple"}}},{test:function(e){return"windows"===e.getOSName(!0)},describe:function(){return{type:r.desktop}}},{test:function(e){return"linux"===e.getOSName(!0)},describe:function(){return{type:r.desktop}}},{test:function(e){return"playstation 4"===e.getOSName(!0)},describe:function(){return{type:r.tv}}},{test:function(e){return"roku"===e.getOSName(!0)},describe:function(){return{type:r.tv}}}],d=[{test:function(e){return"microsoft edge"===e.getBrowserName(!0)},describe:function(e){if(/\sedg\//i.test(e))return{name:n.Blink};var t=s.getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i,e);return{name:n.EdgeHTML,version:t}}},{test:function(e){return"ladybird"===e.getBrowserName(!0)},describe:function(){return{name:n.LibWeb}}},{test:[/trident/i],describe:function(e){var t={name:n.Trident},r=s.getFirstMatch(/trident\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){return e.test(/presto/i)},describe:function(e){var t={name:n.Presto},r=s.getFirstMatch(/presto\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){var t=e.test(/gecko/i),r=e.test(/like gecko/i);return t&&!r},describe:function(e){var t={name:n.Gecko},r=s.getFirstMatch(/gecko\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/(apple)?webkit\/537\.36/i],describe:function(){return{name:n.Blink}}},{test:[/(apple)?webkit/i],describe:function(e){var t={name:n.WebKit},r=s.getFirstMatch(/webkit\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}}],f=function(){function e(e,t,r){if(void 0===t&&(t=!1),void 0===r&&(r=null),null==e||""===e)throw new Error("UserAgent parameter can't be empty");this._ua=e;var i=!1;"boolean"==typeof t?(i=t,this._hints=r):this._hints=null!=t&&"object"==typeof t?t:null,this.parsedResult={},!0!==i&&this.parse()}var t=e.prototype;return t.getHints=function(){return this._hints},t.hasBrand=function(e){if(!this._hints||!Array.isArray(this._hints.brands))return!1;var t=e.toLowerCase();return this._hints.brands.some(function(e){return e.brand&&e.brand.toLowerCase()===t})},t.getBrandVersion=function(e){if(this._hints&&Array.isArray(this._hints.brands)){var t=e.toLowerCase(),r=s.find(this._hints.brands,function(e){return e.brand&&e.brand.toLowerCase()===t});return r?r.version:void 0}},t.getUA=function(){return this._ua},t.test=function(e){return e.test(this._ua)},t.parseBrowser=function(){var e=this;this.parsedResult.browser={};var t=s.find(a,function(t){if("function"==typeof t.test)return t.test(e);if(Array.isArray(t.test))return t.test.some(function(t){return e.test(t)});throw new Error("Browser's test function is not valid")});return t&&(this.parsedResult.browser=t.describe(this.getUA(),this)),this.parsedResult.browser},t.getBrowser=function(){return this.parsedResult.browser?this.parsedResult.browser:this.parseBrowser()},t.getBrowserName=function(e){return e?String(this.getBrowser().name).toLowerCase()||"":this.getBrowser().name||""},t.getBrowserVersion=function(){return this.getBrowser().version},t.getOS=function(){return this.parsedResult.os?this.parsedResult.os:this.parseOS()},t.parseOS=function(){var e=this;this.parsedResult.os={};var t=s.find(c,function(t){if("function"==typeof t.test)return t.test(e);if(Array.isArray(t.test))return t.test.some(function(t){return e.test(t)});throw new Error("Browser's test function is not valid")});return t&&(this.parsedResult.os=t.describe(this.getUA())),this.parsedResult.os},t.getOSName=function(e){var t=this.getOS().name;return e?String(t).toLowerCase()||"":t||""},t.getOSVersion=function(){return this.getOS().version},t.getPlatform=function(){return this.parsedResult.platform?this.parsedResult.platform:this.parsePlatform()},t.getPlatformType=function(e){void 0===e&&(e=!1);var t=this.getPlatform().type;return e?String(t).toLowerCase()||"":t||""},t.parsePlatform=function(){var e=this;this.parsedResult.platform={};var t=s.find(u,function(t){if("function"==typeof t.test)return t.test(e);if(Array.isArray(t.test))return t.test.some(function(t){return e.test(t)});throw new Error("Browser's test function is not valid")});return t&&(this.parsedResult.platform=t.describe(this.getUA())),this.parsedResult.platform},t.getEngine=function(){return this.parsedResult.engine?this.parsedResult.engine:this.parseEngine()},t.getEngineName=function(e){return e?String(this.getEngine().name).toLowerCase()||"":this.getEngine().name||""},t.parseEngine=function(){var e=this;this.parsedResult.engine={};var t=s.find(d,function(t){if("function"==typeof t.test)return t.test(e);if(Array.isArray(t.test))return t.test.some(function(t){return e.test(t)});throw new Error("Browser's test function is not valid")});return t&&(this.parsedResult.engine=t.describe(this.getUA())),this.parsedResult.engine},t.parse=function(){return this.parseBrowser(),this.parseOS(),this.parsePlatform(),this.parseEngine(),this},t.getResult=function(){return s.assign({},this.parsedResult)},t.satisfies=function(e){var t=this,r={},i=0,n={},o=0;if(Object.keys(e).forEach(function(t){var s=e[t];"string"==typeof s||Array.isArray(s)?(n[t]=s,o+=1):"object"==typeof s&&(r[t]=s,i+=1)}),i>0){var a=Object.keys(r),c=s.find(a,function(e){return t.isOS(e)});if(c){var u=this.satisfies(r[c]);if(void 0!==u)return u}var d=s.find(a,function(e){return t.isPlatform(e)});if(d){var f=this.satisfies(r[d]);if(void 0!==f)return f}}if(o>0){var b=Object.keys(n),l=s.find(b,function(e){return t.isBrowser(e,!0)});if(void 0!==l)return this.compareVersions(n[l])}},t.isBrowser=function(e,t){void 0===t&&(t=!1);var r=this.getBrowserName().toLowerCase(),i=e.toLowerCase(),n=s.getBrowserTypeByAlias(i);return t&&n&&(i=n.toLowerCase()),i===r},t.compareVersions=function(e){var t=this;return"string"==typeof e?this.compareVersion(e):e.some(function(e){return t.compareVersion(e)})},t.compareVersion=function(e){var t=[0],r=e,i=!1,n=this.getBrowserVersion();if("string"==typeof n)return">"===e[0]||"<"===e[0]?(r=e.substr(1),"="===e[1]?(i=!0,r=e.substr(2)):t=[],">"===e[0]?t.push(1):t.push(-1)):"="===e[0]?r=e.substr(1):"~"===e[0]&&(i=!0,r=e.substr(1)),t.indexOf(s.compareVersions(n,r,i))>-1},t.isOS=function(e){return this.getOSName(!0)===String(e).toLowerCase()},t.isPlatform=function(e){return this.getPlatformType(!0)===String(e).toLowerCase()},t.isEngine=function(e){return this.getEngineName(!0)===String(e).toLowerCase()},t.is=function(e,t){return void 0===t&&(t=!1),this.isBrowser(e,t)||this.isOS(e)||this.isPlatform(e)},t.some=function(e){var t=this;return void 0===e&&(e=[]),e.some(function(e){return t.is(e)})},e}();function b(e){var t=function(e){if("object"!=typeof e||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var r=t.call(e,"string");if("object"!=typeof r)return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==typeof t?t:t+""}var l=function(){function e(){}return e.getParser=function(e,t,r){if(void 0===t&&(t=!1),void 0===r&&(r=null),"string"!=typeof e)throw new Error("UserAgent should be a string");return new f(e,t,r)},e.parse=function(e,t){return void 0===t&&(t=null),new f(e,t).getResult()},s=e,(o=[{key:"BROWSER_MAP",get:function(){return t}},{key:"ENGINE_MAP",get:function(){return n}},{key:"OS_MAP",get:function(){return i}},{key:"PLATFORMS_MAP",get:function(){return r}}])&&
+!function(e,t){ true?module.exports=t():0}(this,function(){var e={AmazonBot:"amazonbot","Amazon Silk":"amazon_silk","Android Browser":"android",BaiduSpider:"baiduspider",Bada:"bada","Bertina Browser":"bertina",BingCrawler:"bingcrawler",Brave:"brave",BlackBerry:"blackberry","ChatGPT-User":"chatgpt_user",Chrome:"chrome",ClaudeBot:"claudebot",Chromium:"chromium",Diffbot:"diffbot",DuckDuckBot:"duckduckbot",DuckDuckGo:"duckduckgo",Electron:"electron",Epiphany:"epiphany",FacebookExternalHit:"facebookexternalhit",Firefox:"firefox",Freebox:"freebox",Focus:"focus",Generic:"generic","Google Search":"google_search",Googlebot:"googlebot",GPTBot:"gptbot","HeyTap Browser":"heytap","Internet Explorer":"ie",InternetArchiveCrawler:"internetarchivecrawler","K-Meleon":"k_meleon",Ladybird:"ladybird",LibreWolf:"librewolf",Linespider:"linespider",Maxthon:"maxthon","Meta-ExternalAds":"meta_externalads","Meta-ExternalAgent":"meta_externalagent","Meta-ExternalFetcher":"meta_externalfetcher","Meta-WebIndexer":"meta_webindexer","Microsoft Edge":"edge","MZ Browser":"mz","NAVER Whale Browser":"naver","OAI-SearchBot":"oai_searchbot",Omgilibot:"omgilibot",Opera:"opera","Opera Coast":"opera_coast","Pale Moon":"pale_moon",PerplexityBot:"perplexitybot","Perplexity-User":"perplexity_user",PhantomJS:"phantomjs",PingdomBot:"pingdombot",Puffin:"puffin",QQ:"qq",QQLite:"qqlite",QupZilla:"qupzilla",Roku:"roku",Safari:"safari",Sailfish:"sailfish","Samsung Internet for Android":"samsung_internet",SlackBot:"slackbot",SeaMonkey:"seamonkey",Sleipnir:"sleipnir","Sogou Browser":"sogou",Swing:"swing",Tizen:"tizen","UC Browser":"uc","Vivo Browser":"vivo",Vivaldi:"vivaldi","WebOS Browser":"webos",WeChat:"wechat",YahooSlurp:"yahooslurp","Yandex Browser":"yandex",YandexBot:"yandexbot",YouBot:"youbot"},t={amazonbot:"AmazonBot",amazon_silk:"Amazon Silk",android:"Android Browser",baiduspider:"BaiduSpider",bada:"Bada",bertina:"Bertina Browser",bingcrawler:"BingCrawler",blackberry:"BlackBerry",brave:"Brave",chatgpt_user:"ChatGPT-User",chrome:"Chrome",claudebot:"ClaudeBot",chromium:"Chromium",diffbot:"Diffbot",duckduckbot:"DuckDuckBot",duckduckgo:"DuckDuckGo",edge:"Microsoft Edge",electron:"Electron",epiphany:"Epiphany",facebookexternalhit:"FacebookExternalHit",firefox:"Firefox",freebox:"Freebox",focus:"Focus",generic:"Generic",google_search:"Google Search",googlebot:"Googlebot",gptbot:"GPTBot",heytap:"HeyTap Browser",ie:"Internet Explorer",internetarchivecrawler:"InternetArchiveCrawler",k_meleon:"K-Meleon",ladybird:"Ladybird",librewolf:"LibreWolf",linespider:"Linespider",maxthon:"Maxthon",meta_externalads:"Meta-ExternalAds",meta_externalagent:"Meta-ExternalAgent",meta_externalfetcher:"Meta-ExternalFetcher",meta_webindexer:"Meta-WebIndexer",mz:"MZ Browser",naver:"NAVER Whale Browser",oai_searchbot:"OAI-SearchBot",omgilibot:"Omgilibot",opera:"Opera",opera_coast:"Opera Coast",pale_moon:"Pale Moon",perplexitybot:"PerplexityBot",perplexity_user:"Perplexity-User",phantomjs:"PhantomJS",pingdombot:"PingdomBot",puffin:"Puffin",qq:"QQ Browser",qqlite:"QQ Browser Lite",qupzilla:"QupZilla",roku:"Roku",safari:"Safari",sailfish:"Sailfish",samsung_internet:"Samsung Internet for Android",seamonkey:"SeaMonkey",slackbot:"SlackBot",sleipnir:"Sleipnir",sogou:"Sogou Browser",swing:"Swing",tizen:"Tizen",uc:"UC Browser",vivo:"Vivo Browser",vivaldi:"Vivaldi",webos:"WebOS Browser",wechat:"WeChat",yahooslurp:"YahooSlurp",yandex:"Yandex Browser",yandexbot:"YandexBot",youbot:"YouBot"},r={bot:"bot",desktop:"desktop",mobile:"mobile",tablet:"tablet",tv:"tv"},i={Android:"Android",Bada:"Bada",BlackBerry:"BlackBerry",ChromeOS:"Chrome OS",HarmonyOS:"HarmonyOS",iOS:"iOS",Linux:"Linux",MacOS:"macOS",PlayStation4:"PlayStation 4",Roku:"Roku",Tizen:"Tizen",WebOS:"WebOS",Windows:"Windows",WindowsPhone:"Windows Phone"},n={Blink:"Blink",EdgeHTML:"EdgeHTML",Gecko:"Gecko",LibWeb:"LibWeb",Presto:"Presto",Trident:"Trident",WebKit:"WebKit"},s=function(){function r(){}return r.getFirstMatch=function(e,t){var r=t.match(e);return r&&r.length>0&&r[1]||""},r.getSecondMatch=function(e,t){var r=t.match(e);return r&&r.length>1&&r[2]||""},r.matchAndReturnConst=function(e,t,r){if(e.test(t))return r},r.isFirefoxOnIpad=function(e){var t=e.indexOf("Macintosh");if(-1===t)return!1;var r=e.indexOf(" FxiOS",t+9);return-1!==r&&-1!==e.indexOf("/",r+6)},r.getWindowsVersionName=function(e){switch(e){case"NT":return"NT";case"XP":case"NT 5.1":return"XP";case"NT 5.0":return"2000";case"NT 5.2":return"2003";case"NT 6.0":return"Vista";case"NT 6.1":return"7";case"NT 6.2":return"8";case"NT 6.3":return"8.1";case"NT 10.0":return"10";default:return}},r.getMacOSVersionName=function(e){var t=e.split(".").splice(0,2).map(function(e){return parseInt(e,10)||0});t.push(0);var r=t[0],i=t[1];if(10===r)switch(i){case 5:return"Leopard";case 6:return"Snow Leopard";case 7:return"Lion";case 8:return"Mountain Lion";case 9:return"Mavericks";case 10:return"Yosemite";case 11:return"El Capitan";case 12:return"Sierra";case 13:return"High Sierra";case 14:return"Mojave";case 15:return"Catalina";default:return}switch(r){case 11:return"Big Sur";case 12:return"Monterey";case 13:return"Ventura";case 14:return"Sonoma";case 15:return"Sequoia";default:return}},r.getAndroidVersionName=function(e){var t=e.split(".").splice(0,2).map(function(e){return parseInt(e,10)||0});if(t.push(0),!(1===t[0]&&t[1]<5))return 1===t[0]&&t[1]<6?"Cupcake":1===t[0]&&t[1]>=6?"Donut":2===t[0]&&t[1]<2?"Eclair":2===t[0]&&2===t[1]?"Froyo":2===t[0]&&t[1]>2?"Gingerbread":3===t[0]?"Honeycomb":4===t[0]&&t[1]<1?"Ice Cream Sandwich":4===t[0]&&t[1]<4?"Jelly Bean":4===t[0]&&t[1]>=4?"KitKat":5===t[0]?"Lollipop":6===t[0]?"Marshmallow":7===t[0]?"Nougat":8===t[0]?"Oreo":9===t[0]?"Pie":void 0},r.getVersionPrecision=function(e){return e.split(".").length},r.compareVersions=function(e,t,i){void 0===i&&(i=!1);var n=r.getVersionPrecision(e),s=r.getVersionPrecision(t),o=Math.max(n,s),a=0,c=r.map([e,t],function(e){var t=o-r.getVersionPrecision(e),i=e+new Array(t+1).join(".0");return r.map(i.split("."),function(e){return new Array(20-e.length).join("0")+e}).reverse()});for(i&&(a=o-Math.min(n,s)),o-=1;o>=a;){if(c[0][o]>c[1][o])return 1;if(c[0][o]===c[1][o]){if(o===a)return 0;o-=1}else if(c[0][o]<c[1][o])return-1}},r.map=function(e,t){var r,i=[];if(Array.prototype.map)return Array.prototype.map.call(e,t);for(r=0;r<e.length;r+=1)i.push(t(e[r]));return i},r.find=function(e,t){var r,i;if(Array.prototype.find)return Array.prototype.find.call(e,t);for(r=0,i=e.length;r<i;r+=1){var n=e[r];if(t(n,r))return n}},r.assign=function(e){for(var t,r,i=e,n=arguments.length,s=new Array(n>1?n-1:0),o=1;o<n;o++)s[o-1]=arguments[o];if(Object.assign)return Object.assign.apply(Object,[e].concat(s));var a=function(){var e=s[t];"object"==typeof e&&null!==e&&Object.keys(e).forEach(function(t){i[t]=e[t]})};for(t=0,r=s.length;t<r;t+=1)a();return e},r.getBrowserAlias=function(t){return e[t]},r.getBrowserTypeByAlias=function(e){return t[e]||""},r}(),o=/version\/(\d+(\.?_?\d+)+)/i,a=[{test:[/gptbot/i],describe:function(e){var t={name:"GPTBot"},r=s.getFirstMatch(/gptbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/chatgpt-user/i],describe:function(e){var t={name:"ChatGPT-User"},r=s.getFirstMatch(/chatgpt-user\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/oai-searchbot/i],describe:function(e){var t={name:"OAI-SearchBot"},r=s.getFirstMatch(/oai-searchbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/claudebot/i,/claude-web/i,/claude-user/i,/claude-searchbot/i],describe:function(e){var t={name:"ClaudeBot"},r=s.getFirstMatch(/(?:claudebot|claude-web|claude-user|claude-searchbot)\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/omgilibot/i,/webzio-extended/i],describe:function(e){var t={name:"Omgilibot"},r=s.getFirstMatch(/(?:omgilibot|webzio-extended)\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/diffbot/i],describe:function(e){var t={name:"Diffbot"},r=s.getFirstMatch(/diffbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/perplexitybot/i],describe:function(e){var t={name:"PerplexityBot"},r=s.getFirstMatch(/perplexitybot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/perplexity-user/i],describe:function(e){var t={name:"Perplexity-User"},r=s.getFirstMatch(/perplexity-user\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/youbot/i],describe:function(e){var t={name:"YouBot"},r=s.getFirstMatch(/youbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/meta-webindexer/i],describe:function(e){var t={name:"Meta-WebIndexer"},r=s.getFirstMatch(/meta-webindexer\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/meta-externalads/i],describe:function(e){var t={name:"Meta-ExternalAds"},r=s.getFirstMatch(/meta-externalads\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/meta-externalagent/i],describe:function(e){var t={name:"Meta-ExternalAgent"},r=s.getFirstMatch(/meta-externalagent\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/meta-externalfetcher/i],describe:function(e){var t={name:"Meta-ExternalFetcher"},r=s.getFirstMatch(/meta-externalfetcher\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/googlebot/i],describe:function(e){var t={name:"Googlebot"},r=s.getFirstMatch(/googlebot\/(\d+(\.\d+))/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/linespider/i],describe:function(e){var t={name:"Linespider"},r=s.getFirstMatch(/(?:linespider)(?:-[-\w]{1,64})?[\s/](\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/amazonbot/i],describe:function(e){var t={name:"AmazonBot"},r=s.getFirstMatch(/amazonbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/bingbot/i],describe:function(e){var t={name:"BingCrawler"},r=s.getFirstMatch(/bingbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/baiduspider/i],describe:function(e){var t={name:"BaiduSpider"},r=s.getFirstMatch(/baiduspider\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/duckduckbot/i],describe:function(e){var t={name:"DuckDuckBot"},r=s.getFirstMatch(/duckduckbot\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/ia_archiver/i],describe:function(e){var t={name:"InternetArchiveCrawler"},r=s.getFirstMatch(/ia_archiver\/(\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/facebookexternalhit/i,/facebookcatalog/i],describe:function(){return{name:"FacebookExternalHit"}}},{test:[/slackbot/i,/slack-imgProxy/i],describe:function(e){var t={name:"SlackBot"},r=s.getFirstMatch(/(?:slackbot|slack-imgproxy)(?:-[-\w]{1,64})?[\s/](\d+(\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/yahoo!?[\s/]*slurp/i],describe:function(){return{name:"YahooSlurp"}}},{test:[/yandexbot/i,/yandexmobilebot/i],describe:function(){return{name:"YandexBot"}}},{test:[/pingdom/i],describe:function(){return{name:"PingdomBot"}}},{test:[/opera/i],describe:function(e){var t={name:"Opera"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:opera)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/opr\/|opios/i],describe:function(e){var t={name:"Opera"},r=s.getFirstMatch(/(?:opr|opios)[\s/](\d+(?:\.\d+)*)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/SamsungBrowser/i],describe:function(e){var t={name:"Samsung Internet for Android"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:SamsungBrowser)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/Whale/i],describe:function(e){var t={name:"NAVER Whale Browser"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:whale)[\s/](\d+(?:\.\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/PaleMoon/i],describe:function(e){var t={name:"Pale Moon"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:PaleMoon)[\s/](\d+(?:\.\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/HeyTapBrowser/i],describe:function(e){var t={name:"HeyTap Browser"},r=s.getFirstMatch(/(?:HeyTapBrowser)[\s/](\d+(?:\.\d+)*)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/VivoBrowser/i],describe:function(e){var t={name:"Vivo Browser"},r=s.getFirstMatch(/(?:VivoBrowser)[\s/](\d+(?:\.\d+)*)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/MZBrowser/i],describe:function(e){var t={name:"MZ Browser"},r=s.getFirstMatch(/(?:MZBrowser)[\s/](\d+(?:\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/focus/i],describe:function(e){var t={name:"Focus"},r=s.getFirstMatch(/(?:focus)[\s/](\d+(?:\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/swing/i],describe:function(e){var t={name:"Swing"},r=s.getFirstMatch(/(?:swing)[\s/](\d+(?:\.\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/coast/i],describe:function(e){var t={name:"Opera Coast"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:coast)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/opt\/\d+(?:.?_?\d+)+/i],describe:function(e){var t={name:"Opera Touch"},r=s.getFirstMatch(/(?:opt)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/\sbertina\//i],describe:function(e){var t={name:"Bertina Browser"},r=s.getFirstMatch(/(?:bertina)\/(\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/yabrowser/i],describe:function(e){var t={name:"Yandex Browser"},r=s.getFirstMatch(/(?:yabrowser)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/ucbrowser|ucmobile\//i,/\bucpc\//i,/\bubrowser\//i],describe:function(e){var t={name:"UC Browser"},r=s.getFirstMatch(/(?:ucbrowser[\s/]?|ucmobile\/|\bucpc\/|\bubrowser\/)(\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/Maxthon|mxios/i],describe:function(e){var t={name:"Maxthon"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:Maxthon|mxios)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/epiphany/i],describe:function(e){var t={name:"Epiphany"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:epiphany)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/puffin/i],describe:function(e){var t={name:"Puffin"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:puffin)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/sleipnir/i],describe:function(e){var t={name:"Sleipnir"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:sleipnir)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/k-meleon/i],describe:function(e){var t={name:"K-Meleon"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/(?:k-meleon)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/micromessenger/i],describe:function(e){var t={name:"WeChat"},r=s.getFirstMatch(/(?:micromessenger)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/qqbrowser/i],describe:function(e){var t={name:/qqbrowserlite/i.test(e)?"QQ Browser Lite":"QQ Browser"},r=s.getFirstMatch(/(?:qqbrowserlite|qqbrowser)[/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/msie|trident/i],describe:function(e){var t={name:"Internet Explorer"},r=s.getFirstMatch(/(?:msie |rv:)(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/\sedg\//i],describe:function(e){var t={name:"Microsoft Edge"},r=s.getFirstMatch(/\sedg\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/edg([ea]|ios)\//i],describe:function(e){var t={name:"Microsoft Edge"},r=s.getSecondMatch(/edg([ea]|ios)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){return!!e.hasBrand("Vivaldi")||e.test(/vivaldi/i)},describe:function(e,t){var r={name:"Vivaldi"};if(t){var i=t.getBrandVersion("Vivaldi");if(i)return r.version=i,r}var n=s.getFirstMatch(/vivaldi\/(\d+(\.?_?\d+)+)/i,e);return n&&(r.version=n),r}},{test:[/seamonkey/i],describe:function(e){var t={name:"SeaMonkey"},r=s.getFirstMatch(/seamonkey\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/sailfish/i],describe:function(e){var t={name:"Sailfish"},r=s.getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i,e);return r&&(t.version=r),t}},{test:[/silk/i],describe:function(e){var t={name:"Amazon Silk"},r=s.getFirstMatch(/silk\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/phantom/i],describe:function(e){var t={name:"PhantomJS"},r=s.getFirstMatch(/phantomjs\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/slimerjs/i],describe:function(e){var t={name:"SlimerJS"},r=s.getFirstMatch(/slimerjs\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/blackberry|\bbb\d+/i,/rim\stablet/i],describe:function(e){var t={name:"BlackBerry"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/blackberry[\d]+\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/(web|hpw)[o0]s/i],describe:function(e){var t={name:"WebOS Browser"},r=s.getFirstMatch(o,e)||s.getFirstMatch(/w(?:eb)?[o0]sbrowser\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/bada/i],describe:function(e){var t={name:"Bada"},r=s.getFirstMatch(/dolfin\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/tizen/i],describe:function(e){var t={name:"Tizen"},r=s.getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/qupzilla/i],describe:function(e){var t={name:"QupZilla"},r=s.getFirstMatch(/(?:qupzilla)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/librewolf/i],describe:function(e){var t={name:"LibreWolf"},r=s.getFirstMatch(/(?:librewolf)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/firefox|iceweasel|fxios/i],describe:function(e){var t={name:"Firefox"},r=s.getFirstMatch(/(?:firefox|iceweasel|fxios)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/electron/i],describe:function(e){var t={name:"Electron"},r=s.getFirstMatch(/(?:electron)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/sogoumobilebrowser/i,/metasr/i,/se 2\.[x]/i],describe:function(e){var t={name:"Sogou Browser"},r=s.getFirstMatch(/(?:sogoumobilebrowser)[\s/](\d+(\.?_?\d+)+)/i,e),i=s.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i,e),n=s.getFirstMatch(/se ([\d.]+)x/i,e),o=r||i||n;return o&&(t.version=o),t}},{test:[/MiuiBrowser/i],describe:function(e){var t={name:"Miui"},r=s.getFirstMatch(/(?:MiuiBrowser)[\s/](\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){return!!e.hasBrand("DuckDuckGo")||e.test(/\sDdg\/[\d.]+$/i)},describe:function(e,t){var r={name:"DuckDuckGo"};if(t){var i=t.getBrandVersion("DuckDuckGo");if(i)return r.version=i,r}var n=s.getFirstMatch(/\sDdg\/([\d.]+)$/i,e);return n&&(r.version=n),r}},{test:function(e){return e.hasBrand("Brave")},describe:function(e,t){var r={name:"Brave"};if(t){var i=t.getBrandVersion("Brave");if(i)return r.version=i,r}return r}},{test:[/chromium/i],describe:function(e){var t={name:"Chromium"},r=s.getFirstMatch(/(?:chromium)[\s/](\d+(\.?_?\d+)+)/i,e)||s.getFirstMatch(o,e)||s.getFirstMatch(/(?:chrome)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/ladybird/i],describe:function(e){var t={name:"Ladybird"},r=s.getFirstMatch(/ladybird\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/chrome|crios|crmo/i],describe:function(e){var t={name:"Chrome"},r=s.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/\bGSA\//i],describe:function(e){var t={name:"Google Search"},r=s.getFirstMatch(/(?:GSA)\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){var t=!e.test(/like android/i),r=e.test(/android/i);return t&&r},describe:function(e){var t={name:"Android Browser"},r=s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/playstation 4/i],describe:function(e){var t={name:"PlayStation 4"},r=s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/freebox/i],describe:function(e){var t={name:"Freebox"},r=s.getFirstMatch(/navigateur web\/(\d+(\.\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/safari|applewebkit/i],describe:function(e){var t={name:"Safari"},r=s.getFirstMatch(o,e);return r&&(t.version=r),t}},{test:[/.*/i],describe:function(e){var t=-1!==e.search("\\(")?/^(.*)\/([^/]*)[ \t]\((.*)/:/^(.*)\/([^/]*) /;return{name:s.getFirstMatch(t,e),version:s.getSecondMatch(t,e)}}}],c=[{test:[/Roku\/DVP/],describe:function(e){var t=s.getFirstMatch(/Roku\/DVP-(\d+\.\d+)/i,e);return{name:i.Roku,version:t}}},{test:[/windows phone/i],describe:function(e){var t=s.getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i,e);return{name:i.WindowsPhone,version:t}}},{test:[/windows /i],describe:function(e){var t=s.getFirstMatch(/Windows ((NT|XP)( \d\d?.\d)?)/i,e),r=s.getWindowsVersionName(t);return{name:i.Windows,version:t,versionName:r}}},{test:function(e){return s.isFirefoxOnIpad(e.getUA())},describe:function(e){var t={name:i.iOS},r=s.getSecondMatch(/(Version\/)(\d[\d.]+)/,e);return r&&(t.version=r),t}},{test:[/macintosh/i],describe:function(e){var t=s.getFirstMatch(/mac os x (\d+(\.?_?\d+)+)/i,e).replace(/[_\s]/g,"."),r=s.getMacOSVersionName(t),n={name:i.MacOS,version:t};return r&&(n.versionName=r),n}},{test:[/(ipod|iphone|ipad)/i],describe:function(e){var t=s.getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i,e).replace(/[_\s]/g,"."),r=s.getFirstMatch(/version\/(\d+(\.\d+)*) mobile\/\w+ safari\//i,e);return/^18(\.|$)/.test(t)&&parseInt(r,10)>=26&&(t=r),{name:i.iOS,version:t}}},{test:[/OpenHarmony/i],describe:function(e){var t=s.getFirstMatch(/OpenHarmony\s+(\d+(\.\d+)*)/i,e);return{name:i.HarmonyOS,version:t}}},{test:function(e){var t=!e.test(/like android/i),r=e.test(/android/i);return t&&r},describe:function(e){var t=s.getFirstMatch(/android[\s/-](\d+(\.\d+)*)/i,e),r=s.getAndroidVersionName(t),n={name:i.Android,version:t};return r&&(n.versionName=r),n}},{test:[/(web|hpw)[o0]s/i],describe:function(e){var t=s.getFirstMatch(/(?:web|hpw)[o0]s\/(\d+(\.\d+)*)/i,e),r={name:i.WebOS};return t&&t.length&&(r.version=t),r}},{test:[/blackberry|\bbb\d+/i,/rim\stablet/i],describe:function(e){var t=s.getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i,e)||s.getFirstMatch(/blackberry\d+\/(\d+([_\s]\d+)*)/i,e)||s.getFirstMatch(/\bbb(\d+)/i,e);return{name:i.BlackBerry,version:t}}},{test:[/bada/i],describe:function(e){var t=s.getFirstMatch(/bada\/(\d+(\.\d+)*)/i,e);return{name:i.Bada,version:t}}},{test:[/tizen/i],describe:function(e){var t=s.getFirstMatch(/tizen[/\s](\d+(\.\d+)*)/i,e);return{name:i.Tizen,version:t}}},{test:[/linux/i],describe:function(){return{name:i.Linux}}},{test:[/CrOS/],describe:function(){return{name:i.ChromeOS}}},{test:[/PlayStation 4/],describe:function(e){var t=s.getFirstMatch(/PlayStation 4[/\s](\d+(\.\d+)*)/i,e);return{name:i.PlayStation4,version:t}}}],u=[{test:[/googlebot/i],describe:function(){return{type:r.bot,vendor:"Google"}}},{test:[/linespider/i],describe:function(){return{type:r.bot,vendor:"Line"}}},{test:[/amazonbot/i],describe:function(){return{type:r.bot,vendor:"Amazon"}}},{test:[/gptbot/i],describe:function(){return{type:r.bot,vendor:"OpenAI"}}},{test:[/chatgpt-user/i],describe:function(){return{type:r.bot,vendor:"OpenAI"}}},{test:[/oai-searchbot/i],describe:function(){return{type:r.bot,vendor:"OpenAI"}}},{test:[/baiduspider/i],describe:function(){return{type:r.bot,vendor:"Baidu"}}},{test:[/bingbot/i],describe:function(){return{type:r.bot,vendor:"Bing"}}},{test:[/duckduckbot/i],describe:function(){return{type:r.bot,vendor:"DuckDuckGo"}}},{test:[/claudebot/i,/claude-web/i,/claude-user/i,/claude-searchbot/i],describe:function(){return{type:r.bot,vendor:"Anthropic"}}},{test:[/omgilibot/i,/webzio-extended/i],describe:function(){return{type:r.bot,vendor:"Webz.io"}}},{test:[/diffbot/i],describe:function(){return{type:r.bot,vendor:"Diffbot"}}},{test:[/perplexitybot/i],describe:function(){return{type:r.bot,vendor:"Perplexity AI"}}},{test:[/perplexity-user/i],describe:function(){return{type:r.bot,vendor:"Perplexity AI"}}},{test:[/youbot/i],describe:function(){return{type:r.bot,vendor:"You.com"}}},{test:[/ia_archiver/i],describe:function(){return{type:r.bot,vendor:"Internet Archive"}}},{test:[/meta-webindexer/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/meta-externalads/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/meta-externalagent/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/meta-externalfetcher/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/facebookexternalhit/i,/facebookcatalog/i],describe:function(){return{type:r.bot,vendor:"Meta"}}},{test:[/slackbot/i,/slack-imgProxy/i],describe:function(){return{type:r.bot,vendor:"Slack"}}},{test:[/yahoo/i],describe:function(){return{type:r.bot,vendor:"Yahoo"}}},{test:[/yandexbot/i,/yandexmobilebot/i],describe:function(){return{type:r.bot,vendor:"Yandex"}}},{test:[/pingdom/i],describe:function(){return{type:r.bot,vendor:"Pingdom"}}},{test:[/huawei/i],describe:function(e){var t=s.getFirstMatch(/(can-l01)/i,e)&&"Nova",i={type:r.mobile,vendor:"Huawei"};return t&&(i.model=t),i}},{test:[/nexus\s*(?:7|8|9|10).*/i],describe:function(){return{type:r.tablet,vendor:"Nexus"}}},{test:[/ipad/i],describe:function(){return{type:r.tablet,vendor:"Apple",model:"iPad"}}},{test:function(e){return s.isFirefoxOnIpad(e.getUA())},describe:function(){return{type:r.tablet,vendor:"Apple",model:"iPad"}}},{test:[/kftt build/i],describe:function(){return{type:r.tablet,vendor:"Amazon",model:"Kindle Fire HD 7"}}},{test:[/silk/i],describe:function(){return{type:r.tablet,vendor:"Amazon"}}},{test:[/tablet(?! pc)/i],describe:function(){return{type:r.tablet}}},{test:function(e){var t=e.test(/ipod|iphone/i),r=e.test(/like (ipod|iphone)/i);return t&&!r},describe:function(e){var t=s.getFirstMatch(/(ipod|iphone)/i,e);return{type:r.mobile,vendor:"Apple",model:t}}},{test:[/nexus\s*[0-6].*/i,/galaxy nexus/i],describe:function(){return{type:r.mobile,vendor:"Nexus"}}},{test:[/Nokia/i],describe:function(e){var t=s.getFirstMatch(/Nokia\s+([0-9]+(\.[0-9]+)?)/i,e),i={type:r.mobile,vendor:"Nokia"};return t&&(i.model=t),i}},{test:[/[^-]mobi/i],describe:function(){return{type:r.mobile}}},{test:function(e){return"blackberry"===e.getBrowserName(!0)},describe:function(){return{type:r.mobile,vendor:"BlackBerry"}}},{test:function(e){return"bada"===e.getBrowserName(!0)},describe:function(){return{type:r.mobile}}},{test:function(e){return"windows phone"===e.getBrowserName()},describe:function(){return{type:r.mobile,vendor:"Microsoft"}}},{test:function(e){var t=Number(String(e.getOSVersion()).split(".")[0]);return"android"===e.getOSName(!0)&&t>=3},describe:function(){return{type:r.tablet}}},{test:function(e){return"android"===e.getOSName(!0)},describe:function(){return{type:r.mobile}}},{test:[/smart-?tv|smarttv/i],describe:function(){return{type:r.tv}}},{test:[/netcast/i],describe:function(){return{type:r.tv}}},{test:function(e){return"macos"===e.getOSName(!0)},describe:function(){return{type:r.desktop,vendor:"Apple"}}},{test:function(e){return"windows"===e.getOSName(!0)},describe:function(){return{type:r.desktop}}},{test:function(e){return"linux"===e.getOSName(!0)},describe:function(){return{type:r.desktop}}},{test:function(e){return"chrome os"===e.getOSName(!0)},describe:function(){return{type:r.desktop}}},{test:function(e){return"playstation 4"===e.getOSName(!0)},describe:function(){return{type:r.tv}}},{test:function(e){return"roku"===e.getOSName(!0)},describe:function(){return{type:r.tv}}}],d=[{test:function(e){return"microsoft edge"===e.getBrowserName(!0)},describe:function(e){if(/\sedgios\//i.test(e)){var t={name:n.WebKit},r=s.getFirstMatch(/webkit\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}if(/\sedga?\//i.test(e))return{name:n.Blink};var i=s.getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i,e);return{name:n.EdgeHTML,version:i}}},{test:function(e){return"ladybird"===e.getBrowserName(!0)},describe:function(){return{name:n.LibWeb}}},{test:[/trident/i],describe:function(e){var t={name:n.Trident},r=s.getFirstMatch(/trident\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){return e.test(/presto/i)},describe:function(e){var t={name:n.Presto},r=s.getFirstMatch(/presto\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:function(e){var t=e.test(/gecko/i),r=e.test(/like gecko/i);return t&&!r},describe:function(e){var t={name:n.Gecko},r=s.getFirstMatch(/gecko\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}},{test:[/(apple)?webkit\/537\.36/i],describe:function(){return{name:n.Blink}}},{test:[/(apple)?webkit/i],describe:function(e){var t={name:n.WebKit},r=s.getFirstMatch(/webkit\/(\d+(\.?_?\d+)+)/i,e);return r&&(t.version=r),t}}],b=function(){function e(e,t,r){if(void 0===t&&(t=!1),void 0===r&&(r=null),null==e||""===e)throw new Error("UserAgent parameter can't be empty");this._ua=e;var i=!1;"boolean"==typeof t?(i=t,this._hints=r):this._hints=null!=t&&"object"==typeof t?t:null,this.parsedResult={},!0!==i&&this.parse()}var t=e.prototype;return t.getHints=function(){return this._hints},t.hasBrand=function(e){if(!this._hints||!Array.isArray(this._hints.brands))return!1;var t=e.toLowerCase();return this._hints.brands.some(function(e){return e.brand&&e.brand.toLowerCase()===t})},t.getBrandVersion=function(e){if(this._hints&&Array.isArray(this._hints.brands)){var t=e.toLowerCase(),r=s.find(this._hints.brands,function(e){return e.brand&&e.brand.toLowerCase()===t});return r?r.version:void 0}},t.getUA=function(){return this._ua},t.test=function(e){return e.test(this._ua)},t.parseBrowser=function(){var e=this;this.parsedResult.browser={};var t=s.find(a,function(t){if("function"==typeof t.test)return t.test(e);if(Array.isArray(t.test))return t.test.some(function(t){return e.test(t)});throw new Error("Browser's test function is not valid")});return t&&(this.parsedResult.browser=t.describe(this.getUA(),this)),this.parsedResult.browser},t.getBrowser=function(){return this.parsedResult.browser?this.parsedResult.browser:this.parseBrowser()},t.getBrowserName=function(e){return e?String(this.getBrowser().name).toLowerCase()||"":this.getBrowser().name||""},t.getBrowserVersion=function(){return this.getBrowser().version},t.getOS=function(){return this.parsedResult.os?this.parsedResult.os:this.parseOS()},t.parseOS=function(){var e=this;this.parsedResult.os={};var t=s.find(c,function(t){if("function"==typeof t.test)return t.test(e);if(Array.isArray(t.test))return t.test.some(function(t){return e.test(t)});throw new Error("Browser's test function is not valid")});return t&&(this.parsedResult.os=t.describe(this.getUA())),this.parsedResult.os},t.getOSName=function(e){var t=this.getOS().name;return e?String(t).toLowerCase()||"":t||""},t.getOSVersion=function(){return this.getOS().version},t.getPlatform=function(){return this.parsedResult.platform?this.parsedResult.platform:this.parsePlatform()},t.getPlatformType=function(e){void 0===e&&(e=!1);var t=this.getPlatform().type;return e?String(t).toLowerCase()||"":t||""},t.parsePlatform=function(){var e=this;this.parsedResult.platform={};var t=s.find(u,function(t){if("function"==typeof t.test)return t.test(e);if(Array.isArray(t.test))return t.test.some(function(t){return e.test(t)});throw new Error("Browser's test function is not valid")});return t&&(this.parsedResult.platform=t.describe(this.getUA())),this.parsedResult.platform},t.getEngine=function(){return this.parsedResult.engine?this.parsedResult.engine:this.parseEngine()},t.getEngineName=function(e){return e?String(this.getEngine().name).toLowerCase()||"":this.getEngine().name||""},t.parseEngine=function(){var e=this;this.parsedResult.engine={};var t=s.find(d,function(t){if("function"==typeof t.test)return t.test(e);if(Array.isArray(t.test))return t.test.some(function(t){return e.test(t)});throw new Error("Browser's test function is not valid")});return t&&(this.parsedResult.engine=t.describe(this.getUA())),this.parsedResult.engine},t.parse=function(){return this.parseBrowser(),this.parseOS(),this.parsePlatform(),this.parseEngine(),this},t.getResult=function(){return s.assign({},this.parsedResult)},t.satisfies=function(e){var t=this,r={},i=0,n={},o=0;if(Object.keys(e).forEach(function(t){var s=e[t];"string"==typeof s||Array.isArray(s)?(n[t]=s,o+=1):"object"==typeof s&&(r[t]=s,i+=1)}),i>0){var a=Object.keys(r),c=s.find(a,function(e){return t.isOS(e)});if(c){var u=this.satisfies(r[c]);if(void 0!==u)return u}var d=s.find(a,function(e){return t.isPlatform(e)});if(d){var b=this.satisfies(r[d]);if(void 0!==b)return b}}if(o>0){var f=Object.keys(n),l=s.find(f,function(e){return t.isBrowser(e,!0)});if(void 0!==l)return this.compareVersions(n[l])}},t.isBrowser=function(e,t){void 0===t&&(t=!1);var r=this.getBrowserName().toLowerCase(),i=e.toLowerCase(),n=s.getBrowserTypeByAlias(i);return t&&n&&(i=n.toLowerCase()),i===r},t.compareVersions=function(e){var t=this;return"string"==typeof e?this.compareVersion(e):e.some(function(e){return t.compareVersion(e)})},t.compareVersion=function(e){var t=[0],r=e,i=!1,n=this.getBrowserVersion();if("string"==typeof n)return">"===e[0]||"<"===e[0]?(r=e.substr(1),"="===e[1]?(i=!0,r=e.substr(2)):t=[],">"===e[0]?t.push(1):t.push(-1)):"="===e[0]?r=e.substr(1):"~"===e[0]&&(i=!0,r=e.substr(1)),t.indexOf(s.compareVersions(n,r,i))>-1},t.isOS=function(e){return this.getOSName(!0)===String(e).toLowerCase()},t.isPlatform=function(e){return this.getPlatformType(!0)===String(e).toLowerCase()},t.isEngine=function(e){return this.getEngineName(!0)===String(e).toLowerCase()},t.is=function(e,t){return void 0===t&&(t=!1),this.isBrowser(e,t)||this.isOS(e)||this.isPlatform(e)},t.some=function(e){var t=this;return void 0===e&&(e=[]),e.some(function(e){return t.is(e)})},e}();function f(e){var t=function(e){if("object"!=typeof e||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var r=t.call(e,"string");if("object"!=typeof r)return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==typeof t?t:t+""}var l=function(){function e(){}return e.getParser=function(e,t,r){if(void 0===t&&(t=!1),void 0===r&&(r=null),"string"!=typeof e)throw new Error("UserAgent should be a string");return new b(e,t,r)},e.parse=function(e,t){return void 0===t&&(t=null),new b(e,t).getResult()},s=e,(o=[{key:"BROWSER_MAP",get:function(){return t}},{key:"ENGINE_MAP",get:function(){return n}},{key:"OS_MAP",get:function(){return i}},{key:"PLATFORMS_MAP",get:function(){return r}}])&&
 /*!
   	* Bowser - a browser detector
   	* https://github.com/bowser-js/bowser
   	* MIT License | (c) Dustin Diaz 2012-2015
   	* MIT License | (c) Denis Demchenko 2015-2026
   	*/
-function(e,t){for(var r=0;r<t.length;r++){var i=t[r];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,b(i.key),i)}}(s,o),Object.defineProperty(s,"prototype",{writable:!1}),s;var s,o}();return l.parse,l.getParser,l});
+function(e,t){for(var r=0;r<t.length;r++){var i=t[r];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,f(i.key),i)}}(s,o),Object.defineProperty(s,"prototype",{writable:!1}),s;var s,o}();return l.parse,l.getParser,l});
 
 /***/ }),
 
@@ -61188,8 +61541,8 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1169.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
-var dist_cjs = __nccwpck_require__(7767);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@aws-sdk+client-cloudformation@3.1175.0/node_modules/@aws-sdk/client-cloudformation/dist-cjs/index.js
+var dist_cjs = __nccwpck_require__(7580);
 ;// CONCATENATED MODULE: ./dist/main.js
 
 

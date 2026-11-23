@@ -26,23 +26,23 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",
-    "@aws-sdk/client-cloudformation": "^3.1169.0"
+    "@aws-sdk/client-cloudformation": "^3.1175.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
     "@vercel/ncc": "^0.45.0",
-    "@vitest/coverage-v8": "^5.1.0",
+    "@vitest/coverage-v8": "^5.1.1",
     "js-yaml": "^5.5.0",
-    "oxfmt": "^0.78.0",
-    "oxlint": "^1.93.0",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
     "typescript": "^7.0.2",
     "vite": "^8.3.8",
-    "vitest": "^5.1.0"
+    "vitest": "^5.1.1"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "12.21.0",
+      "version": "12.23.0",
       "onFail": "download"
     },
     "runtime": {
